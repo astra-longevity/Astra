@@ -197,6 +197,28 @@ A "failure" triggers a written review in the council within 2 weeks. It does not
 
 ---
 
+## 8. Outcome of the council (R3 close)
+
+The council closed R3 and overruled parts of this brief. Sections 1–7 are left unchanged, because they record our position at the time. This section records what the council decided.
+
+**Withdrawn by A28**
+- **GRADE SE multipliers (§3.3).** Trust level and GRADE are gates only. The van Zwet–Gelman shrinkage is the only adjustment (D13/D22).
+- **Combination score (§3.4).** No combination scores in v0. Combinations go to the ledger as L0 (D15).
+- **Proxy promotion rule (§2.3).** R² ≥ 0.6 is replaced by R² ≥ 0.8 with lower bound ≥ 0.6, on ≥ 10 trials and ≥ 2 drug classes (D23).
+
+**Changed**
+- **Disease list.** T2D is removed from the headline and kept as a reported component; COPD, CKD stages 4–5 and hip fracture are added (D21).
+- **Population.** The 70–79 band is scored. The 60–69 band is "not estimable" until a printed baseline exists (D20).
+- **Engine.** Guyot reconstruction of the published curves, then RMST on a baseline curve. Not the Sullivan method (D12/D14).
+- **Harms.** Other serious adverse events are shown per 1,000 people and never converted to years.
+- **Ranking.** Posterior median of net benefit, among interventions with P(net > 0) ≥ 0.8, published as a rank interval.
+- **Extrapolation.** Extrapolated inputs go in a separate column.
+
+**Goals**
+- The council's G1–G10 replace §4. G1 counts at most one finding per PICO, nulls included. G10 = a named outside reviewer.
+
+---
+
 ## References
 
 - Barnett K et al. (2012) Epidemiology of multimorbidity. *Lancet*. https://doi.org/10.1016/S0140-6736(12)60240-2
