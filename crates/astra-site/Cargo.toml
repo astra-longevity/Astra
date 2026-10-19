@@ -1,0 +1,18 @@
+[package]
+name = "astra-site"
+description = "Astra site library"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+readme.workspace = true
+keywords = ["astra"]
+categories = ["science"]
+
+[dependencies]
+minijinja = { version = "2", default-features = false, features = ["builtins", "json", "loader", "macros", "multi_template", "adjacent_loop_items", "serde"] }
+rusqlite = { version = "0.40.2", features = ["bundled"] }
+pulldown-cmark = { version = "0.13.4", default-features = false, features = ["html"] }
+
+[lints]
+workspace = true
