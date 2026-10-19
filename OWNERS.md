@@ -6,6 +6,7 @@ Each area of the repository has a responsible manager. Only that manager and its
 |---|---|
 | `literature/` | A2 Literature |
 | `research/` | A28 Research |
+| `verification/` | A50 Verification |
 | `data/` | A9 Database |
 | `Cargo.toml`, `Cargo.lock`, `clippy.toml`, `rustfmt.toml`, `rust-toolchain.toml`, `chain.sh` | A10 Rust |
 | `crates/`, `docs/rust/`, `scripts/`, `.githooks/`, `.github/` (checks, workflows, CODEOWNERS), `.context-pilot/shared/callbacks.yaml` | A10 Rust |

@@ -8,6 +8,7 @@ Everything is written in plain English. Every scientific claim points to a publi
 
 - **`literature/`**: summaries of the scientific literature. They sum up what published studies say, topic by topic. Owner: A2 (Literature).
 - **`research/`**: the research team's own work: briefs, analyses of open questions, and later a log of predictions to check. Owner: A28 (Research).
+- **`verification/`**: the independent checking team's work: reference cases that test our statistics tools against published numbers, and later sealed protocols, audits and incident records. Only the Verification team writes here. Owner: A50 (Verification).
 - **`data/`**: the project's structured data (studies, molecules, genes…), one small YAML file per object. A SQLite database is built from it automatically, but the database is not stored here. Owner: A9 (Database).
 - **`crates/`, `scripts/`, `Cargo.*` files**: the Rust code that runs the project's tools (building the database, generating the site, automatic checks). Owner: A10 (Rust).
 - **`interface/`**: page templates and static files for the site that shows the research progress. The site itself is generated, not stored. Owner: A11 (Interface).
