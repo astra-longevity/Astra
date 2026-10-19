@@ -1,0 +1,9 @@
+id: C-0177-oskm-induces-pluripotency
+statement: "Four factors (Oct4, Sox2, Klf4, c-Myc: OSKM) turn an adult cell back into a pluripotent stem cell (iPS)."
+concepts:
+  - stem-cell-exhaustion
+  - partial-reprogramming
+organism: mus-musculus
+evidence_level: 1
+confidence: established
+mission: aging-map

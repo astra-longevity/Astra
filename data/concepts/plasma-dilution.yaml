@@ -1,0 +1,8 @@
+id: plasma-dilution
+kind: intervention
+name: "Old plasma dilution / plasma exchange with albumin"
+synonyms:
+  - "therapeutic plasma exchange"
+  - "AMBAR"
+  - "saline-albumin"
+description: "Replacing part of old plasma with a saline-albumin solution to remove harmful factors."

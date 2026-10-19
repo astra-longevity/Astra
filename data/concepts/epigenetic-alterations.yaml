@@ -1,0 +1,4 @@
+id: epigenetic-alterations
+kind: hallmark
+name: "Epigenetic alterations"
+description: "Drift of the chemical marks that tell genes when to switch on or off."

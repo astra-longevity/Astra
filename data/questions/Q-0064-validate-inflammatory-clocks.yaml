@@ -1,0 +1,7 @@
+id: Q-0064-validate-inflammatory-clocks
+statement: "Can iAge and other inflammatory clocks be validated as trial outcomes?"
+concepts:
+  - chronic-inflammation
+  - iage
+mission: aging-map
+status: open

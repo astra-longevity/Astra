@@ -1,0 +1,7 @@
+id: R-0086-reprogramming-treats-stem-cells
+from: partial-reprogramming
+to: stem-cell-exhaustion
+type: treats
+claims:
+  - C-0180-cyclic-oskm-progeroid-stem
+  - C-0183-maturation-phase-reprogramming-30-years

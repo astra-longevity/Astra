@@ -1,0 +1,7 @@
+id: Q-0027-selective-autophagy
+statement: "Can selective autophagy (mitophagy in muscle, aggregates in neurons) be switched on instead of a global effect?"
+concepts:
+  - disabled-macroautophagy
+  - mitophagy
+mission: aging-map
+status: open

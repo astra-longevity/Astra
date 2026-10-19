@@ -1,0 +1,10 @@
+id: C-0088-muscle-stem-cells-autophagy
+statement: "In mice, old muscle stem cells lose autophagy and tip into senescence; blood stem cells need autophagy to stay functional."
+concepts:
+  - disabled-macroautophagy
+  - stem-cell-exhaustion
+  - cellular-senescence
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

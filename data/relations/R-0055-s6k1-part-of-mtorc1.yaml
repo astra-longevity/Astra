@@ -1,0 +1,6 @@
+id: R-0055-s6k1-part-of-mtorc1
+from: s6k1
+to: mtorc1
+type: part_of
+claims:
+  - C-0104-s6k1-deletion-extends-female-life

@@ -1,0 +1,7 @@
+id: Q-0032-metformin-real-or-artefact
+statement: "Is the anti-aging effect of metformin real, or an artefact of observational studies (survivor and comparator bias)?"
+concepts:
+  - deregulated-nutrient-sensing
+  - metformin
+mission: aging-map
+status: open

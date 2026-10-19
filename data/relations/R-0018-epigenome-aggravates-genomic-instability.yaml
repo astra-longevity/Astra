@@ -1,0 +1,7 @@
+id: R-0018-epigenome-aggravates-genomic-instability
+from: epigenetic-alterations
+to: genomic-instability
+type: aggravates
+claims:
+  - C-0043-heterochromatin-loss-line1-interferon
+note: "Heterochromatin loss wakes up LINE-1, a source of instability."

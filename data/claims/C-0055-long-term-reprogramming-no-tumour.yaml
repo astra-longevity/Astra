@@ -1,0 +1,9 @@
+id: C-0055-long-term-reprogramming-no-tumour
+statement: "Long-term partial reprogramming in normal mice rejuvenates molecular signatures (skin, kidney) without tumours in the protocol used."
+concepts:
+  - epigenetic-alterations
+  - partial-reprogramming
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

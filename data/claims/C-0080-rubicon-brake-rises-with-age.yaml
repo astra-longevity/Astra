@@ -1,0 +1,9 @@
+id: C-0080-rubicon-brake-rises-with-age
+statement: "Rubicon, a brake on autophagy, rises with age in worm, fly and mouse; removing it extends worm and fly lifespan and reduces kidney fibrosis in mice."
+concepts:
+  - disabled-macroautophagy
+  - rubicon
+organism: caenorhabditis-elegans
+evidence_level: 3
+confidence: established
+mission: aging-map

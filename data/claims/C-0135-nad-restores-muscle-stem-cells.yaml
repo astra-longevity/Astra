@@ -1,0 +1,10 @@
+id: C-0135-nad-restores-muscle-stem-cells
+statement: "In old mice, restoring NAD+ revives the mitochondrial function of muscle stem cells and slightly extends lifespan."
+concepts:
+  - mitochondrial-dysfunction
+  - nad-precursors
+  - stem-cell-exhaustion
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

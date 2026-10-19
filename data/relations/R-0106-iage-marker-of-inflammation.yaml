@@ -1,0 +1,6 @@
+id: R-0106-iage-marker-of-inflammation
+from: iage
+to: chronic-inflammation
+type: marker_of
+claims:
+  - C-0213-iage-tracks-multimorbidity

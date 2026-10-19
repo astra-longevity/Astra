@@ -1,0 +1,10 @@
+id: Q-0070-which-microbial-metabolites
+statement: "Which metabolites (bile acids, butyrate, urolithin A, TMAO) carry most of the microbiome effect?"
+concepts:
+  - dysbiosis
+  - microbial-bile-acids
+  - short-chain-fatty-acids
+  - urolithin-a
+  - tmao
+mission: aging-map
+status: open

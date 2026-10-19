@@ -1,0 +1,7 @@
+id: R-0056-mtdna-mutations-cause-mito-dysfunction
+from: mtdna-mutations
+to: mitochondrial-dysfunction
+type: causes
+claims:
+  - C-0125-mutator-mice-premature-aging
+  - C-0126-mutator-aging-via-apoptosis

@@ -1,0 +1,7 @@
+id: R-0052-caloric-restriction-treats-nutrient-sensing
+from: caloric-restriction
+to: deregulated-nutrient-sensing
+type: treats
+claims:
+  - C-0119-calerie-cardiometabolic
+  - C-0121-primate-caloric-restriction

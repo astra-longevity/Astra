@@ -1,0 +1,9 @@
+id: C-0004-sirt6-repairs-better-in-long-lived-species
+statement: "SIRT6 is more active in long-lived species and improves DNA break repair."
+concepts:
+  - genomic-instability
+  - sirt6
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

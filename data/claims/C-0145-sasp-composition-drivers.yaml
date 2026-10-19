@@ -1,0 +1,10 @@
+id: C-0145-sasp-composition-drivers
+statement: "The SASP is a mix of cytokines (IL-6, IL-8, IL-1alpha), growth factors and matrix-degrading enzymes, driven by NF-kB, the inflammasome and IL-1, and can make neighbouring cells senescent (paracrine senescence)."
+concepts:
+  - cellular-senescence
+  - sasp
+  - chronic-inflammation
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

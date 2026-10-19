@@ -1,0 +1,6 @@
+id: R-0092-sasp-part-of-communication
+from: sasp
+to: altered-intercellular-communication
+type: part_of
+claims:
+  - C-0198-paracrine-senescence-inflammasome

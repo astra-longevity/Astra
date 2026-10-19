@@ -1,0 +1,8 @@
+id: C-0259-fw-organ-proteome-signatures
+statement: "Organ-specific aging signatures in the plasma proteome track health and disease."
+concepts:
+  - proteomic-aging-clock
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

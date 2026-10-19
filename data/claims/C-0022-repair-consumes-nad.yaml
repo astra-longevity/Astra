@@ -1,0 +1,10 @@
+id: C-0022-repair-consumes-nad
+statement: "DNA repair (PARP) consumes NAD+ at the expense of sirtuins."
+concepts:
+  - genomic-instability
+  - deregulated-nutrient-sensing
+  - sirt6
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

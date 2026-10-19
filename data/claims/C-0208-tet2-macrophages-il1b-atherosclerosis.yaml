@@ -1,0 +1,12 @@
+id: C-0208-tet2-macrophages-il1b-atherosclerosis
+statement: "TET2-deficient macrophages make more IL-1beta through NLRP3, speeding up atherosclerosis in mice."
+concepts:
+  - chronic-inflammation
+  - tet2
+  - il-1b
+  - nlrp3
+  - atherosclerosis
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

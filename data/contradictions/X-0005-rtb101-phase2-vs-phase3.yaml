@@ -1,0 +1,7 @@
+id: X-0005-rtb101-phase2-vs-phase3
+claims:
+  - C-0113-rad001-bez235-fewer-infections
+  - C-0114-rtb101-phase3-failed
+mission: aging-map
+explanation: "TORC1 inhibition reduced infections in phase 2a/2b, but the RTB101 phase 3 missed its primary endpoint."
+status: open

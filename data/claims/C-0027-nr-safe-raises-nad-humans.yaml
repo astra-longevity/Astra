@@ -1,0 +1,9 @@
+id: C-0027-nr-safe-raises-nad-humans
+statement: "In humans, nicotinamide riboside (NR) is well tolerated and raises NAD+."
+concepts:
+  - genomic-instability
+  - nad-precursors
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

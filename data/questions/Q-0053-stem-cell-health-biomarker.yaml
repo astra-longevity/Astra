@@ -1,0 +1,7 @@
+id: Q-0053-stem-cell-health-biomarker
+statement: "Which simple biomarkers of stem cell health exist in humans, beyond CHIP sequencing?"
+concepts:
+  - stem-cell-exhaustion
+  - chip
+mission: aging-map
+status: open

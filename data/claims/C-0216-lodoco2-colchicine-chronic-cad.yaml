@@ -1,0 +1,10 @@
+id: C-0216-lodoco2-colchicine-chronic-cad
+statement: "In the LoDoCo2 phase III trial, low-dose colchicine reduced cardiovascular events in chronic coronary disease; it was approved by the FDA in 2023 for cardiovascular prevention."
+concepts:
+  - chronic-inflammation
+  - colchicine
+  - cardiovascular-disease
+organism: homo-sapiens
+evidence_level: 6
+confidence: established
+mission: aging-map

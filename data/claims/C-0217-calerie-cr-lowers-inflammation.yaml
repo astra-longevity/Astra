@@ -1,0 +1,10 @@
+id: C-0217-calerie-cr-lowers-inflammation
+statement: "In the 2-year randomized CALERIE trial, moderate caloric restriction lowered inflammatory markers without impairing immunity."
+concepts:
+  - chronic-inflammation
+  - caloric-restriction
+  - deregulated-nutrient-sensing
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

@@ -1,0 +1,6 @@
+id: R-0097-plasma-dilution-treats-communication
+from: plasma-dilution
+to: altered-intercellular-communication
+type: treats
+claims:
+  - C-0191-plasma-dilution-rejuvenates-mice

@@ -1,0 +1,9 @@
+id: C-0127-mtdna-mosaic-humans
+statement: "In older humans, mtDNA mutations are spread as a mosaic: some muscle fibres or neurons lose their respiratory chain and others do not."
+concepts:
+  - mitochondrial-dysfunction
+  - mtdna-mutations
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

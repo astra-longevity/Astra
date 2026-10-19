@@ -1,0 +1,6 @@
+id: R-0031-patisiran-treats-attr
+from: patisiran
+to: attr-amyloidosis
+type: treats
+claims:
+  - C-0071-patisiran-attr-neuropathy

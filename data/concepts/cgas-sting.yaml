@@ -1,0 +1,4 @@
+id: cgas-sting
+kind: pathway
+name: "cGAS-STING pathway"
+description: "Cellular alarm that detects DNA in the wrong place and triggers inflammation."

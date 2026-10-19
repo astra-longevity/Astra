@@ -1,0 +1,8 @@
+id: extracellular-matrix
+kind: tissue
+name: "Extracellular matrix"
+synonyms:
+  - "collagen"
+  - "elastin"
+  - "ECM"
+description: "Protein mesh (collagen, elastin) around cells; it stiffens with age."

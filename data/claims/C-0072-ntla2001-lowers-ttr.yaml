@@ -1,0 +1,10 @@
+id: C-0072-ntla2001-lowers-ttr
+statement: "A single infusion of NTLA-2001 (CRISPR editing of the TTR gene in the liver) lowers TTR by about 87% at 0.3 mg/kg (phase 1)."
+concepts:
+  - loss-of-proteostasis
+  - ntla-2001
+  - attr-amyloidosis
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

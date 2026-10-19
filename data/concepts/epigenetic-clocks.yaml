@@ -1,0 +1,11 @@
+id: epigenetic-clocks
+kind: biomarker
+name: "Epigenetic clocks"
+synonyms:
+  - "Horvath"
+  - "Hannum"
+  - "PhenoAge"
+  - "GrimAge"
+  - "DunedinPACE"
+  - "methylation clocks"
+description: "Tests that estimate biological age from DNA methylation."

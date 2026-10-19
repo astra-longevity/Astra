@@ -1,0 +1,8 @@
+id: R-0101-nutrient-sensing-linked-inflammation
+from: deregulated-nutrient-sensing
+to: chronic-inflammation
+type: associated_with
+claims:
+  - C-0217-calerie-cr-lowers-inflammation
+  - C-0218-torc1-inhibition-vaccine-response
+note: "mTOR and calorie excess fuel inflammation; caloric restriction and rapalogs reduce it."

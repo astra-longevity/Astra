@@ -1,0 +1,7 @@
+id: X-0013-cantos-benefit-vs-infections
+claims:
+  - C-0214-cantos-canakinumab-cv-events
+  - C-0203-inflammaging-defined
+mission: aging-map
+explanation: "CANTOS shows that lowering inflammation alone reduces age-related disease in humans, but it raises fatal infections: dampening inflammation weakens an already ageing immune defence."
+status: open

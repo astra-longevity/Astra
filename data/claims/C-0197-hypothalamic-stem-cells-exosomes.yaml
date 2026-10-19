@@ -1,0 +1,9 @@
+id: C-0197-hypothalamic-stem-cells-exosomes
+statement: "Hypothalamic stem cells slow aging partly through microRNAs carried in exosomes."
+concepts:
+  - altered-intercellular-communication
+  - hypothalamic-nf-kb
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

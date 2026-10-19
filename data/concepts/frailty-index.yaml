@@ -1,0 +1,7 @@
+id: frailty-index
+kind: biomarker
+name: "Frailty index"
+synonyms:
+  - "Rockwood index"
+  - "deficit accumulation"
+description: "Share of health problems a person has out of a fixed list; the higher, the more aged."

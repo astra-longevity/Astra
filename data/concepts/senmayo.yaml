@@ -1,0 +1,4 @@
+id: senmayo
+kind: biomarker
+name: "SenMayo gene set"
+description: "List of genes used to spot senescent cells in gene-expression data."

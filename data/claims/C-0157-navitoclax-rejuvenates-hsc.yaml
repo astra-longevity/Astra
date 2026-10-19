@@ -1,0 +1,11 @@
+id: C-0157-navitoclax-rejuvenates-hsc
+statement: "Navitoclax rejuvenates old blood stem cells in mice, but is toxic to platelets."
+concepts:
+  - cellular-senescence
+  - navitoclax
+  - senolytics
+  - stem-cell-exhaustion
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

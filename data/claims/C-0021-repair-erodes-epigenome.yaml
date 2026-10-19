@@ -1,0 +1,9 @@
+id: C-0021-repair-erodes-epigenome
+statement: "Repairing DNA breaks redistributes chromatin proteins and erodes epigenetic information."
+concepts:
+  - genomic-instability
+  - epigenetic-alterations
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

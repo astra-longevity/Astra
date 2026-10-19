@@ -1,0 +1,9 @@
+id: C-0091-pearl-rapamycin-modest
+statement: "In the PEARL trial (1 year, low doses), rapamycin is well tolerated with modest effects on some markers."
+concepts:
+  - disabled-macroautophagy
+  - rapamycin
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

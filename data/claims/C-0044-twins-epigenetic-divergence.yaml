@@ -1,0 +1,9 @@
+id: C-0044-twins-epigenetic-divergence
+statement: "Identical twins have almost identical epigenetic profiles when young, which diverge with age and lifestyle: part of the drift is due to chance or environment."
+concepts:
+  - epigenetic-alterations
+  - dna-methylation
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

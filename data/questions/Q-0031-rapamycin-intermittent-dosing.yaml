@@ -1,0 +1,10 @@
+id: Q-0031-rapamycin-intermittent-dosing
+statement: "Should rapamycin be taken intermittently in humans to spare mTORC2, and which biomarker can show mTORC1 inhibition in tissues?"
+concepts:
+  - deregulated-nutrient-sensing
+  - rapamycin
+  - mtorc1
+  - mtorc2
+mission: aging-map
+status: open
+note: "Selective mTORC1 inhibitors still need clinical validation."

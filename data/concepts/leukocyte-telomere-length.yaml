@@ -1,0 +1,6 @@
+id: leukocyte-telomere-length
+kind: biomarker
+name: "White blood cell telomere length"
+synonyms:
+  - "LTL"
+  - "leukocyte telomere length"

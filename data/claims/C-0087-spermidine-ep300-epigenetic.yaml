@@ -1,0 +1,10 @@
+id: C-0087-spermidine-ep300-epigenetic
+statement: "Spermidine induces autophagy by inhibiting the enzyme EP300 (an acetyltransferase)."
+concepts:
+  - disabled-macroautophagy
+  - spermidine
+  - epigenetic-alterations
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

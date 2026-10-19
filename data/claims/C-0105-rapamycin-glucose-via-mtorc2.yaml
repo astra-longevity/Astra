@@ -1,0 +1,11 @@
+id: C-0105-rapamycin-glucose-via-mtorc2
+statement: "Rapamycin's side effects on blood sugar come from off-target inhibition of mTORC2, which can be separated from the longevity gain."
+concepts:
+  - deregulated-nutrient-sensing
+  - rapamycin
+  - mtorc2
+  - mtorc1
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

@@ -1,0 +1,10 @@
+id: C-0223-dysbiosis-leaky-gut-inflammation
+statement: "In mice, age-related dysbiosis increases gut permeability; bacterial products enter the blood and trigger systemic inflammation, and germ-free mice do not show this age-related rise."
+concepts:
+  - dysbiosis
+  - gut-microbiome
+  - chronic-inflammation
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

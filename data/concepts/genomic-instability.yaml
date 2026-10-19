@@ -1,0 +1,4 @@
+id: genomic-instability
+kind: hallmark
+name: "Genomic instability"
+description: "Damage and errors build up in DNA over a lifetime."

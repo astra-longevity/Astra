@@ -1,0 +1,7 @@
+id: X-0001-tert-therapy-vs-cancer-risk-mr
+claims:
+  - C-0039-tert-gene-therapy-mice
+  - C-0037-long-telomeres-cancer-mr
+mission: aging-map
+explanation: "In mice, lengthening telomeres does not increase cancer; in humans, genetically longer telomeres raise the risk of several cancers. The text notes that mouse results do not transfer directly."
+status: open

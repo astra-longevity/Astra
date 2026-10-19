@@ -1,0 +1,11 @@
+id: C-0056-reprogramming-teratoma-risk
+statement: "Full or poorly controlled reprogramming causes teratomas and cancers."
+concepts:
+  - epigenetic-alterations
+  - partial-reprogramming
+  - teratoma
+  - cancer
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

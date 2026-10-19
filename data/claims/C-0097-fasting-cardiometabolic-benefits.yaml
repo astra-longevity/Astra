@@ -1,0 +1,10 @@
+id: C-0097-fasting-cardiometabolic-benefits
+statement: "Intermittent fasting and caloric restriction have cardiometabolic benefits in humans; their effect on autophagy is hard to measure directly."
+concepts:
+  - disabled-macroautophagy
+  - intermittent-fasting
+  - caloric-restriction
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

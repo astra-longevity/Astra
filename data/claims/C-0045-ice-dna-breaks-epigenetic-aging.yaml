@@ -1,0 +1,11 @@
+id: C-0045-ice-dna-breaks-epigenetic-aging
+statement: "In \"ICE\" mice, DNA breaks without mutations are enough to speed up epigenetic and physiological aging; OSK reprogramming reverses it (information theory of aging)."
+concepts:
+  - epigenetic-alterations
+  - genomic-instability
+  - partial-reprogramming
+organism: mus-musculus
+evidence_level: 3
+confidence: debated
+mission: aging-map
+note: "Causation suggested in mice, not shown in humans (open question in the text)."

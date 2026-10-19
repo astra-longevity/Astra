@@ -1,0 +1,12 @@
+id: C-0150-senescent-cells-in-age-diseases
+statement: "Senescent cells build up in tissues affected by age-related diseases (fibrosis, osteoarthritis, osteoporosis, atherosclerosis, diabetes, kidney and neurodegenerative diseases)."
+concepts:
+  - cellular-senescence
+  - osteoarthritis
+  - osteoporosis
+  - alzheimer-disease
+  - cardiovascular-disease
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

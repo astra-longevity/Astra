@@ -1,0 +1,11 @@
+id: C-0015-ercc1-survival-mode-igf1
+statement: "In ERCC1-deficient mice, DNA lesions suppress the GH/IGF-1 axis and switch metabolism into a \"survival\" mode close to caloric restriction."
+concepts:
+  - genomic-instability
+  - ercc1
+  - igf-1
+  - deregulated-nutrient-sensing
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

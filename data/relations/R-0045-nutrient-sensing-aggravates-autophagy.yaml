@@ -1,0 +1,7 @@
+id: R-0045-nutrient-sensing-aggravates-autophagy
+from: deregulated-nutrient-sensing
+to: disabled-macroautophagy
+type: aggravates
+claims:
+  - C-0103-mtorc1-drives-growth-brakes-autophagy
+note: "Active mTORC1 blocks autophagy; AMPK stimulates it."

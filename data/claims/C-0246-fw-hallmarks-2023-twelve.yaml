@@ -1,0 +1,12 @@
+id: C-0246-fw-hallmarks-2023-twelve
+statement: "The 2023 update lists 12 hallmarks, adding disabled macroautophagy, chronic inflammation and dysbiosis."
+concepts:
+  - hallmarks-of-aging
+  - disabled-macroautophagy
+  - chronic-inflammation
+  - dysbiosis
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map
+note: "Organising framework, not an experimental result."

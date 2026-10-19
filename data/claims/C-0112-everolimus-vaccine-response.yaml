@@ -1,0 +1,10 @@
+id: C-0112-everolimus-vaccine-response
+statement: "In a phase 2 trial (about 218 people aged 65+), 6 weeks of low-dose everolimus raised flu vaccine response by about 20%."
+concepts:
+  - deregulated-nutrient-sensing
+  - rapamycin
+  - mtorc1
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

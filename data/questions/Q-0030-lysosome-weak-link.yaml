@@ -1,0 +1,7 @@
+id: Q-0030-lysosome-weak-link
+statement: "If the lysosome is saturated, stimulating autophagy is useless: is TFEB a better target?"
+concepts:
+  - disabled-macroautophagy
+  - tfeb
+mission: aging-map
+status: open

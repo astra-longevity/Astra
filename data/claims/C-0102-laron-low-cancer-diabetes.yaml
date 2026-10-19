@@ -1,0 +1,12 @@
+id: C-0102-laron-low-cancer-diabetes
+statement: "People with Laron syndrome (defective growth hormone receptor, very low IGF-1) develop very little cancer and diabetes."
+concepts:
+  - deregulated-nutrient-sensing
+  - laron-syndrome
+  - igf-1
+  - cancer
+  - type-2-diabetes
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

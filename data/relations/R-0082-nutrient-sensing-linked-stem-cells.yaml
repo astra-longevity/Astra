@@ -1,0 +1,6 @@
+id: R-0082-nutrient-sensing-linked-stem-cells
+from: deregulated-nutrient-sensing
+to: stem-cell-exhaustion
+type: associated_with
+claims:
+  - C-0172-paneth-mtorc1-intestinal-stem-cells

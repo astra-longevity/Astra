@@ -1,0 +1,6 @@
+id: R-0115-tmao-marker-of-cvd
+from: tmao
+to: cardiovascular-disease
+type: marker_of
+claims:
+  - C-0225-tmao-cardiovascular-events-humans

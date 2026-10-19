@@ -1,0 +1,10 @@
+id: Q-0046-disappointing-human-results
+statement: "Why are human senolytic results disappointing so far (UBX0101 failed, D+Q modest and subgroup-limited): dose, tissue, patient selection or concept?"
+concepts:
+  - cellular-senescence
+  - senolytics
+  - ubx0101
+  - dasatinib-quercetin
+mission: aging-map
+status: open
+note: "UBX0101 phase 2 failure (Aug 2020, 183 patients, knee pain at 12 weeks) is sourced by a Unity Biotechnology press release (no DOI)."

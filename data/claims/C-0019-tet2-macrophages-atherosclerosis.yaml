@@ -1,0 +1,13 @@
+id: C-0019-tet2-macrophages-atherosclerosis
+statement: "In mice, Tet2-deficient macrophages speed up atherosclerosis through IL-1β/NLRP3 inflammation."
+concepts:
+  - genomic-instability
+  - tet2
+  - chip
+  - il-1b
+  - chronic-inflammation
+  - cardiovascular-disease
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

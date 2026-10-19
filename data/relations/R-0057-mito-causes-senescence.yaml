@@ -1,0 +1,6 @@
+id: R-0057-mito-causes-senescence
+from: mitochondrial-dysfunction
+to: cellular-senescence
+type: causes
+claims:
+  - C-0134-mito-dysfunction-induces-senescence

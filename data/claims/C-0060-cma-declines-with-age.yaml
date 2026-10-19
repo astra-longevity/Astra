@@ -1,0 +1,9 @@
+id: C-0060-cma-declines-with-age
+statement: "Chaperone-mediated autophagy (LAMP2A receptor) declines with age."
+concepts:
+  - loss-of-proteostasis
+  - chaperone-mediated-autophagy
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

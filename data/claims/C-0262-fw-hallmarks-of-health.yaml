@@ -1,0 +1,8 @@
+id: C-0262-fw-hallmarks-of-health
+statement: "Health can be defined positively by eight hallmarks grouped in three domains (spatial compartmentalisation, maintenance of homeostasis, adequate responses to stress)."
+concepts:
+  - hallmarks-of-health
+organism: homo-sapiens
+evidence_level: 4
+confidence: speculative
+mission: aging-map

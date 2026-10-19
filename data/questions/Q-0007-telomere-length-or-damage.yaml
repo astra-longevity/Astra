@@ -1,0 +1,8 @@
+id: Q-0007-telomere-length-or-damage
+statement: "What matters: average telomere length measured in blood, or persistent telomeric lesions in tissues?"
+concepts:
+  - telomere-attrition
+  - telomere-dna-damage
+  - leukocyte-telomere-length
+mission: aging-map
+status: open

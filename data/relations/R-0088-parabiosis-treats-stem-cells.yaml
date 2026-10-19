@@ -1,0 +1,6 @@
+id: R-0088-parabiosis-treats-stem-cells
+from: heterochronic-parabiosis
+to: stem-cell-exhaustion
+type: treats
+claims:
+  - C-0173-young-blood-restores-stem-cells

@@ -1,0 +1,10 @@
+id: C-0215-colcot-colchicine-post-mi
+statement: "In the COLCOT phase III trial, low-dose colchicine reduced ischemic events after a heart attack."
+concepts:
+  - chronic-inflammation
+  - colchicine
+  - cardiovascular-disease
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

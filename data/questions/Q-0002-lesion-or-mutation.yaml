@@ -1,0 +1,8 @@
+id: Q-0002-lesion-or-mutation
+statement: "What matters most: the persistent DNA lesion (alarm signal, senescence) or the fixed mutation?"
+concepts:
+  - genomic-instability
+  - cellular-senescence
+mission: aging-map
+status: open
+note: "Schumacher 2021 leans towards lesions."

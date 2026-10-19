@@ -1,0 +1,6 @@
+id: R-0079-rapamycin-inhibits-sasp
+from: rapamycin
+to: sasp
+type: inhibits
+claims:
+  - C-0156-mtor-amplifies-sasp

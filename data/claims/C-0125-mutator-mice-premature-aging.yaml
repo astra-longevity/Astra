@@ -1,0 +1,10 @@
+id: C-0125-mutator-mice-premature-aging
+statement: "In \"mutator\" mice whose mitochondrial DNA polymerase (POLG) proofreads poorly, mtDNA mutations build up and the mice age early: hair loss, osteoporosis, anaemia, shorter life."
+concepts:
+  - mitochondrial-dysfunction
+  - polg
+  - mtdna-mutations
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

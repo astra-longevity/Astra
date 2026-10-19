@@ -1,0 +1,5 @@
+id: cardiovascular-disease
+kind: disease
+name: "Cardiovascular disease"
+synonyms:
+  - "atherosclerosis"

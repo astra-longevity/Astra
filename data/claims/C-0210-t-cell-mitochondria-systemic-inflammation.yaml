@@ -1,0 +1,10 @@
+id: C-0210-t-cell-mitochondria-systemic-inflammation
+statement: "T cells with failing mitochondria are enough to trigger systemic inflammation and premature multi-organ senescence in mice."
+concepts:
+  - chronic-inflammation
+  - mitochondrial-dysfunction
+  - cellular-senescence
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

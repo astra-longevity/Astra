@@ -1,0 +1,10 @@
+id: C-0018-chip-cardiovascular-risk
+statement: "Clonal hematopoiesis (CHIP) raises cardiovascular risk."
+concepts:
+  - genomic-instability
+  - chip
+  - cardiovascular-disease
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

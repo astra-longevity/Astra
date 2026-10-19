@@ -1,0 +1,7 @@
+id: X-0006-metformin-observational-vs-exercise
+claims:
+  - C-0116-metformin-diabetics-mortality
+  - C-0118-metformin-blunts-exercise
+mission: aging-map
+explanation: "Observational data suggest metformin may lower mortality, but in a randomized trial it blunts the benefits of exercise."
+status: open

@@ -1,0 +1,9 @@
+id: C-0050-programmed-clock-theory
+statement: "According to the \"epigenetic clock theory\", the clock reflects developmental programs that keep running after maturity."
+concepts:
+  - epigenetic-alterations
+  - epigenetic-clocks
+organism: homo-sapiens
+evidence_level: 4
+confidence: speculative
+mission: aging-map

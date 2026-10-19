@@ -1,0 +1,9 @@
+id: C-0119-calerie-cardiometabolic
+statement: "In CALERIE (about 12% fewer calories for 2 years, non-obese adults), caloric restriction improved cardiometabolic risk factors."
+concepts:
+  - deregulated-nutrient-sensing
+  - caloric-restriction
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

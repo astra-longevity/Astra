@@ -1,0 +1,8 @@
+id: p16ink4a
+kind: biomarker
+name: "p16INK4a"
+synonyms:
+  - "p16"
+  - "CDKN2A"
+  - "INK-ATTAC"
+description: "Brake protein that keeps senescent cells from dividing; its level rises with age."

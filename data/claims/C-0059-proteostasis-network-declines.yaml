@@ -1,0 +1,10 @@
+id: C-0059-proteostasis-network-declines
+statement: "With age, the network of about 2,000 proteins that makes, folds, repairs and destroys proteins declines, so toxic aggregates build up."
+concepts:
+  - loss-of-proteostasis
+  - chaperones
+  - protein-aggregation
+organism: caenorhabditis-elegans
+evidence_level: 2
+confidence: established
+mission: aging-map

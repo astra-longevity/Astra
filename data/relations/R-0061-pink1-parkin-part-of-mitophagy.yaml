@@ -1,0 +1,6 @@
+id: R-0061-pink1-parkin-part-of-mitophagy
+from: pink1-parkin
+to: mitophagy
+type: part_of
+claims:
+  - C-0131-pink1-parkin-mitophagy-parkinson

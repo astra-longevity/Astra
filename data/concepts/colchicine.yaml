@@ -1,0 +1,6 @@
+id: colchicine
+kind: intervention
+name: "Low-dose colchicine"
+synonyms:
+  - "COLCOT"
+  - "LoDoCo2"

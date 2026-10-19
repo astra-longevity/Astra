@@ -1,0 +1,10 @@
+id: C-0046-clocks-predict-age
+statement: "First-generation epigenetic clocks (Hannum, Horvath) accurately estimate chronological age from DNA methylation, in blood or in all tissues."
+concepts:
+  - epigenetic-alterations
+  - epigenetic-clocks
+  - dna-methylation
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

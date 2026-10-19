@@ -1,0 +1,8 @@
+id: atg-genes
+kind: gene
+name: "Autophagy genes (ATG5, ATG7, Beclin 1...)"
+synonyms:
+  - "ATG5"
+  - "ATG7"
+  - "Beclin 1"
+  - "ATG16L1"

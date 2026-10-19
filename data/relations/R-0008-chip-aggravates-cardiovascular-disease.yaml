@@ -1,0 +1,7 @@
+id: R-0008-chip-aggravates-cardiovascular-disease
+from: chip
+to: cardiovascular-disease
+type: aggravates
+claims:
+  - C-0018-chip-cardiovascular-risk
+  - C-0019-tet2-macrophages-atherosclerosis

@@ -1,0 +1,7 @@
+id: X-0010-reprogramming-teratoma-vs-safe
+claims:
+  - C-0179-continuous-oskm-teratomas
+  - C-0182-long-term-reprogramming-wild-type
+mission: aging-map
+explanation: "Continuous OSKM causes teratomas, while a long-term partial protocol in normal mice found no tumours: safety depends on the protocol."
+status: open

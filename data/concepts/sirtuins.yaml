@@ -1,0 +1,8 @@
+id: sirtuins
+kind: gene
+name: "Sirtuins (SIRT1-7)"
+synonyms:
+  - "SIRT1"
+  - "SIRT3"
+  - "resveratrol"
+description: "NAD+-dependent enzymes that link metabolism to repair."

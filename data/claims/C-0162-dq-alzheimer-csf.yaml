@@ -1,0 +1,10 @@
+id: C-0162-dq-alzheimer-csf
+statement: "In a phase 1 trial (5 people with mild Alzheimer), dasatinib reached the cerebrospinal fluid but quercetin did not; tolerance was acceptable."
+concepts:
+  - cellular-senescence
+  - dasatinib-quercetin
+  - alzheimer-disease
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

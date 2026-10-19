@@ -1,0 +1,9 @@
+id: C-0143-senescence-beneficial-then-harmful
+statement: "Senescence is a lasting stress-triggered arrest of cell division; useful short-term (healing, tumour suppression), it turns harmful when senescent cells build up and are no longer cleared."
+concepts:
+  - cellular-senescence
+  - sasp
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

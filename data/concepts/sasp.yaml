@@ -1,0 +1,9 @@
+id: sasp
+kind: process
+name: "Senescence-associated secretory phenotype (SASP)"
+synonyms:
+  - "SASP"
+  - "IL-6"
+  - "IL-8"
+  - "IL-1alpha"
+description: "Cocktail of inflammatory signals released by senescent cells."

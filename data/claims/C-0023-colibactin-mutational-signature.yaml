@@ -1,0 +1,11 @@
+id: C-0023-colibactin-mutational-signature
+statement: "Colibactin from pks+ E. coli leaves a distinct mutation signature in organoids and human colorectal cancers; the link with normal aging is still indirect."
+concepts:
+  - genomic-instability
+  - colibactin
+  - dysbiosis
+organism: human-cells
+evidence_level: 1
+confidence: speculative
+mission: aging-map
+note: "Established for genotoxicity; speculative for aging."

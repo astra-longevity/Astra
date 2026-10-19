@@ -1,0 +1,6 @@
+id: R-0087-navitoclax-treats-stem-cells
+from: navitoclax
+to: stem-cell-exhaustion
+type: treats
+claims:
+  - C-0174-navitoclax-rejuvenates-hsc-stem

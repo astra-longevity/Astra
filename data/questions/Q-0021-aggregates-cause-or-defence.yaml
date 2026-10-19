@@ -1,0 +1,9 @@
+id: Q-0021-aggregates-cause-or-defence
+statement: "Are large aggregates a cause of toxicity, or a defence that \"stores away\" more toxic forms (oligomers)?"
+concepts:
+  - loss-of-proteostasis
+  - protein-aggregation
+  - alzheimer-disease
+mission: aging-map
+status: open
+note: "Removing plaques gives only a modest benefit in Alzheimer."

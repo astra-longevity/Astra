@@ -1,0 +1,7 @@
+id: nlrp3
+kind: protein
+name: "NLRP3 inflammasome"
+synonyms:
+  - "inflammasome"
+  - "NLRP3"
+description: "Innate immune sensor that detects damaged molecules and triggers inflammation."

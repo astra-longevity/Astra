@@ -1,0 +1,12 @@
+id: C-0116-metformin-diabetics-mortality
+statement: "Diabetics on metformin show mortality similar to or lower than non-diabetics; observational data with possible biases."
+concepts:
+  - deregulated-nutrient-sensing
+  - metformin
+  - type-2-diabetes
+  - ampk
+organism: homo-sapiens
+evidence_level: 4
+confidence: debated
+mission: aging-map
+note: "Survivor and comparator biases possible (stated in the text)."

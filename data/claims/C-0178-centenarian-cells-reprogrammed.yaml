@@ -1,0 +1,9 @@
+id: C-0178-centenarian-cells-reprogrammed
+statement: "Reprogramming cells from centenarians erases several aging marks in vitro."
+concepts:
+  - stem-cell-exhaustion
+  - partial-reprogramming
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

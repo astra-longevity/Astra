@@ -1,0 +1,6 @@
+id: R-0007-dysbiosis-linked-genomic-instability
+from: dysbiosis
+to: genomic-instability
+type: associated_with
+claims:
+  - C-0023-colibactin-mutational-signature

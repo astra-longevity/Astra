@@ -1,0 +1,6 @@
+id: R-0027-nutrient-sensing-linked-proteostasis
+from: deregulated-nutrient-sensing
+to: loss-of-proteostasis
+type: associated_with
+claims:
+  - C-0063-hsf1-longevity-worm

@@ -1,0 +1,9 @@
+id: C-0028-nmn-insulin-sensitivity-women
+statement: "NMN improves muscle insulin sensitivity in prediabetic women; no proven benefit on DNA repair in humans."
+concepts:
+  - genomic-instability
+  - nad-precursors
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

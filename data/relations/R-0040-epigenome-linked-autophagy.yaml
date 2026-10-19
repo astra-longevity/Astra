@@ -1,0 +1,6 @@
+id: R-0040-epigenome-linked-autophagy
+from: epigenetic-alterations
+to: disabled-macroautophagy
+type: associated_with
+claims:
+  - C-0087-spermidine-ep300-epigenetic

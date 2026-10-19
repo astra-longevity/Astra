@@ -1,0 +1,10 @@
+id: C-0164-jak-inhibitors-reduce-sasp
+statement: "JAK inhibitors reduce the SASP, frailty and fat dysfunction in old mice."
+concepts:
+  - cellular-senescence
+  - jak-inhibitors
+  - sasp
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

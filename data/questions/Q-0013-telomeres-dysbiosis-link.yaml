@@ -1,0 +1,8 @@
+id: Q-0013-telomeres-dysbiosis-link
+statement: "Is there a link between telomere wear and dysbiosis?"
+concepts:
+  - telomere-attrition
+  - dysbiosis
+mission: aging-map
+status: open
+note: "Marked [to verify] in file 02: link not established, no source."

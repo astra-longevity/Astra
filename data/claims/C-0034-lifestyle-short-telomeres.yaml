@@ -1,0 +1,9 @@
+id: C-0034-lifestyle-short-telomeres
+statement: "Smoking, obesity, chronic stress and inflammation are associated with shorter telomeres, with modest effects and uncertain causation."
+concepts:
+  - telomere-attrition
+  - leukocyte-telomere-length
+organism: homo-sapiens
+evidence_level: 4
+confidence: debated
+mission: aging-map

@@ -1,0 +1,4 @@
+id: deregulated-nutrient-sensing
+kind: hallmark
+name: "Deregulated nutrient sensing"
+description: "The sensors that match growth to available food (insulin, mTOR, AMPK) go off balance."

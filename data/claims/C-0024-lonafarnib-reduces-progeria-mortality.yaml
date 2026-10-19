@@ -1,0 +1,10 @@
+id: C-0024-lonafarnib-reduces-progeria-mortality
+statement: "Lonafarnib reduces mortality in children with progeria (cohort study); FDA-approved in 2020."
+concepts:
+  - genomic-instability
+  - lonafarnib
+  - hutchinson-gilford-progeria
+organism: homo-sapiens
+evidence_level: 6
+confidence: established
+mission: aging-map

@@ -1,0 +1,11 @@
+id: C-0240-ov-geroscience-delay-diseases
+statement: "Most major diseases (cancer, heart disease, Alzheimer, type 2 diabetes) rest on the same aging mechanisms, so acting on aging itself could delay several diseases at once."
+concepts:
+  - geroscience
+  - cancer
+  - cardiovascular-disease
+organism: homo-sapiens
+evidence_level: 4
+confidence: debated
+mission: aging-map
+note: "Framework position (geroscience), not a single experimental result."

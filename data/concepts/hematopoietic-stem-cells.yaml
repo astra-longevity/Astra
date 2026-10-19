@@ -1,0 +1,8 @@
+id: hematopoietic-stem-cells
+kind: cell-type
+name: "Hematopoietic stem cells (HSC)"
+synonyms:
+  - "HSC"
+  - "blood stem cells"
+  - "myeloid bias"
+description: "Stem cells in the bone marrow that make all blood cells."

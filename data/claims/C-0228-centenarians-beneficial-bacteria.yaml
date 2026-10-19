@@ -1,0 +1,10 @@
+id: C-0228-centenarians-beneficial-bacteria
+statement: "Centenarians have microbiomes enriched in bacteria considered beneficial (Akkermansia, Bifidobacterium, Christensenellaceae)."
+concepts:
+  - dysbiosis
+  - gut-microbiome
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map
+note: "Human data are almost all correlational: cause or consequence unknown."

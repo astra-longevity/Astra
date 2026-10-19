@@ -1,0 +1,7 @@
+id: pink1-parkin
+kind: pathway
+name: "PINK1/Parkin pathway"
+synonyms:
+  - "PINK1"
+  - "Parkin"
+description: "Tagging system that marks worn-out mitochondria for recycling."

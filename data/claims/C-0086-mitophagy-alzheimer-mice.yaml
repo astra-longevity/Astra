@@ -1,0 +1,12 @@
+id: C-0086-mitophagy-alzheimer-mice
+statement: "In Alzheimer model mice, stimulating mitophagy (NAD+, urolithin A) reduces amyloid-beta and tau and restores memory."
+concepts:
+  - disabled-macroautophagy
+  - mitophagy
+  - alzheimer-disease
+  - urolithin-a
+  - nad-precursors
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

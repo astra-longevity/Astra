@@ -1,0 +1,10 @@
+id: C-0033-telomere-length-genetic
+statement: "Telomere length is largely genetic; several loci (including TERT, TERC, OBFC1) influence average white blood cell telomere length."
+concepts:
+  - telomere-attrition
+  - leukocyte-telomere-length
+  - telomerase
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

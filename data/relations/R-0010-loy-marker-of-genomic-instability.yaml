@@ -1,0 +1,6 @@
+id: R-0010-loy-marker-of-genomic-instability
+from: loss-of-y
+to: genomic-instability
+type: marker_of
+claims:
+  - C-0006-loy-mortality-humans

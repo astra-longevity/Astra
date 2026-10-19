@@ -1,0 +1,7 @@
+id: R-0012-telomeres-aggravate-mitochondria
+from: telomere-attrition
+to: mitochondrial-dysfunction
+type: aggravates
+claims:
+  - C-0032-telomeres-p53-pgc1-mitochondria
+note: "Telomeres -> p53 -> PGC-1 -> mitochondria axis."

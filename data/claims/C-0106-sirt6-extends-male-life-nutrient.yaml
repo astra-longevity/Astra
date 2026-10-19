@@ -1,0 +1,10 @@
+id: C-0106-sirt6-extends-male-life-nutrient
+statement: "Overexpressing SIRT6 extends the lifespan of male mice."
+concepts:
+  - deregulated-nutrient-sensing
+  - sirt6
+  - sirtuins
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

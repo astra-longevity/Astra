@@ -1,0 +1,9 @@
+id: C-0094-smartage-spermidine-memory-null
+statement: "In the SmartAge trial (12 months, 100 older adults), spermidine had no effect on memory."
+concepts:
+  - disabled-macroautophagy
+  - spermidine
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

@@ -1,0 +1,6 @@
+id: R-0011-telomeres-cause-senescence
+from: telomere-attrition
+to: cellular-senescence
+type: causes
+claims:
+  - C-0030-short-telomeres-senescence

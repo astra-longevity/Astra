@@ -1,0 +1,7 @@
+id: R-0025-proteostasis-linked-neurodegeneration
+from: loss-of-proteostasis
+to: alzheimer-disease
+type: associated_with
+claims:
+  - C-0065-proteinopathy-causal-mutations
+  - C-0062-prion-like-aggregate-spread

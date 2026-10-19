@@ -1,0 +1,11 @@
+id: C-0137-urolithin-endurance-trials
+statement: "Over 4 months, urolithin A improved muscle endurance and biomarkers in people aged 65-90 and in overweight people aged 40-64."
+concepts:
+  - mitochondrial-dysfunction
+  - urolithin-a
+  - mitophagy
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map
+note: "Whether it acts through mitophagy in humans is not directly measured in tissue (open question in the text)."

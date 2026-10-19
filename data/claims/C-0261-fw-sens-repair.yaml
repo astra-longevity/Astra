@@ -1,0 +1,8 @@
+id: C-0261-fw-sens-repair
+statement: "SENS proposes to periodically repair seven categories of accumulated damage instead of understanding all of metabolism."
+concepts:
+  - sens
+organism: homo-sapiens
+evidence_level: 4
+confidence: speculative
+mission: aging-map

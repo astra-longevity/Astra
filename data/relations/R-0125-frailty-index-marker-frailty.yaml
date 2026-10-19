@@ -1,0 +1,6 @@
+id: R-0125-frailty-index-marker-frailty
+from: frailty-index
+to: frailty
+type: marker_of
+claims:
+  - C-0244-ov-frailty-index-deficits

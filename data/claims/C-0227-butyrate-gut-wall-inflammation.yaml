@@ -1,0 +1,9 @@
+id: C-0227-butyrate-gut-wall-inflammation
+statement: "Short-chain fatty acids (butyrate) made from fibre feed the gut wall and calm inflammation."
+concepts:
+  - dysbiosis
+  - short-chain-fatty-acids
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

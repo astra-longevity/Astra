@@ -1,0 +1,6 @@
+id: R-0075-senescence-aggravates-fibrosis
+from: cellular-senescence
+to: pulmonary-fibrosis
+type: aggravates
+claims:
+  - C-0151-senolysis-pulmonary-fibrosis-mice

@@ -1,0 +1,4 @@
+id: isrib
+kind: intervention
+name: "ISRIB"
+description: "Molecule that releases the brake of the \"integrated stress response\"."

@@ -1,0 +1,9 @@
+id: C-0006-loy-mortality-humans
+statement: "Loss of chromosome Y in blood affects a large share of older men and is associated with higher mortality."
+concepts:
+  - genomic-instability
+  - loss-of-y
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

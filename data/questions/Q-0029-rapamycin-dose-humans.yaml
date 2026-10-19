@@ -1,0 +1,8 @@
+id: Q-0029-rapamycin-dose-humans
+statement: "Which rapamycin dose and schedule targets mTORC1 in humans without the mTORC2-related side effects (high blood sugar, immunosuppression)?"
+concepts:
+  - disabled-macroautophagy
+  - rapamycin
+  - mtorc1
+mission: aging-map
+status: open

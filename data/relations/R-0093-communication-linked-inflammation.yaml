@@ -1,0 +1,7 @@
+id: R-0093-communication-linked-inflammation
+from: altered-intercellular-communication
+to: chronic-inflammation
+type: associated_with
+claims:
+  - C-0196-hypothalamic-nfkb-drives-aging
+note: "Inflammation is the most visible form of altered communication."

@@ -1,0 +1,10 @@
+id: C-0221-microbiome-diversity-diet-frailty
+statement: "In older Irish people, gut microbiome composition follows place of residence and diet; care-home residents with less varied diets have less diverse microbiomes, linked to more frailty and inflammation."
+concepts:
+  - dysbiosis
+  - gut-microbiome
+  - frailty
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

@@ -1,0 +1,6 @@
+id: R-0080-epigenome-aggravates-stem-cells
+from: epigenetic-alterations
+to: stem-cell-exhaustion
+type: aggravates
+claims:
+  - C-0169-epigenetic-info-loss-stem-cells

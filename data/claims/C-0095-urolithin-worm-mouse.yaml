@@ -1,0 +1,10 @@
+id: C-0095-urolithin-worm-mouse
+statement: "Urolithin A extends worm lifespan and improves mouse muscle."
+concepts:
+  - disabled-macroautophagy
+  - urolithin-a
+  - mitophagy
+organism: caenorhabditis-elegans
+evidence_level: 3
+confidence: established
+mission: aging-map

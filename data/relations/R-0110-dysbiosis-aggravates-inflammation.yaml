@@ -1,0 +1,7 @@
+id: R-0110-dysbiosis-aggravates-inflammation
+from: dysbiosis
+to: chronic-inflammation
+type: aggravates
+claims:
+  - C-0223-dysbiosis-leaky-gut-inflammation
+note: "Strongest link: gut permeability fuels inflammaging."

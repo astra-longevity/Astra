@@ -1,0 +1,10 @@
+id: C-0104-s6k1-deletion-extends-female-life
+statement: "Removing S6K1, the effector of mTORC1, extends the lifespan of female mice."
+concepts:
+  - deregulated-nutrient-sensing
+  - s6k1
+  - mtorc1
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

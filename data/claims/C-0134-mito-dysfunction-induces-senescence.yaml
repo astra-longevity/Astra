@@ -1,0 +1,9 @@
+id: C-0134-mito-dysfunction-induces-senescence
+statement: "Faulty mitochondria are enough to induce senescence with a distinct SASP driven by the NAD+/NADH ratio; removing mitochondria from a senescent cell erases much of its phenotype."
+concepts:
+  - mitochondrial-dysfunction
+  - cellular-senescence
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

@@ -1,0 +1,8 @@
+id: Q-0004-clonal-mosaicism-cause-or-marker
+statement: "Do mutated clones (CHIP, loss of Y, skin or oesophagus clones) cause disease or are they only markers? Should they be treated?"
+concepts:
+  - genomic-instability
+  - chip
+  - loss-of-y
+mission: aging-map
+status: open

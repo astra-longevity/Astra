@@ -1,0 +1,6 @@
+id: R-0069-senmayo-marker-of-senescence
+from: senmayo
+to: cellular-senescence
+type: marker_of
+claims:
+  - C-0154-senmayo-rises-with-age

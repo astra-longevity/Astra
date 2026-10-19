@@ -1,0 +1,10 @@
+id: gut-microbiome
+kind: other
+name: "Gut microbiome"
+synonyms:
+  - "microbiota"
+  - "gut bacteria"
+  - "Akkermansia"
+  - "Bifidobacterium"
+  - "Christensenellaceae"
+description: "The billions of bacteria, viruses and fungi living in the gut."

@@ -1,0 +1,5 @@
+id: chronic-kidney-disease
+kind: disease
+name: "Chronic kidney disease"
+synonyms:
+  - "diabetic kidney disease"

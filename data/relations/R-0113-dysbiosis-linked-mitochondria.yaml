@@ -1,0 +1,7 @@
+id: R-0113-dysbiosis-linked-mitochondria
+from: dysbiosis
+to: mitochondrial-dysfunction
+type: associated_with
+claims:
+  - C-0229-urolithin-a-mitophagy-worm-mouse
+note: "Through urolithin A and mitophagy."

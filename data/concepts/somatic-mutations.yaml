@@ -1,0 +1,4 @@
+id: somatic-mutations
+kind: process
+name: "Somatic mutations"
+description: "DNA copying errors that appear during life in the body's cells (not inherited)."

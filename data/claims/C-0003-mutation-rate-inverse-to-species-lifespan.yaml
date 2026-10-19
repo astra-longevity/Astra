@@ -1,0 +1,10 @@
+id: C-0003-mutation-rate-inverse-to-species-lifespan
+statement: "Across 16 mammals, the yearly somatic mutation rate is inversely proportional to lifespan: at the end of life, all carry a similar number of mutations."
+concepts:
+  - genomic-instability
+  - somatic-mutations
+organism: mus-musculus
+evidence_level: 3
+confidence: debated
+mission: aging-map
+note: "Cross-species correlation; does not prove causation (open question in the text). Organism: mouse used as stand-in for the 16 species."

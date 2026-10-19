@@ -1,0 +1,11 @@
+id: C-0049-progeroid-epigenetic-acceleration
+statement: "Accelerated aging syndromes show epigenetic acceleration: Werner syndrome with several clocks; Hutchinson-Gilford progeria with the \"skin & blood\" clock but not with the 2013 multi-tissue clock."
+concepts:
+  - epigenetic-alterations
+  - epigenetic-clocks
+  - werner-syndrome
+  - hutchinson-gilford-progeria
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

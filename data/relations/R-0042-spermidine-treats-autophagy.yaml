@@ -1,0 +1,7 @@
+id: R-0042-spermidine-treats-autophagy
+from: spermidine
+to: disabled-macroautophagy
+type: treats
+claims:
+  - C-0092-spermidine-extends-animal-life
+  - C-0087-spermidine-ep300-epigenetic

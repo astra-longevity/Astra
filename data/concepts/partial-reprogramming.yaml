@@ -1,0 +1,8 @@
+id: partial-reprogramming
+kind: intervention
+name: "Partial reprogramming"
+synonyms:
+  - "OSKM"
+  - "OSK"
+  - "Yamanaka factors"
+description: "Briefly switching on genes that take a cell back to a younger state without losing its identity."

@@ -1,0 +1,7 @@
+id: Q-0024-proteostasis-worm-translation
+statement: "Does the causal evidence on lifespan, mostly from the C. elegans worm, carry over to humans?"
+concepts:
+  - loss-of-proteostasis
+  - caenorhabditis-elegans
+mission: aging-map
+status: open

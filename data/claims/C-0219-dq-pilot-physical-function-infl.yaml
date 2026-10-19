@@ -1,0 +1,11 @@
+id: C-0219-dq-pilot-physical-function-infl
+statement: "In an open pilot trial (14 patients with pulmonary fibrosis), D+Q improved physical function and was feasible."
+concepts:
+  - chronic-inflammation
+  - dasatinib-quercetin
+  - pulmonary-fibrosis
+  - sasp
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

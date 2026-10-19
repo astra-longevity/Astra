@@ -1,0 +1,10 @@
+id: C-0196-hypothalamic-nfkb-drives-aging
+statement: "Local inflammation in the hypothalamus (IKK-beta/NF-kB) speeds up whole-body aging in mice, and blocking it extends lifespan."
+concepts:
+  - altered-intercellular-communication
+  - hypothalamic-nf-kb
+  - chronic-inflammation
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

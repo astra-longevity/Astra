@@ -1,0 +1,10 @@
+id: C-0071-patisiran-attr-neuropathy
+statement: "Patisiran (an RNA interference drug that lowers TTR production) improves neuropathy and quality of life in hereditary ATTR (phase 3); approved."
+concepts:
+  - loss-of-proteostasis
+  - patisiran
+  - attr-amyloidosis
+organism: homo-sapiens
+evidence_level: 6
+confidence: established
+mission: aging-map

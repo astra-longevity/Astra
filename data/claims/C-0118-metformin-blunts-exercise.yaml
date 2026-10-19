@@ -1,0 +1,11 @@
+id: C-0118-metformin-blunts-exercise
+statement: "In a randomized trial in older adults, metformin blunts the mitochondrial gains of exercise training."
+concepts:
+  - deregulated-nutrient-sensing
+  - metformin
+  - exercise
+  - mitochondrial-dysfunction
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

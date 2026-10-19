@@ -1,0 +1,9 @@
+id: C-0182-long-term-reprogramming-wild-type
+statement: "Long-term partial reprogramming in normal old mice changes molecular aging markers without tumours detected in the study."
+concepts:
+  - stem-cell-exhaustion
+  - partial-reprogramming
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

@@ -1,0 +1,9 @@
+id: C-0031-telomere-damage-non-dividing-tissues
+statement: "Unrepaired telomeric lesions build up with age even in tissues that do not divide (neurons, muscle), in mice and primates: the hallmark is not only about length."
+concepts:
+  - telomere-attrition
+  - telomere-dna-damage
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

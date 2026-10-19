@@ -1,0 +1,7 @@
+id: R-0118-fmt-treats-dysbiosis
+from: fecal-microbiota-transplant
+to: dysbiosis
+type: treats
+claims:
+  - C-0233-fmt-progeroid-mice
+  - C-0234-fmt-young-old-mice-gut-eye-brain

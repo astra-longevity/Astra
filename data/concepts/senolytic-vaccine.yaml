@@ -1,0 +1,5 @@
+id: senolytic-vaccine
+kind: intervention
+name: "Senolytic vaccine (anti-GPNMB)"
+synonyms:
+  - "GPNMB"

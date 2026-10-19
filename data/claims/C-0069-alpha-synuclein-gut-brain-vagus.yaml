@@ -1,0 +1,10 @@
+id: C-0069-alpha-synuclein-gut-brain-vagus
+statement: "In mice, pathological alpha-synuclein injected into the gut reaches the brain through the vagus nerve."
+concepts:
+  - loss-of-proteostasis
+  - dysbiosis
+  - parkinson-disease
+organism: mus-musculus
+evidence_level: 3
+confidence: speculative
+mission: aging-map

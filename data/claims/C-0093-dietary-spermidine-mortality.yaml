@@ -1,0 +1,10 @@
+id: C-0093-dietary-spermidine-mortality
+statement: "In the Bruneck cohort, high dietary spermidine intake is associated with lower mortality."
+concepts:
+  - disabled-macroautophagy
+  - spermidine
+organism: homo-sapiens
+evidence_level: 4
+confidence: debated
+mission: aging-map
+note: "Observational association."

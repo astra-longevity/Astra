@@ -1,0 +1,6 @@
+id: cdc42
+kind: gene
+name: "Cdc42"
+synonyms:
+  - "CASIN"
+description: "Protein whose overactivity in old blood stem cells disorganises them."

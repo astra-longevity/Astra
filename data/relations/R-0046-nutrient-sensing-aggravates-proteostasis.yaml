@@ -1,0 +1,7 @@
+id: R-0046-nutrient-sensing-aggravates-proteostasis
+from: deregulated-nutrient-sensing
+to: loss-of-proteostasis
+type: aggravates
+claims:
+  - C-0103-mtorc1-drives-growth-brakes-autophagy
+note: "mTORC1 pushes protein making faster than quality control can follow."

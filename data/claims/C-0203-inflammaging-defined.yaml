@@ -1,0 +1,8 @@
+id: C-0203-inflammaging-defined
+statement: "With age the body keeps up a low but permanent inflammation without infection or injury (\"inflammaging\"), while the immune system becomes less effective (immunosenescence)."
+concepts:
+  - chronic-inflammation
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

@@ -1,0 +1,10 @@
+id: C-0054-osk-restores-vision
+statement: "Partial reprogramming (OSK) of retinal neurons restores vision in old or glaucomatous mice and rejuvenates their methylation clock."
+concepts:
+  - epigenetic-alterations
+  - partial-reprogramming
+  - epigenetic-clocks
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

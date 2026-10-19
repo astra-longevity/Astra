@@ -1,0 +1,9 @@
+id: C-0211-pge2-macrophages-cognitive-decline
+statement: "Old macrophages with metabolism disturbed by PGE2 sustain brain inflammation; restoring their metabolism (EP2 blockade) reverses cognitive decline in mice."
+concepts:
+  - chronic-inflammation
+  - pge2-ep2-blockade
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

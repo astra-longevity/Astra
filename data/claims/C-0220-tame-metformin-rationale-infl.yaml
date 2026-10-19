@@ -1,0 +1,9 @@
+id: C-0220-tame-metformin-rationale-infl
+statement: "Metformin has been proposed (TAME project) to target aging itself, through metabolism and inflammation; no results yet."
+concepts:
+  - chronic-inflammation
+  - metformin
+organism: homo-sapiens
+evidence_level: 4
+confidence: speculative
+mission: aging-map

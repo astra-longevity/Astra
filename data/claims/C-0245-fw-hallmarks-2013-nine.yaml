@@ -1,0 +1,9 @@
+id: C-0245-fw-hallmarks-2013-nine
+statement: "In 2013, López-Otín and colleagues proposed 9 hallmarks of aging, grouped as primary, antagonistic and integrative."
+concepts:
+  - hallmarks-of-aging
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map
+note: "Organising framework, not an experimental result."

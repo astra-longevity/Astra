@@ -1,0 +1,10 @@
+id: C-0117-tame-rationale
+statement: "The TAME trial was designed to test whether metformin delays age-related diseases in humans."
+concepts:
+  - deregulated-nutrient-sensing
+  - metformin
+organism: homo-sapiens
+evidence_level: 4
+confidence: speculative
+mission: aging-map
+note: "TAME has not started: no ClinicalTrials.gov record (search of 2026-10-19); still unfunded per secondary sources [to verify: no primary source]."

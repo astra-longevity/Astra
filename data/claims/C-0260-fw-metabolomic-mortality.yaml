@@ -1,0 +1,8 @@
+id: C-0260-fw-metabolomic-mortality
+statement: "Fourteen blood metabolites measured by NMR are associated with all-cause mortality in 44,168 people."
+concepts:
+  - metabolomic-mortality-score
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

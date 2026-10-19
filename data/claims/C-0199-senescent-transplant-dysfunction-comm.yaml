@@ -1,0 +1,11 @@
+id: C-0199-senescent-transplant-dysfunction-comm
+statement: "Transplanting a few senescent cells into a young mouse causes lasting physical dysfunction; D+Q improves physical function and survival."
+concepts:
+  - altered-intercellular-communication
+  - sasp
+  - dasatinib-quercetin
+  - cellular-senescence
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

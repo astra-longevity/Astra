@@ -1,0 +1,10 @@
+id: C-0186-young-blood-rejuvenates-muscle-liver
+statement: "In heterochronic parabiosis, young blood restores muscle and liver stem cell activity in old mice."
+concepts:
+  - altered-intercellular-communication
+  - heterochronic-parabiosis
+  - stem-cell-exhaustion
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

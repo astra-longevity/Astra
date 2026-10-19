@@ -1,0 +1,7 @@
+id: R-0076-senolytics-treat-senescence
+from: senolytics
+to: cellular-senescence
+type: treats
+claims:
+  - C-0148-ink-attac-normal-lifespan
+  - C-0149-transplanted-senescent-cells-dysfunction

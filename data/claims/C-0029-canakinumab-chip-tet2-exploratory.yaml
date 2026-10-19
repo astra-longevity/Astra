@@ -1,0 +1,12 @@
+id: C-0029-canakinumab-chip-tet2-exploratory
+statement: "In an exploratory analysis of the CANTOS trial, canakinumab reduced cardiovascular events in TET2 CHIP carriers (HR 0.38); the interaction was not significant."
+concepts:
+  - genomic-instability
+  - canakinumab
+  - chip
+  - tet2
+  - il-1b
+organism: homo-sapiens
+evidence_level: 5
+confidence: speculative
+mission: aging-map

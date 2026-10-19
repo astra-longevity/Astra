@@ -1,0 +1,10 @@
+id: C-0016-ercc1-immune-cells-age-organs
+statement: "Deleting Ercc1 in immune cells alone is enough to age solid organs in mice."
+concepts:
+  - genomic-instability
+  - ercc1
+  - altered-intercellular-communication
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

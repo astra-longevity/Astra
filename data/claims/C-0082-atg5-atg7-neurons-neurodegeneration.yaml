@@ -1,0 +1,10 @@
+id: C-0082-atg5-atg7-neurons-neurodegeneration
+statement: "Removing Atg5 or Atg7 in mouse neurons causes aggregates and neurodegeneration, even without any mutant protein."
+concepts:
+  - disabled-macroautophagy
+  - atg-genes
+  - loss-of-proteostasis
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

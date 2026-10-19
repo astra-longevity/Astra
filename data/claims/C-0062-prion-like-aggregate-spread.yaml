@@ -1,0 +1,12 @@
+id: C-0062-prion-like-aggregate-spread
+statement: "Some aggregates (amyloid-beta, tau, alpha-synuclein) convert healthy proteins and spread from cell to cell, which explains how neurodegenerative diseases progress through the brain."
+concepts:
+  - loss-of-proteostasis
+  - protein-aggregation
+  - alzheimer-disease
+  - parkinson-disease
+  - altered-intercellular-communication
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

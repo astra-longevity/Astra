@@ -1,0 +1,6 @@
+id: Q-0055-mouse-to-human-slow-tissues
+statement: "Do mouse results (often progeroid) carry over to slowly renewing human tissues?"
+concepts:
+  - stem-cell-exhaustion
+mission: aging-map
+status: open

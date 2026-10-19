@@ -1,0 +1,10 @@
+id: C-0181-osk-vision-dna-demethylation
+statement: "In mouse eyes, OSK (without c-Myc) restores vision after optic nerve injury and in old animals, in a way that depends on DNA demethylation."
+concepts:
+  - stem-cell-exhaustion
+  - partial-reprogramming
+  - epigenetic-alterations
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

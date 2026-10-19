@@ -1,0 +1,9 @@
+id: C-0100-igf1r-variants-centenarians
+statement: "IGF-1 receptor variants that lower its activity are more frequent in Ashkenazi centenarians."
+concepts:
+  - deregulated-nutrient-sensing
+  - igf-1
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

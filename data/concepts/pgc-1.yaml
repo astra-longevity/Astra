@@ -1,0 +1,7 @@
+id: pgc-1
+kind: protein
+name: "PGC-1alpha/beta"
+synonyms:
+  - "PGC-1α"
+  - "PGC-1β"
+description: "Master regulators of mitochondria production."

@@ -1,0 +1,9 @@
+id: C-0169-epigenetic-info-loss-stem-cells
+statement: "In mice, loss of epigenetic information is enough to speed up aging traits, and it is partly reversible."
+concepts:
+  - stem-cell-exhaustion
+  - epigenetic-alterations
+organism: mus-musculus
+evidence_level: 3
+confidence: debated
+mission: aging-map

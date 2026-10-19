@@ -1,0 +1,9 @@
+id: C-0053-cyclic-oskm-extends-progeroid-life
+statement: "In progeroid mice, cyclic expression of the 4 Yamanaka factors improves several organs and extends lifespan by about 30%."
+concepts:
+  - epigenetic-alterations
+  - partial-reprogramming
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

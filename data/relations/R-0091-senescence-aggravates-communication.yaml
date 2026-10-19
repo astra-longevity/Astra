@@ -1,0 +1,7 @@
+id: R-0091-senescence-aggravates-communication
+from: cellular-senescence
+to: altered-intercellular-communication
+type: aggravates
+claims:
+  - C-0198-paracrine-senescence-inflammasome
+note: "The SASP is the main channel spreading aging signals."

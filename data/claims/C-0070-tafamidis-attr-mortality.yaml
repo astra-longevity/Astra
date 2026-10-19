@@ -1,0 +1,10 @@
+id: C-0070-tafamidis-attr-mortality
+statement: "Tafamidis, which stabilises transthyretin, reduces mortality and cardiovascular hospitalisations in cardiac ATTR amyloidosis (phase 3); approved."
+concepts:
+  - loss-of-proteostasis
+  - tafamidis
+  - attr-amyloidosis
+organism: homo-sapiens
+evidence_level: 6
+confidence: established
+mission: aging-map

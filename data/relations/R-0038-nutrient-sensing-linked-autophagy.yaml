@@ -1,0 +1,6 @@
+id: R-0038-nutrient-sensing-linked-autophagy
+from: deregulated-nutrient-sensing
+to: disabled-macroautophagy
+type: associated_with
+claims:
+  - C-0081-autophagy-required-worm-longevity

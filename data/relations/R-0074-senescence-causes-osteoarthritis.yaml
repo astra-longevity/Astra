@@ -1,0 +1,6 @@
+id: R-0074-senescence-causes-osteoarthritis
+from: cellular-senescence
+to: osteoarthritis
+type: causes
+claims:
+  - C-0152-senolysis-osteoarthritis-mice

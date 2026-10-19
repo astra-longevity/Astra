@@ -1,0 +1,11 @@
+id: C-0168-hsc-mutations-clonal-hematopoiesis
+statement: "Blood stem cells build up mutations; some give a growth advantage, leading to clonal hematopoiesis (CHIP)."
+concepts:
+  - stem-cell-exhaustion
+  - hematopoietic-stem-cells
+  - chip
+  - genomic-instability
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

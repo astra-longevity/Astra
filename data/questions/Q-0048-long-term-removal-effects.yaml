@@ -1,0 +1,6 @@
+id: Q-0048-long-term-removal-effects
+statement: "What are the long-term effects of removing senescent cells, given their useful roles (wound healing)?"
+concepts:
+  - cellular-senescence
+mission: aging-map
+status: open

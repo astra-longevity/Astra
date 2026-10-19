@@ -1,0 +1,9 @@
+id: C-0185-msc-infusion-frailty
+statement: "In a phase I/II trial, allogeneic mesenchymal stem cell infusions for frailty had acceptable safety and signs of functional improvement (small sample)."
+concepts:
+  - stem-cell-exhaustion
+  - mesenchymal-stem-cell-infusion
+organism: homo-sapiens
+evidence_level: 5
+confidence: speculative
+mission: aging-map

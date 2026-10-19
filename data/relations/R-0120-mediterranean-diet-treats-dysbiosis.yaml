@@ -1,0 +1,6 @@
+id: R-0120-mediterranean-diet-treats-dysbiosis
+from: mediterranean-diet
+to: dysbiosis
+type: treats
+claims:
+  - C-0235-nu-age-mediterranean-diet

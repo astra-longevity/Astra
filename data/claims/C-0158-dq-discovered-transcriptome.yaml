@@ -1,0 +1,10 @@
+id: C-0158-dq-discovered-transcriptome
+statement: "Dasatinib + quercetin was found by transcriptome analysis of senescent-cell survival pathways."
+concepts:
+  - cellular-senescence
+  - dasatinib-quercetin
+  - senolytics
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

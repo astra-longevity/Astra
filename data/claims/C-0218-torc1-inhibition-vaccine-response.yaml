@@ -1,0 +1,10 @@
+id: C-0218-torc1-inhibition-vaccine-response
+statement: "In a phase IIa trial, mTORC1 inhibitors improved vaccine response and reduced infections in older people."
+concepts:
+  - chronic-inflammation
+  - mtorc1
+  - deregulated-nutrient-sensing
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

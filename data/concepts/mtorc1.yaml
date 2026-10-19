@@ -1,0 +1,7 @@
+id: mtorc1
+kind: pathway
+name: "mTOR (mTORC1)"
+synonyms:
+  - "mTOR"
+  - "TORC1"
+description: "Food-abundance sensor: when active, the cell grows and recycles less."

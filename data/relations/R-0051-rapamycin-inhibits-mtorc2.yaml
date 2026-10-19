@@ -1,0 +1,6 @@
+id: R-0051-rapamycin-inhibits-mtorc2
+from: rapamycin
+to: mtorc2
+type: inhibits
+claims:
+  - C-0105-rapamycin-glucose-via-mtorc2

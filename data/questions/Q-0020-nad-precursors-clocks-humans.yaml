@@ -1,0 +1,9 @@
+id: Q-0020-nad-precursors-clocks-humans
+statement: "Do NAD+ precursors have an effect on epigenetic clocks in humans?"
+concepts:
+  - epigenetic-alterations
+  - nad-precursors
+  - epigenetic-clocks
+mission: aging-map
+status: open
+note: "Marked [to verify] in file 03: no effect shown, no source."

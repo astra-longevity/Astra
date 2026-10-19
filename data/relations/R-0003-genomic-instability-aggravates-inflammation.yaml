@@ -1,0 +1,8 @@
+id: R-0003-genomic-instability-aggravates-inflammation
+from: genomic-instability
+to: chronic-inflammation
+type: aggravates
+claims:
+  - C-0205-cgas-sting-drives-aging-inflammation
+  - C-0206-chip-prevalence-mortality-infl
+note: "Mutated blood stem cells create CHIP; misplaced DNA activates cGAS-STING."

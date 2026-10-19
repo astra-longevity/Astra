@@ -1,0 +1,11 @@
+id: C-0202-plasma-trial-young-plasma-safe
+statement: "In the PLASMA phase I trial, young plasma infusion in Alzheimer was safe and feasible, with no proven efficacy (small sample)."
+concepts:
+  - altered-intercellular-communication
+  - young-plasma
+  - alzheimer-disease
+organism: homo-sapiens
+evidence_level: 5
+confidence: speculative
+mission: aging-map
+note: "FDA warned on 19 Feb 2019 that commercial young-plasma infusions have no proven clinical benefit and real risks (FDA web page, no DOI)."

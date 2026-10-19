@@ -1,0 +1,7 @@
+id: X-0003-reprogramming-no-tumour-vs-teratoma
+claims:
+  - C-0055-long-term-reprogramming-no-tumour
+  - C-0056-reprogramming-teratoma-risk
+mission: aging-map
+explanation: "One partial reprogramming protocol gave no tumours, while full or poorly controlled reprogramming gives teratomas and cancers: safety depends on dose, duration and tissue."
+status: open

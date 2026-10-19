@@ -1,0 +1,6 @@
+id: Q-0063-inflammation-cause-or-marker
+statement: "Is inflammation a driver of aging or mainly a marker? Randomized trials on aging outcomes are missing."
+concepts:
+  - chronic-inflammation
+mission: aging-map
+status: open

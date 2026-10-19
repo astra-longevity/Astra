@@ -1,0 +1,11 @@
+id: C-0132-mtdna-release-cgas-sting
+statement: "Damaged mitochondria can release their DNA into the cell, where it is mistaken for a virus and triggers an interferon response through cGAS-STING."
+concepts:
+  - mitochondrial-dysfunction
+  - mtdna-mutations
+  - cgas-sting
+  - chronic-inflammation
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

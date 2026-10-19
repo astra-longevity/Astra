@@ -1,0 +1,7 @@
+id: R-0034-autophagy-aggravates-proteostasis
+from: disabled-macroautophagy
+to: loss-of-proteostasis
+type: aggravates
+claims:
+  - C-0082-atg5-atg7-neurons-neurodegeneration
+note: "Macroautophagy is the only route that clears large aggregates."

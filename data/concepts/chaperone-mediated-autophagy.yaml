@@ -1,0 +1,7 @@
+id: chaperone-mediated-autophagy
+kind: process
+name: "Chaperone-mediated autophagy (CMA)"
+synonyms:
+  - "CMA"
+  - "LAMP2A"
+description: "Route that feeds damaged proteins one by one into the lysosome to be destroyed."

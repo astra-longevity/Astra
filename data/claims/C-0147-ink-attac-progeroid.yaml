@@ -1,0 +1,9 @@
+id: C-0147-ink-attac-progeroid
+statement: "Genetically removing p16-positive cells (INK-ATTAC model) delays age-related pathologies in fast-aging mice."
+concepts:
+  - cellular-senescence
+  - p16ink4a
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

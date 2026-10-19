@@ -1,0 +1,4 @@
+id: telomere-dna-damage
+kind: process
+name: "Persistent telomeric DNA damage"
+description: "Lesions in telomeres that the cell does not repair and that keep an alarm signal on permanently."

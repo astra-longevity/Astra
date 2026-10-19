@@ -1,0 +1,9 @@
+id: C-0139-nmn-mice-physiological-decline
+statement: "In mice, NMN dampens age-related physiological decline."
+concepts:
+  - mitochondrial-dysfunction
+  - nad-precursors
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

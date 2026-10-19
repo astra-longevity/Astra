@@ -1,0 +1,6 @@
+id: Q-0026-measure-autophagic-flux
+statement: "How can autophagic flux be measured in humans (blood, biopsy) so that an intervention can be dosed?"
+concepts:
+  - disabled-macroautophagy
+mission: aging-map
+status: open

@@ -1,0 +1,9 @@
+id: C-0231-metformin-worm-bacteria
+statement: "Metformin extends worm lifespan by changing the metabolism of its bacteria (folate and methionine)."
+concepts:
+  - dysbiosis
+  - metformin
+organism: caenorhabditis-elegans
+evidence_level: 2
+confidence: established
+mission: aging-map

@@ -1,0 +1,6 @@
+id: metformin
+kind: intervention
+name: "Metformin"
+synonyms:
+  - "TAME"
+description: "Diabetes drug that indirectly activates AMPK."

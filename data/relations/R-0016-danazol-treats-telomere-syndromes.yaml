@@ -1,0 +1,6 @@
+id: R-0016-danazol-treats-telomere-syndromes
+from: danazol
+to: telomere-syndromes
+type: treats
+claims:
+  - C-0038-danazol-lengthens-telomeres

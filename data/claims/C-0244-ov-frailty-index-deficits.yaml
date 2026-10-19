@@ -1,0 +1,9 @@
+id: C-0244-ov-frailty-index-deficits
+statement: "A frailty index counts the share of health deficits a person has; it serves as a proxy measure of aging."
+concepts:
+  - frailty-index
+  - frailty
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

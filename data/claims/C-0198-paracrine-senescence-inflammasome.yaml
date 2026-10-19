@@ -1,0 +1,10 @@
+id: C-0198-paracrine-senescence-inflammasome
+statement: "The SASP of senescent cells makes their neighbours senescent (paracrine senescence), orchestrated by the inflammasome."
+concepts:
+  - altered-intercellular-communication
+  - sasp
+  - cellular-senescence
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

@@ -1,0 +1,11 @@
+id: C-0131-pink1-parkin-mitophagy-parkinson
+statement: "The cell normally removes worn-out mitochondria through the PINK1/Parkin pathway, whose mutations cause familial forms of Parkinson."
+concepts:
+  - mitochondrial-dysfunction
+  - pink1-parkin
+  - mitophagy
+  - parkinson-disease
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

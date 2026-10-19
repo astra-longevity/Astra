@@ -1,0 +1,8 @@
+id: C-0254-fw-clocks-first-second-third-gen
+statement: "Epigenetic clocks evolved from predicting calendar age (Horvath, Hannum) to predicting disease and death (PhenoAge, GrimAge) and measuring the pace of aging (DunedinPACE)."
+concepts:
+  - epigenetic-clocks
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

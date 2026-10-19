@@ -1,0 +1,7 @@
+id: R-0048-nutrient-sensing-linked-mitochondria
+from: deregulated-nutrient-sensing
+to: mitochondrial-dysfunction
+type: associated_with
+claims:
+  - C-0118-metformin-blunts-exercise
+note: "AMPK/PGC-1alpha and sirtuins control mitochondria; falling NAD+ links both."

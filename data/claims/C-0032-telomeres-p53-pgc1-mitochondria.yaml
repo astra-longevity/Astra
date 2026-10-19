@@ -1,0 +1,11 @@
+id: C-0032-telomeres-p53-pgc1-mitochondria
+statement: "In telomerase-deficient mice, p53 represses PGC-1α/β: telomere dysfunction leads to metabolic and mitochondrial dysfunction."
+concepts:
+  - telomere-attrition
+  - p53
+  - pgc-1
+  - mitochondrial-dysfunction
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

@@ -1,0 +1,9 @@
+id: C-0195-klotho-loss-aging-syndrome
+statement: "Loss of Klotho in mice causes a syndrome resembling aging."
+concepts:
+  - altered-intercellular-communication
+  - klotho
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

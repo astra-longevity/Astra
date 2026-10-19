@@ -1,0 +1,8 @@
+id: Q-0025-anti-amyloid-timing
+statement: "Should treatment start before symptoms, as the anti-amyloid trials suggest?"
+concepts:
+  - loss-of-proteostasis
+  - anti-amyloid-antibodies
+  - alzheimer-disease
+mission: aging-map
+status: open

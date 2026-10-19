@@ -1,0 +1,9 @@
+id: C-0122-acarbose-extends-male-life
+statement: "Acarbose extends mouse lifespan, especially in males (ITP)."
+concepts:
+  - deregulated-nutrient-sensing
+  - acarbose
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

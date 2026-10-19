@@ -1,0 +1,7 @@
+id: protein-aggregation
+kind: process
+name: "Protein aggregation"
+synonyms:
+  - "aggregates"
+  - "proteinopathies"
+description: "Misfolded proteins stick together into toxic clumps."

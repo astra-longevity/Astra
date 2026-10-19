@@ -1,0 +1,10 @@
+id: C-0194-gpld1-exercise-brain
+statement: "The liver enzyme GPLD1 carries the brain benefits of exercise and improves cognition in old mice."
+concepts:
+  - altered-intercellular-communication
+  - gpld1
+  - exercise
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

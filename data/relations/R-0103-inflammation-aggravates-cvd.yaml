@@ -1,0 +1,7 @@
+id: R-0103-inflammation-aggravates-cvd
+from: chronic-inflammation
+to: cardiovascular-disease
+type: aggravates
+claims:
+  - C-0212-inflammation-common-risk-factor
+  - C-0214-cantos-canakinumab-cv-events

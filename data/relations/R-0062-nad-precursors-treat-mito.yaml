@@ -1,0 +1,7 @@
+id: R-0062-nad-precursors-treat-mito
+from: nad-precursors
+to: mitochondrial-dysfunction
+type: treats
+claims:
+  - C-0135-nad-restores-muscle-stem-cells
+  - C-0139-nmn-mice-physiological-decline

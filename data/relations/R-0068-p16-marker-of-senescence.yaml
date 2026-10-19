@@ -1,0 +1,6 @@
+id: R-0068-p16-marker-of-senescence
+from: p16ink4a
+to: cellular-senescence
+type: marker_of
+claims:
+  - C-0144-p16-rises-with-age-humans

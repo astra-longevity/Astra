@@ -1,0 +1,5 @@
+id: tert-gene-therapy
+kind: intervention
+name: "TERT gene therapy"
+synonyms:
+  - "AAV9-TERT"

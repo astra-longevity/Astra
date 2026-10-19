@@ -1,0 +1,7 @@
+id: R-0005-genomic-instability-linked-nutrient-sensing
+from: genomic-instability
+to: deregulated-nutrient-sensing
+type: associated_with
+claims:
+  - C-0015-ercc1-survival-mode-igf1
+  - C-0022-repair-consumes-nad

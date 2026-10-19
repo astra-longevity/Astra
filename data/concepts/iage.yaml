@@ -1,0 +1,9 @@
+id: iage
+kind: biomarker
+name: "iAge inflammatory clock"
+synonyms:
+  - "iAge"
+  - "inflammatory clock"
+  - "CRP"
+  - "IL-6"
+description: "Deep-learning clock built on blood cytokines that tracks multimorbidity and frailty."

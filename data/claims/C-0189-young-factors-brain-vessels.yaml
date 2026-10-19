@@ -1,0 +1,9 @@
+id: C-0189-young-factors-brain-vessels
+statement: "Young blood factors rejuvenate brain blood vessels in old mice."
+concepts:
+  - altered-intercellular-communication
+  - young-plasma
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

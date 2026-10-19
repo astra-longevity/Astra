@@ -1,0 +1,11 @@
+id: C-0075-amx0035-als-not-confirmed
+statement: "AMX0035 slowed functional decline in ALS in phase 2, but phase 3 (PHOENIX) was negative and it was withdrawn from the market in 2024."
+concepts:
+  - loss-of-proteostasis
+  - amx0035
+  - als
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map
+note: "Only phase 2 has a DOI; the PHOENIX failure is sourced by a press release (no DOI)."

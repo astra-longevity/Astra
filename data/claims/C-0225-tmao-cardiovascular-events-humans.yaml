@@ -1,0 +1,10 @@
+id: C-0225-tmao-cardiovascular-events-humans
+statement: "In humans, high TMAO is associated with more cardiovascular events."
+concepts:
+  - dysbiosis
+  - tmao
+  - cardiovascular-disease
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

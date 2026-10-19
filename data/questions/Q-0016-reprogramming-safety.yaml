@@ -1,0 +1,8 @@
+id: Q-0016-reprogramming-safety
+statement: "How can reprogramming be made safe (dose, duration, tissue, vector) without teratomas or loss of cell identity?"
+concepts:
+  - epigenetic-alterations
+  - partial-reprogramming
+  - teratoma
+mission: aging-map
+status: open

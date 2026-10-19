@@ -1,0 +1,9 @@
+id: C-0146-transient-senescence-wound-healing
+statement: "Transient senescence helps wounds heal through PDGF-AA."
+concepts:
+  - cellular-senescence
+  - sasp
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

@@ -1,0 +1,7 @@
+id: hypothalamic-nf-kb
+kind: pathway
+name: "Hypothalamic IKK-beta/NF-kB inflammation"
+synonyms:
+  - "NF-kB"
+  - "IKK-beta"
+  - "hypothalamus"

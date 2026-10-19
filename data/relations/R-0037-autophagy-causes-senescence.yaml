@@ -1,0 +1,6 @@
+id: R-0037-autophagy-causes-senescence
+from: disabled-macroautophagy
+to: cellular-senescence
+type: causes
+claims:
+  - C-0088-muscle-stem-cells-autophagy

@@ -1,0 +1,12 @@
+id: C-0035-telomerase-mutations-telomere-syndromes
+statement: "Mutations in telomerase genes cause telomere syndromes: bone marrow failure, pulmonary fibrosis, cirrhosis, early greying, cancers; they appear earlier in each generation."
+concepts:
+  - telomere-attrition
+  - telomere-syndromes
+  - telomerase
+  - pulmonary-fibrosis
+  - stem-cell-exhaustion
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

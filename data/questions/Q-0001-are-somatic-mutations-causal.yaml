@@ -1,0 +1,7 @@
+id: Q-0001-are-somatic-mutations-causal
+statement: "Are somatic mutations numerous enough to explain the functional decline of normal aging, or are they mainly a cancer risk?"
+concepts:
+  - genomic-instability
+  - somatic-mutations
+mission: aging-map
+status: open

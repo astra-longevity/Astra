@@ -1,0 +1,4 @@
+id: cellular-senescence
+kind: hallmark
+name: "Cellular senescence"
+description: "Cells stop dividing for good and release inflammatory signals."

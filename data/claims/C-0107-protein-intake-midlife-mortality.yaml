@@ -1,0 +1,12 @@
+id: C-0107-protein-intake-midlife-mortality
+statement: "In the NHANES cohort, high protein intake at ages 50-65 is associated with higher IGF-1 and more cancer and deaths, with a reversal after 65."
+concepts:
+  - deregulated-nutrient-sensing
+  - protein-restriction
+  - igf-1
+  - cancer
+organism: homo-sapiens
+evidence_level: 4
+confidence: debated
+mission: aging-map
+note: "Observational study, to be read with caution (stated in the text)."

@@ -1,0 +1,11 @@
+id: C-0108-diet-longevity-synthesis
+statement: "Reviews of diet and longevity: slowing growth signals (fewer calories, less protein) and switching on maintenance extends life in model species; exercise activates AMPK and PGC-1alpha and restores insulin sensitivity."
+concepts:
+  - deregulated-nutrient-sensing
+  - caloric-restriction
+  - exercise
+  - ampk
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

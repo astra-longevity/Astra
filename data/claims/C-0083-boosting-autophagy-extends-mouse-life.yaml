@@ -1,0 +1,9 @@
+id: C-0083-boosting-autophagy-extends-mouse-life
+statement: "Raising Atg5 or making Beclin 1 constantly active extends mouse lifespan and delays age-related diseases."
+concepts:
+  - disabled-macroautophagy
+  - atg-genes
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

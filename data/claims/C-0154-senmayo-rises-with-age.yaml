@@ -1,0 +1,9 @@
+id: C-0154-senmayo-rises-with-age
+statement: "The SenMayo gene set detects senescent cells in gene-expression data and rises with age in several human tissues."
+concepts:
+  - cellular-senescence
+  - senmayo
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

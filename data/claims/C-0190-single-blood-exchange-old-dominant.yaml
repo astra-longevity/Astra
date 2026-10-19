@@ -1,0 +1,9 @@
+id: C-0190-single-blood-exchange-old-dominant
+statement: "A single blood exchange shows that the inhibiting effect of old blood is fast and strong, often stronger than the benefit of young blood."
+concepts:
+  - altered-intercellular-communication
+  - heterochronic-parabiosis
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

@@ -1,0 +1,9 @@
+id: C-0026-nad-precursors-mice
+statement: "In mice, NAD+ precursors soften age-related declines."
+concepts:
+  - genomic-instability
+  - nad-precursors
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

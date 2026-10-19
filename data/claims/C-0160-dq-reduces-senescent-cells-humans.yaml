@@ -1,0 +1,10 @@
+id: C-0160-dq-reduces-senescent-cells-humans
+statement: "In a phase 1 trial (9 patients with diabetic kidney disease), 3 days of D+Q reduced senescent cells in fat and skin 11 days later: first direct proof in humans."
+concepts:
+  - cellular-senescence
+  - dasatinib-quercetin
+  - chronic-kidney-disease
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

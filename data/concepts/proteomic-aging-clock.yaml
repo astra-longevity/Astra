@@ -1,0 +1,6 @@
+id: proteomic-aging-clock
+kind: biomarker
+name: "Proteomic aging clock"
+synonyms:
+  - "plasma proteome clock"
+  - "organ aging signatures"

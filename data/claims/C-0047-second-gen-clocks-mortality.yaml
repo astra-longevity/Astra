@@ -1,0 +1,11 @@
+id: C-0047-second-gen-clocks-mortality
+statement: "Acceleration of second-generation clocks (PhenoAge, GrimAge) is associated with higher mortality, cardiovascular disease, cancer and cognitive decline."
+concepts:
+  - epigenetic-alterations
+  - epigenetic-clocks
+  - cardiovascular-disease
+  - cancer
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

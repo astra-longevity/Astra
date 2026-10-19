@@ -1,0 +1,6 @@
+id: R-0107-canakinumab-inhibits-il1b
+from: canakinumab
+to: il-1b
+type: inhibits
+claims:
+  - C-0214-cantos-canakinumab-cv-events

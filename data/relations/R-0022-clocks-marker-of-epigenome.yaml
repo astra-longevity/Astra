@@ -1,0 +1,7 @@
+id: R-0022-clocks-marker-of-epigenome
+from: epigenetic-clocks
+to: epigenetic-alterations
+type: marker_of
+claims:
+  - C-0046-clocks-predict-age
+  - C-0047-second-gen-clocks-mortality

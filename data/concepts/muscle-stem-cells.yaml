@@ -1,0 +1,5 @@
+id: muscle-stem-cells
+kind: cell-type
+name: "Muscle stem cells (satellite cells)"
+synonyms:
+  - "satellite cells"

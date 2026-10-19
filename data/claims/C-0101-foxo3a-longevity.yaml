@@ -1,0 +1,9 @@
+id: C-0101-foxo3a-longevity
+statement: "The FOXO3A genotype is one of the most replicated genetic associations with longevity."
+concepts:
+  - deregulated-nutrient-sensing
+  - foxo3a
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

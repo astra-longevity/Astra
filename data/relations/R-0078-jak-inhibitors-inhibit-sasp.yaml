@@ -1,0 +1,6 @@
+id: R-0078-jak-inhibitors-inhibit-sasp
+from: jak-inhibitors
+to: sasp
+type: inhibits
+claims:
+  - C-0164-jak-inhibitors-reduce-sasp

@@ -1,0 +1,7 @@
+id: Q-0008-leukocyte-length-as-biomarker
+statement: "Is white blood cell telomere length a good biomarker, despite large variation between people and between measurement methods?"
+concepts:
+  - telomere-attrition
+  - leukocyte-telomere-length
+mission: aging-map
+status: open

@@ -1,0 +1,6 @@
+id: Q-0010-telomeres-normal-aging
+statement: "Does telomere shortening contribute to normal human aging outside telomere syndromes, or only in some organs (blood, lung)?"
+concepts:
+  - telomere-attrition
+mission: aging-map
+status: open

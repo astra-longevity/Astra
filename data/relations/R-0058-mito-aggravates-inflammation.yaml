@@ -1,0 +1,7 @@
+id: R-0058-mito-aggravates-inflammation
+from: mitochondrial-dysfunction
+to: chronic-inflammation
+type: aggravates
+claims:
+  - C-0210-t-cell-mitochondria-systemic-inflammation
+  - C-0205-cgas-sting-drives-aging-inflammation

@@ -1,0 +1,6 @@
+id: R-0098-hypothalamic-nfkb-causes-aging
+from: hypothalamic-nf-kb
+to: altered-intercellular-communication
+type: aggravates
+claims:
+  - C-0196-hypothalamic-nfkb-drives-aging

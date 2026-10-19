@@ -1,0 +1,11 @@
+id: C-0109-rapamycin-reduces-sasp
+statement: "mTOR controls the translation of IL-1alpha and hence the inflammatory secretions of senescent cells (SASP); rapamycin reduces them."
+concepts:
+  - deregulated-nutrient-sensing
+  - mtorc1
+  - rapamycin
+  - cellular-senescence
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

@@ -1,0 +1,6 @@
+id: R-0033-arimoclomol-treats-niemann-pick
+from: arimoclomol
+to: niemann-pick-c
+type: treats
+claims:
+  - C-0074-arimoclomol-niemann-pick

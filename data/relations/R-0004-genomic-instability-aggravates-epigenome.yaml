@@ -1,0 +1,7 @@
+id: R-0004-genomic-instability-aggravates-epigenome
+from: genomic-instability
+to: epigenetic-alterations
+type: aggravates
+claims:
+  - C-0021-repair-erodes-epigenome
+  - C-0045-ice-dna-breaks-epigenetic-aging

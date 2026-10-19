@@ -1,0 +1,6 @@
+id: R-0104-nlrp3-activates-inflammation
+from: nlrp3
+to: chronic-inflammation
+type: activates
+claims:
+  - C-0204-nlrp3-deletion-reduces-inflammaging

@@ -1,0 +1,6 @@
+id: polg
+kind: gene
+name: "POLG (DNA polymerase gamma)"
+synonyms:
+  - "POLG1"
+description: "Gene for the enzyme that copies mitochondrial DNA and corrects its errors."

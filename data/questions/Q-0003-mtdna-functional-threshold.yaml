@@ -1,0 +1,8 @@
+id: Q-0003-mtdna-functional-threshold
+statement: "Do mitochondrial DNA mutations reach a threshold that impairs function in normal human aging?"
+concepts:
+  - genomic-instability
+  - mtdna-mutations
+  - mitochondrial-dysfunction
+mission: aging-map
+status: open

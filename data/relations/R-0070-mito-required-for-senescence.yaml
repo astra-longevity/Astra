@@ -1,0 +1,6 @@
+id: R-0070-mito-required-for-senescence
+from: mitochondrial-dysfunction
+to: cellular-senescence
+type: associated_with
+claims:
+  - C-0155-mitochondria-required-senescent-phenotype

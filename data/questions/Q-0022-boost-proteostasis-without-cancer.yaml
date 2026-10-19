@@ -1,0 +1,9 @@
+id: Q-0022-boost-proteostasis-without-cancer
+statement: "Can HSF-1, the proteasome or CMA be boosted in humans without helping cancers, which also rely on these networks?"
+concepts:
+  - loss-of-proteostasis
+  - hsf-1
+  - chaperone-mediated-autophagy
+  - cancer
+mission: aging-map
+status: open

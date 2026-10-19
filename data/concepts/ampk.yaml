@@ -1,0 +1,4 @@
+id: ampk
+kind: pathway
+name: "AMPK"
+description: "Energy sensor: switches on when energy runs low and restarts recycling."

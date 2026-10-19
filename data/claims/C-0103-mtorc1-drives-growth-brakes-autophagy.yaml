@@ -1,0 +1,10 @@
+id: C-0103-mtorc1-drives-growth-brakes-autophagy
+statement: "mTORC1 senses amino acids, insulin and energy; it stimulates protein and fat synthesis and brakes autophagy."
+concepts:
+  - deregulated-nutrient-sensing
+  - mtorc1
+  - disabled-macroautophagy
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

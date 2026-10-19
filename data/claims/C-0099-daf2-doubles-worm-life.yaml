@@ -1,0 +1,10 @@
+id: C-0099-daf2-doubles-worm-life
+statement: "A single mutated gene (daf-2, the insulin/IGF receptor) doubles the lifespan of the C. elegans worm, through the FOXO factor (DAF-16) that switches on stress-resistance genes."
+concepts:
+  - deregulated-nutrient-sensing
+  - daf-2
+  - igf-1
+organism: caenorhabditis-elegans
+evidence_level: 2
+confidence: established
+mission: aging-map

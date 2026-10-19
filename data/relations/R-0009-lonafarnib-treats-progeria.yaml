@@ -1,0 +1,6 @@
+id: R-0009-lonafarnib-treats-progeria
+from: lonafarnib
+to: hutchinson-gilford-progeria
+type: treats
+claims:
+  - C-0024-lonafarnib-reduces-progeria-mortality

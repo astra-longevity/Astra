@@ -1,0 +1,11 @@
+id: C-0173-young-blood-restores-stem-cells
+statement: "Exposing old stem cells to young blood (heterochronic parabiosis) partly restores muscle and liver stem cell activity, while old blood inhibits it."
+concepts:
+  - stem-cell-exhaustion
+  - heterochronic-parabiosis
+  - muscle-stem-cells
+  - altered-intercellular-communication
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

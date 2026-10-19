@@ -1,0 +1,9 @@
+id: C-0222-microbiome-uniqueness-predicts-survival
+statement: "In over 9,000 people, the microbiome becomes increasingly unique with age in healthy people, and this pattern predicts survival; it is absent in less healthy people."
+concepts:
+  - dysbiosis
+  - gut-microbiome
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

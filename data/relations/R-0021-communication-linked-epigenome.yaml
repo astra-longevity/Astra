@@ -1,0 +1,6 @@
+id: R-0021-communication-linked-epigenome
+from: altered-intercellular-communication
+to: epigenetic-alterations
+type: associated_with
+claims:
+  - C-0052-parabiosis-epigenetic-age-reversible

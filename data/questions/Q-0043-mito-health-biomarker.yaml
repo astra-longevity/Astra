@@ -1,0 +1,6 @@
+id: Q-0043-mito-health-biomarker
+statement: "What standard, accessible measure of mitochondrial health could be used (phosphorus spectroscopy, biopsy respirometry, blood mtDNA)?"
+concepts:
+  - mitochondrial-dysfunction
+mission: aging-map
+status: open

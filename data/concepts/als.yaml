@@ -1,0 +1,6 @@
+id: als
+kind: disease
+name: "Amyotrophic lateral sclerosis (ALS)"
+synonyms:
+  - "ALS"
+  - "motor neurone disease"

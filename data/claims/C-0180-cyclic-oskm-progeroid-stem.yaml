@@ -1,0 +1,9 @@
+id: C-0180-cyclic-oskm-progeroid-stem
+statement: "Intermittent OSKM induction in progeroid mice improves aging traits and extends their life."
+concepts:
+  - stem-cell-exhaustion
+  - partial-reprogramming
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

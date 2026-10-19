@@ -1,0 +1,9 @@
+id: C-0213-iage-tracks-multimorbidity
+statement: "An inflammatory clock (iAge) built by deep learning on blood cytokines tracks multimorbidity, immunosenescence and frailty."
+concepts:
+  - chronic-inflammation
+  - iage
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

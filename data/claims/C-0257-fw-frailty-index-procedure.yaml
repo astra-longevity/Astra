@@ -1,0 +1,8 @@
+id: C-0257-fw-frailty-index-procedure
+statement: "A standard procedure exists to build a frailty index from a list of deficits."
+concepts:
+  - frailty-index
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

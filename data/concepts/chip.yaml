@@ -1,0 +1,7 @@
+id: chip
+kind: biomarker
+name: "Clonal hematopoiesis (CHIP)"
+synonyms:
+  - "CHIP"
+  - "clonal hematopoiesis of indeterminate potential"
+description: "Small groups of mutated blood cells that expand with age."

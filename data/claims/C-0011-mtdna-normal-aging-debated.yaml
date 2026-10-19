@@ -1,0 +1,10 @@
+id: C-0011-mtdna-normal-aging-debated
+statement: "The role of mitochondrial DNA mutations in normal aging is still debated."
+concepts:
+  - genomic-instability
+  - mtdna-mutations
+  - mitochondrial-dysfunction
+organism: homo-sapiens
+evidence_level: 4
+confidence: debated
+mission: aging-map

@@ -1,0 +1,7 @@
+id: R-0081-stem-cells-senescence-terminal-fate
+from: stem-cell-exhaustion
+to: cellular-senescence
+type: associated_with
+claims:
+  - C-0171-muscle-stem-cells-quiescence-to-senescence
+note: "Senescence is the end fate of exhausted stem cells."

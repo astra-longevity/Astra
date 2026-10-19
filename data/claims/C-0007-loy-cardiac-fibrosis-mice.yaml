@@ -1,0 +1,10 @@
+id: C-0007-loy-cardiac-fibrosis-mice
+statement: "In mice, loss of chromosome Y in blood causes cardiac fibrosis and heart failure, which suggests a causal role."
+concepts:
+  - genomic-instability
+  - loss-of-y
+  - cardiovascular-disease
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

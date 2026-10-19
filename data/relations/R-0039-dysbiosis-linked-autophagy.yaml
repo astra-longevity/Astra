@@ -1,0 +1,7 @@
+id: R-0039-dysbiosis-linked-autophagy
+from: dysbiosis
+to: disabled-macroautophagy
+type: associated_with
+claims:
+  - C-0085-atg16l1-crohn
+note: "Xenophagy: defence against gut bacteria."

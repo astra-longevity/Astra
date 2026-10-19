@@ -1,0 +1,6 @@
+id: R-0112-dysbiosis-linked-nutrient-sensing
+from: dysbiosis
+to: deregulated-nutrient-sensing
+type: associated_with
+claims:
+  - C-0230-metformin-acts-via-microbiome-humans

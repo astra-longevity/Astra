@@ -1,0 +1,11 @@
+id: C-0079-autophagy-degrades-with-age
+statement: "With age, expression of ATG genes and TFEB falls, lysosomes clog with lipofuscin and mTORC1 is chronically overactive."
+concepts:
+  - disabled-macroautophagy
+  - atg-genes
+  - tfeb
+  - mtorc1
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

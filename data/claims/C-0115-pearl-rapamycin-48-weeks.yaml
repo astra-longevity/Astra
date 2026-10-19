@@ -1,0 +1,9 @@
+id: C-0115-pearl-rapamycin-48-weeks
+statement: "In the PEARL trial (114 people, 5-10 mg/week for 48 weeks), rapamycin was well tolerated with a modest signal in women at 10 mg (lean mass, pain); the compounded form was poorly absorbed."
+concepts:
+  - deregulated-nutrient-sensing
+  - rapamycin
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

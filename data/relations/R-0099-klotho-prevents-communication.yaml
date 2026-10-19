@@ -1,0 +1,6 @@
+id: R-0099-klotho-prevents-communication
+from: klotho
+to: altered-intercellular-communication
+type: prevents
+claims:
+  - C-0195-klotho-loss-aging-syndrome

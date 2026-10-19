@@ -1,0 +1,12 @@
+id: C-0037-long-telomeres-cancer-mr
+statement: "In Mendelian randomization, genetically longer telomeres raise the risk of several cancers but lower the risk of coronary heart disease and aortic aneurysm."
+concepts:
+  - telomere-attrition
+  - leukocyte-telomere-length
+  - cancer
+  - cardiovascular-disease
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map
+note: "Central trade-off: short telomeres hold back cancer."

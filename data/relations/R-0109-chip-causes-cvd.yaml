@@ -1,0 +1,6 @@
+id: R-0109-chip-causes-cvd
+from: chip
+to: cardiovascular-disease
+type: associated_with
+claims:
+  - C-0207-chip-doubles-coronary-risk

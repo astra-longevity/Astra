@@ -1,0 +1,6 @@
+id: Q-0023-measure-proteostasis
+statement: "How can proteostasis be measured in a living person, beyond specific imaging (amyloid PET) or blood markers (p-tau)?"
+concepts:
+  - loss-of-proteostasis
+mission: aging-map
+status: open

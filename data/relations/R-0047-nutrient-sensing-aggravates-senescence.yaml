@@ -1,0 +1,6 @@
+id: R-0047-nutrient-sensing-aggravates-senescence
+from: deregulated-nutrient-sensing
+to: cellular-senescence
+type: aggravates
+claims:
+  - C-0109-rapamycin-reduces-sasp

@@ -1,0 +1,10 @@
+id: C-0089-rapamycin-extends-mouse-life-late
+statement: "Rapamycin extends mouse lifespan even when started late in life."
+concepts:
+  - disabled-macroautophagy
+  - rapamycin
+  - mtorc1
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

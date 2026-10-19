@@ -1,0 +1,10 @@
+id: C-0224-tmao-atherosclerosis-mice
+statement: "Some gut bacteria turn choline and carnitine into TMA, converted by the liver into TMAO, which promotes atherosclerosis in mice."
+concepts:
+  - dysbiosis
+  - tmao
+  - atherosclerosis
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

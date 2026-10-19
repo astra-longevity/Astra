@@ -1,0 +1,10 @@
+id: C-0012-progerin-deforms-nucleus
+statement: "Progerin, a mutant form of lamin A, deforms the nucleus and causes Hutchinson-Gilford progeria (accelerated aging in children, cardiovascular death around age 14-15)."
+concepts:
+  - genomic-instability
+  - progerin
+  - hutchinson-gilford-progeria
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

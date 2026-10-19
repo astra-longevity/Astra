@@ -1,0 +1,6 @@
+id: R-0089-cdc42-aggravates-stem-cells
+from: cdc42
+to: stem-cell-exhaustion
+type: aggravates
+claims:
+  - C-0170-cdc42-inhibition-rejuvenates-hsc

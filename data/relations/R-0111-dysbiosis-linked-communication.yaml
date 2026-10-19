@@ -1,0 +1,8 @@
+id: R-0111-dysbiosis-linked-communication
+from: dysbiosis
+to: altered-intercellular-communication
+type: associated_with
+claims:
+  - C-0224-tmao-atherosclerosis-mice
+  - C-0227-butyrate-gut-wall-inflammation
+note: "Bacterial metabolites are circulating messengers (gut-brain, gut-heart axes)."

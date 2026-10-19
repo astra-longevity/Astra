@@ -1,0 +1,8 @@
+id: rapamycin
+kind: intervention
+name: "Rapamycin (and analogues: everolimus)"
+synonyms:
+  - "sirolimus"
+  - "everolimus"
+  - "rapalogs"
+description: "Drug that brakes mTOR; extends mouse lifespan."

@@ -1,0 +1,9 @@
+id: Q-0049-senolytic-or-senomorphic
+statement: "Is it better to kill senescent cells or silence their SASP, and for which disease?"
+concepts:
+  - cellular-senescence
+  - senolytics
+  - jak-inhibitors
+  - sasp
+mission: aging-map
+status: open

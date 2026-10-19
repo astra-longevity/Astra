@@ -1,0 +1,8 @@
+id: C-0255-fw-clock-technical-noise
+statement: "Technical replicates of the same sample can differ by several years on some epigenetic clocks; principal-component versions improve reliability."
+concepts:
+  - epigenetic-clocks
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

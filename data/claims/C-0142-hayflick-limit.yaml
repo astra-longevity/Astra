@@ -1,0 +1,8 @@
+id: C-0142-hayflick-limit
+statement: "Cultured human cells stop dividing after a finite number of divisions (Hayflick limit)."
+concepts:
+  - cellular-senescence
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

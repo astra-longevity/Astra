@@ -1,0 +1,11 @@
+id: C-0126-mutator-aging-via-apoptosis
+statement: "In mutator mice, aging goes mainly through cell death (apoptosis), not through excess oxidative stress."
+concepts:
+  - mitochondrial-dysfunction
+  - polg
+  - mtdna-mutations
+  - ros
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

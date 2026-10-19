@@ -1,0 +1,9 @@
+id: C-0148-ink-attac-normal-lifespan
+statement: "In normal mice, removing p16-positive cells extends median lifespan by about 25% and protects kidney, heart and fat."
+concepts:
+  - cellular-senescence
+  - p16ink4a
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

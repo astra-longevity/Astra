@@ -1,0 +1,11 @@
+id: C-0251-fw-free-radical-theory
+statement: "Harman proposed that aging comes from cumulative damage by free radicals from oxidative metabolism; antioxidant trials in humans did not extend life."
+concepts:
+  - free-radical-theory
+  - ros
+  - antioxidant-supplements
+  - mitochondrial-dysfunction
+organism: homo-sapiens
+evidence_level: 4
+confidence: debated
+mission: aging-map

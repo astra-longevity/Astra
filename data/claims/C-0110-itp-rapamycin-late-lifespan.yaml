@@ -1,0 +1,10 @@
+id: C-0110-itp-rapamycin-late-lifespan
+statement: "In the Interventions Testing Program (3 sites), rapamycin started at 20 months extends mouse lifespan by 9% (males) and 14% (females)."
+concepts:
+  - deregulated-nutrient-sensing
+  - rapamycin
+  - mtorc1
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

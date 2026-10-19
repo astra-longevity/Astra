@@ -1,0 +1,10 @@
+id: C-0241-ov-calerie-cardiometabolic
+statement: "In the 2-year randomized CALERIE trial, caloric restriction in healthy non-obese adults improved cardiometabolic risk factors."
+concepts:
+  - caloric-restriction
+  - deregulated-nutrient-sensing
+  - cardiovascular-disease
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

@@ -1,0 +1,7 @@
+id: elamipretide
+kind: intervention
+name: "Elamipretide (SS-31, Forzinity)"
+synonyms:
+  - "SS-31"
+  - "Forzinity"
+description: "Drug that binds cardiolipin in the inner mitochondrial membrane; approved for Barth syndrome."

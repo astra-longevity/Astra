@@ -1,0 +1,4 @@
+id: mtorc2
+kind: pathway
+name: "mTORC2"
+description: "Second mTOR complex, mostly serving insulin signalling and cell survival."

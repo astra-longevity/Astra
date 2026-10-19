@@ -1,0 +1,6 @@
+id: R-0071-senescence-aggravates-stem-cells
+from: cellular-senescence
+to: stem-cell-exhaustion
+type: aggravates
+claims:
+  - C-0157-navitoclax-rejuvenates-hsc

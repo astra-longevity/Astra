@@ -1,0 +1,12 @@
+id: C-0200-collagen-remodelling-worm-longevity
+statement: "In C. elegans, collagen remodelling is required for longevity driven by the insulin/IGF-1 pathway."
+concepts:
+  - altered-intercellular-communication
+  - extracellular-matrix
+  - igf-1
+  - deregulated-nutrient-sensing
+organism: caenorhabditis-elegans
+evidence_level: 2
+confidence: established
+mission: aging-map
+note: "In humans the matrix link is mostly correlational (fibrosis, arterial stiffness)."

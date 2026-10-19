@@ -1,0 +1,6 @@
+id: R-0026-aggregation-causes-attr
+from: protein-aggregation
+to: attr-amyloidosis
+type: causes
+claims:
+  - C-0065-proteinopathy-causal-mutations

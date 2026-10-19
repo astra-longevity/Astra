@@ -1,0 +1,11 @@
+id: C-0171-muscle-stem-cells-quiescence-to-senescence
+statement: "Muscle stem cells of very old mice lose their reversible dormancy and become senescent through p16INK4a; repressing p16 restores their regenerative capacity."
+concepts:
+  - stem-cell-exhaustion
+  - muscle-stem-cells
+  - p16ink4a
+  - cellular-senescence
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

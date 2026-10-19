@@ -1,0 +1,11 @@
+id: C-0229-urolithin-a-mitophagy-worm-mouse
+statement: "Urolithin A, made by gut bacteria from ellagitannins (pomegranate, nuts), activates mitophagy."
+concepts:
+  - dysbiosis
+  - urolithin-a
+  - mitophagy
+  - mitochondrial-dysfunction
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

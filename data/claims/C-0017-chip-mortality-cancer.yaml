@@ -1,0 +1,10 @@
+id: C-0017-chip-mortality-cancer
+statement: "Clonal hematopoiesis (CHIP), found in more than 10% of people over 70, raises the risk of blood cancer and overall mortality."
+concepts:
+  - genomic-instability
+  - chip
+  - stem-cell-exhaustion
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

@@ -1,0 +1,9 @@
+id: C-0191-plasma-dilution-rejuvenates-mice
+statement: "Diluting old plasma with a saline-albumin solution rejuvenates several tissues in mice."
+concepts:
+  - altered-intercellular-communication
+  - plasma-dilution
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

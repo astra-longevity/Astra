@@ -1,0 +1,11 @@
+id: C-0140-mitoq-vascular-function
+statement: "In a small randomized crossover trial (20 people aged 60-79), MitoQ improved vascular function."
+concepts:
+  - mitochondrial-dysfunction
+  - mitoq
+  - ros
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map
+note: "Targeted antioxidants still need validation on solid clinical endpoints."

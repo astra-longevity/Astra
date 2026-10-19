@@ -1,0 +1,7 @@
+id: Q-0075-fw-clock-population-bias
+statement: "Training cohorts for aging clocks are mostly European: do they hold in other populations?"
+concepts:
+  - epigenetic-clocks
+  - proteomic-aging-clock
+mission: aging-map
+status: open

@@ -1,0 +1,7 @@
+id: chaperones
+kind: protein
+name: "Molecular chaperones (HSP70, HSP90)"
+synonyms:
+  - "heat shock proteins"
+  - "HSP"
+description: "\"Helper\" proteins that help other proteins take the right shape."

@@ -1,0 +1,7 @@
+id: R-0050-rapamycin-treats-nutrient-sensing
+from: rapamycin
+to: deregulated-nutrient-sensing
+type: treats
+claims:
+  - C-0110-itp-rapamycin-late-lifespan
+  - C-0111-transient-rapamycin-lasting

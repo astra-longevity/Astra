@@ -1,0 +1,10 @@
+id: C-0090-rapalogs-immunity-elderly
+statement: "In older people, a rapamycin analogue (everolimus) improves vaccine response and TORC1 inhibition reduces infections; small sample sizes."
+concepts:
+  - disabled-macroautophagy
+  - rapamycin
+  - mtorc1
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

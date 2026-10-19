@@ -1,0 +1,6 @@
+id: type-2-diabetes
+kind: disease
+name: "Type 2 diabetes"
+synonyms:
+  - "insulin resistance"
+  - "metabolic syndrome"

@@ -1,0 +1,9 @@
+id: C-0064-restoring-cma-liver-mice
+statement: "Restoring CMA (LAMP2A) in the liver of old mice reduces the build-up of damaged proteins and improves liver function."
+concepts:
+  - loss-of-proteostasis
+  - chaperone-mediated-autophagy
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

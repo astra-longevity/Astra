@@ -1,0 +1,9 @@
+id: C-0014-werner-helicase-accelerated-aging
+statement: "Werner syndrome, caused by a defective repair helicase (WRN), brings grey hair, cataracts, diabetes, atherosclerosis and cancers from age 20-30."
+concepts:
+  - genomic-instability
+  - werner-syndrome
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

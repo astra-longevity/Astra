@@ -1,0 +1,11 @@
+id: C-0230-metformin-acts-via-microbiome-humans
+statement: "Part of the antidiabetic effect of metformin goes through the gut microbiome."
+concepts:
+  - dysbiosis
+  - metformin
+  - type-2-diabetes
+  - deregulated-nutrient-sensing
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

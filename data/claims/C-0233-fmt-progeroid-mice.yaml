@@ -1,0 +1,10 @@
+id: C-0233-fmt-progeroid-mice
+statement: "Fecal microbiota transplantation extends healthspan and lifespan of progeroid mice (Akkermansia involved)."
+concepts:
+  - dysbiosis
+  - fecal-microbiota-transplant
+  - akkermansia-supplement
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

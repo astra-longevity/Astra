@@ -1,0 +1,9 @@
+id: Q-0035-sex-differences-interventions
+statement: "Why do many interventions (acarbose, 17alpha-estradiol, S6K1, SIRT6) act so differently in males and females?"
+concepts:
+  - deregulated-nutrient-sensing
+  - acarbose
+  - s6k1
+  - sirt6
+mission: aging-map
+status: open

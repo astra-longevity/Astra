@@ -1,0 +1,6 @@
+id: R-0019-epigenome-aggravates-inflammation
+from: epigenetic-alterations
+to: chronic-inflammation
+type: aggravates
+claims:
+  - C-0043-heterochromatin-loss-line1-interferon

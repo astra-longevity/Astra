@@ -1,0 +1,10 @@
+id: C-0025-base-editing-lmna-doubles-survival
+statement: "A single base-editing injection corrects the progeria LMNA mutation in mice and doubles median survival."
+concepts:
+  - genomic-instability
+  - base-editing
+  - hutchinson-gilford-progeria
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

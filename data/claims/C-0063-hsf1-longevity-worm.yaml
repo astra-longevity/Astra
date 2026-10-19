@@ -1,0 +1,11 @@
+id: C-0063-hsf1-longevity-worm
+statement: "Boosting HSF-1 extends worm lifespan; lowering it shortens it (insulin/IGF-1 pathway acting through DAF-16 and HSF-1)."
+concepts:
+  - loss-of-proteostasis
+  - hsf-1
+  - igf-1
+  - deregulated-nutrient-sensing
+organism: caenorhabditis-elegans
+evidence_level: 2
+confidence: established
+mission: aging-map

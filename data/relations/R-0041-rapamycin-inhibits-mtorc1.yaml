@@ -1,0 +1,6 @@
+id: R-0041-rapamycin-inhibits-mtorc1
+from: rapamycin
+to: mtorc1
+type: inhibits
+claims:
+  - C-0089-rapamycin-extends-mouse-life-late

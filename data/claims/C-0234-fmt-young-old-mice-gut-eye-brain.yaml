@@ -1,0 +1,9 @@
+id: C-0234-fmt-young-old-mice-gut-eye-brain
+statement: "Young-to-old FMT reverses aging markers in the gut, retina and brain of mice."
+concepts:
+  - dysbiosis
+  - fecal-microbiota-transplant
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

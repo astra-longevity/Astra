@@ -1,0 +1,11 @@
+id: C-0214-cantos-canakinumab-cv-events
+statement: "In the CANTOS phase III trial, canakinumab (anti-IL-1beta) cut cardiovascular events by 15% in post-heart-attack patients with high CRP, but increased fatal infections."
+concepts:
+  - chronic-inflammation
+  - canakinumab
+  - il-1b
+  - cardiovascular-disease
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

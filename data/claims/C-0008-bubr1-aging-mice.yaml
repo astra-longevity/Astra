@@ -1,0 +1,9 @@
+id: C-0008-bubr1-aging-mice
+statement: "Mice low in BubR1 age prematurely; raising it reduces aneuploidy and cancers and extends healthy lifespan."
+concepts:
+  - genomic-instability
+  - bubr1
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

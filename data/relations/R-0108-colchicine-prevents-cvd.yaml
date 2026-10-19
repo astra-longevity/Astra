@@ -1,0 +1,7 @@
+id: R-0108-colchicine-prevents-cvd
+from: colchicine
+to: cardiovascular-disease
+type: prevents
+claims:
+  - C-0215-colcot-colchicine-post-mi
+  - C-0216-lodoco2-colchicine-chronic-cad

@@ -1,0 +1,8 @@
+id: Q-0019-microbiome-butyrate-epigenome
+statement: "Do microbiome metabolites (butyrate, a histone deacetylase inhibitor) influence the epigenome during aging?"
+concepts:
+  - epigenetic-alterations
+  - dysbiosis
+mission: aging-map
+status: open
+note: "Marked [to verify] in file 03: link poorly documented, no source."

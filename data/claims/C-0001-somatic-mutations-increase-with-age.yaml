@@ -1,0 +1,9 @@
+id: C-0001-somatic-mutations-increase-with-age
+statement: "Somatic mutations build up steadily with age in virtually all normal tissues, including in cells that do not divide."
+concepts:
+  - genomic-instability
+  - somatic-mutations
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

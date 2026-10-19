@@ -1,0 +1,10 @@
+id: C-0179-continuous-oskm-teratomas
+statement: "Continuous OSKM expression in mice causes teratomas."
+concepts:
+  - stem-cell-exhaustion
+  - partial-reprogramming
+  - teratoma
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

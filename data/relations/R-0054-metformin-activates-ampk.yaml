@@ -1,0 +1,6 @@
+id: R-0054-metformin-activates-ampk
+from: metformin
+to: ampk
+type: activates
+claims:
+  - C-0116-metformin-diabetics-mortality

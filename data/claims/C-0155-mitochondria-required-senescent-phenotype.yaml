@@ -1,0 +1,9 @@
+id: C-0155-mitochondria-required-senescent-phenotype
+statement: "Mitochondria are required for the senescent phenotype."
+concepts:
+  - cellular-senescence
+  - mitochondrial-dysfunction
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

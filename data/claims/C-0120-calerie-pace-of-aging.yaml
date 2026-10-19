@@ -1,0 +1,10 @@
+id: C-0120-calerie-pace-of-aging
+statement: "Secondary analyses of CALERIE show a slower pace of aging (DunedinPACE) but little effect on GrimAge-type clocks."
+concepts:
+  - deregulated-nutrient-sensing
+  - caloric-restriction
+  - epigenetic-clocks
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

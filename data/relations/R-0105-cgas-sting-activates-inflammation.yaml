@@ -1,0 +1,6 @@
+id: R-0105-cgas-sting-activates-inflammation
+from: cgas-sting
+to: chronic-inflammation
+type: activates
+claims:
+  - C-0205-cgas-sting-drives-aging-inflammation

@@ -1,0 +1,9 @@
+id: C-0111-transient-rapamycin-lasting
+statement: "A 3-month course of rapamycin in middle-aged mice increases remaining life expectancy by up to 60%, with a lasting effect."
+concepts:
+  - deregulated-nutrient-sensing
+  - rapamycin
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

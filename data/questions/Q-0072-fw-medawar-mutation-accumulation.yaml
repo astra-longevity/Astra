@@ -1,0 +1,7 @@
+id: Q-0072-fw-medawar-mutation-accumulation
+statement: "Mutation accumulation (Medawar): does additive genetic variance in mortality rise with age, as predicted?"
+concepts:
+  - evolutionary-theories-of-aging
+mission: aging-map
+status: open
+note: "[to verify] Medawar 1952, An Unsolved Problem of Biology: lecture/book without DOI; not ingested as a source."

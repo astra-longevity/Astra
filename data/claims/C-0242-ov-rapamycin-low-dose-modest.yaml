@@ -1,0 +1,9 @@
+id: C-0242-ov-rapamycin-low-dose-modest
+statement: "In humans, low-dose rapamycin is well tolerated with modest effects."
+concepts:
+  - rapamycin
+  - deregulated-nutrient-sensing
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

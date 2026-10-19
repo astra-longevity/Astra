@@ -1,0 +1,6 @@
+id: p53
+kind: gene
+name: "p53"
+synonyms:
+  - "TP53"
+description: "Guardian of the genome: stops or kills the cell when its DNA is damaged."

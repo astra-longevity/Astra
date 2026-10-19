@@ -1,0 +1,9 @@
+id: C-0002-neurons-accumulate-mutations
+statement: "Neurons accumulate mutations with age, faster in neurodegeneration."
+concepts:
+  - genomic-instability
+  - somatic-mutations
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

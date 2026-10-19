@@ -1,0 +1,6 @@
+id: R-0122-hyperfunction-on-nutrient-sensing
+from: hyperfunction-theory
+to: deregulated-nutrient-sensing
+type: associated_with
+claims:
+  - C-0252-fw-hyperfunction-theory

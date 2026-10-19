@@ -1,0 +1,9 @@
+id: C-0238-urolithin-a-human-trials
+statement: "In phase I and II trials, urolithin A was safe and improved muscle endurance in older people, but the primary walking outcome was not met."
+concepts:
+  - dysbiosis
+  - urolithin-a
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

@@ -1,0 +1,10 @@
+id: C-0239-fmt-cdifficile-cure
+statement: "In a randomized trial, one donor-feces infusion cured 81% of recurrent C. difficile infections versus 31% with vancomycin alone; FMT is approved for this infection, not for aging."
+concepts:
+  - dysbiosis
+  - fecal-microbiota-transplant
+  - clostridioides-difficile-infection
+organism: homo-sapiens
+evidence_level: 6
+confidence: established
+mission: aging-map

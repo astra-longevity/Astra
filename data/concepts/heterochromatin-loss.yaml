@@ -1,0 +1,4 @@
+id: heterochromatin-loss
+kind: process
+name: "Heterochromatin loss"
+description: "DNA that is normally packed tight and silent loosens up, letting regions that should stay quiet be expressed."

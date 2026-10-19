@@ -1,0 +1,7 @@
+id: Q-0011-lifestyle-causation-telomeres
+statement: "Do smoking, stress and obesity really shorten telomeres, or are these statistical confounders?"
+concepts:
+  - telomere-attrition
+  - leukocyte-telomere-length
+mission: aging-map
+status: open

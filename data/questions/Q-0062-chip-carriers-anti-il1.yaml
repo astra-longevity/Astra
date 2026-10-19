@@ -1,0 +1,9 @@
+id: Q-0062-chip-carriers-anti-il1
+statement: "Would CHIP carriers (especially TET2) benefit most from anti-IL-1beta/IL-6 drugs? A hypothesis from secondary analyses, to test prospectively."
+concepts:
+  - chronic-inflammation
+  - chip
+  - tet2
+  - canakinumab
+mission: aging-map
+status: open

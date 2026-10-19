@@ -1,0 +1,10 @@
+id: C-0201-ambar-plasma-exchange-alzheimer
+statement: "In the AMBAR phase IIb/III trial, plasma exchange with albumin slowed decline in moderate Alzheimer on some outcomes, with mixed results."
+concepts:
+  - altered-intercellular-communication
+  - plasma-dilution
+  - alzheimer-disease
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

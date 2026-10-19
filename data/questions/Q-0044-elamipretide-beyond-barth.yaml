@@ -1,0 +1,8 @@
+id: Q-0044-elamipretide-beyond-barth
+statement: "Elamipretide received FDA accelerated approval (19 Sept 2025) for Barth syndrome, the first mitochondria-targeting drug: will it show benefit in aging-related conditions?"
+concepts:
+  - mitochondrial-dysfunction
+  - elamipretide
+mission: aging-map
+status: open
+note: "Source is an FDA press release (no DOI), so no claim was created; confirmatory trial required."

@@ -1,0 +1,11 @@
+id: C-0205-cgas-sting-drives-aging-inflammation
+statement: "DNA leaking from the nucleus or mitochondria activates cGAS-STING, which sustains age-related inflammation and neurodegeneration; blocking STING improves cognitive and physical function in old mice."
+concepts:
+  - chronic-inflammation
+  - cgas-sting
+  - genomic-instability
+  - mitochondrial-dysfunction
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

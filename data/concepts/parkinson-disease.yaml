@@ -1,0 +1,5 @@
+id: parkinson-disease
+kind: disease
+name: "Parkinson's disease"
+synonyms:
+  - "alpha-synuclein"

@@ -1,0 +1,6 @@
+id: R-0121-scfa-part-of-microbiome
+from: short-chain-fatty-acids
+to: gut-microbiome
+type: part_of
+claims:
+  - C-0227-butyrate-gut-wall-inflammation

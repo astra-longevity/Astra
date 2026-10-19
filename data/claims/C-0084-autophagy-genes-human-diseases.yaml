@@ -1,0 +1,10 @@
+id: C-0084-autophagy-genes-human-diseases
+statement: "Mutations in autophagy genes cause or favour human diseases: Parkinson (PINK1, Parkin), ALS, lysosomal diseases, severe neurodegenerative diseases."
+concepts:
+  - disabled-macroautophagy
+  - atg-genes
+  - parkinson-disease
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

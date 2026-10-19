@@ -1,0 +1,10 @@
+id: C-0114-rtb101-phase3-failed
+statement: "RTB101 was positive in phase 2b, but phase 3 missed its primary endpoint (clinically symptomatic respiratory infections)."
+concepts:
+  - deregulated-nutrient-sensing
+  - rtb101
+  - mtorc1
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

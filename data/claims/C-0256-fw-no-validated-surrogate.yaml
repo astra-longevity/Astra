@@ -1,0 +1,9 @@
+id: C-0256-fw-no-validated-surrogate
+statement: "No aging biomarker is validated as a regulatory surrogate endpoint; multi-omic approaches with long-term validation are recommended."
+concepts:
+  - epigenetic-clocks
+  - proteomic-aging-clock
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

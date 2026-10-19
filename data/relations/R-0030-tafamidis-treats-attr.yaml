@@ -1,0 +1,6 @@
+id: R-0030-tafamidis-treats-attr
+from: tafamidis
+to: attr-amyloidosis
+type: treats
+claims:
+  - C-0070-tafamidis-attr-mortality

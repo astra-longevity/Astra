@@ -1,0 +1,6 @@
+id: R-0102-chip-aggravates-inflammation
+from: chip
+to: chronic-inflammation
+type: aggravates
+claims:
+  - C-0208-tet2-macrophages-il1b-atherosclerosis

@@ -1,0 +1,7 @@
+id: pge2-ep2-blockade
+kind: intervention
+name: "PGE2 receptor EP2 blockade"
+synonyms:
+  - "PGE2"
+  - "EP2"
+description: "Blocking a prostaglandin signal that disturbs the metabolism of old macrophages."

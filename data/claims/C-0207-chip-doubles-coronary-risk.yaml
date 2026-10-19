@@ -1,0 +1,10 @@
+id: C-0207-chip-doubles-coronary-risk
+statement: "CHIP roughly doubles the risk of coronary heart disease."
+concepts:
+  - chronic-inflammation
+  - chip
+  - cardiovascular-disease
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

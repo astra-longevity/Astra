@@ -1,0 +1,7 @@
+id: R-0002-genomic-instability-causes-senescence
+from: genomic-instability
+to: cellular-senescence
+type: causes
+claims:
+  - C-0013-persistent-ddr-senescence-inflammation
+  - C-0009-line1-awakening-interferon

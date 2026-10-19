@@ -1,0 +1,10 @@
+id: C-0161-dq-osteoporosis-null-overall
+statement: "In a randomized phase 2 trial (60 postmenopausal women), D+Q had no overall effect on bone, with a modest benefit in women with a high senescent-cell burden."
+concepts:
+  - cellular-senescence
+  - dasatinib-quercetin
+  - osteoporosis
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

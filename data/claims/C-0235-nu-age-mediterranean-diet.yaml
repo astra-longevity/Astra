@@ -1,0 +1,11 @@
+id: C-0235-nu-age-mediterranean-diet
+statement: "In the 1-year randomized NU-AGE trial (over 600 older people), a Mediterranean diet shifted the microbiome towards bacteria linked to less frailty, better cognition and less inflammation."
+concepts:
+  - dysbiosis
+  - mediterranean-diet
+  - gut-microbiome
+  - frailty
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

@@ -1,0 +1,9 @@
+id: C-0248-fw-aging-diversity-species
+statement: "A comparison of 46 species shows very diverse mortality and fertility trajectories, including mortality that stays flat or falls with age."
+concepts:
+  - evolutionary-theories-of-aging
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map
+note: "Cross-species demographic data; organism set to human for lack of a multi-species value."

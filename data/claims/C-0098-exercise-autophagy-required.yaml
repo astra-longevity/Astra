@@ -1,0 +1,10 @@
+id: C-0098-exercise-autophagy-required
+statement: "In mice, exercise-induced autophagy is required for some of its metabolic benefits."
+concepts:
+  - disabled-macroautophagy
+  - exercise
+  - atg-genes
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

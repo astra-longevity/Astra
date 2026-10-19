@@ -1,0 +1,9 @@
+id: C-0250-fw-disposable-soma
+statement: "Disposable soma: limited resources are split between reproduction and body maintenance, so maintenance stays imperfect."
+concepts:
+  - evolutionary-theories-of-aging
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map
+note: "Evolutionary theory."

@@ -1,0 +1,5 @@
+id: metabolomic-mortality-score
+kind: biomarker
+name: "Metabolomic mortality score (MetaboHealth)"
+synonyms:
+  - "MetaboHealth"

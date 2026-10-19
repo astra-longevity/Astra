@@ -1,0 +1,9 @@
+id: C-0232-fmt-killifish-lifespan
+statement: "Transplanting gut microbes from young to old killifish extends lifespan."
+concepts:
+  - dysbiosis
+  - fecal-microbiota-transplant
+organism: nothobranchius-furzeri
+evidence_level: 3
+confidence: established
+mission: aging-map

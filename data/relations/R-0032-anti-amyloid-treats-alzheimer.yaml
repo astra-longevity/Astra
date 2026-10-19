@@ -1,0 +1,6 @@
+id: R-0032-anti-amyloid-treats-alzheimer
+from: anti-amyloid-antibodies
+to: alzheimer-disease
+type: treats
+claims:
+  - C-0073-anti-amyloid-slows-alzheimer

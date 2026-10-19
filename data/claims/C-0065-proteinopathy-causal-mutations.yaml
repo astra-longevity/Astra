@@ -1,0 +1,11 @@
+id: C-0065-proteinopathy-causal-mutations
+statement: "More than 50 diseases are caused by protein misfolding; mutations that make a protein less stable (APP, PSEN1, TTR) bring the disease on earlier, which shows that aggregation is causal for these diseases."
+concepts:
+  - loss-of-proteostasis
+  - protein-aggregation
+  - alzheimer-disease
+  - attr-amyloidosis
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

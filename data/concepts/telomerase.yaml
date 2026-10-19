@@ -1,0 +1,7 @@
+id: telomerase
+kind: protein
+name: "Telomerase"
+synonyms:
+  - "TERT"
+  - "TERC"
+description: "Enzyme that lengthens telomeres; barely active in most adult human cells."

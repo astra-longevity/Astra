@@ -1,0 +1,4 @@
+id: senolytics
+kind: intervention
+name: "Senolytics"
+description: "Drugs that selectively kill senescent cells, taken intermittently (\"hit and run\")."

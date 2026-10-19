@@ -1,0 +1,6 @@
+id: jak-inhibitors
+kind: intervention
+name: "JAK inhibitors (ruxolitinib)"
+synonyms:
+  - "ruxolitinib"
+description: "Drugs that quiet the SASP without killing the cells (senomorphics)."

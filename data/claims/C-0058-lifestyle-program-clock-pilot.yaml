@@ -1,0 +1,9 @@
+id: C-0058-lifestyle-program-clock-pilot
+statement: "In a randomized pilot trial (43 men), 8 weeks of diet and lifestyle changes rejuvenated the Horvath clock by about 3 years, a difference not significant at the 5% level."
+concepts:
+  - epigenetic-alterations
+  - epigenetic-clocks
+organism: homo-sapiens
+evidence_level: 5
+confidence: speculative
+mission: aging-map

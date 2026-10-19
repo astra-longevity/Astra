@@ -1,0 +1,9 @@
+id: C-0166-gpnmb-senolytic-vaccine
+statement: "A vaccine against GPNMB improves age-related phenotypes and extends the life of progeroid mice."
+concepts:
+  - cellular-senescence
+  - senolytic-vaccine
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

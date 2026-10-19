@@ -1,0 +1,7 @@
+id: tmao
+kind: biomarker
+name: "TMAO (trimethylamine N-oxide)"
+synonyms:
+  - "TMAO"
+  - "TMA"
+description: "Molecule made by the liver from bacterial products of choline and carnitine (red meat, eggs)."

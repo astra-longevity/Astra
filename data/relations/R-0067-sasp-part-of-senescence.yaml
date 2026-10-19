@@ -1,0 +1,6 @@
+id: R-0067-sasp-part-of-senescence
+from: sasp
+to: cellular-senescence
+type: part_of
+claims:
+  - C-0145-sasp-composition-drivers

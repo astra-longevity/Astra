@@ -1,0 +1,7 @@
+id: X-0008-senolytics-mice-vs-humans
+claims:
+  - C-0149-transplanted-senescent-cells-dysfunction
+  - C-0161-dq-osteoporosis-null-overall
+mission: aging-map
+explanation: "D+Q improves function and survival in old mice, but in a randomized human trial it had no overall effect on bone (benefit only in a high-burden subgroup); UBX0101 also failed in knee osteoarthritis (press release, no DOI)."
+status: open

@@ -1,0 +1,10 @@
+id: C-0159-dq-pulmonary-fibrosis-pilot
+statement: "In an open phase 1 trial (14 patients with pulmonary fibrosis), D+Q was feasible and improved walking distance and speed, without change in lung function."
+concepts:
+  - cellular-senescence
+  - dasatinib-quercetin
+  - pulmonary-fibrosis
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

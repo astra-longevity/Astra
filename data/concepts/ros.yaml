@@ -1,0 +1,8 @@
+id: ros
+kind: process
+name: "Reactive oxygen species (ROS)"
+synonyms:
+  - "ROS"
+  - "free radicals"
+  - "mitohormesis"
+description: "Reactive by-products of energy production: useful signals at low dose, harmful in excess."

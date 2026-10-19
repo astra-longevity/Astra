@@ -1,0 +1,9 @@
+id: C-0237-akkermansia-insulin-sensitivity
+statement: "In a pilot trial (32 overweight people), pasteurized Akkermansia muciniphila improved insulin sensitivity and was safe."
+concepts:
+  - dysbiosis
+  - akkermansia-supplement
+organism: homo-sapiens
+evidence_level: 5
+confidence: speculative
+mission: aging-map

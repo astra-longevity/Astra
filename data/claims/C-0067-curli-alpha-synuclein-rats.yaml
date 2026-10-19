@@ -1,0 +1,11 @@
+id: C-0067-curli-alpha-synuclein-rats
+statement: "In old rats, the bacterial amyloid curli speeds up alpha-synuclein aggregation."
+concepts:
+  - loss-of-proteostasis
+  - dysbiosis
+  - parkinson-disease
+organism: mus-musculus
+evidence_level: 3
+confidence: speculative
+mission: aging-map
+note: "Rat study; organism approximated by mouse (no rat concept). The gut-origin hypothesis of Parkinson is not shown in humans."

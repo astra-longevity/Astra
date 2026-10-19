@@ -1,0 +1,9 @@
+id: C-0167-senolytic-trials-review
+statement: "Reviews of senolytic clinical trials: early human data, mostly small and short."
+concepts:
+  - cellular-senescence
+  - senolytics
+organism: homo-sapiens
+evidence_level: 4
+confidence: debated
+mission: aging-map

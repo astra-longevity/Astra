@@ -1,0 +1,10 @@
+id: C-0066-niemann-pick-chaperones-lysosomes
+statement: "Niemann-Pick disease type C illustrates the link between chaperones (HSP70) and lysosomes."
+concepts:
+  - loss-of-proteostasis
+  - niemann-pick-c
+  - chaperones
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

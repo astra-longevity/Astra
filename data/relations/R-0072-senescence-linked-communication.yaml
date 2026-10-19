@@ -1,0 +1,7 @@
+id: R-0072-senescence-linked-communication
+from: cellular-senescence
+to: altered-intercellular-communication
+type: associated_with
+claims:
+  - C-0145-sasp-composition-drivers
+note: "Paracrine senescence and distant effects through the blood."

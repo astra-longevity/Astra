@@ -1,0 +1,9 @@
+id: C-0184-chemical-ips-human
+statement: "Human cells have been reprogrammed into iPS cells with small molecules alone, opening the way to non-genetic approaches."
+concepts:
+  - stem-cell-exhaustion
+  - chemical-reprogramming
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

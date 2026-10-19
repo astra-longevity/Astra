@@ -1,0 +1,7 @@
+id: Q-0040-mtdna-mosaic-threshold
+statement: "Must a threshold of faulty cells be reached before a tissue suffers, and how can mtDNA mosaicism be measured in a living person?"
+concepts:
+  - mitochondrial-dysfunction
+  - mtdna-mutations
+mission: aging-map
+status: open

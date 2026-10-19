@@ -1,0 +1,11 @@
+id: C-0052-parabiosis-epigenetic-age-reversible
+statement: "In heterochronic parabiosis, the epigenetic age of the young mouse rises then falls back after separation; in humans, stress (surgery, pregnancy, severe COVID-19) raises it reversibly."
+concepts:
+  - epigenetic-alterations
+  - heterochronic-parabiosis
+  - epigenetic-clocks
+  - altered-intercellular-communication
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

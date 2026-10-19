@@ -1,0 +1,9 @@
+id: C-0078-tfeb-drives-lysosomes
+statement: "The TFEB factor drives the making of lysosomes and autophagy."
+concepts:
+  - disabled-macroautophagy
+  - tfeb
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

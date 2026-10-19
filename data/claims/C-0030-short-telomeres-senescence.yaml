@@ -1,0 +1,10 @@
+id: C-0030-short-telomeres-senescence
+statement: "When telomeres get too short or damaged, the cell reads them as a DNA break and stops dividing (senescence) or dies."
+concepts:
+  - telomere-attrition
+  - telomerase
+  - cellular-senescence
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

@@ -1,0 +1,4 @@
+id: hsf-1
+kind: gene
+name: "HSF-1 (heat shock factor 1)"
+description: "Switch that turns chaperones on under stress."

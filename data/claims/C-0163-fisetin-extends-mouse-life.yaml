@@ -1,0 +1,11 @@
+id: C-0163-fisetin-extends-mouse-life
+statement: "Fisetin is the most potent flavonoid tested as a senolytic and extends mouse lifespan even when started late."
+concepts:
+  - cellular-senescence
+  - fisetin
+  - senolytics
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map
+note: "No efficacy shown in humans yet; knee osteoarthritis trial NCT04210986 results posted but unpublished, AFFIRM frailty trials ongoing (ClinicalTrials.gov links, no DOI)."

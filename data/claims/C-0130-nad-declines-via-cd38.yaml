@@ -1,0 +1,12 @@
+id: C-0130-nad-declines-via-cd38
+statement: "NAD+ falls with age in several tissues, partly because CD38 on inflammatory immune cells consumes more of it; blocking CD38 keeps NAD+ and mitochondrial function in old mice."
+concepts:
+  - mitochondrial-dysfunction
+  - cd38
+  - nad-precursors
+  - sirtuins
+  - chronic-inflammation
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

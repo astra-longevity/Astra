@@ -1,0 +1,6 @@
+id: loss-of-y
+kind: biomarker
+name: "Loss of chromosome Y in blood"
+synonyms:
+  - "LOY"
+  - "mosaic loss of chromosome Y"

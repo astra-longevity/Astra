@@ -1,0 +1,7 @@
+id: Q-0047-universal-senolytic-unlikely
+statement: "Senescent cells differ between tissues and have different weaknesses: can any senolytic work broadly?"
+concepts:
+  - cellular-senescence
+  - senolytics
+mission: aging-map
+status: open

@@ -1,0 +1,5 @@
+id: senolytic-car-t
+kind: intervention
+name: "Senolytic CAR-T cells (anti-uPAR)"
+synonyms:
+  - "uPAR"

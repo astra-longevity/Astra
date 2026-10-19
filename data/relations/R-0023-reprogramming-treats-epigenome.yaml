@@ -1,0 +1,8 @@
+id: R-0023-reprogramming-treats-epigenome
+from: partial-reprogramming
+to: epigenetic-alterations
+type: treats
+claims:
+  - C-0053-cyclic-oskm-extends-progeroid-life
+  - C-0054-osk-restores-vision
+  - C-0055-long-term-reprogramming-no-tumour

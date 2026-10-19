@@ -1,0 +1,5 @@
+id: ercc1
+kind: gene
+name: "ERCC1 (excision repair)"
+synonyms:
+  - "ERCC1-XPF"

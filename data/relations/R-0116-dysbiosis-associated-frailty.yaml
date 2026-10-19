@@ -1,0 +1,6 @@
+id: R-0116-dysbiosis-associated-frailty
+from: dysbiosis
+to: frailty
+type: associated_with
+claims:
+  - C-0221-microbiome-diversity-diet-frailty

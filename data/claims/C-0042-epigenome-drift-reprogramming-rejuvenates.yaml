@@ -1,0 +1,10 @@
+id: C-0042-epigenome-drift-reprogramming-rejuvenates
+statement: "Epigenetic marks drift with age, made worse by DNA damage, and correcting them by partial reprogramming rejuvenates tissues in animals."
+concepts:
+  - epigenetic-alterations
+  - heterochromatin-loss
+  - partial-reprogramming
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

@@ -1,0 +1,8 @@
+id: C-0263-fw-hallmarks-critique
+statement: "The hallmarks framework lacks a causal hierarchy and is biased towards molecular damage, according to a critique by Gems and de Magalhães."
+concepts:
+  - hallmarks-of-aging
+organism: homo-sapiens
+evidence_level: 4
+confidence: debated
+mission: aging-map

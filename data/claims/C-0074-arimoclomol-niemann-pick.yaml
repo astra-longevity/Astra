@@ -1,0 +1,11 @@
+id: C-0074-arimoclomol-niemann-pick
+statement: "Arimoclomol, which boosts the chaperone response, slows the progression of Niemann-Pick disease type C (phase 2/3); FDA-approved in 2024."
+concepts:
+  - loss-of-proteostasis
+  - arimoclomol
+  - niemann-pick-c
+  - chaperones
+organism: homo-sapiens
+evidence_level: 6
+confidence: established
+mission: aging-map

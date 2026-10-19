@@ -1,0 +1,10 @@
+id: C-0136-hiit-boosts-old-muscle-mitochondria
+statement: "High-intensity interval training increases mitochondrial capacity and protein synthesis in older muscle."
+concepts:
+  - mitochondrial-dysfunction
+  - exercise
+  - pgc-1
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

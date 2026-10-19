@@ -1,0 +1,11 @@
+id: C-0092-spermidine-extends-animal-life
+statement: "Spermidine extends the lifespan of yeast, worm and fly, and protects the mouse heart."
+concepts:
+  - disabled-macroautophagy
+  - spermidine
+  - saccharomyces-cerevisiae
+  - drosophila-melanogaster
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

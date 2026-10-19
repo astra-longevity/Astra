@@ -1,0 +1,6 @@
+id: R-0119-fmt-treats-cdifficile
+from: fecal-microbiota-transplant
+to: clostridioides-difficile-infection
+type: treats
+claims:
+  - C-0239-fmt-cdifficile-cure

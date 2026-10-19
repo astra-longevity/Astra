@@ -1,0 +1,6 @@
+id: ccl11
+kind: protein
+name: "CCL11 (eotaxin)"
+synonyms:
+  - "eotaxin"
+description: "Inflammatory signal in old blood that reduces new neuron birth in mice."

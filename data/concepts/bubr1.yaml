@@ -1,0 +1,6 @@
+id: bubr1
+kind: gene
+name: "BubR1 (spindle checkpoint)"
+synonyms:
+  - "BUB1B"
+description: "Protein that checks chromosomes are shared out correctly during cell division."

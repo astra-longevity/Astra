@@ -1,0 +1,7 @@
+id: R-0014-short-telomeres-linked-coronary
+from: leukocyte-telomere-length
+to: cardiovascular-disease
+type: associated_with
+claims:
+  - C-0036-short-telomeres-coronary-disease
+  - C-0037-long-telomeres-cancer-mr

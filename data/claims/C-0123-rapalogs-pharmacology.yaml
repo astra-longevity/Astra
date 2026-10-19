@@ -1,0 +1,11 @@
+id: C-0123-rapalogs-pharmacology
+statement: "Rapalogs and selective mTORC1 inhibitors are the main drug routes to target this pathway."
+concepts:
+  - deregulated-nutrient-sensing
+  - rapamycin
+  - mtorc1
+organism: mus-musculus
+evidence_level: 3
+confidence: speculative
+mission: aging-map
+note: "Pharmacology review cited for context."

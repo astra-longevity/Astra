@@ -1,0 +1,8 @@
+id: R-0043-urolithin-activates-mitophagy
+from: urolithin-a
+to: mitophagy
+type: activates
+claims:
+  - C-0095-urolithin-worm-mouse
+  - C-0086-mitophagy-alzheimer-mice
+  - C-0229-urolithin-a-mitophagy-worm-mouse

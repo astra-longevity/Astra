@@ -1,0 +1,6 @@
+id: R-0044-mitophagy-part-of-autophagy
+from: mitophagy
+to: disabled-macroautophagy
+type: part_of
+claims:
+  - C-0086-mitophagy-alzheimer-mice

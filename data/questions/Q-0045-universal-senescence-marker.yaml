@@ -1,0 +1,8 @@
+id: Q-0045-universal-senescence-marker
+statement: "Which marker or validated blood biomarker can identify senescent cells across tissues, to select patients and track effects? p16, p21, beta-galactosidase and SenMayo overlap poorly."
+concepts:
+  - cellular-senescence
+  - p16ink4a
+  - senmayo
+mission: aging-map
+status: open

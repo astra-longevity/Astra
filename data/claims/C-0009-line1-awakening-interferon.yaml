@@ -1,0 +1,12 @@
+id: C-0009-line1-awakening-interferon
+statement: "LINE-1 retrotransposons wake up in senescent cells and aged tissues; their DNA in the cytoplasm triggers interferon-type inflammation (cGAS-STING pathway)."
+concepts:
+  - genomic-instability
+  - line-1
+  - cgas-sting
+  - chronic-inflammation
+  - cellular-senescence
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

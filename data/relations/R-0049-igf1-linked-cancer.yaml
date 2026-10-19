@@ -1,0 +1,7 @@
+id: R-0049-igf1-linked-cancer
+from: igf-1
+to: cancer
+type: associated_with
+claims:
+  - C-0102-laron-low-cancer-diabetes
+  - C-0107-protein-intake-midlife-mortality

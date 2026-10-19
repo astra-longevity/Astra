@@ -1,0 +1,10 @@
+id: C-0253-fw-information-theory-ice
+statement: "The information theory of aging holds that loss of epigenetic information is the main cause; the ICE mouse, with DNA breaks but no mutations, shows accelerated aging."
+concepts:
+  - information-theory-of-aging
+  - epigenetic-alterations
+organism: mus-musculus
+evidence_level: 3
+confidence: debated
+mission: aging-map
+note: "Rests mainly on one model."

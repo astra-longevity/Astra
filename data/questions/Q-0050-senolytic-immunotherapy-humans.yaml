@@ -1,0 +1,8 @@
+id: Q-0050-senolytic-immunotherapy-humans
+statement: "What are the cost, safety and durability of senolytic immunotherapies (CAR-T, vaccines) in humans?"
+concepts:
+  - cellular-senescence
+  - senolytic-car-t
+  - senolytic-vaccine
+mission: aging-map
+status: open

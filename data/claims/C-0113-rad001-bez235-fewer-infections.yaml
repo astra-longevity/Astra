@@ -1,0 +1,11 @@
+id: C-0113-rad001-bez235-fewer-infections
+statement: "In a phase 2a trial, low-dose RAD001 + BEZ235 reduced respiratory infections over one year."
+concepts:
+  - deregulated-nutrient-sensing
+  - rapamycin
+  - rtb101
+  - mtorc1
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

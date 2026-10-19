@@ -1,0 +1,9 @@
+id: C-0020-menopause-dna-repair-genes
+statement: "Age at menopause is strongly associated with variants in DNA repair genes; changing them in mice alters ovarian reserve."
+concepts:
+  - genomic-instability
+  - menopause-age
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

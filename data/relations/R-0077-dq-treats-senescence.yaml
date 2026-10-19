@@ -1,0 +1,7 @@
+id: R-0077-dq-treats-senescence
+from: dasatinib-quercetin
+to: cellular-senescence
+type: treats
+claims:
+  - C-0149-transplanted-senescent-cells-dysfunction
+  - C-0160-dq-reduces-senescent-cells-humans

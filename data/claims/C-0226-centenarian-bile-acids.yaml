@@ -1,0 +1,10 @@
+id: C-0226-centenarian-bile-acids
+statement: "Japanese centenarians have microbiomes enriched in pathways producing particular bile acids (such as isoallo-lithocholic acid) that inhibit pathogenic bacteria."
+concepts:
+  - dysbiosis
+  - microbial-bile-acids
+  - gut-microbiome
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

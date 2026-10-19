@@ -1,0 +1,11 @@
+id: C-0038-danazol-lengthens-telomeres
+statement: "In a phase 1-2 trial in patients with telomere syndromes, danazol lengthened telomeres (11 of 12 evaluable patients at 24 months) with blood count responses, but with liver and muscle toxicity."
+concepts:
+  - telomere-attrition
+  - danazol
+  - telomere-syndromes
+  - telomerase
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

@@ -1,0 +1,9 @@
+id: C-0121-primate-caloric-restriction
+statement: "In rhesus monkeys, caloric restriction reduces age-related diseases and improves survival; the NIA and Wisconsin results have been reconciled."
+concepts:
+  - deregulated-nutrient-sensing
+  - caloric-restriction
+organism: macaca-mulatta
+evidence_level: 3
+confidence: established
+mission: aging-map

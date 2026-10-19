@@ -1,0 +1,6 @@
+id: R-0065-cd38-aggravates-mito
+from: cd38
+to: mitochondrial-dysfunction
+type: aggravates
+claims:
+  - C-0130-nad-declines-via-cd38

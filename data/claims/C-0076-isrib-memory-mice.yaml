@@ -1,0 +1,9 @@
+id: C-0076-isrib-memory-mice
+statement: "ISRIB, which releases the brake of the integrated stress response, improves memory and reverses age-related memory decline in old mice."
+concepts:
+  - loss-of-proteostasis
+  - isrib
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

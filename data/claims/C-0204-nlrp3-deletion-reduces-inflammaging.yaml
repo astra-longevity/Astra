@@ -1,0 +1,9 @@
+id: C-0204-nlrp3-deletion-reduces-inflammaging
+statement: "Build-up of damaged molecules activates the NLRP3 inflammasome; removing NLRP3 in mice reduces systemic inflammation and age-related functional decline."
+concepts:
+  - chronic-inflammation
+  - nlrp3
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

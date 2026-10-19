@@ -1,0 +1,11 @@
+id: C-0039-tert-gene-therapy-mice
+statement: "TERT gene therapy in adult or old mice extends median lifespan (+24% and +13%) without increasing cancer."
+concepts:
+  - telomere-attrition
+  - tert-gene-therapy
+  - telomerase
+  - cancer
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

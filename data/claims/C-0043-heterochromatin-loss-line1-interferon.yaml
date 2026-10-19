@@ -1,0 +1,11 @@
+id: C-0043-heterochromatin-loss-line1-interferon
+statement: "Heterochromatin loss lets LINE-1 elements be expressed, which triggers an inflammatory interferon response."
+concepts:
+  - epigenetic-alterations
+  - heterochromatin-loss
+  - line-1
+  - chronic-inflammation
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

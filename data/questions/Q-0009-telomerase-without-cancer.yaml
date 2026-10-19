@@ -1,0 +1,8 @@
+id: Q-0009-telomerase-without-cancer
+statement: "Can telomerase be activated transiently or in a targeted way without raising cancer risk?"
+concepts:
+  - telomere-attrition
+  - telomerase
+  - cancer
+mission: aging-map
+status: open

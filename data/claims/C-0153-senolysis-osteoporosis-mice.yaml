@@ -1,0 +1,10 @@
+id: C-0153-senolysis-osteoporosis-mice
+statement: "Removing senescent cells prevents age-related bone loss in mice."
+concepts:
+  - cellular-senescence
+  - osteoporosis
+  - senolytics
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

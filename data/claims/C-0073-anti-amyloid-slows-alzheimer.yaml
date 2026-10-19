@@ -1,0 +1,11 @@
+id: C-0073-anti-amyloid-slows-alzheimer
+statement: "Anti-amyloid antibodies slow decline in early Alzheimer (lecanemab -27% over 18 months; donanemab about one third), with brain swelling and microbleeds (ARIA); approved."
+concepts:
+  - loss-of-proteostasis
+  - anti-amyloid-antibodies
+  - alzheimer-disease
+organism: homo-sapiens
+evidence_level: 6
+confidence: established
+mission: aging-map
+note: "Modest benefit according to the text."

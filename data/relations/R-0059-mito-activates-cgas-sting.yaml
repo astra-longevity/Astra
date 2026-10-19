@@ -1,0 +1,6 @@
+id: R-0059-mito-activates-cgas-sting
+from: mitochondrial-dysfunction
+to: cgas-sting
+type: activates
+claims:
+  - C-0132-mtdna-release-cgas-sting

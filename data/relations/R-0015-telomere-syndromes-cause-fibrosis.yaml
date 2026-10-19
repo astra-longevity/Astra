@@ -1,0 +1,6 @@
+id: R-0015-telomere-syndromes-cause-fibrosis
+from: telomere-syndromes
+to: pulmonary-fibrosis
+type: causes
+claims:
+  - C-0035-telomerase-mutations-telomere-syndromes

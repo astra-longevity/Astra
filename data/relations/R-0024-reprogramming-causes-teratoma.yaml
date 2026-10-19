@@ -1,0 +1,6 @@
+id: R-0024-reprogramming-causes-teratoma
+from: partial-reprogramming
+to: teratoma
+type: causes
+claims:
+  - C-0056-reprogramming-teratoma-risk

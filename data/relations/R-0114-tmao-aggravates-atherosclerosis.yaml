@@ -1,0 +1,6 @@
+id: R-0114-tmao-aggravates-atherosclerosis
+from: tmao
+to: atherosclerosis
+type: aggravates
+claims:
+  - C-0224-tmao-atherosclerosis-mice

@@ -1,0 +1,6 @@
+id: R-0036-autophagy-aggravates-stem-cells
+from: disabled-macroautophagy
+to: stem-cell-exhaustion
+type: aggravates
+claims:
+  - C-0088-muscle-stem-cells-autophagy

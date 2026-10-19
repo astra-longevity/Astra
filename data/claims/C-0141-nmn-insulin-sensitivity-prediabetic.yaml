@@ -1,0 +1,9 @@
+id: C-0141-nmn-insulin-sensitivity-prediabetic
+statement: "In a phase 2 trial (25 prediabetic women), NMN improved muscle insulin sensitivity."
+concepts:
+  - mitochondrial-dysfunction
+  - nad-precursors
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

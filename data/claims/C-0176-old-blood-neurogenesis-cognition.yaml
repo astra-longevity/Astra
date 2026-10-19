@@ -1,0 +1,9 @@
+id: C-0176-old-blood-neurogenesis-cognition
+statement: "In mice, the falling birth of new neurons in the hippocampus is linked to cognitive decline, and factors in old blood reduce it."
+concepts:
+  - stem-cell-exhaustion
+  - altered-intercellular-communication
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

@@ -1,0 +1,12 @@
+id: C-0051-caloric-restriction-dunedinpace
+statement: "In the CALERIE randomized trial (~12% fewer calories over 2 years), caloric restriction slightly slowed DunedinPACE (~2-3%) but not PhenoAge or GrimAge."
+concepts:
+  - epigenetic-alterations
+  - caloric-restriction
+  - epigenetic-clocks
+  - deregulated-nutrient-sensing
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map
+note: "The clocks disagree with each other."

@@ -1,0 +1,6 @@
+id: R-0013-telomeres-aggravate-stem-cells
+from: telomere-attrition
+to: stem-cell-exhaustion
+type: aggravates
+claims:
+  - C-0035-telomerase-mutations-telomere-syndromes

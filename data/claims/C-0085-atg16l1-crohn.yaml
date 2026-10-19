@@ -1,0 +1,11 @@
+id: C-0085-atg16l1-crohn
+statement: "A variant of the autophagy gene ATG16L1 (T300A) is associated with Crohn's disease."
+concepts:
+  - disabled-macroautophagy
+  - atg-genes
+  - crohn-disease
+  - dysbiosis
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

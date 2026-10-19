@@ -1,0 +1,11 @@
+id: C-0010-polg-mutator-premature-aging
+statement: "Mice whose POLG enzyme no longer corrects its errors accumulate mitochondrial DNA mutations and age prematurely."
+concepts:
+  - genomic-instability
+  - polg
+  - mtdna-mutations
+  - mitochondrial-dysfunction
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

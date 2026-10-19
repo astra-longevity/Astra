@@ -1,0 +1,9 @@
+id: C-0212-inflammation-common-risk-factor
+statement: "Chronic inflammation is a shared risk factor for most age-related diseases, including cardiovascular disease."
+concepts:
+  - chronic-inflammation
+  - cardiovascular-disease
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

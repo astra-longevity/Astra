@@ -1,0 +1,6 @@
+id: R-0073-senescence-causes-osteoporosis
+from: cellular-senescence
+to: osteoporosis
+type: causes
+claims:
+  - C-0153-senolysis-osteoporosis-mice

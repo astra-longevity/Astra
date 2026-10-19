@@ -1,0 +1,10 @@
+id: C-0041-ta65-weak-evidence
+statement: "TA-65, a supposed telomerase activator, has only one uncontrolled human study funded by the manufacturer: no robust evidence on health or lifespan."
+concepts:
+  - telomere-attrition
+  - ta-65
+  - telomerase
+organism: homo-sapiens
+evidence_level: 4
+confidence: speculative
+mission: aging-map

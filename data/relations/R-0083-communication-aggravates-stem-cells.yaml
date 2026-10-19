@@ -1,0 +1,9 @@
+id: R-0083-communication-aggravates-stem-cells
+from: altered-intercellular-communication
+to: stem-cell-exhaustion
+type: aggravates
+claims:
+  - C-0173-young-blood-restores-stem-cells
+  - C-0176-old-blood-neurogenesis-cognition
+  - C-0186-young-blood-rejuvenates-muscle-liver
+  - C-0190-single-blood-exchange-old-dominant

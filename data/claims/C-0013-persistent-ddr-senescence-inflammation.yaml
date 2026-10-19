@@ -1,0 +1,10 @@
+id: C-0013-persistent-ddr-senescence-inflammation
+statement: "A persistent DNA damage response is a major driver of senescence and inflammation."
+concepts:
+  - genomic-instability
+  - cellular-senescence
+  - chronic-inflammation
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

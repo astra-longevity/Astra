@@ -1,0 +1,9 @@
+id: C-0138-nr-raises-nad-no-energy-gain
+statement: "Nicotinamide riboside is well tolerated and raises blood NAD+; in older muscle it raises the NAD+ metabolome and lowers inflammatory signals, without bioenergetic gain."
+concepts:
+  - mitochondrial-dysfunction
+  - nad-precursors
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

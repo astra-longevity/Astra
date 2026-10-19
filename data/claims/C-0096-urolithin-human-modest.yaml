@@ -1,0 +1,10 @@
+id: C-0096-urolithin-human-modest
+statement: "In humans, urolithin A is safe and leaves a mitochondrial signature; over 4 months in 66 older adults, walking distance (primary endpoint) did not improve but muscle endurance did."
+concepts:
+  - disabled-macroautophagy
+  - urolithin-a
+  - mitophagy
+organism: homo-sapiens
+evidence_level: 5
+confidence: debated
+mission: aging-map

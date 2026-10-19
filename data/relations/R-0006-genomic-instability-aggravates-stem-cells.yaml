@@ -1,0 +1,6 @@
+id: R-0006-genomic-instability-aggravates-stem-cells
+from: genomic-instability
+to: stem-cell-exhaustion
+type: aggravates
+claims:
+  - C-0168-hsc-mutations-clonal-hematopoiesis

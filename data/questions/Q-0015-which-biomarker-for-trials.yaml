@@ -1,0 +1,7 @@
+id: Q-0015-which-biomarker-for-trials
+statement: "Which clock should serve as a trial endpoint, given that they disagree (CALERIE: effect on DunedinPACE, not on GrimAge)?"
+concepts:
+  - epigenetic-alterations
+  - epigenetic-clocks
+mission: aging-map
+status: open

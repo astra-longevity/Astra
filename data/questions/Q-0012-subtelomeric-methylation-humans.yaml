@@ -1,0 +1,8 @@
+id: Q-0012-subtelomeric-methylation-humans
+statement: "Are the loss of heterochromatin around telomeres and the age-related methylation changes in subtelomeric regions confirmed in humans?"
+concepts:
+  - telomere-attrition
+  - epigenetic-alterations
+mission: aging-map
+status: open
+note: "Marked [to verify] in file 02, no source."

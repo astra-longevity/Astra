@@ -1,0 +1,9 @@
+id: C-0048-dunedinpace-pace-of-aging
+statement: "DunedinPACE measures the pace of aging from the rate of decline of 19 markers followed over 20 years."
+concepts:
+  - epigenetic-alterations
+  - epigenetic-clocks
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

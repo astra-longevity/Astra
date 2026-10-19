@@ -1,0 +1,8 @@
+id: R-0066-senescence-aggravates-inflammation
+from: cellular-senescence
+to: chronic-inflammation
+type: aggravates
+claims:
+  - C-0145-sasp-composition-drivers
+  - C-0210-t-cell-mitochondria-systemic-inflammation
+note: "The SASP is a main driver of inflammaging."

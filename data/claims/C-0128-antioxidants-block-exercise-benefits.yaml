@@ -1,0 +1,11 @@
+id: C-0128-antioxidants-block-exercise-benefits
+statement: "Taking vitamins C and E suppresses the metabolic benefits of exercise (mitohormesis)."
+concepts:
+  - mitochondrial-dysfunction
+  - antioxidant-supplements
+  - ros
+  - exercise
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

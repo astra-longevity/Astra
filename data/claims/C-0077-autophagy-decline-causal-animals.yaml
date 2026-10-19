@@ -1,0 +1,9 @@
+id: C-0077-autophagy-decline-causal-animals
+statement: "Macroautophagy falls with age in most tissues; blocking it speeds up degeneration and switching it on extends life in several animal species."
+concepts:
+  - disabled-macroautophagy
+  - atg-genes
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

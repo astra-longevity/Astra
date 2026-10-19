@@ -1,0 +1,9 @@
+id: Q-0061-which-inflammation-targets
+statement: "Which target (IL-1beta, IL-6, NLRP3, STING...) reduces inflammaging without weakening defence against infections and cancers?"
+concepts:
+  - chronic-inflammation
+  - il-1b
+  - nlrp3
+  - cgas-sting
+mission: aging-map
+status: open

@@ -1,0 +1,7 @@
+id: Q-0028-autophagy-cancer-profile
+statement: "Switching on autophagy can help an existing tumour survive: in which patients is that acceptable?"
+concepts:
+  - disabled-macroautophagy
+  - cancer
+mission: aging-map
+status: open

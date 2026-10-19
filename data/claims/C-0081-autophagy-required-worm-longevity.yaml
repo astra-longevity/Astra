@@ -1,0 +1,12 @@
+id: C-0081-autophagy-required-worm-longevity
+statement: "In worms, long-lived mutants (insulin pathway, caloric restriction) lose their longevity when autophagy is blocked."
+concepts:
+  - disabled-macroautophagy
+  - atg-genes
+  - igf-1
+  - caloric-restriction
+  - deregulated-nutrient-sensing
+organism: caenorhabditis-elegans
+evidence_level: 2
+confidence: established
+mission: aging-map

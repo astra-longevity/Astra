@@ -1,0 +1,8 @@
+id: C-0247-fw-gompertz-doubling
+statement: "In adult humans, the death rate rises exponentially with age (Gompertz law), doubling roughly every 8 years; rhesus monkeys have a similar doubling time but higher mortality at all ages."
+concepts:
+  - macaca-mulatta
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

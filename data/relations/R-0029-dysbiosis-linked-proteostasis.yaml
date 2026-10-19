@@ -1,0 +1,9 @@
+id: R-0029-dysbiosis-linked-proteostasis
+from: dysbiosis
+to: loss-of-proteostasis
+type: associated_with
+claims:
+  - C-0067-curli-alpha-synuclein-rats
+  - C-0068-microbiome-worsens-parkinson-mice
+  - C-0069-alpha-synuclein-gut-brain-vagus
+note: "Gut-origin hypothesis of Parkinson, not shown in humans."

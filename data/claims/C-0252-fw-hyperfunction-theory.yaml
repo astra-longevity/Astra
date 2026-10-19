@@ -1,0 +1,10 @@
+id: C-0252-fw-hyperfunction-theory
+statement: "Blagosklonny proposes that aging is driven mainly by growth programs (notably mTOR) that keep running after development, causing cellular hyperfunction; the theory predicted that rapamycin would slow aging."
+concepts:
+  - hyperfunction-theory
+  - mtorc1
+  - rapamycin
+organism: homo-sapiens
+evidence_level: 4
+confidence: speculative
+mission: aging-map

@@ -1,0 +1,7 @@
+id: R-0035-mtorc1-inhibits-autophagy
+from: mtorc1
+to: disabled-macroautophagy
+type: aggravates
+claims:
+  - C-0079-autophagy-degrades-with-age
+note: "Overactive mTORC1 brakes autophagy."

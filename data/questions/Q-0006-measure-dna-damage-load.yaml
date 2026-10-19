@@ -1,0 +1,8 @@
+id: Q-0006-measure-dna-damage-load
+statement: "How can the DNA damage load be measured routinely (single-molecule sequencing, loss of Y, CHIP)?"
+concepts:
+  - genomic-instability
+  - chip
+  - loss-of-y
+mission: aging-map
+status: open

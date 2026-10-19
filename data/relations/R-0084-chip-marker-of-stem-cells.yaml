@@ -1,0 +1,6 @@
+id: R-0084-chip-marker-of-stem-cells
+from: chip
+to: stem-cell-exhaustion
+type: marker_of
+claims:
+  - C-0168-hsc-mutations-clonal-hematopoiesis

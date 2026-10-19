@@ -1,0 +1,9 @@
+id: C-0192-gdf11-increases-inhibits-regeneration
+statement: "Contrary to its claimed rejuvenating role, GDF11 was found to rise with age and inhibit muscle regeneration; the topic remains controversial."
+concepts:
+  - altered-intercellular-communication
+  - gdf11
+organism: mus-musculus
+evidence_level: 3
+confidence: debated
+mission: aging-map

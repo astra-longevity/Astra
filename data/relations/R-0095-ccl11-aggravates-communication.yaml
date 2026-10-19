@@ -1,0 +1,6 @@
+id: R-0095-ccl11-aggravates-communication
+from: ccl11
+to: altered-intercellular-communication
+type: aggravates
+claims:
+  - C-0187-old-blood-ccl11-neurogenesis

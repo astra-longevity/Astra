@@ -1,0 +1,9 @@
+id: C-0165-upar-car-t-senolytic
+statement: "CAR-T cells against uPAR remove senescent cells and correct liver fibrosis in mice."
+concepts:
+  - cellular-senescence
+  - senolytic-car-t
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

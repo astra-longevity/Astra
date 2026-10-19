@@ -1,0 +1,9 @@
+id: nad-precursors
+kind: intervention
+name: "NAD+ precursors (NMN, NR)"
+synonyms:
+  - "NMN"
+  - "NR"
+  - "nicotinamide riboside"
+  - "nicotinamide mononucleotide"
+description: "Supplements that raise NAD+, a key molecule for energy and repair."

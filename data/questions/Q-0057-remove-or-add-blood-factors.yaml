@@ -1,0 +1,8 @@
+id: Q-0057-remove-or-add-blood-factors
+statement: "Is removing harmful factors from old blood more effective than adding young ones in humans, as mouse data suggest?"
+concepts:
+  - altered-intercellular-communication
+  - plasma-dilution
+  - young-plasma
+mission: aging-map
+status: open

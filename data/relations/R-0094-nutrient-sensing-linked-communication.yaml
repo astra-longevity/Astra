@@ -1,0 +1,7 @@
+id: R-0094-nutrient-sensing-linked-communication
+from: deregulated-nutrient-sensing
+to: altered-intercellular-communication
+type: associated_with
+claims:
+  - C-0200-collagen-remodelling-worm-longevity
+note: "Insulin, IGF-1 and growth hormone are central messengers."

@@ -1,0 +1,9 @@
+id: C-0124-ros-antagonistic-signal
+statement: "Mitochondrial by-products (ROS) are useful signals at low dose; only their chronic excess becomes harmful."
+concepts:
+  - mitochondrial-dysfunction
+  - ros
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

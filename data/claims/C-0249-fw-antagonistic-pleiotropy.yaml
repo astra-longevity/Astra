@@ -1,0 +1,9 @@
+id: C-0249-fw-antagonistic-pleiotropy
+statement: "Antagonistic pleiotropy: the same gene variant can help early in life (growth, fertility) and harm late, so selection favours it."
+concepts:
+  - evolutionary-theories-of-aging
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map
+note: "Evolutionary theory."

@@ -1,0 +1,9 @@
+id: C-0209-inherited-variants-chip
+statement: "Inherited genetic variants predispose to CHIP."
+concepts:
+  - chronic-inflammation
+  - chip
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

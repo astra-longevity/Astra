@@ -1,0 +1,7 @@
+id: caloric-restriction
+kind: intervention
+name: "Caloric restriction"
+synonyms:
+  - "CALERIE"
+  - "dietary restriction"
+description: "Eating fewer calories over the long term, without malnutrition."

@@ -1,0 +1,10 @@
+id: C-0236-fermented-foods-diversity
+statement: "In a 10-week randomized trial (36 people), fermented foods increased microbial diversity and lowered inflammatory markers."
+concepts:
+  - dysbiosis
+  - fermented-foods
+  - chronic-inflammation
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

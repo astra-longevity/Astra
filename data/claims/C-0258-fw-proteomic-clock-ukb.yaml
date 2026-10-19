@@ -1,0 +1,8 @@
+id: C-0258-fw-proteomic-clock-ukb
+statement: "A clock trained on 2,897 plasma proteins in about 45,000 UK Biobank participants predicts mortality and common age-related diseases, and holds in Chinese and Finnish cohorts."
+concepts:
+  - proteomic-aging-clock
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

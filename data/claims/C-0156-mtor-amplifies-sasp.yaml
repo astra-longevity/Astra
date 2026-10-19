@@ -1,0 +1,12 @@
+id: C-0156-mtor-amplifies-sasp
+statement: "mTOR amplifies the SASP by controlling IL-1alpha translation; rapamycin reduces it."
+concepts:
+  - cellular-senescence
+  - sasp
+  - mtorc1
+  - rapamycin
+  - deregulated-nutrient-sensing
+organism: human-cells
+evidence_level: 1
+confidence: established
+mission: aging-map

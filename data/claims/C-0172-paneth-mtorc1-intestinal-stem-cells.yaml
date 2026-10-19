@@ -1,0 +1,11 @@
+id: C-0172-paneth-mtorc1-intestinal-stem-cells
+statement: "In the gut, mTORC1 signalling in Paneth cells links stem cell function to calorie intake; caloric restriction boosts intestinal stem cell function."
+concepts:
+  - stem-cell-exhaustion
+  - mtorc1
+  - caloric-restriction
+  - deregulated-nutrient-sensing
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

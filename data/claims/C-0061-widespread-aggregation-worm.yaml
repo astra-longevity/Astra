@@ -1,0 +1,9 @@
+id: C-0061-widespread-aggregation-worm
+statement: "In the C. elegans worm, hundreds of proteins become insoluble with age, even without disease, and the proteome loses its balance."
+concepts:
+  - loss-of-proteostasis
+  - protein-aggregation
+organism: caenorhabditis-elegans
+evidence_level: 2
+confidence: established
+mission: aging-map

@@ -1,0 +1,6 @@
+id: R-0053-acarbose-treats-nutrient-sensing
+from: acarbose
+to: deregulated-nutrient-sensing
+type: treats
+claims:
+  - C-0122-acarbose-extends-male-life

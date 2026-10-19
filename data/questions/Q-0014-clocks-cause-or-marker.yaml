@@ -1,0 +1,8 @@
+id: Q-0014-clocks-cause-or-marker
+statement: "Do epigenetic clocks measure a process that causes aging, or just a reflection of it?"
+concepts:
+  - epigenetic-alterations
+  - epigenetic-clocks
+mission: aging-map
+status: open
+note: "Yang 2023 suggests causation in mice; not shown in humans."

@@ -1,0 +1,10 @@
+id: C-0170-cdc42-inhibition-rejuvenates-hsc
+statement: "In old blood stem cells, higher Cdc42 activity disorganises the cell; inhibiting it with a drug rejuvenates their function in mice."
+concepts:
+  - stem-cell-exhaustion
+  - cdc42
+  - hematopoietic-stem-cells
+organism: mus-musculus
+evidence_level: 3
+confidence: established
+mission: aging-map

@@ -1,0 +1,11 @@
+id: C-0175-chip-cardiovascular-mortality-stem
+statement: "CHIP is found in more than 10% of people over 70 and is associated with higher risk of blood cancer, overall mortality and cardiovascular disease."
+concepts:
+  - stem-cell-exhaustion
+  - chip
+  - cardiovascular-disease
+  - cancer
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

@@ -1,0 +1,9 @@
+id: C-0144-p16-rises-with-age-humans
+statement: "In blood T cells, p16INK4a rises exponentially with age, and with smoking and physical inactivity."
+concepts:
+  - cellular-senescence
+  - p16ink4a
+organism: homo-sapiens
+evidence_level: 4
+confidence: established
+mission: aging-map

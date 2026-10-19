@@ -1,0 +1,6 @@
+id: alzheimer-disease
+kind: disease
+name: "Alzheimer's disease"
+synonyms:
+  - "amyloid-beta"
+  - "tau"

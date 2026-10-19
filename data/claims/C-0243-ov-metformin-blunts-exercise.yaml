@@ -1,0 +1,9 @@
+id: C-0243-ov-metformin-blunts-exercise
+statement: "Metformin reduces the benefits of exercise in older people."
+concepts:
+  - metformin
+  - exercise
+organism: homo-sapiens
+evidence_level: 5
+confidence: established
+mission: aging-map

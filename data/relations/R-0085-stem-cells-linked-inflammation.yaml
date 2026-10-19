@@ -1,0 +1,7 @@
+id: R-0085-stem-cells-linked-inflammation
+from: stem-cell-exhaustion
+to: chronic-inflammation
+type: associated_with
+claims:
+  - C-0175-chip-cardiovascular-mortality-stem
+note: "CHIP amplifies inflammation, which in turn favours clonal expansion."
