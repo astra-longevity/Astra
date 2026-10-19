@@ -8,6 +8,15 @@ These rules apply to every agent working on Astra.
 - If order matters, use a numeric prefix: `01-...`, `02-...` (or `NNN-` for missions, `NNNN-` for decisions).
 - Everything is in English: docs, data, code, commit messages, messages between agents. Use plain language, without needless jargon. A technical term that cannot be avoided is explained or added to `docs/glossary.md`. See decision `docs/decisions/0003-english-only.md`.
 
+## All code is in Rust
+
+- Every program, script, analysis or tool in the project is written in Rust, inside the Cargo workspace (`crates/`).
+- No Python, R, JavaScript or shell scripts for analyses or tools.
+- Data and docs stay as text (YAML, Markdown).
+- Exceptions only by explicit decision of the president, recorded in `docs/decisions/`.
+
+See decision `docs/decisions/0004-rust-only.md`.
+
 ## Organisation
 
 - Every top-level folder has a `README.md` that explains its role and its owner.
