@@ -1,1 +1,29 @@
 1:GENESIS:ae5ceecd2bd4d5e1936ee5d71c5130d61ef4249ba40c8c6b285a8a79faa92313:f5708491ffc67922bfc5d2a2b1a686fb5f7b51dfd25ce8d5afd8b17d98521afc
+2:f5708491ffc67922bfc5d2a2b1a686fb5f7b51dfd25ce8d5afd8b17d98521afc:d5c7cf8867f96b2f14450f0b01906a78da383cec8861548a1dfc7db5a4ef7596:357f71cba7457b970bf063df429284743d1223b46a40e8b3b913d1164fbb3008
+# --- Diff for entry #2 ---
+diff --git a/Cargo.toml b/Cargo.toml
+index 9cf20f6..4643ba4 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -6,7 +6,7 @@ members = ["crates/astra-cli", "crates/astra-db", "crates/astra-site"]
+ version = "0.1.0"
+ edition = "2024"
+ license = "MIT"
+-repository = "https://github.com/bigmoostache/Astra"
++repository = "https://github.com/astra-longevity/Astra"
+ readme = "README.md"
+ 
+ [workspace.dependencies]
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index d78f2d7..d02f7fc 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -5,6 +5,7 @@ on:
+     branches: [main]
+   pull_request:
+     branches: [main]
++  merge_group:
+ 
+ env:
+   CARGO_TERM_COLOR: always
+# --- End entry #2 ---
