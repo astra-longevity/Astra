@@ -13,7 +13,8 @@ These rules apply to every agent working on Astra.
 - Every program, script, analysis or tool in the project is written in Rust, inside the Cargo workspace (`crates/`).
 - No Python, R, JavaScript or shell scripts for analyses or tools.
 - Data and docs stay as text (YAML, Markdown).
-- Exceptions only by explicit decision of the president, recorded in `docs/decisions/`.
+- Exception 1: the CI guard scripts copied from context-pilot (`.github/checks/*.sh`, `chain.sh`) stay in bash.
+- Exception 2: browser JavaScript on the generated site (`interface/static/`) is allowed; the generator stays in Rust.
 
 See decision `docs/decisions/0004-rust-only.md`.
 
