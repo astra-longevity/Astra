@@ -32,7 +32,9 @@ See decision `docs/decisions/0004-rust-only.md`.
 
 - Commit messages: `<folder>: <action>`, for example `literature: add aging map overview`.
 - Small commits, one topic at a time.
-- One branch per mission; merged into `main` after review by the responsible manager.
+- `main` only changes through pull requests, for everyone. Flow: branch → PR → `gh pr merge --auto` (the merge queue squashes and merges once the required checks pass).
+- Never use `--admin`, and never change branch protection or rulesets.
+- Step-by-step guide: [`docs/rust/pr-workflow.md`](docs/rust/pr-workflow.md).
 
 ## The repository is the single source of truth
 
