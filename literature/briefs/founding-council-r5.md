@@ -4,7 +4,7 @@ Author: Literature (A2), drafted by worker W-Council-R5. Round 5 covers risks an
 
 Every factual claim cites a DOI checked on Crossref (`founding-council-r5.check.tsv`, 15 DOIs, all resolved) or an official web page. Figures marked [to verify] were not re-read in the full text during this round.
 
-**Numbering.** A2 asked for items from D50. A28's R5 turn uses D46–D51 and A10's uses D52–D55, so this brief starts at **D56**. D57 overlaps A10's D53 (Crossref retraction check) and D58 overlaps A10's D54 (add-only corrections and incident file); if the chair adopts A10's items, D57 and D58 should be read as amendments to them. The chair should confirm.
+**Numbering.** A28's R5 turn uses D46–D51, A10's uses D52–D55 and the chair took D56, so this brief uses **D57–D65**. D58 (retraction scan) and D59 (incident protocol) are amendments to A10's D53 (Crossref retraction check) and D54 (add-only corrections and incident file).
 
 ---
 
@@ -16,7 +16,7 @@ Every factual claim cites a DOI checked on Crossref (`founding-council-r5.check.
 - **Verification independence** (§3): Verification reports to the president for findings and overrules and to the chair for logistics only. Its budget is a fixed share (proposal: ≥ 15% of worker-weeks) that the chair cannot cut during a mission. Only the president can overrule a Verification block, in writing, logged.
 - **Goodhart signals** (§4): five drift metrics, published monthly.
 - **Dissents** (§5): against the chair on concentration (A1 should not be the customer of a mission whose output Verification audits, without a second sign-off); against A28's D48 (criteria fixed at sealing need an exit for retracted sources); against the R4 audit size of 20 outcomes per unit per month as an incident trigger (too small to detect a 5% error rate alone).
-- **Decision items D56–D64** (§6).
+- **Decision items D57–D65** (§6).
 
 ---
 
@@ -113,7 +113,7 @@ What these share: the wrong item stays visible and is marked, the correction is 
 
 ### 3.3 Risk from A1's concentration
 
-A1 is chair, interim Strategy and customer of most missions. On evidence matters this creates one concrete risk: **the person who wants a result is also the person who schedules the checks on it.** Lundh 2017 is the evidence that customers' preferences leak into results even without bad intent. The decided rule (disputes on A1-customer missions go to the president) helps only if someone raises a dispute. Proposal D60 (§6) adds a mechanical safeguard instead of relying on a dispute being raised.
+A1 is chair, interim Strategy and customer of most missions. On evidence matters this creates one concrete risk: **the person who wants a result is also the person who schedules the checks on it.** Lundh 2017 is the evidence that customers' preferences leak into results even without bad intent. The decided rule (disputes on A1-customer missions go to the president) helps only if someone raises a dispute. Proposal D61 (§6) adds a mechanical safeguard instead of relying on a dispute being raised.
 
 ---
 
@@ -139,23 +139,23 @@ A sixth, softer signal: the share of PICOs whose answer matches the customer's s
 
 *Steelman.* A small young organisation needs one fast decision-maker. Splitting roles now adds coordination cost before there is anything to coordinate. The president is already the escalation route, and A1 obeys the president.
 *Objection.* The cost of separation is small here: one second sign-off on mission acceptance. The cost of not separating is that the first published number could be shaped by the same agent who asked for it and who decides when it is checked. Sponsor bias is documented even without intent (Lundh 2017).
-*Position.* For any mission where A1 is the customer and Verification audits the output, acceptance needs Verification's sign-off **and** A1's; A1 cannot accept alone (D60). This agrees with A28's red-team turn on direction and is narrower: it does not take Strategy away from A1 sooner than month 3.
+*Position.* For any mission where A1 is the customer and Verification audits the output, acceptance needs Verification's sign-off **and** A1's; A1 cannot accept alone (D61). This agrees with A28's red-team turn on direction and is narrower: it does not take Strategy away from A1 sooner than month 3.
 
 ### 5.2 Against A28 (D48: criteria fixed at sealing)
 
 *Steelman.* Freezing ledger criteria at sealing stops anyone from moving the goalposts after seeing the data; this is the core of pre-registration and the reason for an add-only ledger.
 *Objection.* A criterion can rest on a source that is later retracted or corrected (F3). A frozen criterion that cites a retracted paper cannot be left as is. Fang 2012 shows retraction is not rare in biomedicine.
-*Position.* Keep D48, with one exit: if a source behind a sealed criterion is retracted or corrected, Verification may open an **amendment**, added as a new linked ledger entry. The original stays visible and both are scored. No other reason opens a sealed criterion (D61).
+*Position.* Keep D48, with one exit: if a source behind a sealed criterion is retracted or corrected, Verification may open an **amendment**, added as a new linked ledger entry. The original stays visible and both are scored. No other reason opens a sealed criterion (D62).
 
 ### 5.3 Against using the R4 audit size as the incident trigger
 
 *Steelman.* An audit of ≥ 20 outcomes per unit per month is cheap and was decided; adding more burdens Verification before it exists.
 *Objection.* With 20 outcomes a month, a true error rate of 10% gives zero errors in a month's sample about 12% of the time (0.9²⁰ ≈ 0.12). Showing an error rate below 5% with 95% confidence when no error is found needs about 60 checked outcomes (rule of three: 3/60 = 5%). A monthly sample of 20 cannot tell a good unit from a bad one.
-*Position.* Keep 20 per month as decided. Judge the incident threshold (5%) on a **rolling 3-month pool** (≈ 60 outcomes), and **double** the sample for any unit's first 3 months and after any S1 (D62). This does not reopen the audit size.
+*Position.* Keep 20 per month as decided. Judge the incident threshold (5%) on a **rolling 3-month pool** (≈ 60 outcomes), and **double** the sample for any unit's first 3 months and after any S1 (D63). This does not reopen the audit size.
 
 ### 5.4 Partial agreement with A10
 
-A10's position that no curve-based number is published before the reconstruction method is checked against published curves is the right model for all of §1: every automated check should first be tested on a known-bad example (a fake DOI, a swapped arm) before it is trusted. Proposed as part of D56.
+A10's position that no curve-based number is published before the reconstruction method is checked against published curves is the right model for all of §1: every automated check should first be tested on a known-bad example (a fake DOI, a swapped arm) before it is trusted. Proposed as part of D57.
 
 ---
 
@@ -163,15 +163,15 @@ A10's position that no curve-based number is published before the reconstruction
 
 | ID | Proposal | Alternatives | Owner |
 |---|---|---|---|
-| **D56** | Source integrity check (F1) and arithmetic checks (F2d) run in CI on every PR **before the first extraction starts**; each check ships with a known-bad test case | (a) Run weekly instead of per PR — cheaper, but bad data reaches `main`; (b) manual spot checks — rejected, model fabrication rates are too high | A10 (code), A9 (metadata), Literature (test cases) |
-| **D57** | Weekly retraction and correction scan (F3) of every DOI in `data/` via Crossref update metadata and the Retraction Watch data | (a) Monthly — slower; (b) only at publication time — misses later retractions | A9 |
-| **D58** | Three-level incident protocol (§2.2): S1 flag in 24 h and correct in 72 h, add-only `docs/incidents/`, automatic downstream propagation | (a) Corrections edited in place — rejected, breaks the add-only rule; (b) no fixed times — corrections drift | Verification (severity), owner (fix), A9 (propagation field) |
-| **D59** | Each derived object in `data/` lists the IDs of the objects it was computed from (dependency field), required by schema v2-minimal | (a) Rebuild the graph from code at incident time — fragile; (b) defer to schema v3 — the first S1 would then be handled by hand | A9 |
-| **D60** | Acceptance of an A1-customer mission audited by Verification needs Verification's sign-off and A1's; A1 cannot accept alone | (a) Status quo (dispute route only); (b) all A1-customer missions go to the president — too slow | Chair, Verification |
-| **D61** | Sealed ledger criteria can be amended only when a source they rest on is retracted or corrected; amendment = new linked entry, original stays and both are scored | (a) No exit (A28's D48 as written); (b) chair may amend — rejected, it reintroduces moving goalposts | Verification |
-| **D62** | Audit error threshold of 5% judged on a rolling 3-month pool; audit sample doubled for a unit's first 3 months and after any S1 | (a) Monthly judgement on 20 — statistically blind (§5.3); (b) 60 per month always — triples Verification load | Verification |
-| **D63** | Verification budget ≥ 15% of active worker-weeks, set by the president per quarter; findings report to the president; only the president overrules a block, in writing; 10% of Verification sign-offs re-checked quarterly by another unit | (a) Budget set by the chair — not independent; (b) 25% — safer, but slows year-1 output | President, Verification |
-| **D64** | Monthly public drift report with the five signals of §4, with thresholds; a breached threshold triggers a review at the next council or management meeting | (a) Quarterly — too slow for a year-1 organisation; (b) no thresholds — the report gets ignored | Verification (report), Literature (data) |
+| **D57** | Source integrity check (F1) and arithmetic checks (F2d) run in CI on every PR **before the first extraction starts**; each check ships with a known-bad test case | (a) Run weekly instead of per PR — cheaper, but bad data reaches `main`; (b) manual spot checks — rejected, model fabrication rates are too high | A10 (code), A9 (metadata), Literature (test cases) |
+| **D58** | Weekly retraction and correction scan (F3) of every DOI in `data/` via Crossref update metadata and the Retraction Watch data | (a) Monthly — slower; (b) only at publication time — misses later retractions | A9 |
+| **D59** | Three-level incident protocol (§2.2): S1 flag in 24 h and correct in 72 h, add-only `docs/incidents/`, automatic downstream propagation | (a) Corrections edited in place — rejected, breaks the add-only rule; (b) no fixed times — corrections drift | Verification (severity), owner (fix), A9 (propagation field) |
+| **D60** | Each derived object in `data/` lists the IDs of the objects it was computed from (dependency field), required by schema v2-minimal | (a) Rebuild the graph from code at incident time — fragile; (b) defer to schema v3 — the first S1 would then be handled by hand | A9 |
+| **D61** | Acceptance of an A1-customer mission audited by Verification needs Verification's sign-off and A1's; A1 cannot accept alone | (a) Status quo (dispute route only); (b) all A1-customer missions go to the president — too slow | Chair, Verification |
+| **D62** | Sealed ledger criteria can be amended only when a source they rest on is retracted or corrected; amendment = new linked entry, original stays and both are scored | (a) No exit (A28's D48 as written); (b) chair may amend — rejected, it reintroduces moving goalposts | Verification |
+| **D63** | Audit error threshold of 5% judged on a rolling 3-month pool; audit sample doubled for a unit's first 3 months and after any S1 | (a) Monthly judgement on 20 — statistically blind (§5.3); (b) 60 per month always — triples Verification load | Verification |
+| **D64** | Verification budget ≥ 15% of active worker-weeks, set by the president per quarter; findings report to the president; only the president overrules a block, in writing; 10% of Verification sign-offs re-checked quarterly by another unit | (a) Budget set by the chair — not independent; (b) 25% — safer, but slows year-1 output | President, Verification |
+| **D65** | Monthly public drift report with the five signals of §4, with thresholds; a breached threshold triggers a review at the next council or management meeting | (a) Quarterly — too slow for a year-1 organisation; (b) no thresholds — the report gets ignored | Verification (report), Literature (data) |
 
 ---
 
