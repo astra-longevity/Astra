@@ -11,8 +11,8 @@ Every factual claim cites a DOI checked on Crossref (`founding-council-r4.check.
 - **Seven Literature missions** (L1–L7) feed the first ten missions. Total ≈ 26 worker-weeks in the first 12 weeks; the flagship extraction (L2) is ≈ 10 of them.
 - **The flagship is feasible today.** 27 placebo-controlled SGLT2i/GLP-1 RA outcome trials, 191,896 participants, all 27 with posted results on ClinicalTrials.gov. Every one lists serious adverse events (SAEs) for neoplasms, infections and fractures; 21 of 27 list at least one dementia SAE row.
 - **But every flagship effect is "extrapolated".** No trial enrolled healthy older adults; all enrolled people with diabetes, heart failure, kidney disease, recent myocardial infarction or obesity with heart disease. The flagship answers "what do these drugs do to non-cardiovascular aging outcomes in sick people", not yet "in healthy 70–79".
-- **R3 open items, proposals:** (a) transportability v0 = a published-subgroup consistency test + a variance penalty, no reweighting until we hold individual data; (b) 60–69 baseline: no single printed source covers our composite; D-Health (ages 60–84) is the best candidate for mortality, so 60–69 stays "not estimable" for the composite, with a component-only column allowed; (c) harm weighting: keep "no conversion" in v0, GBD 2013 disability weights as a labelled sensitivity analysis only.
-- **Dissents:** against A28 on the surrogate threshold (R² ≥ 0.6 is too low for this dataset); against A10 on starting digitisation before the schema is frozen; against the chair on fitting 16 classes into G5 in year 1 at L2.
+- **R3 open items, proposals:** (a) transportability v0 = three qualitative conditions (mechanism, published-subgroup consistency, a trial without the index disease), results kept in the separate column, no hand-set variance multiplier, no reweighting until we hold individual data; (b) 60–69 baseline: no printed source covers our composite, so 60–69 stays "not estimable"; a component-only column is filled only where a printed 60–69 age-band result exists (D-Health 60–84 and VITAL ≥ 50/55 do not qualify); (c) harm weighting: keep "no conversion" in v0, GBD 2013 disability weights as a labelled sensitivity analysis only.
+- **Dissents:** against A28 on the surrogate threshold (R² ≥ 0.6 is too low for this dataset); against A10 on deferring trial-level R² (keep collecting the surrogate dataset during flagship extraction, defer only the computation); against the chair on fitting 16 classes into G5 in year 1 at L2.
 
 ---
 
@@ -79,7 +79,7 @@ Placebo-controlled, event-driven outcome trials. n = enrolled (ClinicalTrials.go
 | FLOW | NCT03819153 | 3,533 | T2D + CKD | 2 / 23 / 122 / 153 | 10.1056/NEJMoa2403347 |
 | SOUL | NCT03914326 | 9,651 | T2D + CVD/CKD | 5 / 38 / 212 / 254 | 10.1056/NEJMoa2501006 |
 
-Two caveats. EXSCEL lists only 18 infection-class terms against ~100–250 in trials of similar size: probably a different organ-class mapping in its posted results [to verify before extraction]. Any trial of a drug that completes before the council ends is excluded from the predictions ledger (R3 decision) but not from the flagship, which pools completed trials by design.
+Two caveats. EXSCEL lists only 18 infection-class terms against ~100–250 in trials of similar size. Its posted SAE table also lists only 2 cardiac terms, in a cardiovascular outcome trial, so the table looks partial (endpoint events probably excluded from the SAE listing), not differently mapped [to verify]. Rule for L2: EXSCEL infection and cardiac SAE counts are taken from the paper or its supplement, not from the CT.gov table, until the gap is explained. Any trial of a drug that completes before the council ends is excluded from the predictions ledger (R3 decision) but not from the flagship, which pools completed trials by design.
 
 ### 2.2 What can be extracted, outcome by outcome
 
@@ -89,7 +89,7 @@ Two caveats. EXSCEL lists only 18 infection-class terms against ~100–250 in tr
 | Dementia | CT.gov SAE rows only (21/27 have ≥ 1 row) | Not adjudicated, SAE only, small counts | Absolute risk per 1,000 per 10 y; pooled odds ratio as hypothesis-generating, GRADE low at best |
 | Cancer | CT.gov neoplasm organ class (27/27) | Not adjudicated except where the paper reports it | Absolute risk; pooled estimate with RoB "outcome measurement" high |
 | Fracture | CT.gov SAE rows (27/27) | SAE only; non-serious fractures missing | Absolute risk; harm column |
-| Serious infection | CT.gov infection organ class (27/27) | SAE only; classification differs (EXSCEL) | Absolute risk; harm column |
+| Serious infection | CT.gov infection organ class (27/27) | SAE only; EXSCEL CT.gov table looks partial (§2.1) | Absolute risk; harm column |
 | Persistent physical disability | Not reported in any of the 27 [to verify by full-text screen] | – | Not estimable from this set |
 
 Consequence: the flagship can produce the **mortality** component of the north star with a curve and the **dementia, cancer, fracture and infection** components as event counts. It cannot produce disability-free survival. The composite RMST for these drugs therefore stays partial in year 1, and the brief recommends saying so on the public table rather than filling the gap with a proxy.
@@ -113,13 +113,14 @@ Per trial, per extractor (estimates, not measured):
 
 **The problem.** All of these need individual participant data from the trial. We have summary tables. Positivity also fails: no flagship trial enrolled healthy people, so no reweighting of these trials can reach a healthy target population. Applying any of these methods here would give a number with false authority.
 
-**Proposal v0 (aggregate-data rule).** An effect moves from `extrapolated` to `transported-v0` only if all four hold:
+**Proposal v0 (aggregate-data rule).** An effect moves from `extrapolated` to `transported-v0` only if all three hold:
 1. **Mechanism not tied to the disease** — stated in the PICO record with a citation (e.g. glucose lowering is not the mechanism claimed).
 2. **Consistency across published subgroups** — for the outcome in question, the published subgroup estimates by age (≥ 65 vs < 65), by baseline disease (diabetes yes/no where available) and by kidney function show no interaction (p > 0.10) and point estimates on the same side of 1 in ≥ 80% of trials.
 3. **At least one trial without the index disease** — for GLP-1 RA, SELECT (no diabetes) qualifies; for SGLT2i, DAPA-CKD, EMPA-KIDNEY, DELIVER, DAPA-MI and EMPACT-MI include non-diabetic participants.
-4. **Variance penalty** — the transported estimate's variance is doubled (a fixed, published, arbitrary rule to be replaced by an empirical one).
 
-`transported-v0` stays in the separate column. Nothing reaches the headline column until a v1 rule using individual data (via Vivli or YODA, §5) is approved by the council or its successor. Steelman against: subgroup tests are underpowered, so "no interaction" is weak evidence. Accepted; that is why the variance penalty exists and why v0 never reaches the headline.
+No variance multiplier is applied: a hand-set factor would be an invented number (withdrawn in council). The uncertainty is carried by the label and the separate column instead.
+
+`transported-v0` stays in the separate column. Nothing reaches the headline column until a v1 rule using individual data (via Vivli or YODA, §5) is approved by the council or its successor. Steelman against: subgroup tests are underpowered, so "no interaction" is weak evidence. Accepted; that is why v0 never reaches the headline.
 
 ### 3.2 Baseline event-free curve for ages 60–69
 
@@ -132,7 +133,7 @@ Requirement (R3): a **printed** event-free curve or table, in a population free 
 | VITAL (Manson 2019, 10.1056/NEJMoa1809944) | US men ≥ 50, women ≥ 55, free of cancer and CVD | Invasive cancer and major CV events, curves | Right age band inside a wider one; age-specific curves [to verify]; no dementia or disability |
 | WHI estrogen + progestin (2002, 10.1001/jama.288.3.321) | Postmenopausal women 50–79 | CHD, stroke, breast cancer, hip fracture, death; age-stratified rates [to verify] | Women only; 1990s baseline risk |
 
-**Proposal.** None of the four prints the composite for 60–69. Keep 60–69 composite **"not estimable"**, as decided. Add a **component-only** 60–69 column from D-Health placebo mortality and VITAL placebo cancer + CV curves (each digitised under L6), clearly labelled as components, never summed. Combining components under an independence assumption would overstate event-free survival (competing risks), so it is refused in v0. Literature will screen published cohort life tables (e.g. disability-free life expectancy tables) as a second route in weeks 4–8 [to verify availability].
+**Proposal.** None of the four prints the composite for 60–69. Keep 60–69 composite **"not estimable"**, as decided. A **component-only** 60–69 column is allowed, filled only where a printed result for the 60–69 age band exists (a curve or table restricted to, or stratified at, 60–69). D-Health (60–84, not stratified in the main paper) and VITAL (≥ 50/55) do not qualify as printed; WHI age-stratified rates are the only current candidate [to verify]. The column may therefore start empty. Components are labelled, never summed. Combining components under an independence assumption would overstate event-free survival (competing risks), so it is refused in v0. Literature will screen published cohort life tables (e.g. disability-free life expectancy tables) as a second route in weeks 4–8 [to verify availability].
 
 ### 3.3 Harm weighting
 
@@ -172,7 +173,7 @@ The longest chain is schema → pilot → extraction → RoB → calibration →
 
 **D-A28 (surrogate threshold).** A28 R3 proposes promoting a proxy at trial-level R² ≥ 0.6 (lower bound ≥ 0.4) on ≥ 10 trials. *Steelman:* the literature has no agreed cut-off, and a lower bar lets mission 2b report something in year 1. *Objection:* with ~10 trials the CI on R² is very wide, so a lower bound of 0.4 is compatible with a proxy that explains little. The meta-analytic surrogate framework (Buyse 2000, 10.1093/biostatistics/1.1.49) was built for large trial sets. *Position:* keep the R3 text (R² ≥ 0.8, LB ≥ 0.6); report weaker results as "not validated, estimate X", which still counts as an output.
 
-**D-A10 (digitisation before schema).** A10 R3 (§3) plans reference data and tooling early; if curves are digitised as soon as the tool exists [to verify against A10 R4]: *Steelman:* without a tool, L6 cannot start, and tools take longest. *Objection:* digitising curves before the schema stores reconstruction metadata (curve source page, axis calibration, numbers-at-risk check) produces orphaned files that violate the single-source-of-truth rule. *Position:* tool built in wk 1–2, **no curve committed before the schema is frozen**.
+**D-A10 (deferring trial-level R²).** A10 R4 (docs/rust/briefs/founding-council-r4.md, summary point 6) proposes to "drop or defer trial-level R², Steiger and Hartung-Knapp until a reference is in hand". *Steelman:* an estimator with no reference result cannot be validated, and unvalidated code should not produce numbers. *Objection:* the cost of the surrogate test is the data, not the code. The L5 dataset (biomarker change and hard-outcome effect per trial) can be extracted during flagship extraction at small marginal cost; collecting it later means re-opening the same papers. *Position:* defer the R² computation as A10 asks, but keep L5 extraction in the flagship window and freeze the dataset before any analysis. Agreement with A10 on the rest: no curve-based number before Guyot is validated on ≥ 3 published curves (A10 D31), extraction from week 4 if the one-schema-per-week calendar (A10 D30) is adopted.
 
 **D-chair (G5 scope).** G5 says all 16 classes get an entry, ≥ 4 estimated at L2-sealed. *Steelman:* breadth shows the public what is and is not known. *Objection:* §2 shows that even the best-studied class lacks disability outcomes; "estimated" for 4 classes will mean partial composites. *Position:* keep 16 entries, but count a class as "estimated" only if ≥ 2 north-star components carry a pooled estimate with GRADE; publish component coverage next to each entry.
 
