@@ -1,0 +1,160 @@
+#!/usr/bin/env bash
+# check-structure.sh — the STRUCTURE family guard (unified).
+#
+# One script, one entry, invoked identically by the CI structure job and the
+# structure blocking callback — only the --ci / --callback flag differs (and, for
+# now, they behave identically: the callback covers the ENTIRETY of the CI check,
+# per the T518 rigorous-equality mandate; the flag exists only for a future
+# CI-vs-local environment tweak).
+#
+# Absorbs the three former structural scripts (check-file-lengths.sh,
+# check-folder-sizes.sh, check-web-structure.sh) into a single traversal over
+# BOTH source trees, plus the hash-chain integrity verify:
+#   1. File length  ≤ 500 lines   — Rust (*.rs) + web (src/*.ts,*.tsx)
+#   2. Dir entries  ≤ 8            — Rust source tree + web/src tree
+#   3. Hash-chain integrity        — delegates to check-lint-config.sh (verify)
+#
+# Exemptions mirror the originals: Rust skips target/ and the historically-
+# exempt product/vendor dirs; web skips the vendored shadcn ui/ + the generated
+# OpenAPI client. Repo root resolved via git so it is cwd-independent.
+set -uo pipefail
+
+MODE="${1:---ci}"   # --ci | --callback (behaviourally identical today)
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT" || exit 1
+
+MAX_LINES=500
+MAX_ENTRIES=8
+# shellcheck source=lib-failures.sh
+. "$ROOT/.github/checks/lib-failures.sh"
+ledger_init check-structure
+
+# ── 1 + 2: Rust tree (src/ + crates/) — ≤500 lines/file, ≤8 entries/dir ──────
+# (former check-file-lengths.sh + check-folder-sizes.sh)
+#
+# PRUNE, NOT FILTER. These two sweeps used to express their exclusions as
+# `-not -path './x/*'`, which only suppresses what find PRINTS — it still walks
+# every excluded tree first. `target/` alone holds 490k entries, so each sweep
+# spent 15-24s crawling a directory whose contents were thrown away. `-prune`
+# tells find to skip the subtree entirely; the sweeps are now sub-second.
+#
+# The rewrite is output-IDENTICAL (560 .rs files, 186 dirs, verified by diffing
+# this script's own two expressions against the pre-prune original). The
+# exclusion list is NOT uniform, which is the trap — each shape needs its own
+# verb, and flattening them to a bare `-prune` silently changes the result set:
+#
+#   X and X/* both excluded -> dir not printed, children not walked => -prune
+#   only X/*   excluded    -> dir PRINTED, children not walked     => -print -prune
+#   only X     excluded    -> dir not printed, children KEPT        => plain descend
+#
+# `./target` is the second shape: `./target/*` needs a slash plus something
+# after, so the directory itself never matches and stays in the count — which is
+# why a bare `-prune` there drops it. Same for `*/target/*`: it excludes the
+# CHILDREN of a `target` at any depth but not the directory, so `-name target`
+# pairs with `-print -prune`.
+while IFS= read -r f; do
+  n=$(wc -l < "$f" | tr -d '[:space:]')
+  if [ "$n" -gt "$MAX_LINES" ]; then
+    echo "::error file=$f::$f has $n lines (max $MAX_LINES)"
+    echo "FAIL: $f has $n lines (max $MAX_LINES) — extract into a sibling module." >&2
+    ledger_fail rust-file-length
+  fi
+done < <(find . \
+  \( -type d \( -name target \
+      -o -path './.worktrees' \
+      -o -path './deploy/ansible/.venv' \
+      -o -path './deploy/ansible/.artifacts' \) -prune \) \
+  -o \( -name '*.rs' -print \))
+
+while IFS= read -r dir; do
+  count=$(find "$dir" -maxdepth 1 -mindepth 1 \
+    -not -path './deploy/ansible/.venv' \
+    -not -path './deploy/ansible/.artifacts' \
+    -not -path './deploy/ansible/out' | wc -l | tr -d '[:space:]')
+  if [ "$count" -gt "$MAX_ENTRIES" ]; then
+    echo "::error::$dir has $count entries (max $MAX_ENTRIES)"
+    echo "FAIL: $dir has $count entries (max $MAX_ENTRIES) — group into a sub-dir." >&2
+    ledger_fail rust-dir-entries
+  fi
+done < <(find . -mindepth 1 \
+  \( -type d \( \
+      -path './.git' \
+      -o -path './.worktrees' \
+      -o -path './.playwright-cli' \
+      -o -path './.context-pilot' \
+      -o -path './docs' \
+      -o -path './literature' \
+      -o -path './data' \
+      -o -path './interface' \
+      -o -path './missions' \
+      -o -path './jobs' \
+      -o -path './benchmarks/terminal-bench/jobs' \
+      -o -path './ui' \
+      -o -path './web' \
+      -o -path './.uploads' \
+      -o -path './oplog' \
+      -o -path './logs' \
+      -o -path './dumps' \
+      -o -path './sandbox' \
+      -o -path './tmp' \
+      -o -path './gaia' \
+      -o -path './deploy/ansible/.venv' \
+      -o -path './deploy/ansible/.artifacts' \
+      -o -path './deploy/ansible/out' \
+      -o -path './test-results' \
+      -o -path './report' \) -prune \) \
+  -o \( -type d -name target -print -prune \) \
+  -o \( -type d \( \
+      -path './website' \
+      -o -path './brilliant-cv' \
+      -o -path './graceful-genetics' \
+      -o -path './test-typst' \) -print -prune \) \
+  -o \( -type d ! -path './crates' \
+      ! -path './.github/workflows' \
+      ! -path './.github/checks' \
+      ! -path './yamls/tools' -print \))
+
+# ── 1 + 2: web/src tree — ≤500 lines/file, ≤8 entries/dir ────────────────────
+# (former check-web-structure.sh). shadcn ui/ + generated OpenAPI client exempt.
+WEB_SRC="$ROOT/web/src"
+EXEMPT_UI="$WEB_SRC/components/ui"
+EXEMPT_GEN="$WEB_SRC/lib/api/generated"
+# The mobile mirror's ui/ twin is a byte-for-byte mirror of the vendored shadcn
+# ui/ (same 20-file shape), so it inherits the same folder-cap exemption — the
+# scaffold cannot re-group it without breaking the EXACT parity contract.
+EXEMPT_MOBILE_UI="$WEB_SRC/mobile-components/ui"
+web_exempt() {
+  case "$1" in
+    "$EXEMPT_UI" | "$EXEMPT_UI"/* | "$EXEMPT_GEN" | "$EXEMPT_GEN"/* \
+      | "$EXEMPT_MOBILE_UI" | "$EXEMPT_MOBILE_UI"/*) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+if [ -d "$WEB_SRC" ]; then
+  while IFS= read -r f; do
+    web_exempt "$f" && continue
+    n=$(wc -l < "$f" | tr -d '[:space:]')
+    if [ "$n" -gt "$MAX_LINES" ]; then
+      echo "::error file=$f::web file has $n lines (max $MAX_LINES): ${f#"$ROOT"/}"
+      echo "FAIL: web ${f#"$ROOT"/} has $n lines (max $MAX_LINES)." >&2
+      ledger_fail web-file-length
+    fi
+  done < <(find "$WEB_SRC" -type f \( -name '*.ts' -o -name '*.tsx' \))
+
+  while IFS= read -r d; do
+    web_exempt "$d" && continue
+    count=$(find "$d" -mindepth 1 -maxdepth 1 | wc -l | tr -d '[:space:]')
+    if [ "$count" -gt "$MAX_ENTRIES" ]; then
+      echo "::error::web dir has $count entries (max $MAX_ENTRIES): ${d#"$ROOT"/}"
+      echo "FAIL: web ${d#"$ROOT"/} has $count entries (max $MAX_ENTRIES)." >&2
+      ledger_fail web-dir-entries
+    fi
+  done < <(find "$WEB_SRC" -type d)
+fi
+
+# ── 3: hash-chain integrity (the protected-files seal) ───────────────────────
+echo "check-structure: verifying protected-files hash chain…"
+bash "$ROOT/.github/checks/check-lint-config.sh" || ledger_fail hash-chain
+
+ledger_finish "lengths ≤$MAX_LINES, entries ≤$MAX_ENTRIES, chain intact ✓"

@@ -1,0 +1,19 @@
+[package]
+name = "astra-cli"
+description = "Astra command-line entry point"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+readme.workspace = true
+keywords = ["astra"]
+categories = ["command-line-utilities"]
+
+[[bin]]
+name = "astra"
+path = "src/main.rs"
+
+[dependencies]
+
+[lints]
+workspace = true

@@ -1,0 +1,69 @@
+# ============================================================================
+# clippy.toml — Architecture-Enforcing Lint Configuration
+# ============================================================================
+# Maximum strictness. Every threshold tightened below defaults.
+# Use #[expect(lint, reason = "...")] for justified exceptions.
+#
+# IMPORTANT: All [[array-of-tables]] entries (disallowed-types, disallowed-methods)
+# MUST be at the END of the file. TOML spec: bare key=value pairs after [[table]]
+# are parsed as part of that table, not as top-level keys.
+
+# ── Complexity & Size ────────────────────────────────────────────────────────
+
+cognitive-complexity-threshold = 7
+too-many-arguments-threshold = 4
+type-complexity-threshold = 150
+enum-variant-size-threshold = 128
+future-size-threshold = 2048
+max-struct-bools = 4
+max-fn-params-bools = 2
+array-size-threshold = 512
+vec-box-size-threshold = 4096
+single-char-binding-names-threshold = 2
+too-many-lines-threshold = 60
+max-trait-bounds = 4
+
+# ── Disallowed Names ─────────────────────────────────────────────────────────
+
+disallowed-names = ["foo", "bar", "baz", "tmp", "thing"]
+
+# ── API & Export Behavior ────────────────────────────────────────────────────
+
+avoid-breaking-exported-api = false
+warn-on-all-wildcard-imports = true
+# Tests SHOULD panic on failure — that is precisely how a test signals a
+# failed assertion. unwrap/expect/panic are idiomatic in test bodies; the
+# restriction lints for them are meant for production code only. These were
+# left `false` but never actually enforced (sibling crates' test targets were
+# outside the root clippy gate's dependency graph, so `--all-targets` never
+# linted them). Flipping to the standard clippy idiom as part of the
+# workspace clippy-clean pass; production code keeps the restriction.
+allow-unwrap-in-tests = true
+allow-expect-in-tests = true
+allow-panic-in-tests = true
+allow-dbg-in-tests = true
+
+# ── Identifier Quality ───────────────────────────────────────────────────────
+
+min-ident-chars-threshold = 3
+allowed-idents-below-min-chars = ["i", "j", "k", "n", "x", "y", "w", "h", "s", "f", "id", "tx", "rx", "ms", "_"]
+
+# ── Documentation ────────────────────────────────────────────────────────────
+
+doc-valid-idents = ["KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "DirectX", "ECMAScript", "GPLv2", "GPLv3", "GitHub", "GitLab", "IPv4", "IPv6", "ClojureScript", "CoffeeScript", "JavaScript", "TypeScript", "NaN", "NixOS", "OAuth", "OpenAI", "OpenDNS", "OpenGL", "OpenMP", "OpenSSH", "OpenSSL", "OpenStreetMap", "OpenTelemetry", "PostgreSQL", "FreeBSD", "NetBSD", "OpenBSD", "TeX", "LaTeX", "BibTeX", "BibLaTeX", "MinGW", "CamelCase", "GraphQL", "PostScript", "WebAssembly", "WebSocket", "WebSockets", "PowerShell", "ContextPilot", "ClaudeCode", "DeepSeek", "Ratatui", "Crossterm"]
+
+# ── Disallowed Types (MUST be last — TOML array-of-tables) ───────────────────
+
+[[disallowed-types]]
+path = "std::collections::LinkedList"
+reason = "Almost never the right choice. Use Vec or VecDeque."
+
+# ── Disallowed Methods (MUST be last — TOML array-of-tables) ─────────────────
+
+[[disallowed-methods]]
+path = "std::mem::forget"
+reason = "Memory leak by design. Use ManuallyDrop if truly needed."
+
+[[disallowed-methods]]
+path = "std::process::exit"
+reason = "Abrupt termination. Return from main or use a shutdown signal."

@@ -1,0 +1,58 @@
+# Protected files manifest — the captain's seal.
+#
+# Every file listed here is included in the cryptographic hash chain.
+# Changing ANY of these files (or this manifest itself) requires the
+# password to update the chain.
+#
+# Format:
+#   - path: relative/to/project/root
+#     sections:                        # optional: protect only specific sections
+#       - start: "[section.header]"    # line that starts the section (literal match)
+#         end_before: "["              # first line that ends it (prefix match)
+#     whole_file: true                 # or protect the entire file (default if no sections)
+
+# --- This manifest (self-protecting) ---
+- path: .github/checks/protected-files.yaml
+  whole_file: true
+
+# --- Cargo lint configuration ---
+- path: Cargo.toml
+  sections:
+    - start: "[workspace.lints.clippy]"
+      end_before: "["
+    - start: "[workspace.lints.rust]"
+      end_before: "["
+
+# --- Toolchain, clippy & format config ---
+- path: rust-toolchain.toml
+  whole_file: true
+- path: clippy.toml
+  whole_file: true
+- path: rustfmt.toml
+  whole_file: true
+
+# --- Check scripts (CI --ci and blocking callbacks --callback) ---
+- path: .github/checks/check-structure.sh
+  whole_file: true
+- path: .github/checks/check-rust-lints.sh
+  whole_file: true
+- path: .github/checks/check-rust-tests.sh
+  whole_file: true
+- path: .github/checks/lib-failures.sh
+  whole_file: true
+- path: .github/checks/check-lint-config.sh
+  whole_file: true
+- path: .github/checks/check-lint-exceptions.sh
+  whole_file: true
+- path: .github/checks/allowed-lint-exceptions.yaml
+  whole_file: true
+- path: .github/checks/check-vault-bypass.sh
+  whole_file: true
+
+# --- CI workflow, local callbacks, chain wrapper ---
+- path: .github/workflows/ci.yml
+  whole_file: true
+- path: .context-pilot/shared/callbacks.yaml
+  whole_file: true
+- path: chain.sh
+  whole_file: true
