@@ -54,10 +54,11 @@ are the gate.
    ```
 
 6. **Ask for automatic merge.** The PR joins the merge queue as soon as its
-   checks are green, then GitHub merges it (squash) by itself.
+   checks are green, then GitHub merges it (squash) by itself. Do not pass
+   `--squash`: the merge queue sets the merge method and `gh` ignores it.
 
    ```bash
-   gh pr merge --auto --squash
+   gh pr merge --auto
    ```
 
 7. **Follow the checks.**
