@@ -1,0 +1,12 @@
+id: C-0001-polg-mutator-vieillissement-premature
+statement_fr: >-
+  Des souris dont l'enzyme POLG ne corrige plus ses fautes accumulent des
+  mutations de l'ADN mitochondrial et vieillissent prématurément.
+concepts:
+  - polg
+  - genomic-instability
+  - mitochondrial-dysfunction
+organism: mus-musculus
+evidence_level: 3
+confidence: solide
+mission: aging-map

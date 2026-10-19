@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "astra/evidence.schema.json",
+  "title": "Evidence (lien entre une affirmation et une source)",
+  "description": "Fichier : data/evidence/<claim>--<nom de fichier de la source>.yaml. Une seule paire (claim, source) par fichier.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["claim", "source", "direction"],
+  "properties": {
+    "claim": { "$ref": "common.schema.json#/$defs/claim_id" },
+    "source": { "$ref": "common.schema.json#/$defs/source_id" },
+    "direction": { "enum": ["soutient", "contredit", "nuance"] },
+    "locator": { "type": "string", "minLength": 1, "description": "Où dans la source : « Fig. 2 », « p. 419 », « Tableau 1 »." },
+    "note_fr": { "type": "string" }
+  }
+}

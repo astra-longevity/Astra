@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "astra/contradiction.schema.json",
+  "title": "Contradiction entre affirmations",
+  "description": "Fichier : data/contradictions/<id>.yaml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "claims", "mission", "explanation_fr"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/contradiction_id" },
+    "claims": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/claim_id" }
+    },
+    "mission": { "$ref": "common.schema.json#/$defs/slug" },
+    "explanation_fr": { "$ref": "common.schema.json#/$defs/text_fr" }
+  }
+}

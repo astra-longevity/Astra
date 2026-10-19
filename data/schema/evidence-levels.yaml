@@ -1,0 +1,49 @@
+# Échelle de preuve d'Astra : 6 niveaux, du plus faible (1) au plus fort (6).
+# Le niveau d'une affirmation (claim) = le niveau le plus élevé atteint par
+# les sources qui la SOUTIENNENT. Ne jamais surclasser : une étude chez la
+# souris reste au niveau 3, même si elle est excellente.
+# Fichier figé : changer un niveau impose de relire toutes les affirmations.
+levels:
+  - level: 1
+    code: in-vitro
+    label_fr: "Cellules ou ordinateur"
+    definition_fr: >-
+      Résultat obtenu sur des cellules en boîte de culture, des tissus isolés,
+      des molécules purifiées ou par simulation informatique. Indique un
+      mécanisme possible, rien de plus sur un organisme entier.
+  - level: 2
+    code: invertebre
+    label_fr: "Petits organismes modèles"
+    definition_fr: >-
+      Résultat obtenu sur un organisme entier à vie courte et éloigné de
+      l'humain : levure, ver (C. elegans), mouche (drosophile), poisson
+      killifish. Montre qu'un effet existe chez un être vivant complet.
+  - level: 3
+    code: mammifere
+    label_fr: "Mammifères de laboratoire"
+    definition_fr: >-
+      Résultat obtenu sur des mammifères non humains : souris, rat, chien,
+      singe. Plus proche de l'humain, mais beaucoup de résultats chez la
+      souris ne se confirment pas chez l'homme.
+  - level: 4
+    code: humain-observationnel
+    label_fr: "Observations chez l'humain"
+    definition_fr: >-
+      Données humaines sans expérience contrôlée : suivi de grandes
+      populations (cohortes), comparaisons de malades et de témoins,
+      génétique humaine, syndromes rares, petits essais non randomisés.
+      Montre une association chez l'humain, pas forcément une cause.
+  - level: 5
+    code: humain-essai
+    label_fr: "Essai clinique randomisé"
+    definition_fr: >-
+      Essai contrôlé randomisé (ECR) chez l'humain : on tire au sort qui reçoit
+      le traitement et qui reçoit un placebo, puis on compare. Inclut les
+      méta-analyses d'ECR. Seul type d'étude qui démontre une cause chez l'humain.
+  - level: 6
+    code: approuve
+    label_fr: "Approuvé par une autorité"
+    definition_fr: >-
+      Traitement ou test approuvé par une autorité de santé (FDA aux
+      États-Unis, EMA en Europe) pour l'indication citée, ou recommandé par
+      une recommandation officielle de pratique clinique.

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "astra/relation.schema.json",
+  "title": "Relation (lien orienté entre deux concepts)",
+  "description": "Fichier : data/relations/<id>.yaml. Se lit « from <type> to ».",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "from", "to", "type", "claims"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/relation_id" },
+    "from": { "$ref": "common.schema.json#/$defs/slug" },
+    "to": { "$ref": "common.schema.json#/$defs/slug" },
+    "type": {
+      "enum": ["cause", "aggrave", "inhibe", "active", "marqueur_de", "traite", "previent", "partie_de", "associe_a"]
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/claim_id" }
+    },
+    "note_fr": { "type": "string" }
+  }
+}

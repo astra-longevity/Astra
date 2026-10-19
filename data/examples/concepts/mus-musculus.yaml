@@ -1,0 +1,7 @@
+id: mus-musculus
+kind: organism
+name_fr: Souris
+name_en: House mouse
+synonyms:
+  - Mus musculus
+description_fr: Souris de laboratoire, le mammifère le plus utilisé en recherche sur le vieillissement.

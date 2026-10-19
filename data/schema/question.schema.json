@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "astra/question.schema.json",
+  "title": "Question ouverte",
+  "description": "Fichier : data/questions/<id>.yaml",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "statement_fr", "concepts", "mission", "status"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/question_id" },
+    "statement_fr": { "$ref": "common.schema.json#/$defs/text_fr" },
+    "concepts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/slug" }
+    },
+    "mission": { "$ref": "common.schema.json#/$defs/slug" },
+    "status": { "enum": ["ouverte", "résolue"] },
+    "resolved_by": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/claim_id" },
+      "description": "Affirmations qui répondent à la question. Obligatoire si status=résolue."
+    },
+    "note_fr": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "status": { "const": "résolue" } } },
+      "then": { "required": ["resolved_by"] }
+    }
+  ]
+}

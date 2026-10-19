@@ -1,0 +1,12 @@
+id: C-0002-adnmt-vieillissement-normal-incertain
+statement_fr: >-
+  Le rôle des mutations de l'ADN mitochondrial dans le vieillissement normal
+  reste incertain : les souris « mutator » en portent bien plus qu'un animal
+  âgé ordinaire.
+concepts:
+  - mitochondrial-dysfunction
+  - genomic-instability
+organism: mus-musculus
+evidence_level: 3
+confidence: débattu
+mission: aging-map

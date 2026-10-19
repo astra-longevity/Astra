@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "astra/common.schema.json",
+  "title": "Définitions partagées d'Astra",
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 80,
+      "description": "Identifiant kebab-case ASCII : minuscules, chiffres, tirets."
+    },
+    "doi": {
+      "type": "string",
+      "pattern": "^10\\.[0-9]{4,9}/[^\\sA-Z]+$",
+      "description": "DOI en minuscules, sans préfixe https://doi.org/ ni doi:."
+    },
+    "isbn": {
+      "type": "string",
+      "pattern": "^isbn:97[89][0-9]{10}$",
+      "description": "ISBN-13 sans tirets, préfixé isbn:, pour les livres sans DOI."
+    },
+    "source_id": {
+      "oneOf": [{ "$ref": "#/$defs/doi" }, { "$ref": "#/$defs/isbn" }]
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^C-[0-9]{4}-[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "relation_id": {
+      "type": "string",
+      "pattern": "^R-[0-9]{4}-[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "question_id": {
+      "type": "string",
+      "pattern": "^Q-[0-9]{4}-[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "contradiction_id": {
+      "type": "string",
+      "pattern": "^X-[0-9]{4}-[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Date ISO AAAA-MM-JJ."
+    },
+    "text_fr": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "\\S"
+    }
+  }
+}
