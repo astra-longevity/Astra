@@ -94,11 +94,14 @@ Owner = whoever produces the headline number. Customer = A1 for year 1, as decid
 - **Start** week 3 (extraction); RMST from month 4.
 - **Fails if** the effect fails the transport check. Then it goes to the extrapolated column, which is a valid, published outcome.
 
-### 2.5 Mission 2b
+### 2.5 Mission 2b: trial-level surrogate test
 
-- **Owner** Research. **Customer** A1.
-- **Output** A pre-registered protocol (G8, by month 6) for the second scoring wave. Its exact scope is decided at the month-3 review from ledger and MR results.
-- **Fails if** not sealed by month 6. Then G8 is reported as missed. The deadline is not moved.
+- **Owner** Research. **Contributors** A2 (extraction), Verification (protocol sealing). **Customer** A1.
+- **Output** The trial-level surrogate test decided in D5/D23. For each candidate proxy, it regresses the treatment effect on the hard outcome against the treatment effect on the proxy across trials. A proxy may be scored only if R² ≥ 0.8 with the lower bound of its interval ≥ 0.6, on ≥ 10 trials from ≥ 2 intervention classes. Gait speed and frailty are tested first. A failed proxy is a published null, and it counts toward G1.
+- **Moves** G8 (protocol pre-registered by month 6), then G1.
+- **Depends on** the flagship extraction (2.4), which supplies the trial pairs. Proxy effects are extracted in the same pass, so there is no second extraction.
+- **Start** protocol drafting in month 3; sealing by month 6; analysis once ≥ 10 qualifying trials are extracted.
+- **Fails if** the protocol is not sealed by month 6. Then G8 is reported as missed, and the deadline is not moved. If fewer than 10 qualifying trials exist, the result is "not testable" and is reported as such.
 
 ### 2.6 Scoring inputs for Mission 2a: ASPREE placebo curve
 
@@ -110,7 +113,13 @@ Owner = whoever produces the headline number. Customer = A1 for year 1, as decid
 
 ### 2.7 NHANES target-trial emulation: when
 
-**Not in year 1.** It needs restricted-use linked mortality files through NCHS (§5), which costs ≥ $3,000 in fees plus an application, and an academic sponsor who can own a data agreement. Proposal: start the protocol in month 9 if G10 is met and money is approved, and run it in year 2. Until then, nothing in the roadmap depends on it.
+**Phase B for mortality outcomes; restricted files later.** NCHS publishes **public-use linked mortality files** for NHANES 1999–2018 and NHANES III at no cost, with follow-up through 31 December 2019 (NCHS file description, https://www.cdc.gov/nchs/data/datalinkage/public-use-linked-mortality-file-description.pdf). They cover adults only, have a limited variable set, and are perturbed for disclosure: synthetic values replace follow-up time or underlying cause of death for some records, while vital status is not perturbed. NCHS's linkage page (https://www.cdc.gov/nchs/linked-data/mortality-files/index.html) reports that the linked files were updated with follow-up through 31 December 2022. Whether that update includes a public-use release is `[to verify]`. The restricted-use files are accessible only through the RDC network.
+
+- **Owner** Research. **Contributor** Verification (protocol sealing). **Customer** A1.
+- **Output** An emulated target trial with an all-cause mortality outcome, using the public-use files. Cause-specific outcomes are secondary, because cause of death is perturbed for some records.
+- **Start** protocol in month 4, after the flagship extraction has started; analysis in Phase B once the survival core passes its reference tests.
+- **Restricted files** (§5, ≥ $3,000 in fees plus a sponsor) are only needed for finer variables or unperturbed follow-up, which means year 2.
+- **Fails if** the protocol cannot name a target trial whose eligibility, treatment and time zero map onto NHANES variables. Then it is dropped and reported, not forced.
 
 ---
 
@@ -122,21 +131,25 @@ Owner = whoever produces the headline number. Customer = A1 for year 1, as decid
 
 **Proposed rule, which can be checked from printed data.** A relative effect is tagged `direct` for healthy 70–79-year-olds only if **all three** of these hold:
 
-1. **Age:** the trial prints a subgroup result for age ≥ 65 (or ≥ 70) whose HR has a CI overlapping the overall HR, and its own CI excludes 1 in the same direction, or the interaction p-value is printed and ≥ 0.10.
+1. **Age:** the trial prints an interaction p-value for age (≥ 65 or ≥ 70 versus younger) that is ≥ 0.10, **and** the older subgroup's point estimate is in the same direction as the overall effect. Both conditions are required. A missing interaction p-value fails the criterion.
 2. **Disease-state modifier:** the trial or meta-analysis prints a split on the disease that defines the population (for example, established atherosclerotic disease versus multiple risk factors only, as Zelniker 2019 does). The subgroup closest to "healthy" has an HR whose CI includes the overall HR. If no such split is printed, criterion 2 fails.
 3. **Mechanism:** the effect is on an outcome in D21 and is not driven by the index disease. For example, a glucose-lowering effect on diabetic complications does not count.
 
-If any criterion fails, the effect is tagged `extrapolated` and goes in the separate column. A quantitative sensitivity check follows Dahabreh et al. 2023's bias functions (doi:10.1002/sim.9550): we print how much effect modification would erase P(net > 0) ≥ 0.8. This rule is crude by design. It uses only printed subgroups and needs no individual data, so a reviewer can redo it from the PDF.
+If any criterion fails, the effect is tagged `extrapolated` and goes in the separate column.
+
+Failing to detect an interaction does not prove there is none, because subgroup tests have low power. So the quantitative sensitivity check is **mandatory for every effect, including `direct` ones**. It follows Dahabreh et al. 2023's bias functions (doi:10.1002/sim.9550): we print how much effect modification would erase P(net > 0) ≥ 0.8. This rule is crude by design. It uses only printed subgroups and needs no individual data, so a reviewer can redo it from the PDF.
+
+**Expected consequence.** Zelniker 2019's "multiple risk factors" subgroup is still made up of people with type 2 diabetes. It is not a healthy population, so criterion 2 will likely fail and the SGLT2i effects will likely be tagged `extrapolated`. That is the intended behaviour of the rule, not a defect.
 
 ### (b) Printed baseline curves for ages 60–69
 
 | Candidate | What it covers | Reuse status |
 |---|---|---|
-| **D-Health** (Neale et al. 2022, doi:10.1016/S2213-8587(21)00345-4): 21,315 Australians aged 60–84, placebo arm, all-cause mortality primary | Death only (not the D21 composite) | Reuse of the published figure for digitisation: licence `[to verify]` |
+| **D-Health** (Neale et al. 2022, doi:10.1016/S2213-8587(21)00345-4): 21,315 Australians aged 60–84, placebo arm, all-cause mortality primary | Death only, ages 60–84 pooled. **Not a 60–69 curve** unless a 60–69 age-band curve is printed `[to verify]` | Reuse of the published figure for digitisation: licence `[to verify]` |
 | ASPREE US subgroup aged 65–69 | Death, dementia, disability | Not printed as a separate curve `[to verify]` |
 | HMD life tables (A10 R3: CC BY 4.0) | All-cause mortality by age, by country | Open licence; general population, not "event-free" |
 
-**Conclusion:** no printed **composite** event-free curve for healthy 60–69-year-olds exists among the sources I checked. Proposal: ages 60–69 stay "not estimable" in year 1, with one reported exception. A **mortality-only** RMST for 60–69 from the D-Health placebo arm, clearly labelled as a mortality-only secondary, not the north star. Year 2: rebuild the composite from cohort data (UK Biobank, §5) if access is funded.
+**Conclusion:** no printed event-free curve for healthy 60–69-year-olds exists among the sources I checked, whether composite or mortality-only. D-Health spans ages 60–84, so its placebo curve does not describe 60–69-year-olds. Proposal: ages 60–69 stay "not estimable" in year 1, with no exception. Year 2: rebuild the composite from cohort data (UK Biobank, §5) if access is funded.
 
 ### (c) Harms
 
@@ -169,7 +182,7 @@ What blocks whom:
 **Plan B if Verification or A9 slips.** Research keeps working at **L1** (hand-recorded, unsealed). Nothing is lost, because the work is data, not code:
 
 - MR variant tables, flagship extraction and ASPREE digitisations are written as plain files on a branch and imported once the schema freezes.
-- Ledger forecasts are written with a timestamped commit on main (git history serves as a weak seal). They are re-sealed when the rails exist. Items whose timestamp is before the outcome stay valid.
+- Ledger items written before the rails exist are **drafts only**. A git commit date is not a seal (A10 R1), so these items are never counted as sealed forecasts. Once the rails exist, a draft is sealed only if its outcome is still unknown at sealing time. The sealing date, not the draft date, is what counts.
 - No L1 result is used in a score or announced as a finding. The G1 count only includes L2-sealed results, so a slip delays G1 but never inflates it.
 
 Hard stop: if the MR core is not reference-tested by month 4, G6 is formally moved and reported.
@@ -185,7 +198,7 @@ Hard stop: if the MR core is not reference-tested by month 4, G6 is formally mov
    - An approved institution is required; whether a project with no institution can apply is `[to verify]`, as is the lead time `[to verify]`.
    - Need: Tier 1 is enough for the composite baseline in year 2. **Not requested in year 1.**
 3. **CALERIE** (Duke): data download via the CALERIE network (https://calerienetwork.org), 52 SAS files; biosamples through the NIA Aging Research Biobank with CALERIE Steering Committee approval (contact calerie@duke.edu). Cost and lead time `[to verify]`. Need: low in year 1.
-4. **NHANES restricted-use files** (NCHS RDC, https://www.cdc.gov/rdc/application-process/fees-and-invoicing.html, updated 2026-07-14): application through the Standard Application Process portal. The management fee is $3,000 for 1–6 data years, rising to $8,250 for 19–20 years. Onsite access costs $300 per day. Amendments beyond the second cost $750; renewal after 3 years costs $1,500. There is no student discount and no refund, and CDC's worked 3-year example totals $6,750. The data request is limited to ≤ 100 variables. Lead time `[to verify]`. Need: year 2 (§2.7).
+4. **NHANES restricted-use files** (NCHS RDC, https://www.cdc.gov/rdc/application-process/fees-and-invoicing.html, updated 2026-07-14): application through the Standard Application Process portal. The management fee is $3,000 for 1–6 data years, rising to $8,250 for 19–20 years. Onsite access costs $300 per day. Amendments beyond the second cost $750; renewal after 3 years costs $1,500. There is no student discount and no refund, and CDC's worked 3-year example totals $6,750. The data request is limited to ≤ 100 variables. Lead time `[to verify]`. Need: **none in year 1**, because the free public-use linked mortality files are enough for the mortality emulation (§2.7). Restricted files are a year-2 option for finer variables.
 5. **Impetus Grants** (Norn Group, https://norn.group/impetus-grants): up to $500k, decisions within 3 weeks. Round 1 funded people outside academia (9.6% of grants), students (26%) and postdocs (16%) (https://norn.group/impetus-grants/news-updates/round-1). Whether a project with **no institution** can receive funds is `[to verify]`. The answer probably depends on the sponsor (item 1).
 
 Year-1 money ask from Research: **zero**. Year 2: about £3,000 (UK Biobank Tier 1) plus about $3,000–6,750 (NCHS), only if a sponsor and funder are in place.
@@ -235,4 +248,4 @@ All DOIs checked on Crossref on 2026-10-19 with matching titles.
 - van Zwet E, Schwab S, Senn S. The statistical properties of RCTs and a proposal for shrinkage. Stat Med 2021. doi:10.1002/sim.9173
 - Yavorska OO, Burgess S. MendelianRandomization: an R package. IJE 2017. doi:10.1093/ije/dyx034
 - Zelniker TA et al. SGLT2 inhibitors for primary and secondary prevention of cardiovascular and renal outcomes. Lancet 2019. doi:10.1016/S0140-6736(18)32590-X
-- Official pages: UK Biobank fees https://www.ukbiobank.ac.uk/use-our-data/fees/ · NCHS RDC fees https://www.cdc.gov/rdc/application-process/fees-and-invoicing.html · CALERIE https://calerienetwork.org · Impetus https://norn.group/impetus-grants and https://norn.group/impetus-grants/news-updates/round-1 · MR package page https://amymariemason.github.io/MR
+- Official pages: UK Biobank fees https://www.ukbiobank.ac.uk/use-our-data/fees/ · NCHS RDC fees https://www.cdc.gov/rdc/application-process/fees-and-invoicing.html · NCHS linked mortality files https://www.cdc.gov/nchs/linked-data/mortality-files/index.html and https://www.cdc.gov/nchs/data/datalinkage/public-use-linked-mortality-file-description.pdf · CALERIE https://calerienetwork.org · Impetus https://norn.group/impetus-grants and https://norn.group/impetus-grants/news-updates/round-1 · MR package page https://amymariemason.github.io/MR
