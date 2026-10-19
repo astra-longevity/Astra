@@ -1,0 +1,9 @@
+id: Q-0001-mtdna-cause-human-aging
+statement: >-
+  Do mitochondrial DNA mutations contribute to normal human aging, or only to
+  accelerated forms of aging?
+concepts:
+  - mitochondrial-dysfunction
+  - genomic-instability
+mission: aging-map
+status: open

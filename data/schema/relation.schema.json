@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "astra/relation.schema.json",
-  "title": "Relation (lien orienté entre deux concepts)",
-  "description": "Fichier : data/relations/<id>.yaml. Se lit « from <type> to ».",
+  "title": "Relation (directed link between two concepts)",
+  "description": "File: data/relations/<id>.yaml. Reads as \"from <type> to\", e.g. genomic-instability aggravates mitochondrial-dysfunction.",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "from", "to", "type", "claims"],
@@ -11,7 +11,7 @@
     "from": { "$ref": "common.schema.json#/$defs/slug" },
     "to": { "$ref": "common.schema.json#/$defs/slug" },
     "type": {
-      "enum": ["cause", "aggrave", "inhibe", "active", "marqueur_de", "traite", "previent", "partie_de", "associe_a"]
+      "enum": ["causes", "aggravates", "inhibits", "activates", "marker_of", "treats", "prevents", "part_of", "associated_with"]
     },
     "claims": {
       "type": "array",
@@ -19,6 +19,6 @@
       "uniqueItems": true,
       "items": { "$ref": "common.schema.json#/$defs/claim_id" }
     },
-    "note_fr": { "type": "string" }
+    "note": { "type": "string" }
   }
 }

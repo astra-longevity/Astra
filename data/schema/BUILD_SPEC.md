@@ -1,26 +1,26 @@
-# Spécification de `astra db build`
+# Specification of `astra db build`
 
-Destinataire : Rust Manager (A10). Propriétaire du format : Database Manager (A9).
-Version du format : **0.1**. Toute divergence entre ce document et les schémas
-`data/schema/*.schema.json` / `schema.sql` est un bug à signaler à A9.
+For: Rust Manager (A10). Format owner: Database Manager (A9).
+Format version: **1.0**. Any mismatch between this document and the schemas
+`data/schema/*.schema.json` / `schema.sql` is a bug to report to A9.
 
-## 1. Rôle
+## 1. Purpose
 
-Lire tous les fichiers YAML de `data/`, les valider, et produire
-`data/astra.sqlite` (gitignoré). La base est **jetable** : on la supprime et on
-la reconstruit entièrement à chaque build. Aucune migration, aucun état hors du dépôt.
+Read every YAML file in `data/`, validate them, and produce
+`data/astra.sqlite` (gitignored). The database is **disposable**: it is deleted
+and fully rebuilt on every build. No migrations, no state outside the repository.
 
 ```
-astra db build            # valide + écrit data/astra.sqlite
-astra db build --check    # valide seulement, n'écrit rien (CI, hook pre-commit)
-astra db build --root P   # racine du dépôt (défaut : dossier courant, doit contenir data/)
+astra db build            # validate + write data/astra.sqlite
+astra db build --check    # validate only, write nothing (CI, pre-commit hook)
+astra db build --root P   # repository root (default: current folder, must contain data/)
 ```
 
-## 2. Entrées
+## 2. Inputs
 
-| Dossier (relatif à la racine) | Type | Schéma | Nom de fichier attendu |
+| Folder (relative to the root) | Type | Schema | Expected file name |
 |---|---|---|---|
-| `data/schema/evidence-levels.yaml` | échelle | (voir §4, R01) | — |
+| `data/schema/evidence-levels.yaml` | scale | (see §4, R01) | — |
 | `data/missions/*.yaml` | Mission | `mission.schema.json` | `<id>.yaml` |
 | `data/sources/*.yaml` | Source | `source.schema.json` | `filename(id).yaml` |
 | `data/concepts/*.yaml` | Concept | `concept.schema.json` | `<id>.yaml` |
@@ -30,128 +30,174 @@ astra db build --root P   # racine du dépôt (défaut : dossier courant, doit c
 | `data/questions/*.yaml` | Question | `question.schema.json` | `<id>.yaml` |
 | `data/contradictions/*.yaml` | Contradiction | `contradiction.schema.json` | `<id>.yaml` |
 
-- Un fichier = un objet (mapping YAML à la racine). Extension `.yaml` uniquement ;
-  tout autre fichier dans ces dossiers (sauf `.gitkeep` et `README.md`) est une erreur E002.
-- Dossier absent = zéro objet (pas une erreur).
-- `data/examples/` est **ignoré** par le build normal (voir §8).
-- Encodage UTF-8 obligatoire, NFC. Pas de sous-dossiers.
-- YAML : sous-ensemble sûr (pas d'ancres/alias, pas de tags `!`, pas de clés dupliquées).
+- One file = one object (a YAML mapping at the top level). `.yaml` extension only;
+  any other file in these folders (except `.gitkeep` and `README.md`) is error E002.
+- Missing folder = zero objects (not an error).
+- `data/examples/` is **ignored** by the normal build (see §8).
+- UTF-8 encoding required, NFC. No sub-folders.
+- YAML: safe subset (no anchors/aliases, no `!` tags, no duplicate keys).
 
-**`filename(source_id)`** : DOI → remplacer `/` par `_` ; tout caractère hors
-`[a-z0-9._()+;-]` est encodé `%xx` (hexa minuscule, octets UTF-8).
-ISBN → `isbn:9780000000000` devient `isbn-9780000000000`.
-Ex. `10.1038/nature02517` → `10.1038_nature02517.yaml`.
+**`filename(source_id)`**: DOI → replace `/` with `_`; any character outside
+`[a-z0-9._()+;-]` is encoded as `%xx` (lowercase hex, UTF-8 bytes).
+ISBN → `isbn:9780000000000` becomes `isbn-9780000000000`.
+E.g. `10.1038/nature02517` → `10.1038_nature02517.yaml`.
 
-## 3. Ordre de chargement
+## 3. Loading order
 
-1. Exécuter `schema.sql` sur une base **neuve en mémoire** (`PRAGMA foreign_keys=ON`).
-2. Charger `evidence-levels.yaml`.
-3. Lire et valider (schéma JSON) **tous** les fichiers, toutes catégories.
-4. Insérer dans cet ordre : missions → sources → concepts (+ concept_synonyms)
+1. Run `schema.sql` on a **fresh in-memory** database (`PRAGMA foreign_keys=ON`).
+2. Load `evidence-levels.yaml`.
+3. Read and validate (JSON Schema) **all** files, every category.
+4. Insert in this order: missions → sources → concepts (+ concept_synonyms)
    → claims (+ claim_concepts) → evidence → relations (+ relation_claims)
    → questions (+ question_concepts, question_resolved_by)
    → contradictions (+ contradiction_claims).
-5. Vérifier les règles transverses (§4, R10 et suivantes).
-6. Remplir `build_info` (§6).
-7. `VACUUM INTO` un fichier temporaire `data/astra.sqlite.tmp`, puis renommage
-   atomique vers `data/astra.sqlite`. En cas d'erreur, l'ancien fichier n'est pas touché.
+5. Check the cross-object rules (§4, E020 onwards).
+6. Fill `build_info` (§6).
+7. `VACUUM INTO` a temporary file `data/astra.sqlite.tmp`, then rename it
+   atomically to `data/astra.sqlite`. On error, the old file is left untouched.
 
-Le build **collecte toutes les erreurs** avant de s'arrêter (ne pas s'arrêter à
-la première), sauf erreur fatale E001/E003.
+The build **collects every error** before stopping (do not stop at the first
+one), except for the fatal errors E001/E003.
 
-## 4. Règles de validation
+## 4. Validation rules
 
-Format de chaque message (une ligne, sur stderr) :
-`<niveau> <code> <fichier>[:<champ>] : <message en français>`
-avec niveau `erreur` ou `avertissement`. Les messages entre « » sont à reproduire
-tels quels ; `{x}` = valeur interpolée.
+Format of each message (one line, on stderr):
+`<level> <code> <file>[:<field>]: <message>`
+with level `error` or `warning`. Messages in quotes "…" must be reproduced
+exactly; `{x}` = interpolated value.
 
-### Lecture et forme
+### Reading and shape
 
-| Code | Niveau | Règle | Message |
+| Code | Level | Rule | Message |
 |---|---|---|---|
-| R01/E001 | erreur fatale | `evidence-levels.yaml` existe et contient exactement les niveaux 1 à 6, codes uniques | « échelle de preuve invalide : {détail} » |
-| E002 | erreur | fichier inattendu dans un dossier de données | « fichier inattendu (attendu : *.yaml) » |
-| E003 | erreur fatale | `schema.sql` absent ou ne s'exécute pas | « schema.sql invalide : {erreur sqlite} » |
-| E010 | erreur | YAML illisible / non UTF-8 / ancre, tag ou clé dupliquée | « YAML invalide : {détail} » |
-| E011 | erreur | non conforme au JSON Schema (champ manquant, champ inconnu, type, enum, motif) | « {champ} : {raison} » (une ligne par violation) |
-| E012 | erreur | nom de fichier ≠ nom attendu (§2) | « le fichier devrait s'appeler {attendu} » |
-| E013 | erreur | id en double dans une même catégorie (y compris DOI ne différant que par la casse) | « id {id} déjà défini dans {autre fichier} » |
-| E014 | erreur | DOI non canonique : majuscules, préfixe `doi:` / `https://doi.org/`, espaces | « DOI non canonique, écrire {forme canonique} » |
-| E015 | erreur | doublons dans une liste (concepts, claims, synonyms) | « {champ} : valeur en double {v} » |
+| R01/E001 | fatal error | `evidence-levels.yaml` exists and contains exactly levels 1 to 6, with unique codes | "invalid evidence scale: {detail}" |
+| E002 | error | unexpected file in a data folder | "unexpected file (expected: *.yaml)" |
+| E003 | fatal error | `schema.sql` missing or fails to run | "invalid schema.sql: {sqlite error}" |
+| E010 | error | unreadable YAML / not UTF-8 / anchor, tag or duplicate key | "invalid YAML: {detail}" |
+| E011 | error | does not match the JSON Schema (missing field, unknown field, type, enum, pattern) | "{field}: {reason}" (one line per violation) |
+| E012 | error | file name ≠ expected name (§2) | "the file should be named {expected}" |
+| E013 | error | duplicate id within one category (including DOIs that differ only by case) | "id {id} already defined in {other file}" |
+| E014 | error | non-canonical DOI: uppercase, `doi:` / `https://doi.org/` prefix, spaces | "non-canonical DOI, write {canonical form}" |
+| E015 | error | duplicates in a list (concepts, claims, synonyms) | "{field}: duplicate value {v}" |
 
-### Références (pas d'orphelins)
+### References (no orphans)
 
-| Code | Niveau | Règle | Message |
+| Code | Level | Rule | Message |
 |---|---|---|---|
-| E020 | erreur | toute référence pointe vers un id existant : claim.concepts, claim.organism, claim.mission, evidence.claim, evidence.source, relation.from/to/claims, question.concepts/mission/resolved_by, contradiction.claims/mission | « {champ} : {id} n'existe pas » |
-| E021 | erreur | `claim.organism` désigne un concept de `kind: organism` | « organism : {id} n'est pas un organisme (kind={kind}) » |
-| E022 | erreur | relation `from` ≠ `to` | « une relation ne peut pas relier un concept à lui-même » |
-| E023 | erreur | pas deux relations avec le même (from, to, type) | « relation identique à {autre id} » |
-| E024 | erreur | une Evidence par paire (claim, source) | « paire déjà décrite dans {autre fichier} » |
+| E020 | error | every reference points to an existing id: claim.concepts, claim.organism, claim.mission, evidence.claim, evidence.source, relation.from/to/claims, question.concepts/mission/resolved_by, contradiction.claims/mission | "{field}: {id} does not exist" |
+| E021 | error | `claim.organism` refers to a concept with `kind: organism` | "organism: {id} is not an organism (kind={kind})" |
+| E022 | error | relation `from` ≠ `to` | "a relation cannot link a concept to itself" |
+| E023 | error | no two relations with the same (from, to, type) | "relation identical to {other id}" |
+| E024 | error | one Evidence per (claim, source) pair | "pair already described in {other file}" |
 
-### Règles de preuve
+### Evidence rules
 
-| Code | Niveau | Règle | Message |
+| Code | Level | Rule | Message |
 |---|---|---|---|
-| E030 | erreur | chaque claim a ≥ 1 Evidence | « affirmation sans source » |
-| E031 | erreur | chaque relation : chacune de ses claims a ≥ 1 Evidence (découle de E030 ; contrôlé pour un message clair) | « relation appuyée sur {claim} qui n'a aucune source » |
-| E032 | erreur | `confidence: solide` ⇒ ≥ 1 Evidence `direction: soutient` vers une source `status: vérifié` | « confiance « solide » sans source vérifiée qui la soutient » |
-| E033 | erreur | contradiction : ≥ 2 claims distinctes (schéma) | « une contradiction relie au moins 2 affirmations » |
-| E034 | erreur | question `status: résolue` ⇒ `resolved_by` non vide (schéma) ; `ouverte` ⇒ `resolved_by` absent | « resolved_by interdit sur une question ouverte » |
-| E035 | erreur | `source.status: vérifié` ⇒ `verified_via` et `verified_at` présents (schéma) | « source vérifiée sans verified_via/verified_at » |
-| W040 | avertissement | claim citant une source `à vérifier` | « s'appuie sur une source à vérifier : {source} » |
-| W041 | avertissement | claim dont aucune Evidence n'est `soutient` | « aucune source ne soutient cette affirmation » |
-| W042 | avertissement | source jamais citée par une Evidence | « source citée par aucune affirmation » |
-| W043 | avertissement | concept jamais référencé | « concept utilisé nulle part » |
-| W044 | avertissement | `verified_at` dans le futur ou année de publication > année courante + 1 | « date improbable : {v} » |
+| E030 | error | every claim has ≥ 1 Evidence | "claim without a source" |
+| E031 | error | for every relation, each of its claims has ≥ 1 Evidence (follows from E030; checked for a clear message) | "relation backed by {claim}, which has no source" |
+| E032 | error | `confidence: established` ⇒ ≥ 1 Evidence with `direction: supports` to a source with `status: verified` | "confidence \"established\" without a verified source supporting it" |
+| E033 | error | contradiction: ≥ 2 distinct claims (schema) | "a contradiction links at least 2 claims" |
+| E034 | error | question `status: resolved` ⇒ `resolved_by` not empty (schema); `open` ⇒ `resolved_by` absent | "resolved_by not allowed on an open question" |
+| E035 | error | `source.status: verified` ⇒ `verified_via` and `verified_at` present (schema) | "verified source without verified_via/verified_at" |
+| W040 | warning | claim citing a source with `status: to_verify` | "relies on a source still to verify: {source}" |
+| W041 | warning | claim with no Evidence of direction `supports` | "no source supports this claim" |
+| W042 | warning | source never cited by any Evidence | "source not cited by any claim" |
+| W043 | warning | concept never referenced | "concept not used anywhere" |
+| W044 | warning | `verified_at` in the future, or publication year > current year + 1 | "unlikely date: {v}" |
 
-Le niveau de preuve (`evidence_level`) est **déclaré** par l'auteur et n'est pas
-recalculé en v0.1 (on ne connaît pas le type d'étude de chaque source). Règle
-éditoriale : niveau = le plus haut atteint par les sources qui soutiennent.
+The evidence level (`evidence_level`) is **declared** by the author and is not
+recomputed (we do not know the study type of each source). Editorial rule:
+level = the highest level reached by the supporting sources.
 
-## 5. Transformations à l'insertion
+## 5. Transformations on insert
 
-- `sources.doi` = id si DOI, `NULL` si ISBN.
-- `sources.authors` = JSON compact (`["Trifunovic, Aleksandra",…]`, sans espaces
-  hors des chaînes, Unicode non échappé) ; `first_author` = partie avant la
-  première virgule du premier auteur.
-- `claim_concepts.position` = index 0-based dans la liste YAML.
-- Colonne `file` = chemin relatif à la racine, séparateur `/`.
-- Chaînes YAML multi-lignes : conserver telles quelles (pas de trim interne),
-  supprimer seulement le `\n` final.
+- `sources.doi` = id for a DOI, `NULL` for an ISBN.
+- `sources.authors` = compact JSON (`["Trifunovic, Aleksandra",…]`, no spaces
+  outside strings, Unicode not escaped); `first_author` = the part before the
+  first comma of the first author.
+- `claim_concepts.position` = 0-based index in the YAML list.
+- Optional fields absent from the YAML (`missions.status`, `missions.owner`,
+  `contradictions.status`, `note`, …) are stored as `NULL`.
+- `file` column = path relative to the root, `/` separator.
+- Multi-line YAML strings: keep as is (no inner trimming), only drop the
+  final `\n`.
 
-## 6. Déterminisme
+## 6. Determinism
 
-Deux builds sur le même commit doivent produire des fichiers **octet pour octet identiques**.
+Two builds of the same commit must produce **byte-for-byte identical** files.
 
-- Fichiers parcourus en ordre lexicographique d'octets du chemin ; insertions
-  dans cet ordre, listes enfants dans l'ordre du YAML.
-- Aucun horodatage, nom de machine, chemin absolu ou aléa dans la base.
-- `build_info` contient exactement : `format_version`=`0.1`,
-  `schema_sql_sha256`, `n_<table>` pour chaque table de données. Pas de date.
-- Fin de build : `PRAGMA user_version = 1`, puis `VACUUM INTO` (réécrit les pages
-  proprement). Pas de mode WAL.
-- Test CI recommandé : builder deux fois, comparer les SHA-256.
+- Files are read in byte-wise lexicographic order of their path; inserts follow
+  that order, child lists follow YAML order.
+- No timestamp, host name, absolute path or randomness in the database.
+- `build_info` contains exactly: `format_version`=`1.0`,
+  `schema_sql_sha256`, `n_<table>` for each data table. No date.
+- End of build: `PRAGMA user_version = 1`, then `VACUUM INTO` (rewrites pages
+  cleanly). No WAL mode.
+- Recommended CI test: build twice, compare SHA-256.
 
-## 7. Sortie et codes de retour
+## 7. Output and exit codes
 
-stdout (succès) : une ligne par table `table : N`, puis
-`data/astra.sqlite écrit (N avertissements)` ou, avec `--check`,
-`données valides (N avertissements)`.
+stdout (success): one line per table `table: N`, then
+`data/astra.sqlite written (N warnings)` or, with `--check`,
+`data valid (N warnings)`.
 
-| Code | Sens |
+| Code | Meaning |
 |---|---|
-| 0 | succès (avertissements possibles) |
-| 1 | au moins une erreur de validation (E0xx) ; rien n'est écrit |
-| 2 | erreur d'usage (option inconnue, `--root` sans `data/`) |
-| 3 | erreur d'E/S ou SQLite interne (disque, droits) |
+| 0 | success (warnings possible) |
+| 1 | at least one validation error (E0xx); nothing is written |
+| 2 | usage error (unknown option, `--root` without `data/`) |
+| 3 | I/O or internal SQLite error (disk, permissions) |
 
-`--strict` (optionnel) : les avertissements deviennent des erreurs (code 1).
+`--strict` (optional): warnings become errors (code 1).
 
-## 8. Exemples
+## 8. Examples
 
-`astra db build --root . --data-dir data/examples --check` doit valider les
-exemples de `data/examples/` (même arborescence que `data/`). C'est le test
-minimal du validateur : le CI doit le lancer. Si `--data-dir` n'est pas
-retenu par A10, prévoir un test Rust qui charge ce dossier.
+`astra db build --root . --data-dir data/examples --check` must validate the
+examples in `data/examples/` (same layout as `data/`). This is the minimal test
+of the validator: CI must run it. If `--data-dir` is not kept by A10, add a
+Rust test that loads this folder.
+
+## 9. Changes since v0.1
+
+Format version 0.1 → 1.0 (`build_info.format_version`). Everything is now in English.
+
+**Field / column renames** (YAML, JSON Schema and SQL):
+
+| Object | v0.1 | v1.0 |
+|---|---|---|
+| common.schema `$defs` | `text_fr` | `text` |
+| evidence-levels.yaml / `evidence_levels` | `label_fr`, `definition_fr` | `label`, `definition` |
+| mission / `missions` | `summary_fr` | `summary` |
+| source / `sources` | `note_fr` | `note` |
+| concept / `concepts` | `name_fr` + `name_en` | `name` (single, English) |
+| concept / `concepts` | `description_fr` | `description` |
+| claim / `claims` | `statement_fr`, `note_fr` | `statement`, `note` |
+| evidence / `evidence` | `note_fr` | `note` |
+| relation / `relations` | `note_fr` | `note` |
+| question / `questions` | `statement_fr`, `note_fr` | `statement`, `note` |
+| contradiction / `contradictions` | `explanation_fr` | `explanation` |
+
+**Enum values:**
+
+| Field | v0.1 | v1.0 |
+|---|---|---|
+| `sources.status` | `vérifié`, `à vérifier` | `verified`, `to_verify` |
+| `claims.confidence` | `solide`, `débattu`, `spéculatif` | `established`, `debated`, `speculative` |
+| `evidence.direction` | `soutient`, `contredit`, `nuance` | `supports`, `contradicts`, `nuances` |
+| `questions.status` | `ouverte`, `résolue` | `open`, `resolved` |
+| `relations.type` | `cause`, `aggrave`, `inhibe`, `active`, `marqueur_de`, `traite`, `previent`, `partie_de`, `associe_a` | `causes`, `aggravates`, `inhibits`, `activates`, `marker_of`, `treats`, `prevents`, `part_of`, `associated_with` |
+| evidence-levels `code` | `in-vitro`, `invertebre`, `mammifere`, `humain-observationnel`, `humain-essai`, `approuve` | `in-vitro`, `invertebrate`, `mammal`, `human-observational`, `human-trial`, `approved` |
+
+**New optional fields (nullable columns):**
+
+- `missions.status` ∈ {`active`, `completed`}; `missions.owner` = agent id
+  (JSON Schema pattern `^A[0-9]+$`, e.g. `A2`).
+- `contradictions.status` ∈ {`open`, `resolved`}.
+
+**Views:** `claims_by_source.statement`; `claim_summary` columns now
+`statement`, `evidence_label`, `n_supports`, `n_contradicts`, `n_nuances`;
+`concept_summary.name` (replaces `name_fr`, `name_en`).
+
+**Messages:** all diagnostics are in English (§4); levels are `error` /
+`warning`; stdout lines in §7 are in English.

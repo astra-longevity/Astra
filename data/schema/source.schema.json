@@ -1,33 +1,36 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "astra/source.schema.json",
-  "title": "Source (publication scientifique)",
-  "description": "Fichier : data/sources/<nom de fichier dérivé de l'id>.yaml (voir BUILD_SPEC.md §2).",
+  "title": "Source (scientific publication)",
+  "description": "File: data/sources/<file name derived from the id>.yaml (see BUILD_SPEC.md section 2).",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "title", "year", "authors", "type", "status"],
   "properties": {
     "id": { "$ref": "common.schema.json#/$defs/source_id" },
-    "title": { "$ref": "common.schema.json#/$defs/text_fr" },
+    "title": { "$ref": "common.schema.json#/$defs/text" },
     "year": { "type": "integer", "minimum": 1600, "maximum": 2100 },
     "authors": {
       "type": "array",
       "minItems": 1,
       "items": { "type": "string", "pattern": "^[^,]+(, .+)?$" },
-      "description": "Dans l'ordre de la publication, format « Nom, Prénom ». Un collectif s'écrit sans virgule."
+      "description": "In publication order, formatted \"Family, Given\". A group author is written without a comma."
     },
-    "journal": { "type": "string", "minLength": 1, "description": "Revue ou éditeur (livres)." },
+    "journal": { "type": "string", "minLength": 1, "description": "Journal, or publisher for books." },
     "type": {
       "enum": ["study", "review", "trial", "meta-analysis", "book", "book-chapter", "preprint", "guideline", "other"]
     },
-    "status": { "enum": ["vérifié", "à vérifier"] },
+    "status": {
+      "enum": ["verified", "to_verify"],
+      "description": "verified = we checked the publication really exists (e.g. on Crossref)."
+    },
     "verified_via": { "enum": ["crossref", "pubmed", "isbn", "manual"] },
     "verified_at": { "$ref": "common.schema.json#/$defs/date" },
-    "note_fr": { "type": "string" }
+    "note": { "type": "string" }
   },
   "allOf": [
     {
-      "if": { "properties": { "status": { "const": "vérifié" } } },
+      "if": { "properties": { "status": { "const": "verified" } } },
       "then": { "required": ["verified_via", "verified_at"] }
     }
   ]

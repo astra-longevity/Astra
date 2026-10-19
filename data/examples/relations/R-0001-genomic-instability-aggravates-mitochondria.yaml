@@ -1,0 +1,7 @@
+id: R-0001-genomic-instability-aggravates-mitochondria
+from: genomic-instability
+to: mitochondrial-dysfunction
+type: aggravates
+claims:
+  - C-0001-polg-mutator-premature-aging
+note: Mutations in mitochondrial DNA make mitochondria work worse.

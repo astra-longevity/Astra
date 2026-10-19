@@ -1,7 +1,0 @@
-id: R-0001-instabilite-genomique-aggrave-mitochondries
-from: genomic-instability
-to: mitochondrial-dysfunction
-type: aggrave
-claims:
-  - C-0001-polg-mutator-vieillissement-premature
-note_fr: Les mutations de l'ADN des mitochondries dégradent leur fonctionnement.

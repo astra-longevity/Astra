@@ -1,49 +1,48 @@
-# Échelle de preuve d'Astra : 6 niveaux, du plus faible (1) au plus fort (6).
-# Le niveau d'une affirmation (claim) = le niveau le plus élevé atteint par
-# les sources qui la SOUTIENNENT. Ne jamais surclasser : une étude chez la
-# souris reste au niveau 3, même si elle est excellente.
-# Fichier figé : changer un niveau impose de relire toutes les affirmations.
+# Astra evidence scale: 6 levels, from weakest (1) to strongest (6).
+# A claim's level = the highest level reached by the sources that SUPPORT it.
+# Never round up: a mouse study stays at level 3, however good it is.
+# Frozen file: changing a level means re-reading every claim.
 levels:
   - level: 1
     code: in-vitro
-    label_fr: "Cellules ou ordinateur"
-    definition_fr: >-
-      Résultat obtenu sur des cellules en boîte de culture, des tissus isolés,
-      des molécules purifiées ou par simulation informatique. Indique un
-      mécanisme possible, rien de plus sur un organisme entier.
+    label: "Cells or computer"
+    definition: >-
+      Result obtained on cells in a dish, isolated tissue, purified molecules
+      or by computer simulation. Points to a possible mechanism, nothing more
+      about a whole living body.
   - level: 2
-    code: invertebre
-    label_fr: "Petits organismes modèles"
-    definition_fr: >-
-      Résultat obtenu sur un organisme entier à vie courte et éloigné de
-      l'humain : levure, ver (C. elegans), mouche (drosophile), poisson
-      killifish. Montre qu'un effet existe chez un être vivant complet.
+    code: invertebrate
+    label: "Small model organisms"
+    definition: >-
+      Result obtained on a whole, short-lived organism that is far from
+      humans: yeast, worm (C. elegans), fly (Drosophila), killifish. Shows
+      that an effect exists in a complete living being.
   - level: 3
-    code: mammifere
-    label_fr: "Mammifères de laboratoire"
-    definition_fr: >-
-      Résultat obtenu sur des mammifères non humains : souris, rat, chien,
-      singe. Plus proche de l'humain, mais beaucoup de résultats chez la
-      souris ne se confirment pas chez l'homme.
+    code: mammal
+    label: "Laboratory mammals"
+    definition: >-
+      Result obtained on non-human mammals: mouse, rat, dog, monkey. Closer
+      to humans, but many mouse results do not hold up in people.
   - level: 4
-    code: humain-observationnel
-    label_fr: "Observations chez l'humain"
-    definition_fr: >-
-      Données humaines sans expérience contrôlée : suivi de grandes
-      populations (cohortes), comparaisons de malades et de témoins,
-      génétique humaine, syndromes rares, petits essais non randomisés.
-      Montre une association chez l'humain, pas forcément une cause.
+    code: human-observational
+    label: "Observations in humans"
+    definition: >-
+      Human data without a controlled experiment: follow-up of large
+      populations (cohorts), patient-versus-healthy comparisons, human
+      genetics, rare syndromes, small non-randomized trials. Shows a link in
+      humans, not necessarily a cause.
   - level: 5
-    code: humain-essai
-    label_fr: "Essai clinique randomisé"
-    definition_fr: >-
-      Essai contrôlé randomisé (ECR) chez l'humain : on tire au sort qui reçoit
-      le traitement et qui reçoit un placebo, puis on compare. Inclut les
-      méta-analyses d'ECR. Seul type d'étude qui démontre une cause chez l'humain.
+    code: human-trial
+    label: "Randomized clinical trial"
+    definition: >-
+      Randomized controlled trial (RCT) in humans: a coin toss decides who
+      gets the treatment and who gets a placebo, then the groups are compared.
+      Includes meta-analyses of RCTs. The only kind of study that proves a
+      cause in humans.
   - level: 6
-    code: approuve
-    label_fr: "Approuvé par une autorité"
-    definition_fr: >-
-      Traitement ou test approuvé par une autorité de santé (FDA aux
-      États-Unis, EMA en Europe) pour l'indication citée, ou recommandé par
-      une recommandation officielle de pratique clinique.
+    code: approved
+    label: "Approved by a health authority"
+    definition: >-
+      Treatment or test approved by a health authority (FDA in the United
+      States, EMA in Europe) for the stated use, or recommended by an
+      official clinical practice guideline.

@@ -1,9 +1,0 @@
-id: X-0001-souris-mutator-vs-vieillissement-normal
-claims:
-  - C-0001-polg-mutator-vieillissement-premature
-  - C-0002-adnmt-vieillissement-normal-incertain
-mission: aging-map
-explanation_fr: >-
-  Trop de mutations de l'ADN mitochondrial fait vieillir la souris plus vite,
-  mais un animal âgé normal en porte beaucoup moins que la souris « mutator ».
-  On ne sait donc pas si ces mutations comptent dans le vieillissement ordinaire.

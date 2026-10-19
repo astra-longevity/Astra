@@ -1,10 +1,8 @@
 id: genomic-instability
 kind: hallmark
-name_fr: Instabilité génomique
-name_en: Genomic instability
+name: Genomic instability
 synonyms:
-  - dommages à l'ADN
   - DNA damage
-description_fr: >-
-  Accumulation d'erreurs et de dégâts dans l'ADN, le « mode d'emploi » des
-  cellules, que la cellule n'arrive plus à réparer.
+description: >-
+  Errors and damage build up in DNA, the cell's instruction manual, faster
+  than the cell can repair them.

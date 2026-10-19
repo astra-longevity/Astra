@@ -1,0 +1,11 @@
+id: C-0002-mtdna-normal-aging-uncertain
+statement: >-
+  The role of mitochondrial DNA mutations in normal aging is still unclear:
+  "mutator" mice carry far more of them than an ordinary old animal.
+concepts:
+  - mitochondrial-dysfunction
+  - genomic-instability
+organism: mus-musculus
+evidence_level: 3
+confidence: debated
+mission: aging-map

@@ -7,7 +7,7 @@ authors:
   - Larsson, Nils-Göran
 journal: Cell Metabolism
 type: review
-status: à vérifier
-note_fr: >-
-  Exemple de source « à vérifier » : métadonnées vues sur Crossref mais le
-  passage cité n'a pas encore été relu.
+status: to_verify
+note: >-
+  Example of a "to verify" source: metadata seen on Crossref, but the cited
+  passage has not been re-read yet.

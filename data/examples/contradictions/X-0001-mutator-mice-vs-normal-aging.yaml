@@ -1,0 +1,10 @@
+id: X-0001-mutator-mice-vs-normal-aging
+claims:
+  - C-0001-polg-mutator-premature-aging
+  - C-0002-mtdna-normal-aging-uncertain
+mission: aging-map
+explanation: >-
+  Too many mitochondrial DNA mutations make mice age faster, but a normal old
+  animal carries far fewer of them than a "mutator" mouse. So we do not know
+  whether these mutations matter in ordinary aging.
+status: open

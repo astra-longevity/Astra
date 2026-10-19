@@ -1,6 +1,8 @@
 id: aging-map
-title: Carte du vieillissement (12 hallmarks)
+title: Map of aging (12 hallmarks)
 folder: literature/aging-map
-summary_fr: >-
-  Premier chantier d'Astra : décrire, pour chacune des 12 grandes causes
-  biologiques du vieillissement (« hallmarks »), ce qu'on sait et avec quelles preuves.
+summary: >-
+  Astra's first project: for each of the 12 main biological causes of aging
+  ("hallmarks"), describe what we know and how strong the evidence is.
+status: completed
+owner: A2

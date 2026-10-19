@@ -1,11 +1,11 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "astra/contradiction.schema.json",
-  "title": "Contradiction entre affirmations",
-  "description": "Fichier : data/contradictions/<id>.yaml",
+  "title": "Contradiction between claims",
+  "description": "File: data/contradictions/<id>.yaml",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "claims", "mission", "explanation_fr"],
+  "required": ["id", "claims", "mission", "explanation"],
   "properties": {
     "id": { "$ref": "common.schema.json#/$defs/contradiction_id" },
     "claims": {
@@ -15,6 +15,10 @@
       "items": { "$ref": "common.schema.json#/$defs/claim_id" }
     },
     "mission": { "$ref": "common.schema.json#/$defs/slug" },
-    "explanation_fr": { "$ref": "common.schema.json#/$defs/text_fr" }
+    "explanation": { "$ref": "common.schema.json#/$defs/text" },
+    "status": {
+      "enum": ["open", "resolved"],
+      "description": "Optional. open = not yet explained; resolved = the team found why the claims disagree."
+    }
   }
 }

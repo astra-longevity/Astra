@@ -1,23 +1,22 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "astra/concept.schema.json",
-  "title": "Concept (notion biologique)",
-  "description": "Fichier : data/concepts/<id>.yaml",
+  "title": "Concept (biological notion)",
+  "description": "File: data/concepts/<id>.yaml",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "kind", "name_fr", "name_en"],
+  "required": ["id", "kind", "name"],
   "properties": {
     "id": { "$ref": "common.schema.json#/$defs/slug" },
     "kind": {
       "enum": ["hallmark", "gene", "protein", "pathway", "process", "intervention", "disease", "biomarker", "organism", "cell-type", "tissue", "other"]
     },
-    "name_fr": { "$ref": "common.schema.json#/$defs/text_fr" },
-    "name_en": { "type": "string", "minLength": 1 },
+    "name": { "$ref": "common.schema.json#/$defs/text" },
     "synonyms": {
       "type": "array",
       "uniqueItems": true,
       "items": { "type": "string", "minLength": 1 }
     },
-    "description_fr": { "type": "string", "description": "Une ou deux phrases vulgarisées." }
+    "description": { "type": "string", "description": "One or two plain-English sentences." }
   }
 }

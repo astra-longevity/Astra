@@ -1,9 +1,8 @@
 id: polg
 kind: gene
-name_fr: POLG (ADN polymérase gamma)
-name_en: POLG (DNA polymerase gamma)
+name: POLG (DNA polymerase gamma)
 synonyms:
   - POLG1
-description_fr: >-
-  Gène de l'enzyme qui recopie l'ADN des mitochondries et corrige ses propres
-  fautes de copie (« relecture »).
+description: >-
+  Gene for the enzyme that copies mitochondrial DNA and corrects its own
+  copying mistakes ("proofreading").

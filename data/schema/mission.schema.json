@@ -1,19 +1,28 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "astra/mission.schema.json",
-  "title": "Mission (chantier de recherche)",
-  "description": "Fichier : data/missions/<id>.yaml",
+  "title": "Mission (a research project of the team)",
+  "description": "File: data/missions/<id>.yaml",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "title", "folder"],
   "properties": {
     "id": { "$ref": "common.schema.json#/$defs/slug" },
-    "title": { "$ref": "common.schema.json#/$defs/text_fr" },
+    "title": { "$ref": "common.schema.json#/$defs/text" },
     "folder": {
       "type": "string",
       "pattern": "^[a-z0-9][a-z0-9._/-]*[^/]$",
-      "description": "Dossier du dépôt, relatif à la racine, sans / final (ex. literature/aging-map)."
+      "description": "Repository folder, relative to the root, without a trailing / (e.g. literature/aging-map)."
     },
-    "summary_fr": { "type": "string" }
+    "summary": { "type": "string" },
+    "status": {
+      "enum": ["active", "completed"],
+      "description": "Optional. active = work in progress; completed = finished."
+    },
+    "owner": {
+      "type": "string",
+      "pattern": "^A[0-9]+$",
+      "description": "Optional. Id of the agent responsible for the mission (e.g. A2)."
+    }
   }
 }
