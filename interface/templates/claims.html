@@ -27,8 +27,8 @@
 
 <ul id="claims-list" class="list">
 {% for c in claims %}
-  <li data-search="{{ c.statement or c.statement_fr }} {{ c.organism }}" data-confidence="{{ m.confidence_key(c.confidence) }}" data-mission="{{ c.mission }}">
-    <a href="{{ root }}claims/{{ c.id }}.html">{{ c.statement or c.statement_fr }}</a>
+  <li data-search="{{ c.statement }} {{ c.organism }}" data-confidence="{{ m.confidence_key(c.confidence) }}" data-mission="{{ c.mission }}">
+    <a href="{{ root }}claims/{{ c.id }}.html">{{ c.statement }}</a>
     <div class="meta">{{ m.confidence(c.confidence) }} {{ m.evidence_level(c.evidence_level) }} <span class="muted">{{ c.organism }} · {{ c.source_count }} source{{ "s" if c.source_count != 1 else "" }}</span></div>
   </li>
 {% else %}

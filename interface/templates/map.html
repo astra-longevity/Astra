@@ -21,10 +21,10 @@
     {% if fam.description %}<p class="muted">{{ fam.description }}</p>{% endif %}
     <div class="cards">
     {% for h in fam.hallmarks %}
-      <article class="card" data-search="{{ h.name or h.name_en }} {{ h.summary }}">
+      <article class="card" data-search="{{ h.name }} {{ h.summary }}">
         <header>
           <span class="card-num">{{ h.number }}</span>
-          <h3>{{ h.name or h.name_en or h.name_fr }}</h3>
+          <h3>{{ h.name }}</h3>
         </header>
         <p>{{ h.summary }}</p>
         <footer class="card-foot">

@@ -62,7 +62,7 @@ Raw data values are never shown: `_macros.html` maps them to labels. Values from
 - mission status (optional): `active` | `completed`
 - relation type: `causes`, `aggravates`, `inhibits`, `activates`, `marker_of`, `treats`, `prevents`, `part_of`, `associated_with` (macro `relation`)
 
-Fields marked `?` are optional and hidden when empty: nothing is invented. Text fields use the v1 names (`statement`, `name`, `summary`, `text`); the templates fall back to the old `*_fr` names until the generator switches.
+Fields marked `?` are optional and hidden when empty: nothing is invented. Text fields use the v1 names (`statement`, `name`, `summary`, `text`); templates read only these English fields.
 
 ### Per template
 

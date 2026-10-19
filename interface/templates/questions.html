@@ -23,8 +23,8 @@
     <h2>Research questions <span class="count">{{ questions | length }}</span></h2>
     <ul class="list">
     {% for q in questions %}
-      <li data-search="{{ q.text or q.text_fr }}" data-mission="{{ q.mission }}" data-resolved="{{ m.is_resolved(q.status) }}">
-        <strong>{{ q.text or q.text_fr }}</strong>
+      <li data-search="{{ q.text }}" data-mission="{{ q.mission }}" data-resolved="{{ m.is_resolved(q.status) }}">
+        <strong>{{ q.text }}</strong>
         <div class="meta">{{ m.status(q.status) }}{% if q.mission_title %} <span class="muted">· {{ q.mission_title }}</span>{% endif %}</div>
         {% if q.note %}<p class="muted">{{ q.note }}</p>{% endif %}
       </li>
@@ -38,12 +38,12 @@
     <h2><abbr data-term="contradiction">Contradictions</abbr> <span class="count">{{ contradictions | length }}</span></h2>
     <ul class="list">
     {% for c in contradictions %}
-      <li data-search="{{ c.summary or c.summary_fr }} {{ c.claim_a.statement or c.claim_a.statement_fr }} {{ c.claim_b.statement or c.claim_b.statement_fr }}" data-mission="{{ c.mission }}" data-resolved="{{ m.is_resolved(c.status) }}">
-        <strong>{{ c.summary or c.summary_fr }}</strong>
+      <li data-search="{{ c.summary }} {{ c.claim_a.statement }} {{ c.claim_b.statement }}" data-mission="{{ c.mission }}" data-resolved="{{ m.is_resolved(c.status) }}">
+        <strong>{{ c.summary }}</strong>
         <div class="versus">
-          <a href="{{ root }}claims/{{ c.claim_a.id }}.html">{{ c.claim_a.statement or c.claim_a.statement_fr }}</a>
+          <a href="{{ root }}claims/{{ c.claim_a.id }}.html">{{ c.claim_a.statement }}</a>
           <span class="vs" aria-label="versus">≠</span>
-          <a href="{{ root }}claims/{{ c.claim_b.id }}.html">{{ c.claim_b.statement or c.claim_b.statement_fr }}</a>
+          <a href="{{ root }}claims/{{ c.claim_b.id }}.html">{{ c.claim_b.statement }}</a>
         </div>
         {% if c.status %}<div class="meta">{{ m.status(c.status) }}</div>{% endif %}
       </li>

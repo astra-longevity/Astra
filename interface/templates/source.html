@@ -22,7 +22,7 @@
   <ul class="list">
   {% for c in claims %}
     <li>
-      {{ m.direction(c.direction) }} <a href="{{ root }}claims/{{ c.id }}.html">{{ c.statement or c.statement_fr }}</a>
+      {{ m.direction(c.direction) }} <a href="{{ root }}claims/{{ c.id }}.html">{{ c.statement }}</a>
       <div class="meta">{{ m.confidence(c.confidence) }}{% if c.locator %} <span class="muted">· {{ c.locator }}</span>{% endif %}</div>
     </li>
   {% endfor %}

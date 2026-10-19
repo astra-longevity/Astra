@@ -5,13 +5,13 @@
 <nav class="crumbs"><a href="{{ root }}claims.html">Claims</a> › {{ claim.id }}</nav>
 
 <article class="claim">
-  <h1 class="statement">{{ claim.statement or claim.statement_fr }}</h1>
+  <h1 class="statement">{{ claim.statement }}</h1>
   <dl class="facts">
     <dt>Confidence</dt><dd>{{ m.confidence(claim.confidence) }}</dd>
     <dt><abbr data-term="level-of-evidence">Level of evidence</abbr></dt><dd>{{ m.evidence_level(claim.evidence_level) }}</dd>
     <dt>Observed in</dt><dd>{{ claim.organism or "not specified" }}</dd>
     {% if claim.mission_title %}<dt>Mission</dt><dd>{{ claim.mission_title }}</dd>{% endif %}
-    {% if concepts %}<dt>Concepts</dt><dd>{% for co in concepts %}<span class="tag">{{ co.name or co.name_en or co.name_fr }}</span>{% endfor %}</dd>{% endif %}
+    {% if concepts %}<dt>Concepts</dt><dd>{% for co in concepts %}<span class="tag">{{ co.name }}</span>{% endfor %}</dd>{% endif %}
   </dl>
 </article>
 
@@ -42,7 +42,7 @@
   <h2>Related claims</h2>
   <ul class="list">
   {% for r in relations %}
-    <li><span class="tag">{{ m.relation(r.type) }}</span> <a href="{{ root }}claims/{{ r.id }}.html">{{ r.statement or r.statement_fr }}</a></li>
+    <li><span class="tag">{{ m.relation(r.type) }}</span> <a href="{{ root }}claims/{{ r.id }}.html">{{ r.statement }}</a></li>
   {% endfor %}
   </ul>
 </section>
