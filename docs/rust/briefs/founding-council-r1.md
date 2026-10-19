@@ -16,7 +16,7 @@ Position of A10 (Rust Manager): what tooling and infrastructure Astra needs to g
 | `astra db build` (writes SQLite) | **0.18 s** real |
 | Generated `data/astra.sqlite` | 740 KB (gitignored) |
 | `data/` on disk / `.git` on disk | 5.5 MB / 6.5 MB |
-| GitHub repository owner type | personal **User** account (not an organisation). This matters for the merge queue, see §3.2 |
+| GitHub repository owner type | at the time of writing, a personal **User** account (not an organisation); since transferred to the `astra-longevity` organisation. This mattered for the merge queue, see §3.2 |
 | Branch protection | 2 required checks, `strict: true`, `enforce_admins: false`, no PR reviews (`docs/rust/branch-protection.json`) |
 
 ---
@@ -102,7 +102,7 @@ Cost: ~2 weeks of workflow + Rust, plus one base container per language. Failure
 **Provenance fields** (schema v2, A9), required whenever `origin: computed`:
 `analysis` (folder ID), `run_id`, `run_attempt`, `workflow_sha`, `snapshot_hash`, `artifact_digest`, `attestation` (URL).
 
-**Attestation.** GitHub artifact attestations sign a SLSA build-provenance statement for an artifact using the workflow's identity. No keys to manage. Free for public repositories. For public repos the signature goes to the **Sigstore public-good instance and its public Rekor transparency log** ([GitHub docs](https://docs.github.com/en/actions/concepts/security/artifact-attestations)). On their own, attestations give **SLSA v1.0 Build Level 2**. Running the build in a **reusable workflow** gives Build Level 3 ([GitHub docs](https://docs.github.com/actions/security-for-github-actions/using-artifact-attestations)). Usage: `actions/attest@v4` (or `attest-build-provenance`, now a wrapper over it, [README](https://github.com/actions/attest-build-provenance)); anyone can verify with `gh attestation verify results.yaml --repo bigmoostache/Astra`.
+**Attestation.** GitHub artifact attestations sign a SLSA build-provenance statement for an artifact using the workflow's identity. No keys to manage. Free for public repositories. For public repos the signature goes to the **Sigstore public-good instance and its public Rekor transparency log** ([GitHub docs](https://docs.github.com/en/actions/concepts/security/artifact-attestations)). On their own, attestations give **SLSA v1.0 Build Level 2**. Running the build in a **reusable workflow** gives Build Level 3 ([GitHub docs](https://docs.github.com/actions/security-for-github-actions/using-artifact-attestations)). Usage: `actions/attest@v4` (or `attest-build-provenance`, now a wrapper over it, [README](https://github.com/actions/attest-build-provenance)); anyone can verify with `gh attestation verify results.yaml --repo astra-longevity/Astra`.
 
 **CI guard** (`check-provenance.sh`): every `origin: computed` value must point to an existing analysis folder whose `results.yaml` digest matches `artifact_digest`. Results enter `data/` only through a PR opened by the analysis workflow itself (bot identity, §3.1), never typed in by hand.
 
@@ -166,7 +166,7 @@ Strong per-agent identity needs per-agent secret storage. That is the same harne
 Today: `enforce_admins: false`, so every push to `main` skips the 2 required checks. Plan:
 
 1. Set `enforce_admins: true`. Add `required_pull_request_reviews` with 0 approvals (PR required, no human review) and keep `allow_force_pushes: false`. Every change then goes branch → PR → checks → merge. This matches CONTRIBUTING ("one branch per mission").
-2. `strict: true` with thousands of writers means endless "update branch" retries. The fix is a **merge queue**: it tests each PR on top of the latest queued state and merges batches. Workflows must also run on the `merge_group` event. **Catch: merge queue is only available for public repositories owned by an organisation** ([GitHub docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)). `bigmoostache/Astra` is owned by a personal account. **The president needs to create a free organisation and transfer the repo** (redirects keep old URLs working).
+2. `strict: true` with thousands of writers means endless "update branch" retries. The fix is a **merge queue**: it tests each PR on top of the latest queued state and merges batches. Workflows must also run on the `merge_group` event. **Catch: merge queue is only available for public repositories owned by an organisation** ([GitHub docs](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)). At the time of writing the repo was owned by a personal account; it has since been transferred to the `astra-longevity` organisation (redirects keep old URLs working).
 3. Until then: auto-merge (`gh pr merge --auto --squash`) with `strict: false`, plus a post-merge check on `main` that reverts automatically if it goes red.
 4. The vault: `chain.sh` / lint-config hash chain stays; `protected-files.yaml` changes need a CODEOWNERS review by A10.
 
@@ -216,7 +216,7 @@ The free-plan concurrency cap is the first ceiling. Past it, we need GitHub Team
 
 | When | Build | Owner | Needs from the president |
 |---|---|---|---|
-| **Month 1** | `enforce_admins: true` + PR flow + auto-merge; `Agent:` trailer + SSH `allowed_signers` check; `ledger/` + `check-ledger.sh` (add-only) + Rekor attestation of each entry; `data` structure family (≤ 1,000/folder); ULID IDs; synthetic 10^5 scale test with a 60 s budget; path-filtered CI | A10 (+A9 for IDs) | **Create a free GitHub organisation and transfer the repo** (merge queue); agents get a **non-admin write token** |
+| **Month 1** | `enforce_admins: true` + PR flow + auto-merge; `Agent:` trailer + SSH `allowed_signers` check; `ledger/` + `check-ledger.sh` (add-only) + Rekor attestation of each entry; `data` structure family (≤ 1,000/folder); ULID IDs; synthetic 10^5 scale test with a 60 s budget; path-filtered CI | A10 (+A9 for IDs) | **Create a free GitHub organisation and transfer the repo** (merge queue; done: `astra-longevity`); agents get a **non-admin write token** |
 | **Month 3** | Hash sharding migration; schema v2 quantitative evidence + provenance fields (A9); `analysis.yml` reusable workflow (pinned digest, canonical snapshot hash, offline run, attestation → SLSA L3); nightly re-run sampler; append-only verification logs; commit-reveal seals; encrypted-in-CI results; merge queue on; OTS second anchor | A10, A9, A28 | **GitHub Apps** for bot identities; a protected **environment with a human reviewer** for decryption keys; A1 decision on timestamp-service exception |
 | **Month 12** | 10^6 scale test passing (`--check` < 60 s in CI); bulk-import tooling (fetch manifests for omics/GWAS); per-role sandboxes for blinded agents; review whether we've outgrown free runners | A10 (+harness team) | **Context-pilot harness feature**: per-agent filesystem/shell isolation; possibly **paid runners or cloud credits** if analyses exceed 20 concurrent jobs / 6 h |
 
@@ -225,5 +225,5 @@ The free-plan concurrency cap is the first ceiling. Past it, we need GitHub Team
 ## Minutes
 
 - **Proposed:** sharded YAML (≤ 1,000/folder) + study-level evidence files + append-only re-check logs + ULIDs keep "repo = single source of truth" to ~10^6 records. Every computed number comes from a pinned, attested Actions run (SLSA L2 now, L3 with reusable workflows). The ledger is add-only, enforced by CI and timestamped by Rekor (+OTS). Protection is enforced through PRs and a merge queue.
-- **Challenged:** git commit dates aren't proof of time. Blinded replication *cannot* be enforced on a shared Mac plus a public repo; only sealing (commit-reveal) and CI-held encrypted results are possible now. The merge queue is blocked while the repo is owned by a personal account.
-- **Open:** org transfer and non-admin agent token (president); A1 ruling on Rekor/OTS as allowed outside timestamp services; harness-level isolation for blinded roles; schema v2 field list with A9 and A2.
+- **Challenged:** git commit dates aren't proof of time. Blinded replication *cannot* be enforced on a shared Mac plus a public repo; only sealing (commit-reveal) and CI-held encrypted results are possible now. The merge queue was blocked while the repo was owned by a personal account (since transferred to the `astra-longevity` organisation).
+- **Open:** non-admin agent token (president; org transfer since done); A1 ruling on Rekor/OTS as allowed outside timestamp services; harness-level isolation for blinded roles; schema v2 field list with A9 and A2.

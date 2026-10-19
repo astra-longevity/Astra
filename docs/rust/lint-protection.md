@@ -179,57 +179,74 @@ Add an entry to `.github/checks/protected-files.yaml` (format described at the t
 
 ## 4. Protection of the `main` branch (**active**)
 
+**How to work with it day to day: [`pr-workflow.md`](pr-workflow.md)** (branch, PR, merge queue).
+
 ### 4.1 What it enforces
 
 On GitHub, `main` cannot be changed unless these conditions are met:
 
+- **pull request required**: nobody pushes to `main` directly; every change goes through a PR;
 - **required checks**: the two CI jobs `Rust (lints · tests)` and `Structure (lengths · folders · chain)` must be green;
-- **up-to-date branch** ("strict"): the change must have been tested against the very latest version of `main`;
+- **administrators included** (`enforce_admins: true`): the rules apply to everyone, with no bypass;
+- **merge queue** (repository ruleset): GitHub re-tests each PR on top of the latest `main` before merging it (squash). This replaces the "up-to-date branch" setting, which is therefore off (`strict: false`);
+- **no required review** (0 approvals): the checks are the gate. GitHub forbids approving your own change, so requiring a review would block everything;
 - **no history rewriting** (force-push forbidden);
-- **no deletion** of the branch;
-- **no required review**: the repository has a single owner, and agents push directly to `main`. GitHub forbids approving your own change, so requiring a review would block everything;
-- administrators are not subject to these rules (`enforce_admins: false`), to keep a way out if things get stuck. Their pushes still go through, but GitHub logs them as a "bypass" of the protection.
+- **no deletion** of the branch.
 
-### 4.2 Current state: active
+Agents still use an administrator token, so they could technically change these settings. Doing so is forbidden: any change is reverted.
+
+### 4.2 History
 
 - A first activation attempt was **rejected by GitHub (error 403)**: on the free plan, branch protection is not available for a **private** repository.
-- The repository was then made **public**, and the protection was activated.
+- The repository was then made **public**, and a first protection was activated (administrators exempt, direct pushes allowed).
+- The repository was transferred to the organization `astra-longevity`. Administrators are now included, PRs are required and the merge queue is on.
 - The seal itself has been in place since commit `c78eeb6`.
 
-### 4.3 Configuration and command
+### 4.3 Configuration and commands
 
-The settings are versioned in the repository: `docs/rust/branch-protection.json`.
+The settings are versioned in the repository:
+
+- branch protection: `docs/rust/branch-protection.json`;
+- merge queue ruleset: `docs/rust/merge-queue-ruleset.json`.
 
 ```json
 {
   "required_status_checks": {
-    "strict": true,
+    "strict": false,
     "contexts": [
       "Rust (lints · tests)",
       "Structure (lengths · folders · chain)"
     ]
   },
-  "enforce_admins": false,
-  "required_pull_request_reviews": null,
+  "enforce_admins": true,
+  "required_pull_request_reviews": {
+    "required_approving_review_count": 0,
+    "dismiss_stale_reviews": false,
+    "require_code_owner_reviews": false
+  },
   "restrictions": null,
   "allow_force_pushes": false,
   "allow_deletions": false
 }
 ```
 
-To apply (or re-apply) it:
+The ruleset targets the default branch (`~DEFAULT_BRANCH`) with one `merge_queue` rule: squash, all PRs of a group must pass (`ALLGREEN`), groups of 1 to 5 PRs, up to 5 built at once, 1 minute wait for a group, checks time out after 60 minutes. No bypass actors.
+
+To apply them (Rust manager only, with the president's approval):
 
 ```bash
-gh api -X PUT repos/bigmoostache/Astra/branches/main/protection --input docs/rust/branch-protection.json
+gh api -X PUT repos/astra-longevity/Astra/branches/main/protection --input docs/rust/branch-protection.json
+gh api -X POST repos/astra-longevity/Astra/rulesets --input docs/rust/merge-queue-ruleset.json
 ```
 
-To check it:
+To check them:
 
 ```bash
-gh api repos/bigmoostache/Astra/branches/main/protection
+gh api repos/astra-longevity/Astra/branches/main/protection
+gh api repos/astra-longevity/Astra/rulesets
 ```
 
-Watch out: the check names must match **exactly** the `name:` fields of `ci.yml` (with the middle dot `·`), and they must have run at least once on GitHub to be recognized.
+Watch out: the check names must match **exactly** the `name:` fields of `ci.yml` (with the middle dot `·`), and they must have run at least once on GitHub to be recognized. `ci.yml` also runs on `merge_group`, otherwise the checks never report in the queue and every PR times out.
 
 ---
 
