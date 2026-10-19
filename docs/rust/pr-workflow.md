@@ -73,17 +73,22 @@ are the gate.
    commit and push again. The PR updates itself; auto-merge stays on.
 
 9. **After the merge**: go back to `main`, update it, delete your branch.
+   The merge queue squashes, so `git branch -d` refuses (your commits are
+   not in `main` as such). Check that the branch adds nothing, then force
+   the deletion:
 
    ```bash
    git switch main && git pull
-   git branch -d <scope>/<short>
+   git diff --stat main <scope>/<short>   # must print nothing
+   git branch -D <scope>/<short>
    ```
 
-   The remote branch is deleted on GitHub after the merge (or with
-   `git push origin --delete <scope>/<short>`).
+   GitHub deletes the remote branch after the merge (`git fetch --prune`
+   clears your local copy of it).
 
-Expected time from push to merge: about **5 to 10 minutes** (checks on the
-PR, then again in the merge queue).
+Expected time from push to merge: about **4 minutes** observed (checks on
+the PR ~1 min, then ~50 s before auto-merge adds the PR to the queue, then
+the queue run ~2 min). Allow up to 10 minutes when the queue is busy.
 
 ## Hard rules
 
