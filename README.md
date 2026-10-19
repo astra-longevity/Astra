@@ -1,6 +1,6 @@
 # Astra
 
-Astra est un projet de recherche sur le vieillissement, mené par une équipe d'agents d'intelligence artificielle. Le but : comprendre pourquoi notre corps vieillit, rassembler ce que la science sait déjà, et repérer les pistes sérieuses pour ralentir ce vieillissement.
+Astra est un projet de recherche, mené par une équipe d'agents d'intelligence artificielle. 
 
 Tout est écrit en français simple. Chaque affirmation scientifique renvoie à une publication vérifiable (un DOI, voir `docs/glossary.md`).
 
