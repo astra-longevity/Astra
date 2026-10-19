@@ -1,74 +1,75 @@
-# 11 — Inflammation chronique (*chronic inflammation*, « inflammaging »)
+# 11 — Chronic inflammation (*chronic inflammation*, "inflammaging")
 
-> Hallmark « intégratif » ajouté explicitement dans la mise à jour de López-Otín et al., *Cell* 2023 ([10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)). Il rassemble l'inflammation de bas grade liée à l'âge, l'immunosénescence et l'hématopoïèse clonale.
+> "Integrative" hallmark added explicitly in the update by López-Otín et al., *Cell* 2023 ([10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)). It brings together age-related low-grade inflammation, immunosenescence and clonal hematopoiesis.
 
-## 1. Définition
+## 1. Definition
 
-Avec l'âge, le corps entretient une inflammation faible mais permanente, sans infection ni blessure apparente. Franceschi l'a baptisée **inflammaging** (*inflammation* + *aging*) ([Franceschi 2000, 10.1111/j.1749-6632.2000.tb06651.x](https://doi.org/10.1111/j.1749-6632.2000.tb06651.x)). En parallèle, le système immunitaire devient moins efficace contre les vraies menaces (immunosénescence).
+With age, the body maintains a weak but permanent inflammation, with no apparent infection or injury. Franceschi named it **inflammaging** (*inflammation* + *aging*) ([Franceschi 2000, 10.1111/j.1749-6632.2000.tb06651.x](https://doi.org/10.1111/j.1749-6632.2000.tb06651.x)). At the same time, the immune system becomes less effective against real threats (immunosenescence).
 
-*Vulgarisation : l'alarme incendie du corps sonne en sourdine en permanence. Elle use les tissus, mais quand un vrai feu (infection, cancer) survient, les pompiers sont fatigués et réagissent mal.*
+*In plain terms: the body's fire alarm keeps ringing softly all the time. It wears out the tissues, but when a real fire (infection, cancer) breaks out, the firefighters are tired and respond badly.*
 
-## 2. Mécanismes et sources
+## 2. Mechanisms and sources
 
-- **Débris et signaux de danger** : l'accumulation de molécules endommagées (« garbaging ») active des capteurs de l'immunité innée comme l'inflammasome NLRP3. Chez la souris, supprimer NLRP3 réduit l'inflammation systémique et le déclin fonctionnel lié à l'âge ([Youm 2013, 10.1016/j.cmet.2013.09.010](https://doi.org/10.1016/j.cmet.2013.09.010) ; revue : [Franceschi 2018, 10.1038/s41574-018-0059-4](https://doi.org/10.1038/s41574-018-0059-4)).
-- **ADN hors de sa place (cGAS-STING)** : de l'ADN qui fuit du noyau ou des mitochondries est détecté comme un intrus par le capteur cGAS, qui active STING. Cette voie entretient l'inflammation liée à l'âge et la neurodégénérescence ; la bloquer améliore la fonction chez la souris âgée ([Gulen 2023, 10.1038/s41586-023-06373-1](https://doi.org/10.1038/s41586-023-06373-1)).
-- **Cellules sénescentes (SASP)** : elles sécrètent des cytokines inflammatoires (IL-6, IL-1β…), voir 08 et 10.
-- **Hématopoïèse clonale (CHIP)** : des cellules souches du sang porteuses de mutations (gènes *DNMT3A*, *TET2*, *ASXL1*, *JAK2*) prolifèrent. Le CHIP touche plus de 10 % des plus de 70 ans et augmente le risque de cancer du sang et de mortalité ([Jaiswal 2014, 10.1056/NEJMoa1408617](https://doi.org/10.1056/NEJMoa1408617) ; définition : [Steensma 2015, 10.1182/blood-2015-03-631747](https://doi.org/10.1182/blood-2015-03-631747)). Il double environ le risque de maladie coronarienne ([Jaiswal 2017, 10.1056/NEJMoa1701719](https://doi.org/10.1056/NEJMoa1701719)). Mécanisme : les macrophages déficients en TET2 produisent plus d'IL-1β via NLRP3, ce qui accélère l'athérosclérose chez la souris ([Fuster 2017, 10.1126/science.aag1381](https://doi.org/10.1126/science.aag1381)). Des variants hérités prédisposent au CHIP ([Bick 2020, 10.1038/s41586-020-2819-2](https://doi.org/10.1038/s41586-020-2819-2)).
-- **Cellules immunitaires vieillissantes** : des lymphocytes T aux mitochondries défaillantes suffisent à déclencher une inflammation systémique et une sénescence prématurée multi-organes chez la souris ([Desdín-Micó 2020, 10.1126/science.aax0860](https://doi.org/10.1126/science.aax0860)). Les macrophages âgés, au métabolisme perturbé par la prostaglandine PGE2, entretiennent l'inflammation du cerveau ; restaurer leur métabolisme inverse le déclin cognitif chez la souris ([Minhas 2021, 10.1038/s41586-020-03160-0](https://doi.org/10.1038/s41586-020-03160-0)).
-- **Intestin perméable et microbiote** : des produits bactériens passent dans le sang et activent l'immunité (voir 12).
-- **Tissu adipeux viscéral et obésité** : source majeure de cytokines inflammatoires.
+- **Debris and danger signals**: the accumulation of damaged molecules ("garbaging") activates innate immune sensors such as the NLRP3 inflammasome. In mice, removing NLRP3 reduces systemic inflammation and age-related functional decline ([Youm 2013, 10.1016/j.cmet.2013.09.010](https://doi.org/10.1016/j.cmet.2013.09.010); review: [Franceschi 2018, 10.1038/s41574-018-0059-4](https://doi.org/10.1038/s41574-018-0059-4)).
+- **DNA out of place (cGAS-STING)**: DNA leaking from the nucleus or mitochondria is detected as an intruder by the sensor cGAS, which activates STING. This pathway sustains age-related inflammation and neurodegeneration; blocking it improves function in old mice ([Gulen 2023, 10.1038/s41586-023-06373-1](https://doi.org/10.1038/s41586-023-06373-1)).
+- **Senescent cells (SASP)**: they secrete inflammatory cytokines (IL-6, IL-1β…), see 08 and 10.
+- **Clonal hematopoiesis (CHIP)**: blood stem cells carrying mutations (genes *DNMT3A*, *TET2*, *ASXL1*, *JAK2*) proliferate. CHIP affects more than 10% of people over 70 and increases the risk of blood cancer and of mortality ([Jaiswal 2014, 10.1056/NEJMoa1408617](https://doi.org/10.1056/NEJMoa1408617); definition: [Steensma 2015, 10.1182/blood-2015-03-631747](https://doi.org/10.1182/blood-2015-03-631747)). It roughly doubles the risk of coronary disease ([Jaiswal 2017, 10.1056/NEJMoa1701719](https://doi.org/10.1056/NEJMoa1701719)). Mechanism: TET2-deficient macrophages produce more IL-1β via NLRP3, which accelerates atherosclerosis in mice ([Fuster 2017, 10.1126/science.aag1381](https://doi.org/10.1126/science.aag1381)). Inherited variants predispose to CHIP ([Bick 2020, 10.1038/s41586-020-2819-2](https://doi.org/10.1038/s41586-020-2819-2)).
+- **Aging immune cells**: T lymphocytes with faulty mitochondria are enough to trigger systemic inflammation and premature multi-organ senescence in mice ([Desdín-Micó 2020, 10.1126/science.aax0860](https://doi.org/10.1126/science.aax0860)). Old macrophages, whose metabolism is disrupted by the prostaglandin PGE2, sustain brain inflammation; restoring their metabolism reverses cognitive decline in mice ([Minhas 2021, 10.1038/s41586-020-03160-0](https://doi.org/10.1038/s41586-020-03160-0)).
+- **Leaky gut and microbiota**: bacterial products pass into the blood and activate immunity (see 12).
+- **Visceral fat tissue and obesity**: a major source of inflammatory cytokines.
 
-## 3. Symptômes et manifestations cliniques
+## 3. Symptoms and clinical manifestations
 
-L'inflammation chronique est un facteur de risque commun à la plupart des maladies liées à l'âge ([Furman 2019, 10.1038/s41591-019-0675-0](https://doi.org/10.1038/s41591-019-0675-0)) :
-- **Maladies cardiovasculaires** : athérosclérose, infarctus, insuffisance cardiaque ([Ferrucci 2018, 10.1038/s41569-018-0064-2](https://doi.org/10.1038/s41569-018-0064-2)).
-- **Diabète de type 2**, maladie rénale chronique, stéatose hépatique.
-- **Neurodégénérescence** et déclin cognitif.
-- **Cancers** (notamment hématologiques chez les porteurs de CHIP).
-- **Fragilité, sarcopénie**, perte d'autonomie.
-- **Moindre réponse vaccinale**, infections plus graves.
+Chronic inflammation is a risk factor shared by most age-related diseases ([Furman 2019, 10.1038/s41591-019-0675-0](https://doi.org/10.1038/s41591-019-0675-0)):
+- **Cardiovascular disease**: atherosclerosis, heart attack, heart failure ([Ferrucci 2018, 10.1038/s41569-018-0064-2](https://doi.org/10.1038/s41569-018-0064-2)).
+- **Type 2 diabetes**, chronic kidney disease, fatty liver disease.
+- **Neurodegeneration** and cognitive decline.
+- **Cancers** (notably blood cancers in CHIP carriers).
+- **Frailty, sarcopenia**, loss of autonomy.
+- **Weaker vaccine response**, more severe infections.
 
-**Mesure chez l'humain** : CRP ultrasensible, IL-6, TNF-α sont associés à la mortalité et à la multimorbidité chez le sujet âgé. Une « horloge inflammatoire » (iAge), construite par apprentissage profond sur des cytokines sanguines, suit la multimorbidité, l'immunosénescence et la fragilité ([Sayed 2021, 10.1038/s43587-021-00082-y](https://doi.org/10.1038/s43587-021-00082-y)).
+**Measurement in humans**: high-sensitivity CRP, IL-6 and TNF-α are associated with mortality and multimorbidity in older people. An "inflammatory clock" (iAge), built by deep learning on blood cytokines, tracks multimorbidity, immunosenescence and frailty ([Sayed 2021, 10.1038/s43587-021-00082-y](https://doi.org/10.1038/s43587-021-00082-y)).
 
-## 4. Interactions avec les autres hallmarks
+## 4. Interactions with the other hallmarks
 
-- **Instabilité génomique (01)** : les mutations des cellules souches du sang créent le CHIP ; l'ADN mal placé active cGAS-STING.
-- **Attrition des télomères (02)** : déclenche sénescence et donc SASP.
-- **Altérations épigénétiques (03)** : les mutations CHIP touchent des régulateurs épigénétiques (DNMT3A, TET2).
-- **Perte de protéostasie (04)** et **macroautophagie altérée (05)** : les débris non éliminés sont des signaux de danger.
-- **Dérégulation de la détection des nutriments (06)** : mTOR et l'excès calorique alimentent l'inflammation ; restriction calorique et rapalogues la réduisent.
-- **Dysfonction mitochondriale (07)** : l'ADN mitochondrial libéré active l'inflammation ; lymphocytes T à mitochondries défaillantes ([Desdín-Micó 2020](https://doi.org/10.1126/science.aax0860)).
-- **Sénescence cellulaire (08)** : la SASP est un moteur majeur de l'inflammaging.
-- **Épuisement des cellules souches (09)** : le CHIP est à la fois une forme d'épuisement des CSH et une source d'inflammation ; l'inflammation favorise en retour l'expansion clonale.
-- **Altération de la communication intercellulaire (10)** : l'inflammation est le « message » dominant dans le sang âgé.
-- **Dysbiose (12)** : perméabilité intestinale et bactéries pro-inflammatoires.
 
-## 5. Remèdes existants ou à l'étude
+- **Genomic instability (01)**: mutations in blood stem cells create CHIP; misplaced DNA activates cGAS-STING.
+- **Telomere attrition (02)**: triggers senescence and therefore the SASP.
+- **Epigenetic alterations (03)**: CHIP mutations hit epigenetic regulators (DNMT3A, TET2).
+- **Loss of proteostasis (04)** and **disabled macroautophagy (05)**: uncleared debris acts as danger signals.
+- **Deregulated nutrient sensing (06)**: mTOR and excess calories fuel inflammation; caloric restriction and rapalogs reduce it.
+- **Mitochondrial dysfunction (07)**: released mitochondrial DNA activates inflammation; T lymphocytes with faulty mitochondria ([Desdín-Micó 2020](https://doi.org/10.1126/science.aax0860)).
+- **Cellular senescence (08)**: the SASP is a major driver of inflammaging.
+- **Stem cell exhaustion (09)**: CHIP is both a form of HSC exhaustion and a source of inflammation; inflammation in turn favours clonal expansion.
+- **Altered intercellular communication (10)**: inflammation is the dominant "message" in old blood.
+- **Dysbiosis (12)**: intestinal permeability and pro-inflammatory bacteria.
 
-| Intervention | Cible | Niveau de preuve | Résultat clé | Source |
+## 5. Existing or investigational remedies
+
+| Intervention | Target | Level of evidence | Key result | Source |
 |---|---|---|---|---|
-| Canakinumab (anti-IL-1β), essai CANTOS | IL-1β | Essai humain phase III | −15 % d'événements cardiovasculaires chez des patients post-infarctus à CRP élevée ; plus d'infections mortelles | [Ridker 2017](https://doi.org/10.1056/NEJMoa1707914) |
-| Colchicine faible dose, COLCOT | Inflammation post-infarctus | Essai humain phase III | Moins d'événements ischémiques après infarctus | [Tardif 2019](https://doi.org/10.1056/NEJMoa1912388) |
-| Colchicine faible dose, LoDoCo2 | Coronaropathie chronique | Essai humain phase III ; approuvé (FDA 2023) en prévention cardiovasculaire | Réduction des événements cardiovasculaires | [Nidorf 2020](https://doi.org/10.1056/NEJMoa2021372) |
-| Inhibition de NLRP3 (génétique) | Inflammasome | Préclinique (souris) | Moins d'inflammation et de déclin fonctionnel | [Youm 2013](https://doi.org/10.1016/j.cmet.2013.09.010) |
-| Inhibition de STING | Voie cGAS-STING | Préclinique (souris) | Moins d'inflammation, meilleure fonction cognitive et physique | [Gulen 2023](https://doi.org/10.1038/s41586-023-06373-1) |
-| Blocage du récepteur EP2 de PGE2 | Macrophages âgés | Préclinique (souris) | Déclin cognitif inversé | [Minhas 2021](https://doi.org/10.1038/s41586-020-03160-0) |
-| Restriction calorique modérée (CALERIE) | Inflammation systémique | Essai humain randomisé (2 ans) | Baisse de marqueurs inflammatoires sans altérer l'immunité | [Meydani 2016](https://doi.org/10.18632/aging.100994) |
-| Inhibiteurs de mTORC1 (rapalogues) | Immunosénescence | Essai humain phase IIa | Meilleure réponse vaccinale, moins d'infections chez l'âgé | [Mannick 2018](https://doi.org/10.1126/scitranslmed.aaq1564) |
-| Senolytiques (dasatinib + quercétine) | Cellules sénescentes / SASP | Essai humain pilote ouvert (fibrose pulmonaire, n=14) | Amélioration de la fonction physique, faisable | [Justice 2019](https://doi.org/10.1016/j.ebiom.2018.12.052) |
-| Metformine (projet TAME) | Métabolisme, inflammation | Essai humain proposé (TAME, pas encore de résultats) | Rationnel pour cibler le vieillissement lui-même | [Barzilai 2016](https://doi.org/10.1016/j.cmet.2016.05.011) |
+| Canakinumab (anti-IL-1β), CANTOS trial | IL-1β | Human phase III trial | −15% cardiovascular events in post-heart-attack patients with high CRP; more fatal infections | [Ridker 2017](https://doi.org/10.1056/NEJMoa1707914) |
+| Low-dose colchicine, COLCOT | Post-heart-attack inflammation | Human phase III trial | Fewer ischemic events after heart attack | [Tardif 2019](https://doi.org/10.1056/NEJMoa1912388) |
+| Low-dose colchicine, LoDoCo2 | Chronic coronary disease | Human phase III trial; approved (FDA 2023) for cardiovascular prevention | Fewer cardiovascular events | [Nidorf 2020](https://doi.org/10.1056/NEJMoa2021372) |
+| NLRP3 inhibition (genetic) | Inflammasome | Preclinical (mice) | Less inflammation and functional decline | [Youm 2013](https://doi.org/10.1016/j.cmet.2013.09.010) |
+| STING inhibition | cGAS-STING pathway | Preclinical (mice) | Less inflammation, better cognitive and physical function | [Gulen 2023](https://doi.org/10.1038/s41586-023-06373-1) |
+| Blocking the PGE2 receptor EP2 | Old macrophages | Preclinical (mice) | Cognitive decline reversed | [Minhas 2021](https://doi.org/10.1038/s41586-020-03160-0) |
+| Moderate caloric restriction (CALERIE) | Systemic inflammation | Randomised human trial (2 years) | Lower inflammatory markers without impairing immunity | [Meydani 2016](https://doi.org/10.18632/aging.100994) |
+| mTORC1 inhibitors (rapalogs) | Immunosenescence | Human phase IIa trial | Better vaccine response, fewer infections in older people | [Mannick 2018](https://doi.org/10.1126/scitranslmed.aaq1564) |
+| Senolytics (dasatinib + quercetin) | Senescent cells / SASP | Open-label human pilot trial (pulmonary fibrosis, n=14) | Improved physical function, feasible | [Justice 2019](https://doi.org/10.1016/j.ebiom.2018.12.052) |
+| Metformin (TAME project) | Metabolism, inflammation | Proposed human trial (TAME, no results yet) | Rationale for targeting aging itself | [Barzilai 2016](https://doi.org/10.1016/j.cmet.2016.05.011) |
 
-*Point clé : CANTOS est la preuve chez l'humain que réduire l'inflammation seule réduit des maladies liées à l'âge. Mais le prix est un risque infectieux accru : il faut viser juste.*
+*Key point: CANTOS is the proof in humans that reducing inflammation alone reduces age-related diseases. But the price is a higher risk of infection: the target must be chosen carefully.*
 
-## 6. Questions ouvertes
+## 6. Open questions
 
-- **Quelles cibles ?** IL-1β, IL-6, NLRP3, STING… Laquelle réduit l'inflammaging sans affaiblir la défense contre les infections et les cancers ?
-- **Qui traiter ?** Les porteurs de CHIP (notamment TET2) pourraient bénéficier le plus des anti-IL-1β/IL-6 : hypothèse issue d'analyses secondaires, à tester prospectivement.
-- **Cause ou conséquence ?** L'inflammation est-elle un moteur du vieillissement ou surtout un marqueur ? Les essais randomisés sur des critères « vieillissement » manquent.
-- **Mesure** : iAge et autres horloges inflammatoires doivent être validées comme critères de jugement dans des essais.
-- **CHIP** : peut-on empêcher l'expansion des clones mutés ? Aucun traitement validé à ce jour.
+- **Which targets?** IL-1β, IL-6, NLRP3, STING… Which one reduces inflammaging without weakening defence against infections and cancers?
+- **Whom to treat?** CHIP carriers (notably TET2) might benefit most from anti-IL-1β/IL-6: a hypothesis from secondary analyses, to be tested prospectively.
+- **Cause or consequence?** Is inflammation a driver of aging or mostly a marker? Randomised trials with "aging" endpoints are lacking.
+- **Measurement**: iAge and other inflammatory clocks must be validated as endpoints in trials.
+- **CHIP**: can the expansion of mutated clones be prevented? No validated treatment so far.
 
-## 7. Références
+## 7. References
 
 - López-Otín C. et al. (2023) Hallmarks of aging: An expanding universe. *Cell*. [10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)
 - Franceschi C. et al. (2000) Inflamm-aging: an evolutionary perspective on immunosenescence. *Ann N Y Acad Sci*. [10.1111/j.1749-6632.2000.tb06651.x](https://doi.org/10.1111/j.1749-6632.2000.tb06651.x)

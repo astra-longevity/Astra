@@ -1,80 +1,81 @@
-# 08 — Sénescence cellulaire (*cellular senescence*)
+# 08 — Cellular senescence
 
-> Hallmark « antagoniste » (López-Otín et al., *Cell* 2023, doi:10.1016/j.cell.2022.11.001). En clair : une cellule abîmée peut se mettre « à la retraite » au lieu de se diviser, ce qui la protège du cancer. Mais ces cellules « zombies » s'accumulent avec l'âge et empoisonnent leurs voisines avec des signaux inflammatoires.
+> "Antagonistic" hallmark (López-Otín et al., *Cell* 2023, doi:10.1016/j.cell.2022.11.001). In plain terms: a damaged cell can "retire" instead of dividing, which protects it from cancer. But these "zombie" cells accumulate with age and poison their neighbours with inflammatory signals.
 
-## 1. Définition
+## 1. Definition
 
-La sénescence est un arrêt durable de la division cellulaire, déclenché par un stress : télomères trop courts, dommages à l'ADN, oncogène activé, stress mitochondrial. Le premier à l'observer fut Hayflick, sur des cellules humaines en culture qui cessaient de se diviser après un nombre fini de divisions (Hayflick 1965, doi:10.1016/0014-4827(65)90211-9). Les cellules sénescentes ne meurent pas : elles résistent à l'apoptose et sécrètent un cocktail inflammatoire, le **SASP** (*senescence-associated secretory phenotype*). Utile à court terme (cicatrisation, suppression des tumeurs), la sénescence devient nocive quand les cellules s'accumulent et ne sont plus éliminées (Gorgoulis 2019, doi:10.1016/j.cell.2019.10.005).
+Senescence is a lasting halt of cell division, triggered by stress: telomeres that are too short, DNA damage, an activated oncogene, mitochondrial stress. The first to observe it was Hayflick, in human cells in culture that stopped dividing after a finite number of divisions (Hayflick 1965, doi:10.1016/0014-4827(65)90211-9). Senescent cells do not die: they resist apoptosis and secrete an inflammatory cocktail, the **SASP** (*senescence-associated secretory phenotype*). Useful in the short term (wound healing, tumour suppression), senescence becomes harmful when the cells accumulate and are no longer cleared (Gorgoulis 2019, doi:10.1016/j.cell.2019.10.005).
 
-## 2. Mécanismes et sources
+## 2. Mechanisms and sources
 
-**Deux « freins » principaux.** La voie **p53 → p21** réagit vite aux dommages de l'ADN ; la voie **p16^INK4a → Rb** maintient l'arrêt dans la durée. p16^INK4a sert de marqueur : dans les lymphocytes T du sang, son niveau augmente de façon exponentielle avec l'âge et avec le tabac et la sédentarité (Liu 2009, doi:10.1111/j.1474-9726.2009.00489.x).
+**Two main "brakes".** The **p53 → p21** pathway reacts quickly to DNA damage; the **p16^INK4a → Rb** pathway maintains the arrest over time. p16^INK4a serves as a marker: in blood T lymphocytes, its level rises exponentially with age and with smoking and a sedentary lifestyle (Liu 2009, doi:10.1111/j.1474-9726.2009.00489.x).
 
-**Déclencheurs.** Raccourcissement des télomères, dommages à l'ADN (rayons, chimiothérapie), activation d'un oncogène, ROS et dysfonction mitochondriale, stress protéique. Revue : Muñoz-Espín & Serrano 2014, doi:10.1038/nrm3823.
+**Triggers.** Telomere shortening, DNA damage (radiation, chemotherapy), oncogene activation, ROS and mitochondrial dysfunction, protein stress. Review: Muñoz-Espín & Serrano 2014, doi:10.1038/nrm3823.
 
-**Le SASP, arme à double tranchant.** C'est un mélange de cytokines (IL-6, IL-8, IL-1α), de chimiokines, de facteurs de croissance et d'enzymes qui dégradent la matrice (Coppé 2008, doi:10.1371/journal.pbio.0060301). Il est piloté par NF-κB, l'inflammasome et IL-1 (Acosta 2013, doi:10.1038/ncb2784), et en partie par mTOR (Laberge 2015, doi:10.1038/ncb3195). Le SASP peut rendre sénescentes les cellules voisines : on parle de sénescence « paracrine ».
+**The SASP, a double-edged sword.** It is a mixture of cytokines (IL-6, IL-8, IL-1α), chemokines, growth factors and enzymes that degrade the matrix (Coppé 2008, doi:10.1371/journal.pbio.0060301). It is driven by NF-κB, the inflammasome and IL-1 (Acosta 2013, doi:10.1038/ncb2784), and partly by mTOR (Laberge 2015, doi:10.1038/ncb3195). The SASP can make neighbouring cells senescent: this is called "paracrine" senescence.
 
-**Rôles bénéfiques.** La sénescence bloque les cellules précancéreuses, aide à cicatriser (sénescence transitoire via PDGF-AA, Demaria 2014, doi:10.1016/j.devcel.2014.11.012) et participe au développement embryonnaire. Le problème vient de l'accumulation chronique, quand le système immunitaire n'élimine plus ces cellules.
+**Beneficial roles.** Senescence blocks precancerous cells, helps wound healing (transient senescence via PDGF-AA, Demaria 2014, doi:10.1016/j.devcel.2014.11.012) and takes part in embryonic development. The problem comes from chronic accumulation, when the immune system no longer clears these cells.
 
-**Preuve causale chez la souris.** Éliminer génétiquement les cellules p16-positives (modèle INK-ATTAC) :
-- retarde les pathologies liées à l'âge chez des souris à vieillissement accéléré (Baker 2011, doi:10.1038/nature10600) ;
-- chez des souris normales, allonge la vie médiane d'environ 25 % et protège reins, cœur et graisse (Baker 2016, doi:10.1038/nature16932).
-Transplanter quelques cellules sénescentes dans une souris jeune suffit à provoquer une perte de fonction physique (Xu 2018, doi:10.1038/s41591-018-0092-9).
+**Causal evidence in mice.** Genetically eliminating p16-positive cells (INK-ATTAC model):
+- delays age-related pathologies in mice with accelerated aging (Baker 2011, doi:10.1038/nature10600);
+- in normal mice, extends median lifespan by about 25 % and protects kidneys, heart and fat (Baker 2016, doi:10.1038/nature16932).
+Transplanting a few senescent cells into a young mouse is enough to cause loss of physical function (Xu 2018, doi:10.1038/s41591-018-0092-9).
 
-## 3. Symptômes et manifestations cliniques
+## 3. Symptoms and clinical manifestations
 
-Les cellules sénescentes s'accumulent dans les tissus associés aux maladies suivantes (Childs 2017, doi:10.1038/nrd.2017.116 ; Gasek 2021, doi:10.1038/s43587-021-00121-8) :
-- **Fibrose pulmonaire idiopathique** : cellules sénescentes nombreuses ; leur suppression atténue la fibrose chez la souris (Schafer 2017, doi:10.1038/ncomms14532).
-- **Arthrose** : l'élimination locale des cellules sénescentes freine l'arthrose post-traumatique chez la souris (Jeon 2017, doi:10.1038/nm.4324).
-- **Ostéoporose** : leur suppression prévient la perte osseuse liée à l'âge chez la souris (Farr 2017, doi:10.1038/nm.4385).
-- **Athérosclérose, insuffisance cardiaque, diabète de type 2, maladie rénale chronique, stéatose hépatique**.
-- **Maladies neurodégénératives** (Alzheimer) : cellules gliales sénescentes.
-- **Effets secondaires de la chimiothérapie** et fragilité des survivants de cancer.
-- **Mesure chez l'humain** : un jeu de gènes (« SenMayo ») permet de repérer les cellules sénescentes dans les données transcriptomiques et augmente avec l'âge dans plusieurs tissus (Saul 2022, doi:10.1038/s41467-022-32552-1).
+Senescent cells accumulate in the tissues associated with the following diseases (Childs 2017, doi:10.1038/nrd.2017.116; Gasek 2021, doi:10.1038/s43587-021-00121-8):
+- **Idiopathic pulmonary fibrosis**: many senescent cells; removing them reduces fibrosis in mice (Schafer 2017, doi:10.1038/ncomms14532).
+- **Osteoarthritis**: local elimination of senescent cells slows post-traumatic osteoarthritis in mice (Jeon 2017, doi:10.1038/nm.4324).
+- **Osteoporosis**: removing them prevents age-related bone loss in mice (Farr 2017, doi:10.1038/nm.4385).
+- **Atherosclerosis, heart failure, type 2 diabetes, chronic kidney disease, fatty liver**.
+- **Neurodegenerative diseases** (Alzheimer's): senescent glial cells.
+- **Side effects of chemotherapy** and frailty of cancer survivors.
+- **Measurement in humans**: a gene set ("SenMayo") makes it possible to detect senescent cells in transcriptomic data and rises with age in several tissues (Saul 2022, doi:10.1038/s41467-022-32552-1).
 
-## 4. Interactions avec les autres hallmarks
+## 4. Interactions with the other hallmarks
 
-- **Inflammation chronique (11)** : le SASP en est l'un des principaux moteurs (*inflammaging*).
-- **Attrition des télomères (02)** et **instabilité génomique (01)** : ce sont les deux déclencheurs classiques de la sénescence.
-- **Dysfonction mitochondriale (07)** : elle induit une sénescence avec un SASP particulier ; les mitochondries sont nécessaires au phénotype sénescent (Correia-Melo 2016, doi:10.15252/embj.201592862).
-- **Dérégulation de la détection des nutriments (06)** : mTOR amplifie le SASP ; la rapamycine le réduit (Laberge 2015).
-- **Épuisement des cellules souches (09)** : sénescence des cellules souches et SASP de la « niche » ; le navitoclax rajeunit les cellules souches hématopoïétiques âgées (Chang 2016, doi:10.1038/nm.4010).
-- **Altération de la communication intercellulaire (10)** : sénescence paracrine, effets à distance via le sang.
-- **Altérations épigénétiques (03)** : remodelage de la chromatine (foyers d'hétérochromatine).
-- **Macroautophagie altérée (05)** et **perte de protéostasie (04)** : les cellules sénescentes s'en servent pour soutenir leur sécrétion.
-- **Dysbiose (12)** : les produits bactériens alimentent l'inflammation et la charge sénescente (lien encore indirect).
 
-## 5. Remèdes existants ou à l'étude
+- **Chronic inflammation (11)**: the SASP is one of its main drivers (*inflammaging*).
+- **Telomere attrition (02)** and **genomic instability (01)**: these are the two classic triggers of senescence.
+- **Mitochondrial dysfunction (07)**: it induces senescence with a particular SASP; mitochondria are required for the senescent phenotype (Correia-Melo 2016, doi:10.15252/embj.201592862).
+- **Deregulated nutrient sensing (06)**: mTOR amplifies the SASP; rapamycin reduces it (Laberge 2015).
+- **Stem cell exhaustion (09)**: senescence of stem cells and SASP of the "niche"; navitoclax rejuvenates old haematopoietic stem cells (Chang 2016, doi:10.1038/nm.4010).
+- **Altered intercellular communication (10)**: paracrine senescence, distant effects through the blood.
+- **Epigenetic alterations (03)**: chromatin remodelling (heterochromatin foci).
+- **Disabled macroautophagy (05)** and **loss of proteostasis (04)**: senescent cells use them to sustain their secretion.
+- **Dysbiosis (12)**: bacterial products fuel inflammation and the senescent burden (still an indirect link).
 
-Deux familles : les **sénolytiques** tuent sélectivement les cellules sénescentes (prise intermittente, « hit and run ») ; les **sénomorphiques** bloquent leur SASP sans les tuer.
+## 5. Existing or investigational remedies
 
-| Intervention | Cible | Niveau de preuve | Résultat clé | Source |
+Two families: **senolytics** selectively kill senescent cells (intermittent dosing, "hit and run"); **senomorphics** block their SASP without killing them.
+
+| Intervention | Target | Level of evidence | Key result | Source |
 |---|---|---|---|---|
-| **Dasatinib + quercétine (D+Q)** | Voies anti-apoptotiques (SCAP) | Préclinique | Découverte par analyse du transcriptome ; chez la souris âgée, améliore la fonction physique et allonge la survie restante d'environ 36 % | Zhu 2015, doi:10.1111/acel.12344 ; Xu 2018, doi:10.1038/s41591-018-0092-9 |
-| D+Q dans la fibrose pulmonaire | — | Essai humain phase 1 ouvert (n=14) | Faisable ; distance de marche et vitesse améliorées ; pas de changement de fonction pulmonaire | Justice 2019, doi:10.1016/j.ebiom.2018.12.052 |
-| D+Q dans la maladie rénale diabétique | — | Essai humain phase 1 (n=9) | Moins de cellules sénescentes dans la graisse et la peau 11 jours après 3 jours de traitement : 1re preuve directe chez l'humain | Hickson 2019, doi:10.1016/j.ebiom.2019.08.069 |
-| D+Q dans l'ostéoporose post-ménopausique | — | Essai humain phase 2 (RCT, n=60) | Pas d'effet global sur l'os ; bénéfice modeste chez les femmes à forte charge sénescente | Farr 2024, doi:10.1038/s41591-024-03096-2 |
-| D+Q dans l'Alzheimer léger | — | Essai humain phase 1 (n=5) | Le dasatinib passe dans le liquide céphalo-rachidien, la quercétine non ; tolérance acceptable | Gonzales 2023, doi:10.1038/s41591-023-02543-w |
-| **Fisétine** (flavonoïde) | Sénolytique | Préclinique ; essais humains phase 1-2 : arthrose du genou terminé (n=75, NCT04210986, résultats déposés sur ClinicalTrials.gov, pas encore publiés) ; essais AFFIRM sur la fragilité en cours (NCT03430037, NCT03675724, fin prévue nov. 2026) | Le plus puissant des flavonoïdes testés ; allonge la vie de la souris même commencé tard. Aucune efficacité démontrée chez l'humain à ce jour | Yousefzadeh 2018, doi:10.1016/j.ebiom.2018.09.015 ; https://clinicaltrials.gov/study/NCT04210986 ; https://clinicaltrials.gov/study/NCT03430037 ; https://clinicaltrials.gov/study/NCT03675724 |
-| **Navitoclax (ABT-263)** | BCL-2/BCL-xL | Préclinique (en oncologie : essais humains) | Rajeunit les cellules souches hématopoïétiques âgées ; toxique pour les plaquettes | Chang 2016, doi:10.1038/nm.4010 |
-| **UBX0101** (injection dans le genou) | Interaction p53/MDM2 | Essai humain phase 2 (n=183) | **Échec** : pas mieux que le placebo sur la douleur à 12 semaines (août 2020) ; programme arrêté | Communiqué Unity Biotechnology, https://www.globenewswire.com/news-release/2020/08/17/2079116/0/en/unity-biotechnology-announces-12-week-data-from-ubx0101-phase-2-clinical-study-in-patients-with-painful-osteoarthritis-of-the-knee.html |
-| **Inhibiteurs de JAK** (ruxolitinib) | SASP (sénomorphique) | Préclinique ; approuvés pour d'autres indications | Réduisent le SASP, la fragilité et le dysfonctionnement de la graisse chez la souris âgée | Xu 2015, doi:10.1073/pnas.1515386112 |
-| **Rapamycine** | SASP via mTOR | Préclinique (pour cet effet) | Réduit la traduction de l'IL-1α et le SASP | Laberge 2015, doi:10.1038/ncb3195 |
-| **CAR-T sénolytiques** (contre uPAR) | Récepteur de surface uPAR | Préclinique | Éliminent les cellules sénescentes ; fibrose hépatique corrigée chez la souris | Amor 2020, doi:10.1038/s41586-020-2403-9 |
-| **Vaccin sénolytique** (contre GPNMB) | Antigène de surface des cellules sénescentes | Préclinique | Améliore des phénotypes liés à l'âge et allonge la vie de souris progéroïdes | Suda 2021, doi:10.1038/s43587-021-00151-2 |
+| **Dasatinib + quercetin (D+Q)** | Anti-apoptotic pathways (SCAPs) | Preclinical | Discovered by transcriptome analysis; in old mice, improves physical function and extends remaining survival by about 36 % | Zhu 2015, doi:10.1111/acel.12344; Xu 2018, doi:10.1038/s41591-018-0092-9 |
+| D+Q in pulmonary fibrosis | — | Open-label human phase 1 trial (n=14) | Feasible; walking distance and speed improved; no change in lung function | Justice 2019, doi:10.1016/j.ebiom.2018.12.052 |
+| D+Q in diabetic kidney disease | — | Human phase 1 trial (n=9) | Fewer senescent cells in fat and skin 11 days after 3 days of treatment: first direct evidence in humans | Hickson 2019, doi:10.1016/j.ebiom.2019.08.069 |
+| D+Q in postmenopausal osteoporosis | — | Human phase 2 trial (RCT, n=60) | No overall effect on bone; modest benefit in women with a high senescent burden | Farr 2024, doi:10.1038/s41591-024-03096-2 |
+| D+Q in mild Alzheimer's | — | Human phase 1 trial (n=5) | Dasatinib reaches the cerebrospinal fluid, quercetin does not; acceptable tolerability | Gonzales 2023, doi:10.1038/s41591-023-02543-w |
+| **Fisetin** (flavonoid) | Senolytic | Preclinical; human phase 1-2 trials: knee osteoarthritis completed (n=75, NCT04210986, results posted on ClinicalTrials.gov, not yet published); AFFIRM frailty trials ongoing (NCT03430037, NCT03675724, planned end Nov. 2026) | The most potent of the flavonoids tested; extends mouse life even when started late. No efficacy shown in humans to date | Yousefzadeh 2018, doi:10.1016/j.ebiom.2018.09.015; https://clinicaltrials.gov/study/NCT04210986; https://clinicaltrials.gov/study/NCT03430037; https://clinicaltrials.gov/study/NCT03675724 |
+| **Navitoclax (ABT-263)** | BCL-2/BCL-xL | Preclinical (in oncology: human trials) | Rejuvenates old haematopoietic stem cells; toxic to platelets | Chang 2016, doi:10.1038/nm.4010 |
+| **UBX0101** (knee injection) | p53/MDM2 interaction | Human phase 2 trial (n=183) | **Failure**: no better than placebo on pain at 12 weeks (August 2020); programme stopped | Unity Biotechnology press release, https://www.globenewswire.com/news-release/2020/08/17/2079116/0/en/unity-biotechnology-announces-12-week-data-from-ubx0101-phase-2-clinical-study-in-patients-with-painful-osteoarthritis-of-the-knee.html |
+| **JAK inhibitors** (ruxolitinib) | SASP (senomorphic) | Preclinical; approved for other indications | Reduce the SASP, frailty and fat dysfunction in old mice | Xu 2015, doi:10.1073/pnas.1515386112 |
+| **Rapamycin** | SASP via mTOR | Preclinical (for this effect) | Reduces IL-1α translation and the SASP | Laberge 2015, doi:10.1038/ncb3195 |
+| **Senolytic CAR-T cells** (against uPAR) | Surface receptor uPAR | Preclinical | Eliminate senescent cells; liver fibrosis corrected in mice | Amor 2020, doi:10.1038/s41586-020-2403-9 |
+| **Senolytic vaccine** (against GPNMB) | Surface antigen of senescent cells | Preclinical | Improves age-related phenotypes and extends the life of progeroid mice | Suda 2021, doi:10.1038/s43587-021-00151-2 |
 
-Bilan des essais cliniques : Chaib 2022, doi:10.1038/s41591-022-01923-y ; Kirkland & Tchkonia 2020, doi:10.1111/joim.13141.
+Overview of clinical trials: Chaib 2022, doi:10.1038/s41591-022-01923-y; Kirkland & Tchkonia 2020, doi:10.1111/joim.13141.
 
-## 6. Questions ouvertes
+## 6. Open questions
 
-1. **Pas de marqueur universel** : aucun marqueur n'identifie à lui seul une cellule sénescente. p16, p21, β-galactosidase et SenMayo se recoupent mal selon le tissu. Il manque un biomarqueur sanguin validé pour choisir les patients et suivre l'effet.
-2. **Résultats humains décevants jusqu'ici** : UBX0101 a échoué, et D+Q donne des effets modestes et limités à des sous-groupes (Farr 2024). Est-ce un problème de dose, de tissu, de sélection des patients ou de concept ?
-3. **Hétérogénéité** : les cellules sénescentes ne se ressemblent pas d'un tissu à l'autre et n'ont pas les mêmes vulnérabilités. Un sénolytique universel est peu probable.
-4. **Rôles utiles** : éliminer les cellules sénescentes peut gêner la cicatrisation (Demaria 2014) ou d'autres fonctions physiologiques. Quels effets à long terme ?
-5. **Sénolytique ou sénomorphique ?** Vaut-il mieux tuer les cellules ou faire taire leur SASP, et pour quelle maladie ?
-6. **Immunothérapies** (CAR-T, vaccins) : prometteuses, mais coût, sécurité et durée de l'effet restent inconnus chez l'humain.
+1. **No universal marker**: no single marker identifies a senescent cell. p16, p21, β-galactosidase and SenMayo overlap poorly depending on the tissue. A validated blood biomarker to select patients and track the effect is missing.
+2. **Disappointing human results so far**: UBX0101 failed, and D+Q gives modest effects limited to subgroups (Farr 2024). Is this a problem of dose, tissue, patient selection or concept?
+3. **Heterogeneity**: senescent cells differ from one tissue to another and do not share the same vulnerabilities. A universal senolytic is unlikely.
+4. **Useful roles**: eliminating senescent cells can impair wound healing (Demaria 2014) or other physiological functions. What are the long-term effects?
+5. **Senolytic or senomorphic?** Is it better to kill the cells or silence their SASP, and for which disease?
+6. **Immunotherapies** (CAR-T, vaccines): promising, but cost, safety and duration of effect remain unknown in humans.
 
-## 7. Références
+## 7. References
 
 - López-Otín C et al. Hallmarks of aging: An expanding universe. *Cell* 2023. doi:10.1016/j.cell.2022.11.001
 - Hayflick L. The limited in vitro lifetime of human diploid cell strains. *Exp Cell Res* 1965. doi:10.1016/0014-4827(65)90211-9
@@ -107,4 +108,4 @@ Bilan des essais cliniques : Chaib 2022, doi:10.1038/s41591-022-01923-y ; Kirkla
 - Suda M et al. Senolytic vaccination improves normal and pathological age-related phenotypes and increases lifespan in progeroid mice. *Nat Aging* 2021. doi:10.1038/s43587-021-00151-2
 - Chaib S, Tchkonia T, Kirkland JL. Cellular senescence and senolytics: the path to the clinic. *Nat Med* 2022. doi:10.1038/s41591-022-01923-y
 - Kirkland JL, Tchkonia T. Senolytic drugs: from discovery to translation. *J Intern Med* 2020. doi:10.1111/joim.13141
-- Unity Biotechnology. 12-week data from UBX0101 phase 2 study in painful knee osteoarthritis, 17 août 2020. https://www.globenewswire.com/news-release/2020/08/17/2079116/0/en/unity-biotechnology-announces-12-week-data-from-ubx0101-phase-2-clinical-study-in-patients-with-painful-osteoarthritis-of-the-knee.html
+- Unity Biotechnology. 12-week data from UBX0101 phase 2 study in painful knee osteoarthritis, 17 August 2020. https://www.globenewswire.com/news-release/2020/08/17/2079116/0/en/unity-biotechnology-announces-12-week-data-from-ubx0101-phase-2-clinical-study-in-patients-with-painful-osteoarthritis-of-the-knee.html

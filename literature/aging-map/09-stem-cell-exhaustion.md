@@ -1,89 +1,90 @@
-# 09 — Épuisement des cellules souches (*stem cell exhaustion*)
+# 09 — Stem cell exhaustion
 
-> Hallmark « intégratif » dans la classification de López-Otín et al., *Cell* 2023 ([10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)). Il résulte en grande partie de l'accumulation des dommages primaires (01-05) et des réponses antagonistes (06-08).
+> "Integrative" hallmark in the classification of López-Otín et al., *Cell* 2023 ([10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)). It results largely from the accumulation of primary damage (01-05) and of the antagonistic responses (06-08).
 
-## 1. Définition
+## 1. Definition
 
-Avec l'âge, les cellules souches adultes (sang, muscle, intestin, peau, cerveau, os) perdent en nombre et surtout en qualité. Elles se renouvellent moins bien, se différencient de travers ou restent bloquées en dormance. Le tissu répare alors moins vite et moins bien ses pertes cellulaires.
+With age, adult stem cells (blood, muscle, gut, skin, brain, bone) decline in number and above all in quality. They renew themselves less well, differentiate incorrectly or stay stuck in dormancy. The tissue then repairs its cell losses more slowly and less well.
 
-*Vulgarisation : les cellules souches sont les « réserves de rechange » de l'organisme. Au fil des années, le stock s'appauvrit et les pièces fournies sont de moins bonne qualité.*
+*In plain terms: stem cells are the body's "spare parts reserve". Over the years, the stock runs down and the parts supplied are of lower quality.*
 
-## 2. Mécanismes et sources
+## 2. Mechanisms and sources
 
-**Causes intrinsèques (dans la cellule souche)**
-- **Dommages à l'ADN et mutations** : les cellules souches hématopoïétiques (CSH, à l'origine des cellules du sang) accumulent des mutations. Certaines donnent un avantage de croissance : c'est l'hématopoïèse clonale (CHIP), détaillée en 11 ([Jaiswal 2014, 10.1056/NEJMoa1408617](https://doi.org/10.1056/NEJMoa1408617) ; [Steensma 2015, 10.1182/blood-2015-03-631747](https://doi.org/10.1182/blood-2015-03-631747)).
-- **Dérive épigénétique** : les marques chimiques qui disent à la cellule quels gènes lire se brouillent. Une perte d'information épigénétique suffit à accélérer des traits du vieillissement chez la souris et elle est partiellement réversible ([Yang 2023, 10.1016/j.cell.2022.12.027](https://doi.org/10.1016/j.cell.2022.12.027)).
-- **Perte de polarité** : dans les CSH âgées, l'activité accrue de la protéine Cdc42 désorganise la cellule ; l'inhiber pharmacologiquement rajeunit leur fonction chez la souris ([Florian 2012, 10.1016/j.stem.2012.04.007](https://doi.org/10.1016/j.stem.2012.04.007)).
-- **Quiescence qui bascule en sénescence** : les cellules satellites du muscle (souches musculaires) des souris très âgées perdent leur dormance réversible et entrent en sénescence via p16^INK4a ; réprimer p16 restaure leur capacité de régénération ([Sousa-Victor 2014, 10.1038/nature13013](https://doi.org/10.1038/nature13013)).
-- **Biais de différenciation** : les CSH âgées produisent plus de cellules myéloïdes (inflammatoires) et moins de lymphocytes, ce qui contribue à l'immunosénescence.
+**Intrinsic causes (inside the stem cell)**
+- **DNA damage and mutations**: haematopoietic stem cells (HSCs, the source of blood cells) accumulate mutations. Some give a growth advantage: this is clonal haematopoiesis (CHIP), detailed in 11 ([Jaiswal 2014, 10.1056/NEJMoa1408617](https://doi.org/10.1056/NEJMoa1408617); [Steensma 2015, 10.1182/blood-2015-03-631747](https://doi.org/10.1182/blood-2015-03-631747)).
+- **Epigenetic drift**: the chemical marks that tell the cell which genes to read become blurred. A loss of epigenetic information is enough to accelerate aging traits in mice, and it is partly reversible ([Yang 2023, 10.1016/j.cell.2022.12.027](https://doi.org/10.1016/j.cell.2022.12.027)).
+- **Loss of polarity**: in old HSCs, increased activity of the protein Cdc42 disorganises the cell; inhibiting it pharmacologically rejuvenates their function in mice ([Florian 2012, 10.1016/j.stem.2012.04.007](https://doi.org/10.1016/j.stem.2012.04.007)).
+- **Quiescence tipping into senescence**: the satellite cells of muscle (muscle stem cells) of very old mice lose their reversible dormancy and enter senescence via p16^INK4a; repressing p16 restores their regenerative capacity ([Sousa-Victor 2014, 10.1038/nature13013](https://doi.org/10.1038/nature13013)).
+- **Differentiation bias**: old HSCs produce more myeloid (inflammatory) cells and fewer lymphocytes, which contributes to immunosenescence.
 
-**Causes extrinsèques (la niche et le sang)**
-- **Niche détériorée** : l'environnement immédiat de la cellule souche envoie de mauvais signaux. Dans l'intestin, la signalisation mTORC1 des cellules de Paneth relie la fonction des cellules souches à l'apport calorique ([Yilmaz 2012, 10.1038/nature11163](https://doi.org/10.1038/nature11163)).
-- **Milieu systémique âgé** : exposer des cellules souches âgées à un sang jeune (parabiose hétérochronique) restaure en partie leur activité, et un sang âgé l'inhibe ([Conboy 2005, 10.1038/nature03260](https://doi.org/10.1038/nature03260) ; voir 10).
-- **Cellules sénescentes voisines** : leur sécrétion inflammatoire (SASP) altère les cellules souches ; éliminer les cellules sénescentes par ABT263 (navitoclax) rajeunit les CSH chez la souris ([Chang 2015, 10.1038/nm.4010](https://doi.org/10.1038/nm.4010)).
+**Extrinsic causes (the niche and the blood)**
+- **Deteriorated niche**: the immediate environment of the stem cell sends bad signals. In the gut, mTORC1 signalling in Paneth cells links stem cell function to calorie intake ([Yilmaz 2012, 10.1038/nature11163](https://doi.org/10.1038/nature11163)).
+- **Old systemic environment**: exposing old stem cells to young blood (heterochronic parabiosis) partly restores their activity, and old blood inhibits it ([Conboy 2005, 10.1038/nature03260](https://doi.org/10.1038/nature03260); see 10).
+- **Neighbouring senescent cells**: their inflammatory secretion (SASP) impairs stem cells; eliminating senescent cells with ABT263 (navitoclax) rejuvenates HSCs in mice ([Chang 2015, 10.1038/nm.4010](https://doi.org/10.1038/nm.4010)).
 
-## 3. Symptômes et manifestations cliniques
+## 3. Symptoms and clinical manifestations
 
-- **Sang et immunité** : anémie du sujet âgé, baisse de la réponse vaccinale, biais myéloïde. CHIP présente chez plus de 10 % des plus de 70 ans, associé à un risque accru de cancer du sang, de mortalité globale et de maladie cardiovasculaire ([Jaiswal 2014](https://doi.org/10.1056/NEJMoa1408617) ; [Jaiswal 2017, 10.1056/NEJMoa1701719](https://doi.org/10.1056/NEJMoa1701719)).
-- **Muscle** : régénération plus lente, contribution à la sarcopénie (perte de masse et de force) et à la fragilité.
-- **Cerveau** : baisse de la neurogenèse hippocampique, liée chez la souris au déclin cognitif ([Villeda 2011, 10.1038/nature10357](https://doi.org/10.1038/nature10357)).
-- **Peau, cheveux, intestin, os** : cicatrisation lente, canitie, réparation intestinale ralentie, ostéoporose (déséquilibre des cellules souches mésenchymateuses en faveur des adipocytes).
-- **Preuves humaines** : surtout corrélatives (biopsies, séquençage du sang). Les preuves causales viennent presque toutes de la souris.
+- **Blood and immunity**: anaemia in older people, weaker vaccine response, myeloid bias. CHIP is present in more than 10 % of people over 70, associated with a higher risk of blood cancer, overall mortality and cardiovascular disease ([Jaiswal 2014](https://doi.org/10.1056/NEJMoa1408617); [Jaiswal 2017, 10.1056/NEJMoa1701719](https://doi.org/10.1056/NEJMoa1701719)).
+- **Muscle**: slower regeneration, contribution to sarcopenia (loss of mass and strength) and frailty.
+- **Brain**: decline in hippocampal neurogenesis, linked in mice to cognitive decline ([Villeda 2011, 10.1038/nature10357](https://doi.org/10.1038/nature10357)).
+- **Skin, hair, gut, bone**: slow wound healing, greying hair, slower gut repair, osteoporosis (imbalance of mesenchymal stem cells in favour of fat cells).
+- **Human evidence**: mostly correlational (biopsies, blood sequencing). Causal evidence comes almost entirely from mice.
 
-## 4. Interactions avec les autres hallmarks
+## 4. Interactions with the other hallmarks
 
-- **Instabilité génomique (01)** et **attrition des télomères (02)** : principales sources de dommages intrinsèques aux cellules souches ; les mutations sont le moteur du CHIP.
-- **Altérations épigénétiques (03)** : cœur de la perte d'identité des cellules souches ; cible directe de la reprogrammation partielle.
-- **Perte de protéostasie (04)** et **macroautophagie altérée (05)** : l'autophagie protège la quiescence des cellules souches ; son déclin pousse vers la sénescence.
-- **Dérégulation de la détection des nutriments (06)** : mTOR et IGF-1 règlent l'équilibre quiescence/activation ([Yilmaz 2012](https://doi.org/10.1038/nature11163)).
-- **Dysfonction mitochondriale (07)** : la qualité des mitochondries conditionne la capacité d'autorenouvellement.
-- **Sénescence cellulaire (08)** : destin terminal des cellules souches épuisées, et source de signaux toxiques pour la niche ([Sousa-Victor 2014](https://doi.org/10.1038/nature13013) ; [Chang 2015](https://doi.org/10.1038/nm.4010)).
-- **Altération de la communication intercellulaire (10)** : le sang et la niche âgés inhibent les cellules souches (parabiose).
-- **Inflammation chronique (11)** : le CHIP amplifie l'inflammation, et l'inflammation favorise en retour l'expansion clonale.
-- **Dysbiose (12)** : le microbiote module le renouvellement des cellules souches intestinales (lien surtout préclinique).
 
-## 5. Remèdes existants ou à l'étude
+- **Genomic instability (01)** and **telomere attrition (02)**: main sources of intrinsic damage to stem cells; mutations are the engine of CHIP.
+- **Epigenetic alterations (03)**: at the heart of the loss of stem cell identity; direct target of partial reprogramming.
+- **Loss of proteostasis (04)** and **disabled macroautophagy (05)**: autophagy protects stem cell quiescence; its decline pushes towards senescence.
+- **Deregulated nutrient sensing (06)**: mTOR and IGF-1 set the balance between quiescence and activation ([Yilmaz 2012](https://doi.org/10.1038/nature11163)).
+- **Mitochondrial dysfunction (07)**: the quality of mitochondria determines self-renewal capacity.
+- **Cellular senescence (08)**: terminal fate of exhausted stem cells, and a source of toxic signals for the niche ([Sousa-Victor 2014](https://doi.org/10.1038/nature13013); [Chang 2015](https://doi.org/10.1038/nm.4010)).
+- **Altered intercellular communication (10)**: old blood and an old niche inhibit stem cells (parabiosis).
+- **Chronic inflammation (11)**: CHIP amplifies inflammation, and inflammation in turn favours clonal expansion.
+- **Dysbiosis (12)**: the microbiota modulates the renewal of intestinal stem cells (link mostly preclinical).
 
-### La reprogrammation partielle (encadré)
+## 5. Existing or investigational remedies
 
-En 2006, Takahashi et Yamanaka ont montré que quatre facteurs (Oct4, Sox2, Klf4, c-Myc, dits **OSKM**) ramènent une cellule adulte à l'état de cellule souche pluripotente (iPS) ([Takahashi 2006, 10.1016/j.cell.2006.07.024](https://doi.org/10.1016/j.cell.2006.07.024)). La reprogrammation de cellules de centenaires efface plusieurs marques du vieillissement *in vitro* ([Lapasset 2011, 10.1101/gad.173922.111](https://doi.org/10.1101/gad.173922.111)).
+### Partial reprogramming (box)
 
-L'idée de la **reprogrammation partielle** : appliquer ces facteurs juste assez pour remettre à zéro l'horloge épigénétique, sans effacer l'identité de la cellule.
-- **Risque** : une expression continue d'OSKM chez la souris provoque des tératomes (tumeurs) ([Abad 2013, 10.1038/nature12586](https://doi.org/10.1038/nature12586)).
-- **Cyclique** : une induction intermittente chez des souris progéroïdes améliore des traits du vieillissement et prolonge leur vie ([Ocampo 2016, 10.1016/j.cell.2016.11.052](https://doi.org/10.1016/j.cell.2016.11.052)).
-- **Sans c-Myc (OSK)** : dans l'œil de souris, OSK restaure la vision après lésion du nerf optique et chez l'animal âgé, de façon dépendante de la déméthylation de l'ADN ([Lu 2020, 10.1038/s41586-020-2975-4](https://doi.org/10.1038/s41586-020-2975-4)).
-- **Souris normales âgées** : une reprogrammation partielle à long terme modifie des marqueurs moléculaires du vieillissement sans tumeur détectée dans l'étude ([Browder 2022, 10.1038/s43587-022-00183-2](https://doi.org/10.1038/s43587-022-00183-2)).
-- **Cellules humaines** : une reprogrammation transitoire « jusqu'à la phase de maturation » rajeunit des fibroblastes humains d'environ 30 ans sur les horloges épigénétiques et transcriptomiques ([Gill 2022, 10.7554/eLife.71624](https://doi.org/10.7554/eLife.71624)).
-- **Chimique** : des cellules humaines ont été reprogrammées en iPS par des petites molécules seules ([Guan 2022, 10.1038/s41586-022-04593-5](https://doi.org/10.1038/s41586-022-04593-5)), ouvrant la voie à des approches non géniques.
+In 2006, Takahashi and Yamanaka showed that four factors (Oct4, Sox2, Klf4, c-Myc, called **OSKM**) take an adult cell back to the state of a pluripotent stem cell (iPS) ([Takahashi 2006, 10.1016/j.cell.2006.07.024](https://doi.org/10.1016/j.cell.2006.07.024)). Reprogramming cells from centenarians erases several marks of aging *in vitro* ([Lapasset 2011, 10.1101/gad.173922.111](https://doi.org/10.1101/gad.173922.111)).
 
-*Vulgarisation : c'est comme réinitialiser les paramètres d'un ordinateur sans effacer les fichiers. Le danger est d'aller trop loin et d'obtenir une cellule qui ne sait plus ce qu'elle est, voire qui devient tumorale.*
+The idea of **partial reprogramming**: apply these factors just enough to reset the epigenetic clock, without erasing the cell's identity.
+- **Risk**: continuous OSKM expression in mice causes teratomas (tumours) ([Abad 2013, 10.1038/nature12586](https://doi.org/10.1038/nature12586)).
+- **Cyclic**: intermittent induction in progeroid mice improves aging traits and extends their life ([Ocampo 2016, 10.1016/j.cell.2016.11.052](https://doi.org/10.1016/j.cell.2016.11.052)).
+- **Without c-Myc (OSK)**: in the mouse eye, OSK restores vision after optic nerve injury and in old animals, in a way that depends on DNA demethylation ([Lu 2020, 10.1038/s41586-020-2975-4](https://doi.org/10.1038/s41586-020-2975-4)).
+- **Normal old mice**: long-term partial reprogramming changes molecular markers of aging with no tumour detected in the study ([Browder 2022, 10.1038/s43587-022-00183-2](https://doi.org/10.1038/s43587-022-00183-2)).
+- **Human cells**: transient reprogramming "up to the maturation phase" rejuvenates human fibroblasts by about 30 years on epigenetic and transcriptomic clocks ([Gill 2022, 10.7554/eLife.71624](https://doi.org/10.7554/eLife.71624)).
+- **Chemical**: human cells have been reprogrammed into iPS cells with small molecules alone ([Guan 2022, 10.1038/s41586-022-04593-5](https://doi.org/10.1038/s41586-022-04593-5)), opening the way to non-genetic approaches.
 
-### Tableau des interventions
+*In plain terms: it is like resetting a computer's settings without deleting the files. The danger is going too far and getting a cell that no longer knows what it is, or even becomes a tumour.*
 
-| Intervention | Cible | Niveau de preuve | Résultat clé | Source |
+### Table of interventions
+
+| Intervention | Target | Level of evidence | Key result | Source |
 |---|---|---|---|---|
-| Reprogrammation partielle cyclique OSKM | Épigénome | Préclinique (souris progéroïdes) | Amélioration de traits du vieillissement, vie prolongée | [Ocampo 2016](https://doi.org/10.1016/j.cell.2016.11.052) |
-| OSK par vecteur viral (œil) | Épigénome, neurones rétiniens | Préclinique (souris) | Vision restaurée après lésion et chez l'âgé | [Lu 2020](https://doi.org/10.1038/s41586-020-2975-4) |
-| Reprogrammation partielle long terme | Épigénome multi-tissus | Préclinique (souris de type sauvage) | Marqueurs moléculaires rajeunis, pas de tumeur rapportée | [Browder 2022](https://doi.org/10.1038/s43587-022-00183-2) |
-| Reprogrammation transitoire *in vitro* | Fibroblastes humains | Préclinique (cellules humaines) | ~30 ans de rajeunissement épigénétique | [Gill 2022](https://doi.org/10.7554/eLife.71624) |
-| Senolytique ABT263 (navitoclax) | Cellules sénescentes de la moelle | Préclinique (souris) | CSH âgées rajeunies | [Chang 2015](https://doi.org/10.1038/nm.4010) |
-| Inhibiteur de Cdc42 (CASIN) | Polarité des CSH | Préclinique (souris) | Fonction des CSH âgées restaurée | [Florian 2012](https://doi.org/10.1016/j.stem.2012.04.007) |
-| Répression de p16^INK4a | Cellules souches musculaires | Préclinique (souris) | Régénération musculaire restaurée | [Sousa-Victor 2014](https://doi.org/10.1038/nature13013) |
-| Restriction calorique / inhibition mTORC1 | Niche intestinale | Préclinique (souris) | Fonction des cellules souches intestinales accrue | [Yilmaz 2012](https://doi.org/10.1038/nature11163) |
-| Parabiose / facteurs de sang jeune | Milieu systémique | Préclinique (souris) | Activité des cellules souches musculaires et hépatiques restaurée | [Conboy 2005](https://doi.org/10.1038/nature03260) |
-| Perfusion de cellules souches mésenchymateuses allogéniques | Fragilité | Essai humain phase I/II | Sûreté acceptable, signaux d'amélioration fonctionnelle (petit effectif) | [Golpanian 2017](https://doi.org/10.1093/gerona/glx056) |
+| Cyclic partial OSKM reprogramming | Epigenome | Preclinical (progeroid mice) | Improved aging traits, extended life | [Ocampo 2016](https://doi.org/10.1016/j.cell.2016.11.052) |
+| OSK via viral vector (eye) | Epigenome, retinal neurons | Preclinical (mice) | Vision restored after injury and in old animals | [Lu 2020](https://doi.org/10.1038/s41586-020-2975-4) |
+| Long-term partial reprogramming | Multi-tissue epigenome | Preclinical (wild-type mice) | Rejuvenated molecular markers, no tumour reported | [Browder 2022](https://doi.org/10.1038/s43587-022-00183-2) |
+| Transient reprogramming *in vitro* | Human fibroblasts | Preclinical (human cells) | ~30 years of epigenetic rejuvenation | [Gill 2022](https://doi.org/10.7554/eLife.71624) |
+| Senolytic ABT263 (navitoclax) | Senescent cells of the bone marrow | Preclinical (mice) | Old HSCs rejuvenated | [Chang 2015](https://doi.org/10.1038/nm.4010) |
+| Cdc42 inhibitor (CASIN) | HSC polarity | Preclinical (mice) | Function of old HSCs restored | [Florian 2012](https://doi.org/10.1016/j.stem.2012.04.007) |
+| Repression of p16^INK4a | Muscle stem cells | Preclinical (mice) | Muscle regeneration restored | [Sousa-Victor 2014](https://doi.org/10.1038/nature13013) |
+| Caloric restriction / mTORC1 inhibition | Intestinal niche | Preclinical (mice) | Increased intestinal stem cell function | [Yilmaz 2012](https://doi.org/10.1038/nature11163) |
+| Parabiosis / young blood factors | Systemic environment | Preclinical (mice) | Activity of muscle and liver stem cells restored | [Conboy 2005](https://doi.org/10.1038/nature03260) |
+| Infusion of allogeneic mesenchymal stem cells | Frailty | Human phase I/II trial | Acceptable safety, signs of functional improvement (small sample) | [Golpanian 2017](https://doi.org/10.1093/gerona/glx056) |
 
-Aucune intervention ciblant spécifiquement l'épuisement des cellules souches n'est approuvée pour le vieillissement. Les greffes de CSH sont approuvées, mais pour des maladies hématologiques, pas pour le vieillissement.
+No intervention specifically targeting stem cell exhaustion is approved for aging. HSC transplants are approved, but for blood diseases, not for aging.
 
-## 6. Questions ouvertes
+## 6. Open questions
 
-- **Sécurité de la reprogrammation** chez l'humain : comment éviter tératomes et perte d'identité sur des années ? Quelle dose, quels tissus, quel mode de délivrance ?
-- **Causalité** : l'épuisement des cellules souches est-il cause ou conséquence du vieillissement tissulaire ? La part intrinsèque vs niche reste mal quantifiée chez l'humain.
-- **Mesure** : il manque des biomarqueurs simples de la « santé » des cellules souches chez l'humain (hors séquençage du CHIP).
-- **Dilemme cancer** : stimuler les cellules souches peut favoriser les clones mutés (CHIP, cancers). Rajeunir sans sélectionner les mauvais clones ?
-- **Hétérogénéité** : les résultats chez la souris (souvent progéroïde) se transposent-ils aux tissus humains à renouvellement lent ?
+- **Safety of reprogramming** in humans: how to avoid teratomas and loss of identity over years? What dose, which tissues, what delivery method?
+- **Causality**: is stem cell exhaustion a cause or a consequence of tissue aging? The intrinsic vs niche share remains poorly quantified in humans.
+- **Measurement**: simple biomarkers of stem cell "health" in humans are missing (apart from CHIP sequencing).
+- **Cancer dilemma**: stimulating stem cells can favour mutated clones (CHIP, cancers). How to rejuvenate without selecting the bad clones?
+- **Heterogeneity**: do results in mice (often progeroid) carry over to slowly renewing human tissues?
 
-## 7. Références
+## 7. References
 
 - López-Otín C. et al. (2023) Hallmarks of aging: An expanding universe. *Cell*. [10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)
 - Takahashi K., Yamanaka S. (2006) Induction of pluripotent stem cells from mouse embryonic and adult fibroblast cultures by defined factors. *Cell*. [10.1016/j.cell.2006.07.024](https://doi.org/10.1016/j.cell.2006.07.024)

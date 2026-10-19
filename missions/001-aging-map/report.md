@@ -1,33 +1,33 @@
-# Mission 001 — Rapport : la carte du vieillissement
+# Mission 001 — Report: the aging map
 
-## Ce qui a été produit
+## What was produced
 
-Une carte de ce que la science sait aujourd'hui du vieillissement, en 14 fichiers rangés dans [`literature/aging-map/`](../../literature/aging-map/) :
+A map of what science knows about aging today, in 14 files stored in [`literature/aging-map/`](../../literature/aging-map/):
 
-- [`00-overview.md`](../../literature/aging-map/00-overview.md) : la vue d'ensemble, en français simple. **C'est le fichier à lire en premier.**
-- [`framework.md`](../../literature/aging-map/framework.md) : les définitions, les grandes théories (pourquoi vieillit-on ?) et les façons de mesurer le vieillissement (« horloges » biologiques, indice de fragilité…).
-- `01` à `12` : un fichier par grande cause biologique du vieillissement. Les chercheurs en reconnaissent 12, appelées *hallmarks* (« caractéristiques ») depuis un article de référence de 2013, mis à jour en 2023.
+- [`00-overview.md`](../../literature/aging-map/00-overview.md): the overview, in plain English. **This is the file to read first.**
+- [`framework.md`](../../literature/aging-map/framework.md): the definitions, the major theories (why do we age?) and the ways of measuring aging (biological "clocks", frailty index…).
+- `01` to `12`: one file per major biological cause of aging. Researchers recognise 12 of them, called *hallmarks* since a landmark 2013 article, updated in 2023.
 
-## Comment c'est organisé
+## How it is organised
 
-Les 12 causes sont rangées en trois groupes :
+The 12 causes are sorted into three groups:
 
-1. **Les dommages de départ** (`01` à `05`) : l'ADN s'abîme, les bouts des chromosomes raccourcissent, les réglages des gènes se dérèglent, les protéines se déforment, le recyclage des déchets de la cellule ralentit.
-2. **Les réponses qui deviennent nocives** (`06` à `08`) : des mécanismes de défense utiles au départ (capteurs de nutriments, centrales énergétiques de la cellule, mise à l'arrêt des cellules abîmées) deviennent nuisibles quand ils durent trop.
-3. **Les conséquences visibles** (`09` à `12`) : les réserves de cellules de remplacement s'épuisent, les cellules communiquent mal, une inflammation de fond s'installe, les bactéries de l'intestin se déséquilibrent.
+1. **The initial damage** (`01` to `05`): DNA gets damaged, the ends of chromosomes shorten, the settings of genes drift, proteins lose their shape, the cell's waste recycling slows down.
+2. **Responses that become harmful** (`06` to `08`): defence mechanisms that are useful at first (nutrient sensors, the cell's power plants, shutting down damaged cells) become harmful when they last too long.
+3. **The visible consequences** (`09` to `12`): the reserves of replacement cells run out, cells communicate poorly, a background inflammation sets in, gut bacteria fall out of balance.
 
-Chaque fichier `01` à `12` suit le même plan en 7 parties : définition, mécanismes, effets visibles sur la santé, liens avec les 11 autres causes, traitements existants ou à l'étude (avec leur niveau de preuve), questions ouvertes, références.
+Each file `01` to `12` follows the same 7-part outline: definition, mechanisms, visible effects on health, links with the 11 other causes, existing or investigational treatments (with their level of evidence), open questions, references.
 
-## Comment les sources ont été contrôlées
+## How the sources were checked
 
-- Chaque affirmation s'appuie sur une publication identifiée par son DOI (un numéro unique attribué à chaque article scientifique).
-- Chaque rédacteur a vérifié toutes ses références dans Crossref, la base officielle des DOI (auteur, année, titre). Les références fausses ont été retirées.
-- Contrôle final indépendant : 39 DOI tirés au hasard (3 par fichier) ont été revérifiés. Les 39 sont corrects.
-- Les sources vérifiées sont aussi enregistrées dans la base de données du projet (`data/`), par un enregistrement séparé (`data: ingest aging-map`).
+- Every statement rests on a publication identified by its DOI (a unique number assigned to each scientific article).
+- Each writer checked all of their references in Crossref, the official DOI database (author, year, title). Wrong references were removed.
+- Independent final check: 39 randomly drawn DOIs (3 per file) were checked again. All 39 are correct.
+- The verified sources are also recorded in the project database (`data/`), in a separate commit (`data: ingest aging-map`).
 
-## Limites
+## Limits
 
-- **7 points restent marqués [à vérifier]** dans les fichiers : deux livres anciens sans DOI (`framework.md`), deux points dans `02`, deux dans `03`, et le statut actuel de l'essai TAME sur la metformine (`06`). Ils sont listés dans la section 5 de `00-overview.md`.
-- La plupart des résultats viennent d'animaux de laboratoire ; peu sont démontrés chez l'humain.
-- Les 12 causes sont un outil pour ranger les connaissances, pas une vérité établie.
-- Le domaine évolue vite. Ce n'est pas un avis médical.
+- **7 points remain marked [to verify]** in the files: two old books without a DOI (`framework.md`), two points in `02`, two in `03`, and the current status of the TAME trial of metformin (`06`). They are listed in section 5 of `00-overview.md`.
+- Most results come from laboratory animals; few are demonstrated in humans.
+- The 12 causes are a tool for organising knowledge, not an established truth.
+- The field moves fast. This is not medical advice.

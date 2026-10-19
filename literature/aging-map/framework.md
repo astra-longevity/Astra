@@ -1,185 +1,185 @@
-# Cadre conceptuel du vieillissement
+# Conceptual framework of aging
 
-Ce document définit les concepts communs à la cartographie : ce que l'on appelle « vieillissement », les grandes théories qui l'expliquent, les outils de mesure et les cadres d'organisation (hallmarks et alternatives). Les fichiers par hallmark (`01-…` à `12-…`) s'y réfèrent.
-
----
-
-## 1. Définitions biologiques
-
-### 1.1 Déclin fonctionnel et mortalité
-
-Le vieillissement biologique (sénescence au sens démographique) correspond à une **dégradation progressive et généralisée des fonctions physiologiques**. Elle entraîne une baisse de la fertilité, une perte de résilience face aux stress et un risque de mort qui augmente avec l'âge. López-Otín et al. le décrivent comme une « détérioration fonctionnelle progressive dépendante du temps » qui majore la vulnérabilité aux maladies et à la mort [1, 2].
-
-Chez l'humain adulte, la mortalité suit d'assez près la **loi de Gompertz** : le taux de mortalité croît de façon exponentielle avec l'âge et double environ tous les 8 ans à l'âge adulte [22, 23]. Le singe rhésus a un temps de doublement proche de celui de l'humain ; sa vie plus courte s'explique surtout par une mortalité plus élevée à tous les âges [23]. Cette signature démographique sert de définition opérationnelle en biogérontologie : une intervention « anti-âge » doit ralentir la pente de Gompertz, pas seulement abaisser son ordonnée à l'origine (c'est-à-dire réduire une cause de mort précise).
-
-### 1.2 Vieillissement et maladie
-
-La relation entre vieillissement et maladie est au centre du débat actuel :
-
-- **Position géroscientifique** : l'âge est le premier facteur de risque de presque toutes les maladies chroniques (cancer, maladies cardiovasculaires, neurodégénératives, diabète de type 2). Agir sur les mécanismes du vieillissement devrait retarder plusieurs maladies à la fois, ce que ne permet pas l'approche « une maladie, un traitement » [3].
-- **Le vieillissement comme maladie** : certains auteurs veulent le traiter comme une entité pathologique à part entière, avec des conséquences réglementaires (indication thérapeutique, critères d'essai). L'absence de biomarqueur validé comme critère de substitution en est le principal frein [4].
-- **Distinction classique** : le vieillissement est universel, intrinsèque, progressif et délétère (critères de Strehler) ; une maladie touche un sous-ensemble d'individus [à vérifier — Strehler 1962, *Time, Cells and Aging*, sans DOI]. Cette frontière s'estompe dès que l'on admet que les maladies liées à l'âge sont des expressions accélérées ou localisées des mêmes processus [2, 5].
-
-### 1.3 Sénescence cellulaire et sénescence de l'organisme
-
-Il ne faut pas confondre les deux sens du mot :
-
-- **Sénescence cellulaire** : arrêt stable du cycle cellulaire, accompagné d'un phénotype sécrétoire (SASP), déclenché par le raccourcissement des télomères, des dommages à l'ADN, des oncogènes ou divers stress. C'est l'un des 12 hallmarks [2] (traité dans son fichier dédié).
-- **Sénescence de l'organisme** : déclin global décrit ci-dessus. La sénescence cellulaire y contribue, mais seulement en partie.
+This document defines the concepts shared across the map: what is called "aging", the major theories that explain it, the measurement tools and the organising frameworks (hallmarks and alternatives). The per-hallmark files (`01-…` to `12-…`) refer to it.
 
 ---
 
-## 2. Théories majeures
+## 1. Biological definitions
 
-Les théories se répartissent en deux familles : les théories **évolutives** répondent au *pourquoi* (pourquoi la sélection naturelle n'a-t-elle pas éliminé le vieillissement ?), les théories **mécanistes** au *comment*. Elles sont largement complémentaires.
+### 1.1 Functional decline and mortality
 
-### 2.1 Théories évolutives
+Biological aging (senescence in the demographic sense) is a **progressive, generalised deterioration of physiological functions**. It leads to lower fertility, a loss of resilience to stress and a risk of death that increases with age. López-Otín et al. describe it as a "time-dependent progressive functional deterioration" that increases vulnerability to disease and death [1, 2].
 
-Prémisse commune : la **force de la sélection naturelle diminue avec l'âge**. Comme la mortalité extrinsèque (prédation, accidents, infections) élimine la plupart des individus avant les grands âges, les effets génétiques tardifs échappent en grande partie à la sélection.
+In adult humans, mortality follows the **Gompertz law** fairly closely: the death rate grows exponentially with age and doubles roughly every 8 years in adulthood [22, 23]. The rhesus monkey has a doubling time close to that of humans; its shorter life is explained mainly by higher mortality at all ages [23]. This demographic signature serves as an operational definition in biogerontology: an "anti-aging" intervention must slow the Gompertz slope, not just lower its intercept (that is, reduce one specific cause of death).
 
-| Théorie | Auteur(s) | Idée centrale | Prédiction testable |
+### 1.2 Aging and disease
+
+The relationship between aging and disease is at the centre of the current debate:
+
+- **Geroscience position**: age is the main risk factor for almost all chronic diseases (cancer, cardiovascular and neurodegenerative diseases, type 2 diabetes). Acting on the mechanisms of aging should delay several diseases at once, which the "one disease, one treatment" approach cannot do [3].
+- **Aging as a disease**: some authors want to treat it as a disease entity in its own right, with regulatory consequences (therapeutic indication, trial endpoints). The lack of a biomarker validated as a surrogate endpoint is the main obstacle [4].
+- **Classic distinction**: aging is universal, intrinsic, progressive and deleterious (Strehler's criteria); a disease affects a subset of individuals [to verify — Strehler 1962, *Time, Cells and Aging*, no DOI]. This boundary fades once one accepts that age-related diseases are accelerated or localised expressions of the same processes [2, 5].
+
+### 1.3 Cellular senescence and organismal senescence
+
+The two meanings of the word must not be confused:
+
+- **Cellular senescence**: a stable arrest of the cell cycle, together with a secretory phenotype (SASP), triggered by telomere shortening, DNA damage, oncogenes or various stresses. It is one of the 12 hallmarks [2] (covered in its own file).
+- **Organismal senescence**: the overall decline described above. Cellular senescence contributes to it, but only in part.
+
+---
+
+## 2. Major theories
+
+Theories fall into two families: **evolutionary** theories answer the *why* (why has natural selection not eliminated aging?), **mechanistic** theories the *how*. They are largely complementary.
+
+### 2.1 Evolutionary theories
+
+Shared premise: the **force of natural selection declines with age**. Because extrinsic mortality (predation, accidents, infections) eliminates most individuals before old age, late-acting genetic effects largely escape selection.
+
+| Theory | Author(s) | Central idea | Testable prediction |
 |---|---|---|---|
-| **Accumulation de mutations** | Medawar (1952) [à vérifier — *An Unsolved Problem of Biology*, conférence, sans DOI] | Les allèles délétères à effet tardif s'accumulent par dérive, car la sélection ne les élimine pas | Variance génétique additive de la mortalité croissante avec l'âge |
-| **Pléiotropie antagoniste** | Williams (1957) [6] | Un même allèle peut être bénéfique tôt (fécondité, croissance) et délétère tard ; la sélection le favorise | Compromis génétiques entre reproduction précoce et longévité |
-| **Soma jetable** (*disposable soma*) | Kirkwood (1977) [7] | Les ressources sont limitées et réparties entre reproduction et entretien somatique ; l'entretien optimal reste imparfait | Lien inverse entre investissement reproductif et entretien ; plasticité selon le risque extrinsèque |
+| **Mutation accumulation** | Medawar (1952) [to verify — *An Unsolved Problem of Biology*, lecture, no DOI] | Deleterious alleles with late effects accumulate by drift, because selection does not eliminate them | Additive genetic variance of mortality increasing with age |
+| **Antagonistic pleiotropy** | Williams (1957) [6] | The same allele can be beneficial early (fertility, growth) and harmful late; selection favours it | Genetic trade-offs between early reproduction and longevity |
+| **Disposable soma** (*disposable soma*) | Kirkwood (1977) [7] | Resources are limited and split between reproduction and somatic maintenance; optimal maintenance remains imperfect | Inverse link between reproductive investment and maintenance; plasticity according to extrinsic risk |
 
-**Intérêt** : ces théories expliquent pourquoi le vieillissement existe, pourquoi la longévité varie fortement entre espèces (chauve-souris, rat-taupe nu, baleine boréale), et pourquoi certaines voies pro-croissance (IGF-1, mTOR) favorisent la reproduction tout en raccourcissant la vie.
+**Value**: these theories explain why aging exists, why longevity varies widely between species (bats, naked mole-rat, bowhead whale), and why some pro-growth pathways (IGF-1, mTOR) favour reproduction while shortening life.
 
-**Limites** : elles n'identifient pas de mécanisme moléculaire précis. Certaines espèces à sénescence négligeable ou négative compliquent l'idée d'un vieillissement universel : une comparaison de 46 espèces montre des trajectoires de mortalité et de fécondité très diverses, y compris des mortalités stables ou décroissantes avec l'âge [24].
+**Limitations**: they do not identify a precise molecular mechanism. Some species with negligible or negative senescence complicate the idea of universal aging: a comparison of 46 species shows very diverse mortality and fertility trajectories, including mortality that is stable or decreasing with age [24].
 
-### 2.2 Théories mécanistes
+### 2.2 Mechanistic theories
 
-#### Radicaux libres et mitochondries
-Harman (1956) attribue le vieillissement aux dommages cumulés causés par les radicaux libres issus du métabolisme oxydatif [8]. Il précise plus tard une version mitochondriale (les mitochondries sont à la fois source et cible des ROS). **Bilan** : les essais d'antioxydants chez l'humain n'ont pas prolongé la vie, et chez la souris l'invalidation de certaines enzymes antioxydantes ne la raccourcit pas toujours. Les ROS sont aujourd'hui vues comme des **signaux** hormétiques à faible dose plutôt que comme de simples toxiques. La dysfonction mitochondriale reste un hallmark à part entière [2].
+#### Free radicals and mitochondria
+Harman (1956) attributes aging to the cumulative damage caused by free radicals produced by oxidative metabolism [8]. He later refined a mitochondrial version (mitochondria are both source and target of ROS). **Assessment**: antioxidant trials in humans have not extended life, and in mice knocking out some antioxidant enzymes does not always shorten it. ROS are now seen as hormetic **signals** at low doses rather than simple toxins. Mitochondrial dysfunction remains a hallmark in its own right [2].
 
-#### Théories des dommages (stochastiques)
-Le vieillissement résulterait de l'accumulation **aléatoire** de dommages moléculaires (ADN, protéines, lipides) que la réparation compense de moins en moins bien. Les hallmarks « primaires » de López-Otín (instabilité génomique, attrition télomérique, altérations épigénétiques, perte de protéostase, dysfonction de la macroautophagie) en sont la formulation moderne [1, 2].
+#### Damage theories (stochastic)
+Aging would result from the **random** accumulation of molecular damage (DNA, proteins, lipids) that repair compensates less and less well. López-Otín's "primary" hallmarks (genomic instability, telomere attrition, epigenetic alterations, loss of proteostasis, disabled macroautophagy) are its modern formulation [1, 2].
 
-#### Hyperfonction / quasi-programme (Blagosklonny)
-Blagosklonny propose que le vieillissement ne vienne pas surtout de dommages accumulés, mais de la **poursuite inutile, après le développement, des programmes de croissance** (notamment mTOR). Ce « quasi-programme » produit une hyperfonction cellulaire (hypertrophie, hypersécrétion, signaux pro-inflammatoires) qui cause les maladies liées à l'âge [9]. **Intérêt** : la théorie prédisait que la rapamycine (inhibiteur de mTOR) serait un géroprotecteur, ce qui a été confirmé chez la souris. Elle s'accorde aussi avec la pléiotropie antagoniste. **Limites** : elle sous-estime probablement la part des dommages réels (mutations somatiques, agrégats), et sa démonstration chez l'humain reste indirecte.
+#### Hyperfunction / quasi-program (Blagosklonny)
+Blagosklonny proposes that aging does not come mainly from accumulated damage, but from the **useless continuation, after development, of growth programs** (notably mTOR). This "quasi-program" produces cellular hyperfunction (hypertrophy, hypersecretion, pro-inflammatory signals) that causes age-related diseases [9]. **Value**: the theory predicted that rapamycin (an mTOR inhibitor) would be a geroprotector, which was confirmed in mice. It also fits with antagonistic pleiotropy. **Limitations**: it probably underestimates the share of real damage (somatic mutations, aggregates), and its demonstration in humans remains indirect.
 
-#### Programmé vs stochastique
-- **Programmé** : un programme génétique, sélectionné pour lui-même (par exemple au bénéfice du groupe), causerait le vieillissement. Cette version forte est minoritaire et peu compatible avec la théorie évolutive classique.
-- **Stochastique** : le vieillissement est un effet secondaire non sélectionné de l'accumulation de dommages.
-- **Position intermédiaire dominante** : le vieillissement n'est pas programmé au sens adaptatif, mais il est **régulé** par des voies conservées (insuline/IGF-1, mTOR, AMPK, sirtuines). Les mutations de ces voies prolongent la vie chez la levure, le ver, la mouche et la souris [1, 2]. L'hyperfonction de Blagosklonny fait le lien entre les deux positions [9].
+#### Programmed vs stochastic
+- **Programmed**: a genetic program, selected for its own sake (for example for the benefit of the group), would cause aging. This strong version is a minority view and hardly compatible with classical evolutionary theory.
+- **Stochastic**: aging is an unselected side effect of damage accumulation.
+- **Dominant intermediate position**: aging is not programmed in the adaptive sense, but it is **regulated** by conserved pathways (insulin/IGF-1, mTOR, AMPK, sirtuins). Mutations in these pathways extend life in yeast, worms, flies and mice [1, 2]. Blagosklonny's hyperfunction bridges the two positions [9].
 
-#### Théorie informationnelle (Sinclair)
-L'*Information Theory of Aging* soutient que la cause principale est la **perte d'information épigénétique** : l'identité cellulaire s'érode parce que les complexes de chromatine sont détournés vers la réparation des cassures double-brin de l'ADN. Le modèle murin « ICE » (*Inducible Changes to the Epigenome*) induit des cassures sans mutations et provoque des phénotypes de vieillissement accéléré ainsi qu'une horloge épigénétique avancée. Une reprogrammation partielle par OSK (Oct4, Sox2, Klf4) inverse en partie ces effets [10]. **Intérêt** : la théorie suggère que le vieillissement est en partie **réversible** (via la reprogrammation partielle) et donne aux horloges épigénétiques un rôle causal plausible. **Limites** : un seul modèle, controversé (rôle des mutations, spécificité des phénotypes), et la reprogrammation in vivo comporte des risques de tératome.
+#### Information theory (Sinclair)
+The *Information Theory of Aging* holds that the main cause is the **loss of epigenetic information**: cell identity erodes because chromatin complexes are diverted to repairing DNA double-strand breaks. The "ICE" mouse model (*Inducible Changes to the Epigenome*) induces breaks without mutations and causes accelerated aging phenotypes as well as an advanced epigenetic clock. Partial reprogramming with OSK (Oct4, Sox2, Klf4) partly reverses these effects [10]. **Value**: the theory suggests that aging is partly **reversible** (via partial reprogramming) and gives epigenetic clocks a plausible causal role. **Limitations**: a single, controversial model (role of mutations, specificity of the phenotypes), and in vivo reprogramming carries a risk of teratoma.
 
 ---
 
-## 3. Mesures de l'âge biologique
+## 3. Measures of biological age
 
-L'âge chronologique ne rend pas compte de la diversité des trajectoires. Un **biomarqueur du vieillissement** doit idéalement : (1) prédire la mortalité et la morbidité mieux que l'âge chronologique, (2) réagir aux interventions, (3) être reproductible, et (4) être validé dans des populations indépendantes. Moqri et al. (consortium *Biomarkers of Aging*) proposent un cadre de validation qui distingue biomarqueurs **prédictifs**, **réactifs aux interventions** et **causaux** [4].
+Chronological age does not capture the diversity of trajectories. A **biomarker of aging** should ideally: (1) predict mortality and morbidity better than chronological age, (2) respond to interventions, (3) be reproducible, and (4) be validated in independent populations. Moqri et al. (*Biomarkers of Aging* consortium) propose a validation framework that distinguishes **predictive**, **intervention-responsive** and **causal** biomarkers [4].
 
-### 3.1 Horloges épigénétiques (méthylation de l'ADN)
+### 3.1 Epigenetic clocks (DNA methylation)
 
-| Horloge | Référence | Entraînement | Ce qu'elle mesure | Commentaire |
+| Clock | Reference | Training | What it measures | Comment |
 |---|---|---|---|---|
-| **Horvath** (multi-tissus) | Horvath 2013 [11] | Âge chronologique, 353 CpG, ~50 tissus | Âge « épigénétique » pan-tissulaire | 1re génération ; faible prédiction de la mortalité une fois l'âge pris en compte |
-| **Hannum** | Hannum 2013 [12] | Âge chronologique, 71 CpG, sang | Âge épigénétique sanguin | 1re génération |
-| **PhenoAge** | Levine 2018 [13] | « Âge phénotypique » (9 biomarqueurs cliniques + âge) | Morbidité / mortalité | 2e génération ; bien meilleure prédiction des événements |
-| **GrimAge** | Lu 2019 [14] | Mortalité, via 7 substituts DNAm de protéines plasmatiques (dont PAI-1, GDF15) et du tabagisme cumulé | Temps jusqu'au décès | Parmi les meilleurs prédicteurs de mortalité ; intègre le tabagisme |
-| **DunedinPACE** | Belsky 2022 [15] | **Rythme** de déclin de 19 biomarqueurs sur 20 ans (cohorte Dunedin, même âge de naissance) | Vitesse du vieillissement (« années biologiques par an ») | 3e génération ; mesure un taux, pas un état ; sondes choisies pour leur fiabilité |
+| **Horvath** (multi-tissue) | Horvath 2013 [11] | Chronological age, 353 CpGs, ~50 tissues | Pan-tissue "epigenetic" age | 1st generation; weak prediction of mortality once age is accounted for |
+| **Hannum** | Hannum 2013 [12] | Chronological age, 71 CpGs, blood | Blood epigenetic age | 1st generation |
+| **PhenoAge** | Levine 2018 [13] | "Phenotypic age" (9 clinical biomarkers + age) | Morbidity / mortality | 2nd generation; much better prediction of events |
+| **GrimAge** | Lu 2019 [14] | Mortality, via 7 DNAm surrogates of plasma proteins (including PAI-1, GDF15) and of cumulative smoking | Time to death | Among the best predictors of mortality; includes smoking |
+| **DunedinPACE** | Belsky 2022 [15] | **Pace** of decline of 19 biomarkers over 20 years (Dunedin cohort, same birth year) | Speed of aging ("biological years per year") | 3rd generation; measures a rate, not a state; probes chosen for reliability |
 
-**Limites transversales** :
-- **Fiabilité technique** : des répliques techniques d'un même échantillon peuvent différer de plusieurs années (jusqu'à ~9 ans pour certaines horloges). Higgins-Chen et al. proposent des versions fondées sur les composantes principales (« PC clocks ») qui réduisent fortement ce bruit [16].
-- **Causalité** : la plupart des horloges sont corrélatives. On ne sait pas si les CpG mesurés causent le vieillissement ou en sont des marqueurs passifs. Le modèle ICE donne un argument causal, encore partiel [10].
-- **Validité d'intervention** : un effet sur une horloge ne prouve pas un effet sur la santé. Aucune horloge n'est validée comme critère de substitution réglementaire [4].
-- **Confusion** : composition cellulaire du sang, ethnicité, tabagisme (explicitement intégré à GrimAge) et plateforme de mesure.
+**Cross-cutting limitations**:
+- **Technical reliability**: technical replicates of the same sample can differ by several years (up to ~9 years for some clocks). Higgins-Chen et al. propose versions based on principal components ("PC clocks") that greatly reduce this noise [16].
+- **Causality**: most clocks are correlational. It is not known whether the measured CpGs cause aging or are passive markers of it. The ICE model provides a causal argument, still partial [10].
+- **Intervention validity**: an effect on a clock does not prove an effect on health. No clock is validated as a regulatory surrogate endpoint [4].
+- **Confounding**: blood cell composition, ethnicity, smoking (explicitly built into GrimAge) and measurement platform.
 
-### 3.2 Indice de fragilité (*frailty index*)
+### 3.2 Frailty index (*frailty index*)
 
-L'indice de fragilité de Rockwood et Mitnitski se calcule comme la **proportion de déficits** présents sur une liste (symptômes, signes, incapacités fonctionnelles, anomalies biologiques) [17]. Une procédure standard (≥ 30 variables, déficits liés à l'âge et à la santé, ne saturant pas trop tôt) permet de le construire à partir de presque toute base de données [18]. **Intérêt** : il est simple, bon marché, prédit fortement la mortalité et l'institutionnalisation, et il est cliniquement interprétable. **Limites** : c'est une mesure d'aval (phénotypique), sans information mécanistique, peu sensible aux stades précoces et dépendante de la liste de variables retenue.
+The Rockwood and Mitnitski frailty index is calculated as the **proportion of deficits** present on a list (symptoms, signs, functional disabilities, biological abnormalities) [17]. A standard procedure (≥ 30 variables, deficits related to age and health, not saturating too early) allows it to be built from almost any database [18]. **Value**: it is simple, cheap, strongly predicts mortality and institutionalisation, and is clinically interpretable. **Limitations**: it is a downstream (phenotypic) measure, with no mechanistic information, not very sensitive to early stages and dependent on the chosen list of variables.
 
-### 3.3 Âge biologique protéomique et métabolomique
+### 3.3 Proteomic and metabolomic biological age
 
-- **Protéomique** : Argentieri et al. ont entraîné une horloge sur 2 897 protéines plasmatiques (Olink) chez ~45 000 participants de l'UK Biobank, puis l'ont validée dans des cohortes chinoise (China Kadoorie Biobank) et finlandaise (FinnGen). L'écart âge protéomique − âge chronologique prédit la mortalité et l'incidence de 18 maladies chroniques majeures [19]. Les protéines sont plus proches de la fonction que la méthylation, et l'on peut construire des horloges **par organe** à partir de protéines spécifiques de chaque tissu. Oh et al. ont ainsi estimé l'âge de 11 organes chez près de 6 000 personnes ; un organe « en avance » est associé à un risque accru de maladie de cet organe [25].
-- **Métabolomique** : Deelen et al. ont identifié, par RMN, 14 métabolites sanguins associés à la mortalité toutes causes chez 44 168 personnes (5 512 décès), à l'origine du score MetaboHealth. Ce profil prédit la mortalité à 5 et 10 ans mieux que les facteurs de risque classiques (C-statistique 0,84 vs 0,77) [26].
-- **Cadre commun** : Moqri et al. recommandent des approches multi-omiques et une validation longitudinale [4].
+- **Proteomics**: Argentieri et al. trained a clock on 2,897 plasma proteins (Olink) in ~45,000 UK Biobank participants, then validated it in Chinese (China Kadoorie Biobank) and Finnish (FinnGen) cohorts. The gap between proteomic age and chronological age predicts mortality and the incidence of 18 major chronic diseases [19]. Proteins are closer to function than methylation, and clocks can be built **per organ** from tissue-specific proteins. Oh et al. thus estimated the age of 11 organs in nearly 6,000 people; an organ that is "ahead" is associated with a higher risk of disease of that organ [25].
+- **Metabolomics**: Deelen et al. identified, by NMR, 14 blood metabolites associated with all-cause mortality in 44,168 people (5,512 deaths), the basis of the MetaboHealth score. This profile predicts 5- and 10-year mortality better than conventional risk factors (C-statistic 0.84 vs 0.77) [26].
+- **Common framework**: Moqri et al. recommend multi-omic approaches and longitudinal validation [4].
 
-### 3.4 Télomères
+### 3.4 Telomeres
 
-La longueur des télomères leucocytaires diminue avec l'âge, et l'attrition télomérique est un hallmark [1, 2]. Comme biomarqueur, cependant, sa **variance interindividuelle est très large**, sa corrélation avec l'âge modeste et sa prédiction de la mortalité faible une fois les autres facteurs pris en compte. Les mesures (qPCR, Southern blot TRF, Flow-FISH) sont peu comparables entre elles. Les télomères sont donc plus utiles comme mécanisme que comme horloge.
+Leukocyte telomere length decreases with age, and telomere attrition is a hallmark [1, 2]. As a biomarker, however, its **inter-individual variance is very wide**, its correlation with age modest and its prediction of mortality weak once other factors are accounted for. The measurements (qPCR, TRF Southern blot, Flow-FISH) are poorly comparable with each other. Telomeres are therefore more useful as a mechanism than as a clock.
 
-### 3.5 Limites générales de la validation
+### 3.5 General limitations of validation
 
-1. **Pas d'étalon-or** : la mortalité est le critère ultime, mais trop lente pour des essais ; les horloges servent de substitut sans validation formelle.
-2. **Choix de la cible d'entraînement** : entraîner sur l'âge chronologique (1re génération) mesure l'âge et non le vieillissement ; entraîner sur la mortalité (GrimAge) ou un taux de déclin (DunedinPACE) se rapproche de la biologie pertinente.
-3. **Concordance faible entre horloges** : différentes horloges appliquées à un même individu peuvent diverger, ce qui suggère qu'elles captent des dimensions différentes du vieillissement [4].
-4. **Biais de population** : les cohortes d'entraînement sont majoritairement européennes [19].
+1. **No gold standard**: mortality is the ultimate endpoint, but too slow for trials; clocks serve as surrogates without formal validation.
+2. **Choice of training target**: training on chronological age (1st generation) measures age, not aging; training on mortality (GrimAge) or a rate of decline (DunedinPACE) gets closer to the relevant biology.
+3. **Weak agreement between clocks**: different clocks applied to the same individual can diverge, which suggests that they capture different dimensions of aging [4].
+4. **Population bias**: training cohorts are mostly European [19].
 
 ---
 
-## 4. Cadres d'organisation
+## 4. Organising frameworks
 
 ### 4.1 Hallmarks of aging (López-Otín et al., 2013 → 2023)
 
-**2013** : 9 hallmarks [1], classés en trois catégories :
-- *Primaires* (causes des dommages) : instabilité génomique, attrition télomérique, altérations épigénétiques, perte de protéostase.
-- *Antagonistes* (réponses aux dommages, bénéfiques à faible dose, délétères à forte dose) : dérégulation de la détection des nutriments, dysfonction mitochondriale, sénescence cellulaire.
-- *Intégratifs* (conséquences fonctionnelles) : épuisement des cellules souches, altération de la communication intercellulaire.
+**2013**: 9 hallmarks [1], classified into three categories:
+- *Primary* (causes of damage): genomic instability, telomere attrition, epigenetic alterations, loss of proteostasis.
+- *Antagonistic* (responses to damage, beneficial at low dose, harmful at high dose): deregulated nutrient sensing, mitochondrial dysfunction, cellular senescence.
+- *Integrative* (functional consequences): stem cell exhaustion, altered intercellular communication.
 
-**2023** : 12 hallmarks [2]. Trois sont ajoutés : **macroautophagie désactivée** (séparée de la protéostase), **inflammation chronique** (*inflammaging*) et **dysbiose**. La classification primaires / antagonistes / intégratifs est conservée.
+**2023**: 12 hallmarks [2]. Three are added: **disabled macroautophagy** (separated from proteostasis), **chronic inflammation** (*inflammaging*) and **dysbiosis**. The primary / antagonistic / integrative classification is kept.
 
-Critères d'inclusion d'un hallmark [1, 2] :
-1. il se manifeste au cours du vieillissement normal ;
-2. son aggravation expérimentale accélère le vieillissement ;
-3. son atténuation expérimentale ralentit, arrête ou inverse le vieillissement.
+Criteria for including a hallmark [1, 2]:
+1. it appears during normal aging;
+2. its experimental aggravation accelerates aging;
+3. its experimental attenuation slows, halts or reverses aging.
 
-**Intérêt** : un vocabulaire commun, un découpage opérationnel pour la recherche et des cibles pharmacologiques identifiables. C'est le cadre retenu pour organiser cette cartographie (fichiers 01-12).
+**Value**: a shared vocabulary, an operational breakdown for research and identifiable pharmacological targets. It is the framework chosen to organise this map (files 01-12).
 
-**Limites** (voir 4.5) : critères inégalement remplis, causalité entre hallmarks peu hiérarchisée, liste extensible à volonté.
+**Limitations** (see 4.5): criteria unevenly met, little hierarchy of causality between hallmarks, a list that can be extended at will.
 
-### 4.2 Piliers de la géroscience (Kennedy et al., 2014)
+### 4.2 Pillars of geroscience (Kennedy et al., 2014)
 
-Le *Trans-NIH Geroscience Interest Group* propose **sept piliers** interconnectés : adaptation au stress, épigénétique, inflammation, macromolécules (dommages), métabolisme, protéostase, cellules souches et régénération [3]. **Différence avec les hallmarks** : l'accent porte sur l'**interconnexion** (agir sur un pilier modifie les autres) et sur l'objectif translationnel, à savoir retarder ensemble les maladies chroniques. **Intérêt** : il a fondé le concept de géroscience et de gérothérapeutique. **Limites** : comme les hallmarks, il ne fournit ni hiérarchie causale ni mesure quantitative.
+The *Trans-NIH Geroscience Interest Group* proposes **seven** interconnected **pillars**: adaptation to stress, epigenetics, inflammation, macromolecules (damage), metabolism, proteostasis, stem cells and regeneration [3]. **Difference from the hallmarks**: the emphasis is on **interconnection** (acting on one pillar changes the others) and on the translational goal, namely delaying chronic diseases together. **Value**: it founded the concepts of geroscience and gerotherapeutics. **Limitations**: like the hallmarks, it provides neither a causal hierarchy nor a quantitative measure.
 
 ### 4.3 SENS (de Grey et al., 2002)
 
-*Strategies for Engineered Negligible Senescence* : une approche d'**ingénierie** qui ne cherche pas à comprendre tout le métabolisme mais à **réparer périodiquement** sept catégories de dommages accumulés (perte cellulaire, cellules sénescentes et résistantes à la mort, mutations nucléaires (cancer) et mitochondriales, agrégats intracellulaires et extracellulaires, liaisons croisées de la matrice extracellulaire) [20]. **Intérêt** : un programme d'action clair, ancêtre des sénolytiques et de la réparation de la matrice. **Limites** : ignore les processus régulés (hyperfonction, signalisation), plusieurs cibles restent techniquement hors de portée (par ex. l'allotopie mitochondriale), longtemps marginalisé par la communauté académique.
+*Strategies for Engineered Negligible Senescence*: an **engineering** approach that does not try to understand all of metabolism but to **periodically repair** seven categories of accumulated damage (cell loss, senescent and death-resistant cells, nuclear (cancer) and mitochondrial mutations, intracellular and extracellular aggregates, cross-links of the extracellular matrix) [20]. **Value**: a clear action program, forerunner of senolytics and matrix repair. **Limitations**: it ignores regulated processes (hyperfunction, signalling), several targets remain technically out of reach (e.g. mitochondrial allotopic expression), and it was long marginalised by the academic community.
 
 ### 4.4 Hallmarks of health (López-Otín & Kroemer, 2021)
 
-Ce cadre inverse la perspective : la santé est définie positivement, par **huit hallmarks regroupés en trois domaines**. Le premier est la *compartimentation spatiale* (intégrité des barrières, confinement des perturbations locales). Le deuxième est le *maintien de l'homéostasie dans le temps* (recyclage et renouvellement, intégration des circuits, oscillations rythmiques). Le troisième regroupe les *réponses adéquates au stress* (résilience homéostatique, régulation hormétique, réparation et régénération) [21]. **Intérêt** : il met l'accent sur les propriétés systémiques (barrières, rythmes, résilience) que les hallmarks of aging traitent mal, et il est utile pour définir des critères de succès d'intervention. **Limites** : plus descriptif qu'opérationnel, difficile à mesurer.
+This framework reverses the perspective: health is defined positively, by **eight hallmarks grouped into three domains**. The first is *spatial compartmentalisation* (integrity of barriers, containment of local perturbations). The second is *maintenance of homeostasis over time* (recycling and turnover, integration of circuits, rhythmic oscillations). The third covers *adequate responses to stress* (homeostatic resilience, hormetic regulation, repair and regeneration) [21]. **Value**: it emphasises systemic properties (barriers, rhythms, resilience) that the hallmarks of aging handle poorly, and it is useful for defining success criteria for interventions. **Limitations**: more descriptive than operational, hard to measure.
 
-### 4.5 Critiques des hallmarks (Gems & de Magalhães, 2021)
+### 4.5 Critiques of the hallmarks (Gems & de Magalhães, 2021)
 
-Gems et de Magalhães formulent une critique centrale [5] :
-- **Paradigme implicite non examiné** : les hallmarks prolongent, sans le dire, la théorie des dommages moléculaires. Or des données (par ex. sur mTOR, l'hyperfonction et les programmes développementaux prolongés) indiquent qu'une part importante de la pathologie du vieillissement vient de **programmes** biologiques poursuivis au-delà de leur utilité plutôt que de l'usure.
-- **Liste hétérogène** : elle mélange des causes, des mécanismes et des conséquences sans modèle explicatif qui les relie, et chaque hallmark rassemble des phénomènes disparates.
-- **Critères faibles** : le critère « l'aggravation accélère le vieillissement » est peu discriminant, car de nombreuses lésions provoquent une pathologie qui *ressemble* au vieillissement sans en être un mécanisme.
-- **Recommandation** : élaborer une **théorie explicative** (par ex. un cadre fondé sur la pléiotropie antagoniste et les programmes) au lieu d'une simple liste, et tester des hypothèses rivales.
+Gems and de Magalhães make a central critique [5]:
+- **Unexamined implicit paradigm**: the hallmarks extend, without saying so, the molecular damage theory. Yet data (e.g. on mTOR, hyperfunction and prolonged developmental programs) indicate that a large part of the pathology of aging comes from biological **programs** continued beyond their usefulness rather than from wear and tear.
+- **Heterogeneous list**: it mixes causes, mechanisms and consequences without an explanatory model linking them, and each hallmark gathers disparate phenomena.
+- **Weak criteria**: the criterion "aggravation accelerates aging" discriminates poorly, because many lesions cause a pathology that *resembles* aging without being a mechanism of it.
+- **Recommendation**: develop an **explanatory theory** (e.g. a framework based on antagonistic pleiotropy and programs) instead of a simple list, and test rival hypotheses.
 
-**Conséquence pour Astra** : utiliser les hallmarks comme **index** de la littérature, pas comme modèle causal. Chaque fichier hallmark devrait indiquer dans quelle mesure les trois critères sont satisfaits chez l'humain, et pas seulement chez les modèles animaux.
+**Consequence for Astra**: use the hallmarks as an **index** of the literature, not as a causal model. Each hallmark file should state to what extent the three criteria are met in humans, not only in animal models.
 
-### 4.6 Synthèse comparative
+### 4.6 Comparative summary
 
-| Cadre | Nature | Force principale | Faiblesse principale |
+| Framework | Nature | Main strength | Main weakness |
 |---|---|---|---|
-| Hallmarks 2013/2023 [1, 2] | Taxonomie mécanistique | Vocabulaire commun, cibles | Pas de hiérarchie causale ; biais « dommages » |
-| Piliers géroscience [3] | Réseau interconnecté | Lien vieillissement–maladies chroniques | Peu quantitatif |
-| SENS [20] | Ingénierie de réparation | Plan d'action concret | Ignore la régulation ; faisabilité |
-| Hallmarks of health [21] | Définition positive | Propriétés systémiques, résilience | Difficile à mesurer |
-| Hyperfonction [9] | Théorie causale | Prédictions vérifiées (rapamycine) | Sous-estime les dommages |
-| Théorie informationnelle [10] | Théorie causale | Réversibilité, rôle causal de l'épigénome | Fondée sur un modèle principal |
+| Hallmarks 2013/2023 [1, 2] | Mechanistic taxonomy | Shared vocabulary, targets | No causal hierarchy; "damage" bias |
+| Geroscience pillars [3] | Interconnected network | Link between aging and chronic diseases | Not very quantitative |
+| SENS [20] | Repair engineering | Concrete action plan | Ignores regulation; feasibility |
+| Hallmarks of health [21] | Positive definition | Systemic properties, resilience | Hard to measure |
+| Hyperfunction [9] | Causal theory | Verified predictions (rapamycin) | Underestimates damage |
+| Information theory [10] | Causal theory | Reversibility, causal role of the epigenome | Based on one main model |
 
 ---
 
-## 5. Questions ouvertes
+## 5. Open questions
 
-1. **Cause racine unique ou multiple ?** Dommages, programmes, perte d'information : existe-t-il un niveau causal dominant, ou le vieillissement est-il un phénomène émergent d'un réseau sans cause première [2, 5, 9, 10] ?
-2. **Hiérarchie entre hallmarks** : lesquels sont en amont ? Peut-on construire un graphe causal quantifié, par exemple par randomisation mendélienne ou interventions combinatoires ?
-3. **Validation des biomarqueurs** : quelle horloge (ou combinaison multi-omique) peut servir de critère de substitution dans un essai clinique ? Quelle ampleur de changement est cliniquement significative [4, 16] ?
-4. **Horloges causales vs corrélatives** : les changements de méthylation mesurés sont-ils des moteurs ou des marqueurs ? Inverser l'horloge (reprogrammation) inverse-t-il réellement les fonctions [10] ?
-5. **Transposabilité** : les interventions efficaces chez les modèles à vie courte (ver, mouche, souris) valent-elles pour les espèces à longue vie, dont l'humain ? Que nous apprennent les espèces à longévité exceptionnelle ?
-6. **Vieillissement par organe** : les organes vieillissent-ils à des vitesses différentes chez un même individu, et le plus âgé biologiquement détermine-t-il le pronostic [19] ?
-7. **Statut réglementaire** : faut-il classer le vieillissement comme maladie (ou « condition » ciblable) pour permettre des essais de gérothérapeutiques [3, 4] ?
-8. **Plafond de la longévité** : existe-t-il une limite biologique de la durée de vie humaine, ou seulement une pente de Gompertz modifiable ?
+1. **Single or multiple root cause?** Damage, programs, loss of information: is there a dominant causal level, or is aging an emergent phenomenon of a network with no first cause [2, 5, 9, 10]?
+2. **Hierarchy between hallmarks**: which ones are upstream? Can a quantified causal graph be built, for example through Mendelian randomisation or combinatorial interventions?
+3. **Validation of biomarkers**: which clock (or multi-omic combination) can serve as a surrogate endpoint in a clinical trial? What size of change is clinically meaningful [4, 16]?
+4. **Causal vs correlational clocks**: are the measured methylation changes drivers or markers? Does reversing the clock (reprogramming) really reverse functions [10]?
+5. **Translatability**: do interventions that work in short-lived models (worm, fly, mouse) hold for long-lived species, including humans? What can species with exceptional longevity teach us?
+6. **Aging by organ**: do organs age at different speeds within the same individual, and does the biologically oldest one determine the prognosis [19]?
+7. **Regulatory status**: should aging be classified as a disease (or a targetable "condition") to allow trials of gerotherapeutics [3, 4]?
+8. **Ceiling of longevity**: is there a biological limit to human lifespan, or only a modifiable Gompertz slope?
 
 ---
 
-## Références
+## References
 
 1. López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G. The hallmarks of aging. *Cell*. 2013;153(6):1194-1217. https://doi.org/10.1016/j.cell.2013.05.039
 2. López-Otín C, Blasco MA, Partridge L, Serrano M, Kroemer G. Hallmarks of aging: An expanding universe. *Cell*. 2023;186(2):243-278. https://doi.org/10.1016/j.cell.2022.11.001
@@ -209,4 +209,4 @@ Gems et de Magalhães formulent une critique centrale [5] :
 25. Oh HSH, Rutledge J, Nachun D, et al. Organ aging signatures in the plasma proteome track health and disease. *Nature*. 2023;624:164-172. https://doi.org/10.1038/s41586-023-06802-1
 26. Deelen J, Kettunen J, Fischer K, et al. A metabolic profile of all-cause mortality risk identified in an observational study of 44,168 individuals. *Nat Commun*. 2019;10:3346. https://doi.org/10.1038/s41467-019-11311-9
 
-**Sources marquées [à vérifier]** (ouvrages sans DOI, non vérifiables en ligne) : Strehler 1962 (*Time, Cells and Aging*), Medawar 1952 (*An Unsolved Problem of Biology*).
+**Sources marked [to verify]** (books without DOI, not verifiable online): Strehler 1962 (*Time, Cells and Aging*), Medawar 1952 (*An Unsolved Problem of Biology*).

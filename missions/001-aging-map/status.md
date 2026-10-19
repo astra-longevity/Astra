@@ -1,10 +1,10 @@
-# Mission 001 — État
+# Mission 001 — Status
 
-Statut : terminé (19/10/2026). Résultat : `literature/aging-map/` (commit `b8a5943`).
+Status: done (2026-10-19). Result: `literature/aging-map/` (commit `b8a5943`).
 
-- Livrables : 14 fichiers dans `literature/aging-map/` (`00-overview.md`, `framework.md`, et un fichier par grande cause du vieillissement, de `01` à `12`).
-- Contrôle qualité fait : chaque rédacteur a vérifié toutes ses références ; en plus, 39 DOI tirés au hasard (3 par fichier) ont été vérifiés sur Crossref, tous corrects.
-- Restent 7 affirmations marquées [à vérifier] : `framework.md` ×2 (livres de Strehler 1962 et Medawar 1952, sans DOI) ; `02` ×2 ; `03` ×2 ; `06` ×1 (statut de l'essai TAME).
-- Les fiches des sources vérifiées sont ingérées dans `data/` par le Database Manager (commit séparé `data: ingest aging-map`).
+- Deliverables: 14 files in `literature/aging-map/` (`00-overview.md`, `framework.md`, and one file per major cause of aging, from `01` to `12`).
+- Quality control done: each writer checked all of their references; in addition, 39 randomly drawn DOIs (3 per file) were checked on Crossref, all correct.
+- 7 statements remain marked [to verify]: `framework.md` ×2 (books by Strehler 1962 and Medawar 1952, no DOI); `02` ×2; `03` ×2; `06` ×1 (status of the TAME trial).
+- The records of the verified sources are ingested into `data/` by the Database Manager (separate commit `data: ingest aging-map`).
 
-Rapport final : [report.md](report.md).
+Final report: [report.md](report.md).

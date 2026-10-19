@@ -1,84 +1,84 @@
-# 05 — Macroautophagie altérée
+# 05 — Disabled macroautophagy
 
-> Hallmark primaire (« dommage »), ajouté comme hallmark à part entière dans López-Otín et al., *Cell* 2023 ([doi:10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)) ; en 2013 il était inclus dans la perte de protéostasie (fichier 04).
+> Primary hallmark ("damage"), added as a hallmark in its own right in López-Otín et al., *Cell* 2023 ([doi:10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)); in 2013 it was included in loss of proteostasis (file 04).
 
-## 1. Définition
+## 1. Definition
 
-Déclin, avec l'âge, de la macroautophagie : le processus par lequel la cellule enferme dans une vésicule à double membrane (l'autophagosome) des portions de son contenu (protéines agrégées, organites usés comme les mitochondries, gouttelettes lipidiques, microbes) puis les livre au lysosome pour les digérer et recycler. Son activité baisse avec l'âge dans la plupart des tissus ; la bloquer génétiquement accélère la dégénérescence et l'activer prolonge la vie chez plusieurs espèces animales (Aman 2021, [doi:10.1038/s43587-021-00098-4](https://doi.org/10.1038/s43587-021-00098-4) ; Rubinsztein 2011, [doi:10.1016/j.cell.2011.07.030](https://doi.org/10.1016/j.cell.2011.07.030)).
+Age-related decline of macroautophagy: the process by which the cell encloses portions of its contents (aggregated proteins, worn-out organelles such as mitochondria, lipid droplets, microbes) in a double-membrane vesicle (the autophagosome) and then delivers them to the lysosome to be digested and recycled. Its activity falls with age in most tissues; blocking it genetically accelerates degeneration and activating it extends life in several animal species (Aman 2021, [doi:10.1038/s43587-021-00098-4](https://doi.org/10.1038/s43587-021-00098-4); Rubinsztein 2011, [doi:10.1016/j.cell.2011.07.030](https://doi.org/10.1016/j.cell.2011.07.030)).
 
-*Vulgarisation : l'autophagie (« se manger soi-même ») est le service de tri et de recyclage de la cellule. Elle emballe les déchets et les pièces usées dans un sac, les apporte à l'usine de recyclage (le lysosome) qui les découpe en matériaux réutilisables. Avec l'âge, les camions passent moins souvent et l'usine tourne au ralenti : les déchets s'accumulent.*
+*In plain terms: autophagy ("self-eating") is the cell's sorting and recycling service. It packs waste and worn-out parts into a bag and takes them to the recycling plant (the lysosome), which cuts them into reusable materials. With age, the trucks come less often and the plant runs slowly: waste builds up.*
 
-## 2. Mécanismes et sources
+## 2. Mechanisms and sources
 
-**Fonctionnement normal**
-- **Déclenchement** : le capteur de nutriments **mTORC1** freine l'autophagie quand la nourriture abonde ; **AMPK** (capteur d'énergie) l'active quand l'énergie manque. Le jeûne, l'exercice et l'inhibition de mTOR la stimulent.
-- **Construction de l'autophagosome** : une trentaine de gènes *ATG* (complexe ULK1, complexe Beclin 1-VPS34, conjugaison ATG5-ATG12-ATG16L1, LC3).
-- **Fusion avec le lysosome et digestion** : nécessite des lysosomes fonctionnels, dont la fabrication est pilotée par le facteur de transcription **TFEB** (Settembre 2011, [doi:10.1126/science.1204592](https://doi.org/10.1126/science.1204592)).
-- **Formes sélectives** : mitophagie (mitochondries), agréphagie (agrégats), lipophagie (graisses), xénophagie (microbes).
+**Normal operation**
+- **Triggering**: the nutrient sensor **mTORC1** slows autophagy when food is plentiful; **AMPK** (an energy sensor) activates it when energy is short. Fasting, exercise and mTOR inhibition stimulate it.
+- **Building the autophagosome**: about thirty *ATG* genes (ULK1 complex, Beclin 1-VPS34 complex, ATG5-ATG12-ATG16L1 conjugation, LC3).
+- **Fusion with the lysosome and digestion**: requires functional lysosomes, whose production is driven by the transcription factor **TFEB** (Settembre 2011, [doi:10.1126/science.1204592](https://doi.org/10.1126/science.1204592)).
+- **Selective forms**: mitophagy (mitochondria), aggrephagy (aggregates), lipophagy (fats), xenophagy (microbes).
 
-**Ce qui se dégrade avec l'âge** (Hansen 2018, [doi:10.1038/s41580-018-0033-y](https://doi.org/10.1038/s41580-018-0033-y))
-- Baisse d'expression de gènes *ATG* et de TFEB dans plusieurs tissus.
-- **Rubicon**, un frein de la fusion autophagosome-lysosome, augmente avec l'âge chez le ver, la mouche et la souris ; le supprimer allonge la vie du ver et de la mouche et réduit la fibrose rénale chez la souris (Nakamura 2019, [doi:10.1038/s41467-019-08729-6](https://doi.org/10.1038/s41467-019-08729-6)).
-- Lysosomes encombrés de lipofuscine (« pigment de l'âge »), moins acides, moins efficaces.
-- Suractivation chronique de mTORC1 (excès de nutriments, insuline).
+**What degrades with age** (Hansen 2018, [doi:10.1038/s41580-018-0033-y](https://doi.org/10.1038/s41580-018-0033-y))
+- Lower expression of *ATG* genes and TFEB in several tissues.
+- **Rubicon**, a brake on autophagosome-lysosome fusion, increases with age in the worm, the fly and the mouse; removing it extends the life of the worm and the fly and reduces kidney fibrosis in mice (Nakamura 2019, [doi:10.1038/s41467-019-08729-6](https://doi.org/10.1038/s41467-019-08729-6)).
+- Lysosomes clogged with lipofuscin ("age pigment"), less acidic, less efficient.
+- Chronic overactivation of mTORC1 (excess nutrients, insulin).
 
-**Preuves causales chez l'animal**
-- **Nécessaire** : chez le ver, les mutants à longue vie (voie insuline, restriction calorique) perdent leur longévité si l'on bloque l'autophagie (Meléndez 2003, [doi:10.1126/science.1087782](https://doi.org/10.1126/science.1087782) ; revue : Madeo 2015, [doi:10.1172/JCI73946](https://doi.org/10.1172/JCI73946)).
-- **Délétère si absente** : supprimer *Atg5* ou *Atg7* dans les neurones de souris entraîne agrégats et neurodégénérescence, même sans protéine mutante (Hara 2006, [doi:10.1038/nature04724](https://doi.org/10.1038/nature04724) ; Komatsu 2006, [doi:10.1038/nature04723](https://doi.org/10.1038/nature04723)).
-- **Suffisante** : surexprimer *Atg5* (Pyo 2013, [doi:10.1038/ncomms3300](https://doi.org/10.1038/ncomms3300)) ou rendre Beclin 1 constitutivement actif (Fernández 2018, [doi:10.1038/s41586-018-0162-7](https://doi.org/10.1038/s41586-018-0162-7)) allonge la vie de la souris et retarde des pathologies liées à l'âge.
+**Causal evidence in animals**
+- **Necessary**: in the worm, long-lived mutants (insulin pathway, caloric restriction) lose their longevity if autophagy is blocked (Meléndez 2003, [doi:10.1126/science.1087782](https://doi.org/10.1126/science.1087782); review: Madeo 2015, [doi:10.1172/JCI73946](https://doi.org/10.1172/JCI73946)).
+- **Harmful when absent**: deleting *Atg5* or *Atg7* in mouse neurons leads to aggregates and neurodegeneration, even without a mutant protein (Hara 2006, [doi:10.1038/nature04724](https://doi.org/10.1038/nature04724); Komatsu 2006, [doi:10.1038/nature04723](https://doi.org/10.1038/nature04723)).
+- **Sufficient**: overexpressing *Atg5* (Pyo 2013, [doi:10.1038/ncomms3300](https://doi.org/10.1038/ncomms3300)) or making Beclin 1 constitutively active (Fernández 2018, [doi:10.1038/s41586-018-0162-7](https://doi.org/10.1038/s41586-018-0162-7)) extends mouse lifespan and delays age-related pathologies.
 
-## 3. Symptômes et manifestations cliniques
+## 3. Symptoms and clinical manifestations
 
-**Génétique humaine** : les mutations des gènes de l'autophagie causent ou favorisent des maladies (revue : Levine & Kroemer 2019, [doi:10.1016/j.cell.2018.09.048](https://doi.org/10.1016/j.cell.2018.09.048)) :
-- **Maladie de Crohn** : variant *ATG16L1* T300A identifié par GWAS (Hampe 2006, [doi:10.1038/ng1954](https://doi.org/10.1038/ng1954)).
-- **Maladie de Parkinson** : *PINK1* et *PRKN* (Parkin), gènes de la mitophagie, causent des formes familiales.
-- **SLA / démence fronto-temporale** : mutations de récepteurs de l'autophagie (*SQSTM1*/p62, *OPTN*, *TBK1*).
-- **Maladies lysosomales** (Niemann-Pick, Gaucher…) : l'usine de recyclage est en panne ; mutations de *GBA* = facteur de risque majeur du Parkinson.
-- Mutations d'*EPG5*, *WDR45* : maladies neurodéveloppementales et neurodégénératives graves.
+**Human genetics**: mutations in autophagy genes cause or promote diseases (review: Levine & Kroemer 2019, [doi:10.1016/j.cell.2018.09.048](https://doi.org/10.1016/j.cell.2018.09.048)):
+- **Crohn's disease**: *ATG16L1* T300A variant identified by GWAS (Hampe 2006, [doi:10.1038/ng1954](https://doi.org/10.1038/ng1954)).
+- **Parkinson's disease**: *PINK1* and *PRKN* (Parkin), mitophagy genes, cause familial forms.
+- **ALS / frontotemporal dementia**: mutations in autophagy receptors (*SQSTM1*/p62, *OPTN*, *TBK1*).
+- **Lysosomal diseases** (Niemann-Pick, Gaucher…): the recycling plant is broken; *GBA* mutations = major risk factor for Parkinson's.
+- *EPG5* and *WDR45* mutations: severe neurodevelopmental and neurodegenerative diseases.
 
-**Maladies liées à l'âge associées** : neurodégénérescence (Alzheimer, Parkinson, Huntington), sarcopénie (fonte musculaire), insuffisance cardiaque, stéatose hépatique (foie gras), diabète de type 2, infections, certains cancers (rôle ambivalent : l'autophagie freine l'apparition des tumeurs mais aide les tumeurs établies à survivre).
+**Associated age-related diseases**: neurodegeneration (Alzheimer's, Parkinson's, Huntington's), sarcopenia (muscle wasting), heart failure, hepatic steatosis (fatty liver), type 2 diabetes, infections, some cancers (ambivalent role: autophagy slows the appearance of tumours but helps established tumours survive).
 
-**Mitophagie et cerveau** : chez des modèles murins d'Alzheimer, stimuler la mitophagie réduit l'amyloïde-β et tau et restaure la mémoire (Fang 2019, [doi:10.1038/s41593-018-0332-9](https://doi.org/10.1038/s41593-018-0332-9)).
+**Mitophagy and the brain**: in mouse models of Alzheimer's, stimulating mitophagy reduces amyloid-β and tau and restores memory (Fang 2019, [doi:10.1038/s41593-018-0332-9](https://doi.org/10.1038/s41593-018-0332-9)).
 
-## 4. Interactions avec les autres hallmarks
+## 4. Interactions with the other hallmarks
 
-| Hallmark (numérotation 2023) | Lien avec la macroautophagie altérée |
+| Hallmark (2023 numbering) | Link with disabled macroautophagy |
 |---|---|
-| 1. Instabilité génomique | L'autophagie élimine micronoyaux et mitochondries productrices de radicaux libres ; son déclin augmente les dommages à l'ADN. |
-| 2. Attrition des télomères | Lien indirect (sénescence, stress oxydatif). |
-| 3. Altérations épigénétiques | L'expression des gènes *ATG* et de TFEB est régulée épigénétiquement ; la spermidine induit l'autophagie en inhibant l'acétyltransférase EP300 (Pietrocola 2015, [doi:10.1038/cdd.2014.215](https://doi.org/10.1038/cdd.2014.215)). |
-| 4. Perte de protéostasie | Les deux hallmarks se recoupent : la macroautophagie est la seule voie capable d'éliminer les gros agrégats (fichier 04). |
-| 6. Dérégulation de la détection des nutriments | mTORC1 (frein) et AMPK (accélérateur) sont les interrupteurs principaux ; la plupart des interventions de longévité (restriction calorique, rapamycine) passent par l'autophagie (Madeo 2015). |
-| 7. Dysfonction mitochondriale | La mitophagie élimine les mitochondries défectueuses ; son déclin les laisse s'accumuler. |
-| 8. Sénescence cellulaire | Rôle ambivalent : l'autophagie prévient la sénescence mais participe aussi à la production du sécrétome sénescent. |
-| 9. Épuisement des cellules souches | Chez la souris, les cellules souches musculaires âgées perdent leur autophagie, ce qui les fait basculer en sénescence (García-Prat 2016, [doi:10.1038/nature16187](https://doi.org/10.1038/nature16187)) ; les cellules souches sanguines ont besoin de l'autophagie pour rester quiescentes et fonctionnelles (Ho 2017, [doi:10.1038/nature21388](https://doi.org/10.1038/nature21388)). |
-| 10. Altération de la communication intercellulaire | Sécrétion non conventionnelle de protéines et vésicules dépendante de l'autophagie. |
-| 11. Inflammation chronique | L'autophagie freine l'inflammasome NLRP3 ; son déclin favorise l'« inflammaging ». |
-| 12. Dysbiose | Xénophagie : défense contre les bactéries intestinales (lien Crohn/*ATG16L1*). Le microbiote produit des inducteurs d'autophagie (urolithine A, spermidine). |
+| 1. Genomic instability | Autophagy clears micronuclei and mitochondria that produce free radicals; its decline increases DNA damage. |
+| 2. Telomere attrition | Indirect link (senescence, oxidative stress). |
+| 3. Epigenetic alterations | Expression of *ATG* genes and TFEB is epigenetically regulated; spermidine induces autophagy by inhibiting the acetyltransferase EP300 (Pietrocola 2015, [doi:10.1038/cdd.2014.215](https://doi.org/10.1038/cdd.2014.215)). |
+| 4. Loss of proteostasis | The two hallmarks overlap: macroautophagy is the only route able to clear large aggregates (file 04). |
+| 6. Deregulated nutrient sensing | mTORC1 (brake) and AMPK (accelerator) are the main switches; most longevity interventions (caloric restriction, rapamycin) work through autophagy (Madeo 2015). |
+| 7. Mitochondrial dysfunction | Mitophagy clears defective mitochondria; its decline lets them accumulate. |
+| 8. Cellular senescence | Ambivalent role: autophagy prevents senescence but also contributes to producing the senescent secretome. |
+| 9. Stem cell exhaustion | In mice, old muscle stem cells lose their autophagy, which tips them into senescence (García-Prat 2016, [doi:10.1038/nature16187](https://doi.org/10.1038/nature16187)); blood stem cells need autophagy to stay quiescent and functional (Ho 2017, [doi:10.1038/nature21388](https://doi.org/10.1038/nature21388)). |
+| 10. Altered intercellular communication | Autophagy-dependent unconventional secretion of proteins and vesicles. |
+| 11. Chronic inflammation | Autophagy restrains the NLRP3 inflammasome; its decline promotes "inflammaging". |
+| 12. Dysbiosis | Xenophagy: defence against gut bacteria (Crohn's/*ATG16L1* link). The microbiota produces autophagy inducers (urolithin A, spermidine). |
 
-## 5. Remèdes existants ou à l'étude
+## 5. Existing or investigational remedies
 
-| Intervention | Cible | Niveau de preuve | Résultat clé | Source |
+| Intervention | Target | Level of evidence | Key result | Source |
 |---|---|---|---|---|
-| Rapamycine | Inhibe mTORC1 → active l'autophagie | Préclinique solide ; essais humains phase 2 | Allonge la vie de la souris même débutée tard (Harrison 2009) ; un analogue (évérolimus) améliore la réponse vaccinale des personnes âgées (Mannick 2014) ; l'inhibition de TORC1 réduit les infections (Mannick 2018). Essai PEARL (1 an, faibles doses) : bien tolérée, effets modestes sur certains marqueurs (Moel 2025). | [doi:10.1038/nature08221](https://doi.org/10.1038/nature08221) ; [doi:10.1126/scitranslmed.3009892](https://doi.org/10.1126/scitranslmed.3009892) ; [doi:10.1126/scitranslmed.aaq1564](https://doi.org/10.1126/scitranslmed.aaq1564) ; [doi:10.18632/aging.206235](https://doi.org/10.18632/aging.206235) ; revue Mannick 2021 [doi:10.1016/S2666-7568(21)00062-3](https://doi.org/10.1016/S2666-7568(21)00062-3) |
-| Spermidine | Inducteur naturel d'autophagie | Préclinique ; observationnel humain ; essai randomisé humain | Allonge la vie de levure, ver, mouche (Eisenberg 2009) et protège le cœur de la souris (Eisenberg 2016). Apport alimentaire élevé associé à une mortalité plus faible (cohorte de Bruneck, Kiechl 2018). Essai SmartAge (12 mois, 100 adultes âgés) : **aucun effet** sur la mémoire (Schwarz 2022). | [doi:10.1038/ncb1975](https://doi.org/10.1038/ncb1975) ; [doi:10.1038/nm.4222](https://doi.org/10.1038/nm.4222) ; [doi:10.1093/ajcn/nqy102](https://doi.org/10.1093/ajcn/nqy102) ; [doi:10.1001/jamanetworkopen.2022.13875](https://doi.org/10.1001/jamanetworkopen.2022.13875) |
-| Urolithine A (métabolite microbien de l'ellagitanin des grenades) | Mitophagie | Préclinique ; essais humains phase 1-2 | Prolonge la vie du ver, améliore le muscle de la souris (Ryu 2016) ; sûre et signature mitochondriale chez l'humain (Andreux 2019) ; essai de 4 mois chez 66 adultes âgés : pas d'amélioration du critère principal (distance de marche), gains sur l'endurance musculaire (Liu 2022). | [doi:10.1038/nm.4132](https://doi.org/10.1038/nm.4132) ; [doi:10.1038/s42255-019-0073-4](https://doi.org/10.1038/s42255-019-0073-4) ; [doi:10.1001/jamanetworkopen.2021.44279](https://doi.org/10.1001/jamanetworkopen.2021.44279) |
-| Jeûne intermittent / restriction calorique | mTOR ↓, AMPK ↑ | Préclinique solide ; essais humains (marqueurs métaboliques) | Bénéfices cardiométaboliques chez l'humain ; induction de l'autophagie difficile à mesurer directement | de Cabo & Mattson 2019, [doi:10.1056/NEJMra1905136](https://doi.org/10.1056/NEJMra1905136) |
-| Exercice physique | Autophagie musculaire (via BCL2-Beclin 1) | Préclinique (mécanisme) ; bénéfices cliniques établis | Chez la souris, l'autophagie induite par l'exercice est nécessaire à certains bénéfices métaboliques | He 2012, [doi:10.1038/nature10758](https://doi.org/10.1038/nature10758) |
-| Activation génétique (Atg5, Beclin 1 F121A, suppression de Rubicon) | Machinerie autophagique | Préclinique | Allongement de la vie chez la souris ou le ver | Pyo 2013 ; Fernández 2018 ; Nakamura 2019 |
-| Stimulation de la mitophagie (NAD+, urolithine A) | Mitochondries | Préclinique (modèles d'Alzheimer) | Réduit amyloïde et tau, améliore la mémoire | Fang 2019 |
+| Rapamycin | Inhibits mTORC1 → activates autophagy | Solid preclinical; human phase 2 trials | Extends mouse lifespan even when started late (Harrison 2009); an analogue (everolimus) improves the vaccine response of older people (Mannick 2014); TORC1 inhibition reduces infections (Mannick 2018). PEARL trial (1 year, low doses): well tolerated, modest effects on some markers (Moel 2025). | [doi:10.1038/nature08221](https://doi.org/10.1038/nature08221); [doi:10.1126/scitranslmed.3009892](https://doi.org/10.1126/scitranslmed.3009892); [doi:10.1126/scitranslmed.aaq1564](https://doi.org/10.1126/scitranslmed.aaq1564); [doi:10.18632/aging.206235](https://doi.org/10.18632/aging.206235); review Mannick 2021 [doi:10.1016/S2666-7568(21)00062-3](https://doi.org/10.1016/S2666-7568(21)00062-3) |
+| Spermidine | Natural autophagy inducer | Preclinical; human observational; human randomised trial | Extends the life of yeast, worm and fly (Eisenberg 2009) and protects the mouse heart (Eisenberg 2016). High dietary intake associated with lower mortality (Bruneck cohort, Kiechl 2018). SmartAge trial (12 months, 100 older adults): **no effect** on memory (Schwarz 2022). | [doi:10.1038/ncb1975](https://doi.org/10.1038/ncb1975); [doi:10.1038/nm.4222](https://doi.org/10.1038/nm.4222); [doi:10.1093/ajcn/nqy102](https://doi.org/10.1093/ajcn/nqy102); [doi:10.1001/jamanetworkopen.2022.13875](https://doi.org/10.1001/jamanetworkopen.2022.13875) |
+| Urolithin A (microbial metabolite of pomegranate ellagitannins) | Mitophagy | Preclinical; human phase 1-2 trials | Extends worm life, improves mouse muscle (Ryu 2016); safe, with a mitochondrial signature in humans (Andreux 2019); 4-month trial in 66 older adults: no improvement in the primary endpoint (walking distance), gains in muscle endurance (Liu 2022). | [doi:10.1038/nm.4132](https://doi.org/10.1038/nm.4132); [doi:10.1038/s42255-019-0073-4](https://doi.org/10.1038/s42255-019-0073-4); [doi:10.1001/jamanetworkopen.2021.44279](https://doi.org/10.1001/jamanetworkopen.2021.44279) |
+| Intermittent fasting / caloric restriction | mTOR ↓, AMPK ↑ | Solid preclinical; human trials (metabolic markers) | Cardiometabolic benefits in humans; autophagy induction hard to measure directly | de Cabo & Mattson 2019, [doi:10.1056/NEJMra1905136](https://doi.org/10.1056/NEJMra1905136) |
+| Physical exercise | Muscle autophagy (via BCL2-Beclin 1) | Preclinical (mechanism); established clinical benefits | In mice, exercise-induced autophagy is required for some metabolic benefits | He 2012, [doi:10.1038/nature10758](https://doi.org/10.1038/nature10758) |
+| Genetic activation (Atg5, Beclin 1 F121A, Rubicon deletion) | Autophagy machinery | Preclinical | Lifespan extension in the mouse or the worm | Pyo 2013; Fernández 2018; Nakamura 2019 |
+| Stimulating mitophagy (NAD+, urolithin A) | Mitochondria | Preclinical (Alzheimer's models) | Reduces amyloid and tau, improves memory | Fang 2019 |
 
-**Constat** : la rapamycine est le candidat le plus solide chez l'animal ; chez l'humain, les données concernent des marqueurs (immunité, infections) sur de petits effectifs. Les compléments (spermidine, urolithine A) ont des résultats humains modestes ou négatifs sur leurs critères principaux. Il n'existe pas de mesure fiable de l'autophagie chez une personne vivante.
+**Finding**: rapamycin is the strongest candidate in animals; in humans, the data concern markers (immunity, infections) in small samples. Supplements (spermidine, urolithin A) have modest or negative human results on their primary endpoints. There is no reliable measure of autophagy in a living person.
 
-## 6. Questions ouvertes
+## 6. Open questions
 
-1. **Mesure** : comment quantifier le flux autophagique chez l'humain (sang, biopsie) ? Sans biomarqueur, impossible de doser une intervention.
-2. **Spécificité** : peut-on activer une autophagie sélective (mitophagie dans le muscle, agréphagie dans le neurone) plutôt qu'un effet global ?
-3. **Cancer** : activer l'autophagie peut aider une tumeur déjà présente à survivre ; quel profil de patients ?
-4. **Rapamycine chez l'humain** : dose et rythme (intermittent) qui ciblent mTORC1 sans les effets secondaires liés à mTORC2 (hyperglycémie, immunosuppression) ?
-5. **Lysosome comme maillon faible** : stimuler l'autophagie ne sert à rien si le lysosome est saturé ; TFEB est-il une meilleure cible ?
+1. **Measurement**: how to quantify autophagic flux in humans (blood, biopsy)? Without a biomarker, an intervention cannot be dosed.
+2. **Specificity**: can selective autophagy (mitophagy in muscle, aggrephagy in neurons) be activated rather than a global effect?
+3. **Cancer**: activating autophagy can help an existing tumour survive; which patient profile?
+4. **Rapamycin in humans**: what dose and schedule (intermittent) target mTORC1 without the side effects linked to mTORC2 (hyperglycaemia, immunosuppression)?
+5. **The lysosome as the weak link**: stimulating autophagy is useless if the lysosome is saturated; is TFEB a better target?
 
-## 7. Références
+## 7. References
 
 1. López-Otín C, et al. Hallmarks of aging: an expanding universe. *Cell* 2023. doi:10.1016/j.cell.2022.11.001
 2. Aman Y, et al. Autophagy in healthy aging and disease. *Nat Aging* 2021. doi:10.1038/s43587-021-00098-4
@@ -113,4 +113,4 @@ Déclin, avec l'âge, de la macroautophagie : le processus par lequel la cellule
 31. García-Prat L, et al. Autophagy maintains stemness by preventing senescence. *Nature* 2016. doi:10.1038/nature16187
 32. Ho TT, et al. Autophagy maintains the metabolism and function of young and old stem cells. *Nature* 2017. doi:10.1038/nature21388
 
-*DOI vérifiés via l'API Crossref le 2026-10-19.*
+*DOIs verified via the Crossref API on 2026-10-19.*

@@ -1,15 +1,15 @@
-# Mission 001 — Carte du vieillissement
+# Mission 001 — Aging map
 
-Responsable : A2 (Literature).
+Owner: A2 (Literature).
 
-## Demande
+## Request
 
-Dresser une carte de ce que la science sait du vieillissement : les grandes causes reconnues (les « caractéristiques du vieillissement »), comment on le mesure, et les principales théories. Chaque point doit s'appuyer sur des publications vérifiées.
+Draw up a map of what science knows about aging: the main recognised causes (the "hallmarks of aging"), how it is measured, and the main theories. Every point must rest on verified publications.
 
-## Livrables
+## Deliverables
 
-Dans `literature/aging-map/` :
+In `literature/aging-map/`:
 
-- `00-overview.md` : vue d'ensemble en français simple ;
-- `framework.md` : définitions, théories, mesures ;
-- un fichier `NN-slug.md` par grande cause du vieillissement.
+- `00-overview.md`: overview in plain English;
+- `framework.md`: definitions, theories, measurements;
+- one `NN-slug.md` file per major cause of aging.

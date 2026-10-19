@@ -1,83 +1,83 @@
-# 03 — Altérations épigénétiques
+# 03 — Epigenetic alterations
 
-> Hallmark primaire (« dommage ») selon López-Otín et al., *Cell* 2023 ([doi:10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)).
+> Primary hallmark ("damage") according to López-Otín et al., *Cell* 2023 ([doi:10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)).
 
-## 1. Définition
+## 1. Definition
 
-Dérive, avec l'âge, des marques chimiques qui contrôlent quels gènes sont allumés ou éteints sans changer la séquence de l'ADN : méthylation de l'ADN, modifications des histones, organisation de la chromatine, ARN non codants. Cette dérive brouille l'identité et la fonction des cellules. Elle augmente avec l'âge, est aggravée par les lésions de l'ADN, et sa correction (reprogrammation partielle) rajeunit des tissus chez l'animal (Sen 2016, [doi:10.1016/j.cell.2016.07.050](https://doi.org/10.1016/j.cell.2016.07.050) ; Pal & Tyler 2016, [doi:10.1126/sciadv.1600584](https://doi.org/10.1126/sciadv.1600584)).
+Age-related drift of the chemical marks that control which genes are switched on or off without changing the DNA sequence: DNA methylation, histone modifications, chromatin organisation, non-coding RNAs. This drift blurs the identity and function of cells. It increases with age, is worsened by DNA lesions, and its correction (partial reprogramming) rejuvenates tissues in animals (Sen 2016, [doi:10.1016/j.cell.2016.07.050](https://doi.org/10.1016/j.cell.2016.07.050); Pal & Tyler 2016, [doi:10.1126/sciadv.1600584](https://doi.org/10.1126/sciadv.1600584)).
 
-*Vulgarisation : toutes nos cellules ont le même ADN (le « livre de recettes »). L'épigénétique, ce sont les marque-pages et les post-it qui disent à chaque cellule quelles pages lire. Avec l'âge, les post-it se décollent ou se déplacent : la cellule de peau ou de foie lit de moins en moins bien « ses » recettes.*
+*In plain terms: all our cells have the same DNA (the "recipe book"). Epigenetics is the bookmarks and sticky notes that tell each cell which pages to read. With age, the sticky notes come off or move: the skin or liver cell reads "its" recipes less and less well.*
 
-## 2. Mécanismes et sources
+## 2. Mechanisms and sources
 
-**Principales altérations observées avec l'âge**
-- **Méthylation de l'ADN** : perte globale de méthylation (surtout dans les régions répétées) et gain local sur certains promoteurs (souvent des gènes du développement, cibles des protéines Polycomb). Ces changements sont si réguliers qu'ils permettent de construire des « horloges épigénétiques » (section 3).
-- **Histones et chromatine** : perte d'histones, redistribution des marques actives et répressives (ex. H3K9me3, H3K27me3, H4K16ac), érosion de l'hétérochromatine qui maintient silencieuses les régions répétées (Sen 2016).
-- **Réveil des rétrotransposons** : la perte d'hétérochromatine laisse s'exprimer les éléments LINE-1, qui déclenchent une réponse interféron inflammatoire (De Cecco 2019, [doi:10.1038/s41586-018-0784-9](https://doi.org/10.1038/s41586-018-0784-9)).
-- **Dérive entre individus** : des jumeaux monozygotes ont des profils épigénétiques presque identiques jeunes, qui divergent avec l'âge et selon le mode de vie (Fraga 2005, [doi:10.1073/pnas.0500398102](https://doi.org/10.1073/pnas.0500398102)). Une part de la dérive est donc stochastique ou environnementale.
+**Main alterations observed with age**
+- **DNA methylation**: global loss of methylation (especially in repeated regions) and local gain at some promoters (often developmental genes, targets of Polycomb proteins). These changes are so regular that they can be used to build "epigenetic clocks" (section 3).
+- **Histones and chromatin**: loss of histones, redistribution of active and repressive marks (e.g. H3K9me3, H3K27me3, H4K16ac), erosion of the heterochromatin that keeps repeated regions silent (Sen 2016).
+- **Awakening of retrotransposons**: loss of heterochromatin lets LINE-1 elements be expressed, which triggers an inflammatory interferon response (De Cecco 2019, [doi:10.1038/s41586-018-0784-9](https://doi.org/10.1038/s41586-018-0784-9)).
+- **Drift between individuals**: monozygotic twins have almost identical epigenetic profiles when young, which diverge with age and lifestyle (Fraga 2005, [doi:10.1073/pnas.0500398102](https://doi.org/10.1073/pnas.0500398102)). Part of the drift is therefore stochastic or environmental.
 
-**Origines**
-- **Réparation de l'ADN** : lors de la réparation d'une cassure, des facteurs de chromatine (dont les sirtuines) quittent leur poste pour aller sur la lésion et ne reviennent pas toujours au bon endroit. Le modèle murin « ICE » (cassures double-brin induites sans mutations) suffit à accélérer le vieillissement épigénétique et physiologique ; la reprogrammation par OSK l'inverse. C'est l'argument central de la « théorie de la perte d'information » (Yang 2023, [doi:10.1016/j.cell.2022.12.027](https://doi.org/10.1016/j.cell.2022.12.027)).
-- **Métabolisme** : les enzymes épigénétiques utilisent des métabolites (acétyl-CoA, S-adénosylméthionine, NAD+, α-cétoglutarate). Le déclin du NAD+ avec l'âge réduit l'activité des sirtuines (désacétylases dépendantes du NAD+).
-- **Environnement** : tabac, alimentation, inflammation modifient les marques.
+**Origins**
+- **DNA repair**: when a break is repaired, chromatin factors (including sirtuins) leave their post to go to the lesion and do not always return to the right place. The "ICE" mouse model (double-strand breaks induced without mutations) is enough to accelerate epigenetic and physiological aging; reprogramming with OSK reverses it. This is the central argument of the "information theory of aging" (Yang 2023, [doi:10.1016/j.cell.2022.12.027](https://doi.org/10.1016/j.cell.2022.12.027)).
+- **Metabolism**: epigenetic enzymes use metabolites (acetyl-CoA, S-adenosylmethionine, NAD+, α-ketoglutarate). The decline of NAD+ with age reduces the activity of sirtuins (NAD+-dependent deacetylases).
+- **Environment**: tobacco, diet and inflammation modify the marks.
 
-## 3. Symptômes et manifestations cliniques
+## 3. Symptoms and clinical manifestations
 
-Les altérations épigénétiques ne donnent pas de « maladie » isolée ; elles sont surtout visibles via les **horloges épigénétiques**, qui servent de biomarqueurs.
+Epigenetic alterations do not produce an isolated "disease"; they are mainly visible through **epigenetic clocks**, which serve as biomarkers.
 
-| Horloge | Principe | Ce qu'elle prédit | Source |
+| Clock | Principle | What it predicts | Source |
 |---|---|---|---|
-| Hannum (2013) | 71 sites CpG dans le sang | Âge chronologique | Hannum 2013, [doi:10.1016/j.molcel.2012.10.016](https://doi.org/10.1016/j.molcel.2012.10.016) |
-| Horvath (2013) | 353 CpG, tous tissus | Âge chronologique, multi-tissus | Horvath 2013, [doi:10.1186/gb-2013-14-10-r115](https://doi.org/10.1186/gb-2013-14-10-r115) |
-| PhenoAge (2018) | Entraînée sur des marqueurs cliniques | Mortalité, morbidité | Levine 2018, [doi:10.18632/aging.101414](https://doi.org/10.18632/aging.101414) |
-| GrimAge (2019) | Substituts de protéines plasmatiques + tabac | Mortalité, temps jusqu'aux maladies | Lu 2019, [doi:10.18632/aging.101684](https://doi.org/10.18632/aging.101684) |
-| DunedinPACE (2022) | Rythme de déclin de 19 marqueurs suivis sur 20 ans | Vitesse du vieillissement | Belsky 2022, [doi:10.7554/eLife.73420](https://doi.org/10.7554/eLife.73420) |
+| Hannum (2013) | 71 CpG sites in blood | Chronological age | Hannum 2013, [doi:10.1016/j.molcel.2012.10.016](https://doi.org/10.1016/j.molcel.2012.10.016) |
+| Horvath (2013) | 353 CpGs, all tissues | Chronological age, multi-tissue | Horvath 2013, [doi:10.1186/gb-2013-14-10-r115](https://doi.org/10.1186/gb-2013-14-10-r115) |
+| PhenoAge (2018) | Trained on clinical markers | Mortality, morbidity | Levine 2018, [doi:10.18632/aging.101414](https://doi.org/10.18632/aging.101414) |
+| GrimAge (2019) | Surrogates of plasma proteins + smoking | Mortality, time to disease | Lu 2019, [doi:10.18632/aging.101684](https://doi.org/10.18632/aging.101684) |
+| DunedinPACE (2022) | Rate of decline of 19 markers followed over 20 years | Pace of aging | Belsky 2022, [doi:10.7554/eLife.73420](https://doi.org/10.7554/eLife.73420) |
 
-*Vulgarisation : une horloge épigénétique lit quelques centaines de « post-it » sur l'ADN d'une prise de sang et en déduit un âge biologique. Si elle donne 55 ans à une personne de 50 ans, on parle d'« accélération » épigénétique.*
+*In plain terms: an epigenetic clock reads a few hundred "sticky notes" on the DNA from a blood sample and infers a biological age. If it gives 55 years to a 50-year-old, this is called epigenetic "acceleration".*
 
-**Preuves humaines** : une accélération des horloges de 2e génération (PhenoAge, GrimAge) est associée dans de grandes cohortes à une mortalité plus élevée, aux maladies cardiovasculaires, au cancer et au déclin cognitif (Levine 2018 ; Lu 2019). Les syndromes progéroïdes montrent une accélération épigénétique : syndrome de Werner avec plusieurs horloges (Maierhofer 2017, [doi:10.18632/aging.101217](https://doi.org/10.18632/aging.101217)) ; progéria de Hutchinson-Gilford avec l'horloge « skin & blood », mais pas avec l'horloge multi-tissus de 2013 (Horvath 2018, [doi:10.18632/aging.101508](https://doi.org/10.18632/aging.101508)). La revue de Horvath & Raj (2018, [doi:10.1038/s41576-018-0004-3](https://doi.org/10.1038/s41576-018-0004-3)) synthétise ces associations et propose une « théorie de l'horloge épigénétique » : l'horloge reflèterait des programmes de développement qui continuent après la maturité.
+**Human evidence**: acceleration of second-generation clocks (PhenoAge, GrimAge) is associated in large cohorts with higher mortality, cardiovascular disease, cancer and cognitive decline (Levine 2018; Lu 2019). Progeroid syndromes show epigenetic acceleration: Werner syndrome with several clocks (Maierhofer 2017, [doi:10.18632/aging.101217](https://doi.org/10.18632/aging.101217)); Hutchinson-Gilford progeria with the "skin & blood" clock, but not with the 2013 multi-tissue clock (Horvath 2018, [doi:10.18632/aging.101508](https://doi.org/10.18632/aging.101508)). The review by Horvath & Raj (2018, [doi:10.1038/s41576-018-0004-3](https://doi.org/10.1038/s41576-018-0004-3)) summarises these associations and proposes an "epigenetic clock theory": the clock would reflect developmental programmes that continue after maturity.
 
-**Maladies associées** : cancers (hyperméthylation de gènes suppresseurs de tumeurs, mutations de *DNMT3A*/*TET2* dans l'hématopoïèse clonale, voir fichier 01), maladies inflammatoires chroniques, neurodégénérescence.
+**Associated diseases**: cancers (hypermethylation of tumour suppressor genes, *DNMT3A*/*TET2* mutations in clonal haematopoiesis, see file 01), chronic inflammatory diseases, neurodegeneration.
 
-## 4. Interactions avec les autres hallmarks
+## 4. Interactions with the other hallmarks
 
-| Hallmark (numérotation 2023) | Lien avec les altérations épigénétiques |
+| Hallmark (2023 numbering) | Link with epigenetic alterations |
 |---|---|
-| 1. Instabilité génomique | Les cassures d'ADN provoquent la dérive épigénétique (Yang 2023) ; à l'inverse, la perte d'hétérochromatine réveille LINE-1, source d'instabilité (De Cecco 2019). |
-| 2. Attrition des télomères | L'hétérochromatine télomérique se dégrade avec l'âge ; sa perte fragilise les télomères. |
-| 4. Perte de protéostasie | Les histones et facteurs de chromatine dépendent des chaperons ; l'expression des chaperons est elle-même régulée épigénétiquement. |
-| 6. Dérégulation de la détection des nutriments | NAD+, acétyl-CoA, SAM relient l'état nutritionnel aux marques ; la restriction calorique ralentit la dérive épigénétique chez la souris et modestement chez l'humain (Waziry 2023, [doi:10.1038/s43587-022-00357-y](https://doi.org/10.1038/s43587-022-00357-y)). |
-| 7. Dysfonction mitochondriale | Les mitochondries fournissent les métabolites (acétyl-CoA, α-cétoglutarate) des enzymes épigénétiques. |
-| 8. Sénescence cellulaire | La sénescence s'accompagne d'une réorganisation massive de la chromatine (foyers d'hétérochromatine, réveil de LINE-1). |
-| 9. Épuisement des cellules souches | Les cellules souches âgées perdent leur identité épigénétique ; *DNMT3A*/*TET2* mutés → clones sanguins. |
-| 10. Altération de la communication intercellulaire | En parabiose hétérochronique (circulations de souris jeune et âgée reliées), l'âge épigénétique de la souris jeune augmente puis redescend après séparation ; un stress (chirurgie, grossesse, COVID-19 sévère) l'augmente aussi de façon réversible chez l'humain (Poganik 2023, [doi:10.1016/j.cmet.2023.03.015](https://doi.org/10.1016/j.cmet.2023.03.015)). |
-| 11. Inflammation chronique | LINE-1 → interférons ; l'inflammation accélère les horloges (GrimAge intègre des marqueurs inflammatoires). |
-| 12. Dysbiose | Le microbiote produit des métabolites (butyrate, inhibiteur d'histone désacétylases) ; lien avec le vieillissement peu documenté [à vérifier]. |
+| 1. Genomic instability | DNA breaks cause epigenetic drift (Yang 2023); conversely, loss of heterochromatin awakens LINE-1, a source of instability (De Cecco 2019). |
+| 2. Telomere attrition | Telomeric heterochromatin degrades with age; its loss weakens telomeres. |
+| 4. Loss of proteostasis | Histones and chromatin factors depend on chaperones; chaperone expression is itself epigenetically regulated. |
+| 6. Deregulated nutrient sensing | NAD+, acetyl-CoA and SAM link nutritional state to the marks; caloric restriction slows epigenetic drift in mice and modestly in humans (Waziry 2023, [doi:10.1038/s43587-022-00357-y](https://doi.org/10.1038/s43587-022-00357-y)). |
+| 7. Mitochondrial dysfunction | Mitochondria supply the metabolites (acetyl-CoA, α-ketoglutarate) used by epigenetic enzymes. |
+| 8. Cellular senescence | Senescence comes with a massive reorganisation of chromatin (heterochromatin foci, awakening of LINE-1). |
+| 9. Stem cell exhaustion | Old stem cells lose their epigenetic identity; mutated *DNMT3A*/*TET2* → blood clones. |
+| 10. Altered intercellular communication | In heterochronic parabiosis (circulations of a young and an old mouse joined), the epigenetic age of the young mouse rises and then falls again after separation; stress (surgery, pregnancy, severe COVID-19) also raises it reversibly in humans (Poganik 2023, [doi:10.1016/j.cmet.2023.03.015](https://doi.org/10.1016/j.cmet.2023.03.015)). |
+| 11. Chronic inflammation | LINE-1 → interferons; inflammation accelerates the clocks (GrimAge includes inflammatory markers). |
+| 12. Dysbiosis | The microbiota produces metabolites (butyrate, a histone deacetylase inhibitor); link with aging poorly documented [to verify]. |
 
-## 5. Remèdes existants ou à l'étude
+## 5. Existing or investigational remedies
 
-| Intervention | Cible | Niveau de preuve | Résultat clé | Source |
+| Intervention | Target | Level of evidence | Key result | Source |
 |---|---|---|---|---|
-| Reprogrammation partielle cyclique (OSKM) | Rétablir le profil épigénétique jeune | Préclinique (souris progéroïdes) | Expression cyclique de 4 facteurs de Yamanaka : amélioration de plusieurs organes et +30 % environ de durée de vie | Ocampo 2016, [doi:10.1016/j.cell.2016.11.052](https://doi.org/10.1016/j.cell.2016.11.052) |
-| Reprogrammation partielle (OSK, AAV) dans l'œil | Neurones de la rétine | Préclinique (souris) | Restaure la vision chez des souris âgées ou glaucomateuses, rajeunit l'horloge de méthylation | Lu 2020, [doi:10.1038/s41586-020-2975-4](https://doi.org/10.1038/s41586-020-2975-4) |
-| Reprogrammation partielle à long terme (souris normales) | Corps entier | Préclinique | Rajeunissement des signatures moléculaires (peau, rein) sans tumeurs dans le protocole utilisé | Browder 2022, [doi:10.1038/s43587-022-00183-2](https://doi.org/10.1038/s43587-022-00183-2) |
-| — *Risque* de la reprogrammation | — | Préclinique | Reprogrammation complète ou mal contrôlée → tératomes et cancers | Abad 2013, [doi:10.1038/nature12586](https://doi.org/10.1038/nature12586) ; Ohnishi 2014, [doi:10.1016/j.cell.2014.01.005](https://doi.org/10.1016/j.cell.2014.01.005) |
-| Restriction calorique modérée (CALERIE, ~12 % sur 2 ans) | Nutriments → épigénome | Essai randomisé humain (phase 2) | Ralentissement modeste de DunedinPACE (~2-3 %) ; pas d'effet sur PhenoAge ni GrimAge | Waziry 2023 |
-| GH + DHEA + metformine (TRIIM) | Régénération du thymus | Essai pilote non contrôlé (9 hommes) | Âge épigénétique ~2,5 ans plus jeune après 1 an ; très petit échantillon | Fahy 2019, [doi:10.1111/acel.13028](https://doi.org/10.1111/acel.13028) |
-| Programme alimentation + mode de vie (8 semaines) | Méthylation | Essai pilote randomisé (43 hommes) | Horloge Horvath ~3 ans plus jeune vs contrôle, différence entre groupes non significative au seuil 5 % | Fitzgerald 2021, [doi:10.18632/aging.202913](https://doi.org/10.18632/aging.202913) |
-| Précurseurs du NAD+ | Sirtuines | Préclinique ; essais humains phase 1-2 | Voir fichier 01 ; pas d'effet démontré sur les horloges chez l'humain [à vérifier] | — |
+| Cyclic partial reprogramming (OSKM) | Restore the young epigenetic profile | Preclinical (progeroid mice) | Cyclic expression of 4 Yamanaka factors: improvement of several organs and about +30 % lifespan | Ocampo 2016, [doi:10.1016/j.cell.2016.11.052](https://doi.org/10.1016/j.cell.2016.11.052) |
+| Partial reprogramming (OSK, AAV) in the eye | Retinal neurons | Preclinical (mice) | Restores vision in old or glaucomatous mice, rejuvenates the methylation clock | Lu 2020, [doi:10.1038/s41586-020-2975-4](https://doi.org/10.1038/s41586-020-2975-4) |
+| Long-term partial reprogramming (normal mice) | Whole body | Preclinical | Rejuvenation of molecular signatures (skin, kidney) without tumours in the protocol used | Browder 2022, [doi:10.1038/s43587-022-00183-2](https://doi.org/10.1038/s43587-022-00183-2) |
+| — *Risk* of reprogramming | — | Preclinical | Complete or poorly controlled reprogramming → teratomas and cancers | Abad 2013, [doi:10.1038/nature12586](https://doi.org/10.1038/nature12586); Ohnishi 2014, [doi:10.1016/j.cell.2014.01.005](https://doi.org/10.1016/j.cell.2014.01.005) |
+| Moderate caloric restriction (CALERIE, ~12 % over 2 years) | Nutrients → epigenome | Human randomised trial (phase 2) | Modest slowing of DunedinPACE (~2-3 %); no effect on PhenoAge or GrimAge | Waziry 2023 |
+| GH + DHEA + metformin (TRIIM) | Thymus regeneration | Uncontrolled pilot trial (9 men) | Epigenetic age ~2.5 years younger after 1 year; very small sample | Fahy 2019, [doi:10.1111/acel.13028](https://doi.org/10.1111/acel.13028) |
+| Diet + lifestyle programme (8 weeks) | Methylation | Randomised pilot trial (43 men) | Horvath clock ~3 years younger vs control, between-group difference not significant at the 5 % level | Fitzgerald 2021, [doi:10.18632/aging.202913](https://doi.org/10.18632/aging.202913) |
+| NAD+ precursors | Sirtuins | Preclinical; human phase 1-2 trials | See file 01; no demonstrated effect on clocks in humans [to verify] | — |
 
-**Constat** : la reprogrammation partielle est la piste la plus spectaculaire chez l'animal, mais reste préclinique, avec un risque tumoral réel. Chez l'humain, les effets sur les horloges sont modestes, issus de petits essais, et on ne sait pas si « rajeunir l'horloge » améliore la santé.
+**Finding**: partial reprogramming is the most spectacular lead in animals, but remains preclinical, with a real tumour risk. In humans, effects on the clocks are modest, come from small trials, and it is unknown whether "rejuvenating the clock" improves health.
 
-## 6. Questions ouvertes
+## 6. Open questions
 
-1. **Cause ou marqueur ?** Les horloges mesurent-elles un processus causal ou un simple reflet ? Yang 2023 suggère une causalité chez la souris ; non démontré chez l'humain.
-2. **Quel biomarqueur utiliser comme critère d'essai ?** Les horloges divergent entre elles (CALERIE : effet sur DunedinPACE, pas sur GrimAge).
-3. **Sécurité de la reprogrammation** : dose, durée, tissu, vecteur ; comment éviter tératomes et perte d'identité cellulaire (Abad 2013 ; Ohnishi 2014) ?
-4. **Où est stockée l'« information de jeunesse »** que la reprogrammation restaure ?
-5. **Part stochastique vs programmée** de la dérive (Fraga 2005 vs théorie du programme de Horvath & Raj 2018).
+1. **Cause or marker?** Do the clocks measure a causal process or a mere reflection? Yang 2023 suggests causality in mice; not demonstrated in humans.
+2. **Which biomarker to use as a trial endpoint?** The clocks diverge from one another (CALERIE: effect on DunedinPACE, not on GrimAge).
+3. **Safety of reprogramming**: dose, duration, tissue, vector; how to avoid teratomas and loss of cell identity (Abad 2013; Ohnishi 2014)?
+4. **Where is the "youth information"** that reprogramming restores stored?
+5. **Stochastic vs programmed share** of the drift (Fraga 2005 vs the programme theory of Horvath & Raj 2018).
 
-## 7. Références
+## 7. References
 
 1. López-Otín C, et al. Hallmarks of aging: an expanding universe. *Cell* 2023. doi:10.1016/j.cell.2022.11.001
 2. Sen P, et al. Epigenetic mechanisms of longevity and aging. *Cell* 2016. doi:10.1016/j.cell.2016.07.050
@@ -103,4 +103,4 @@ Les altérations épigénétiques ne donnent pas de « maladie » isolée ; elle
 22. Horvath S, et al. Epigenetic clock for skin and blood cells applied to Hutchinson Gilford progeria syndrome and ex vivo studies. *Aging* 2018. doi:10.18632/aging.101508
 23. Poganik JR, et al. Biological age is increased by stress and restored upon recovery. *Cell Metab* 2023. doi:10.1016/j.cmet.2023.03.015
 
-*DOI vérifiés via l'API Crossref le 2026-10-19.*
+*DOIs verified via the Crossref API on 2026-10-19.*

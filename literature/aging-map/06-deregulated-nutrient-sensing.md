@@ -1,83 +1,84 @@
-# 06 — Dérégulation de la détection des nutriments (*deregulated nutrient sensing*)
+# 06 — Deregulated nutrient sensing
 
-> Hallmark « antagoniste » (López-Otín et al., *Cell* 2023, doi:10.1016/j.cell.2022.11.001). En clair : les capteurs qui disent à la cellule « il y a à manger, grandis » ou « c'est la disette, économise et répare » restent bloqués trop longtemps en mode « croissance ».
+> "Antagonistic" hallmark (López-Otín et al., *Cell* 2023, doi:10.1016/j.cell.2022.11.001). In plain terms: the sensors that tell the cell "there is food, grow" or "it is a famine, save and repair" stay stuck too long in "growth" mode.
 
-## 1. Définition
+## 1. Definition
 
-Les cellules mesurent en permanence l'énergie et les nutriments disponibles grâce à quatre grands réseaux : **IIS** (insuline / IGF-1), **mTOR** (acides aminés, croissance), **AMPK** (manque d'énergie) et **sirtuines** (niveau de NAD+). Avec l'âge, l'équilibre penche vers les voies anaboliques (IIS, mTOR élevés) et s'éloigne des voies de maintenance (AMPK, sirtuines). Freiner la croissance et activer la maintenance allonge la vie dans toutes les espèces modèles testées.
+Cells constantly measure the available energy and nutrients through four major networks: **IIS** (insulin / IGF-1), **mTOR** (amino acids, growth), **AMPK** (energy shortage) and **sirtuins** (NAD+ level). With age, the balance tilts towards the anabolic pathways (high IIS, mTOR) and away from the maintenance pathways (AMPK, sirtuins). Slowing growth and activating maintenance extends life in every model species tested.
 
-## 2. Mécanismes et sources
+## 2. Mechanisms and sources
 
-**Axe GH / insuline / IGF-1 (IIS).** C'est la première voie de longévité découverte : un seul gène muté (*daf-2*, récepteur insuline/IGF) double la durée de vie du ver *C. elegans* (Kenyon 1993, doi:10.1038/366461a0). L'effet passe par l'activation du facteur de transcription FOXO (DAF-16 chez le ver), qui met en marche les gènes de résistance au stress. Chez l'humain :
-- des variants du récepteur IGF-1 qui réduisent son activité sont plus fréquents chez les centenaires ashkénazes (Suh 2008, doi:10.1073/pnas.0705467105) ;
-- le génotype **FOXO3A** est l'une des associations génétiques à la longévité les plus répliquées (Willcox 2008, doi:10.1073/pnas.0801030105) ;
-- les personnes atteintes du syndrome de Laron (récepteur de l'hormone de croissance déficient, IGF-1 très bas) développent très peu de cancers et de diabète (Guevara-Aguirre 2011, doi:10.1126/scitranslmed.3001845).
+**GH / insulin / IGF-1 axis (IIS).** This is the first longevity pathway discovered: a single mutated gene (*daf-2*, insulin/IGF receptor) doubles the lifespan of the worm *C. elegans* (Kenyon 1993, doi:10.1038/366461a0). The effect works through activation of the transcription factor FOXO (DAF-16 in the worm), which switches on stress resistance genes. In humans:
+- IGF-1 receptor variants that reduce its activity are more frequent in Ashkenazi centenarians (Suh 2008, doi:10.1073/pnas.0705467105);
+- the **FOXO3A** genotype is one of the most replicated genetic associations with longevity (Willcox 2008, doi:10.1073/pnas.0801030105);
+- people with Laron syndrome (deficient growth hormone receptor, very low IGF-1) develop very few cancers and little diabetes (Guevara-Aguirre 2011, doi:10.1126/scitranslmed.3001845).
 
-Paradoxe : au cours du vieillissement normal, GH et IGF-1 *baissent*. Cela ressemble à une réponse de défense de l'organisme, mais qui devient délétère quand elle est poussée trop loin (fragilité, sarcopénie).
+Paradox: during normal aging, GH and IGF-1 *fall*. This looks like a defensive response of the body, but one that becomes harmful when pushed too far (frailty, sarcopenia).
 
-**mTOR.** mTOR est une kinase qui fonctionne en deux complexes. **mTORC1** capte les acides aminés (surtout la leucine), l'insuline et l'énergie ; il stimule la synthèse des protéines et des lipides et freine l'autophagie (Saxton & Sabatini 2017, doi:10.1016/j.cell.2017.02.004). **mTORC2** sert surtout la signalisation insulinique et la survie. Si mTORC1 reste activé en permanence chez l'âgé, l'autophagie est bloquée, les protéines endommagées s'accumulent et la sécrétion inflammatoire des cellules sénescentes est amplifiée. Les données qui le montrent :
-- supprimer S6K1, l'effecteur de mTORC1, allonge la vie des souris femelles (Selman 2009, doi:10.1126/science.1177221) ;
-- les effets indésirables de la rapamycine sur le glucose viennent de l'inhibition « collatérale » de mTORC2, qu'on peut dissocier du gain de longévité (Lamming 2012, doi:10.1126/science.1215135).
+**mTOR.** mTOR is a kinase that works in two complexes. **mTORC1** senses amino acids (especially leucine), insulin and energy; it stimulates protein and lipid synthesis and slows autophagy (Saxton & Sabatini 2017, doi:10.1016/j.cell.2017.02.004). **mTORC2** mainly serves insulin signalling and survival. If mTORC1 stays permanently active in older people, autophagy is blocked, damaged proteins accumulate and the inflammatory secretion of senescent cells is amplified. The data showing this:
+- deleting S6K1, the effector of mTORC1, extends the life of female mice (Selman 2009, doi:10.1126/science.1177221);
+- the adverse effects of rapamycin on glucose come from the "collateral" inhibition of mTORC2, which can be separated from the longevity gain (Lamming 2012, doi:10.1126/science.1215135).
 
-**AMPK.** C'est le capteur du « carburant bas » (rapport AMP/ATP élevé). Il inhibe mTORC1, active l'autophagie et la formation de nouvelles mitochondries (via PGC-1α). Sa capacité à être activé diminue avec l'âge. AMPK est la cible indirecte de la metformine et de l'exercice.
+**AMPK.** This is the "low fuel" sensor (high AMP/ATP ratio). It inhibits mTORC1, activates autophagy and the formation of new mitochondria (via PGC-1α). Its capacity to be activated decreases with age. AMPK is the indirect target of metformin and exercise.
 
-**Sirtuines.** Ce sont des enzymes qui dépendent du NAD+ et retirent des groupes acétyle des protéines. Elles relient l'état métabolique à la réparation de l'ADN, à l'épigénome et à la fonction mitochondriale. Chez la souris mâle, surexprimer **SIRT6** allonge la vie (Kanfi 2012, doi:10.1038/nature10815). Comme le NAD+ baisse avec l'âge, les sirtuines tournent au ralenti (voir hallmark 07). Les promesses du resvératrol comme « activateur de sirtuines » ne se sont pas confirmées chez l'humain.
+**Sirtuins.** These are NAD+-dependent enzymes that remove acetyl groups from proteins. They link metabolic state to DNA repair, the epigenome and mitochondrial function. In male mice, overexpressing **SIRT6** extends life (Kanfi 2012, doi:10.1038/nature10815). As NAD+ falls with age, sirtuins run slowly (see hallmark 07). The promises of resveratrol as a "sirtuin activator" were not confirmed in humans.
 
-**Causes environnementales.** Suralimentation, excès de protéines et de sucres, sédentarité et obésité maintiennent l'IIS et mTOR en mode « croissance ». Dans la cohorte NHANES, un apport protéique élevé entre 50 et 65 ans est associé à des IGF-1 plus élevés et à plus de cancers et de décès, avec une inversion après 65 ans (Levine 2014, doi:10.1016/j.cmet.2014.02.006 ; étude observationnelle, donc à interpréter avec prudence). Synthèse régime-longévité : Fontana & Partridge 2015 (doi:10.1016/j.cell.2015.02.020).
+**Environmental causes.** Overeating, excess protein and sugar, a sedentary lifestyle and obesity keep IIS and mTOR in "growth" mode. In the NHANES cohort, a high protein intake between 50 and 65 is associated with higher IGF-1 and more cancers and deaths, with a reversal after 65 (Levine 2014, doi:10.1016/j.cmet.2014.02.006; observational study, so to be interpreted with caution). Diet-longevity synthesis: Fontana & Partridge 2015 (doi:10.1016/j.cell.2015.02.020).
 
-## 3. Symptômes et manifestations cliniques
+## 3. Symptoms and clinical manifestations
 
-- **Résistance à l'insuline, diabète de type 2, syndrome métabolique** : c'est l'expression clinique la plus directe. Le diabète de type 2 accélère presque tous les aspects du vieillissement (maladies cardiovasculaires, rénales, cognitives).
-- **Cancer** : l'excès d'IIS/mTOR favorise la prolifération. L'IGF-1 bas des patients Laron les protège (Guevara-Aguirre 2011).
-- **Sarcopénie et fragilité** : à l'inverse, une réponse anabolique émoussée (« résistance anabolique » du muscle âgé) fait perdre de la masse musculaire. Le problème n'est pas « trop » ou « pas assez » de signal, c'est la perte de flexibilité.
-- **Immunosénescence** : une activité mTOR excessive dans les cellules immunitaires âgées affaiblit la réponse aux vaccins. Des inhibiteurs de mTOR à faible dose améliorent cette réponse (Mannick 2014, doi:10.1126/scitranslmed.3009892).
-- **Preuves humaines génétiques** : variants IGF1R chez les centenaires, FOXO3A, syndrome de Laron (voir §2).
+- **Insulin resistance, type 2 diabetes, metabolic syndrome**: this is the most direct clinical expression. Type 2 diabetes accelerates almost every aspect of aging (cardiovascular, kidney and cognitive diseases).
+- **Cancer**: excess IIS/mTOR promotes proliferation. The low IGF-1 of Laron patients protects them (Guevara-Aguirre 2011).
+- **Sarcopenia and frailty**: conversely, a blunted anabolic response ("anabolic resistance" of old muscle) leads to loss of muscle mass. The problem is not "too much" or "too little" signal, it is the loss of flexibility.
+- **Immunosenescence**: excessive mTOR activity in old immune cells weakens the response to vaccines. Low-dose mTOR inhibitors improve this response (Mannick 2014, doi:10.1126/scitranslmed.3009892).
+- **Human genetic evidence**: IGF1R variants in centenarians, FOXO3A, Laron syndrome (see §2).
 
-## 4. Interactions avec les autres hallmarks
+## 4. Interactions with the other hallmarks
 
-- **Macroautophagie altérée (05)** : mTORC1 actif bloque l'autophagie, AMPK la stimule. C'est le lien le plus direct, et la rapamycine agit en grande partie par cette voie.
-- **Perte de protéostasie (04)** : mTORC1 pousse à fabriquer des protéines plus vite que la cellule ne peut contrôler leur qualité.
-- **Dysfonction mitochondriale (07)** : AMPK/PGC-1α et sirtuines (SIRT1, SIRT3) commandent la formation et la qualité des mitochondries. La baisse du NAD+ relie les deux hallmarks.
-- **Sénescence cellulaire (08)** : mTOR régule la traduction de l'IL-1α et donc le SASP (sécrétion inflammatoire des cellules sénescentes) ; la rapamycine le réduit (Laberge 2015, doi:10.1038/ncb3195).
-- **Altérations épigénétiques (03)** : les sirtuines (SIRT1, SIRT6) sont des désacétylases d'histones, et le métabolisme fournit les substrats des marques épigénétiques (acétyl-CoA, NAD+, SAM).
-- **Instabilité génomique (01)** : SIRT6 participe à la réparation des cassures de l'ADN.
-- **Épuisement des cellules souches (09)** : un mTOR hyperactif épuise les cellules souches hématopoïétiques.
-- **Inflammation chronique (11)** et **altération de la communication intercellulaire (10)** : hyperinsulinémie, adipokines, signalisation IGF-1 systémique.
-- **Dysbiose (12)** : le microbiote module la sensibilité à l'insuline et la production d'acides gras à chaîne courte, qui signalent via AMPK.
 
-## 5. Remèdes existants ou à l'étude
+- **Disabled macroautophagy (05)**: active mTORC1 blocks autophagy, AMPK stimulates it. This is the most direct link, and rapamycin acts largely through this route.
+- **Loss of proteostasis (04)**: mTORC1 pushes the cell to make proteins faster than it can control their quality.
+- **Mitochondrial dysfunction (07)**: AMPK/PGC-1α and sirtuins (SIRT1, SIRT3) control the formation and quality of mitochondria. The fall in NAD+ links the two hallmarks.
+- **Cellular senescence (08)**: mTOR regulates the translation of IL-1α and therefore the SASP (inflammatory secretion of senescent cells); rapamycin reduces it (Laberge 2015, doi:10.1038/ncb3195).
+- **Epigenetic alterations (03)**: sirtuins (SIRT1, SIRT6) are histone deacetylases, and metabolism supplies the substrates of epigenetic marks (acetyl-CoA, NAD+, SAM).
+- **Genomic instability (01)**: SIRT6 takes part in the repair of DNA breaks.
+- **Stem cell exhaustion (09)**: hyperactive mTOR exhausts haematopoietic stem cells.
+- **Chronic inflammation (11)** and **altered intercellular communication (10)**: hyperinsulinaemia, adipokines, systemic IGF-1 signalling.
+- **Dysbiosis (12)**: the microbiota modulates insulin sensitivity and the production of short-chain fatty acids, which signal through AMPK.
 
-| Intervention | Cible | Niveau de preuve | Résultat clé | Source |
+## 5. Existing or investigational remedies
+
+| Intervention | Target | Level of evidence | Key result | Source |
 |---|---|---|---|---|
-| Rapamycine (sirolimus), dès 20 mois chez la souris | mTORC1 | Préclinique robuste (ITP, 3 sites) | Durée de vie +9 % (mâles) et +14 % (femelles), même commencée tard | Harrison 2009, doi:10.1038/nature08221 |
-| Rapamycine transitoire (3 mois, âge moyen) | mTORC1 | Préclinique | Jusqu'à +60 % d'espérance de vie restante, effet durable | Bitto 2016, doi:10.7554/eLife.16351 |
-| Everolimus (RAD001) faible dose, 6 sem. | mTORC1 | Essai humain phase 2 (n≈218, ≥65 ans) | Réponse au vaccin grippal augmentée d'environ 20 % | Mannick 2014, doi:10.1126/scitranslmed.3009892 |
-| RAD001 + BEZ235 faible dose | mTORC1 (+ PI3K) | Essai humain phase 2a | Moins d'infections respiratoires sur un an | Mannick 2018, doi:10.1126/scitranslmed.aaq1564 |
-| RTB101 (dactolisib) | TORC1 | Essai humain phase 2b puis phase 3 | Phase 2b positive ; la phase 3 n'atteint pas son critère principal (infections respiratoires « cliniquement symptomatiques ») | Mannick 2021, doi:10.1016/S2666-7568(21)00062-3 |
-| Rapamycine 5-10 mg/semaine, 48 sem. (PEARL) | mTORC1 | Essai humain phase 2 (n=114) | Bien tolérée ; signal modeste chez les femmes à 10 mg (masse maigre, douleur) ; forme magistrale peu absorbée | Moel 2025, doi:10.18632/aging.206235 |
-| Metformine | AMPK / complexe I mitochondrial | Approuvée (diabète) ; essai TAME conçu mais non lancé : aucun enregistrement sur ClinicalTrials.gov (recherche du 19/10/2026), page AFAR hors ligne ; plusieurs sources secondaires de 2026 le disent toujours non financé [à vérifier : pas de source primaire] | Diabétiques sous metformine : mortalité observée comparable ou inférieure à celle des non-diabétiques (données observationnelles, biais possibles) | Bannister 2014, doi:10.1111/dom.12354 ; Campbell 2017, doi:10.1016/j.arr.2017.08.003 ; justification de TAME : Barzilai 2016, doi:10.1016/j.cmet.2016.05.011 |
-| Metformine + exercice | — | Essai humain (RCT) | La metformine **atténue** les gains mitochondriaux de l'entraînement chez l'âgé | Konopka 2018, doi:10.1111/acel.12880 |
-| Restriction calorique (≈12 % effective, 2 ans, CALERIE) | IIS, mTOR, AMPK, sirtuines | Essai humain phase 2 (non-obèses) | Facteurs de risque cardiométaboliques améliorés | Kraus 2019, doi:10.1016/S2213-8587(19)30151-2 |
-| CALERIE, horloges biologiques | — | Analyse secondaire d'un RCT | Ralentissement du rythme de vieillissement (DunedinPACE) ; peu d'effet sur les horloges de type GrimAge | Belsky 2017, doi:10.1093/gerona/glx096 ; Waziry 2023, doi:10.1038/s43587-022-00357-y |
-| Restriction calorique chez le primate | — | Préclinique (singes rhésus) | Moins de maladies liées à l'âge, survie améliorée ; résultats NIA/Wisconsin réconciliés | Colman 2009, doi:10.1126/science.1173635 ; Mattison 2017, doi:10.1038/ncomms14063 |
-| Acarbose | Pic glycémique post-prandial | Préclinique (ITP) ; approuvé pour le diabète | Durée de vie augmentée, surtout chez les mâles | Harrison 2014, doi:10.1111/acel.12170 |
-| Restriction protéique / en méthionine | mTOR, IGF-1 | Observationnel humain ; préclinique | IGF-1 plus bas, moins de mortalité entre 50 et 65 ans | Levine 2014, doi:10.1016/j.cmet.2014.02.006 |
-| Inhibition génétique S6K1 | mTORC1 → S6K1 | Préclinique | Allonge la vie (femelles) | Selman 2009, doi:10.1126/science.1177221 |
-| Surexpression SIRT6 | Sirtuine | Préclinique | Allonge la vie (mâles) | Kanfi 2012, doi:10.1038/nature10815 |
-| Exercice physique | AMPK, sensibilité à l'insuline | Recommandé (preuves épidémiologiques et RCT) | Active AMPK et PGC-1α, restaure la sensibilité à l'insuline | Revue : Fontana 2015, doi:10.1016/j.cell.2015.02.020 |
+| Rapamycin (sirolimus), from 20 months of age in mice | mTORC1 | Robust preclinical (ITP, 3 sites) | Lifespan +9 % (males) and +14 % (females), even when started late | Harrison 2009, doi:10.1038/nature08221 |
+| Transient rapamycin (3 months, middle age) | mTORC1 | Preclinical | Up to +60 % remaining life expectancy, lasting effect | Bitto 2016, doi:10.7554/eLife.16351 |
+| Low-dose everolimus (RAD001), 6 weeks | mTORC1 | Human phase 2 trial (n≈218, ≥65 years) | Flu vaccine response increased by about 20 % | Mannick 2014, doi:10.1126/scitranslmed.3009892 |
+| Low-dose RAD001 + BEZ235 | mTORC1 (+ PI3K) | Human phase 2a trial | Fewer respiratory infections over one year | Mannick 2018, doi:10.1126/scitranslmed.aaq1564 |
+| RTB101 (dactolisib) | TORC1 | Human phase 2b then phase 3 trial | Positive phase 2b; phase 3 misses its primary endpoint ("clinically symptomatic" respiratory infections) | Mannick 2021, doi:10.1016/S2666-7568(21)00062-3 |
+| Rapamycin 5-10 mg/week, 48 weeks (PEARL) | mTORC1 | Human phase 2 trial (n=114) | Well tolerated; modest signal in women at 10 mg (lean mass, pain); compounded formulation poorly absorbed | Moel 2025, doi:10.18632/aging.206235 |
+| Metformin | AMPK / mitochondrial complex I | Approved (diabetes); TAME trial designed but not launched: no registration on ClinicalTrials.gov (search of 19/10/2026), AFAR page offline; several 2026 secondary sources say it is still unfunded [to verify]: no primary source | Diabetics on metformin: observed mortality similar to or lower than non-diabetics (observational data, possible biases) | Bannister 2014, doi:10.1111/dom.12354; Campbell 2017, doi:10.1016/j.arr.2017.08.003; rationale for TAME: Barzilai 2016, doi:10.1016/j.cmet.2016.05.011 |
+| Metformin + exercise | — | Human trial (RCT) | Metformin **blunts** the mitochondrial gains of training in older people | Konopka 2018, doi:10.1111/acel.12880 |
+| Caloric restriction (≈12 % achieved, 2 years, CALERIE) | IIS, mTOR, AMPK, sirtuins | Human phase 2 trial (non-obese) | Improved cardiometabolic risk factors | Kraus 2019, doi:10.1016/S2213-8587(19)30151-2 |
+| CALERIE, biological clocks | — | Secondary analysis of an RCT | Slower pace of aging (DunedinPACE); little effect on GrimAge-type clocks | Belsky 2017, doi:10.1093/gerona/glx096; Waziry 2023, doi:10.1038/s43587-022-00357-y |
+| Caloric restriction in primates | — | Preclinical (rhesus monkeys) | Fewer age-related diseases, improved survival; NIA/Wisconsin results reconciled | Colman 2009, doi:10.1126/science.1173635; Mattison 2017, doi:10.1038/ncomms14063 |
+| Acarbose | Post-meal glucose spike | Preclinical (ITP); approved for diabetes | Increased lifespan, especially in males | Harrison 2014, doi:10.1111/acel.12170 |
+| Protein / methionine restriction | mTOR, IGF-1 | Human observational; preclinical | Lower IGF-1, lower mortality between 50 and 65 | Levine 2014, doi:10.1016/j.cmet.2014.02.006 |
+| Genetic inhibition of S6K1 | mTORC1 → S6K1 | Preclinical | Extends life (females) | Selman 2009, doi:10.1126/science.1177221 |
+| SIRT6 overexpression | Sirtuin | Preclinical | Extends life (males) | Kanfi 2012, doi:10.1038/nature10815 |
+| Physical exercise | AMPK, insulin sensitivity | Recommended (epidemiological evidence and RCTs) | Activates AMPK and PGC-1α, restores insulin sensitivity | Review: Fontana 2015, doi:10.1016/j.cell.2015.02.020 |
 
-Pour le contexte pharmacologique général (rapalogues, inhibiteurs sélectifs de mTORC1) : Bonkowski & Sinclair 2016, doi:10.1038/nrm.2016.93.
+For the general pharmacological context (rapalogs, selective mTORC1 inhibitors): Bonkowski & Sinclair 2016, doi:10.1038/nrm.2016.93.
 
-## 6. Questions ouvertes
+## 6. Open questions
 
-1. **Dose et rythme pour la rapamycine chez l'humain** : faut-il une prise intermittente pour épargner mTORC2 ? Il n'existe pas encore de biomarqueur fiable de l'inhibition de mTORC1 dans les tissus. Les inhibiteurs sélectifs de mTORC1 restent à valider cliniquement.
-2. **Metformine** : effet anti-âge réel, ou artefact des études observationnelles (biais de « survie » et de comparateur) ? TAME n'est toujours pas lancé, et la metformine gêne l'adaptation à l'exercice.
-3. **Le paradoxe IGF-1** : un IGF-1 bas protège-t-il ou fragilise-t-il les personnes âgées ? L'effet semble dépendre de l'âge, du sexe et du tissu.
-4. **Différences selon le sexe** : beaucoup d'interventions (acarbose, 17α-estradiol, S6K1, SIRT6) agissent de façon très différente chez les mâles et les femelles.
-5. **Restriction calorique contre jeûne intermittent contre composition protéique** : qu'est-ce qui compte vraiment ? L'adhérence à long terme reste un obstacle majeur.
-6. **Sirtuines et NAD+** : les activateurs (resvératrol, STAC) n'ont pas confirmé leurs promesses ; les précurseurs de NAD+ sont traités au hallmark 07.
+1. **Dose and schedule for rapamycin in humans**: is intermittent dosing needed to spare mTORC2? There is still no reliable biomarker of mTORC1 inhibition in tissues. Selective mTORC1 inhibitors remain to be validated clinically.
+2. **Metformin**: a real anti-aging effect, or an artefact of observational studies ("survival" and comparator biases)? TAME has still not been launched, and metformin hinders adaptation to exercise.
+3. **The IGF-1 paradox**: does low IGF-1 protect or weaken older people? The effect seems to depend on age, sex and tissue.
+4. **Sex differences**: many interventions (acarbose, 17α-estradiol, S6K1, SIRT6) act very differently in males and females.
+5. **Caloric restriction vs intermittent fasting vs protein composition**: what really matters? Long-term adherence remains a major obstacle.
+6. **Sirtuins and NAD+**: activators (resveratrol, STACs) have not lived up to their promise; NAD+ precursors are covered in hallmark 07.
 
-## 7. Références
+## 7. References
 
 - López-Otín C et al. Hallmarks of aging: An expanding universe. *Cell* 2023. doi:10.1016/j.cell.2022.11.001
 - Kenyon C et al. A C. elegans mutant that lives twice as long as wild type. *Nature* 1993. doi:10.1038/366461a0

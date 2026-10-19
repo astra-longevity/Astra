@@ -1,71 +1,72 @@
-# 12 — Dysbiose (*dysbiosis*)
+# 12 — Dysbiosis (*dysbiosis*)
 
-> Hallmark « intégratif » ajouté dans la mise à jour de López-Otín et al., *Cell* 2023 ([10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)). Il concerne le déséquilibre du microbiote intestinal avec l'âge et ses effets sur tout l'organisme.
+> "Integrative" hallmark added in the update by López-Otín et al., *Cell* 2023 ([10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)). It concerns the imbalance of the gut microbiota with age and its effects on the whole organism.
 
-## 1. Définition
+## 1. Definition
 
-Le microbiote intestinal est l'ensemble des milliards de bactéries, virus et champignons qui vivent dans notre intestin. Avec l'âge, sa composition se déséquilibre : moins de bactéries bénéfiques, plus de bactéries pro-inflammatoires, et une diversité souvent réduite chez les personnes fragiles. Ce déséquilibre s'appelle la **dysbiose**.
+The gut microbiota is the set of billions of bacteria, viruses and fungi that live in our intestine. With age, its composition becomes unbalanced: fewer beneficial bacteria, more pro-inflammatory bacteria, and diversity that is often reduced in frail people. This imbalance is called **dysbiosis**.
 
-*Vulgarisation : l'intestin abrite un « jardin » de microbes qui nous aide à digérer, à nous défendre et à fabriquer des molécules utiles. Avec l'âge, les mauvaises herbes gagnent du terrain et le jardin produit moins de bonnes choses.*
+*In plain terms: the gut is home to a "garden" of microbes that helps us digest, defend ourselves and make useful molecules. With age, the weeds gain ground and the garden produces fewer good things.*
 
-## 2. Mécanismes et sources
+## 2. Mechanisms and sources
 
-- **Perte de diversité liée au mode de vie** : chez des personnes âgées irlandaises, la composition du microbiote suit le lieu de vie et l'alimentation. Les résidents en institution, au régime moins varié, ont un microbiote moins diversifié, associé à plus de fragilité et d'inflammation ([Claesson 2012, 10.1038/nature11319](https://doi.org/10.1038/nature11319)).
-- **Le vieillissement en bonne santé a une signature** : chez plus de 9 000 personnes, le microbiote devient de plus en plus « unique » (s'éloigne du profil moyen) avec l'âge chez les personnes en bonne santé, et ce schéma prédit la survie ; il est absent chez les personnes en moins bonne santé ([Wilmanski 2021, 10.1038/s42255-021-00348-0](https://doi.org/10.1038/s42255-021-00348-0)).
-- **Intestin perméable et inflammation** : chez la souris, la dysbiose liée à l'âge augmente la perméabilité intestinale. Des produits bactériens passent dans le sang et déclenchent une inflammation systémique ; les souris sans microbes ne montrent pas cette hausse d'inflammation avec l'âge ([Thevaranjan 2017, 10.1016/j.chom.2017.03.002](https://doi.org/10.1016/j.chom.2017.03.002)).
-- **Métabolites nocifs** : certaines bactéries transforment la choline et la carnitine (viande rouge, œufs) en TMA, converti par le foie en **TMAO**, qui favorise l'athérosclérose chez la souris ([Wang 2011, 10.1038/nature09922](https://doi.org/10.1038/nature09922)). Chez l'humain, un TMAO élevé est associé à plus d'événements cardiovasculaires ([Tang 2013, 10.1056/NEJMoa1109400](https://doi.org/10.1056/NEJMoa1109400)).
-- **Métabolites protecteurs** : les centenaires japonais ont un microbiote enrichi en voies produisant des acides biliaires particuliers (comme l'isoallo-acide lithocholique) qui inhibent des bactéries pathogènes ([Sato 2021, 10.1038/s41586-021-03832-5](https://doi.org/10.1038/s41586-021-03832-5)). Les acides gras à chaîne courte (butyrate), produits à partir des fibres, nourrissent la paroi intestinale et calment l'inflammation (revue : [Ghosh 2022, 10.1038/s41575-022-00605-x](https://doi.org/10.1038/s41575-022-00605-x)).
-- **Facteurs aggravants** : médicaments (antibiotiques, inhibiteurs de pompe à protons), polymédication, baisse d'appétit, alimentation pauvre en fibres, sédentarité.
+- **Loss of diversity linked to lifestyle**: in older Irish people, the composition of the microbiota follows where they live and what they eat. Residents of care homes, with a less varied diet, have a less diverse microbiota, associated with more frailty and inflammation ([Claesson 2012, 10.1038/nature11319](https://doi.org/10.1038/nature11319)).
+- **Healthy aging has a signature**: in more than 9,000 people, the microbiota becomes increasingly "unique" (moves away from the average profile) with age in healthy people, and this pattern predicts survival; it is absent in people in poorer health ([Wilmanski 2021, 10.1038/s42255-021-00348-0](https://doi.org/10.1038/s42255-021-00348-0)).
+- **Leaky gut and inflammation**: in mice, age-related dysbiosis increases intestinal permeability. Bacterial products pass into the blood and trigger systemic inflammation; germ-free mice do not show this rise in inflammation with age ([Thevaranjan 2017, 10.1016/j.chom.2017.03.002](https://doi.org/10.1016/j.chom.2017.03.002)).
+- **Harmful metabolites**: some bacteria convert choline and carnitine (red meat, eggs) into TMA, which the liver turns into **TMAO**, which promotes atherosclerosis in mice ([Wang 2011, 10.1038/nature09922](https://doi.org/10.1038/nature09922)). In humans, high TMAO is associated with more cardiovascular events ([Tang 2013, 10.1056/NEJMoa1109400](https://doi.org/10.1056/NEJMoa1109400)).
+- **Protective metabolites**: Japanese centenarians have a microbiota enriched in pathways producing particular bile acids (such as isoallo-lithocholic acid) that inhibit pathogenic bacteria ([Sato 2021, 10.1038/s41586-021-03832-5](https://doi.org/10.1038/s41586-021-03832-5)). Short-chain fatty acids (butyrate), produced from fibre, feed the intestinal wall and calm inflammation (review: [Ghosh 2022, 10.1038/s41575-022-00605-x](https://doi.org/10.1038/s41575-022-00605-x)).
+- **Aggravating factors**: medicines (antibiotics, proton pump inhibitors), polypharmacy, loss of appetite, low-fibre diet, sedentary lifestyle.
 
-## 3. Symptômes et manifestations cliniques
+## 3. Symptoms and clinical manifestations
 
-- **Fragilité** et perte musculaire : associées à un microbiote appauvri ([Claesson 2012](https://doi.org/10.1038/nature11319)).
-- **Inflammation chronique** et infections : plus de risque d'infection à *Clostridioides difficile* chez l'âgé.
-- **Maladies cardiovasculaires** : via le TMAO ([Tang 2013](https://doi.org/10.1056/NEJMoa1109400)).
-- **Maladies métaboliques** : diabète de type 2, obésité.
-- **Déclin cognitif** : axe intestin-cerveau, surtout démontré chez la souris ([Parker 2022, 10.1186/s40168-022-01243-w](https://doi.org/10.1186/s40168-022-01243-w)).
-- **Ce que montrent les centenaires** : leur microbiote est enrichi en bactéries considérées comme bénéfiques (*Akkermansia*, *Bifidobacterium*, *Christensenellaceae*) ([Biagi 2016, 10.1016/j.cub.2016.04.016](https://doi.org/10.1016/j.cub.2016.04.016)).
-- **Limite majeure** : chez l'humain, presque toutes les données sont des **corrélations**. On ne sait pas toujours si la dysbiose cause le mauvais vieillissement ou en résulte (maladies, médicaments, alimentation).
+- **Frailty** and muscle loss: associated with a depleted microbiota ([Claesson 2012](https://doi.org/10.1038/nature11319)).
+- **Chronic inflammation** and infections: higher risk of *Clostridioides difficile* infection in older people.
+- **Cardiovascular disease**: via TMAO ([Tang 2013](https://doi.org/10.1056/NEJMoa1109400)).
+- **Metabolic disease**: type 2 diabetes, obesity.
+- **Cognitive decline**: gut-brain axis, mostly shown in mice ([Parker 2022, 10.1186/s40168-022-01243-w](https://doi.org/10.1186/s40168-022-01243-w)).
+- **What centenarians show**: their microbiota is enriched in bacteria considered beneficial (*Akkermansia*, *Bifidobacterium*, *Christensenellaceae*) ([Biagi 2016, 10.1016/j.cub.2016.04.016](https://doi.org/10.1016/j.cub.2016.04.016)).
+- **Major limitation**: in humans, almost all data are **correlations**. It is not always known whether dysbiosis causes poor aging or results from it (diseases, medicines, diet).
 
-## 4. Interactions avec les autres hallmarks
+## 4. Interactions with the other hallmarks
 
-- **Instabilité génomique (01)** : certaines toxines bactériennes endommagent l'ADN des cellules intestinales (lien surtout établi pour le cancer colorectal).
-- **Attrition des télomères (02)** et **altérations épigénétiques (03)** : les métabolites bactériens (butyrate, folates) influencent les marques épigénétiques de l'hôte.
-- **Perte de protéostasie (04)** et **macroautophagie altérée (05)** : l'urolithine A, produite par les bactéries à partir des ellagitanins (grenade, noix), active la mitophagie (recyclage des mitochondries) ([Ryu 2016, 10.1038/nm.4132](https://doi.org/10.1038/nm.4132)).
-- **Dérégulation de la détection des nutriments (06)** : le microbiote module la réponse à l'alimentation et à la metformine ([Wu 2017, 10.1038/nm.4345](https://doi.org/10.1038/nm.4345)).
-- **Dysfonction mitochondriale (07)** : voir urolithine A.
-- **Sénescence cellulaire (08)** : l'inflammation d'origine intestinale favorise la sénescence.
-- **Épuisement des cellules souches (09)** : le microbiote influence le renouvellement de la paroi intestinale.
-- **Altération de la communication intercellulaire (10)** : les métabolites bactériens sont des messagers circulants (axes intestin-cerveau, intestin-cœur).
-- **Inflammation chronique (11)** : lien le plus solide ; la perméabilité intestinale alimente l'inflammaging ([Thevaranjan 2017](https://doi.org/10.1016/j.chom.2017.03.002)).
 
-## 5. Remèdes existants ou à l'étude
+- **Genomic instability (01)**: some bacterial toxins damage the DNA of intestinal cells (link mostly established for colorectal cancer).
+- **Telomere attrition (02)** and **epigenetic alterations (03)**: bacterial metabolites (butyrate, folates) influence the host's epigenetic marks.
+- **Loss of proteostasis (04)** and **disabled macroautophagy (05)**: urolithin A, produced by bacteria from ellagitannins (pomegranate, walnuts), activates mitophagy (recycling of mitochondria) ([Ryu 2016, 10.1038/nm.4132](https://doi.org/10.1038/nm.4132)).
+- **Deregulated nutrient sensing (06)**: the microbiota modulates the response to diet and to metformin ([Wu 2017, 10.1038/nm.4345](https://doi.org/10.1038/nm.4345)).
+- **Mitochondrial dysfunction (07)**: see urolithin A.
+- **Cellular senescence (08)**: inflammation of intestinal origin promotes senescence.
+- **Stem cell exhaustion (09)**: the microbiota influences the renewal of the intestinal wall.
+- **Altered intercellular communication (10)**: bacterial metabolites are circulating messengers (gut-brain and gut-heart axes).
+- **Chronic inflammation (11)**: the strongest link; intestinal permeability fuels inflammaging ([Thevaranjan 2017](https://doi.org/10.1016/j.chom.2017.03.002)).
 
-| Intervention | Cible | Niveau de preuve | Résultat clé | Source |
+## 5. Existing or investigational remedies
+
+| Intervention | Target | Level of evidence | Key result | Source |
 |---|---|---|---|---|
-| Transplantation de microbiote fécal (TMF) jeune → âgé | Microbiote entier | Préclinique (poisson killifish) | Durée de vie allongée | [Smith 2017](https://doi.org/10.7554/eLife.27014) |
-| TMF chez souris progéroïdes | Microbiote, *Akkermansia* | Préclinique (souris) | Santé et durée de vie allongées | [Bárcena 2019](https://doi.org/10.1038/s41591-019-0504-5) |
-| TMF jeune → âgé | Intestin, œil, cerveau | Préclinique (souris) | Inversion de marqueurs du vieillissement intestinal, rétinien et cérébral | [Parker 2022](https://doi.org/10.1186/s40168-022-01243-w) |
-| Régime méditerranéen 1 an (NU-AGE) | Composition du microbiote | Essai humain randomisé (>600 personnes âgées) | Bactéries associées à moins de fragilité, meilleure cognition, moins d'inflammation | [Ghosh 2020](https://doi.org/10.1136/gutjnl-2019-319654) |
-| Aliments fermentés (10 semaines) | Diversité microbienne | Essai humain randomisé (n=36) | Diversité accrue, marqueurs inflammatoires diminués | [Wastyk 2021](https://doi.org/10.1016/j.cell.2021.06.019) |
-| *Akkermansia muciniphila* pasteurisée | Métabolisme | Essai humain pilote (n=32, surpoids) | Meilleure sensibilité à l'insuline, sûr | [Depommier 2019](https://doi.org/10.1038/s41591-019-0495-2) |
-| Urolithine A | Mitophagie | Essais humains phase I et II | Sûre ; endurance musculaire améliorée chez l'âgé (critère principal de marche non atteint) | [Andreux 2019](https://doi.org/10.1038/s42255-019-0073-4) ; [Liu 2022](https://doi.org/10.1001/jamanetworkopen.2021.44279) |
-| Metformine via le microbiote | Métabolisme bactérien | Préclinique (ver) ; observationnel humain | Prolonge la vie du ver en modifiant ses bactéries ; une partie de l'effet antidiabétique passe par le microbiote | [Cabreiro 2013](https://doi.org/10.1016/j.cell.2013.02.035) ; [Wu 2017](https://doi.org/10.1038/nm.4345) |
-| TMF contre *C. difficile* récidivant | Infection | Essai humain randomisé ; approuvé (indication infectieuse, pas anti-âge) | 81 % de guérison après une infusion contre 31 % sous vancomycine seule | [van Nood 2013](https://doi.org/10.1056/NEJMoa1205037) |
+| Fecal microbiota transplant (FMT) young → old | Whole microbiota | Preclinical (killifish) | Longer lifespan | [Smith 2017](https://doi.org/10.7554/eLife.27014) |
+| FMT in progeroid mice | Microbiota, *Akkermansia* | Preclinical (mice) | Longer healthspan and lifespan | [Bárcena 2019](https://doi.org/10.1038/s41591-019-0504-5) |
+| FMT young → old | Gut, eye, brain | Preclinical (mice) | Reversal of markers of intestinal, retinal and brain aging | [Parker 2022](https://doi.org/10.1186/s40168-022-01243-w) |
+| Mediterranean diet for 1 year (NU-AGE) | Microbiota composition | Randomised human trial (>600 older people) | Bacteria associated with less frailty, better cognition, less inflammation | [Ghosh 2020](https://doi.org/10.1136/gutjnl-2019-319654) |
+| Fermented foods (10 weeks) | Microbial diversity | Randomised human trial (n=36) | Higher diversity, lower inflammatory markers | [Wastyk 2021](https://doi.org/10.1016/j.cell.2021.06.019) |
+| Pasteurised *Akkermansia muciniphila* | Metabolism | Human pilot trial (n=32, overweight) | Better insulin sensitivity, safe | [Depommier 2019](https://doi.org/10.1038/s41591-019-0495-2) |
+| Urolithin A | Mitophagy | Human phase I and II trials | Safe; improved muscle endurance in older people (primary walking endpoint not met) | [Andreux 2019](https://doi.org/10.1038/s42255-019-0073-4) ; [Liu 2022](https://doi.org/10.1001/jamanetworkopen.2021.44279) |
+| Metformin via the microbiota | Bacterial metabolism | Preclinical (worm); human observational | Extends worm life by altering its bacteria; part of the antidiabetic effect goes through the microbiota | [Cabreiro 2013](https://doi.org/10.1016/j.cell.2013.02.035) ; [Wu 2017](https://doi.org/10.1038/nm.4345) |
+| FMT for recurrent *C. difficile* | Infection | Randomised human trial; approved (infectious indication, not anti-aging) | 81% cure after one infusion vs 31% with vancomycin alone | [van Nood 2013](https://doi.org/10.1056/NEJMoa1205037) |
 
-Aucune intervention sur le microbiote n'est approuvée pour ralentir le vieillissement.
+No microbiota intervention is approved to slow aging.
 
-*Vulgarisation : manger varié, riche en fibres et en aliments fermentés est la piste la mieux étayée chez l'humain, même si les effets sur la durée de vie restent non prouvés.*
+*In plain terms: eating a varied diet rich in fibre and fermented foods is the best-supported lead in humans, even though effects on lifespan remain unproven.*
 
-## 6. Questions ouvertes
+## 6. Open questions
 
-- **Cause ou conséquence ?** Chez l'humain, la dysbiose est-elle un moteur du vieillissement ou le reflet de la maladie, des médicaments et du régime ?
-- **Qu'est-ce qu'un « bon » microbiote âgé ?** Il varie selon les pays, les régimes, les individus. Pas de définition consensuelle.
-- **TMF chez l'humain âgé** : sécurité (transmission de pathogènes) et durabilité de l'effet à établir hors indication infectieuse.
-- **Probiotiques** : la plupart des souches commerciales n'ont pas d'effet prouvé sur le vieillissement ; les effets dépendent de la souche et de la personne.
-- **Mécanismes moléculaires** : quels métabolites précis (acides biliaires, butyrate, urolithine A, TMAO) portent l'essentiel de l'effet ?
+- **Cause or consequence?** In humans, is dysbiosis a driver of aging or a reflection of disease, medicines and diet?
+- **What is a "good" old-age microbiota?** It varies by country, diet and individual. There is no consensus definition.
+- **FMT in older humans**: safety (transmission of pathogens) and durability of the effect remain to be established outside the infectious indication.
+- **Probiotics**: most commercial strains have no proven effect on aging; effects depend on the strain and the person.
+- **Molecular mechanisms**: which specific metabolites (bile acids, butyrate, urolithin A, TMAO) carry most of the effect?
 
-## 7. Références
+## 7. References
 
 - López-Otín C. et al. (2023) Hallmarks of aging: An expanding universe. *Cell*. [10.1016/j.cell.2022.11.001](https://doi.org/10.1016/j.cell.2022.11.001)
 - Ghosh T.S., Shanahan F., O'Toole P.W. (2022) The gut microbiome as a modulator of healthy ageing. *Nature Reviews Gastroenterology & Hepatology*. [10.1038/s41575-022-00605-x](https://doi.org/10.1038/s41575-022-00605-x)
