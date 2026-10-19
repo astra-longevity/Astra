@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Open questions{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>Open questions</h1>
+  <p class="lead">What we do not know yet: questions research has not settled, studies that contradict each other, and the points in our own notes still marked “to verify”.</p>
+</section>
+
+<div class="toolbar">
+  {{ m.filter_box("questions-all", "Search…") }}
+  <label>Mission
+    <select data-facet="mission" data-facet-target="#questions-all">
+      <option value="">all</option>
+      {% for mi in missions %}<option value="{{ mi.id }}">{{ mi.title }}</option>{% endfor %}
+    </select>
+  </label>
+  <label class="check"><input type="checkbox" data-hide-resolved="#questions-all" checked> Hide resolved items</label>
+</div>
+
+<div id="questions-all">
+  <section data-group>
+    <h2>Research questions <span class="count">{{ questions | length }}</span></h2>
+    <ul class="list">
+    {% for q in questions %}
+      <li data-search="{{ q.text or q.text_fr }}" data-mission="{{ q.mission }}" data-resolved="{{ m.is_resolved(q.status) }}">
+        <strong>{{ q.text or q.text_fr }}</strong>
+        <div class="meta">{{ m.status(q.status) }}{% if q.mission_title %} <span class="muted">· {{ q.mission_title }}</span>{% endif %}</div>
+        {% if q.note %}<p class="muted">{{ q.note }}</p>{% endif %}
+      </li>
+    {% else %}
+      <li class="empty">No questions recorded.</li>
+    {% endfor %}
+    </ul>
+  </section>
+
+  <section data-group>
+    <h2><abbr data-term="contradiction">Contradictions</abbr> <span class="count">{{ contradictions | length }}</span></h2>
+    <ul class="list">
+    {% for c in contradictions %}
+      <li data-search="{{ c.summary or c.summary_fr }} {{ c.claim_a.statement or c.claim_a.statement_fr }} {{ c.claim_b.statement or c.claim_b.statement_fr }}" data-mission="{{ c.mission }}" data-resolved="{{ m.is_resolved(c.status) }}">
+        <strong>{{ c.summary or c.summary_fr }}</strong>
+        <div class="versus">
+          <a href="{{ root }}claims/{{ c.claim_a.id }}.html">{{ c.claim_a.statement or c.claim_a.statement_fr }}</a>
+          <span class="vs" aria-label="versus">≠</span>
+          <a href="{{ root }}claims/{{ c.claim_b.id }}.html">{{ c.claim_b.statement or c.claim_b.statement_fr }}</a>
+        </div>
+        {% if c.status %}<div class="meta">{{ m.status(c.status) }}</div>{% endif %}
+      </li>
+    {% else %}
+      <li class="empty">No contradictions found.</li>
+    {% endfor %}
+    </ul>
+  </section>
+
+  <section data-group>
+    <h2>Points “to verify” in our notes <span class="count">{{ to_verify | length }}</span></h2>
+    <ul class="list">
+    {% for t in to_verify %}
+      <li data-search="{{ t.text }} {{ t.file }}" data-mission="{{ t.mission }}" data-resolved="no">
+        {{ t.text }}
+        <div class="meta"><span class="muted">{{ t.file }}{% if t.line %}, line {{ t.line }}{% endif %}</span></div>
+      </li>
+    {% else %}
+      <li class="empty">Nothing to verify: every note has been checked.</li>
+    {% endfor %}
+    </ul>
+  </section>
+</div>
+{% endblock %}

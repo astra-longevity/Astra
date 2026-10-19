@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Map of aging{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>The map of aging</h1>
+  <p class="lead">Researchers now describe aging through 12 <abbr data-term="hallmark">hallmarks</abbr>: mechanisms that wear down with age. Speeding one up makes the body age faster; slowing it down slows aging. They fall into three families.</p>
+  <ul class="legend">
+    <li>{{ m.confidence("established") }} several independent studies, including in humans</li>
+    <li>{{ m.confidence("debated") }} conflicting or qualified results</li>
+    <li>{{ m.confidence("speculative") }} hypothesis with little proof so far</li>
+  </ul>
+</section>
+
+{{ m.filter_box("hallmarks", "Search a hallmark…") }}
+
+<div id="hallmarks">
+{% for fam in families %}
+  <section class="family" data-group>
+    <h2>{{ fam.name }}</h2>
+    {% if fam.description %}<p class="muted">{{ fam.description }}</p>{% endif %}
+    <div class="cards">
+    {% for h in fam.hallmarks %}
+      <article class="card" data-search="{{ h.name or h.name_en }} {{ h.summary }}">
+        <header>
+          <span class="card-num">{{ h.number }}</span>
+          <h3>{{ h.name or h.name_en or h.name_fr }}</h3>
+        </header>
+        <p>{{ h.summary }}</p>
+        <footer class="card-foot">
+          {{ m.confidence(h.confidence) }}
+          <span class="muted">{{ h.claim_count }} claim{{ "s" if h.claim_count != 1 else "" }} · {{ h.source_count }} source{{ "s" if h.source_count != 1 else "" }}</span>
+          {% if h.doc_href %}<a class="more" href="{{ root }}{{ h.doc_href }}">Read the note →</a>{% endif %}
+        </footer>
+      </article>
+    {% endfor %}
+    </div>
+  </section>
+{% endfor %}
+</div>
+{% endblock %}

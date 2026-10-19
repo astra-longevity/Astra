@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Claim {{ claim.id }}{% endblock %}
+{% block content %}
+<nav class="crumbs"><a href="{{ root }}claims.html">Claims</a> › {{ claim.id }}</nav>
+
+<article class="claim">
+  <h1 class="statement">{{ claim.statement or claim.statement_fr }}</h1>
+  <dl class="facts">
+    <dt>Confidence</dt><dd>{{ m.confidence(claim.confidence) }}</dd>
+    <dt><abbr data-term="level-of-evidence">Level of evidence</abbr></dt><dd>{{ m.evidence_level(claim.evidence_level) }}</dd>
+    <dt>Observed in</dt><dd>{{ claim.organism or "not specified" }}</dd>
+    {% if claim.mission_title %}<dt>Mission</dt><dd>{{ claim.mission_title }}</dd>{% endif %}
+    {% if concepts %}<dt>Concepts</dt><dd>{% for co in concepts %}<span class="tag">{{ co.name or co.name_en or co.name_fr }}</span>{% endfor %}</dd>{% endif %}
+  </dl>
+</article>
+
+<section>
+  <h2>What the sources say</h2>
+  <p class="muted">Each row is an article. “Supports”: it backs the claim. “Contradicts”: it goes against it. “Qualifies”: it limits it (another species, a weaker effect…).</p>
+  {% if evidence %}
+  <table class="table">
+    <thead><tr><th>Direction</th><th>Source</th><th>Where in the article</th><th>Status</th></tr></thead>
+    <tbody>
+    {% for e in evidence %}
+      <tr>
+        <td>{{ m.direction(e.direction) }}</td>
+        <td><a href="{{ root }}sources/{{ e.slug }}.html">{{ e.title }}</a><br><span class="muted">{{ e.authors_short }} · {{ e.journal }} {{ e.year }}</span></td>
+        <td>{{ e.locator or "—" }}</td>
+        <td>{{ m.source_status(e.status) }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="empty">No source attached yet: this claim still needs documenting.</p>
+  {% endif %}
+</section>
+
+{% if relations %}
+<section>
+  <h2>Related claims</h2>
+  <ul class="list">
+  {% for r in relations %}
+    <li><span class="tag">{{ m.relation(r.type) }}</span> <a href="{{ root }}claims/{{ r.id }}.html">{{ r.statement or r.statement_fr }}</a></li>
+  {% endfor %}
+  </ul>
+</section>
+{% endif %}
+{% endblock %}

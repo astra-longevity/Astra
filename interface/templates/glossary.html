@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Glossary{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>Glossary</h1>
+  <p class="lead">The project's technical words, explained simply. Anywhere on the site, a word with a dotted underline links here.</p>
+</section>
+
+{{ m.filter_box("glossary-list", "Search a word…") }}
+
+<dl id="glossary-list" class="glossary">
+{% for t in glossary_sorted %}
+  <div class="entry" id="{{ t.id }}" data-search="{{ t.term }} {{ t.aka or t.en }} {{ t.definition }}">
+    <dt>{{ t.term }}{% if t.aka or t.en %} <span class="en">({{ t.aka or t.en }})</span>{% endif %}</dt>
+    <dd>{{ t.definition }}</dd>
+  </div>
+{% endfor %}
+</dl>
+{% endblock %}

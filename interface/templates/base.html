@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ site.title }}{% endblock %} · Astra</title>
+  <link rel="stylesheet" href="{{ root }}static/style.css">
+</head>
+<body data-page="{{ page }}">
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="{{ root }}index.html">Astra<span class="brand-sub">research against aging</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="{{ root }}index.html" {% if page == "index" %}aria-current="page"{% endif %}>Dashboard</a>
+      <a href="{{ root }}map.html" {% if page in ["map", "doc"] %}aria-current="page"{% endif %}>Map of aging</a>
+      <a href="{{ root }}claims.html" {% if page in ["claims", "claim"] %}aria-current="page"{% endif %}>Claims</a>
+      <a href="{{ root }}sources.html" {% if page in ["sources", "source"] %}aria-current="page"{% endif %}>Sources</a>
+      <a href="{{ root }}questions.html" {% if page == "questions" %}aria-current="page"{% endif %}>Open questions</a>
+      <a href="{{ root }}journal.html" {% if page == "journal" %}aria-current="page"{% endif %}>Journal</a>
+      <a href="{{ root }}glossary.html" {% if page == "glossary" %}aria-current="page"{% endif %}>Glossary</a>
+    </nav>
+  </header>
+
+  <main id="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <p>Site generated on {{ site.generated_at }} from the repository (version <code>{{ site.commit_short }}</code>). Nothing is stored anywhere but the repository.</p>
+    <p class="muted">Words with a dotted underline have a definition: hover over or tap them.</p>
+  </footer>
+
+  <script id="glossary-data" type="application/json">{{ glossary | tojson }}</script>
+  <script src="{{ root }}static/site.js"></script>
+</body>
+</html>

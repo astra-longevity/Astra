@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Sources{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>Sources</h1>
+  <p class="lead">Every scientific article we use. Each has a <abbr data-term="doi">DOI</abbr>, its unique identifier (books have an ISBN instead). “Verified” means we checked that this identifier exists and matches the cited article.</p>
+</section>
+
+<div class="toolbar">
+  {{ m.filter_box("sources-list", "Title, author, journal, year…") }}
+  <label>Status
+    <select data-facet="status" data-facet-target="#sources-list">
+      <option value="">all</option>
+      <option value="ok">{{ m.source_status_label("verified") }}</option>
+      <option value="warn">{{ m.source_status_label("to_verify") }}</option>
+    </select>
+  </label>
+</div>
+
+<ul id="sources-list" class="list">
+{% for s in sources %}
+  <li data-search="{{ s.title }} {{ s.authors }} {{ s.journal }} {{ s.year }} {{ s.doi or s.id }}" data-status="{{ m.source_status_key(s.status) }}">
+    <a href="{{ root }}sources/{{ s.slug }}.html">{{ s.title }}</a>
+    <div class="meta">{{ m.source_status(s.status) }} <span class="muted">{{ s.authors_short }} · {{ s.journal }} {{ s.year }} · used by {{ s.claim_count }} claim{{ "s" if s.claim_count != 1 else "" }}</span></div>
+  </li>
+{% else %}
+  <li class="empty">No sources recorded yet.</li>
+{% endfor %}
+</ul>
+{% endblock %}

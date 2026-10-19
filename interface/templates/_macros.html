@@ -1,0 +1,110 @@
+{# Shared components. Import: {% import "_macros.html" as m %}
+   Data values (enums) are NEVER shown raw: they go through the label maps below.
+   Each map accepts both the English values (schema after A9's translation) and the
+   older French values, so templates keep working during the switch. #}
+
+{# value -> [label, css class] #}
+{% set CONFIDENCE = {
+  "established": ["Established", "conf-established"], "solide": ["Established", "conf-established"],
+  "debated": ["Debated", "conf-debated"], "débattu": ["Debated", "conf-debated"],
+  "speculative": ["Speculative", "conf-speculative"], "spéculatif": ["Speculative", "conf-speculative"]} %}
+{% set CONFIDENCE_HELP = {
+  "conf-established": "Several independent studies agree, including in humans.",
+  "conf-debated": "Some results support it, others contradict or qualify it.",
+  "conf-speculative": "A plausible idea, little or not yet demonstrated."} %}
+{% set SOURCE_STATUS = {
+  "verified": ["Verified", "ok"], "vérifié": ["Verified", "ok"],
+  "to_verify": ["To verify", "warn"], "to-verify": ["To verify", "warn"], "à vérifier": ["To verify", "warn"]} %}
+{% set DIRECTION = {
+  "supports": ["Supports", "dir-pro"], "soutient": ["Supports", "dir-pro"],
+  "contradicts": ["Contradicts", "dir-con"], "contredit": ["Contradicts", "dir-con"],
+  "nuances": ["Qualifies", "dir-nuance"], "qualifies": ["Qualifies", "dir-nuance"], "nuance": ["Qualifies", "dir-nuance"]} %}
+{% set STATUS = {
+  "open": ["Open", "status-open"], "ouverte": ["Open", "status-open"],
+  "resolved": ["Resolved", "status-done"], "résolue": ["Resolved", "status-done"],
+  "in_progress": ["In progress", "status-open"], "in-progress": ["In progress", "status-open"], "en cours": ["In progress", "status-open"],
+  "active": ["Active", "status-open"], "completed": ["Completed", "status-done"], "done": ["Done", "status-done"], "terminée": ["Done", "status-done"]} %}
+{# Evidence scale = data/schema/evidence-levels.yaml (A9), weakest (1) to strongest (6). #}
+{% set EVIDENCE = {
+  "in-vitro": ["Cells or computer", 1],
+  "invertebrate": ["Small model organisms", 2], "invertebre": ["Small model organisms", 2],
+  "mammal": ["Laboratory mammals", 3], "mammifere": ["Laboratory mammals", 3],
+  "human-observational": ["Observations in humans", 4], "humain-observationnel": ["Observations in humans", 4],
+  "human-trial": ["Randomized clinical trial", 5], "humain-essai": ["Randomized clinical trial", 5],
+  "approved": ["Approved by a health authority", 6], "approuve": ["Approved by a health authority", 6]} %}
+{% set RELATION = {
+  "causes": "causes", "cause": "causes",
+  "aggravates": "worsens", "worsens": "worsens", "aggrave": "worsens",
+  "inhibits": "inhibits", "inhibe": "inhibits",
+  "activates": "activates", "active": "activates",
+  "marker_of": "is a marker of", "marqueur_de": "is a marker of",
+  "treats": "treats", "traite": "treats",
+  "prevents": "prevents", "previent": "prevents",
+  "part_of": "is part of", "partie_de": "is part of",
+  "associated_with": "is associated with", "associe_a": "is associated with"} %}
+
+{# Plain label of a confidence value (for filter menus) #}
+{% macro confidence_label(value) -%}{{ (CONFIDENCE[value] or [value])[0] }}{%- endmacro %}
+
+{# Language-independent keys used by the client-side filters (data-* attributes) #}
+{% macro confidence_key(value) -%}{{ (CONFIDENCE[value] or ["", "conf-unknown"])[1] }}{%- endmacro %}
+{% macro source_status_key(value) -%}{{ (SOURCE_STATUS[value] or ["", "warn"])[1] }}{%- endmacro %}
+{% macro is_resolved(value) -%}{{ "yes" if value in ["resolved", "résolue"] else "no" }}{%- endmacro %}
+
+{# Plain label of a source status (for filter menus) #}
+{% macro source_status_label(value) -%}{{ (SOURCE_STATUS[value] or [value])[0] }}{%- endmacro %}
+
+{# Confidence badge for a claim #}
+{% macro confidence(value) -%}
+  {%- set item = CONFIDENCE[value] -%}
+  {%- if item -%}
+  <span class="badge conf {{ item[1] }}" title="{{ CONFIDENCE_HELP[item[1]] }}">{{ item[0] }}</span>
+  {%- else -%}
+  <span class="badge conf" title="Confidence not assessed">{{ value or "Not assessed" }}</span>
+  {%- endif -%}
+{%- endmacro %}
+
+{# Source status badge #}
+{% macro source_status(value) -%}
+  {%- set item = SOURCE_STATUS[value] or ["To verify", "warn"] -%}
+  <span class="badge {{ item[1] }}" title="{{ 'Reference checked: the DOI exists and matches the cited article.' if item[1] == 'ok' else 'Reference not checked yet.' }}">{{ item[0] }}</span>
+{%- endmacro %}
+
+{# Evidence level badge: dots + plain label #}
+{% macro evidence_level(code) -%}
+  {%- set item = EVIDENCE[code] -%}
+  {%- if item -%}
+  <span class="badge level level-{{ item[1] }}" title="Level of evidence {{ item[1] }} out of 6 (6 = most reliable)"><span class="dots" aria-hidden="true">{% for i in range(6) %}{% if i < item[1] %}●{% else %}○{% endif %}{% endfor %}</span> {{ item[0] }}</span>
+  {%- else -%}
+  <span class="badge level">{{ code or "Level not given" }}</span>
+  {%- endif -%}
+{%- endmacro %}
+
+{# How a source relates to a claim #}
+{% macro direction(value) -%}
+  {%- set item = DIRECTION[value] -%}
+  <span class="badge {{ item[1] if item else '' }}">{{ item[0] if item else value }}</span>
+{%- endmacro %}
+
+{# Status of a mission, question or contradiction #}
+{% macro status(value) -%}
+  {%- set item = STATUS[value] -%}
+  <span class="badge status {{ item[1] if item else '' }}">{{ item[0] if item else value }}</span>
+{%- endmacro %}
+
+{# Relation between two claims, as a short phrase #}
+{% macro relation(value) -%}{{ RELATION[value] or value }}{%- endmacro %}
+
+{# Clickable DOI (the only external link allowed: it opens the article at the publisher) #}
+{% macro doi_link(doi) -%}
+  <a class="doi" href="https://doi.org/{{ doi }}" rel="noopener" target="_blank">doi:{{ doi }}</a>
+{%- endmacro %}
+
+{# Search box filtering the [data-search] items of the target container #}
+{% macro filter_box(target, placeholder="Filter…") -%}
+  <div class="filter">
+    <label class="visually-hidden" for="filter-{{ target }}">{{ placeholder }}</label>
+    <input type="search" id="filter-{{ target }}" data-filter="#{{ target }}" placeholder="{{ placeholder }}" autocomplete="off">
+    <span class="filter-count" data-count-for="#{{ target }}" aria-live="polite"></span>
+  </div>
+{%- endmacro %}

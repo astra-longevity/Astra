@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>Where does the research stand?</h1>
+  <p class="lead">Astra is a team of agents that reads the scientific literature on aging and organizes what it finds. This page sums up progress: each <strong>mission</strong> is a research project, with its owner and its latest change.</p>
+</section>
+
+<section class="stats" aria-label="Key figures">
+  <div class="stat"><span class="stat-n">{{ stats.missions }}</span><span class="stat-l">missions</span></div>
+  <div class="stat"><span class="stat-n">{{ stats.claims }}</span><span class="stat-l">claims</span></div>
+  <div class="stat"><span class="stat-n">{{ stats.sources }}</span><span class="stat-l">sources</span></div>
+  <div class="stat"><span class="stat-n">{{ stats.sources_verified }}</span><span class="stat-l">verified sources</span></div>
+  <div class="stat"><span class="stat-n">{{ stats.questions_open }}</span><span class="stat-l">open questions</span></div>
+</section>
+
+<section>
+  <h2>Missions</h2>
+  {% if missions %}
+  <table class="table">
+    <thead><tr><th>Mission</th><th>Last change</th></tr></thead>
+    <tbody>
+    {% for mi in missions %}
+      <tr>
+        <td><strong>{{ mi.title }}</strong>{% if mi.summary %}<br><span class="muted">{{ mi.summary }}</span>{% endif %}
+          {% if mi.status or mi.owner %}<div class="meta">{% if mi.status %}{{ m.status(mi.status) }}{% endif %}{% if mi.owner %} <span class="muted">Owner: {{ mi.owner }}</span>{% endif %}</div>{% endif %}</td>
+        <td>{% if mi.updated_at %}<time datetime="{{ mi.updated_at }}">{{ mi.updated_at }}</time>{% else %}—{% endif %}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p class="empty">No missions yet.</p>
+  {% endif %}
+</section>
+
+{% if recent %}
+<section>
+  <h2>Latest changes</h2>
+  <ul class="timeline compact">
+  {% for c in recent %}
+    <li><time datetime="{{ c.date }}">{{ c.date }}</time> — {{ c.message }}</li>
+  {% endfor %}
+  </ul>
+  <p><a href="{{ root }}journal.html">Full journal →</a></p>
+</section>
+{% endif %}
+{% endblock %}

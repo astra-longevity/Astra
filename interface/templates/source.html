@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}{{ source.title }}{% endblock %}
+{% block content %}
+<nav class="crumbs"><a href="{{ root }}sources.html">Sources</a> › {{ source.authors_short }} {{ source.year }}</nav>
+
+<article class="source">
+  <h1>{{ source.title }}</h1>
+  <dl class="facts">
+    <dt>Authors</dt><dd>{{ source.authors }}</dd>
+    {% if source.journal or source.year %}<dt>Journal</dt><dd>{{ source.journal or "" }}{% if source.journal and source.year %}, {% endif %}{{ source.year or "" }}</dd>{% endif %}
+    {% if source.type_label %}<dt>Type</dt><dd>{{ source.type_label }}</dd>{% endif %}
+    {% if source.doi %}<dt><abbr data-term="doi">DOI</abbr></dt><dd>{{ m.doi_link(source.doi) }}</dd>
+    {% else %}<dt>Identifier</dt><dd><code>{{ source.id }}</code></dd>{% endif %}
+    <dt>Status</dt><dd>{{ m.source_status(source.status) }}</dd>
+  </dl>
+</article>
+
+<section>
+  <h2>Claims that rely on this source</h2>
+  {% if claims %}
+  <ul class="list">
+  {% for c in claims %}
+    <li>
+      {{ m.direction(c.direction) }} <a href="{{ root }}claims/{{ c.id }}.html">{{ c.statement or c.statement_fr }}</a>
+      <div class="meta">{{ m.confidence(c.confidence) }}{% if c.locator %} <span class="muted">· {{ c.locator }}</span>{% endif %}</div>
+    </li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p class="empty">This source is not linked to any claim yet.</p>
+  {% endif %}
+</section>
+{% endblock %}

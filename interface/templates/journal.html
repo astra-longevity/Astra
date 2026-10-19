@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m %}
+{% block title %}Journal{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>Journal</h1>
+  <p class="lead">The history of everything that changed in the project, newest first. Each line is a <abbr data-term="commit">commit</abbr>: a recorded change, with its author and date.</p>
+</section>
+
+<div class="toolbar">
+  {{ m.filter_box("journal", "Search the journal…") }}
+  <label>Area
+    <select data-facet="area" data-facet-target="#journal">
+      <option value="">all</option>
+      {% for a in areas %}<option value="{{ a.id }}">{{ a.label }}</option>{% endfor %}
+    </select>
+  </label>
+</div>
+
+<div id="journal">
+{% for day in days %}
+  <section class="day" data-group>
+    <h2><time datetime="{{ day.date }}">{{ day.label }}</time></h2>
+    <ol class="timeline">
+    {% for c in day.commits %}
+      <li data-search="{{ c.message }} {{ c.author }} {{ c.area }}" data-area="{{ c.area }}">
+        <span class="time">{{ c.time }}</span>
+        {% if c.area %}<span class="tag">{{ c.area_label or c.area }}</span>{% endif %}
+        <span class="msg">{{ c.message }}</span>
+        <span class="muted">— {{ c.author }} · <code>{{ c.hash_short }}</code></span>
+      </li>
+    {% endfor %}
+    </ol>
+  </section>
+{% else %}
+  <p class="empty">The journal is empty.</p>
+{% endfor %}
+</div>
+{% endblock %}

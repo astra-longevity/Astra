@@ -1,0 +1,193 @@
+# Astra glossary — plain-English definitions, 1 to 2 sentences, for a non-biologist.
+# `id`: stable identifier, used in pages as <abbr data-term="id">.
+# `aka` (optional): another name or what an abbreviation stands for.
+# To add a term: new entry, id in lowercase-with-dashes, ASCII only.
+
+- id: hallmark
+  term: Hallmark of aging
+  definition: A biological mechanism that wears down with age; speeding it up makes the body age faster, slowing it down slows aging. The reference list (López-Otín, 2023) has 12.
+- id: cell
+  term: Cell
+  definition: The smallest living unit. The human body has tens of trillions of them, of very different kinds (skin, muscle, nerve…).
+- id: dna
+  term: DNA
+  definition: The long molecule that holds the cell's instruction manual, written with four "letters". Every cell carries a full copy.
+- id: gene
+  term: Gene
+  definition: A stretch of DNA that works as the recipe for one specific protein. Humans have about 20,000.
+- id: protein
+  term: Protein
+  definition: A tool-molecule the cell builds from a gene. Proteins do almost all the work in the body: structure, transport, chemical reactions, signals.
+- id: mutation
+  term: Mutation
+  definition: A typo in DNA. Most do nothing; some break a gene and can lead to disease such as cancer.
+- id: genomic-instability
+  term: Genomic instability
+  definition: The build-up of damage and errors in DNA over a lifetime. It is one of the 12 hallmarks of aging.
+- id: telomere
+  term: Telomere
+  definition: The protective cap at the end of each chromosome, like the plastic tip of a shoelace. It gets shorter each time the cell divides; when too short, the cell stops.
+- id: telomerase
+  term: Telomerase
+  definition: The enzyme that lengthens telomeres. It is active in stem cells and most cancers, but nearly switched off in other adult cells.
+- id: chromosome
+  term: Chromosome
+  definition: A large, tightly packed bundle of DNA. Humans have 23 pairs in each cell.
+- id: epigenetics
+  term: Epigenetics
+  definition: Marks placed on DNA that switch genes on or off without changing their text, like highlighting in a book. They get scrambled with age.
+- id: dna-methylation
+  term: DNA methylation
+  definition: One specific epigenetic mark (a small chemical tag stuck on DNA) that tends to switch a gene off. Its pattern changes with age in a very regular way.
+- id: epigenetic-clock
+  term: Epigenetic clock
+  definition: A calculation that estimates a person's biological age from their DNA methylation. It can run ahead of or behind their age in years.
+- id: biological-age
+  term: Biological age
+  definition: The body's "real" age, estimated from biological measurements, as opposed to chronological age counted in years.
+- id: proteostasis
+  term: Proteostasis
+  definition: All the checks that build, fold, repair and recycle proteins correctly. When it fails, damaged or clumped proteins pile up.
+- id: autophagy
+  term: Autophagy
+  definition: The cell's recycling system: it partly "eats itself" to get rid of waste and worn-out parts. It slows down with age.
+- id: lysosome
+  term: Lysosome
+  definition: A small sac in the cell filled with digestive enzymes, where waste ends up to be recycled. It is the processing plant of autophagy.
+- id: nutrient-sensing
+  term: Nutrient sensing
+  definition: The circuits a cell uses to tell whether food is plentiful or scarce, and to adjust its growth. When they go wrong, it is a hallmark of aging.
+- id: mtor
+  term: mTOR
+  definition: A master switch in the cell that drives growth when nutrients are plentiful. Turning it down (with rapamycin or calorie restriction) extends life in many animals.
+- id: ampk
+  term: AMPK
+  definition: An energy sensor in the cell, switched on when energy runs low. It slows growth and boosts recycling; metformin activates it indirectly.
+- id: insulin-igf1
+  term: Insulin / IGF-1 signaling
+  definition: The hormone circuit that signals plenty of sugar and pushes growth. Turning it down extends life in worms, flies and mice.
+- id: sirtuins
+  term: Sirtuins
+  definition: A family of enzymes involved in repair and metabolism, which need NAD+ to work. Their role in mammal longevity is still debated.
+- id: nad
+  term: NAD+
+  definition: A small molecule essential for making energy and for some repairs. Its level drops with age; supplements try to raise it.
+- id: calorie-restriction
+  term: Calorie restriction
+  definition: Eating clearly less (often 20 to 40% less) without malnutrition. It is the most studied way to extend life in animals.
+- id: mitochondrion
+  term: Mitochondrion
+  aka: plural mitochondria
+  definition: The cell's "power plant", which turns nutrients into usable energy. It works less well with age.
+- id: ros
+  term: Free radicals
+  aka: ROS, reactive oxygen species
+  definition: Highly reactive molecules made mostly by mitochondria. In excess they damage DNA and proteins; in small amounts they are also useful signals.
+- id: senescence
+  term: Cellular senescence
+  definition: The state of a damaged cell that permanently stops dividing but does not die. It protects against cancer, but these "zombie" cells pile up with age and harm their neighbors.
+- id: sasp
+  term: SASP
+  aka: senescence-associated secretory phenotype
+  definition: The cocktail of inflammatory signals released by senescent cells. It is how they damage the tissue around them.
+- id: senolytic
+  term: Senolytic
+  definition: A drug that selectively kills senescent cells. Examples tested so far: dasatinib + quercetin, fisetin.
+- id: stem-cell
+  term: Stem cell
+  definition: A reserve cell that can renew itself and produce specialized cells to repair a tissue. Their exhaustion with age reduces the body's ability to repair.
+- id: inflammation
+  term: Inflammation
+  definition: The body's defense reaction to injury or infection (redness, heat, swelling). Helpful when short, harmful when it becomes permanent.
+- id: inflammaging
+  term: Inflammaging
+  aka: chronic age-related inflammation
+  definition: A low but constant inflammation that settles in with age, without any infection. It fuels many age-related diseases.
+- id: cytokine
+  term: Cytokine
+  definition: A small messenger protein that cells exchange to coordinate, especially during inflammation (example: IL-6).
+- id: intercellular-communication
+  term: Intercellular communication
+  definition: The messages (hormones, cytokines, direct contact) that cells and organs send each other. With age these messages get scrambled, which is a hallmark of aging.
+- id: microbiota
+  term: Microbiota
+  aka: gut flora
+  definition: All the microbes (mostly bacteria) living in our gut. They affect digestion, immunity and even the brain.
+- id: dysbiosis
+  term: Dysbiosis
+  definition: An imbalance of the microbiota, for example the loss of helpful bacteria. It is the newest of the 12 hallmarks of aging.
+- id: rapamycin
+  term: Rapamycin
+  definition: A drug that turns down mTOR, first used to prevent transplant rejection. It extends the life of mice, even when given late.
+- id: metformin
+  term: Metformin
+  definition: A common, cheap drug for type 2 diabetes. The TAME trial is meant to test whether it delays age-related diseases in humans.
+- id: reprogramming
+  term: Cellular reprogramming
+  definition: "Rejuvenating" an adult cell by switching on a few embryonic genes (the Yamanaka factors). Spectacular in mice, still far from use in humans.
+- id: in-vitro
+  term: In vitro
+  definition: Latin for "in glass": an experiment on cells in a lab dish, outside a living body. It is the weakest level of evidence for humans.
+- id: in-vivo
+  term: In vivo
+  definition: Latin for "in the living": an experiment on a whole living organism, animal or human.
+- id: animal-model
+  term: Animal model
+  definition: An animal (worm, fly, mouse…) studied in place of humans. What works in it does not always work in us.
+- id: transgenic-mouse
+  term: Genetically modified mouse
+  aka: transgenic mouse
+  definition: A mouse with a gene changed on purpose to see what it does, for example so that its senescent cells can be destroyed.
+- id: observational-study
+  term: Observational study
+  definition: Researchers watch people without imposing anything and look for links. It shows an association, not a cause.
+- id: correlation-causation
+  term: Correlation vs causation
+  definition: Two things that change together (correlation) do not prove that one causes the other (causation). It is the classic trap of observational studies.
+- id: clinical-trial
+  term: Clinical trial
+  definition: A study that gives a treatment to people to measure its effect and safety, following a plan fixed in advance.
+- id: rct
+  term: Randomized controlled trial
+  aka: RCT
+  definition: A clinical trial where chance decides who gets the treatment and who gets a placebo. It is the only kind of study that proves cause and effect in humans.
+- id: placebo
+  term: Placebo
+  definition: A fake treatment with no active ingredient, given to the comparison group so the real treatment can be judged fairly.
+- id: meta-analysis
+  term: Meta-analysis
+  definition: A study that pools the results of many studies on the same question to reach a firmer conclusion.
+- id: mendelian-randomization
+  term: Mendelian randomization
+  definition: A method that uses natural genetic differences between people as nature's own "coin toss", to get close to cause and effect without a clinical trial.
+- id: biomarker
+  term: Biomarker
+  definition: A biological measurement (blood test, scan…) that tells us about a condition or disease, for example blood sugar for diabetes.
+- id: healthspan
+  term: Healthspan
+  definition: The number of years lived without serious disease or disability. It is often the main goal of the research, more than total lifespan.
+- id: doi
+  term: DOI
+  aka: Digital Object Identifier
+  definition: The unique, permanent identifier of a scientific article, like an ISBN for a book. It lets anyone find the exact article.
+- id: peer-review
+  term: Peer review
+  definition: The check of an article by other researchers before it is published. It catches obvious errors but does not guarantee the result is true.
+- id: preprint
+  term: Preprint
+  definition: An article posted online before peer review. Useful for speed, but to be read with caution.
+- id: claim
+  term: Claim
+  definition: In Astra, one precise, checkable sentence taken from the literature, linked to the articles that support or contradict it.
+- id: level-of-evidence
+  term: Level of evidence
+  definition: How strong the type of study behind a claim is, from weakest (cells in a lab) to strongest (a treatment approved by a health authority). Astra uses 6 levels.
+- id: contradiction
+  term: Contradiction
+  definition: In Astra, two claims or two studies that say incompatible things. We record them instead of hiding them.
+- id: commit
+  term: Commit
+  definition: A change saved in the repository's history, with its author, its date and a message describing it.
+- id: repository
+  term: Repository
+  definition: The shared folder (on GitHub) that holds the whole project and the history of every change to it.
