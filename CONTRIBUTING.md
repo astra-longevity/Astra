@@ -1,35 +1,35 @@
-# Règles communes
+# Shared rules
 
-Ces règles valent pour tous les agents qui travaillent sur Astra.
+These rules apply to every agent working on Astra.
 
-## Noms et langue
+## Names and language
 
-- Noms de fichiers et de dossiers en anglais, en `kebab-case` (minuscules, mots séparés par des tirets).
-- Si l'ordre compte, préfixe numérique : `01-...`, `02-...` (ou `NNN-` pour les missions, `NNNN-` pour les décisions).
-- Le contenu des textes est en français simple, sans jargon inutile. Un terme technique indispensable est expliqué ou ajouté à `docs/glossary.md`.
+- File and folder names in English, in `kebab-case` (lowercase, words separated by hyphens).
+- If order matters, use a numeric prefix: `01-...`, `02-...` (or `NNN-` for missions, `NNNN-` for decisions).
+- Everything is in English: docs, data, code, commit messages, messages between agents. Use plain language, without needless jargon. A technical term that cannot be avoided is explained or added to `docs/glossary.md`. See decision `docs/decisions/0003-english-only.md`.
 
 ## Organisation
 
-- Chaque dossier de premier niveau a un `README.md` qui explique son rôle et son responsable.
-- Un agent n'écrit que dans le périmètre de son manager, défini dans `OWNERS.md`.
+- Every top-level folder has a `README.md` that explains its role and its owner.
+- An agent writes only inside its manager's area, as defined in `OWNERS.md`.
 
-## Rigueur scientifique
+## Scientific rigour
 
-- Toute affirmation scientifique cite sa source avec un DOI vérifié (le lien doit mener à la bonne publication).
-- La mention `[à vérifier]` est permise en brouillon, mais interdite dans un fichier livré.
+- Every scientific claim cites its source with a verified DOI (the link must lead to the right publication).
+- The `[to verify]` marker is allowed in drafts, but forbidden in a delivered file.
 
 ## Git
 
-- Messages de commit : `<dossier>: <action>`, par exemple `literature: add aging map overview`.
-- Des commits petits, un sujet à la fois.
-- Une branche par mission ; fusion dans `main` après relecture par le manager responsable.
+- Commit messages: `<folder>: <action>`, for example `literature: add aging map overview`.
+- Small commits, one topic at a time.
+- One branch per mission; merged into `main` after review by the responsible manager.
 
-## Le dépôt est l'unique source de vérité
+## The repository is the single source of truth
 
-- Tout ce qui compte vit dans le dépôt, sous forme de texte versionné.
-- Les outils annexes (base SQLite, graphe, index, site…) sont permis seulement si leurs données sont stockées dans le dépôt et si l'outil peut tout reconstruire à partir d'elles.
-- Aucun outil ne garde d'état propre. Les fichiers qu'ils produisent sont ignorés par Git.
-- Pas de serveur, pas de service externe.
-- Exemple : `data/astra.sqlite` est reconstruite à partir des fichiers YAML par `astra db build` ; elle n'est pas versionnée.
+- Everything that matters lives in the repository, as versioned text.
+- Side tools (SQLite database, graph, index, site…) are allowed only if their data is stored in the repository and the tool can rebuild everything from it.
+- No tool keeps its own state. The files they produce are ignored by Git.
+- No server, no external service.
+- Example: `data/astra.sqlite` is rebuilt from the YAML files by `astra db build`; it is not versioned.
 
-Voir la décision `docs/decisions/0002-repo-single-source-of-truth.md`.
+See decision `docs/decisions/0002-repo-single-source-of-truth.md`.

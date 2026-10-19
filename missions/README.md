@@ -1,13 +1,13 @@
 # Missions
 
-Responsable : A7 (Coherence).
+Owner: A7 (Coherence).
 
-Une mission = un dossier `NNN-slug/` (exemple : `001-aging-map/`) contenant :
+A mission = one `NNN-slug/` folder (example: `001-aging-map/`) containing:
 
-- `brief.md` : ce qui est demandé, par qui, et le manager responsable.
-- `status.md` : où on en est, en quelques lignes, tenu à jour.
-- `report.md` : ce qu'on a trouvé, écrit à la fin de la mission.
+- `brief.md`: what is asked, by whom, and the responsible manager.
+- `status.md`: where it stands, in a few lines, kept up to date.
+- `report.md`: what was found, written at the end of the mission.
 
-## Liste
+## List
 
-- `001-aging-map/` : carte du vieillissement — terminé (19/10/2026, commit `b8a5943`).
+- `001-aging-map/`: map of aging — completed (2026-10-19, commit `b8a5943`).

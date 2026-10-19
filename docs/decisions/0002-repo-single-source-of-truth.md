@@ -1,23 +1,23 @@
-# 0002 — Le dépôt est l'unique source de vérité
+# 0002 — The repository is the single source of truth
 
-Date : 2026-10-19. Statut : acceptée. Décidée par le président, transmise par A1.
+Date: 2026-10-19. Status: accepted. Decided by the president, relayed by A1.
 
-## Contexte
+## Context
 
-Le projet va utiliser des outils annexes : une base SQLite, peut-être un graphe de connaissances, un index de recherche, un site d'avancement. Si l'un d'eux gardait des informations qui n'existent nulle part ailleurs, le dépôt ne suffirait plus à comprendre ni à reconstruire le projet, et ces informations pourraient se perdre ou diverger.
+The project will use side tools: a SQLite database, maybe a knowledge graph, a search index, a progress site. If one of them kept information that exists nowhere else, the repository would no longer be enough to understand or rebuild the project, and that information could be lost or drift apart.
 
-## Décision
+## Decision
 
-- Tout ce qui compte vit dans le dépôt Git, sous forme de texte versionné.
-- Un outil annexe est permis seulement si ses données sont stockées dans le dépôt et s'il peut tout reconstruire à partir d'elles.
-- Aucun outil ne garde d'état propre. Les fichiers qu'il produit sont ignorés par Git.
-- Pas de serveur ni de service externe.
-- Exemple : `data/astra.sqlite` est reconstruite à partir des fichiers YAML de `data/` par `astra db build`.
+- Everything that matters lives in the Git repository, as versioned text.
+- A side tool is allowed only if its data is stored in the repository and it can rebuild everything from it.
+- No tool keeps its own state. The files it produces are ignored by Git.
+- No server or external service.
+- Example: `data/astra.sqlite` is rebuilt from the YAML files in `data/` by `astra db build`.
 
-Cette décision précise la décision 0001 sans la remplacer.
+This decision clarifies decision 0001 without replacing it.
 
-## Conséquences
+## Consequences
 
-- Supprimer un fichier généré ne fait rien perdre : il suffit de relancer l'outil.
-- Toute information doit d'abord être écrite dans le dépôt avant d'être utilisée par un outil.
-- Un outil qui ne respecte pas ces conditions n'est pas accepté dans le projet.
+- Deleting a generated file loses nothing: just run the tool again.
+- Any information must first be written in the repository before a tool uses it.
+- A tool that does not meet these conditions is not accepted in the project.

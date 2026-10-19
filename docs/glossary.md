@@ -1,23 +1,23 @@
-# Glossaire
+# Glossary
 
-Les termes du projet, expliqués sans jargon. Classés par ordre alphabétique. Pour ajouter un terme : une ligne de titre, puis une ou deux phrases simples.
+The project's terms, explained without jargon. Sorted alphabetically. To add a term: one heading line, then one or two simple sentences.
 
-## Cellule sénescente
+## Biological aging
 
-Une cellule qui a cessé de se diviser mais ne meurt pas. Elle reste dans le tissu et envoie des signaux qui entretiennent une inflammation autour d'elle. Ces cellules s'accumulent avec l'âge.
+The gradual wear of the body at the level of cells and organs. It does not exactly follow the age on your ID card: two people of the same age can have different biological aging.
 
 ## DOI
 
-« Digital Object Identifier » : un identifiant unique attribué à une publication scientifique, comme un numéro d'immatriculation. En ajoutant `https://doi.org/` devant, on obtient un lien qui mène toujours à l'article.
+"Digital Object Identifier": a unique identifier given to a scientific publication, like a licence plate number. Putting `https://doi.org/` in front of it gives a link that always leads to the article.
 
-## Épigénétique
+## Epigenetics
 
-Les marques posées sur l'ADN qui disent quels gènes allumer ou éteindre, sans changer le texte de l'ADN lui-même. Ces marques se dérèglent avec l'âge.
+The marks placed on DNA that tell which genes to switch on or off, without changing the DNA text itself. These marks go wrong with age.
 
-## Télomère
+## Senescent cell
 
-Le capuchon protecteur au bout de chaque chromosome, un peu comme l'embout d'un lacet. Il raccourcit à chaque division de la cellule ; trop court, la cellule cesse de se diviser.
+A cell that has stopped dividing but does not die. It stays in the tissue and sends signals that keep inflammation going around it. These cells build up with age.
 
-## Vieillissement biologique
+## Telomere
 
-L'usure progressive du corps au niveau des cellules et des organes. Il ne suit pas exactement l'âge inscrit sur la carte d'identité : deux personnes du même âge peuvent avoir un vieillissement biologique différent.
+The protective cap at the end of each chromosome, a bit like the plastic tip of a shoelace. It gets shorter each time the cell divides; when it is too short, the cell stops dividing.

@@ -1,7 +1,7 @@
 # Documentation
 
-Responsable : A7 (Coherence).
+Owner: A7 (Coherence).
 
-- `glossary.md` : les mots du projet expliqués simplement.
-- `decisions/` : le journal des décisions importantes sur l'organisation du projet, une décision par fichier.
-- [`rust/lint-protection.md`](rust/lint-protection.md) : comment le code Rust est protégé contre les baisses de qualité, et comment verrouiller la branche principale ; responsable A10.
+- `glossary.md`: the project's words, explained simply.
+- `decisions/`: the log of important decisions about how the project is organised, one decision per file.
+- [`rust/lint-protection.md`](rust/lint-protection.md): how the Rust code is protected against drops in quality, and how the main branch is locked; owner A10.

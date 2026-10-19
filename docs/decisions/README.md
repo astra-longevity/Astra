@@ -1,7 +1,7 @@
-# Journal des décisions
+# Decision log
 
-Chaque décision importante sur l'organisation du projet est notée ici.
+Every important decision about how the project is organised is recorded here.
 
-- Un fichier par décision, nommé `NNNN-titre.md` (exemple : `0001-repo-structure.md`).
-- Contenu : le contexte, la décision, ses conséquences.
-- Une décision n'est jamais réécrite. Si on change d'avis, on écrit une nouvelle décision qui remplace l'ancienne et le dit clairement.
+- One file per decision, named `NNNN-title.md` (example: `0001-repo-structure.md`).
+- Content: the context, the decision, its consequences.
+- A decision is never rewritten. If we change our minds, we write a new decision that replaces the old one and says so clearly. (Translating a decision without changing its meaning is allowed, see `0003-english-only.md`.)

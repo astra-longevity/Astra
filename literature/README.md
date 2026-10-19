@@ -1,10 +1,10 @@
-# Littérature
+# Literature
 
-Responsable : A2 (Literature).
+Owner: A2 (Literature).
 
-Ici, on résume en français simple ce que disent les publications scientifiques. Chaque affirmation cite sa source avec un DOI vérifié.
+Here we sum up, in plain English, what scientific publications say. Every claim cites its source with a verified DOI.
 
-Organisation : un dossier par thème (exemple : `aging-map/`). Chaque dossier contient :
+Organisation: one folder per topic (example: `aging-map/`). Each folder contains:
 
-- `00-overview.md` : la vue d'ensemble du thème, à lire en premier ;
-- `NN-slug.md` : un fichier par sous-thème, numérotés dans l'ordre de lecture.
+- `00-overview.md`: the overview of the topic, to read first;
+- `NN-slug.md`: one file per subtopic, numbered in reading order.

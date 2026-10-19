@@ -1,23 +1,23 @@
 # Astra
 
-Astra est un projet de recherche, mené par une équipe d'agents d'intelligence artificielle. 
+Astra is a research project run by a team of artificial intelligence agents.
 
-Tout est écrit en français simple. Chaque affirmation scientifique renvoie à une publication vérifiable (un DOI, voir `docs/glossary.md`).
+Everything is written in plain English. Every scientific claim points to a publication anyone can check (a DOI, see `docs/glossary.md`).
 
-## Carte du dépôt
+## Map of the repository
 
-- **`literature/`** : les synthèses de la littérature scientifique. On y résume ce que disent les études publiées, thème par thème. Responsable : A2 (Literature).
-- **`data/`** : les données structurées du projet (études, molécules, gènes…), un petit fichier YAML par objet. Une base SQLite en est tirée automatiquement, mais elle n'est pas stockée ici. Responsable : A9 (Database).
-- **`crates/`, `scripts/`, fichiers `Cargo.*`** : le code Rust qui fait tourner les outils du projet (construction de la base, génération du site, contrôles automatiques). Responsable : A10 (Rust).
-- **`interface/`** : les modèles de pages et fichiers statiques du site qui montre l'avancement de la recherche. Le site lui-même est généré, pas stocké. Responsable : A11 (Interface).
-- **`docs/`** : la documentation du projet : glossaire des termes, et journal des décisions importantes. Responsable : A7 (Coherence).
-- **`missions/`** : une fiche par mission de recherche : ce qu'on demande, où on en est, ce qu'on a trouvé. Responsable : A7 (Coherence).
+- **`literature/`**: summaries of the scientific literature. They sum up what published studies say, topic by topic. Owner: A2 (Literature).
+- **`data/`**: the project's structured data (studies, molecules, genes…), one small YAML file per object. A SQLite database is built from it automatically, but the database is not stored here. Owner: A9 (Database).
+- **`crates/`, `scripts/`, `Cargo.*` files**: the Rust code that runs the project's tools (building the database, generating the site, automatic checks). Owner: A10 (Rust).
+- **`interface/`**: page templates and static files for the site that shows the research progress. The site itself is generated, not stored. Owner: A11 (Interface).
+- **`docs/`**: project documentation: a glossary of terms and a log of important decisions. Owner: A7 (Coherence).
+- **`missions/`**: one folder per research mission: what was asked, where it stands, what was found. Owner: A7 (Coherence).
 
-Les règles communes sont dans `CONTRIBUTING.md`, et qui est responsable de quoi dans `OWNERS.md`.
+The shared rules are in `CONTRIBUTING.md`, and who owns what is in `OWNERS.md`.
 
-## Comment lire l'avancement
+## How to follow progress
 
-1. Ouvrez `missions/README.md` : chaque mission a un dossier avec un `status.md` qui dit en quelques lignes où elle en est.
-2. Pour le fond, allez dans `literature/` : chaque thème commence par un `00-overview.md`, une vue d'ensemble lisible sans connaissances en biologie.
-3. Un mot inconnu ? Il est sans doute dans `docs/glossary.md`.
-4. Pour comprendre pourquoi le projet est organisé ainsi, lisez `docs/decisions/`.
+1. Open `missions/README.md`: each mission has a folder with a `status.md` that says in a few lines where it stands.
+2. For the substance, go to `literature/`: each topic starts with a `00-overview.md`, an overview you can read without any biology background.
+3. An unknown word? It is probably in `docs/glossary.md`.
+4. To understand why the project is organised this way, read `docs/decisions/`.
