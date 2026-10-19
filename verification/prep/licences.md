@@ -12,6 +12,7 @@ Items marked `[to verify]` were not settled by the official page and need a seco
 | Human Mortality Database | Use life tables for baseline curves | **Allowed with conditions.** HMD-built series are CC BY 4.0; raw input data is not. Free registration needed. |
 | Eurostat activity-limitation data | Use disability prevalence by age | **Allowed with attribution**, commercial use included, unless the table is credited to a non-Eurostat source. |
 | WHO datasets (GHO) | Use health indicators | **Allowed with attribution, but two different WHO texts exist.** Which one governs the export we use is `[to verify]`. |
+| WHO ICD-10 codes and titles | Store a subset in `data/vocab/`; show on the public site | **Allowed, commercial use included** (CC BY-ND 3.0 IGO): copy word for word, cite WHO. Whether a subset counts as an adaptation is `[to verify]`. |
 
 ## 1. GBD disability weights
 
@@ -74,6 +75,26 @@ Two WHO texts exist and they differ:
   - Always use the stricter attribution format above (it satisfies both texts), including the reporting countries.
   - `[to verify]`: which text governs the GHO indicator exports we will actually download (GHO OData API vs data.who.int CSV). A third-party mirror states that WHO terms bar use "in promotion of a commercial enterprise"; not found on an official page, so unconfirmed.
 
+## 6. WHO ICD-10 codes and titles (for `data/vocab/`) and MeSH fallback
+
+Request (A9 via chair): store an ICD-10 subset (I21-I22, I60-I64, I50, C00-C97, F00-F03, G30, J44, N18.4-5, S72.0-2, E11) in public `data/vocab/` and show it on the public site.
+
+**Verdict: allowed, if codes and titles are copied word for word and cited. Commercial use is allowed too.** One point is still `[to verify]` (see below). MeSH is not needed as a fallback, but it is also free to use.
+
+- WHO copyright page (https://www.who.int/about/policies/publishing/copyright), section "Licensing of WHO Classifications":
+  > "They are licensed under the Creative Commons Attribution-NoDerivs 3.0 IGO (CC BY-ND 3.0 IGO) license and may be used for commercial and non-commercial purposes, provided there is no adaptation of the codes and the work is appropriately cited."
+- ICD-10 2019 edition, Volume 2 (https://icd.who.int/browse10/Content/statichtml/ICD10Volume2_en_2019.pdf):
+  > "This work is available under the Creative Commons Attribution-NoDerivatives 3.0 IGO license (CC BY-ND 3.0 IGO)." "This license does not allow you to produce adaptations of the work (including translations) without permission from WHO."
+- WHO classifications licence (https://icd.who.int/en/docs/icd11-license.pdf), covering ICD, ICF and ICHI: CC BY-ND 3.0 IGO; "you are NOT permitted to make 'adaptations'".
+- Conflicting older text: WHO FAQ on ICD-10 licensing (https://cdn.who.int/media/docs/default-source/publishing-policies/copyright/who-faq-licensing-icd-10.pdf) says WHO "can grant licences for the use of ICD-10" and that its code files are "suitable for tabulation and display only, they cannot be used for coding a diagnosis". It predates the CC licence. Our use is tabulation and display only, so it fits even under this older text.
+- What this means for Astra:
+  - Store codes and titles exactly as WHO publishes them (2019 English edition). Do not shorten, reword or translate a title.
+  - Our own groupings (for example "stroke = I60-I64") go in separate columns or files that point to the codes, not into the titles.
+  - Put the citation and the licence in `data/vocab/README.md` and on any public page that shows the codes: "International Statistical Classification of Diseases and Related Health Problems, 10th Revision (ICD-10), 2019 edition. Geneva: World Health Organization. Licence: CC BY-ND 3.0 IGO."
+  - No WHO endorsement may be implied.
+  - `[to verify]`: whether keeping only a subset of the codes counts as an "adaptation" under CC BY-ND. Under the usual reading of CC licences, copying an unchanged part is not an adaptation, but WHO has not said this for ICD-10. If Verification wants certainty, ask licensing@who.int.
+- MeSH (NLM), checked in case a fallback is needed: "NLM freely provides MeSH data" (https://www.nlm.nih.gov/databases/download/terms_and_conditions_mesh.html). NLM terms (https://www.nlm.nih.gov/databases/download/terms_and_conditions.html) require the line "Courtesy of the U.S. National Library of Medicine" and no implied NLM endorsement. MeSH translation files are not covered.
+
 ## Open items for Verification
 
 1. GBD weights: decide public display policy (default: reference only) and whether to ask IHME.
@@ -81,3 +102,4 @@ Two WHO texts exist and they differ:
 3. HMD: vendor or fetch-at-build (with A9).
 4. Eurostat: exact GALI dataset code and source credit.
 5. WHO: which terms apply to the GHO export used.
+6. ICD-10: confirm with WHO (licensing@who.int) that storing a subset of codes word for word is not an "adaptation", if certainty is wanted.

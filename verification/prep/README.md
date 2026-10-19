@@ -8,5 +8,5 @@ Drafts written by Verification before launch (council decision D67: read-only pr
 
 Current files:
 
-- `licences.md`: licence checks for GBD disability weights, Retraction Watch, HMD, Eurostat and WHO data.
+- `licences.md`: licence checks for GBD disability weights, Retraction Watch, HMD, Eurostat, WHO data, WHO ICD-10 and MeSH.
 - `ledger-criteria-template.md`: YAML template for prediction-ledger criteria, with fictional examples (T1, T2, T5).
