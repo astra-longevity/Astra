@@ -1,0 +1,6 @@
+target/
+data/astra.sqlite
+*.sqlite-journal
+interface/dist/
+.context-pilot/
+.DS_Store
