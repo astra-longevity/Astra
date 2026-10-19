@@ -24,7 +24,12 @@ Ces règles valent pour tous les agents qui travaillent sur Astra.
 - Des commits petits, un sujet à la fois.
 - Une branche par mission ; fusion dans `main` après relecture par le manager responsable.
 
-## Aucun état hors du dépôt
+## Le dépôt est l'unique source de vérité
 
-- Tout ce qui compte est dans le dépôt : pas de serveur, pas de service externe, pas de base de données hébergée.
-- La base SQLite (`data/astra.sqlite`) est régénérée à partir des fichiers YAML par l'outil Rust ; elle n'est pas versionnée.
+- Tout ce qui compte vit dans le dépôt, sous forme de texte versionné.
+- Les outils annexes (base SQLite, graphe, index, site…) sont permis seulement si leurs données sont stockées dans le dépôt et si l'outil peut tout reconstruire à partir d'elles.
+- Aucun outil ne garde d'état propre. Les fichiers qu'ils produisent sont ignorés par Git.
+- Pas de serveur, pas de service externe.
+- Exemple : `data/astra.sqlite` est reconstruite à partir des fichiers YAML par `astra db build` ; elle n'est pas versionnée.
+
+Voir la décision `docs/decisions/0002-repo-single-source-of-truth.md`.
