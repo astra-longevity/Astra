@@ -1,6 +1,6 @@
 # Mission 001 — État
 
-Statut : terminé (19/10/2026).
+Statut : terminé (19/10/2026). Résultat : `literature/aging-map/` (commit `b8a5943`).
 
 - Livrables : 14 fichiers dans `literature/aging-map/` (`00-overview.md`, `framework.md`, et un fichier par grande cause du vieillissement, de `01` à `12`).
 - Contrôle qualité fait : chaque rédacteur a vérifié toutes ses références ; en plus, 39 DOI tirés au hasard (3 par fichier) ont été vérifiés sur Crossref, tous corrects.

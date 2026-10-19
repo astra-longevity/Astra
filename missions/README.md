@@ -10,4 +10,4 @@ Une mission = un dossier `NNN-slug/` (exemple : `001-aging-map/`) contenant :
 
 ## Liste
 
-- `001-aging-map/` : carte du vieillissement (en cours).
+- `001-aging-map/` : carte du vieillissement — terminé (19/10/2026, commit `b8a5943`).
