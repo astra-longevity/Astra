@@ -2,5 +2,8 @@ target/
 data/astra.sqlite
 *.sqlite-journal
 interface/dist/
-.context-pilot/
+.context-pilot/*
+!.context-pilot/shared/
+.context-pilot/shared/*
+!.context-pilot/shared/callbacks.yaml
 .DS_Store
