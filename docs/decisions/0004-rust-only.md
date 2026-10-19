@@ -11,10 +11,14 @@ The project already writes its tools in Rust, under strict lints and a sealed co
 - Every program, script, analysis or tool in the project is written in Rust, inside the Cargo workspace (`crates/`).
 - No Python, R, JavaScript or shell scripts for analyses or tools.
 - Data and docs stay as text (YAML, Markdown).
-- Exceptions only by explicit decision of the president, recorded in `docs/decisions/`.
+- Two exceptions, ruled by the president on 2026-10-19:
+  1. The CI guard scripts copied from context-pilot (`.github/checks/*.sh`, `chain.sh`) stay in bash, as an exact replica of context-pilot.
+  2. JavaScript that runs in the browser on the generated site (`interface/static/`) is allowed. The site generator itself stays in Rust.
 
 ## Consequences
 
 - Existing non-Rust code is listed. Each owner (see `OWNERS.md`) ports it to Rust or removes it.
-- Pending the president's call: the CI shell guards (`.github/checks/*.sh`, `chain.sh`, copied from context-pilot) and the site's JavaScript (`interface/static/`). They stay until he decides.
+- Everything outside these two exceptions must be ported to Rust or removed by its owner, for example `literature/briefs/*.check.py` (A2).
+- `data/schema/schema.sql` is a database schema (data), not code.
+- Any new exception requires a new decision.
 - Data analyses are Rust crates, checked by the same lints and tests as the rest of the code.
