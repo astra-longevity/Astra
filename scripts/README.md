@@ -1,24 +1,24 @@
-# scripts/ — où sont les vérifications ?
+# scripts/ — where are the checks?
 
-Les scripts de vérification ne sont pas ici : ils sont dans `.github/checks/`,
-au même endroit que dans le projet context-pilot dont Astra reprend les règles.
-Ce dossier ne fait que les documenter.
+The check scripts are not here: they live in `.github/checks/`,
+the same place as in the context-pilot project whose rules Astra reuses.
+This folder only documents them.
 
-## Les scripts
+## The scripts
 
-| Fichier | Ce qu'il vérifie |
-|---------|------------------|
-| `check-rust-lints.sh` | Mise en forme (`cargo fmt`), analyse `clippy` sans aucun avertissement, compilation sans avertissement, registre des exceptions, accès aux secrets. |
-| `check-rust-tests.sh` | Compilation complète puis exécution de tous les tests. |
-| `check-structure.sh` | Fichiers `.rs` ≤ 500 lignes, dossiers ≤ 8 éléments, puis intégrité de la chaîne de protection. |
-| `check-lint-exceptions.sh` | Chaque `#[allow]` / `#[expect]` du code correspond à exactement une entrée de `allowed-lint-exceptions.yaml`. |
-| `check-vault-bypass.sh` | Aucune clé secrète (`*_API_KEY`, `*_TOKEN`…) n'est lue directement dans l'environnement. |
-| `check-lint-config.sh` | Chaîne de hachage : détecte toute modification des fichiers de règles listés dans `protected-files.yaml`. |
-| `lib-failures.sh` | Outil commun : liste à la fin toutes les vérifications qui ont échoué. |
+| File | What it checks |
+|------|----------------|
+| `check-rust-lints.sh` | Formatting (`cargo fmt`), `clippy` analysis with zero warnings, warning-free build, exception registry, secret access. |
+| `check-rust-tests.sh` | Full build, then runs all tests. |
+| `check-structure.sh` | `.rs` files ≤ 500 lines, folders ≤ 8 entries, then integrity of the protection chain. |
+| `check-lint-exceptions.sh` | Every `#[allow]` / `#[expect]` in the code matches exactly one entry in `allowed-lint-exceptions.yaml`. |
+| `check-vault-bypass.sh` | No secret key (`*_API_KEY`, `*_TOKEN`…) is read directly from the environment. |
+| `check-lint-config.sh` | Hash chain: detects any change to the rule files listed in `protected-files.yaml`. |
+| `lib-failures.sh` | Shared helper: lists every failed check at the end. |
 
-## Les lancer
+## Running them
 
-Depuis la racine du dépôt :
+From the repository root:
 
 ```sh
 .github/checks/check-rust-lints.sh --ci
@@ -26,13 +26,13 @@ Depuis la racine du dépôt :
 .github/checks/check-structure.sh --ci
 ```
 
-Les mêmes scripts tournent automatiquement :
-- sur GitHub à chaque push ou pull request vers `main` (`.github/workflows/ci.yml`) ;
-- localement à chaque modification d'un fichier `.rs`, via les callbacks
-  bloquants de context-pilot (`.context-pilot/shared/callbacks.yaml`).
+The same scripts run automatically:
+- on GitHub on every push or pull request to `main` (`.github/workflows/ci.yml`);
+- locally on every change to a `.rs` file, through context-pilot's blocking
+  callbacks (`.context-pilot/shared/callbacks.yaml`).
 
-## Modifier les règles
+## Changing the rules
 
-Les fichiers de règles sont scellés par une chaîne de hachage protégée par mot de passe.
-Après une modification légitime, le détenteur du mot de passe lance `./chain.sh`.
-Sans ça, la vérification `check-structure.sh` échoue.
+The rule files are sealed by a password-protected hash chain.
+After a legitimate change, the password holder runs `./chain.sh`.
+Without it, the `check-structure.sh` check fails.

@@ -1,134 +1,134 @@
-# Protection du code Rust
+# Rust code protection
 
-Ce document explique, sans jargon inutile, ce qui empêche du code Rust de mauvaise qualité d'entrer dans le dépôt Astra, et comment s'en servir.
+This document explains, without needless jargon, what keeps poor-quality Rust code out of the Astra repository, and how to use it.
 
-Idée générale : le code Rust d'Astra (les petits programmes qui construisent la base de données et le site) doit respecter des règles très strictes. Ces règles sont vérifiées **automatiquement**, à trois moments :
+The big picture: Astra's Rust code (the small programs that build the database and the site) must follow very strict rules. These rules are checked **automatically**, at three points:
 
-1. pendant qu'un agent écrit du code (vérification locale immédiate) ;
-2. à chaque envoi sur GitHub (intégration continue, « CI ») ;
-3. avant toute fusion dans la branche principale `main` (protection de branche, préparée mais pas encore active).
+1. while an agent writes code (immediate local check);
+2. on every push to GitHub (continuous integration, "CI");
+3. before anything lands on the main branch `main` (branch protection, **active**).
 
-Et surtout : **les règles elles-mêmes sont scellées**. Personne ne peut les assouplir discrètement, car toute modification est détectée tant qu'elle n'a pas été validée avec un mot de passe que seul le président détient.
+Above all: **the rules themselves are sealed**. Nobody can quietly loosen them, because any change is detected until it has been approved with a password that only the president holds.
 
 ---
 
-## 1. Ce qui protège le code
+## 1. What protects the code
 
-### 1.1 Version de Rust figée : 1.97.1
+### 1.1 Pinned Rust version: 1.97.1
 
-- **Fichier** : `rust-toolchain.toml`
-- **Ce que c'est** : Rust est le langage de programmation utilisé. Ce fichier impose une version précise (1.97.1) à tout le monde : agents, machine locale, CI.
-- **Pourquoi** : la liste des règles (voir 1.3) dépend de la version. Une autre version connaîtrait des règles différentes, et la vérification échouerait.
-- Le fichier installe aussi deux outils : `rustfmt` (mise en forme) et `clippy` (contrôle qualité).
+- **File**: `rust-toolchain.toml`
+- **What it is**: Rust is the programming language used. This file forces one exact version (1.97.1) on everyone: agents, local machine, CI.
+- **Why**: the list of rules (see 1.3) depends on the version. Another version would know different rules, and the check would fail.
+- The file also installs two tools: `rustfmt` (formatting) and `clippy` (quality control).
 
-### 1.2 Mise en forme automatique (rustfmt)
+### 1.2 Automatic formatting (rustfmt)
 
-- **Fichier** : `rustfmt.toml`
-- **Ce que c'est** : un outil qui impose une présentation unique du code (largeur de ligne 120 caractères, édition 2024 du langage, écritures abrégées).
-- **Effet** : si le code n'est pas présenté exactement comme l'outil le ferait, la vérification échoue. Il n'y a donc jamais de débat de style.
+- **File**: `rustfmt.toml`
+- **What it is**: a tool that enforces a single layout for the code (120-character line width, 2024 edition of the language, shorthand forms).
+- **Effect**: if the code is not laid out exactly as the tool would do it, the check fails. So there is never any style debate.
 
-### 1.3 Environ 1 000 règles interdites (« lints »)
+### 1.3 About 1,000 forbidden rules ("lints")
 
-- **Fichier** : `Cargo.toml` (racine), sections `[workspace.lints.rust]` et `[workspace.lints.clippy]`
-- **Ce que c'est** : un « lint » est une règle qui signale une pratique risquée ou maladroite dans le code. Ici, la quasi-totalité des règles connues de Rust et de clippy sont listées une par une, et presque toutes sont au niveau `forbid` (interdit, sans dérogation locale possible). Quelques-unes sont au niveau `deny` (interdit, mais une exception enregistrée reste techniquement possible).
-- **Exemples de ce qui est interdit** : laisser une erreur non traitée, faire planter le programme volontairement, code non documenté, code mort, variables inutilisées, calculs pouvant déborder.
-- **Pour chaque crate** (sous-projet Rust dans `crates/`) : son `Cargo.toml` contient `[lints] workspace = true`, ce qui l'oblige à hériter de ces règles. Aucune crate ne peut les redéfinir.
+- **File**: `Cargo.toml` (root), sections `[workspace.lints.rust]` and `[workspace.lints.clippy]`
+- **What it is**: a "lint" is a rule that flags a risky or clumsy practice in the code. Here, nearly every known Rust and clippy rule is listed one by one, and almost all are at level `forbid` (forbidden, no local override possible). A few are at level `deny` (forbidden, but a registered exception remains technically possible).
+- **Examples of what is forbidden**: leaving an error unhandled, crashing the program on purpose, undocumented code, dead code, unused variables, calculations that can overflow.
+- **For each crate** (Rust sub-project in `crates/`): its `Cargo.toml` contains `[lints] workspace = true`, which forces it to inherit these rules. No crate can redefine them.
 
-### 1.4 Seuils de complexité (clippy.toml)
+### 1.4 Complexity thresholds (clippy.toml)
 
-- **Fichier** : `clippy.toml`
-- **Ce que c'est** : des limites chiffrées, plus sévères que les valeurs par défaut. Principales :
-  - une fonction ne doit pas dépasser **60 lignes** ;
-  - une fonction prend au plus **4 paramètres** ;
-  - « complexité cognitive » (difficulté à lire une fonction) plafonnée à **7** ;
-  - les noms de variables font au moins **3 caractères** (sauf une courte liste d'exceptions comme `i`, `id`) ;
-  - noms vagues interdits (`foo`, `tmp`, `thing`…) ;
-  - certaines fonctions dangereuses du langage sont bannies (par exemple arrêter brutalement le programme).
-- Dans les **tests** uniquement, il est permis de faire échouer volontairement le programme : c'est ainsi qu'un test signale un problème.
+- **File**: `clippy.toml`
+- **What it is**: numeric limits, stricter than the defaults. The main ones:
+  - a function must not exceed **60 lines**;
+  - a function takes at most **4 parameters**;
+  - "cognitive complexity" (how hard a function is to read) is capped at **7**;
+  - variable names are at least **3 characters** long (except a short list of exceptions such as `i`, `id`);
+  - vague names are forbidden (`foo`, `tmp`, `thing`…);
+  - some dangerous language functions are banned (for example abruptly stopping the program).
+- In **tests** only, making the program fail on purpose is allowed: that is how a test reports a problem.
 
-### 1.5 Registre des exceptions : vide
+### 1.5 Exception registry: empty
 
-- **Fichier** : `.github/checks/allowed-lint-exceptions.yaml` (contient `exceptions: []`)
-- **Vérification** : `.github/checks/check-lint-exceptions.sh`
-- **Ce que c'est** : un développeur peut, en théorie, écrire dans le code une annotation qui désactive une règle à un endroit précis. Ici, **toute** annotation de ce type doit être déclarée dans ce registre, avec une justification et un plan pour la supprimer. Sinon la vérification échoue.
-- Le registre est **vide** : aujourd'hui, Astra ne contient aucune dérogation.
-- Le script vérifie trois choses : pas d'annotation non déclarée, pas d'entrée orpheline (déclarée mais absente du code), pas d'entrée ambiguë (qui correspondrait à plusieurs endroits).
+- **File**: `.github/checks/allowed-lint-exceptions.yaml` (contains `exceptions: []`)
+- **Check**: `.github/checks/check-lint-exceptions.sh`
+- **What it is**: in theory, a developer can write an annotation in the code that disables a rule at one precise spot. Here, **every** such annotation must be declared in this registry, with a justification and a plan to remove it. Otherwise the check fails.
+- The registry is **empty**: today, Astra contains no exception.
+- The script checks three things: no undeclared annotation, no orphan entry (declared but missing from the code), no ambiguous entry (one that would match several places).
 
-### 1.6 Taille des fichiers et des dossiers
+### 1.6 File and folder size
 
-- **Vérification** : `.github/checks/check-structure.sh`
-- **Règles** :
-  - chaque fichier Rust (`.rs`) fait **500 lignes au plus** ;
-  - chaque dossier contient **8 éléments au plus** (certains dossiers sont exemptés : `docs/`, `crates/`, `.github/checks`, `.github/workflows`, dossiers de compilation…).
-- **Pourquoi** : forcer un découpage en petits morceaux lisibles, plutôt que de gros fichiers fourre-tout.
-- Ce même script vérifie aussi le sceau (voir 1.7).
+- **Check**: `.github/checks/check-structure.sh`
+- **Rules**:
+  - each Rust file (`.rs`) has **at most 500 lines**;
+  - each folder contains **at most 8 entries** (some folders are exempt: `docs/`, `crates/`, `.github/checks`, `.github/workflows`, build folders…).
+- **Why**: to force splitting into small readable pieces rather than big catch-all files.
+- The same script also checks the seal (see 1.7).
 
-### 1.7 Le sceau : une chaîne d'empreintes protégée par mot de passe
+### 1.7 The seal: a password-protected chain of fingerprints
 
-- **Fichiers** :
-  - `.github/checks/protected-files.yaml` : la liste de ce qui est scellé ;
-  - `.github/checks/lint-config.chain` : le registre des sceaux successifs ;
-  - `.github/checks/check-lint-config.sh` : le script qui calcule et vérifie ;
-  - `chain.sh` (racine) : raccourci pour mettre à jour le sceau.
-- **Le principe, en image** : on calcule une « empreinte » (SHA-256) de tous les fichiers de règles. Une empreinte est comme une signature unique d'un contenu : changer une seule virgule change complètement l'empreinte. Chaque nouvelle empreinte est enregistrée dans le registre en la liant à la précédente **et au mot de passe**, formant une chaîne.
-- **Conséquence** :
-  - vérifier le sceau ne demande **aucun** mot de passe (la CI le fait à chaque envoi) ;
-  - si quelqu'un modifie une règle sans renouveler le sceau, la vérification échoue ;
-  - renouveler le sceau exige le mot de passe ; sans lui, impossible de fabriquer une entrée valide.
-- **Ce qui est scellé** :
-  - la liste `protected-files.yaml` elle-même ;
-  - les deux sections de règles du `Cargo.toml` racine (pas le reste du fichier, pour pouvoir ajouter des dépendances) ;
-  - `rust-toolchain.toml`, `clippy.toml`, `rustfmt.toml` ;
-  - tous les scripts de `.github/checks/` (`check-*.sh`, `lib-failures.sh`) et le registre des exceptions ;
-  - le fichier de CI `.github/workflows/ci.yml` ;
-  - les vérifications locales `.context-pilot/shared/callbacks.yaml` ;
+- **Files**:
+  - `.github/checks/protected-files.yaml`: the list of what is sealed;
+  - `.github/checks/lint-config.chain`: the record of successive seals;
+  - `.github/checks/check-lint-config.sh`: the script that computes and checks;
+  - `chain.sh` (root): shortcut to update the seal.
+- **The idea, in a picture**: we compute a "fingerprint" (SHA-256) of all the rule files. A fingerprint is like a unique signature of some content: changing a single comma completely changes the fingerprint. Each new fingerprint is recorded in the registry, linked to the previous one **and to the password**, forming a chain.
+- **Consequence**:
+  - checking the seal requires **no** password (CI does it on every push);
+  - if someone changes a rule without renewing the seal, the check fails;
+  - renewing the seal requires the password; without it, a valid entry cannot be forged.
+- **What is sealed**:
+  - the `protected-files.yaml` list itself;
+  - the two rule sections of the root `Cargo.toml` (not the rest of the file, so dependencies can still be added);
+  - `rust-toolchain.toml`, `clippy.toml`, `rustfmt.toml`;
+  - all scripts in `.github/checks/` (`check-*.sh`, `lib-failures.sh`) and the exception registry;
+  - the CI file `.github/workflows/ci.yml`;
+  - the local checks `.context-pilot/shared/callbacks.yaml`;
   - `chain.sh`.
-- Le registre contient aujourd'hui **une entrée** (l'entrée d'origine, dite « genesis »), posée au commit `c78eeb6`.
-- **Le mot de passe n'est jamais écrit dans le dépôt.**
+- The registry currently holds **one entry** (the original one, called "genesis"), set at commit `c78eeb6`.
+- **The password is never written in the repository.**
 
-### 1.8 Intégration continue (CI) sur GitHub
+### 1.8 Continuous integration (CI) on GitHub
 
-- **Fichier** : `.github/workflows/ci.yml`
-- **Quand** : à chaque envoi (`push`) sur `main` et à chaque demande de fusion (« pull request ») vers `main`.
-- **Deux tâches** :
-  - **`Rust (lints · tests)`** : installe Rust 1.97.1, puis lance
-    - `.github/checks/check-rust-lints.sh --ci` : mise en forme, clippy, compilation sans aucun avertissement, registre des exceptions, contrôle des secrets ;
-    - `.github/checks/check-rust-tests.sh --ci` : compilation optimisée puis exécution de tous les tests.
-  - **`Structure (lengths · folders · chain)`** : lance `.github/checks/check-structure.sh --ci` (tailles de fichiers et de dossiers, sceau).
-- Chaque script exécute **toutes** ses sous-vérifications, puis affiche à la fin la liste de celles qui ont échoué (mécanisme commun dans `.github/checks/lib-failures.sh`).
-- Note : `check-vault-bypass.sh` vient de context-pilot ; il interdit de lire directement des clés secrètes (variables `*_API_KEY`, `*_TOKEN`…) dans le code. Il est conservé tel quel.
+- **File**: `.github/workflows/ci.yml`
+- **When**: on every `push` to `main` and on every pull request to `main`.
+- **Two jobs**:
+  - **`Rust (lints · tests)`**: installs Rust 1.97.1, then runs
+    - `.github/checks/check-rust-lints.sh --ci`: formatting, clippy, build with zero warnings, exception registry, secrets check;
+    - `.github/checks/check-rust-tests.sh --ci`: optimized build, then runs all tests.
+  - **`Structure (lengths · folders · chain)`**: runs `.github/checks/check-structure.sh --ci` (file and folder sizes, seal).
+- Each script runs **all** its sub-checks, then prints at the end the list of those that failed (shared mechanism in `.github/checks/lib-failures.sh`).
+- Note: `check-vault-bypass.sh` comes from context-pilot; it forbids reading secret keys (`*_API_KEY`, `*_TOKEN`… variables) directly in the code. It is kept as is.
 
-### 1.9 Vérifications locales bloquantes
+### 1.9 Blocking local checks
 
-- **Fichier** : `.context-pilot/shared/callbacks.yaml`
-- **Ce que c'est** : dans l'outil où travaillent les agents (context-pilot), chaque modification d'un fichier `.rs` déclenche immédiatement, et de façon **bloquante**, les mêmes scripts que la CI :
-  - `rust-lints` → `check-rust-lints.sh --callback` (limite 120 s) ;
-  - `structure-rust` → `check-structure.sh --callback` (limite 30 s).
-- **Pourquoi** : un agent voit ses erreurs tout de suite, avant même d'envoyer quoi que ce soit. CI et vérification locale utilisent **le même script** : elles ne peuvent pas diverger.
-- Il n'y a pas de « git hooks » (scripts lancés par git avant un commit) : comme dans context-pilot, ce rôle est tenu par ces vérifications locales.
+- **File**: `.context-pilot/shared/callbacks.yaml`
+- **What it is**: in the tool the agents work in (context-pilot), every change to a `.rs` file immediately triggers, in a **blocking** way, the same scripts as CI:
+  - `rust-lints` → `check-rust-lints.sh --callback` (120 s limit);
+  - `structure-rust` → `check-structure.sh --callback` (30 s limit).
+- **Why**: an agent sees its errors right away, before pushing anything. CI and the local check use **the same script**: they cannot drift apart.
+- There are no "git hooks" (scripts git runs before a commit): as in context-pilot, these local checks play that role.
 
-### 1.10 Propriétaires du code (CODEOWNERS)
+### 1.10 Code owners (CODEOWNERS)
 
-- **Fichier** : `.github/CODEOWNERS` (contient `* @bigmoostache`)
-- **Ce que c'est** : désigne qui est responsable de chaque partie du dépôt. Ici, tout le dépôt appartient à `@bigmoostache`. Ce fichier propose automatiquement ce relecteur sur chaque demande de fusion, mais la relecture n'est **pas obligatoire** (voir section 4).
+- **File**: `.github/CODEOWNERS` (contains `* @bigmoostache`)
+- **What it is**: says who is responsible for each part of the repository. Here, the whole repository belongs to `@bigmoostache`. This file automatically suggests that reviewer on every pull request, but review is **not required** (see section 4).
 
 ---
 
-## 2. Lancer les vérifications soi-même
+## 2. Running the checks yourself
 
-Toutes les commandes se lancent depuis la racine du dépôt.
+All commands are run from the repository root.
 
-| But | Commande |
+| Goal | Command |
 |---|---|
-| Règles de code (mise en forme, clippy, compilation, exceptions, secrets) | `.github/checks/check-rust-lints.sh --ci` |
-| Compilation et tests | `.github/checks/check-rust-tests.sh --ci` |
-| Taille des fichiers/dossiers + sceau | `.github/checks/check-structure.sh --ci` |
-| Sceau seul (vérification) | `.github/checks/check-lint-config.sh` |
-| Registre des exceptions seul | `.github/checks/check-lint-exceptions.sh` |
+| Code rules (formatting, clippy, build, exceptions, secrets) | `.github/checks/check-rust-lints.sh --ci` |
+| Build and tests | `.github/checks/check-rust-tests.sh --ci` |
+| File/folder size + seal | `.github/checks/check-structure.sh --ci` |
+| Seal only (check) | `.github/checks/check-lint-config.sh` |
+| Exception registry only | `.github/checks/check-lint-exceptions.sh` |
 
-Variante plus rapide en local : remplacer `--ci` par `--callback`. La seule différence concerne les tests : `--callback` compile en mode « debug » (plus rapide) au lieu du mode optimisé ; la couverture des tests est identique.
+Faster local variant: replace `--ci` with `--callback`. The only difference concerns tests: `--callback` builds in "debug" mode (faster) instead of optimized mode; test coverage is identical.
 
-Commandes de base si on veut isoler une étape :
+Basic commands if you want to isolate one step:
 
 ```bash
 cargo fmt -- --check
@@ -136,75 +136,69 @@ cargo clippy --workspace --all-targets -- -D warnings
 cargo test --workspace
 ```
 
-Résultat attendu : chaque script se termine par une ligne `… OK` et un code de sortie 0. En cas d'échec, la dernière ligne liste les sous-vérifications fautives ; le détail se trouve plus haut, sous les titres `=== … ===`.
+Expected result: each script ends with a `… OK` line and exit code 0. On failure, the last line lists the failing sub-checks; details are further up, under the `=== … ===` headings.
 
 ---
 
-## 3. Le sceau au quotidien
+## 3. The seal day to day
 
-### 3.1 Consulter
+### 3.1 Inspecting
 
 ```bash
-.github/checks/check-lint-config.sh --show          # liste ce qui est scellé + empreinte actuelle
-.github/checks/check-lint-config.sh --history       # historique des sceaux
-.github/checks/check-lint-config.sh --deep-verify   # vérification approfondie de tout l'historique
+.github/checks/check-lint-config.sh --show          # list what is sealed + current fingerprint
+.github/checks/check-lint-config.sh --history       # seal history
+.github/checks/check-lint-config.sh --deep-verify   # thorough check of the whole history
 ```
 
-### 3.2 Modifier une règle plus tard
+### 3.2 Changing a rule later
 
-Procédure, dans l'ordre :
+Procedure, in order:
 
-1. Modifier le ou les fichiers concernés (par exemple `clippy.toml`, ou une section de règles du `Cargo.toml`).
-2. Lancer les vérifications (section 2) : le sceau doit **échouer** à ce stade, c'est normal ; tout le reste doit passer.
-3. Le détenteur du mot de passe renouvelle le sceau :
+1. Edit the relevant file(s) (for example `clippy.toml`, or a rule section of `Cargo.toml`).
+2. Run the checks (section 2): the seal must **fail** at this stage, that is expected; everything else must pass.
+3. The password holder renews the seal:
    ```bash
    .github/checks/check-lint-config.sh --update
    ```
-   Le mot de passe est demandé de façon masquée. Alternative équivalente : `./chain.sh`.
-   Le script refuse un mauvais mot de passe. Il ajoute une nouvelle ligne au registre `lint-config.chain`, suivie du détail des modifications (pour garder une trace lisible).
-4. Relancer `.github/checks/check-lint-config.sh` : il doit afficher « verified ».
-5. Faire un **seul** commit contenant à la fois la modification et le registre mis à jour (préfixe `rust:`).
+   The password is asked for with masked input. Equivalent alternative: `./chain.sh`.
+   The script rejects a wrong password. It appends a new line to the `lint-config.chain` registry, followed by the details of the changes (to keep a readable trace).
+4. Run `.github/checks/check-lint-config.sh` again: it must print "verified".
+5. Make a **single** commit containing both the change and the updated registry (prefix `rust:`).
 
-Règles de sécurité :
+Security rules:
 
-- le mot de passe ne doit **jamais** apparaître dans le dépôt, dans un message, ni dans un journal ;
-- éviter de le passer en clair sur la ligne de commande (`./chain.sh --password …` reste possible mais laisse une trace dans l'historique du terminal) ; préférer la saisie masquée ;
-- la variable d'environnement `LINT_GUARD_PASSWORD` est aussi acceptée, à n'utiliser que de façon ponctuelle.
+- the password must **never** appear in the repository, in a message, or in a log;
+- avoid passing it in clear on the command line (`./chain.sh --password …` still works but leaves a trace in the terminal history); prefer masked input;
+- the `LINT_GUARD_PASSWORD` environment variable is also accepted, for one-off use only.
 
-### 3.3 Ajouter un fichier sous scellé
+### 3.3 Sealing an additional file
 
-Ajouter une entrée dans `.github/checks/protected-files.yaml` (format décrit en tête du fichier), puis renouveler le sceau comme en 3.2. Comme la liste est elle-même scellée, on ne peut pas non plus **retirer** discrètement un fichier de la protection.
+Add an entry to `.github/checks/protected-files.yaml` (format described at the top of the file), then renew the seal as in 3.2. Since the list is itself sealed, a file cannot be quietly **removed** from protection either.
 
 ---
 
-## 4. Protection de la branche `main` (préparée, **pas encore active**)
+## 4. Protection of the `main` branch (**active**)
 
-### 4.1 Ce qu'elle apportera
+### 4.1 What it enforces
 
-Une fois activée sur GitHub, il deviendra impossible de modifier `main` sans respecter ces conditions :
+On GitHub, `main` cannot be changed unless these conditions are met:
 
-- **vérifications obligatoires** : les deux tâches de CI `Rust (lints · tests)` et `Structure (lengths · folders · chain)` doivent être vertes ;
-- **branche à jour** (« strict ») : la modification doit avoir été testée sur la toute dernière version de `main` ;
-- **pas de réécriture d'historique** (« force-push » interdit) ;
-- **pas de suppression** de la branche ;
-- **pas de relecture obligatoire** : le dépôt n'a qu'un propriétaire, et les agents envoient directement sur `main`. Or GitHub interdit d'approuver sa propre modification ; exiger une relecture bloquerait donc tout ;
-- les administrateurs ne sont pas soumis à ces règles (`enforce_admins: false`), pour garder une porte de sortie en cas de blocage.
+- **required checks**: the two CI jobs `Rust (lints · tests)` and `Structure (lengths · folders · chain)` must be green;
+- **up-to-date branch** ("strict"): the change must have been tested against the very latest version of `main`;
+- **no history rewriting** (force-push forbidden);
+- **no deletion** of the branch;
+- **no required review**: the repository has a single owner, and agents push directly to `main`. GitHub forbids approving your own change, so requiring a review would block everything;
+- administrators are not subject to these rules (`enforce_admins: false`), to keep a way out if things get stuck. Their pushes still go through, but GitHub logs them as a "bypass" of the protection.
 
-### 4.2 État actuel : pas active
+### 4.2 Current state: active
 
-- La tentative d'activation a été **refusée par GitHub (erreur 403)** : sur l'offre gratuite, la protection de branche n'est pas disponible pour un dépôt **privé**. Il faut soit passer à GitHub Pro, soit rendre le dépôt public.
-- **Décision en attente du président.**
-- Le sceau, lui, est déjà en place (commit `c78eeb6`).
+- A first activation attempt was **rejected by GitHub (error 403)**: on the free plan, branch protection is not available for a **private** repository.
+- The repository was then made **public**, and the protection was activated.
+- The seal itself has been in place since commit `c78eeb6`.
 
-### 4.3 Commande d'activation
+### 4.3 Configuration and command
 
-À lancer **uniquement sur décision explicite** (une copie de la configuration se trouve dans `/tmp/astra-protect.json` ; on peut aussi l'écrire dans un fichier à partir du bloc ci-dessous) :
-
-```bash
-gh api -X PUT repos/bigmoostache/Astra/branches/main/protection --input <fichier>
-```
-
-Contenu du fichier :
+The settings are versioned in the repository: `docs/rust/branch-protection.json`.
 
 ```json
 {
@@ -223,24 +217,30 @@ Contenu du fichier :
 }
 ```
 
-Vérifier ensuite :
+To apply (or re-apply) it:
+
+```bash
+gh api -X PUT repos/bigmoostache/Astra/branches/main/protection --input docs/rust/branch-protection.json
+```
+
+To check it:
 
 ```bash
 gh api repos/bigmoostache/Astra/branches/main/protection
 ```
 
-Point d'attention : les noms des vérifications doivent correspondre **exactement** aux champs `name:` de `ci.yml` (avec le point médian `·`), et elles doivent avoir tourné au moins une fois sur GitHub pour être reconnues.
+Watch out: the check names must match **exactly** the `name:` fields of `ci.yml` (with the middle dot `·`), and they must have run at least once on GitHub to be recognized.
 
 ---
 
-## 5. Origine
+## 5. Origin
 
-Tout ce dispositif est **recopié** du projet `github.com/bigmoostache/context-pilot` (branche `master`) : mêmes règles, mêmes seuils, mêmes scripts, même mécanisme de sceau, même organisation de la CI. Les adaptations pour Astra :
+This whole setup is **copied** from the project `github.com/bigmoostache/context-pilot` (branch `master`): same rules, same thresholds, same scripts, same seal mechanism, same CI layout. Adaptations for Astra:
 
-- seules les vérifications Rust ont été reprises (pas celles du site web en TypeScript de context-pilot) ;
-- branche `main` au lieu de `master` ;
-- la tâche CI de structure s'appelle `Structure (lengths · folders · chain)` (sans la partie « web ») ;
-- `rust-toolchain.toml` et `chain.sh` ont été ajoutés à la liste scellée ;
-- le registre du sceau repart de zéro, avec le mot de passe propre à Astra.
+- only the Rust checks were kept (not the ones for context-pilot's TypeScript website);
+- branch `main` instead of `master`;
+- the structure CI job is called `Structure (lengths · folders · chain)` (without the "web" part);
+- `rust-toolchain.toml` and `chain.sh` were added to the sealed list;
+- the seal registry starts from scratch, with Astra's own password.
 
-**Réserve importante sur la version 1.97.1** : la liste des ~1 000 règles est écrite pour cette version précise de Rust. Changer de version peut faire apparaître des règles inconnues ou renommées ; elles produisent alors un avertissement, et comme tout avertissement est traité comme une erreur, la CI échoue. Monter de version demande donc de mettre à jour la liste des règles en même temps, puis de renouveler le sceau (section 3.2).
+**Important caveat about version 1.97.1**: the list of ~1,000 rules is written for this exact Rust version. Changing versions may bring up unknown or renamed rules; they then produce a warning, and since every warning is treated as an error, CI fails. Upgrading therefore requires updating the rule list at the same time, then renewing the seal (section 3.2).

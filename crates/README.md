@@ -1,25 +1,25 @@
-# crates/ — le code Rust d'Astra
+# crates/ — Astra's Rust code
 
-Chaque dossier ici est une « crate » (un module Rust compilé séparément).
-Toutes partagent les mêmes règles de qualité, définies une seule fois dans le
-`Cargo.toml` à la racine (`[lints] workspace = true` dans chaque crate).
+Each folder here is a "crate" (a Rust module compiled separately).
+They all share the same quality rules, defined once in the root
+`Cargo.toml` (`[lints] workspace = true` in each crate).
 
-| Crate | Rôle |
+| Crate | Role |
 |-------|------|
-| `astra-cli` | Le programme `astra`, point d'entrée unique (`astra db build`, `astra site build`). Pour l'instant il affiche seulement sa version. |
-| `astra-db` | Bibliothèque qui construira la base `data/astra.sqlite` à partir des fichiers YAML de `data/`. |
-| `astra-site` | Bibliothèque qui générera le site web (l'interface) à partir du dépôt. |
+| `astra-cli` | The `astra` program, single entry point (`astra db build`, `astra site build`). For now it only prints its version. |
+| `astra-db` | Library that will build the `data/astra.sqlite` database from the YAML files in `data/`. |
+| `astra-site` | Library that will generate the website (the interface) from the repository. |
 
-## Règles
+## Rules
 
-- Les règles sont très strictes : presque tous les avertissements du compilateur
-  et de `clippy` (l'outil d'analyse de Rust) sont des erreurs bloquantes.
-- Il est interdit de désactiver une règle localement (`#[allow]` ou `#[expect]`),
-  sauf si l'exception est inscrite, avec sa justification, dans
+- The rules are very strict: almost every compiler and `clippy` (Rust's
+  analysis tool) warning is a blocking error.
+- Disabling a rule locally (`#[allow]` or `#[expect]`) is forbidden, unless
+  the exception is registered, with its justification, in
   `.github/checks/allowed-lint-exceptions.yaml`.
-- Un fichier `.rs` fait au maximum 500 lignes et un dossier contient au maximum 8 éléments.
-- Toute nouvelle dépendance doit être validée par le Rust Manager.
+- A `.rs` file has at most 500 lines and a folder contains at most 8 entries.
+- Every new dependency must be approved by the Rust Manager.
 
-## Lancer les vérifications
+## Running the checks
 
-Voir `scripts/README.md`.
+See `scripts/README.md`.
