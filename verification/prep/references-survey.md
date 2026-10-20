@@ -161,7 +161,21 @@ Overall validation covered 4 publications (22 survival probabilities, 7 medians,
 
 **Second implementation:** Wei & Royston 2017, *Stata J* 17:786-802, doi:10.1177/1536867X1801700402 (`ipdfc`), reproduces the same example.
 
-**Gap:** D6 needs ≥3 curves and only 1 is itemised. Guyot 2012 validated on 6 curve pairs from 4 publications (its refs [12], [27]-[29]), but the per-curve results are not printed in the text. Candidate sources for 2 more curves, each with the figure, at-risk table and a printed median or HR:
+**Gap:** D6 needs ≥3 curves; 2 are now identified (Bonner 2006 above, ICON7 below), 1 is missing.
+
+**Curve 2: ICON7.** Perren et al. 2011, *NEJM* 365:2484-2496, doi:10.1056/NEJMoa1103799 (Crossref OK), bevacizumab in ovarian cancer. The trial prints the KM figure, the at-risk table, the median and the HR. Wei & Royston 2017 reconstruct it:
+
+| Quantity | Original | ipdfc (Wei & Royston 2017) |
+|----------|----------|----------------------------|
+| HR (95% CI) | 0.81 (0.70, 0.94) | 0.83 (0.72, 0.96) |
+| Median, chemotherapy arm (months) | 17.3 | 17.5 (16.1, 18.7) |
+| At risk at 6 / 12 months | 693 / 464 | 694 / 465 |
+
+Endpoint (PFS assumed) and the arm for the at-risk counts: `[to verify]` against the NEJM figure.
+
+**Not usable:** the third worked example in Wei & Royston 2017 prints no original HR or median (only log-rank p 0.0003 vs 0.0006 reconstructed, and an absolute risk reduction 1.9% vs 1.82%), so it fails the "printed median or HR" requirement.
+
+**Candidate for curve 3:** Saluja et al. 2019, *Res Synth Methods* 10:465-475, doi:10.1002/jrsm.1362 (Crossref OK): 118 KM curves from 55 RCTs with reported vs reconstructed HRs. Whether it itemises the per-trial values: `[to verify]`. Guyot 2012 validated on 6 curve pairs from 4 publications (its refs [12], [27]-[29]), but the per-curve results are not printed in the text. Candidate sources for 2 more curves, each with the figure, at-risk table and a printed median or HR:
 
 - Wei & Royston 2017 (above) for further worked examples `[to verify]`.
 - Saluja et al. 2019, *Res Synth Methods*, doi:10.1002/jrsm.1362: 118 KM curves from 55 RCTs, with the reported HR next to the reconstructed HR `[to verify: DOI on Crossref, per-trial table]`.
