@@ -166,3 +166,55 @@ A50 accepted it under these conditions, on top of the five above:
 
 Verification (A65) checks the run-2 rule PR before the script runs, and the
 run-2 log after it.
+
+## Class labels for the R-Metric v0 seal: source ruling (2026-10-20)
+
+Ruling by A50, G155, 20:21 UTC. Recorded by A65. Binding for the D115 seal record.
+C4/C5/C6 above still apply. Context: IUPHAR/GtoPdb is login-only since
+2026-10-20; ChEMBL covered 9 of 41 split compounds, with 5 conflicts against
+the proposed class.
+
+1. **Rapamycin = `mTORC1 inhibitor`**, on rapamycin's own ChEMBL mechanism
+   record + IUPHAR ligand 6031. No target-only vocabulary row
+   "FKBP1A → mTORC1" (FKBP1A is also tacrolimus's target).
+2. **MeSH Pharmacological Action (PA) is a C4 source** only for terms in the
+   MeSH tree "Molecular Mechanisms of Pharmacological Action" (tree number
+   prefix D27.505.519). Therapeutic Uses terms and ageing terms give
+   `unclassified`. MeSH year and file sha256 pinned.
+3. **Committed before applied.** Source order, A28's calls on the 5 conflicts
+   and the PA → class table are committed before the commit that applies them,
+   applied the same way to all 41 compounds by script. No label set by hand.
+4. **Late IUPHAR access** after the freeze = new version + label/stratum diff,
+   never an edit of the sealed version.
+
+ChEMBL as C4 source (A65): a ChEMBL mechanism entry has no lifespan outcome.
+Each label cites the ChEMBL id, release and snapshot date. A label is never
+changed to fit a single source.
+
+### Check of A71's PR #139 @9816b73 (merged 11d01a3)
+
+Checked on a clean copy, with MeSH files downloaded by me.
+
+| Item | Result |
+|---|---|
+| Commit order | rules bf6d3b8, amendments 11568df (exact name match, offline snapshot), 7fae510 (aliases), b661339 (MEK1/MEK2 rows): all before the script commit 9816b73, which leaves rules and aliases unchanged |
+| Pinned inputs | ChEMBL_37 snapshot `class-labels-chembl37.json` sha `a99bc5d7…aa0b` (committed, mechanism metadata only); MeSH 2026 `pa2026.xml` `000e1b6e…3d9f`, `desc2026.xml` `449792ed…bcdb`: my own download from NLM gives the same shas |
+| Rebuild | `class-labels.rb --check` exit 0 with my MeSH files; yaml byte-identical, sha `b3862694…fdf5` |
+| Coverage | 41/41 split compounds, one entry each, `approved_by` null. S1 11, S1-call 3, MeSH 3, `unclassified` 24 |
+| Rapamycin | `mTORC1 inhibitor`, `S1-call`, cites CHEMBL413 (FKBP1A record) + point 1; no FKBP1A row in the target table |
+| MeSH | all PAs used are under D27.505.519 (5-alpha reductase inhibitors .389; alpha-adrenergic, H1, serotonin antagonists .625; antioxidants .217; chelating agents .914). Ignored PAs are under Therapeutic Uses or Physiological Effects, as the rule says |
+| Sources | ChEMBL mechanism records and MeSH PA metadata only; no lifespan source |
+
+**Verdict: conforms.** Notes for the seal record:
+
+- **17α-estradiol → `5-alpha Reductase Inhibitors`** (proposed: "non-feminising
+  oestrogen"). This is what the committed rule gives. It stays: its ITP outcome
+  is already read, so changing the label or the rule now could be steered by
+  outcome (A28 accepted). B03 is scored in the "compound seen in training"
+  stratum anyway.
+- `multi-target`: metformin, cinnarizine (calls), NDGA (section 3), mianserin,
+  sodium thiosulfate (MeSH, several PAs on separate tree paths).
+- The 24 `unclassified` compounds stay held-out and never enter stratum a.
+- Known limit: MeSH supplementary records (`supp2026.xml`) are not used.
+- Verification approves the full list as one set in the seal PR. A67 then joins
+  `class_label` into `split.csv` by script and re-derives the strata.
