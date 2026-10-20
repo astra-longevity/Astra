@@ -1,0 +1,66 @@
+# Miller 2011 (PMC3021372), table 1, text, fig 6. Null arm: "did not have significant effects on survival".
+id: 2006-simvastatin-12ppm-304d-m
+program: ITP
+publication:
+  doi: 10.1093/gerona/glq178
+  citation: "Miller RA et al., 2011, J Gerontol A Biol Sci Med Sci 66A:191-201"
+cohort_year: 2006  # paper: "Cohort 2006"
+compound: simvastatin
+role: "null"
+strain: UM-HET3
+sex: M
+start_age_days: 304  # table 1 "10 months"; 10 x 30.44 d
+dose:
+  value: 12
+  unit: ppm
+  route: diet
+n:
+  treated: null
+  control: null
+lifespan:
+  control:
+    median_days: null
+    mean_days: null
+    p90_days: null
+  treated:
+    median_days: null
+    mean_days: null
+    p90_days: null
+effect:
+  median_pct: null
+  p90_pct: null
+  se: null
+  se_scale: null
+  se_source: null
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "not significant", source: "text, fig 6 (p in figure)"}
+curve_source:
+  figure: "fig 6"
+  mpd_id: 823
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites: []
+notes: >
+  Null arm (negative-control candidate, T1-A2-2). No significant effect at any single site
+  either (text, data not shown). Controls shared with the C2006 rapamycin arm (table 2).
+  Medians and n come from MPD file 823 (fetch job pending).
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - n.treated
+    - n.control
+    - lifespan.control.median_days
+    - lifespan.treated.median_days
+    - p_values

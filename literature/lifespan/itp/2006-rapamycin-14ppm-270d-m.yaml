@@ -1,0 +1,71 @@
+# Miller 2011 (PMC3021372), table 1, table 2, text, figs 1-2. Read 2026-10-20.
+id: 2006-rapamycin-14ppm-270d-m
+program: ITP
+publication:
+  doi: 10.1093/gerona/glq178
+  citation: "Miller RA et al., 2011, J Gerontol A Biol Sci Med Sci 66A:191-201"
+cohort_year: 2006  # paper: "Cohort 2006"
+compound: rapamycin
+role: extends
+strain: UM-HET3
+sex: M
+start_age_days: 270  # table 1 "9 months"; figs 1-2 arrows at 270 d
+dose:
+  value: 14
+  unit: ppm
+  route: diet, encapsulated
+n:
+  treated: null  # only total printed: 2173 entered, 125 removed (both sexes, all groups)
+  control: null
+lifespan:
+  control:
+    median_days: null  # pooled median not printed; per-site in sites
+    mean_days: null
+    p90_days: null
+  treated:
+    median_days: null
+    mean_days: null
+    p90_days: null
+effect:
+  median_pct: null  # paper's 10% is the mean of the 3 site changes, not a pooled median (see notes)
+  p90_pct: null     # paper's 16% likewise
+  se: null
+  se_scale: null
+  se_source: null  # no HR, no exact p printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "in figure only", source: "fig 1"}
+  - {test: "alive at 90th percentile (3% control vs 24% treated), Fisher", value: "< 0.001", source: "text"}
+curve_source:
+  figure: "fig 1 (pooled), fig 2 (per site)"
+  mpd_id: 823
+flags:
+  control_in_ref_range: false  # range bounds and pooled control median not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites:
+  - {site: TJL, median_days: {control: 800, treated: 841}, p90_days: {control: 1002, treated: 1155}, p_values: [{test: "alive at 90th percentile, Fisher", value: "< 0.002"}]}
+  - {site: UM, median_days: {control: 851, treated: 932}, p90_days: {control: 1061, treated: 1211}, p_values: [{test: "alive at 90th percentile, Fisher", value: "< 0.001"}]}
+  - {site: UT, median_days: {control: 780, treated: 888}, p90_days: {control: 985, treated: 1167}, p_values: [{test: "alive at 90th percentile, Fisher", value: "< 0.001"}]}
+notes: >
+  Per-site medians and p90 from table 2 (mice removed from the study excluded). Paper reports
+  the mean of the site changes: median +10%, p90 +16%; pooled values not printed.
+  Log-rank significant at each site (fig 2, p in figure). Analysis 2010-05-12, 4 mice alive.
+  Versus C2005 (start 600 d): no significant difference (log-rank M p = 0.74, F p = 0.31).
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - n.treated
+    - n.control
+    - lifespan.control.median_days
+    - lifespan.treated.median_days
+    - p_values
