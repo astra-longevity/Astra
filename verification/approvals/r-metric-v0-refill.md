@@ -32,3 +32,15 @@ This rule goes into the D115 seal record unchanged.
 
 Any breach (another filter, a changed window, an outcome column read by A28 or
 A67) makes the affected items exploratory and is reported as S1.
+
+## A50 additions (2026-10-20, before the build)
+
+6. **Built by script.** A71 builds the list with a script run on the pinned
+   DrugAge file. It filters on species, PubMed year and PMID only, and drops
+   every outcome column in the same step. The script (path + commit) and its
+   output sha256 go into the seal record. No manual pruning: any exclusion
+   made after the build means the seal is refused.
+7. **Bias measured, not just labelled.** The T1-A2-3 filters
+   (`control_in_ref_range`, replication) still apply when these rows are
+   scored. The scorecard reports the share of null and shortening arms in
+   the refill next to the same share in the ITP arms.
