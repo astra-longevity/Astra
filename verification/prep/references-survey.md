@@ -10,10 +10,10 @@ All DOIs below were checked on Crossref on 2026-10-19. Gaps are marked `[to veri
 
 | # | Estimator | Best reference | Inputs printed in full? | Meets D6 |
 |---|-----------|----------------|-------------------------|----------|
-| 1 | MR IVW, MR-Egger, weighted median | Second implementation (TwoSampleMR) on per-SNP inputs from a printed table | Not in Burgess 2013, Bowden 2015/2016 or Yavorska 2017 `[to verify]` | Only via (b) |
+| 1 | MR IVW, MR-Egger, weighted median | TwoSampleMR vs MendelianRandomization on the same 28 variants, in Actions | No printed per-SNP table found | Only via (b) |
 | 2 | Random effects DL / REML | Normand 1999, stroke-unit data | Yes (9 studies, n/mean/SD per arm) | Yes (a) |
-| 3 | Hartung-Knapp (HKSJ) | IntHout 2014, two worked examples | Partly `[to verify]` | (a) if the per-study table is complete, otherwise (b) |
-| 4 | Mantel-Haenszel (no CC), Peto OR | Efthimiou 2018, Table 2 | `[to verify]` | (a) if the 2x2 tables are printed, otherwise (b) |
+| 3 | Hartung-Knapp (HKSJ) | IntHout 2014, two worked examples (appendix) | Yes for the HK step (estimate + DL weight per study) | Yes (a), HK step only |
+| 4 | Mantel-Haenszel (no CC), Peto OR | Efthimiou 2018, Figs 1-2 + Table 2 | Yes (events/n per arm, 18 + 24 trials, many zero-event arms) | Yes (a), hand-checked |
 | 5 | RMST | Hand area under the KM curve on Gehan 1965 times + survRM2 | Yes (42 individual times) | Yes (b), hand-computed |
 | 6 | Guyot KM reconstruction | Guyot 2012 Table 3 (Bonner 2006 curves) | Curve + at-risk table printed in the source trial | Partly: only 1 of the 3 required curves is itemised |
 | 7 | van Zwet shrinkage prior | van Zwet, Schwab & Senn 2021, Table 1 | Parameters printed | Yes (a) |
@@ -31,7 +31,7 @@ Candidate sources (all on Crossref):
 
 **Printed outputs:** the LDL-C → CHD numbers in circulation (IVW 2.834, SE 0.530; weighted median 2.683, SE 0.419; simple median 1.755, SE 0.740; MR-Egger 3.253, SE 0.770, intercept −0.011, SE 0.015) come from the package vignette. Under D6 they are a **smoke test only**. Lecture slides from the Burgess book are excluded (not peer reviewed).
 
-**Proposed reference:** take the per-SNP inputs from a printed table (Waterworth supplement `[to verify]`) and compare with an independent implementation (TwoSampleMR `mr_ivw`, `mr_egger_regression`, `mr_weighted_median`) run in GitHub Actions.
+**Decision (A50, 2026-10-19):** no printed per-SNP table exists for these papers, so the reference is route (b): run TwoSampleMR (`mr_ivw`, `mr_egger_regression`, `mr_weighted_median`) and MendelianRandomization (`mr_ivw`, `mr_egger`, `mr_median`) on the same 28 variants in GitHub Actions, and compare both with astra-stats. The search for a printed table stops here.
 
 **Tolerance:** 1e-3 absolute on estimates and analytic SEs against the second implementation. Weighted-median SE is bootstrapped, so 5% relative.
 
@@ -55,16 +55,16 @@ metafor's own reproduction gives DL tau² 218.72 and Q(8) = 241.06, REML tau² 6
 
 ## 3. Hartung-Knapp-Sidik-Jonkman
 
-Source: IntHout, Ioannidis & Borm 2014, *BMC Med Res Methodol* 14:25, doi:10.1186/1471-2288-14-25. The paper gives an Excel sheet (additional file 1) and R code (appendix).
+Source: IntHout, Ioannidis & Borm 2014, *BMC Med Res Methodol* 14:25, doi:10.1186/1471-2288-14-25. The paper gives an Excel sheet (additional file 1) and R code (appendix 3).
 
-**Printed outputs:**
+**Inputs (printed in full in the worked examples):** each study's estimate and its DL weight (% of total). HKSJ only needs relative weights, so these inputs are complete for the HK step. They are not enough to recompute DL tau² (no SEs).
 
-- Example 1 (10 trials, hazard ratios): DL HR 0.86 [0.77, 0.97], z = −2.48, p = 0.013. HKSJ HR 0.86 [0.77, 0.96], t = −3.19, df = 9, p = 0.011. The HKSJ interval is narrower here (q < 1), which makes it a good test of plain HK against the modified version with max(1, q).
-- Example 2 (5 studies, SMD, I² = 75%, tau² = 0.13): HKSJ SMD −0.39 [−1.02, 0.24], |t| = 1.73, df = 4, p = 0.16.
+- Example 1: zinc for the common cold (Cochrane CD001364, 5 studies, 513 patients), SMD. y = −0.04, −0.07, −0.31, −1.36, −0.54; DL weights % = 24.0, 22.2, 21.3, 15.5, 17.0.
+  Printed: pooled −0.39; Σw(y − ȳ)² = 20.31; variance 0.0508; SE 0.225; t₀.₉₇₅(4) = 2.78; 95% CI [−1.02, 0.24]; t = −1.73; p = 0.16.
+- Example 2: donor vs no donor in ALL (Cochrane CD008818, 10 trials), HR. HR = 0.81, 0.67, 0.80, 0.91, 0.56, 0.98, 1.24, 0.75, 0.95, 0.66; DL weights % = 5.0, 2.1, 11.5, 46.7, 2.9, 9.3, 3.9, 12.7, 3.9, 2.0.
+  Printed: pooled ln HR −0.15 (HR 0.86); Σ factors 1.99 → /100 = 0.0199 → /9 = 0.0022; SE 0.047; t₀.₉₇₅(9) = 2.26; HR 95% CI [0.77, 0.96]; t = −3.19; p = 0.011. The DL figures for this example (z = −2.48, p = 0.013, CI [0.77, 0.97]) come from a search snippet: `[to verify]`.
 
-**Inputs:** whether the per-study estimates and SEs are printed in full: `[to verify]`.
-
-**Tolerance:** 0.005 absolute on estimates and CI limits, ±0.005 on t, ±0.0005 on p. Against metafor `rma(test = "knha")`: 1e-6 relative.
+**Tolerance:** the inputs are rounded (0.01 on estimates, 0.1 on weights), so 0.01 absolute on the pooled estimate and CI limits, 0.02 on t, 0.005 on p. Second implementation: metafor `rma.uni(yi, vi = 1/w, method = "FE", test = "knha")` (the paper's own approach), 1e-6 relative.
 
 ## 4. Rare events: Mantel-Haenszel (no continuity correction) and Peto OR
 
@@ -78,9 +78,63 @@ Bradburn DOI confirmed: Bradburn, Deeks, Berlin & Localio, "Much ado about nothi
 | Peto | 0.75 (0.24-2.36) | 0.67 (0.35-1.25) |
 | MH, no CC | 0.77 (0.26-2.28) | 0.66 (0.34-1.26) |
 
-One example includes 3:1 randomised trials, so the known Peto bias with unbalanced arms is visible.
+One example includes 3:1 randomised trials, so the known Peto bias with unbalanced arms is visible. Other printed rows: MH with treatment-arm CC 0.85 (0.36-2.00) | 0.71 (0.39-1.28); IV with 0.5 CC 0.63 (0.24-1.70) | 0.71 (0.38-1.34).
 
-**Inputs:** whether the per-study 2x2 tables are printed: `[to verify]`.
+**Inputs:** printed in full in Fig 1 (A) and Fig 2 (B) as forest plots with events/total per arm (data from Kishi, Matsunaga & Iwata 2016, *Schizophr Bull* 42:1438-1445, doi:10.1093/schbul/sbw043). Transcribed by OCR from the figures; the column totals match the printed totals (A: 7/3774 vs 6/2145; B: 15/4059 vs 24/3820). Trial names were spelling-corrected from the OCR output (e.g. "Pandinda" → Pandina, "Ghue" → Chue); names and years are `[to verify]` against the figures. The counts are what matter.
+
+Example A, death, LAI-AP vs placebo (18 trials: 1 with events in both arms, 9 with a single zero arm, 8 with zero events in both arms):
+
+| Trial | LAI-AP events/n | Placebo events/n |
+|-------|-----------------|------------------|
+| Kane 2012 | 1/269 | 0/134 |
+| Kane 2014 | 0/168 | 0/172 |
+| Meltzer 2015 | 0/415 | 1/207 |
+| Hirsch 1973 | 0/41 | 0/40 |
+| Jolley 1990 | 2/27 | 0/27 |
+| Odejide 1952 (as OCR'd; likely 1982 `[to verify]`) | 0/35 | 1/35 |
+| Rifkin 1977 | 0/23 | 1/22 |
+| Lauriello 2008 | 0/306 | 0/98 |
+| Berwaerts 2015 | 0/160 | 0/145 |
+| Fu 2015 | 2/164 | 0/170 |
+| Gopal 2010 | 0/221 | 0/135 |
+| Hough 2010 | 0/206 | 0/204 |
+| Kramer 2010 | 0/163 | 0/84 |
+| Nasrallah 2010 | 1/391 | 1/127 |
+| Pandina 2010 | 1/488 | 0/164 |
+| Takahashi 2013 | 0/160 | 1/164 |
+| Kane 2003 | 0/302 | 1/98 |
+| Nasser 2016 | 0/235 | 0/119 |
+
+Example B, death, LAI-AP vs oral antipsychotic (24 trials):
+
+| Trial | LAI-AP events/n | Oral events/n |
+|-------|-----------------|---------------|
+| Fleischhacker 2014 | 0/265 | 1/266 |
+| Ishigooka 2015 | 1/228 | 1/227 |
+| Del Giudice 1975 | 0/27 | 0/61 |
+| Falloon 1978 | 0/20 | 0/24 |
+| Hogarty 1973 (as OCR'd; likely 1979 `[to verify]`) | 2/55 | 0/50 |
+| Kaneno 1991 | 0/127 | 1/132 |
+| Rifkin 1977 | 0/23 | 1/28 |
+| Ohkuma 1985 | 0/141 | 1/142 |
+| Detke 2011 | 0/264 | 2/260 |
+| Kane 2010 | 0/599 | 0/322 |
+| Alphs 2015 | 1/230 | 0/220 |
+| Schreiner 2015 | 1/352 | 1/363 |
+| Bai 2007 | 0/25 | 0/25 |
+| Buckley 2015 | 2/153 | 4/152 |
+| Chue 2005 | 0/319 | 1/321 |
+| Gaebel 2010 | 3/329 | 2/382 |
+| Kamijima 2009 | 0/153 | 0/52 |
+| Keks 2007 | 2/247 | 6/300 |
+| Macfadden 2010 | 1/179 | 1/176 |
+| Malla 2013 | 0/44 | 0/41 |
+| Potapov 2008 | 0/20 | 0/21 |
+| Rosenheck 2011 | 2/190 | 2/192 |
+| Subotnik 2015 | 0/43 | 0/43 |
+| Arango 2006 | 0/26 | 0/20 |
+
+**Hand check (awk, standard formulas, no statistics package):** MH OR without CC = 0.7732 (A) and 0.6589 (B); Peto OR = 0.7517 [0.2390, 2.3645] (A) and 0.6658 [0.3542, 1.2514] (B). All agree with the printed 2-dp values, so the transcription is consistent with the paper's results.
 
 **Tolerance:** 0.005 absolute on OR and CI limits (2-dp printing). Against metafor `rma.mh` / `rma.peto`: 1e-6 relative.
 
@@ -107,9 +161,14 @@ Overall validation covered 4 publications (22 survival probabilities, 7 medians,
 
 **Second implementation:** Wei & Royston 2017, *Stata J* 17:786-802, doi:10.1177/1536867X1801700402 (`ipdfc`), reproduces the same example.
 
-**Gap:** D6 needs ≥3 curves and only 1 is itemised. The other 3 Guyot publications, or the curves in Wei & Royston 2017, need to be identified: `[to verify]`.
+**Gap:** D6 needs ≥3 curves and only 1 is itemised. Guyot 2012 validated on 6 curve pairs from 4 publications (its refs [12], [27]-[29]), but the per-curve results are not printed in the text. Candidate sources for 2 more curves, each with the figure, at-risk table and a printed median or HR:
 
-**Tolerance:** survival probability 1.5 percentage points absolute; median 1 month or 5% relative; HR 5% relative, and only when the at-risk table and total events are printed.
+- Wei & Royston 2017 (above) for further worked examples `[to verify]`.
+- Saluja et al. 2019, *Res Synth Methods*, doi:10.1002/jrsm.1362: 118 KM curves from 55 RCTs, with the reported HR next to the reconstructed HR `[to verify: DOI on Crossref, per-trial table]`.
+
+Pick 2 trials whose publication prints the at-risk table and a median or HR, and whose reconstructed value is printed in one of these papers.
+
+**Tolerance:** survival probability 1.5 percentage points absolute; median 1 month or 5% relative. For the HR, use 10% relative, and only when the at-risk table and total events are printed. On Bonner 2006 the original HR is 0.68 [0.52, 0.89], Guyot gives 0.73 [0.57, 0.94] and `ipdfc` 0.72 [0.56, 0.93] (Wei & Royston 2017, Table 1), already 6-7% apart, so 5% would be too strict.
 
 ## 7. van Zwet-Schwab-Senn shrinkage prior
 
@@ -129,7 +188,8 @@ Relationship: SD_SNR² + 1 = SD_z². The same values are reprinted in van Zwet e
 
 ## Open items
 
-1. MR: find a printed per-SNP table (Waterworth supplement or the Bowden papers).
-2. HK and rare events: check that the per-study inputs in IntHout 2014 and Efthimiou 2018 are complete.
-3. RMST: check whether any paper prints an RMST for the Gehan/Freireich data.
-4. Guyot: identify 2 more curves with printed medians/HRs.
+1. MR: closed. Route (b) TwoSampleMR vs MendelianRandomization in Actions.
+2. HK: confirm the DL figures of example 2 (z, p, CI).
+3. Rare events: confirm trial names in Figs 1-2 (counts already checked against totals and printed ORs).
+4. RMST: check whether any paper prints an RMST for the Gehan/Freireich data.
+5. Guyot: pick 2 more curves (Saluja 2019 or Wei & Royston 2017).
