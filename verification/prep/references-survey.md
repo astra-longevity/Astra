@@ -161,7 +161,7 @@ Overall validation covered 4 publications (22 survival probabilities, 7 medians,
 
 **Second implementation:** Wei & Royston 2017, *Stata J* 17:786-802, doi:10.1177/1536867X1801700402 (`ipdfc`), reproduces the same example.
 
-**Gap:** D6 needs ≥3 curves; 2 are now identified (Bonner 2006 above, ICON7 below), 1 is missing.
+**Gap:** D6 needs ≥3 curves; 3 are now identified (Bonner 2006, ICON7 for median/survival only, Goss 2005 for HR only, provisional), see below.
 
 **Curve 2: ICON7.** Perren et al. 2011, *NEJM* 365:2484-2496, doi:10.1056/NEJMoa1103799 (Crossref OK), bevacizumab in ovarian cancer. The trial prints the KM figure, the at-risk table, the median and the HR. Wei & Royston 2017 reconstruct it:
 
@@ -173,19 +173,27 @@ Overall validation covered 4 publications (22 survival probabilities, 7 medians,
 
 Endpoint and analysis, checked against the NEJM full text (2026-10-20): the values are **progression-free survival, primary analysis** (cutoff 28 Feb 2010, 759 events: 392 standard, 367 bevacizumab; median follow-up 19.4 months; Figure 2A). Printed: HR for progression or death with bevacizumab 0.81 (0.70, 0.94), log-rank P = 0.004; median PFS 17.3 months standard chemotherapy vs 19.0 months bevacizumab. So the median 17.3 is the standard-chemotherapy arm. Not to be confused with the updated analysis (cutoff 30 Nov 2010, 934 events): HR 0.87 (0.77, 0.99), medians 17.4 / 19.8.
 
-**Caveat:** the paper reports clear non-proportional hazards (test P < 0.001) and states that the conventional HR "is not meaningful" here. The median and the at-risk table are the safer comparison targets; the HR comparison is weaker for this curve.
+**Ruling (A50, 2026-10-20):** the paper reports clear non-proportional hazards (test P < 0.001) and states that the conventional HR "is not meaningful" here. ICON7 therefore counts as a curve **for the median and survival at printed times only**; its HR is excluded from the D38 HR check.
 
-At-risk counts (693 / 464 at 6 / 12 months) are printed only in the Figure 2A image, which the text scrape cannot read; which arm they belong to is `[to verify]` against the figure.
+At-risk counts (693 / 464 at 6 / 12 months) are printed only in the Figure 2A image, which the text scrape cannot read; which arm they belong to is `[to verify]` against the figure. Until resolved, the at-risk counts are not used for this curve.
 
 **Not usable:** the third worked example in Wei & Royston 2017 prints no original HR or median (only log-rank p 0.0003 vs 0.0006 reconstructed, and an absolute risk reduction 1.9% vs 1.82%), so it fails the "printed median or HR" requirement.
 
-**Candidate for curve 3:** Saluja et al. 2019, *Res Synth Methods* 10:465-475, doi:10.1002/jrsm.1362 (Crossref OK): 118 KM curves from 55 RCTs (pCODR, 2012-2016) and 77 from 46 RCTs (FDA), with reported vs reconstructed HRs. The abstract and the publicly available snippets give only pooled accuracy (Guyot mean error 0.0094, 95% CI −0.0012 to 0.020, on the log HR scale `[to verify]`); no per-trial values are visible outside the paywalled full text or supplement. Not usable until a per-trial table is found `[to verify]`. **Guyot 2012 itself (full text checked):** only Bonner is itemised (Table 3). Table 4 gives pooled accuracy only (HR, full information: mean error 0.008 on log scale, MAE 0.017, 97.5% bound exp(0.122) = 1.13). The other three validation publications are named but their per-curve results are not printed:
+**Candidate for curve 3:** Saluja et al. 2019, *Res Synth Methods* 10:465-475, doi:10.1002/jrsm.1362 (Crossref OK): 118 KM curves from 55 RCTs (pCODR, 2012-2016) and 77 from 46 RCTs (FDA), with reported vs reconstructed HRs. The abstract and the publicly available snippets give only pooled accuracy (Guyot mean error 0.0094, 95% CI −0.0012 to 0.020, on the log HR scale `[to verify]`); no per-trial values are visible outside the paywalled full text or supplement. Not usable until a per-trial table is found `[to verify]`.
+
+**Guyot 2012 itself (full text checked):** only Bonner is itemised (Table 3). Table 4 gives pooled accuracy only (HR, full information: mean error 0.008 on log scale, MAE 0.017, 97.5% bound exp(0.122) = 1.13). The other three validation publications are named but their per-curve results are not printed:
 
 - van Oers et al. 2006, *Blood* 108:3295-3301, doi:10.1182/blood-2006-05-021113 (rituximab maintenance, follicular lymphoma).
 - Goss et al. 2005, *JNCI* 97:1262-1271, doi:10.1093/jnci/dji250 (letrozole, MA.17).
 - Seymour et al. 2007, *Lancet* 370:143-152, doi:10.1016/S0140-6736(07)61087-3 (MRC FOCUS).
 
-Since the D6 target is the original printed median/HR (astra-stats reconstructs, then compares), these trials can serve as curve 3 if their paper prints the KM figure, the at-risk table and a median or HR: `[to verify]` for each (DOIs checked on Crossref 2026-10-20).
+Since the D6 target is the original printed median/HR (astra-stats reconstructs, then compares), these trials can serve as curve 3 if their paper prints the KM figure, the at-risk table and a median or HR, and does not flag non-proportional hazards (DOIs checked on Crossref 2026-10-20). Checked in the order van Oers → Goss → Seymour:
+
+- **van Oers 2006: not retained.** Full text paywalled. The abstract prints medians and HRs (PFS from first randomisation 20.2 vs 33.1 months, HR 0.65; maintenance PFS 14.9 vs 51.5 months, HR 0.40; OS HR 0.52), but the at-risk table and any PH statement cannot be checked.
+- **Goss 2005: provisional curve 3.** MA.17 updated analysis, letrozole vs placebo after 5 years of tamoxifen (n 2582 / 2586, median follow-up 30 months). DFS Kaplan-Meier figure with a number-at-risk row (caption "N, number at risk; S, survival percent, 95% CI", reprinted in Goss 2007, *Breast Cancer Res Treat*, doi:10.1007/s10549-007-9698-1 `[to verify]`). Printed: DFS HR 0.58 (0.45, 0.76), P = 0.00003; 92 vs 155 DFS events; OS HR 0.82 (0.57, 1.19). No median DFS is printed (too few events), so this curve gives an **HR target only**. No non-PH statement found in the accessible text `[to verify against the full text]`. Values come from secondary snippets, not yet read in the JNCI full text: `[to verify]`.
+- **Seymour 2007:** not checked, since Goss qualifies provisionally.
+
+**Usable-HR count:** Bonner 2006 + Goss 2005 = 2 curves with a usable HR (ICON7 excluded), which meets A50's ≥2 requirement once Goss is confirmed.
 
 **Tolerance:** not proposed here. Under D38 Verification sets it from ≥3 curves; setting it from one curve, just above the error already observed, would make the test pass by construction.
 
@@ -221,4 +229,4 @@ Relationship: SD_SNR² + 1 = SD_z². The same values are reprinted in van Zwet e
 2. HK: confirm the DL figures of example 2 (z, p, CI).
 3. Rare events: confirm trial names in Figs 1-2 (counts already checked against totals and printed ORs).
 4. RMST: check whether any paper prints an RMST for the Gehan/Freireich data.
-5. Guyot: curve 3 — check van Oers 2006, Goss 2005 or Seymour 2007 for figure + at-risk table + printed median/HR; ICON7 at-risk arm against Figure 2A.
+5. Guyot: confirm Goss 2005 (figure, at-risk row, HR 0.58, no non-PH flag) in the JNCI full text; if it fails, check Seymour 2007. ICON7 at-risk arm against Figure 2A.
