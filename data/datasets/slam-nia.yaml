@@ -1,0 +1,32 @@
+id: slam-nia
+title: "Study of Longitudinal Aging in Mice (SLAM), NIA"
+description: >-
+  NIA intramural longitudinal study of C57BL/6J and UM-HET3 mice of both
+  sexes, measured repeatedly until death. Would anchor metric axes on
+  individual remaining lifespan.
+maintainer: "National Institute on Aging, Intramural Research Program (de Cabo lab)"
+landing_url: https://doi.org/10.1093/gerona/glaa285
+access: unknown
+files: []
+licence:
+  spdx_or_name: "Unknown (no public data release found)"
+  url: null
+  redistribution_of_derived: "unclear"
+  citation_required: true
+  notes: >-
+    No data terms found. To be set once NIA answers the access request.
+licence_status: refused
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-007
+checked_at: "2026-10-20"
+source_publications:
+  - 10.1093/gerona/glaa285
+used_by:
+  - R-Metric
+  - O16
+fetched_at: null
+notes: >-
+  Obstacle O16 (owner A2, month 1): no public data route found (PR #36 and a
+  new search on 2026-10-20). Exit: confirmed route with licence, or written
+  request sent to the NIA programme. Metric v0 must not plan on it.

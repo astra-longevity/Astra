@@ -1,0 +1,43 @@
+id: geo-gse120137
+title: "GEO GSE120137: mouse DNA methylation by age (Thompson 2018)"
+description: >-
+  Mouse DNA methylation profiles across ages, 549 samples, used to build the
+  Thompson 2018 epigenetic clock. Input for the methylation axis of metric v0.
+maintainer: "NCBI Gene Expression Omnibus (submitted by the authors)"
+landing_url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE120137
+access: public
+files:
+  - url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120137/suppl/GSE120137_RAW.tar"
+    sha256: null
+    size_bytes: 6439997440
+    format: tar
+    note: "all per-sample supplementary files"
+  - url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120137/suppl/GSE120137_MM10_EpigeneticAgeClock_RidgeRegression.csv.gz"
+    sha256: null
+    size_bytes: 2004429
+    format: csv.gz
+    note: "published clock coefficients"
+licence:
+  spdx_or_name: "NCBI GEO disclaimer (no NCBI restrictions; submitters may claim rights)"
+  url: https://www.ncbi.nlm.nih.gov/geo/info/disclaimer.html
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    "NCBI places no restrictions on the use or distribution of the GEO data.
+    However, some submitters may claim patent, copyright, or other
+    intellectual property rights in all or a portion of the data they have
+    submitted." Read via search engine on 2026-10-20 (direct fetch blocked by
+    a reCAPTCHA page). Verification to check this series for submitter claims.
+    Cite the GEO accession and the paper.
+licence_status: pending
+checked_at: "2026-10-20"
+source_publications:
+  - 10.18632/aging.101590
+used_by:
+  - R-Metric
+  - L2
+fetched_at: null
+notes: >-
+  GEO series and paper linked via NCBI E-utilities on 2026-10-20. Size from
+  HTTP Content-Length. GSE120132 is a sub-series of the same samples and is
+  not listed separately.

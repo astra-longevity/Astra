@@ -1,0 +1,88 @@
+id: nhanes-linked-mortality-2019
+title: "NHANES public-use linked mortality files (2019 release)"
+description: >-
+  Vital status and cause of death to 31 December 2019 for adult NHANES
+  participants 1999 to 2018, linkable to NHANES exam and lab data by SEQN.
+  Anchors human axes on mortality.
+maintainer: "CDC National Center for Health Statistics"
+landing_url: https://www.cdc.gov/nchs/data-linkage/mortality-public.htm
+access: public
+files:
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_1999_2000_MORT_2019_PUBLIC.dat"
+    sha256: null
+    size_bytes: 487666
+    format: dat
+    note: "cycle 1999-2000"
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2001_2002_MORT_2019_PUBLIC.dat"
+    sha256: null
+    size_bytes: 540362
+    format: dat
+    note: "cycle 2001-2002"
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2003_2004_MORT_2019_PUBLIC.dat"
+    sha256: null
+    size_bytes: 495722
+    format: dat
+    note: "cycle 2003-2004"
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2005_2006_MORT_2019_PUBLIC.dat"
+    sha256: null
+    size_bytes: 506774
+    format: dat
+    note: "cycle 2005-2006"
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2007_2008_MORT_2019_PUBLIC.dat"
+    sha256: null
+    size_bytes: 498376
+    format: dat
+    note: "cycle 2007-2008"
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2009_2010_MORT_2019_PUBLIC.dat"
+    sha256: null
+    size_bytes: 517751
+    format: dat
+    note: "cycle 2009-2010"
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat"
+    sha256: null
+    size_bytes: 475574
+    format: dat
+    note: "cycle 2011-2012"
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2013_2014_MORT_2019_PUBLIC.dat"
+    sha256: null
+    size_bytes: 494268
+    format: dat
+    note: "cycle 2013-2014"
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2015_2016_MORT_2019_PUBLIC.dat"
+    sha256: null
+    size_bytes: 484288
+    format: dat
+    note: "cycle 2015-2016"
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2017_2018_MORT_2019_PUBLIC.dat"
+    sha256: null
+    size_bytes: 449623
+    format: dat
+    note: "cycle 2017-2018"
+  - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/R_ReadInProgramAllSurveys.R"
+    sha256: null
+    size_bytes: null
+    format: r
+    note: "official read-in program"
+licence:
+  spdx_or_name: "NCHS data user agreement (US government work)"
+  url: https://www.cdc.gov/nchs/policy/data-user-agreement.html
+  redistribution_of_derived: "unclear"
+  citation_required: true
+  notes: >-
+    Use for statistical analysis only; no attempt to identify people; no
+    linkage to individually identifiable data. Aggregate tables look allowed;
+    republishing row-level records is for Verification to decide. Some records
+    have perturbed date or cause of death (vital status is not perturbed).
+licence_status: refused
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-008
+checked_at: "2026-10-20"
+used_by:
+  - R-Metric
+  - T1 human
+fetched_at: null
+notes: >-
+  Sizes from HTTP Content-Length on 2026-10-20. LA-008 refused because the
+  terms were not yet checked; this manifest records them, so Verification can
+  re-check the row.

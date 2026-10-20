@@ -1,0 +1,134 @@
+id: mpd-itp1
+title: "Interventions Testing Program lifespan data (Mouse Phenome Database)"
+description: >-
+  Per-mouse survival data of the NIA Interventions Testing Program (UM-HET3
+  mice, three sites), one spreadsheet per cohort year, 2004 to 2021. Source of
+  ITP null arms (negative controls), control reference ranges and lifespan
+  forecasts.
+maintainer: "The Jackson Laboratory, Mouse Phenome Database (project ITP1, MPD:508)"
+landing_url: https://phenome.jax.org/projects/ITP1
+access: public
+files:
+  - url: "https://phenome.jax.org/getcurationfile?id=834&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2004 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=829&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2005 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=823&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2006 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=804&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2007 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=798&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2009 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=793&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2010 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=787&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2011 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=768&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2012 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=762&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2013 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=782&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2014 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=748&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2015 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=754&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2016 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=737&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2017 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=558&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2018 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=573&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2019 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=707&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2020 lifespan file"
+  - url: "https://phenome.jax.org/getcurationfile?id=772&mode=download"
+    sha256: null
+    size_bytes: null
+    format: xlsx
+    note: "cohort C2021 lifespan file"
+licence:
+  spdx_or_name: "MPD terms of use (contributors waive copyright; citation required)"
+  url: https://phenome.jax.org/about/termsofuse
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    "MPD data contributors waive copyright and related rights, making their
+    data freely available whereby MPD users may freely build upon, enhance and
+    reuse those data for any purpose without restriction. Scholarly citation
+    norms must be followed for content reuse." Citation format:
+    https://phenome.jax.org/about/citing. Automated access must respect robots
+    meta tags and wait at least 2 s between requests.
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-006
+fetch:
+  min_interval_seconds: 2
+checked_at: "2026-10-20"
+source_publications:
+  - 10.1038/nature08221
+  - 10.1111/acel.12496
+  - 10.1007/s00335-023-10014-3
+used_by:
+  - L1
+  - R-Metric
+  - T5 ledger
+fetched_at: null
+notes: >-
+  MPD RRID:SCR_003212. Licence approved with conditions as LA-006 in
+  verification/approvals/licences.md: cite MPD and the project, observe meta
+  robots, space requests at least 2 s, pin download date and sha256. File ids
+  read from the ITP1 page on 2026-10-20. No C2008 cohort exists. Excluded: id
+  750 (C2015 'with error') and id 706 (C2020, deprecated). Plain curl from the
+  shared Mac got HTTP 403 (bot filter), so nothing is fetched locally and
+  sizes are unknown. MPD corrects datasets over time (changelog
+  https://phenome.jax.org/projects/all/changelog), so a hash change upstream
+  is expected now and then.

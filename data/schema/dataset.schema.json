@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "astra/dataset.schema.json",
+  "title": "Dataset fetch manifest",
+  "description": "File: data/datasets/<id>.yaml. One external dataset: where to fetch it, its expected hashes and its licence. Raw data is never committed; the fetch job (A10) downloads, hash-checks and caches it. See README.md 'Dataset manifests' and BUILD_SPEC.md section 10.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "title", "description", "maintainer", "landing_url", "access", "files", "licence", "licence_status", "checked_at"],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/slug" },
+    "title": { "$ref": "common.schema.json#/$defs/text" },
+    "description": { "$ref": "common.schema.json#/$defs/text" },
+    "maintainer": {
+      "$ref": "common.schema.json#/$defs/text",
+      "description": "Who publishes and maintains the data upstream (lab, institute, repository)."
+    },
+    "landing_url": { "type": "string", "pattern": "^https://[^\\s]+$" },
+    "access": {
+      "enum": ["public", "registration", "request", "unknown"],
+      "description": "public = anyone can download; registration = free account needed; request = application or agreement needed; unknown = no confirmed public route (warned by the build)."
+    },
+    "files": {
+      "type": "array",
+      "description": "Files the fetch job downloads. May be empty when access is request or unknown, or when files need a login the job doesn't have.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "sha256", "size_bytes", "format"],
+        "properties": {
+          "url": { "type": "string", "pattern": "^https://[^\\s]+$" },
+          "sha256": {
+            "oneOf": [{ "type": "null" }, { "type": "string", "pattern": "^[0-9a-f]{64}$" }],
+            "description": "Expected SHA-256 (lowercase hex). null until the first 'pin' run; never guessed."
+          },
+          "size_bytes": {
+            "oneOf": [{ "type": "null" }, { "type": "integer", "minimum": 0 }],
+            "description": "Size announced upstream (HTTP Content-Length or repository API) when read; null if unknown."
+          },
+          "format": { "type": "string", "pattern": "^[a-z0-9][a-z0-9.+-]*$", "description": "File format, e.g. xlsx, csv, tar, h5ad, dat, zip." },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "licence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["spdx_or_name", "url", "redistribution_of_derived", "citation_required"],
+      "properties": {
+        "spdx_or_name": { "$ref": "common.schema.json#/$defs/text", "description": "SPDX id (CC-BY-4.0, MIT…) or the name of the terms." },
+        "url": {
+          "oneOf": [{ "type": "null" }, { "type": "string", "pattern": "^https://[^\\s]+$" }],
+          "description": "Page where the terms were read."
+        },
+        "redistribution_of_derived": {
+          "enum": ["yes", "no", "unclear"],
+          "description": "May Astra commit and publish small tables derived from this data? no/unclear = fetch manifest only, nothing derived committed until Verification decides."
+        },
+        "citation_required": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    },
+    "licence_status": {
+      "enum": ["pending", "approved", "refused"],
+      "description": "Set by Verification (A50) only. The fetch job fetches approved manifests only."
+    },
+    "approved_by": { "type": "string", "pattern": "^A[0-9]+$" },
+    "approved_at": { "$ref": "common.schema.json#/$defs/date" },
+    "approval_ref": {
+      "type": "string",
+      "pattern": "^LA-[0-9]{3}$",
+      "description": "Row id in verification/approvals/licences.md that records the verdict."
+    },
+    "fetch": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "min_interval_seconds": { "type": "integer", "minimum": 0, "description": "Minimum wait between two requests to this host." }
+      },
+      "description": "Hints for the fetch job, taken from the provider's terms."
+    },
+    "checked_at": {
+      "$ref": "common.schema.json#/$defs/date",
+      "description": "Date the URLs and licence terms were last read on the official pages."
+    },
+    "source_publications": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "common.schema.json#/$defs/doi" },
+      "description": "DOIs of the papers that describe the data (ideally also cards in data/sources/)."
+    },
+    "used_by": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9 .-]*$" },
+      "description": "Charter missions or obstacles that use the data, e.g. R-Metric, L1, O16."
+    },
+    "fetched_at": {
+      "oneOf": [{ "type": "null" }, { "$ref": "common.schema.json#/$defs/date" }],
+      "description": "Date of the pin run that recorded the hashes; null before."
+    },
+    "notes": { "type": "string" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "licence_status": { "const": "pending" } } },
+      "then": { "not": { "anyOf": [{ "required": ["approved_by"] }, { "required": ["approved_at"] }, { "required": ["approval_ref"] }] } },
+      "else": { "required": ["approved_by", "approved_at", "approval_ref"] }
+    }
+  ]
+}

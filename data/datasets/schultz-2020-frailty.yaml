@@ -1,0 +1,49 @@
+id: schultz-2020-frailty
+title: "Schultz 2020 mouse frailty data and FRIGHT/AFRAID clocks"
+description: >-
+  Longitudinal frailty index scores of ageing C57BL/6 mice followed to death,
+  with the trained FRIGHT (frailty age) and AFRAID (life expectancy) models.
+  Input for the frailty axis of metric v0 and for remaining-lifespan tests.
+maintainer: "Sinclair Lab, Harvard Medical School"
+landing_url: https://github.com/SinclairLab/pub-Schultz-Kane-2020
+access: public
+files:
+  - url: "https://raw.githubusercontent.com/SinclairLab/pub-Schultz-Kane-2020/fc70a21a28e0c13ed145cfdd9fc11305560be3f8/Frailty%20data%20from%20Schultz_Kane_et_al.xlsx"
+    sha256: null
+    size_bytes: 51725
+    format: xlsx
+    note: "frailty data, pinned commit"
+  - url: "https://raw.githubusercontent.com/SinclairLab/pub-Schultz-Kane-2020/fc70a21a28e0c13ed145cfdd9fc11305560be3f8/sampleData.csv"
+    sha256: null
+    size_bytes: 5385
+    format: csv
+    note: "methionine restriction example data"
+licence:
+  spdx_or_name: "No licence on the repository (all rights reserved by default); article CC-BY-4.0"
+  url: https://github.com/SinclairLab/pub-Schultz-Kane-2020
+  redistribution_of_derived: "unclear"
+  citation_required: true
+  notes: >-
+    GitHub API reports no licence for the repository (checked 2026-10-20). The
+    paper (Nat Commun 2020, PMC7492249) is CC BY 4.0 and says the source data
+    underlying all figures are in a Source Data file; that file's URL on
+    nature.com returned HTTP 403 to curl and its name is not confirmed.
+    Options for Verification: use the CC BY Source Data file, or ask the
+    authors for a licence.
+licence_status: refused
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-005
+checked_at: "2026-10-20"
+source_publications:
+  - 10.1038/s41467-020-18446-0
+used_by:
+  - R-Metric
+  - L2
+fetched_at: null
+notes: >-
+  The paper's data link github.com/SinclairLab/frailty redirects to this
+  repository. Sizes from the GitHub API. Verification refused this GitHub
+  route (LA-005) and approved the article's CC BY Source Data file instead
+  (LA-004); that file's URL is not confirmed yet (nature.com returned 403 to
+  curl), so it gets its own manifest once found.

@@ -1,0 +1,24 @@
+id: uk-biobank
+title: "UK Biobank"
+description: >-
+  500,000 UK adults with biomarkers, imaging, proteomics and linked mortality.
+  Later anchor for human axes (T5: needs a sponsor).
+maintainer: "UK Biobank"
+landing_url: https://www.ukbiobank.ac.uk/enable-your-research/apply-for-access
+access: request
+files: []
+licence:
+  spdx_or_name: "UK Biobank access agreement"
+  url: null
+  redistribution_of_derived: "no"
+  citation_required: true
+  notes: >-
+    Approved application and fee required; terms set per project.
+licence_status: pending
+checked_at: "2026-10-20"
+used_by:
+  - T1 human
+fetched_at: null
+notes: >-
+  Not usable before a sponsor and an approved application. Listed so the gap
+  is visible.
