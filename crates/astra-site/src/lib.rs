@@ -7,10 +7,10 @@
 //! The same inputs always produce the same bytes (no clock, sorted listings).
 
 mod docs;
-mod git;
 mod glossary;
 mod markdown;
 mod pages;
+mod project;
 mod query;
 #[cfg(test)]
 mod tests;

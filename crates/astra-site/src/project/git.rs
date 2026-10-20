@@ -67,6 +67,12 @@ impl History {
         context! { title => "Astra", generated_at => generated, commit_short => short }
     }
 
+    /// Date of the newest commit, `YYYY-MM-DD`: the site's "today", so a
+    /// rebuild of the same commit gives the same bytes (no clock).
+    pub(crate) fn today(&self) -> String {
+        self.commits.first().map_or_else(String::new, |commit| commit.date.clone())
+    }
+
     /// The `count` most recent commits as `{ date, message }`.
     pub(crate) fn recent(&self, count: usize) -> Vec<Value> {
         self.commits
@@ -99,6 +105,30 @@ impl History {
     }
 }
 
+/// Last commit touching `path` (hash, date `YYYY-MM-DD`, subject), if any.
+pub(crate) fn last_commit(repo: &Path, path: &str) -> Option<Commit> {
+    let args = ["log", "-1", "--date=format:%Y-%m-%d %H:%M", "--format=%h%x1f%an%x1f%ad%x1f%s", "--", path];
+    let out = run_git(repo, &args)?;
+    out.lines().next().and_then(parse_commit)
+}
+
+impl Commit {
+    /// Abbreviated hash.
+    pub(crate) fn hash(&self) -> &str {
+        &self.hash
+    }
+
+    /// Day, `YYYY-MM-DD`.
+    pub(crate) fn date(&self) -> &str {
+        &self.date
+    }
+
+    /// Subject line.
+    pub(crate) fn message(&self) -> &str {
+        &self.message
+    }
+}
+
 /// Date (`YYYY-MM-DD`) of the last commit touching `path`, empty if none.
 pub(crate) fn last_change(repo: &Path, path: &str) -> String {
     let args = ["log", "-1", "--format=%ad", "--date=short", "--", path];
@@ -121,10 +151,11 @@ pub(crate) fn parse_commit(line: &str) -> Option<Commit> {
     Some(Commit { hash, author, date: date.to_owned(), time: time.to_owned(), message })
 }
 
-/// Journal entry for one commit.
+/// Journal entry for one commit. A commit without an area gets empty strings,
+/// never `none`: templates print `none` literally in hidden attributes.
 fn commit_value(commit: &Commit) -> Value {
-    let code = area(&commit.message);
-    let label = code.as_deref().map(area_label);
+    let code = area(&commit.message).unwrap_or_default();
+    let label = if code.is_empty() { String::new() } else { area_label(&code) };
     context! {
         time => commit.time,
         hash_short => commit.hash,
@@ -172,7 +203,14 @@ pub(crate) fn day_label(date: &str) -> String {
 
 #[cfg(test)]
 mod tests {
-    use super::{area, day_label, parse_commit};
+    use super::{area, commit_value, day_label, parse_commit};
+
+    #[test]
+    fn commit_without_area_has_no_none_text() {
+        let commit = parse_commit("abc1234\u{1f}Ann\u{1f}2026-10-19 15:04\u{1f}Initial commit").unwrap();
+        let shown = format!("{:?}", commit_value(&commit));
+        assert!(!shown.contains("none") && !shown.contains("None"), "no none: {shown}");
+    }
 
     #[test]
     fn parses_commits_and_dates() {

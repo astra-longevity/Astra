@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Decisions{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>Decisions</h1>
+  <p class="lead">The rules the project runs on: the founding charter, the president's commandments, his rulings and the log of every important decision.</p>
+</section>
+{% for g in groups %}
+<h2>{{ g.label }}</h2>
+{% if g.docs %}
+<ul class="doc-list">
+  {% for d in g.docs %}<li><a href="{{ root }}{{ d.href }}">{{ d.title }}</a> <span class="muted"><code>{{ d.file }}</code></span></li>{% endfor %}
+</ul>
+{% else %}
+<p class="empty">No file yet.</p>
+{% endif %}
+{% endfor %}
+{% endblock %}

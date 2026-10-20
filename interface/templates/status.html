@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Status{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>Status</h1>
+  <p class="lead">What the project is working on right now: each mission with its owner and the next dated goal, then the latest change in each part of the repository.</p>
+</section>
+
+<h2>Missions</h2>
+<p class="muted">From part 6 of the <a href="{{ charter_href }}">charter</a>. The charter gives missions no dates of their own, so the "next date" is the nearest open obstacle (see <a href="{{ root }}roadmap.html">Roadmap</a>) owned by the same manager.</p>
+{% if missions %}
+<table class="table">
+  <thead><tr><th>Mission</th><th>Owner</th><th>What it delivers</th><th>Next obstacle date</th></tr></thead>
+  <tbody>
+  {% for mi in missions %}
+    <tr>
+      <td>{{ mi.name }}</td>
+      <td>{{ mi.owner }}</td>
+      <td>{{ mi.output }}</td>
+      <td>{% if mi.next_date %}<a href="{{ mi.next_href }}">{{ mi.next_date }}</a> <span class="tag">{{ mi.next_code }}</span>{% else %}<span class="muted">no open obstacle</span>{% endif %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty">No mission table found in the charter.</p>
+{% endif %}
+
+<h2>Recent activity</h2>
+<p class="muted">Last recorded change in each top-level folder, newest first. Owners come from <a href="{{ owners_href }}">OWNERS.md</a>.</p>
+{% if activity %}
+<table class="table">
+  <thead><tr><th>Folder</th><th>Owner</th><th>Last change</th><th>What changed</th></tr></thead>
+  <tbody>
+  {% for a in activity %}
+    <tr>
+      <td><code>{{ a.folder }}/</code></td>
+      <td>{{ a.owner }}</td>
+      <td>{{ a.date }}</td>
+      <td>{{ a.message }} <span class="muted"><code>{{ a.hash }}</code></span></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty">No history available.</p>
+{% endif %}
+{% endblock %}
