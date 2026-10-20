@@ -1,9 +1,10 @@
-# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owner to confirm.
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
 id: v1-blind-test
 title: No blind test exists yet: every score so far is retrospective (T1-A50-3)
 owner: A50 + A28
 exit: >= 10 sealed forecasts on not-yet-public results, criteria approved
-check: judge:A50
+check: judge:A1
 evidence: verification/evidence/v1-blind-test.md
 date: 2027-01-20
 status: open
+note: Judged by A1, not A50 (D55).

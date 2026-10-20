@@ -1,9 +1,10 @@
-# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owner to confirm.
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
 id: v2-hidden-keys
 title: Hidden keys (planted errors, adversarial cases, held-out mice) not isolated
 owner: A50 -> president
 exit: Keys in a GitHub Actions environment that needs the president's approval to read
-check: judge:A50
+check: judge:A1
 evidence: verification/evidence/v2-hidden-keys.md
 date: 2026-11-20
 status: open
+note: Judged by A1, not A50 (D55).
