@@ -1,8 +1,8 @@
 part,arm_id,compound,cohort,pmid,sex,class_label_proposed,stratum,flag
 blind,B01,dichloroacetate,ITP 2021,,both,PDK inhibitor,b,
 blind,B02,TPPU,ITP 2023,,both,soluble epoxide hydrolase inhibitor,b,
-blind,B03,rapamycin,ITP 2023,,both,mTORC1 inhibitor,c,combination with 17alpha-estradiol
-blind,B03,17alpha-estradiol,ITP 2023,,both,non-feminising oestrogen,c,combination with rapamycin
+blind,B03,rapamycin,ITP 2023,,both,mTORC1 inhibitor,c,compound seen in training; combination with 17alpha-estradiol
+blind,B03,17alpha-estradiol,ITP 2023,,both,non-feminising oestrogen,c,compound seen in training; combination with rapamycin
 blind,B04,canagliflozin,ITP 2023,,both,SGLT2 inhibitor,compound seen in training,A50 ruling PR #105
 blind,B05,canagliflozin,ITP 2023,,both,SGLT2 inhibitor,compound seen in training,A50 ruling PR #105
 blind,B06,sodium thiosulfate,ITP 2023,,both,H2S donor,a,

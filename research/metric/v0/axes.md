@@ -134,7 +134,21 @@ repeatable mouse lung test found** (blind-spot risk, commandment 6).
 - Limit: strain can reverse the trend (aged BALB/c higher than young,
   Nicoletti 1991). The B6 trend is not assumed for UM-HET3.
 
-Sources in the three notes above were opened by A70 (L2), not by A67.
+**Skin (A13): wound closure and coat.**
+- Wound closure: B6J males at 15 and 26–27 months did not differ (both
+  slower than 6 months), so it may track mid-life more than late ageing
+  (Cohen 1987 doi:10.1093/geronj/42.3.295, via A70 mouse/13). Named limit.
+- Protocol: fixed splinted model; wound area and re-epithelialisation
+  (sections) reported separately, they disagree (Bagood 2021
+  doi:10.1016/j.jid.2020.10.022); sex and oestrous stage as factors (age
+  effect in females only in BALB/cByJ, Mellers 2018; oestrogen rescue, Mukai
+  2019 doi:10.1371/journal.pone.0225880). Each test is a new injury.
+- Coat / alopecia: driven more by sex, substrain, barbering and fighting
+  than by age (Ogiso 2025; Crum 2025, via A70). Low weight in the axis;
+  housing notes required.
+- The B6 trend is not assumed for UM-HET3.
+
+Sources in the four notes above were opened by A70 (L2), not by A67.
 
 A17 is added because lab mice mostly die of cancer `[to verify]`. Without a
 cancer axis, a treatment that only delays tumours would move the summary and

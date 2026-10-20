@@ -91,7 +91,34 @@ before the seal.
 **Overlap with the blind part (flagged, not dropped; A50 condition 6):**
 RF008, RF010–RF013 are rapamycin, a single compound of blind arm B03
 (rapamycin + 17α-estradiol). `controls.rb --check` matches whole compound
-names, so it will flag them. Decision for A28/A65.
+names, so it will flag them. **A28 decision (G144):** keep them, stratum (a).
+Their outcomes are held out and unread, so they cannot leak into the B03
+forecast. Both B03 compounds train (finished ITP rapamycin arms; 17α-estradiol
+T06), so B03 is tagged **"compound seen in training"** like B04/B05 and stays
+in stratum (c). A65 confirms at the seal.
+
+### Proposed new classes (for A65's vocabulary, before the seal)
+
+Mechanism = primary target as named in pharmacology. Sources must report no
+lifespan outcome (class-labels.yaml rules); none opened yet, so all
+`[to verify]` (A71 supplies IUPHAR / ChEMBL / DrugBank entries).
+
+| Class | Mechanism | Arms | Source |
+|---|---|---|---|
+| HCN channel blocker | blocks the funny current (I_f) in sinoatrial cells, lowers heart rate | RF005 ivabradine | `[to verify]` |
+| polyamine | natural polycations; spermidine is the eIF5A hypusination substrate and induces autophagy | RF015–RF019 putrescine, spermidine, spermine | `[to verify]` |
+| IGF-1R antagonist | blocks the IGF-1 receptor | RF024 L2-Cmu | `[to verify]` |
+| Cdc42 inhibitor | inhibits the Rho GTPase Cdc42 | RF027 CASIN | `[to verify]` |
+| CD38 inhibitor | inhibits the NAD+-consuming enzyme CD38 | RF036–RF037 78c | `[to verify]` |
+| lysosomal autophagy inhibitor | raises lysosomal pH, blocks autophagic flux | RF038 chloroquine | `[to verify]` |
+| NLRP3 inhibitor | inhibits NLRP3 inflammasome assembly | RF039 oridonin | `[to verify]` |
+| multi-target | source names two or more targets without ranking (vocabulary entry exists) | RF007 icariin, RF026 berberine | `[to verify]` |
+
+`multi-target` is already in the vocabulary, so 7 classes are new. Other
+labels in `split.csv` that are not in the vocabulary yet (biguanide, NAD+
+precursor, senolytic flavonoid, Krebs-cycle metabolite, lipoxygenase
+inhibitor, polyphenol, and the blind-part classes) also need entries; they
+are counted as known classes because the compound or class trains.
 
 ## Machine-readable split: `split.csv`
 
@@ -182,8 +209,9 @@ seal move to train.
 
 - S-1: pretraining leak on all published arms (stated above, uncontrolled).
 - S-2: closed: retrospective part filled by the DrugAge refill list (40 arms).
-- S-6: 5 refill arms share rapamycin with blind B03; flagged, awaiting
-  A28/A65 decision.
+- S-6: resolved by A28 (G144, 2026-10-20): RF008, RF010–RF013 kept, stratum
+  (a). B03 tagged "compound seen in training", stays stratum (c); A65 to
+  confirm at the seal.
 - S-7: refill class labels and strata need mechanism sources and new
   vocabulary entries before the seal.
 - S-5: any blind arm whose result is published before the seal (B01 risk)
