@@ -1,0 +1,46 @@
+case: guyot-goss
+reference: verification/prep/references-survey.md (section 6)
+reference_kind: printed
+status: blocked   # input curve not digitised yet, see notes
+description: >
+  MA.17, Goss et al. 2005 (JNCI), disease-free survival, letrozole vs placebo, Fig 2.
+  Curve 3 of 3 for D38. HR only (no median printed).
+
+package:
+  name: IPDfromKM
+  version: 0.1.10
+  source: CRAN
+  extra: [survival]
+
+inputs:   # NOT IN THE REPO YET
+  curve_placebo:   verification/references/guyot/goss-placebo-curve.csv     # columns: time, surv (%)
+  curve_letrozole: verification/references/guyot/goss-letrozole-curve.csv
+  at_risk:         verification/references/guyot/goss-at-risk.csv           # columns: time, nrisk_placebo, nrisk_letrozole
+
+call: |
+  library(IPDfromKM); library(survival)
+  g  <- "verification/references/guyot/"
+  ar <- read.csv(paste0(g, "goss-at-risk.csv"))
+  p0 <- preprocess(dat = read.csv(paste0(g, "goss-placebo-curve.csv")),   trisk = ar$time, nrisk = ar$nrisk_placebo,   maxy = 100)
+  p1 <- preprocess(dat = read.csv(paste0(g, "goss-letrozole-curve.csv")), trisk = ar$time, nrisk = ar$nrisk_letrozole, maxy = 100)
+  ipd <- rbind(getIPD(prep = p0, armID = 0)$IPD, getIPD(prep = p1, armID = 1)$IPD)
+  write.csv(ipd, "guyot-goss-ipd.csv", row.names = FALSE)
+  cx <- coxph(Surv(time, status) ~ arm, data = ipd)
+
+outputs:
+  hr:       'exp(coef(cx))'
+  hr_lower: 'exp(confint(cx))[1]'
+  hr_upper: 'exp(confint(cx))[2]'
+
+expected:   # printed in Goss 2005, DFS
+  hr: 0.58
+  hr_lower: 0.45
+  hr_upper: 0.76
+
+tolerance: null   # D38
+
+notes:
+  - The published HR is from a stratified Cox model; reconstructed IPD has no strata, so an unstratified HR is the best possible. Expect a small gap and record it as data.
+  - Proportional hazards were checked in the source (Grambsch-Therneau), so the HR is usable.
+  - "Gap: the curves and at-risk row must be digitised from Fig 2 and committed as the three CSVs above."
+  - The JNCI DOI and page are in references-survey.md; copy them here when the inputs are committed.
