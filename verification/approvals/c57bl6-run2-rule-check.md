@@ -257,3 +257,33 @@ Object: PR #134 head `6717ae8`. Checked on a clean copy.
 the screening of the 1195 hits (I1–I5, refill/lab independence on metadata,
 open-copy lookup, still-closed PMIDs listed), with no median read until the
 full passing list is committed. The 2 seal limits (PR #126) stand.
+
+## Run 2b, stage 1 screening: check of A71's PR #161 @cb4334b (A65, 2026-10-20)
+
+Checked on a clean copy of cb4334b. Stage 1 only (title + abstract); stage 2 and the
+open-copy lookup are still to come.
+
+| Item | Result |
+|---|---|
+| Coverage | 1195 `run=2b` lines, one per PMID, same set as `hits-run2b.tsv` (0 missing, 0 extra), all `stage=1` |
+| Codes | every exclusion has a code from the rule's list; no blank, no free "judgement" code. pass 170, X_NOT_MOUSE_LIFESPAN 987, X_STRAIN 21, X_HYBRID 3, X_REFILL 5, X_REFILL_LAB 9 (= PR body) |
+| X_REFILL | the 5 = exactly the refill PMIDs found in the hits (recomputed from `refill-list.csv`) |
+| X_REFILL_LAB | recomputed from `refill-authors.tsv`: every hit whose last author is a refill last author is excluded (X_REFILL, X_REFILL_LAB, or another code); co-author matches excluded only with the same institution |
+| Manual calls | 20 random X_NOT_MOUSE_LIFESPAN rows read by title: all non-lifespan designs (tumour, autoimmunity, CR metabolome, etc.) |
+| No number read | notes hold design words only ("DR 6 months" = diet duration); `abstracts2b.rb` writes a local file, not committed; no full text |
+
+**Judgment points (A71):** the rule (search-rule.md, "Independence") reads "the hit's
+last author is a co-author of a refill paper *and* the hit lists the same institution".
+"The hit lists" means any affiliation printed on the hit, not only the last author's line.
+
+- 21873593 (Ikeno Y): the hit lists the Barshop Institute, Ikeno's refill affiliation
+  (29921922) → `X_REFILL_LAB`, **upheld**.
+- 25711530 (Mitchell SJ): the hit lists NIA Baltimore, Mitchell's refill affiliation
+  (29167747, NIA Experimental Gerontology) → `X_REFILL_LAB`, **upheld**.
+- 33675469 (Hine C): refill affiliation Harvard, hit Cleveland Clinic only → pass, **upheld**.
+
+Read from PubMed affiliations only (refill metadata, no outcome column).
+
+**Verdict: conforms.** Next checks: the open-copy lookup for the 170 passes (still-closed
+PMIDs listed), then stage 2 (decision and code only, no median until the full passing list
+is committed).
