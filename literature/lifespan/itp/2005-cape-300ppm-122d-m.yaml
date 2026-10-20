@@ -41,8 +41,8 @@ curve_source:
   figure: "supp fig 1"
   mpd_id: 829
 flags:
-  control_in_ref_range: false  # range bounds not yet known
-  reference: reference-ranges.yaml@0
+  control_in_ref_range: false  # computed by check.rb: no printed pooled control median
+  reference: reference-ranges.yaml@1
   itp_or_replicated: true
   replicated_by: null
 sites: []
