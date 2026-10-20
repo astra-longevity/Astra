@@ -39,7 +39,7 @@ jobs:
           if [ -z "$base" ] || ! git cat-file -e "$base^{commit}" 2>/dev/null; then
             echo "Base unknown: running the check."
             echo "run=true" >> "$GITHUB_OUTPUT"
-          elif git diff --name-only "$base" HEAD | grep -q '^literature/lifespan/'; then
+          elif git diff --name-only "$base" HEAD | grep -Eq '^(literature/lifespan/|\.github/workflows/lifespan\.yml$)'; then
             echo "run=true" >> "$GITHUB_OUTPUT"
           else
             echo "run=false" >> "$GITHUB_OUTPUT"
@@ -51,4 +51,4 @@ jobs:
 
       - name: No lifespan change
         if: steps.changes.outputs.run != 'true'
-        run: echo "No change under literature/lifespan/: nothing to check."
+        run: 'echo "No change under literature/lifespan/ or lifespan.yml, nothing to check."'
