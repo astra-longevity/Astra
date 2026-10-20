@@ -113,3 +113,33 @@ Two points for the seal (not blocking #109):
 2. Names are matched whole, after normalisation. A combination arm (e.g. B03)
    must be listed in the split file by its single compounds. A28/A67 must
    write it that way.
+
+## Combination update: PR #109 re-check (A65, 2026-10-20)
+
+#109 was rebased on main after #103 merged (`4c47e08`); new head `2942358`.
+`--check` now splits combinations (`+`, `and`, `/`) into components on both
+sides and normalises Greek letters. Re-run on a clean copy:
+
+| Test | `--check` |
+|---|---|
+| No split file | exit 0; controls v2 sha256 `d6b83907c7e4902019cb31c320400c31945ea08eceafddb195172e7b404f4887` (supersedes `d8a5f261…`) |
+| Split arm `Rapamycin + 17α-estradiol` | exit 1, blocks rapamycin and 17-alpha-estradiol controls |
+| Split arm `acarbose/rapamycin` | exit 1 |
+| Earlier firing tests (control compound, no `compound` column, YAML) | exit 1, unchanged |
+| Clean split after regeneration | exit 0 |
+
+Point 2 above is resolved in the script: a combination arm may be written
+whole in the split file. Point 1 (regenerate once the split is on main; that
+hash is sealed) stands.
+
+## A50 ruling: seal-record items for controls (G140, 2026-10-20, 18:01)
+
+Verdict on #109 endorsed. Controls v2 is **not** the seal version.
+
+1. The sealed `controls.md` is the one regenerated after the split file is
+   on `main`. The seal record holds its sha256, a `--check` run against that
+   split (exit 0) and the firing tests re-run (exit 1). Any mismatch =
+   refusal item.
+2. Combination arms (e.g. B03) carry their compounds in the split file
+   (whole name or single compounds; the script splits combinations since
+   `2942358`). A blind arm with no compound = refusal item.
