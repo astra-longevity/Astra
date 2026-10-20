@@ -69,6 +69,8 @@
   whole_file: true
 - path: .github/workflows/site.yml
   whole_file: true
+- path: .github/workflows/workflow-lint.yml
+  whole_file: true
 - path: scripts/build-lock.sh
   whole_file: true
 - path: scripts/local-checks.sh
@@ -80,6 +82,18 @@
 - path: scripts/guards/check-write-paths.sh
   whole_file: true
 - path: scripts/guards/protection-drift.sh
+  whole_file: true
+- path: scripts/guards/check-workflows.sh
+  whole_file: true
+- path: scripts/tests/check-workflows.test.sh
+  whole_file: true
+- path: scripts/tests/fixtures/workflows/good.yml
+  whole_file: true
+- path: scripts/tests/fixtures/workflows/bad-yaml.yml
+  whole_file: true
+- path: scripts/tests/fixtures/workflows/bad-expr.yml
+  whole_file: true
+- path: scripts/tests/fixtures/workflows/bad-shell.yml
   whole_file: true
 - path: scripts/tests/check-write-paths.test.sh
   whole_file: true

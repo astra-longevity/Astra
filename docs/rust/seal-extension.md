@@ -19,6 +19,8 @@ This batch also carries two PRs that touch sealed files:
 | `.github/workflows/site.yml` | Site build: banner on every page, no score page before the D88 review (D109); S1/S2 gate before publishing (part 8) |
 | `.github/workflows/lifespan.yml` | `literature/lifespan/check.rb` on every PR (L1 table) |
 | `.github/workflows/protection-drift.yml` | Daily compare of live protection/ruleset with `docs/rust/` (D52); opens an issue on drift |
+| `.github/workflows/workflow-lint.yml` | `actionlint` (pinned 1.7.12) on every workflow, PR + merge queue: invalid YAML, bad expressions, shellcheck in `run:` (the #60 failure) |
+| `scripts/guards/check-workflows.sh` | The actionlint wrapper; fixtures in `scripts/tests/fixtures/workflows/` (one good, three known-bad) |
 | `scripts/guards/check-write-paths.sh` | Only Verification writes `verification/`; cited `Dnn` exist on base (D47, D69) |
 | `scripts/guards/protection-drift.sh` | Normalises and diffs live protection vs. the committed payloads (D52) |
 | `scripts/runs.py` | Run manifest schema, hashes and re-run (O13) |
@@ -57,4 +59,5 @@ Separately (repo settings, president only): create the `protection`
 environment (deployment branches: `main`) with secret
 `PROTECTION_READ_TOKEN` (fine-grained, this repo, Administration: read-only),
 and mark `Write paths (D47 · D69)`, `Runs (manifests · re-run)`,
-`Registers (schema · tests)` and `Lifespan (check.rb)` as required checks.
+`Registers (schema · tests)`, `Lifespan (check.rb)` and
+`Workflows (actionlint)` as required checks.

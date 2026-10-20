@@ -1,0 +1,10 @@
+# Known-bad: the PR #60 case, an unquoted ': ' inside a plain scalar.
+name: Bad YAML
+on:
+  pull_request:
+jobs:
+  skip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Nothing to do
+        run: echo No change under literature/lifespan/: nothing to check.
