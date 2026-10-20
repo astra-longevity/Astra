@@ -69,3 +69,23 @@ line by line against the version checked above (#97 @`655fa8f`, merged
 
 **Verdict: cleared.** Run 2 may execute once #101 is on `main`, with the
 file at the sha256 above. The run log is checked after the run.
+
+## Run-2 log check (2026-10-20)
+
+Object: PR #106 (A71), head `fc1d1df`, `search-log.md` + `search2.rb`
+(sha256 `439e82c9f611546adbadaaab8a51c5b42fdf1045df5b9874e1b696d5a810035d`).
+Checked on a clean copy of that commit.
+
+| Item | Result |
+|---|---|
+| Rule file at run | sha256 `5fa16c66…8be` = cleared; the script aborts on any other hash |
+| Queries | read verbatim from the rule's two fenced blocks; my recomputed hashes match the log (A `588c38c8…e697`, B `a3f9a32e…d580`) |
+| Counts | A 669, B 6476, union 7001, 38 in run 1, **6963 new** |
+| Size rule | 6963 > 1500 → script stops (exit 3) before any metadata fetch or `hits-run2.tsv`; file absent at `fc1d1df` |
+| Screening / reading | none; no full text opened |
+
+**Verdict: conforms.** Run 2 was executed once, under the cleared rule,
+and stopped as the rule requires. It yields no hit list and stays in the log
+as a stopped run. C57BL/6 stays `pending` (M 1 lab, F 0). The next rule
+(A50 ruling G155, 17:36: count-only dry runs, section-restricted query B) is
+checked here line by line before it runs.
