@@ -114,3 +114,30 @@ label **"printed, not per-mouse"**.
 
 Open condition 1 still holds for v1: Verification re-checks the v1 file
 before any row turns `true`.
+
+## C57BL/6 printed control range (A50 ruling, 2026-10-20)
+
+Recorded add-only by A65. Why: 0 of the 40 refill arms are UM-HET3 (31 are
+C57BL/6 family), so under v1 alone the refill test-2 set would be empty.
+A2 proposed a printed C57BL/6 control range from non-refill papers (G155).
+A50 ruled it **admissible** for the D115 seal under these conditions:
+
+1. **Search before extraction.** The search rule (sources, query, inclusion
+   and exclusion criteria) is committed before any value is extracted. Every
+   hit meeting the rule is used; exclusions are rule-based only.
+2. **Independent of the refill.** No refill PMID, and no paper from the same
+   lab or cohort as a refill arm.
+3. **Enough labs.** At least 5 independent labs per sex. Sub-strain recorded
+   for every value (e.g. C57BL/6J, C57BL/6N). Range width stated. If it is too
+   wide, Verification rules on per-sub-strain ranges.
+4. **Frozen and sealed.** The file and its sha256 go into the D115 seal
+   record. It is built before any refill outcome or control column is read.
+   B6:FVB F1 and B6C3F1 stay `pending` (= false).
+5. **Flip report.** As for v1, a v1→v2 flip report is published whatever the
+   result.
+
+A refill row whose `strain` value is malformed is not repaired by hand: it
+gets a parsing note in the seal record.
+
+Verification (A65) checks A71's range PR against these five conditions
+before any C57BL/6 row turns `true`.
