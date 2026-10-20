@@ -42,10 +42,29 @@ exclusion rule, **every finished ITP arm is now "read"** and goes to train,
 including former held-out items H01–H09. My mistake: I should have asked
 A71 for a names-only list.
 
-Consequence: the retrospective part has **0 ITP items**. It can only be
-refilled with published non-ITP arms (meeting T1-A2-3: ITP or replicated,
-control median in reference range) that A71 names without passing the
-result to Research. Open issue S-2.
+Consequence: the retrospective part has **0 ITP items**. Open issue S-2.
+
+### Refill rule for the retrospective part (fixed before any list exists)
+
+Selecting arms that were "replicated" would select on outcome (an effect
+had to exist to be replicated). The refill therefore uses a
+**metadata-only rule**, written here before any candidate list is built:
+
+1. Source: mouse lifespan studies outside the ITP, taken from a curated
+   database (e.g. DrugAge), selected by **publication-year window only**.
+   The window is fixed by A28/A65 and written in the seal record before the
+   list is built.
+2. Unit: whole studies. **All arms** of each selected study are included,
+   whatever their result (nulls and shortening arms come in naturally).
+3. The list is built by A71 via A2 from compound, dose, sex, strain, year
+   and PMID only, with every outcome column stripped. Research (A67) does
+   not build it and does not open the papers.
+4. Exclusions, applied mechanically: arms already logged in
+   `manual-downloads.csv`; arms whose compound is in the blind part.
+5. T1-A2-3 (control median in ITP/MPD reference range) is checked by A71
+   at scoring time, after the seal; failing arms are dropped and reported,
+   not replaced.
+6. Label: "retrospective, not blind" (pretraining leak, above).
 
 ## Train set
 
@@ -128,7 +147,10 @@ seal move to train.
 
 - S-1: pretraining leak on all published arms (stated above, uncontrolled).
 - S-2: retrospective part empty after reading the NIA page; refill only
-  with non-ITP replicated arms named by A71, names only.
+  by the metadata-only rule above (list built by A71 via A2, outcomes
+  stripped).
+- S-5: any blind arm whose result is published before the seal (B01 risk)
+  moves to train; A65 checks at seal.
 - S-3: no life-shortening arm in train yet; A71 to name.
 - S-4: blind forecasts score only years from now (ITP arms run to death,
   ~3–4 years). Test 2 on the blind part cannot run in 2026.
