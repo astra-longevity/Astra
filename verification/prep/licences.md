@@ -11,8 +11,8 @@ Items marked `[to verify]` were not settled by the official page and need a seco
 | Retraction Watch via Crossref | Weekly automated retraction scan; publish retraction flags | **Allowed.** CC0. Citation requested. Follow Crossref API etiquette. |
 | Human Mortality Database | Use life tables for baseline curves | **Allowed with conditions.** HMD-built series are CC BY 4.0; raw input data is not. Free registration needed. |
 | Eurostat activity-limitation data | Use disability prevalence by age | **Allowed with attribution**, commercial use included, unless the table is credited to a non-Eurostat source. |
-| WHO datasets (GHO) | Use health indicators | **Allowed with attribution, but two different WHO texts exist.** Which one governs the export we use is `[to verify]`. |
-| WHO ICD-10 codes and titles | Store a subset in `data/vocab/`; show on the public site | **Allowed, commercial use included** (CC BY-ND 3.0 IGO): copy word for word, cite WHO. Whether a subset counts as an adaptation is `[to verify]`. |
+| WHO datasets (GHO) | Use health indicators | **Allowed with attribution, but two different WHO texts exist.** Download from data.who.int: CC BY 4.0 + arbitration clause; cite in its format. |
+| WHO ICD-10 codes and titles | Store a subset in `data/vocab/`; show on the public site | **Allowed, commercial use included** (CC BY-ND 3.0 IGO): copy word for word, cite WHO. A word-for-word subset with codes is not an adaptation. A crosswalk to MeSH would need WHO's written agreement. |
 
 ## 1. GBD disability weights
 
@@ -73,7 +73,12 @@ Two WHO texts exist and they differ:
   - Claim "CC BY 4.0 + extra terms" is confirmed for data.who.int datasets.
   - Astra's use (anti-aging research, non-commercial) fits "public health purposes" under the older text too.
   - Always use the stricter attribution format above (it satisfies both texts), including the reporting countries.
-  - `[to verify]`: which text governs the GHO indicator exports we will actually download (GHO OData API vs data.who.int CSV). A third-party mirror states that WHO terms bar use "in promotion of a commercial enterprise"; not found on an official page, so unconfirmed.
+  - Which text applies to our export (checked 2026-10-19):
+    - The legacy GHO page says GHO and data.who.int are "driven by a single underlying data source". The GHO OData API was deprecated at the end of 2025 (replaced by the World Health Data Hub OData API), and its page shows no licence.
+    - data.who.int terms (https://data.who.int/about/data/terms-and-conditions): CC BY 4.0 plus the conciliation/arbitration clause. Citation format: "World Health Organization {YEAR} data.who.int, {ITEM_NAME} [{ITEM_TYPE}]. {URL} (Accessed on {DATE})".
+    - The older who.int terms §4 allow other changes ("abbreviations, additions, or deletions") only with WHO's written authorisation; §1 allows "extract".
+    - Mirrors that say "CC BY-NC-SA 3.0 IGO" mix in WHO's licence for publications, not for datasets.
+  - Decision proposed: download only from data.who.int, which is explicitly CC BY 4.0. Cite in the data.who.int format and add the reporting countries. Keep extracts unchanged; record any recoding in separate columns.
 
 ## 6. WHO ICD-10 codes and titles (for `data/vocab/`) and MeSH fallback
 
@@ -92,7 +97,11 @@ Request (A9 via chair): store an ICD-10 subset (I21-I22, I60-I64, I50, C00-C97, 
   - Our own groupings (for example "stroke = I60-I64") go in separate columns or files that point to the codes, not into the titles.
   - Put the citation and the licence in `data/vocab/README.md` and on any public page that shows the codes: "International Statistical Classification of Diseases and Related Health Problems, 10th Revision (ICD-10), 2019 edition. Geneva: World Health Organization. Licence: CC BY-ND 3.0 IGO."
   - No WHO endorsement may be implied.
-  - `[to verify]`: whether keeping only a subset of the codes counts as an "adaptation" under CC BY-ND. Under the usual reading of CC licences, copying an unchanged part is not an adaptation, but WHO has not said this for ICD-10. If Verification wants certainty, ask licensing@who.int.
+  - Subset question (checked 2026-10-19): storing only our codes, titles copied word for word, is **not** an adaptation.
+    - WHO classifications licence (https://icd.who.int/en/docs/icd11-license.pdf), §1.2.2: putting the classification into software is not an "adaptation" as long as it is not reproduced "in part or whole" without attribution, without the codes, or without the URIs. WHO thus expects partial reproduction and allows it under those conditions. This text is written for ICD-11; no ICD-10-specific text on subsets was found.
+    - CC BY-ND 3.0 IGO legal code: including the Work in a Collection is not an Adaptation.
+    - So: keep code, exact title, attribution and the ICD-10 browser URL (https://icd.who.int/browse10/2019/en#/<code>) on every row.
+  - Separate limit, ICD-10 Volume 2 (2019): "Mappings or crosslinks between other classifications and terminologies and ICD-10 and/or translations are not covered by the ICD-10 license and are subject to a separate written agreement from WHO." A MeSH-to-ICD-10 crosswalk in `data/vocab/` needs WHO's written agreement. Our own event groupings (for example stroke = I60-I64) are not another terminology and are fine.
 - MeSH (NLM), checked in case a fallback is needed: "NLM freely provides MeSH data" (https://www.nlm.nih.gov/databases/download/terms_and_conditions_mesh.html). NLM terms (https://www.nlm.nih.gov/databases/download/terms_and_conditions.html) require the line "Courtesy of the U.S. National Library of Medicine" and no implied NLM endorsement. MeSH translation files are not covered.
 
 ## Open items for Verification
@@ -101,5 +110,5 @@ Request (A9 via chair): store an ICD-10 subset (I21-I22, I60-I64, I50, C00-C97, 
 2. Crossref mailto address for automated scans.
 3. HMD: vendor or fetch-at-build (with A9).
 4. Eurostat: exact GALI dataset code and source credit.
-5. WHO: which terms apply to the GHO export used.
-6. ICD-10: confirm with WHO (licensing@who.int) that storing a subset of codes word for word is not an "adaptation", if certainty is wanted.
+5. WHO: adopt "data.who.int only" as the download rule (A9).
+6. ICD-10: no MeSH-to-ICD-10 crosswalk in the repo without WHO's written agreement (A9, A2).
