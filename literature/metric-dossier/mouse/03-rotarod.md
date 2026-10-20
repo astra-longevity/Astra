@@ -8,14 +8,14 @@ The mouse walks on a rotating rod whose speed rises steadily (e.g. 5 to 40 rpm o
 
 ## Training or reference population
 
-No standard reference. Age data are almost all from C57BL/6 (B6). Protocols differ by lab (rod speed, number of trials, training days, average vs best trial), so values are not comparable across labs; accelerating and fixed-speed protocols must never be pooled. No UM-HET3 reference curve found `[to verify]`.
+No standard reference. Age data are almost all from C57BL/6 (B6). Protocols differ by lab (rod speed, number of trials, training days, average vs best trial), so values are not comparable across labs; accelerating and fixed-speed protocols must never be pooled. No UM-HET3 reference curve in the sources below (named gap).
 
 ## Noise
 
-- No published same-mouse test-retest coefficient (ICC or CV) found for aged mice. `[to verify]`
+- No same-mouse test-retest coefficient (ICC or CV) for aged mice in the sources below (named gap).
 - Mice improve over repeated trials (learning). Both young and old mice got better from trial to trial, with age differences in learning as well as in baseline (Barreto 2010). So a repeat reading is not a pure repeat: the protocol must fix the number of training sessions before the scored trials.
 - Example protocol designed to remove learning from the score: 6 trials a day for 5 training days over two weeks, then a 6th test day scored as the best of 6 trials (Fischer 2016).
-- Smallest real change for one mouse: not published. `[to verify]`
+- Smallest real change for one mouse: not in the sources below (named gap).
 
 ## Known failure modes
 
@@ -26,7 +26,7 @@ No standard reference. Age data are almost all from C57BL/6 (B6). Protocols diff
   - Not universal: no weight correlation in adolescent/young C57BL/6N mice (Eltokhi 2021); the effect seems to depend on age.
   - Rule: record body weight on the test day; use it as a covariate; never compare groups that differ in weight without it.
 - Learning and practice effects (above).
-- "Passive rotation": the mouse clings to the rod and rides round, which lengthens latency without real coordination. Define in advance whether this ends the trial. (Source: vendor protocol page, not peer-reviewed `[to verify]` with a primary source.)
+- "Passive rotation": the mouse clings to the rod and rides round, which lengthens latency without real coordination. Define in advance whether this ends the trial. (Protocol rule; no peer-reviewed source cited here.)
 - Mixed construct: a drop can come from muscle, balance organ, brain or motivation (Kennard 2011). Vestibular (balance-organ) loss in aged mice shows on the rotarod (Tung 2016).
 
 ## Functional anchor and age trajectory
@@ -44,7 +44,7 @@ Take-home: latency falls with age in B6 mice, roughly a 35–40% drop by old age
 
 ## Confounders
 
-Body weight, sex, strain, training schedule and number of trials, scoring rule (mean vs best trial), rod diameter and acceleration, passive rotation, tester, time of day `[to verify]`.
+Body weight, sex, strain, training schedule and number of trials, scoring rule (mean vs best trial), rod diameter and acceleration, passive rotation, tester.
 
 ## Sources
 
