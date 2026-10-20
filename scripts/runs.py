@@ -177,10 +177,13 @@ def check(path, root):
             if not HEX64.match(h):
                 errs.append(f"{k}.{p}: expected a sha256")
 
+    # The merge queue squashes, so a branch commit vanishes from main's history.
+    # The code file hashes below are the binding pin; the commit is a pointer.
     r = subprocess.run(["git", "-C", root, "cat-file", "-e", m["code_commit"] + "^{commit}"],
                        capture_output=True)
     if r.returncode != 0:
-        errs.append(f"code_commit {m['code_commit'][:12]} not in git history")
+        warns.append(f"code_commit {m['code_commit'][:12]} not in local history (squashed?); "
+                     "code file hashes still checked")
 
     pf = os.path.join(run_dir, m["params_file"])
     if not os.path.isfile(pf):
@@ -194,9 +197,12 @@ def check(path, root):
                 errs.append(f"{k} file missing: {p}")
             elif sha256(fp) != h:
                 errs.append(f"{k} hash mismatch: {p}")
-    for p in m["outputs"]:
-        if not os.path.isfile(os.path.join(run_dir, p)):
+    for p, h in m["outputs"].items():
+        op = os.path.join(run_dir, p)
+        if not os.path.isfile(op):
             errs.append(f"output missing: {p}")
+        elif sha256(op) != h:
+            errs.append(f"committed output {p} does not match its recorded hash")
 
     now = toolchain_now(m["toolchain"])
     for name, ver in m["toolchain"].items():
