@@ -412,7 +412,7 @@ move.
 | O16 | No public route to SLAM longitudinal data | A2 | month 1 |
 | V1 | No blind test exists yet | A50 + A28 | month 3 |
 | V2 | Hidden keys not isolated | A50 → president | month 1 |
-| V3 | Scorecards checked only by re-running the same code | A50 | with measure v0 |
+| V3 | Scorecards checked only by re-running the same code | A50 | month 2: recompute plan + 2nd-implementation spec; recompute delivered with metric v0's scorecard |
 | V4 | 13 procedure rules undecided | A50 → chair | done (D120) |
 
 Every obstacle needs an exit dated by month 6 or a dated milestone before
