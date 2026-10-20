@@ -8,7 +8,7 @@ landing_url: https://genomics.senescence.info/species/
 access: public
 files:
   - url: "https://genomics.senescence.info/species/dataset.zip"
-    sha256: null
+    sha256: e3ddb66e32e973a79932859ba53013e8f60d957c6ec01c6eb573e3ea3018d630
     size_bytes: 169150
     format: zip
     note: "full AnAge export; last-modified 2023-07-03"
@@ -33,4 +33,4 @@ source_publications:
   - 10.1093/nar/gkad927
 used_by:
   - R-Sim
-fetched_at: null
+fetched_at: "2026-10-20"

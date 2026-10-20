@@ -8,7 +8,7 @@ landing_url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE93957
 access: public
 files:
   - url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93957/suppl/GSE93957_RAW.tar"
-    sha256: null
+    sha256: b5924bd5918c40ffc62a3df96b1a8bc103496e5eec53a60bd5daa2c9258655c9
     size_bytes: 1650636800
     format: tar
     note: "all per-sample supplementary files"
@@ -36,7 +36,7 @@ source_publications:
 used_by:
   - R-Metric
   - L2
-fetched_at: null
+fetched_at: "2026-10-20"
 notes: >-
   GEO series and paper linked via NCBI E-utilities on 2026-10-20. Size from
   HTTP Content-Length.

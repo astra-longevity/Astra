@@ -8,12 +8,12 @@ landing_url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE120137
 access: public
 files:
   - url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120132/suppl/GSE120132_RAW.tar"
-    sha256: null
+    sha256: b428d51a28d3e6297548d28c4588a241cad2a7bdaffc413f012d90c620d40ff0
     size_bytes: 6439997440
     format: tar
     note: "SubSeries GSE120132 [I], 549 samples, all per-sample files"
   - url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE120nnn/GSE120137/suppl/GSE120137_MM10_EpigeneticAgeClock_RidgeRegression.csv.gz"
-    sha256: null
+    sha256: 641a4ec909f2faecbd6289e2882471a145155f35254ca4da35c970bcf4882659
     size_bytes: 2004429
     format: csv.gz
     note: "published clock coefficients"
@@ -42,7 +42,7 @@ source_publications:
 used_by:
   - R-Metric
   - L2
-fetched_at: null
+fetched_at: "2026-10-20"
 notes: >-
   GEO series and paper linked via NCBI E-utilities on 2026-10-20. Size from
   HTTP Content-Length. GSE120137 is a SuperSeries of GSE120132 (the 549 new

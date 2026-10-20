@@ -9,7 +9,7 @@ landing_url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE80672
 access: public
 files:
   - url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE80nnn/GSE80672/suppl/GSE80672_RAW.tar"
-    sha256: null
+    sha256: 521ddfb935b07675cf29a890fc2f887f9235d4eee284c83cb3368d13603f9d1e
     size_bytes: 3086766080
     format: tar
     note: "all per-sample supplementary files"
@@ -38,7 +38,7 @@ source_publications:
 used_by:
   - R-Metric
   - L2
-fetched_at: null
+fetched_at: "2026-10-20"
 notes: >-
   GEO series and paper linked via NCBI E-utilities on 2026-10-20. Size from
   HTTP Content-Length. RRBS of mouse blood; series also cited by a 2018 paper
