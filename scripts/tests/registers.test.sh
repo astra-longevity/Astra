@@ -169,6 +169,15 @@ expect "milestone without milestone_date fails" 1 "go together" -- obstacles --s
 fresh; obstacle m4 2027-07-20 "true"; set_line "$(F m4)" milestone "x"; set_line "$(F m4)" milestone_date "month 4"
 expect "relative milestone_date fails" 1 "milestone_date: YYYY-MM-DD" -- obstacles --schema-only
 
+# --- unit sub-folders (<= 8 entries per folder) ---------------------------------
+
+fresh; obstacle s1 2026-10-10 "false"; mkdir -p "$R/research/obstacles/platform"; mv "$(F s1)" "$R/research/obstacles/platform/"
+expect "row in a unit sub-folder is loaded and reported" 1 "research/obstacles/platform/s1.yaml" -- obstacles --today 2026-10-20
+
+fresh; obstacle d1 2027-01-01 "true"; mkdir -p "$R/research/obstacles/a" "$R/research/obstacles/b"
+cp "$(F d1)" "$R/research/obstacles/a/"; mv "$(F d1)" "$R/research/obstacles/b/"
+expect "same id in two sub-folders fails" 1 "duplicate id d1" -- obstacles --schema-only
+
 echo ""
 echo "registers tests: $pass passed, $failed failed"
 [ "$failed" = 0 ]

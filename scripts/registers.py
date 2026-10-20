@@ -69,17 +69,27 @@ def _date(v):
 
 
 def load_dir(root, rel, required, optional, validate):
-    """Returns (records, errors). Every *.yaml in root/rel except README."""
+    """Returns (records, errors). Every *.yaml under root/rel, recursively
+    (sub-folders group files by unit; the structure check allows <= 8 entries
+    per folder). Ids are unique across the whole register."""
     d = os.path.join(root, rel)
     recs, errs = [], []
     if not os.path.isdir(d):
         return recs, errs
-    for name in sorted(os.listdir(d)):
-        if not name.endswith(".yaml"):
+    files = []
+    for dirpath, dirnames, names in os.walk(d):
+        dirnames.sort()
+        files += [os.path.join(dirpath, n) for n in names if n.endswith(".yaml")]
+    seen = {}
+    for full in sorted(files):
+        name = os.path.basename(full)
+        path = os.path.relpath(full, root)
+        if name in seen:
+            errs.append(f"{path}: duplicate id {name[:-5]} (also {seen[name]})")
             continue
-        path = os.path.join(rel, name)
+        seen[name] = path
         try:
-            with open(os.path.join(d, name)) as f:
+            with open(full) as f:
                 r = parse_flat(f.read())
         except (OSError, ValueError) as e:
             errs.append(f"{path}: {e}")

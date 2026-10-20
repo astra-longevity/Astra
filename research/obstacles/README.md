@@ -1,7 +1,10 @@
 # research/obstacles/: obstacle register
 
 One file per obstacle (charter part 9, T8-A28-1, T8-A10-1):
-`research/obstacles/<id>.yaml`, flat `key: value` lines.
+`research/obstacles/<unit>/<id>.yaml`, flat `key: value` lines. Sub-folders
+group rows by owner unit (`research/`, `literature/`, `platform/`,
+`verification/`, `vp/`, `database/`) because a folder holds at most 8
+entries. The loader reads every sub-folder; ids are unique across all of them.
 
 | Field | Meaning |
 |---|---|
