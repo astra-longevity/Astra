@@ -172,8 +172,10 @@ mod tests {
 
     #[test]
     fn repository_plan_and_sizes_pass() {
+        // Real data/datasets manifests, validated against data/schema/dataset.schema.json.
         let plan = fetch("plan", &args(&["--root", ROOT]));
         assert_eq!(plan.code, 0, "plan: {}", plan.err);
+        assert!(plan.out.contains("unpinned\tmpd-itp1\t0\t2\t"), "mpd-itp1 with its 2 s interval: {}", plan.out);
         let sizes = check_sizes(&args(&["--root", ROOT]));
         assert_eq!(sizes.code, 0, "sizes: {}", sizes.err);
     }
