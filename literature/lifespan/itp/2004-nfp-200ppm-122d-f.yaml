@@ -1,0 +1,64 @@
+# Strong 2008 (PMC2695675 author manuscript). Null arm: no significant effect, no treated median printed.
+id: 2004-nfp-200ppm-122d-f
+program: ITP
+publication:
+  doi: 10.1111/j.1474-9726.2008.00414.x
+  citation: "Strong R et al., 2008, Aging Cell 7:641-650"
+cohort_year: 2004
+compound: nfp
+role: "null"
+strain: UM-HET3
+sex: F
+start_age_days: 122  # printed in months; months x 30.44 d
+dose:
+  value: 200
+  unit: ppm
+  route: diet
+n:
+  treated: null
+  control: null
+lifespan:
+  control:
+    median_days: null
+    mean_days: null
+    p90_days: null
+  treated:
+    median_days: null
+    mean_days: null
+    p90_days: null
+effect:
+  median_pct: null
+  p90_pct: null
+  se: null
+  se_scale: null
+  se_source: null
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "not significant", source: "supp fig 1 (no p printed)"}
+curve_source:
+  figure: "supp fig 1"
+  mpd_id: 834
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites: []
+notes: >
+  Null arm (negative-control candidate, T1-A2-2). Medians and n come from MPD file 834
+  (fetch job pending). Controls shared by the 4 C2004 compounds.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - n.treated
+    - n.control
+    - lifespan.control.median_days
+    - lifespan.treated.median_days
