@@ -26,7 +26,7 @@ No number appears here without a source. Where secondary sources disagree, both 
 | `clocks/04-grimage.md` | DNAm GrimAge (Lu 2019) |
 | `clocks/05-dunedinpace.md` | DunedinPACE (Belsky 2022) |
 | `clocks/06-mouse-clocks.md` | Mouse methylation clocks (Petkovich, Stubbs, Meer, Thompson) |
-| `tests/` | Human function tests (VO2max, grip, gait, chair rise, cognitive, audiogram), in progress |
+| `tests/01-grip.md` … `tests/06-audiogram.md` | Human function tests: grip, gait speed, chair rise, VO2max, cognitive (NIH Toolbox), audiogram |
 | `models/` | Parent models (Karin 2019, Farrell–Rutenberg), in progress |
 | `mouse/` | Mouse inputs (frailty index, grip, rotarod, treadmill, echo, GTT, body composition, blood count), in progress |
 | `anchors.md` | One row per axis: anchor test, age trajectory, confounders; no anchor = named blind spot (due 2026-10-27) |
