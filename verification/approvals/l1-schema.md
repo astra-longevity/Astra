@@ -60,3 +60,31 @@ one digitisation or `from_p_value` = sensitivity only. Changes:
 
 Verification re-checks the follow-up PR against C1–C8 and records the result
 here (add-only, below this line).
+
+### Re-check 1: PR #48, head `c6e443f`, 2026-10-20 (A65)
+
+**Result: C1–C8 met.** `ruby literature/lifespan/check.rb` run at `c6e443f`:
+`OK: 1 row(s)`, example row `test2_main=false`.
+
+| Item | Met? | Where / note |
+|---|---|---|
+| C1 | yes | `reference-ranges.yaml` v0: ITP control cohorts C2004–C2021 (MPD ITP1 file ids), KM median pooled sites, `[min, max]`, inclusive, own cohort excluded. Bounds `null` until the fetch job; meanwhile every row is `control_in_ref_range: false`, so nothing enters test 2. |
+| C2 | yes | `schema.md` + `replicated_by`; `check.rb` rejects a non-ITP replicated row without it. |
+| C3 | yes | Formula in `schema.md`, computed by `check.rb`, stored value rejected. Stricter than asked: also needs an approved class label. |
+| C4 | yes | Rapamycin: IUPHAR/BPS ligand 6031 (sirolimus), mechanism entry, no lifespan outcome, snapshot 2026-10-20. |
+| C5 | yes | Closed vocabulary; unranked targets → `multi-target`; `no defined target` for mixtures; additions only before the seal. |
+| C6 | yes | `class-labels.yaml`, one entry per compound, all required fields; `check.rb` rejects `class_label` in rows. |
+| C7 | yes | `curve_agreement` + `curve_check_ref`, validated. |
+| C8 | yes | Exact-p rule; `se_scale` ∈ {`log_hr`, `log_median_ratio`} with conversions. |
+
+Conditions that remain open (they don't block the merge of #48):
+
+1. **Reference-range bounds.** Version 1 (bounds filled from the MPD files)
+   is re-checked by Verification before any row turns `true`.
+2. **Check in CI.** `check.rb` runs by hand today. Before the D115 seal it
+   must run in CI on every change under `literature/lifespan/`, otherwise
+   `test2_main` is not guaranteed computed.
+3. **Class labels.** The rapamycin label is acceptable as sourced.
+   `approved_by` is filled by Verification in the seal PR, for the full
+   list at once, not row by row. The vocabulary must cover every compound
+   before then.
