@@ -23,7 +23,26 @@ labels_doc.fetch("labels").each do |l|
   errors << "class-labels: #{l['compound']} listed twice" if labels.key?(l["compound"])
   labels[l["compound"]] = l
 end
-ref_version = load(File.join(DIR, "reference-ranges.yaml")).fetch("version")
+refs = load(File.join(DIR, "reference-ranges.yaml"))
+ref_version = refs.fetch("version")
+ref_values = {}
+refs.fetch("ranges").each do |rg|
+  ref_values[[rg.fetch("strain"), rg.fetch("sex")]] = rg.fetch("values")
+end
+
+# Leave-one-cohort-out range check (reference-ranges.yaml definition).
+# Returns true/false, or nil when the row has no strain range.
+def in_ref_range(values, row)
+  return nil if values.nil?
+
+  median = row.dig("lifespan", "control", "median_days", "value")
+  return false if median.nil?
+
+  others = values.reject { |v| v["cohort"] == row["cohort_year"] }.map { |v| v["median_days"] }
+  return false if others.empty?
+
+  median.between?(others.min, others.max)
+end
 
 rows = Dir[File.join(DIR, "{itp,other}", "*.yaml")].sort
 rows.each do |path|
@@ -44,6 +63,10 @@ rows.each do |path|
   f = r.fetch("flags")
   err.call("control_in_ref_range must be true/false") unless [true, false].include?(f["control_in_ref_range"])
   err.call("reference must be reference-ranges.yaml@#{ref_version}") unless f["reference"] == "reference-ranges.yaml@#{ref_version}"
+  expected = in_ref_range(ref_values[[r["strain"], r["sex"]]], r) || false
+  unless f["control_in_ref_range"] == expected
+    err.call("control_in_ref_range is #{f['control_in_ref_range']}, reference-ranges.yaml@#{ref_version} gives #{expected}")
+  end
   if r["program"] == "other" && f["itp_or_replicated"] && f["replicated_by"].nil?
     err.call("non-ITP row marked replicated without replicated_by")
   end

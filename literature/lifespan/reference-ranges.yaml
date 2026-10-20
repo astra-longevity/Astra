@@ -1,32 +1,59 @@
 # Control-lifespan reference ranges (T1-A2-3 (a), Verification ruling C1).
 # Rows cite this file as `reference-ranges.yaml@<version>`.
-# Bounds are null until the MPD ITP1 per-mouse files arrive through Platform's
-# fetch job (manifest by Database); phenome.jax.org returns 403 from the local
-# machine. While bounds are null, every row has control_in_ref_range: false.
-version: 0
+# v1 (stopgap accepted by A50, PR #83): built from control medians PRINTED in the
+# ITP papers, because the MPD ITP1 per-mouse files are blocked (HTTP 403) both
+# locally and from Actions. v2 will use the MPD files; the v1 -> v2 list of
+# test2_main flips is published when v2 lands.
+# check.rb computes flags.control_in_ref_range from this file; rows never set it by hand.
+version: 1
+label: "printed, not per-mouse"
 definition:
   source: >
-    ITP control groups, all cohorts C2004-C2021, per-mouse lifespan files of
-    MPD project ITP1 (RRID:SCR_003212), file ids listed in each range.
-  statistic: >
-    Kaplan-Meier median lifespan (days) of the control group, all sites pooled,
-    one value per cohort.
-  range: "[min, max] of those cohort medians"
+    Pooled-site control median lifespan (days) printed in an ITP paper, one entry
+    per paper that prints it. Every value is also the control median of at least
+    one row in itp/, which cites the same paper.
+  statistic: "control median lifespan, all sites pooled, as printed"
+  range: "[min, max] of the values of the other cohorts"
   bounds_inclusive: true
   own_cohort_excluded: >
-    The range used for a row is recomputed without the row's own cohort, so a
-    control group is never compared with itself.
+    Leave-one-cohort-out: a row is checked against the range of every value whose
+    cohort differs from the row's cohort_year. All values of the row's own cohort
+    are left out, including a second printed value of the same controls.
+  same_cohort_two_values: >
+    When two papers print different medians for the same controls (C2012), both
+    values are kept as separate entries; neither is chosen.
+  no_printed_value: >
+    Cohorts whose papers print no pooled control median (C2005, C2006; C2004
+    females) contribute no value. Their rows have a null control median and stay
+    control_in_ref_range: false.
   site_level: "not used: the flag is checked on the pooled-site median"
 ranges:
   - strain: UM-HET3
     sex: F
-    mpd_file_ids: [834, 829, 823, 804, 798, 793, 787, 768, 762, 782, 748, 754, 737, 558, 573, 707, 772]
-    cohort_medians_days: null
-    lower_days: null
-    upper_days: null
+    values:
+      - {cohort: 2007, median_days: 866, source: "Strong 2013, doi 10.1093/gerona/gls070, table 1"}
+      - {cohort: 2009, median_days: 896, source: "Harrison 2014, doi 10.1111/acel.12170, table 1; same value in Miller 2014, doi 10.1111/acel.12194, table 1"}
+      - {cohort: 2010, median_days: 900, source: "Strong 2016, doi 10.1111/acel.12496, table 2"}
+      - {cohort: 2011, median_days: 874, source: "Strong 2016, doi 10.1111/acel.12496, table 1"}
+      - {cohort: 2012, median_days: 881, source: "Strong 2016, doi 10.1111/acel.12496, table 1"}
+      - {cohort: 2012, median_days: 877, source: "Harrison 2019, doi 10.1111/acel.12898, table 1"}
+      - {cohort: 2013, median_days: 889, source: "Harrison 2019, doi 10.1111/acel.12898, table 1"}
+    full_range_days: [866, 900]  # all cohorts, for information; rows use leave-one-cohort-out
   - strain: UM-HET3
     sex: M
-    mpd_file_ids: [834, 829, 823, 804, 798, 793, 787, 768, 762, 782, 748, 754, 737, 558, 573, 707, 772]
-    cohort_medians_days: null
-    lower_days: null
-    upper_days: null
+    values:
+      - {cohort: 2004, median_days: 786, source: "Strong 2008, doi 10.1111/j.1474-9726.2008.00414.x, text"}
+      - {cohort: 2007, median_days: 786, source: "Strong 2013, doi 10.1093/gerona/gls070, table 1"}
+      - {cohort: 2009, median_days: 807, source: "Harrison 2014, doi 10.1111/acel.12170, table 1; same value in Miller 2014, doi 10.1111/acel.12194, table 1"}
+      - {cohort: 2010, median_days: 780, source: "Strong 2016, doi 10.1111/acel.12496, table 2"}
+      - {cohort: 2011, median_days: 780, source: "Strong 2016, doi 10.1111/acel.12496, table 1"}
+      - {cohort: 2012, median_days: 823, source: "Strong 2016, doi 10.1111/acel.12496, table 1"}
+      - {cohort: 2012, median_days: 816, source: "Harrison 2019, doi 10.1111/acel.12898, table 1"}
+      - {cohort: 2013, median_days: 830, source: "Harrison 2019, doi 10.1111/acel.12898, table 1"}
+    full_range_days: [780, 830]
+pending:
+  - "all other strains (C57BL/6 printed range: separate PR under A50's 5 conditions)"
+v2_plan: >
+  Kaplan-Meier control medians computed from the MPD ITP1 per-mouse files
+  (ids 834, 829, 823, 804, 798, 793, 787, 768, 762, 782, 748, 754, 737, 558,
+  573, 707, 772), once Platform's fetch job can reach them.

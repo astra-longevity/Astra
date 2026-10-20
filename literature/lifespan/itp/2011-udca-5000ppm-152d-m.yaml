@@ -42,8 +42,8 @@ curve_source:
   figure: "figs 1-3 (pooled); per-site tables S1-S3 (supplement)"
   mpd_id: 787
 flags:
-  control_in_ref_range: false  # range bounds not yet known
-  reference: reference-ranges.yaml@0
+  control_in_ref_range: true  # computed by check.rb: control median 780 d vs leave-one-cohort-out range [780, 830]
+  reference: reference-ranges.yaml@1
   itp_or_replicated: true
   replicated_by: null
 sites: []  # per-site tables are in the supplement, not read; text summary in notes
