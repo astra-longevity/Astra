@@ -18,10 +18,16 @@ licence:
   redistribution_of_derived: "yes"
   citation_required: true
   notes: >-
-    "HAGR is free for all purposes, including commercial, educational, and
-    research purposes, provided you mention the use of HAGR". Cite the 2024
-    NAR paper.
-licence_status: pending
+    LA-015 (A50, 2026-10-20): approve with conditions: cite HAGR and de
+    Magalhaes et al. 2024 NAR. One bulk download of the dataset zip per pin,
+    no scraping (HAGR asks to be contacted before large retrievals). Terms
+    read by A69: "HAGR is free for all purposes, including commercial,
+    educational, and research purposes, provided you mention the use of HAGR".
+    Cite the 2024 NAR paper.
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-015
 checked_at: "2026-10-20"
 source_publications:
   - 10.1093/nar/gkad927

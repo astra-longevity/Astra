@@ -13,8 +13,15 @@ licence:
   redistribution_of_derived: "no"
   citation_required: true
   notes: >-
-    Approved application and fee required; terms set per project.
-licence_status: pending
+    LA-016 (A50, 2026-10-20): refuse: no approved application exists. Clears
+    only with an approved UK Biobank application (needs a sponsor institution,
+    T5-A28-1) and a row re-checked against its MTA. Even then: no
+    participant-level data in a public repo. Terms read by A69: Approved
+    application and fee required; terms set per project.
+licence_status: refused
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-016
 checked_at: "2026-10-20"
 used_by:
   - T1 human

@@ -24,10 +24,17 @@ licence:
   redistribution_of_derived: "yes"
   citation_required: true
   notes: >-
-    Repository licence MIT (GitHub API, 2026-10-20). The paper itself is CC
-    BY-NC-ND 4.0, which covers its text and figures, not this repository.
-    Verification to confirm the MIT licence is meant to cover the data files.
-licence_status: pending
+    LA-014 (A50, 2026-10-20): approve with conditions: keep the MIT notice
+    with any copy; cite Di Francesco et al. 2024. No paper figures or text
+    reused (paper CC BY-NC-ND). Re-check if Calico publishes separate data
+    terms. Terms read by A69: Repository licence MIT (GitHub API, 2026-10-20).
+    The paper itself is CC BY-NC-ND 4.0, which covers its text and figures,
+    not this repository. Verification to confirm the MIT licence is meant to
+    cover the data files.
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-014
 checked_at: "2026-10-20"
 source_publications:
   - 10.1038/s41586-024-08026-3

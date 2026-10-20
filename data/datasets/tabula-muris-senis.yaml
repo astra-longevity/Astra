@@ -24,9 +24,17 @@ licence:
   redistribution_of_derived: "yes"
   citation_required: true
   notes: >-
-    Licence field of figshare articles 8273102 and 12654728 (API, 2026-10-20).
-    MIT requires keeping the copyright and licence notice; cite the paper.
-licence_status: pending
+    LA-009 (A50, 2026-10-20): approve with conditions: keep the MIT copyright
+    and permission notice with any copy or substantial portion; cite Tabula
+    Muris Consortium, Nature 2020 and the figshare DOI; pin v3 + sha256.
+    LA-001 (item 19545169, CC BY 4.0) stays valid but is not this manifest's
+    source. Terms read by A69: Licence field of figshare articles 8273102 and
+    12654728 (API, 2026-10-20). MIT requires keeping the copyright and licence
+    notice; cite the paper.
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-009
 checked_at: "2026-10-20"
 source_publications:
   - 10.1038/s41586-020-2496-1
@@ -38,5 +46,3 @@ notes: >-
   4795677086 B, droplet 8244494258 B) and per-tissue files (figshare 12654728,
   39 files) can be added. figshare publishes MD5 only, so sha256 stays null
   until the pin run. Raw FASTQ on AWS are out of scope (refused, LA-002).
-  LA-001 approved figshare item 19545169 (CC BY 4.0); these files are from
-  item 8273102 (MIT), so Verification must confirm or swap items.
