@@ -1,7 +1,7 @@
 # R-Sim v0: which parameters can control survival curves recover?
 
 **Owner:** A28 (Research). **Status:** synthetic study, no real data used, trust level L0.
-Spec issue S6. Code: `py/identifiability.py`, `py/recovery.py`.
+Spec issue S6. Code: `py/studies/identifiability.py`, `py/studies/recovery.py`.
 
 ## Answer
 
@@ -117,7 +117,7 @@ This matches the Fisher result: survival pins 2 directions and no more.
 
 ## 6. Which axis readouts unlock the rest (synthetic)
 
-Code: `py/readouts.py`, output `results/readouts.json`. Same simulator, same
+Code: `py/studies/readouts.py`, output `results/readouts.json`. Same simulator, same
 cross-seed Fisher (seeds 11/12, `n_sim` 2000, all 54 parameters).
 
 **Readout model.** One quantity per measured organ axis (11 axes; the 6
@@ -188,7 +188,7 @@ Plus `eps` (shared noise, share 0.92). So:
 - **Separating `eta` from `beta`** needs a different design: the same mouse
   measured repeatedly (true longitudinal slopes) or a perturbation with a
   known effect on one term (an intervention with a mechanistic mapping).
-  Not modelled here; next study.
+  Repeated measures tested in section 8: they do not do it.
 - Expected v0 count after readouts: 4 (survival, per sex) + 11 organ
   balances + `eps` = **16 identified per sex**, 38 still "prior, not
   identified" (non-vital `Xc`, all `eta/beta` splits, `kappa`, `c`, 6
@@ -233,12 +233,123 @@ cover vital organs.
 | I9 | Survival + readouts jointly needs `n_sim` ≫ 2000 to lower the survival noise floor (GitHub Actions) |
 | I10 | Clock proxy is a mean of organ states, not a model of H3 |
 
+## 7. What necropsy cause-of-death data would add for vital `Xc` (no run)
+
+Survival pins one number per sex about the vital thresholds (the margin in
+direction 1); readouts pin each organ's damage/repair balance but not its
+threshold (section 6.2). Cause-of-death data (O3, T4-A2-1) records, for each
+dead mouse, which vital organ failed first. In the model this is exactly the
+axis that crossed its `Xc` first, so the data become a multinomial over
+(month of death × organ) instead of month only. Given the per-organ
+trajectories from readouts, the share of deaths per organ and its age profile
+depend mainly on each organ's margin `Xc_i`. Expected gain: up to 8 relative
+vital thresholds (9 vital axes, minus the overall level survival already
+fixes), and the only route to `A17_neoplasia`, which has no living readout:
+tumour deaths are its sole signal. Limits: pathologists often report several
+lesions or "undetermined" causes, so the observation is a probability over
+organs, not one label [to verify, rate per ITP/JAX necropsy protocol]; the
+hard-threshold death rule (I4) is too sharp for multi-organ deaths. To be
+quantified with the same cross-seed Fisher once cause-of-death sampling is
+added to `model.simulate` (cheap: the crossing axis is already known).
+
+## 8. Repeated measures and realistic assays (synthetic)
+
+Code: `py/studies/longitudinal.py`, output `results/longitudinal.json`. Same
+simulator and cross-seed Fisher (seeds 11/12, `n_sim` 2000, 54 parameters),
+readouts scored alone, n = 30 mice per age, assay noise 0.5 × biological SD.
+
+**Designs.** *Cross-sectional*: different mice at 12, 18, 24 and 30 months.
+*Repeated*: the same mice enrolled at 12 months and measured at every age
+they reach; mice are grouped by the last age reached (1 %, 11 %, 39 % and
+49 % of enrolled mice), each group is a multivariate Gaussian over its ages,
+so the within-mouse correlation between ages is used. The dropout itself is
+survival information and is not counted.
+
+**Realistic assays** (A70 dossier, mouse/10–12, as relayed by A28): lung is
+terminal (cross-sectional in both designs); kidney gives two values (GFR and
+albuminuria) from the same mice; GTT (per lean mass) and fat mass rise then
+fall (peak placed at a placeholder damage level); vaccine titre needs a new
+antigen at each age, so only its spread across mice counts, not its mean.
+`ideal:` = the organ state itself, repeatable, for comparison.
+
+### 8.1 Result
+
+| Design | Directions (n = 10 / 30 / 100) | `eta` share | `beta` share | `eta + beta` | `eta − beta` |
+|---|---|---|---|---|---|
+| ideal, cross-sectional | 12 / 13 / 13 | 0.52–0.58 | 0.33–0.41 | ≤ 0.04 | 0.83–0.97 |
+| ideal, repeated | 13 / 13 / 13 | 0.53–0.56 | 0.35–0.42 | ≤ 0.02 | 0.86–0.96 |
+| realistic, cross-sectional | 11 / 11 / 11 | see 8.2 | | ≤ 0.01 | see 8.2 |
+| realistic, repeated | 6 / 6 / 6 | | | ≤ 0.01 | |
+
+(Shares per organ at n = 30; 1 = pinned. `eta` and `beta` sit near 0.55 and
+0.40 only because each is half inside the pinned balance direction.)
+
+- **Repeated measures do not separate `eta` from `beta`.** In every organ,
+  `eta + beta` (overall speed) stays at ≤ 0.02, same as cross-sectional.
+  In this model the within-mouse correlation between ages carries the same
+  balance information as the cross-sectional means and spreads. Production
+  and repair enter the readouts only through their balance at this
+  operating point.
+- **With realistic assays, repeated is worse than cross-sectional here**
+  (6 vs 11 directions). This is a simulation artefact, not a property of
+  the design: the 4-age covariance blocks have a higher Monte-Carlo noise
+  floor at `n_sim` 2000 (57 vs 32 at n = 30), and directions that fall below
+  3 × floor are dropped. It does not mean repeated designs lose information.
+- **Mice per age:** no new direction beyond n = 10 in any design (as in 6.3).
+- **What can split `eta` from `beta`:** (1) an intervention with a mapped,
+  known effect on one term (e.g. a senolytic on clearance, mappings.yaml),
+  measured with readouts, so the perturbation itself is the contrast;
+  (2) a repair model whose response differs from production, e.g.
+  saturating repair or a recovery test after an acute challenge (organ
+  measured before and after a standard insult). Both are model changes or
+  new data, not more of the same readouts. Proposal: study (1) next, on
+  synthetic data, with the 4 draft mappings.
+
+### 8.2 Realistic assays, cross-sectional, n = 30 (`eta − beta` share)
+
+| Axis | Assay | Share | Change vs ideal |
+|---|---|---|---|
+| A1 muscle | grip | 0.95 | = |
+| A3 brain | behaviour | 0.81 | = |
+| A6 heart | echo | 0.87 | = |
+| A8 lung | forced oscillation (terminal) | 0.89 | = |
+| A9 kidney | GFR + albuminuria | 0.81 | −0.08 (second value is redundant: same state) |
+| A10 liver/metabolism | GTT per lean mass (rise then fall) | **0.24** | **lost** |
+| A11 immune | vaccine titre, new antigen per age | **0.09** | **lost** |
+| A12 blood | CBC | 0.86 | = |
+| A13–A15 | skin, gut, fat mass (rise then fall) | 0.91–0.97 | = |
+
+- **GTT and the vaccine lose their organ.** A rise-then-fall readout is flat
+  near its peak, so a small parameter change barely moves it; a readout
+  whose mean is unusable (new antigen) keeps only its spread, which is too
+  little. Fat mass keeps its share because most mice stay on the rising
+  side at the placeholder peak.
+- **Fixes to ask for:** GTT paired with a second, monotonic liver readout
+  (ALT or liver fat by imaging) to resolve which side of the peak a mouse
+  is on; vaccine titre calibrated against a reference antigen given at a
+  fixed age to every cohort, so the mean becomes usable again. Both go to
+  the data-need list (6.4) as [to verify] with A70.
+- Readout ranking (single readout, directions): CBC 3; grip, behaviour,
+  echo, lung, kidney, GTT, vaccine, skin, gut, frailty, clock 2; fat mass 1.
+  Direction counts barely move; what changes is which organ a direction
+  belongs to (8.2 table).
+
+### 8.3 Limits
+
+| # | Limit |
+|---|---|
+| I11 | Peak position of the rise-then-fall readouts is a placeholder (`PEAK` = 1.0); the GTT loss depends on where real mice sit relative to the peak |
+| I12 | Kidney's two values are both functions of one state; a real second value (albuminuria) may carry independent damage, so the redundancy is a model limit |
+| I13 | Repeated-design floor higher at `n_sim` 2000; the 6 vs 11 comparison needs the Actions run (`actions-job.md`) |
+| I14 | Dropout information (which mice die between visits) is counted with survival, not here |
+
 ## Reproduce
 
 ```
-cd research/sim/v0/py
+cd research/sim/v0/py/studies
 python3 identifiability.py 2000 > ident.json   # ~6.5 min, stdlib only
 python3 recovery.py eta,xc > rec2.json
 python3 recovery.py eta,beta,xc > rec3.json
-READOUTS_CACHE=/tmp/readouts.pkl python3 readouts.py 2000 > ../results/readouts.json   # ~6 min, then instant from cache
+READOUTS_CACHE=/tmp/readouts.pkl python3 readouts.py 2000 > ../../results/readouts.json   # ~6 min, then instant from cache
+LONG_CACHE=/tmp/long.pkl python3 longitudinal.py 2000 > ../../results/longitudinal.json   # ~7 min, then instant from cache
 ```

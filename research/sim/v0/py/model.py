@@ -170,12 +170,15 @@ def simulate(
     dt: float = 7 / 365.25,
     t_max: float = 6.0,
     record: dict | None = None,
+    track: dict | None = None,
 ) -> list[float]:
     """Return n simulated lifespans in years (t_max if still alive: right-censored).
 
     `record` (optional) maps ages in years to lists; the axis state of every
-    mouse still alive at that age is appended (a dict copy). Recording draws
-    no random numbers, so lifespans are identical with or without it.
+    mouse still alive at that age is appended (a dict copy). `track` (optional)
+    maps ages to dicts filled as {mouse index: state}, so the same mouse can be
+    followed across ages. Neither draws random numbers, so lifespans are
+    identical with or without them.
     """
     base = params or Params()
     treated = _apply(base, perturbation) if perturbation else base
@@ -184,7 +187,7 @@ def simulate(
     rng = random.Random(seed)
     sq = math.sqrt(dt)
     lifespans = []
-    for _ in range(n):
+    for i in range(n):
         x = dict.fromkeys(AXES, 0.0)
         t, death = 0.0, t_max
         while t < t_max:
@@ -202,6 +205,10 @@ def simulate(
                 for age, sink in record.items():
                     if t_prev < age <= t:
                         sink.append(dict(x))
+            if track:
+                for age, sink in track.items():
+                    if t_prev < age <= t:
+                        sink[i] = dict(x)
         lifespans.append(death)
     return lifespans
 

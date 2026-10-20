@@ -18,11 +18,14 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import sys
 
-import baseline
-import model
-from identifiability import T_MAX, bin_probs
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # py/: model, baseline
+
+import baseline  # noqa: E402
+import model  # noqa: E402
+from identifiability import T_MAX, bin_probs  # noqa: E402
 
 N_DATA = 2000
 N_SIM = 1000

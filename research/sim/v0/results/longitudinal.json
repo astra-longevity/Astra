@@ -1,0 +1,1454 @@
+{
+ "n_sim": 2000,
+ "ages": [
+  1.0,
+  1.5,
+  2.0,
+  2.5
+ ],
+ "n_per_age": 30,
+ "noise_rel": 0.5,
+ "peak": 1.0,
+ "pattern_weights": {
+  "1": 0.013513513513513514,
+  "2": 0.11061061061061062,
+  "3": 0.39039039039039036,
+  "4": 0.4854854854854855
+ },
+ "readouts": {
+  "grip": {
+   "axis": "A1",
+   "assay": "grip strength",
+   "repeatable": true,
+   "mean_informative": true
+  },
+  "behaviour": {
+   "axis": "A3",
+   "assay": "open field, Y-maze",
+   "repeatable": true,
+   "mean_informative": true
+  },
+  "echo": {
+   "axis": "A6",
+   "assay": "echocardiography",
+   "repeatable": true,
+   "mean_informative": true
+  },
+  "lung": {
+   "axis": "A8",
+   "assay": "forced oscillation (terminal)",
+   "repeatable": false,
+   "mean_informative": true
+  },
+  "kidney": {
+   "axis": "A9",
+   "assay": "transcutaneous GFR + albuminuria",
+   "repeatable": true,
+   "mean_informative": true
+  },
+  "gtt": {
+   "axis": "A10",
+   "assay": "GTT per lean mass (non-monotonic)",
+   "repeatable": true,
+   "mean_informative": true
+  },
+  "vaccine": {
+   "axis": "A11",
+   "assay": "antibody titre, new antigen per age",
+   "repeatable": true,
+   "mean_informative": false
+  },
+  "cbc": {
+   "axis": "A12",
+   "assay": "complete blood count",
+   "repeatable": true,
+   "mean_informative": true
+  },
+  "skin": {
+   "axis": "A13",
+   "assay": "coat/skin score",
+   "repeatable": true,
+   "mean_informative": true
+  },
+  "gut": {
+   "axis": "A14",
+   "assay": "gut permeability",
+   "repeatable": true,
+   "mean_informative": true
+  },
+  "body_comp": {
+   "axis": "A15",
+   "assay": "fat mass by NMR (non-monotonic)",
+   "repeatable": true,
+   "mean_informative": true
+  },
+  "frailty": {
+   "axis": "A18",
+   "assay": "clinical frailty index",
+   "repeatable": true,
+   "mean_informative": true
+  },
+  "clock": {
+   "axis": "all (proxy)",
+   "assay": "epigenetic clock",
+   "repeatable": true,
+   "mean_informative": true
+  }
+ },
+ "realistic_cross": {
+  "single": {
+   "cbc": {
+    "n_recoverable": 3,
+    "noise_floor": 7.0,
+    "n_identified": 0,
+    "identified": []
+   },
+   "grip": {
+    "n_recoverable": 2,
+    "noise_floor": 8.8,
+    "n_identified": 0,
+    "identified": []
+   },
+   "behaviour": {
+    "n_recoverable": 2,
+    "noise_floor": 12.2,
+    "n_identified": 0,
+    "identified": []
+   },
+   "echo": {
+    "n_recoverable": 2,
+    "noise_floor": 10.7,
+    "n_identified": 0,
+    "identified": []
+   },
+   "lung": {
+    "n_recoverable": 2,
+    "noise_floor": 7.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "kidney": {
+    "n_recoverable": 2,
+    "noise_floor": 29.1,
+    "n_identified": 0,
+    "identified": []
+   },
+   "gtt": {
+    "n_recoverable": 2,
+    "noise_floor": 13.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "vaccine": {
+    "n_recoverable": 2,
+    "noise_floor": 3.1,
+    "n_identified": 0,
+    "identified": []
+   },
+   "skin": {
+    "n_recoverable": 2,
+    "noise_floor": 7.9,
+    "n_identified": 0,
+    "identified": []
+   },
+   "gut": {
+    "n_recoverable": 2,
+    "noise_floor": 9.9,
+    "n_identified": 0,
+    "identified": []
+   },
+   "frailty": {
+    "n_recoverable": 2,
+    "noise_floor": 8.6,
+    "n_identified": 0,
+    "identified": []
+   },
+   "clock": {
+    "n_recoverable": 2,
+    "noise_floor": 8.4,
+    "n_identified": 0,
+    "identified": []
+   },
+   "body_comp": {
+    "n_recoverable": 1,
+    "noise_floor": 11.7,
+    "n_identified": 0,
+    "identified": []
+   }
+  },
+  "all_by_n": {
+   "10": {
+    "n_recoverable": 11,
+    "noise_floor": 10.8,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.58,
+      "beta": 0.39,
+      "ratio": 0.95,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.51,
+      "beta": 0.32,
+      "ratio": 0.81,
+      "sum": 0.01,
+      "xc": 0.19
+     },
+     "A6_heart": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.87,
+      "sum": 0.01,
+      "xc": 0.1
+     },
+     "A8_lung": {
+      "eta": 0.54,
+      "beta": 0.36,
+      "ratio": 0.89,
+      "sum": 0.01,
+      "xc": 0.08
+     },
+     "A9_kidney": {
+      "eta": 0.48,
+      "beta": 0.35,
+      "ratio": 0.81,
+      "sum": 0.01,
+      "xc": 0.2
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.15,
+      "beta": 0.09,
+      "ratio": 0.24,
+      "sum": 0.0,
+      "xc": 0.04
+     },
+     "A11_immune": {
+      "eta": 0.05,
+      "beta": 0.04,
+      "ratio": 0.09,
+      "sum": 0.0,
+      "xc": 0.02
+     },
+     "A12_blood": {
+      "eta": 0.54,
+      "beta": 0.34,
+      "ratio": 0.86,
+      "sum": 0.01,
+      "xc": 0.1
+     },
+     "A13_skin_hair": {
+      "eta": 0.57,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.58,
+      "beta": 0.4,
+      "ratio": 0.97,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.56,
+      "beta": 0.36,
+      "ratio": 0.91,
+      "sum": 0.01,
+      "xc": 0.0
+     }
+    }
+   },
+   "30": {
+    "n_recoverable": 11,
+    "noise_floor": 32.3,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.58,
+      "beta": 0.39,
+      "ratio": 0.95,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.51,
+      "beta": 0.32,
+      "ratio": 0.81,
+      "sum": 0.01,
+      "xc": 0.19
+     },
+     "A6_heart": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.87,
+      "sum": 0.01,
+      "xc": 0.1
+     },
+     "A8_lung": {
+      "eta": 0.54,
+      "beta": 0.36,
+      "ratio": 0.89,
+      "sum": 0.01,
+      "xc": 0.08
+     },
+     "A9_kidney": {
+      "eta": 0.48,
+      "beta": 0.35,
+      "ratio": 0.81,
+      "sum": 0.01,
+      "xc": 0.2
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.15,
+      "beta": 0.09,
+      "ratio": 0.24,
+      "sum": 0.0,
+      "xc": 0.04
+     },
+     "A11_immune": {
+      "eta": 0.05,
+      "beta": 0.04,
+      "ratio": 0.09,
+      "sum": 0.0,
+      "xc": 0.02
+     },
+     "A12_blood": {
+      "eta": 0.54,
+      "beta": 0.34,
+      "ratio": 0.86,
+      "sum": 0.01,
+      "xc": 0.1
+     },
+     "A13_skin_hair": {
+      "eta": 0.57,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.58,
+      "beta": 0.4,
+      "ratio": 0.97,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.56,
+      "beta": 0.36,
+      "ratio": 0.91,
+      "sum": 0.01,
+      "xc": 0.0
+     }
+    }
+   },
+   "100": {
+    "n_recoverable": 11,
+    "noise_floor": 107.7,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.58,
+      "beta": 0.39,
+      "ratio": 0.95,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.51,
+      "beta": 0.32,
+      "ratio": 0.81,
+      "sum": 0.01,
+      "xc": 0.19
+     },
+     "A6_heart": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.87,
+      "sum": 0.01,
+      "xc": 0.1
+     },
+     "A8_lung": {
+      "eta": 0.54,
+      "beta": 0.36,
+      "ratio": 0.89,
+      "sum": 0.01,
+      "xc": 0.08
+     },
+     "A9_kidney": {
+      "eta": 0.48,
+      "beta": 0.35,
+      "ratio": 0.81,
+      "sum": 0.01,
+      "xc": 0.2
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.15,
+      "beta": 0.09,
+      "ratio": 0.24,
+      "sum": 0.0,
+      "xc": 0.04
+     },
+     "A11_immune": {
+      "eta": 0.05,
+      "beta": 0.04,
+      "ratio": 0.09,
+      "sum": 0.0,
+      "xc": 0.02
+     },
+     "A12_blood": {
+      "eta": 0.54,
+      "beta": 0.34,
+      "ratio": 0.86,
+      "sum": 0.01,
+      "xc": 0.1
+     },
+     "A13_skin_hair": {
+      "eta": 0.57,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.58,
+      "beta": 0.4,
+      "ratio": 0.97,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.56,
+      "beta": 0.36,
+      "ratio": 0.91,
+      "sum": 0.01,
+      "xc": 0.0
+     }
+    }
+   }
+  }
+ },
+ "realistic_long": {
+  "single": {
+   "behaviour": {
+    "n_recoverable": 2,
+    "noise_floor": 10.9,
+    "n_identified": 0,
+    "identified": []
+   },
+   "lung": {
+    "n_recoverable": 2,
+    "noise_floor": 7.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "frailty": {
+    "n_recoverable": 2,
+    "noise_floor": 13.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "clock": {
+    "n_recoverable": 2,
+    "noise_floor": 13.6,
+    "n_identified": 0,
+    "identified": []
+   },
+   "grip": {
+    "n_recoverable": 1,
+    "noise_floor": 13.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "echo": {
+    "n_recoverable": 1,
+    "noise_floor": 19.6,
+    "n_identified": 0,
+    "identified": []
+   },
+   "kidney": {
+    "n_recoverable": 1,
+    "noise_floor": 47.2,
+    "n_identified": 0,
+    "identified": []
+   },
+   "gtt": {
+    "n_recoverable": 1,
+    "noise_floor": 24.7,
+    "n_identified": 0,
+    "identified": []
+   },
+   "cbc": {
+    "n_recoverable": 1,
+    "noise_floor": 25.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "skin": {
+    "n_recoverable": 1,
+    "noise_floor": 13.6,
+    "n_identified": 0,
+    "identified": []
+   },
+   "gut": {
+    "n_recoverable": 1,
+    "noise_floor": 14.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "body_comp": {
+    "n_recoverable": 1,
+    "noise_floor": 20.0,
+    "n_identified": 0,
+    "identified": []
+   },
+   "vaccine": {
+    "n_recoverable": 0,
+    "noise_floor": 11.7,
+    "n_identified": 0,
+    "identified": []
+   }
+  },
+  "all_by_n": {
+   "10": {
+    "n_recoverable": 6,
+    "noise_floor": 18.9,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.53,
+      "beta": 0.37,
+      "ratio": 0.89,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.05,
+      "beta": 0.03,
+      "ratio": 0.08,
+      "sum": 0.0,
+      "xc": 0.02
+     },
+     "A6_heart": {
+      "eta": 0.08,
+      "beta": 0.04,
+      "ratio": 0.12,
+      "sum": 0.0,
+      "xc": 0.0
+     },
+     "A8_lung": {
+      "eta": 0.53,
+      "beta": 0.36,
+      "ratio": 0.88,
+      "sum": 0.01,
+      "xc": 0.06
+     },
+     "A9_kidney": {
+      "eta": 0.48,
+      "beta": 0.35,
+      "ratio": 0.82,
+      "sum": 0.01,
+      "xc": 0.2
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.07,
+      "beta": 0.04,
+      "ratio": 0.11,
+      "sum": 0.0,
+      "xc": 0.01
+     },
+     "A11_immune": {
+      "eta": 0.01,
+      "beta": 0.01,
+      "ratio": 0.02,
+      "sum": 0.0,
+      "xc": 0.01
+     },
+     "A12_blood": {
+      "eta": 0.06,
+      "beta": 0.03,
+      "ratio": 0.09,
+      "sum": 0.0,
+      "xc": 0.0
+     },
+     "A13_skin_hair": {
+      "eta": 0.18,
+      "beta": 0.14,
+      "ratio": 0.31,
+      "sum": 0.0,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.46,
+      "beta": 0.35,
+      "ratio": 0.81,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.04,
+      "beta": 0.02,
+      "ratio": 0.05,
+      "sum": 0.0,
+      "xc": 0.0
+     }
+    }
+   },
+   "30": {
+    "n_recoverable": 6,
+    "noise_floor": 56.7,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.53,
+      "beta": 0.37,
+      "ratio": 0.89,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.05,
+      "beta": 0.03,
+      "ratio": 0.08,
+      "sum": 0.0,
+      "xc": 0.02
+     },
+     "A6_heart": {
+      "eta": 0.08,
+      "beta": 0.04,
+      "ratio": 0.12,
+      "sum": 0.0,
+      "xc": 0.0
+     },
+     "A8_lung": {
+      "eta": 0.53,
+      "beta": 0.36,
+      "ratio": 0.88,
+      "sum": 0.01,
+      "xc": 0.06
+     },
+     "A9_kidney": {
+      "eta": 0.48,
+      "beta": 0.35,
+      "ratio": 0.82,
+      "sum": 0.01,
+      "xc": 0.2
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.07,
+      "beta": 0.04,
+      "ratio": 0.11,
+      "sum": 0.0,
+      "xc": 0.01
+     },
+     "A11_immune": {
+      "eta": 0.01,
+      "beta": 0.01,
+      "ratio": 0.02,
+      "sum": 0.0,
+      "xc": 0.01
+     },
+     "A12_blood": {
+      "eta": 0.06,
+      "beta": 0.03,
+      "ratio": 0.09,
+      "sum": 0.0,
+      "xc": 0.0
+     },
+     "A13_skin_hair": {
+      "eta": 0.18,
+      "beta": 0.14,
+      "ratio": 0.31,
+      "sum": 0.0,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.46,
+      "beta": 0.35,
+      "ratio": 0.81,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.04,
+      "beta": 0.02,
+      "ratio": 0.05,
+      "sum": 0.0,
+      "xc": 0.0
+     }
+    }
+   },
+   "100": {
+    "n_recoverable": 6,
+    "noise_floor": 188.9,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.53,
+      "beta": 0.37,
+      "ratio": 0.89,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.05,
+      "beta": 0.03,
+      "ratio": 0.08,
+      "sum": 0.0,
+      "xc": 0.02
+     },
+     "A6_heart": {
+      "eta": 0.08,
+      "beta": 0.04,
+      "ratio": 0.12,
+      "sum": 0.0,
+      "xc": 0.0
+     },
+     "A8_lung": {
+      "eta": 0.53,
+      "beta": 0.36,
+      "ratio": 0.88,
+      "sum": 0.01,
+      "xc": 0.06
+     },
+     "A9_kidney": {
+      "eta": 0.48,
+      "beta": 0.35,
+      "ratio": 0.82,
+      "sum": 0.01,
+      "xc": 0.2
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.07,
+      "beta": 0.04,
+      "ratio": 0.11,
+      "sum": 0.0,
+      "xc": 0.01
+     },
+     "A11_immune": {
+      "eta": 0.01,
+      "beta": 0.01,
+      "ratio": 0.02,
+      "sum": 0.0,
+      "xc": 0.01
+     },
+     "A12_blood": {
+      "eta": 0.06,
+      "beta": 0.03,
+      "ratio": 0.09,
+      "sum": 0.0,
+      "xc": 0.0
+     },
+     "A13_skin_hair": {
+      "eta": 0.18,
+      "beta": 0.14,
+      "ratio": 0.31,
+      "sum": 0.0,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.46,
+      "beta": 0.35,
+      "ratio": 0.81,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.04,
+      "beta": 0.02,
+      "ratio": 0.05,
+      "sum": 0.0,
+      "xc": 0.0
+     }
+    }
+   }
+  }
+ },
+ "ideal_cross": {
+  "single": {
+   "ideal:A12_blood": {
+    "n_recoverable": 3,
+    "noise_floor": 7.0,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A1_muscle": {
+    "n_recoverable": 2,
+    "noise_floor": 8.8,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A3_brain": {
+    "n_recoverable": 2,
+    "noise_floor": 12.2,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A6_heart": {
+    "n_recoverable": 2,
+    "noise_floor": 10.7,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A8_lung": {
+    "n_recoverable": 2,
+    "noise_floor": 7.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A9_kidney": {
+    "n_recoverable": 2,
+    "noise_floor": 8.4,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A10_liver_metabolism": {
+    "n_recoverable": 2,
+    "noise_floor": 8.1,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A11_immune": {
+    "n_recoverable": 2,
+    "noise_floor": 5.7,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A13_skin_hair": {
+    "n_recoverable": 2,
+    "noise_floor": 7.9,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A14_gut": {
+    "n_recoverable": 2,
+    "noise_floor": 9.9,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A15_fat": {
+    "n_recoverable": 2,
+    "noise_floor": 6.3,
+    "n_identified": 0,
+    "identified": []
+   }
+  },
+  "all_by_n": {
+   "10": {
+    "n_recoverable": 12,
+    "noise_floor": 5.8,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.58,
+      "beta": 0.4,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.51,
+      "beta": 0.32,
+      "ratio": 0.83,
+      "sum": 0.01,
+      "xc": 0.14
+     },
+     "A6_heart": {
+      "eta": 0.53,
+      "beta": 0.34,
+      "ratio": 0.86,
+      "sum": 0.02,
+      "xc": 0.09
+     },
+     "A8_lung": {
+      "eta": 0.54,
+      "beta": 0.36,
+      "ratio": 0.89,
+      "sum": 0.01,
+      "xc": 0.08
+     },
+     "A9_kidney": {
+      "eta": 0.55,
+      "beta": 0.35,
+      "ratio": 0.88,
+      "sum": 0.02,
+      "xc": 0.07
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.88,
+      "sum": 0.01,
+      "xc": 0.09
+     },
+     "A11_immune": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.88,
+      "sum": 0.01,
+      "xc": 0.07
+     },
+     "A12_blood": {
+      "eta": 0.54,
+      "beta": 0.34,
+      "ratio": 0.86,
+      "sum": 0.02,
+      "xc": 0.1
+     },
+     "A13_skin_hair": {
+      "eta": 0.56,
+      "beta": 0.4,
+      "ratio": 0.95,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.57,
+      "beta": 0.39,
+      "ratio": 0.95,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.57,
+      "beta": 0.4,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     }
+    }
+   },
+   "30": {
+    "n_recoverable": 13,
+    "noise_floor": 17.5,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.58,
+      "beta": 0.41,
+      "ratio": 0.97,
+      "sum": 0.02,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.52,
+      "beta": 0.33,
+      "ratio": 0.83,
+      "sum": 0.01,
+      "xc": 0.29
+     },
+     "A6_heart": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.87,
+      "sum": 0.02,
+      "xc": 0.1
+     },
+     "A8_lung": {
+      "eta": 0.54,
+      "beta": 0.37,
+      "ratio": 0.89,
+      "sum": 0.01,
+      "xc": 0.1
+     },
+     "A9_kidney": {
+      "eta": 0.55,
+      "beta": 0.36,
+      "ratio": 0.89,
+      "sum": 0.02,
+      "xc": 0.12
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.88,
+      "sum": 0.01,
+      "xc": 0.18
+     },
+     "A11_immune": {
+      "eta": 0.55,
+      "beta": 0.38,
+      "ratio": 0.88,
+      "sum": 0.04,
+      "xc": 0.27
+     },
+     "A12_blood": {
+      "eta": 0.55,
+      "beta": 0.34,
+      "ratio": 0.87,
+      "sum": 0.02,
+      "xc": 0.4
+     },
+     "A13_skin_hair": {
+      "eta": 0.57,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.58,
+      "beta": 0.39,
+      "ratio": 0.96,
+      "sum": 0.02,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.57,
+      "beta": 0.4,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     }
+    }
+   },
+   "100": {
+    "n_recoverable": 13,
+    "noise_floor": 58.3,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.58,
+      "beta": 0.41,
+      "ratio": 0.97,
+      "sum": 0.02,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.52,
+      "beta": 0.33,
+      "ratio": 0.83,
+      "sum": 0.01,
+      "xc": 0.29
+     },
+     "A6_heart": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.87,
+      "sum": 0.02,
+      "xc": 0.1
+     },
+     "A8_lung": {
+      "eta": 0.54,
+      "beta": 0.37,
+      "ratio": 0.89,
+      "sum": 0.01,
+      "xc": 0.1
+     },
+     "A9_kidney": {
+      "eta": 0.55,
+      "beta": 0.36,
+      "ratio": 0.89,
+      "sum": 0.02,
+      "xc": 0.12
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.88,
+      "sum": 0.01,
+      "xc": 0.18
+     },
+     "A11_immune": {
+      "eta": 0.55,
+      "beta": 0.38,
+      "ratio": 0.88,
+      "sum": 0.04,
+      "xc": 0.27
+     },
+     "A12_blood": {
+      "eta": 0.55,
+      "beta": 0.34,
+      "ratio": 0.87,
+      "sum": 0.02,
+      "xc": 0.4
+     },
+     "A13_skin_hair": {
+      "eta": 0.57,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.58,
+      "beta": 0.39,
+      "ratio": 0.96,
+      "sum": 0.02,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.57,
+      "beta": 0.4,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     }
+    }
+   }
+  }
+ },
+ "ideal_long": {
+  "single": {
+   "ideal:A3_brain": {
+    "n_recoverable": 2,
+    "noise_floor": 10.9,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A9_kidney": {
+    "n_recoverable": 2,
+    "noise_floor": 11.9,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A1_muscle": {
+    "n_recoverable": 1,
+    "noise_floor": 13.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A6_heart": {
+    "n_recoverable": 1,
+    "noise_floor": 19.6,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A8_lung": {
+    "n_recoverable": 1,
+    "noise_floor": 14.2,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A10_liver_metabolism": {
+    "n_recoverable": 1,
+    "noise_floor": 17.4,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A11_immune": {
+    "n_recoverable": 1,
+    "noise_floor": 20.7,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A12_blood": {
+    "n_recoverable": 1,
+    "noise_floor": 25.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A13_skin_hair": {
+    "n_recoverable": 1,
+    "noise_floor": 13.6,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A14_gut": {
+    "n_recoverable": 1,
+    "noise_floor": 14.3,
+    "n_identified": 0,
+    "identified": []
+   },
+   "ideal:A15_fat": {
+    "n_recoverable": 1,
+    "noise_floor": 13.0,
+    "n_identified": 0,
+    "identified": []
+   }
+  },
+  "all_by_n": {
+   "10": {
+    "n_recoverable": 13,
+    "noise_floor": 6.9,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.56,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.87,
+      "sum": 0.02,
+      "xc": 0.48
+     },
+     "A6_heart": {
+      "eta": 0.54,
+      "beta": 0.4,
+      "ratio": 0.92,
+      "sum": 0.01,
+      "xc": 0.23
+     },
+     "A8_lung": {
+      "eta": 0.53,
+      "beta": 0.38,
+      "ratio": 0.9,
+      "sum": 0.01,
+      "xc": 0.06
+     },
+     "A9_kidney": {
+      "eta": 0.54,
+      "beta": 0.37,
+      "ratio": 0.89,
+      "sum": 0.02,
+      "xc": 0.11
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.53,
+      "beta": 0.38,
+      "ratio": 0.9,
+      "sum": 0.01,
+      "xc": 0.07
+     },
+     "A11_immune": {
+      "eta": 0.54,
+      "beta": 0.41,
+      "ratio": 0.94,
+      "sum": 0.01,
+      "xc": 0.2
+     },
+     "A12_blood": {
+      "eta": 0.53,
+      "beta": 0.35,
+      "ratio": 0.86,
+      "sum": 0.01,
+      "xc": 0.13
+     },
+     "A13_skin_hair": {
+      "eta": 0.55,
+      "beta": 0.42,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.55,
+      "beta": 0.41,
+      "ratio": 0.95,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.55,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     }
+    }
+   },
+   "30": {
+    "n_recoverable": 13,
+    "noise_floor": 20.6,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.56,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.87,
+      "sum": 0.02,
+      "xc": 0.48
+     },
+     "A6_heart": {
+      "eta": 0.54,
+      "beta": 0.4,
+      "ratio": 0.92,
+      "sum": 0.01,
+      "xc": 0.23
+     },
+     "A8_lung": {
+      "eta": 0.53,
+      "beta": 0.38,
+      "ratio": 0.9,
+      "sum": 0.01,
+      "xc": 0.06
+     },
+     "A9_kidney": {
+      "eta": 0.54,
+      "beta": 0.37,
+      "ratio": 0.89,
+      "sum": 0.02,
+      "xc": 0.11
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.53,
+      "beta": 0.38,
+      "ratio": 0.9,
+      "sum": 0.01,
+      "xc": 0.07
+     },
+     "A11_immune": {
+      "eta": 0.54,
+      "beta": 0.41,
+      "ratio": 0.94,
+      "sum": 0.01,
+      "xc": 0.2
+     },
+     "A12_blood": {
+      "eta": 0.53,
+      "beta": 0.35,
+      "ratio": 0.86,
+      "sum": 0.01,
+      "xc": 0.13
+     },
+     "A13_skin_hair": {
+      "eta": 0.55,
+      "beta": 0.42,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.55,
+      "beta": 0.41,
+      "ratio": 0.95,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.55,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     }
+    }
+   },
+   "100": {
+    "n_recoverable": 13,
+    "noise_floor": 68.6,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ],
+    "axes": {
+     "A1_muscle": {
+      "eta": 0.56,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A3_brain": {
+      "eta": 0.54,
+      "beta": 0.35,
+      "ratio": 0.87,
+      "sum": 0.02,
+      "xc": 0.48
+     },
+     "A6_heart": {
+      "eta": 0.54,
+      "beta": 0.4,
+      "ratio": 0.92,
+      "sum": 0.01,
+      "xc": 0.23
+     },
+     "A8_lung": {
+      "eta": 0.53,
+      "beta": 0.38,
+      "ratio": 0.9,
+      "sum": 0.01,
+      "xc": 0.06
+     },
+     "A9_kidney": {
+      "eta": 0.54,
+      "beta": 0.37,
+      "ratio": 0.89,
+      "sum": 0.02,
+      "xc": 0.11
+     },
+     "A10_liver_metabolism": {
+      "eta": 0.53,
+      "beta": 0.38,
+      "ratio": 0.9,
+      "sum": 0.01,
+      "xc": 0.07
+     },
+     "A11_immune": {
+      "eta": 0.54,
+      "beta": 0.41,
+      "ratio": 0.94,
+      "sum": 0.01,
+      "xc": 0.2
+     },
+     "A12_blood": {
+      "eta": 0.53,
+      "beta": 0.35,
+      "ratio": 0.86,
+      "sum": 0.01,
+      "xc": 0.13
+     },
+     "A13_skin_hair": {
+      "eta": 0.55,
+      "beta": 0.42,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A14_gut": {
+      "eta": 0.55,
+      "beta": 0.41,
+      "ratio": 0.95,
+      "sum": 0.01,
+      "xc": 0.0
+     },
+     "A15_fat": {
+      "eta": 0.55,
+      "beta": 0.41,
+      "ratio": 0.96,
+      "sum": 0.01,
+      "xc": 0.0
+     }
+    }
+   }
+  }
+ }
+}
