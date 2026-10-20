@@ -35,8 +35,10 @@ An **arm** is one treated group compared with its own controls: one compound, on
 | `cohort_year` | int | ITP cohort (`C2005` → 2005), from the MPD ITP1 listing. |
 | `compound` | string | Lower-case name; must have an entry in `class-labels.yaml`. |
 | `role` | `extends` \| `null` \| `shortens` \| `mixed` | Observed direction, pooled sites, log-rank p < 0.05. `mixed` = significant in opposite directions at different sites. Used for the test-2 proportions (T1-A2-4). |
+| `role_basis` | `log-rank` | Optional. States the test behind `role` where the median alone would suggest another role (e.g. median unchanged, log-rank p < 0.05). |
 | `strain`, `sex`, `start_age_days` | string, `F`\|`M`, int | `UM-HET3` for ITP. |
 | `dose.value`, `dose.unit`, `dose.route` | number, string, string | As printed (`14`, `ppm`, `diet, encapsulated`). |
+| `dose.measured` | `{value, sd, unit, source}` \| null | Optional. Dose found by a food assay, when the paper prints one; `dose.value` stays the nominal dose. |
 | `n.treated`, `n.control` | int \| null | Mice entering analysis. |
 | `lifespan.treated` / `lifespan.control` | block | `median_days`, `mean_days`, `p90_days` (age at the 90th percentile of deaths), each `{value, source}` or `null`. |
 | `effect.median_pct`, `effect.p90_pct` | number \| null | (treated − control) / control × 100, always computed from the printed medians / p90 ages (1 decimal). When the paper prints a % that differs after rounding, the printed % goes in `notes`. |
