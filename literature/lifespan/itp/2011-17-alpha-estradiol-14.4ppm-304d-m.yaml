@@ -48,7 +48,7 @@ flags:
   replicated_by: null
 sites: []  # per-site tables are in the supplement, not read; text summary in notes
 notes: >
-  Significant at every site (P < 0.003, text): median +26% TJL, +9% UM, +23% UT; p90 +21/+8/+8%. Replicates C2009 4.8 ppm M (one-site effect) at a higher dose. Pooled across TJL, UM, UT. Controls shared by the five
+  Significant at every site (P < 0.003, text): median +26% TJL, +9% UM, +23% UT; p90 +21/+8/+8%. May count as a replication of C2009 M (4.8 ppm, effect at UT only) at a different dose (14.4 vs 4.8 ppm); whether a different dose counts under T1-A2-3 is for Verification (A50) to rule. Pooled across TJL, UM, UT. Controls shared by the five
   C2011 arms. At analysis: F 954 dead, 19 removed, 11 alive; M 1039 dead, 50 removed
   (fighting), 9 alive.
 extraction:
