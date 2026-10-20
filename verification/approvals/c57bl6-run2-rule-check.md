@@ -53,3 +53,19 @@ Conditions before run 2 executes:
 
 The ">1500 new PMIDs → stop and report" rule stands; if it triggers, the
 next rule goes to A50 before any run.
+
+## Final query re-check (2026-10-20)
+
+Object: PR #101, head `77eb6cc`, `search-rule-run2.md` (sha256
+`5fa16c66a7c45d48ad01ae4e37cd4e73803a020cac6d0273adf68753b0acd8be`), diffed
+line by line against the version checked above (#97 @`655fa8f`, merged
+`e58e6f9`).
+
+| Change | Conforms |
+|---|---|
+| Query B line `AND ("median lifespan" OR "median life span" OR "median survival" OR "median longevity")` → `AND "median"` | yes, as ruled |
+| Added paragraph: amendment origin + known limit ("50% survival" missed by B, may come in through A) | yes |
+| Any other line | none changed |
+
+**Verdict: cleared.** Run 2 may execute once #101 is on `main`, with the
+file at the sha256 above. The run log is checked after the run.
