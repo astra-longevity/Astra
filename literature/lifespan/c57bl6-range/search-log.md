@@ -23,6 +23,19 @@ outcome or control column was opened.
 Next: screening of all 38 hits into `screening.csv` (stage 1 title + abstract,
 stage 2 full text), reason codes from the rule only.
 
+## Screening result (2026-10-20)
+
+- Stage 1 (38 hits): 17 pass, 21 excluded (X_TREATED 9, X_NOT_MOUSE_LIFESPAN 5,
+  X_STRAIN 2, X_REFILL_LAB 2, X_REFILL 1, X_HYBRID 1, X_TRUNCATED 1).
+- Stage 2 (17 full texts sought via PMC, Unpaywall, publisher): **1 pass**
+  (39451245, C57BL/6J males, lab Bollyky), 16 excluded: X_NO_FULLTEXT 9,
+  X_NO_PRINTED_MEDIAN 3, X_STRAIN 2, X_TREATED 2.
+- Labs passing: **males 1, females 0**, below the required 5 per sex. Per the
+  rule, no range PR; reported to A2. Both sexes stay `pending`.
+- The 9 X_NO_FULLTEXT papers are paywalled with no open copy; they are not
+  dropped silently and can be re-screened if access is obtained.
+- No lifespan number has been extracted into any file yet.
+
 Agent: A71
 
 ## Stage 1 screening (title + abstract)
