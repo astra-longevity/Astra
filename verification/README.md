@@ -5,3 +5,4 @@ Owned by Verification (A50). Text only (Markdown, CSV, YAML).
 - `references/`: checked reference cases for statistical methods. No open `[to verify]` items allowed here.
 - `prep/`: preparation notes; open `[to verify]` items go here.
 - `procedures/`: how Verification seals protocols and runs audits.
+- `seals/`: seal records and refusals (D115, D118, D120), with the template.
