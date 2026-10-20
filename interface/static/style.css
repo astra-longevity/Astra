@@ -236,3 +236,15 @@ abbr[data-term] { text-decoration: underline dotted; text-underline-offset: 3px;
   .doi::after { content: ""; }
   abbr[data-term] { text-decoration: none; }
 }
+
+/* D109: "research prototype, not medical advice" banner, on every page. */
+.prototype-banner {
+  margin: 0;
+  padding: .4rem 1rem;
+  background: var(--warn-soft);
+  color: var(--warn);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+  font-weight: 600;
+  font-size: .9rem;
+}

@@ -1,0 +1,77 @@
+name: Protection drift
+
+# D52 (docs/decisions/founding-council-log.md): once a day, read the live
+# branch protection of main and the merge-queue ruleset, and compare them with
+# the payloads committed in docs/rust/. Any difference fails the job and opens
+# (or comments on) one issue titled "Protection drift".
+#
+# Read-only. Reading branch protection and rulesets needs repository
+# "Administration: read", which the default GITHUB_TOKEN does not have, so the
+# GET calls use the PROTECTION_READ_TOKEN secret (fine-grained token, this repo
+# only, Administration: read-only, nothing else). GITHUB_TOKEN is only used to
+# write the issue.
+on:
+  schedule:
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: protection-drift
+  cancel-in-progress: false
+
+env:
+  RULESET_ID: "25413974"
+  ISSUE_TITLE: "Protection drift"
+
+jobs:
+  drift:
+    name: Compare live protection with docs/rust/
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read live settings (GET only)
+        env:
+          GH_TOKEN: ${{ secrets.PROTECTION_READ_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::secret PROTECTION_READ_TOKEN is missing: cannot read live protection" > /dev/stderr
+            echo "missing-token" > drift-report.txt
+            exit 1
+          fi
+          gh api "repos/${{ github.repository }}/branches/main/protection" > live-protection.json
+          gh api "repos/${{ github.repository }}/rulesets/${RULESET_ID}" > live-ruleset.json
+
+      - name: Compare
+        run: |
+          set -o pipefail
+          scripts/protection-drift.sh live-protection.json live-ruleset.json 2>&1 | tee drift-report.txt
+
+      - name: Open or update the "Protection drift" issue
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          {
+            echo "@bigmoostache the live branch protection or merge-queue ruleset no longer matches the payloads committed in \`docs/rust/\` (D52)."
+            echo
+            echo "Run: $RUN_URL"
+            echo
+            echo '```diff'
+            head -c 60000 drift-report.txt 2>/dev/null || echo "(no report: the check could not run, see the run log)"
+            echo '```'
+            echo
+            echo "No agent may change protection or rulesets. The president decides whether to restore the settings or to update the committed payloads by PR."
+          } > issue-body.md
+          number="$(gh issue list --repo "${{ github.repository }}" --state open --search "\"$ISSUE_TITLE\" in:title" --json number,title \
+            --jq "map(select(.title == \"$ISSUE_TITLE\")) | .[0].number // empty")"
+          if [ -n "$number" ]; then
+            gh issue comment "$number" --repo "${{ github.repository }}" --body-file issue-body.md
+          else
+            gh issue create --repo "${{ github.repository }}" --title "$ISSUE_TITLE" --body-file issue-body.md
+          fi
