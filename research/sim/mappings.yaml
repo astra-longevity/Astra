@@ -1,0 +1,21 @@
+# Intervention -> parameter mappings for R-Sim (T2-A2-2, T2-A10-2, T2-A50-3).
+#
+# One row per intervention. Written from MECHANISTIC evidence only (target
+# engagement, biomarker change), never from lifespan. Sealed by Verification
+# (A50) before the modeller sees that intervention's lifespan result. A row
+# changed after a result is seen makes every later prediction using it
+# exploratory until a new held-out item resolves.
+#
+# Row format:
+#   - id: rapamycin                  # intervention id from the L1 lifespan table
+#     class: mtor_inhibition         # from the sealed class list (T2-A2-4)
+#     parameter: eta.*               # name accepted by py/model.py (eta.<axis>, beta.*, c, ...)
+#     direction: decrease
+#     prior_multiplier: {median: 0.85, interval_90: [0.7, 1.0]}
+#     start_age_years: 1.67
+#     evidence: [doi:...]            # mechanistic sources only
+#     refutation_row: L3-...         # row in the refutation file; no row = no entry
+#     sealed: null                   # seal record id, filled by Verification
+#
+# No rows yet: the class list, split and L3 rows don't exist yet.
+mappings: []
