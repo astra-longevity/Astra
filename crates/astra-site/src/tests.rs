@@ -90,7 +90,7 @@ fn page(paths: &SitePaths, file: &str) -> String {
 fn builds_every_page() {
     let paths = SitePaths::from_repo(&fake_repo("pages"));
     let report = build_from(&fixture_db(), &paths).unwrap();
-    assert_eq!(report.pages, 16, "10 top pages + 2 claims + 2 sources + 2 notes");
+    assert_eq!(report.pages, 17, "11 top pages + 2 claims + 2 sources + 2 notes");
     for file in ["index.html", "map.html", "journal.html", "glossary.html", "static/style.css"] {
         assert!(paths.output.join(file).is_file(), "{file} missing");
     }
@@ -193,7 +193,7 @@ fn project_repo(name: &str) -> SitePaths {
 fn roadmap_page_shows_obstacles() {
     let paths = project_repo("roadmap");
     let report = build_from(&fixture_db(), &paths).unwrap();
-    assert_eq!(report.pages, 18, "16 + 2 decision files");
+    assert_eq!(report.pages, 19, "17 + 2 decision files");
     let roadmap = page(&paths, "roadmap.html");
     assert!(roadmap.contains("<svg class=\"gantt\""), "gantt");
     assert!(roadmap.contains("milestone open"), "milestone drawn (no history: nothing is late)");

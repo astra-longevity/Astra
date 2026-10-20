@@ -30,7 +30,7 @@ pub(crate) struct Mission {
 }
 
 /// Cells of a markdown table row, `None` for non-rows and separator rows.
-fn cells(line: &str) -> Option<Vec<String>> {
+pub(crate) fn cells(line: &str) -> Option<Vec<String>> {
     let inner = line.trim().strip_prefix('|')?.strip_suffix('|')?;
     let found: Vec<String> = inner.split('|').map(|cell| cell.trim().replace('`', "")).collect();
     let separator = found.iter().all(|cell| cell.chars().all(|chr| chr == '-' || chr == ':'));

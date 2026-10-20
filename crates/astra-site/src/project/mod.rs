@@ -2,6 +2,7 @@
 //! decisions, all read from repository files (no network).
 
 pub(crate) mod decisions;
+pub(crate) mod findings;
 pub(crate) mod gantt;
 pub(crate) mod git;
 pub(crate) mod obstacles;
