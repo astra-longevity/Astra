@@ -1,0 +1,17 @@
+[package]
+name = "astra-fetch"
+description = "Astra dataset manifests: validation, fetch plan, hash check, file-size check"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+readme.workspace = true
+keywords = ["astra"]
+categories = ["science"]
+
+[dependencies]
+astra-db = { path = "../astra-db" }
+serde_json = "1.0.154"
+
+[lints]
+workspace = true
