@@ -1,0 +1,41 @@
+arm_id,pmid,year,compound,sex,strain,dose
+RF001,25380600,2015,Nordihydroguaiaretic acid,Male,B6C3F1,1500 ppm food (1.59 ppm/day bodyweight)
+RF002,25380600,2015,Nordihydroguaiaretic acid,Male,B6C3F1,2500 ppm food (2.65 ppm/day bodyweight)
+RF003,25380600,2015,Nordihydroguaiaretic acid,Male,B6C3F1,3500 ppm food (3.71 ppm/day bodyweight)
+RF004,25380600,2015,Nordihydroguaiaretic acid,Male,B6C3F1,4500 ppm food (4.77 ppm/day bodyweight)
+RF005,25589054,2015,Ivabradine,Male,C57BL/6J,50 ppm/day bodyweight in water
+RF006,26145038,2015,Epimedium extract,Male,C57BL/6J,600 ppm food
+RF007,26145038,2015,Icariin,Male,C57BL/6,200 ppm food
+RF008,27091134,2016,Rapamycin,Female,C57BL/6J.Nia,2 ppm bodyweight intraperitoneal injection every 5 days
+RF009,27127236,2016,Nicotinamide riboside,Unknown,C57BL/6JRj,400 ppm/day bodyweight
+RF010,27549339,2016,Rapamycin,Female,C57BL/6JNia,128 ppm food
+RF011,27549339,2016,Rapamycin,Female,C57BL/6JNia,8 ppm/day bodyweight intraperitoneal injection
+RF012,27549339,2016,Rapamycin,Male,C57BL/6JNia,128 ppm food
+RF013,27549339,2016,Rapamycin,Male,C57BL/6JNia,8 ppm/day bodyweight intraperitoneal injection
+RF014,27574962,2016,BP-C3 (benzenepolycarboxylic acids mixture),Female,Swiss-Derived SHR,50 ppm water
+RF015,27841876,2016,Putrescine,Female,C57BL/6J,3 mM water
+RF016,27841876,2016,Spermidine,Female,C57BL/6J,0.3mM water
+RF017,27841876,2016,Spermidine,Female,C57BL/6J,3 mM water
+RF018,27841876,2016,Spermine,Female,C57BL/6J,3 mM water
+RF019,28386016,2017,Spermidine,Male,C57BL/6,3 mM water
+RF020,29167747,2017,Metformin,Male,C57BL/6,10000 ppm food every other week
+RF021,29167747,2017,Metformin,Male,C57BL/6,10000 ppm food on 2 consecutive weeks each month
+RF022,29514072,2018,Nicotinamide,Male,C57BL/6J,1000 ppm food
+RF023,29514072,2018,Nicotinamide,Male,C57BL/6J,500 ppm food
+RF024,29921922,2018,L2-Cmu (IGF-1R antagonist),Female,CB6F1,20 ppm/weekly i.p. injection
+RF025,30279143,2018,Fisetin,Pooled,f1 C57BL/6:FVB,500 ppm food
+RF026,31773901,2020,Berberine,Male,C57BL/6J,50 ppm bodyweight orally in saline
+RF027,32755011,2020,CASIN,Female,C57BL/6J,25 ppm bodyweight intraperitoneal injection
+RF028,32877690,2020,Alpha-ketoglutarate,Female,C57BL/6J,20000 ppm food
+RF029,32877690,2020,Alpha-ketoglutarate,Female,C57BL/6J,20000 ppm food
+RF030,32877690,2020,Alpha-ketoglutarate,Male,C57BL/6J,20000 ppm food
+RF031,32877690,2020,Alpha-ketoglutarate,Male,C57BL/6J,20000 ppm food
+RF032,33585467,2020,Metformin,Female,C57BL/6,100 ppm/day bodyweight oral gavage
+RF033,33849306,2021,C60 fullerene,Female,CBA/Ca,3.4 ppm in virgin olive oil
+RF034,33849306,2021,C60 fullerene,Male,CBA/Ca,3.4 ppm in virgin olive oil
+RF035,34873338,2021,Procyanidin C1,Pooled,C57BL/6J,20 ppm bodyweight oral gavage for 3 days every 2 weeks
+RF036,35263032,2022,78c (CD38 inhibitor),Female,C57BL/6,600 ppm food
+RF037,35263032,2022,78c (CD38 inhibitor),Male,C57BL/6,600 ppm food
+RF038,35609021,2022,Chloroquine,Male,NMRI,50 ppm water
+RF039,35662728,2022,Oridonin,Male,C57BL/6J,2 ppm bodyweight intraperitoneal injection 1 week/month
+RF040,35871686,2022,Hesperetin,Male,C57BL/6,700 ppm food (100 ppm/day bodyweight)

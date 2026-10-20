@@ -1,0 +1,30 @@
+pmid,reason,source,mapping
+27312235,read (manual-downloads),https://doi.org/10.1111/acel.12496,PMC idconv
+24245565,read (manual-downloads),https://doi.org/10.1111/acel.12170,PMC idconv
+32990681,read (manual-downloads),https://doi.org/10.1172/jci.insight.140019,PMC idconv
+30916479,read (manual-downloads),https://doi.org/10.1111/acel.12953,PMC idconv
+19587680,read (manual-downloads),https://doi.org/10.1038/nature08221,PMC idconv
+20974732,read (manual-downloads),https://doi.org/10.1093/gerona/glq178,PMC idconv
+22451473,read (manual-downloads),https://doi.org/10.1093/gerona/gls070,PMC idconv
+23900241,read (manual-downloads),https://doi.org/10.1038/ncomms3192,PMC idconv
+33353886,read (manual-downloads),https://www.aging-us.com/article/202321/text,PubMed esearch 10.18632/aging.202321[aid]
+22030750,read (manual-downloads),https://doi.org/10.1126/scitranslmed.3002847,PubMed esearch [aid]
+36930696,read (manual-downloads),https://doi.org/10.7554/eLife.82728,PMC idconv
+23863708,read (manual-downloads),https://doi.org/10.1172/JCI67674,PMC idconv
+23734717,read (manual-downloads),https://doi.org/10.1111/acel.12109,PMC idconv
+17086191,read (manual-downloads),https://doi.org/10.1038/nature05354,PMC idconv
+18599363,read (manual-downloads),https://www.sciencedirect.com/science/article/pii/S1550413108001824,Crossref alternative-id -> 10.1016/j.cmet.2008.06.011; PubMed esearch [aid]
+19934433,read (manual-downloads),https://pmc.ncbi.nlm.nih.gov/articles/PMC4020596/,PMC idconv
+23734717,read (manual-downloads),https://pubmed.ncbi.nlm.nih.gov/23734717/,URL
+29988130,read (manual-downloads),https://www.sciencedaily.com/releases/2018/07/180709111137.htm,news page cites 10.1038/s41591-018-0092-9; PubMed esearch [aid]
+34480023,read (manual-downloads),https://www.nature.com/articles/s41467-021-25453-2,PMC idconv
+24612461,read (manual-downloads),https://pmc.ncbi.nlm.nih.gov/articles/PMC4040127/,PMC idconv
+18631321,ITP publication,10.1111/j.1474-9726.2008.00414.x (Strong 2008),PMC idconv
+24341993,ITP publication,10.1111/acel.12194 (Miller 2014),PMC idconv
+30688027,ITP publication,10.1111/acel.12898 (Harrison 2019),PMC idconv
+33145977,ITP publication,10.1111/acel.13269 (Strong 2020),PMC idconv
+33788371,ITP publication,10.1111/acel.13328 (Harrison 2021),PMC idconv
+36179270,ITP publication,10.1111/acel.13724 (Strong 2022),PMC idconv
+38041783,ITP publication,10.1007/s11357-023-01011-0 (Harrison 2024),PMC idconv
+38753230,ITP publication,10.1007/s11357-024-01176-2 (Miller 2024),PMC idconv
+40973907,ITP publication,10.1007/s11357-025-01881-6 (Strong 2025),PMC idconv
