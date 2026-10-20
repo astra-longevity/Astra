@@ -343,6 +343,107 @@ antigen at each age, so only its spread across mice counts, not its mean.
 | I13 | Repeated-design floor higher at `n_sim` 2000; the 6 vs 11 comparison needs the Actions run (`actions-job.md`) |
 | I14 | Dropout information (which mice die between visits) is counted with survival, not here |
 
+## 9. Splitting damage production (eta) from repair (beta): acute challenge vs mapped intervention (synthetic)
+
+Readouts, cross-sectional or repeated, pin only the balance eta − beta per
+organ (§6, §8). Two routes could split it. Script: `py/studies/challenge.py`;
+output `results/challenge.json`.
+
+### 9.1 Setup
+
+- **Challenge (controls only):** an acute insult adds a fixed dose (0.3 × prior
+  Xc) to one organ at age T0 (`model.simulate(challenge=)`, no random draws:
+  tested). Readout of that organ at +1, 2, 4, 8, 16, 26 weeks.
+- **Mapped intervention:** a treated cohort whose eta on that organ is × 0.7
+  from T0, same post times plus 24 and 30 months. `mapped_known`: the 0.7 is
+  known; `mapped_free`: it is one more fitted parameter (the honest case, the
+  size of a real class's effect is not known).
+- Per organ, parameters eta, beta, Xc of that organ + kappa, eps, c; cross-seed
+  Fisher (seeds 11, 12), readout mean + variance, assay noise 0.5 × bio SD,
+  n = 10 / 30 / 100 mice per time point, added to the 12/18/24/30-month
+  baseline readouts. Split = share of the recoverable subspace on eta + beta
+  ≥ 0.8.
+- Grid: kappa (repair half-saturation, prior 0.5, not identified) ∈ {0.5, 2, 8}
+  and T0 ∈ {18, 6 months} (kappa 0.5 only for 6 months).
+
+### 9.2 Why kappa decides
+
+Repair is `beta·x / (kappa + x)`. Damage after a bolus decays at
+`beta·kappa / (kappa + x)²`. At the prior (kappa 0.5, organ state 1–2 at 18
+months) repair is saturated: the excess decays at ≈ 0.17 / year, so 26 weeks
+show almost no recovery and the challenge mostly shifts the level (it then
+informs Xc, not beta). Recovery is visible, and splits eta from beta, only
+where repair is far from saturation (kappa ≫ x). Kappa is itself a prior, not
+identified; a dose-response challenge (2–3 doses) is the way to measure it.
+
+### 9.3 Results
+
+`n_sim` 600, seeds 11/12. Full per-organ table (eta + beta share at n 10 / 30 /
+100 per time point, Xc share in brackets): `results/challenge-table.md`.
+
+| Setting | Split eta/beta (sum ≥ 0.8) at n 10 | at n 100 | Xc pinned (≥ 0.8, n 10) |
+|---|---|---|---|
+| kappa 0.5, T0 18 mo | none, any route | none | challenge: 7 of 11 organs (brain, heart, lung, kidney, liver, immune, blood 0.85–0.98); mapped: none |
+| kappa 0.5, T0 6 mo | none | challenge: brain 0.94, kidney 0.99, blood 0.92, skin 0.99, gut 0.86 (fat 0.79); mapped: none (≤ 0.45) | none |
+| kappa 2, T0 18 mo | none | none (≤ 0.22) | challenge: 6 organs (brain, heart, lung, kidney, liver, blood 0.95–1.00); mapped_known: brain, heart, kidney (≥ 0.94) |
+| kappa 8, T0 18 mo | none | none | liver only (all routes) |
+
+Reading:
+
+- **No route splits eta from beta with 10 mice per time point.** The mapped
+  intervention never splits (best 0.45, liver, kappa 0.5 at 6 months), known or
+  free size: on top of its circularity (9.4) it buys nothing here.
+- **The challenge splits eta/beta only when given early (6 months) and with
+  ~100 mice per time point**, in 5 organs (brain, kidney, blood, skin, gut).
+  Young organs carry little damage, so repair is not saturated and recovery
+  is visible within 26 weeks (9.2).
+- **At 18 months the challenge pins Xc instead** (the organ's damage
+  threshold) in most organs. Xc was not identified by any readout so far (§6),
+  so this is a gain in its own right.
+- **Kappa 8 gives ~0 everywhere**, against the kidney smoke test (sum 0.34 at
+  n_sim 200). The n 30 = n 100 plateau in most cells shows the Monte-Carlo
+  floor, not mice, sets the limit at `n_sim` 600 (I17, I18).
+
+Proposal: design the challenge as early (6 months) + late (18 months) arms,
+2–3 doses to measure kappa, ~100 mice per time point; rerun on Actions at
+`n_sim` 20 000 before any mouse is requested.
+
+### 9.4 Mapped route: circularity and unusable classes
+
+Fitting eta/beta from a class's treated readouts, then predicting that class's
+lifespan, scores the model on a class it was calibrated on. Rules if the route
+is used: train-set classes only, readouts only (never lifespan), and every
+class so used is moved out of scoring (reported as "used for calibration").
+Of the 4 draft rows in `mappings.yaml`: SGLT2 (canagliflozin, blind arms
+B04/B05) cannot be used at all; mTORC1 (rapamycin trains), α-glucosidase and
+senolytic would become unusable for scoring if used [class membership of the
+split: to confirm with A65]. Mappings also act through hallmarks, which move
+eta on several organs at once, so one class splits several organs together.
+
+### 9.5 Known mouse challenge tests per organ
+
+Snippets only; no page read reports lifespan (no manual-downloads rows).
+
+| Organ | Test | Readout (repeatable?) | Aged data | Source |
+|---|---|---|---|---|
+| A9 kidney | folic acid AKI i.p. 125–250 mg/kg | transcutaneous GFR (yes) | mostly 4–8 wk mice; aged [to verify] | PMC11430329 (male C57BL/6); JCI Insight 164626 (8 wk males, n 6/strain, wk 1/2/6); doi:10.1002/ame2.12194 |
+| A1 muscle | cardiotoxin i.m. (tibialis) | fibre CSA, histology (no: terminal) | 3 vs 18 mo; 2 vs 23 mo, slower in old; n 7–12/sex/age | PMC7369722; PMC6156497; PMID 26273023 |
+| A10 liver | acetaminophen; 75 % hepatectomy | histology/serum (terminal); liver volume imaging [to verify] | > 80 wk vs 8–10 wk, slower repair in old; PHx 33–35 wk, n 20 | doi:10.18632/aging.103973; PMC12284365 |
+| A6 heart | isoproterenol 30 mg/kg/d 28 d, then 28 d off | echo (yes) | 10 wk vs 22 mo females, impaired reverse remodelling in old; n [to verify] | doi:10.3390/ijms23010174; doi:10.1186/s12872-022-02852-x (young, dose range) |
+| A8 lung | bleomycin oropharyngeal | histology (terminal) | 80 vs 10 wk, 3/6/9 wk; n/sex [to verify] | AJRCCM 2024;209:A2507 (abstract); doi:10.1152/ajplung.00253.2021 |
+| A14 gut | DSS 2 % 7 d + recovery | weight, disease score (yes); colon length (terminal) | 17–23 mo males; n [to verify] | doi:10.1371/journal.pone.0268787 |
+| A12 blood | 5-FU single dose | CBC by tail bleed (yes) | aged [to verify] | PMID 25317679 (not aged) |
+| A13 skin, A11 immune, A3 brain, A15 fat | punch wound; fixed reference antigen; [to verify] | — | [to verify] | — |
+
+### 9.6 Limits
+
+| # | Limit |
+|---|---|
+| I15 | One dose, one bolus shape; a real injury also kills cells and triggers inflammation the model lacks |
+| I16 | Ideal readout (raw organ state); realistic assays (§8) lose more |
+| I17 | `n_sim` 600 local; Monte-Carlo floor may hide small shares, the Actions run can repeat it |
+| I18 | Kappa 8 grid (~0 everywhere) contradicts the kidney smoke (0.34): likely MC floor (threshold 3 × most negative eigenvalue); not to be read as "challenge useless at high kappa" before the Actions run |
+
 ## Reproduce
 
 ```
@@ -352,4 +453,5 @@ python3 recovery.py eta,xc > rec2.json
 python3 recovery.py eta,beta,xc > rec3.json
 READOUTS_CACHE=/tmp/readouts.pkl python3 readouts.py 2000 > ../../results/readouts.json   # ~6 min, then instant from cache
 LONG_CACHE=/tmp/long.pkl python3 longitudinal.py 2000 > ../../results/longitudinal.json   # ~7 min, then instant from cache
+python3 challenge.py 600 > ../../results/challenge.json   # ~25 min, 4 kappa/T0 settings
 ```

@@ -171,6 +171,7 @@ def simulate(
     t_max: float = 6.0,
     record: dict | None = None,
     track: dict | None = None,
+    challenge: dict | None = None,
 ) -> list[float]:
     """Return n simulated lifespans in years (t_max if still alive: right-censored).
 
@@ -179,6 +180,10 @@ def simulate(
     maps ages to dicts filled as {mouse index: state}, so the same mouse can be
     followed across ages. Neither draws random numbers, so lifespans are
     identical with or without them.
+
+    `challenge` (optional) maps an axis to (age, dose): an acute insult that adds
+    `dose` damage units to that axis in the step crossing `age` (e.g. a toxin or
+    ischaemia, then recovery). Deterministic, so it draws no random numbers.
     """
     base = params or Params()
     treated = _apply(base, perturbation) if perturbation else base
@@ -198,6 +203,10 @@ def simulate(
                 drift = eta * t * coupling - beta * x[a] / (p.kappa + x[a])
                 x[a] = max(0.0, x[a] + drift * dt + noise * rng.gauss(0.0, 1.0))
             t_prev, t = t, t + dt
+            if challenge:
+                for a, (age, dose) in challenge.items():
+                    if t_prev < age <= t:
+                        x[a] += dose
             if any(x[a] >= xc for a, _, _, xc in rows if a in VITAL):
                 death = t
                 break
