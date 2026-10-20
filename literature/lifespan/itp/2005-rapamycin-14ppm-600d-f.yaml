@@ -1,0 +1,75 @@
+# Example row for the L1 schema (literature/lifespan/schema.md).
+# Numbers read from the paper's PMC author manuscript (PMC2786175), Table 1 and text.
+id: 2005-rapamycin-14ppm-600d-f
+program: ITP
+publication:
+  doi: 10.1038/nature08221
+  citation: "Harrison DE et al., 2009, Nature 460:392-395"
+cohort_year: 2005  # paper names the 270-day study "Cohort 2006", begun "one year later"; 2005 is inferred
+compound: rapamycin
+role: extends
+strain: UM-HET3
+sex: F
+start_age_days: 600
+dose:
+  value: 14
+  unit: ppm
+  route: diet, encapsulated
+n:
+  treated: null  # only the total (1901 mice, both sexes, both arms) is printed in the text
+  control: null
+lifespan:
+  control:
+    median_days: null  # text gives only the per-site range 881-895 d, not the pooled median
+    mean_days: null
+    p90_days: {value: 1094, upper_95: 1136, source: "table 1"}
+  treated:
+    median_days: null
+    mean_days: null
+    p90_days: {value: 1245, source: "table 1"}
+effect:
+  median_pct: null
+  p90_pct: 14
+  se: null
+  se_scale: null
+  se_source: null
+  digitisations: 0
+p_values:
+  - {test: "log-rank, pooled sites, treated vs control", value: "< 0.0001", source: "text, fig 1"}
+  - {test: "alive at joint 90th percentile (4.8% control vs 21.5% treated)", value: "< 0.0001", source: "text, supp table S1"}
+curve_source:
+  figure: "fig 1 (pooled), fig 2 (per site)"
+  mpd_id: null
+flags:
+  control_in_ref_range: pending
+  reference: null
+  itp_or_replicated: true
+  test2_main: false  # no SE yet; to_verify not empty
+class_label:
+  proposed: mTORC1 inhibitor
+  source: "Harrison 2009 discussion (mTORC1 pathway); rpS6 phosphorylation reduced, fig 3B"
+  approved: null
+sites:
+  - {site: TJL, median_days: null, p90_days: {control: 1100, treated: 1282}, effect_p90_pct: 17, effect_mean_pct: 15, p_values: [{test: "alive at 90th percentile", value: "0.0006"}]}
+  - {site: UM, median_days: null, p90_days: {control: 1094, treated: 1250}, effect_p90_pct: 14, effect_mean_pct: 16, p_values: [{test: "alive at 90th percentile", value: "0.0001"}]}
+  - {site: UT, median_days: null, p90_days: {control: 1089, treated: 1179}, effect_p90_pct: 8, effect_mean_pct: 7, p_values: []}
+notes: >
+  Data cut 2009-02-01, 2% of mice alive. Control female medians 881-895 d per site,
+  similar to Cohort 2004 (858-909 d). Authors note pre-600-day survival differences
+  between groups at UT and maybe UM (stated for males; chow formulation differed before 600 d).
+  Blood rapamycin 60-70 ng/mL.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - cohort_year
+    - n.treated
+    - n.control
+    - lifespan.control.median_days
+    - lifespan.treated.median_days
+    - sites[UT].p_values
