@@ -1,0 +1,83 @@
+case: mr-ldl-chd
+reference: none
+reference_kind: 2-implementation agreement
+description: >
+  LDL-C -> coronary heart disease, 28 variants (Waterworth et al. 2010), the worked example of
+  Yavorska & Burgess 2017 (doi:10.1093/ije/dyx034). No paper prints the per-SNP table, so there is
+  no printed reference (references-survey.md section 1, A50 decision 2026-10-19). The check is that
+  two independent packages agree with each other and, later, with astra-stats.
+
+packages:
+  - name: MendelianRandomization
+    version: 0.10.0
+    source: CRAN
+  - name: TwoSampleMR
+    version: GitHub MRCIEU/TwoSampleMR
+    source: GitHub
+    commit: fe1024224d1917e26dc255d17924eb47d4f7f826   # master, 2026-10-08
+
+inputs:
+  shipped_by: MendelianRandomization 0.10.0
+  datasets: [ldlc, ldlcse, chdlodds, chdloddsse]   # numeric vectors, length 28, already harmonised
+  file: null   # no input file in the repo; the call writes mr-ldl-chd-inputs.csv as an artifact
+  check: all four vectors have length 28 and no NA; stop otherwise
+
+call: |
+  library(MendelianRandomization)
+  set.seed(20261020)
+  inp <- data.frame(bx = ldlc, bxse = ldlcse, by = chdlodds, byse = chdloddsse)
+  stopifnot(nrow(inp) == 28, !anyNA(inp))
+  write.csv(inp, "mr-ldl-chd-inputs.csv", row.names = FALSE)   # artifact, so astra-stats gets the same rows
+
+  mri <- mr_input(bx = inp$bx, bxse = inp$bxse, by = inp$by, byse = inp$byse)
+  mr_ivw_res <- mr_ivw(mri, model = "random", distribution = "normal")
+  mr_egg_res <- mr_egger(mri, robust = FALSE, penalized = FALSE, distribution = "normal")
+  mr_wm_res  <- mr_median(mri, weighting = "weighted", iterations = 10000, seed = 20261020)
+
+  p <- TwoSampleMR::default_parameters(); p$nboot <- 10000
+  tsm_ivw <- TwoSampleMR::mr_ivw(inp$bx, inp$by, inp$bxse, inp$byse, p)
+  tsm_egg <- TwoSampleMR::mr_egger_regression(inp$bx, inp$by, inp$bxse, inp$byse, p)
+  tsm_wm  <- TwoSampleMR::mr_weighted_median(inp$bx, inp$by, inp$bxse, inp$byse, p)
+
+outputs:
+  # quantity: [MendelianRandomization, TwoSampleMR]
+  ivw_estimate:      ['mr_ivw_res@Estimate',        'tsm_ivw$b']
+  ivw_se:            ['mr_ivw_res@StdError',        'tsm_ivw$se']
+  egger_slope:       ['mr_egg_res@Estimate',        'tsm_egg$b']
+  egger_slope_se:    ['mr_egg_res@StdError.Est',    'tsm_egg$se']
+  egger_intercept:   ['mr_egg_res@Intercept',       'tsm_egg$b_i']
+  egger_intercept_se: ['mr_egg_res@StdError.Int',   'tsm_egg$se_i']
+  wm_estimate:       ['mr_wm_res@Estimate',         'tsm_wm$b']
+  wm_se:             ['mr_wm_res@StdError',         'tsm_wm$se']
+
+expected:
+  file: null
+  rule: MendelianRandomization and TwoSampleMR must agree with each other on every output.
+  smoke_test:   # package vignette values, NOT a reference (D6); a large miss means the call is wrong
+    ivw_estimate: 2.834
+    ivw_se: 0.530
+    wm_estimate: 2.683
+    wm_se: 0.419
+    egger_slope: 3.253
+    egger_slope_se: 0.770
+    egger_intercept: -0.011
+    egger_intercept_se: 0.015
+
+tolerance:
+  # accepted by A50 (G126, 2026-10-20)
+  ivw_estimate: 1e-8
+  ivw_se: 1e-8
+  egger_slope: 1e-8
+  egger_slope_se: 1e-8
+  egger_intercept: 1e-8
+  egger_intercept_se: 1e-8
+  wm_estimate: 1e-8
+  wm_se: null     # bootstrap SE, differs between packages by Monte Carlo error; report the difference only
+  smoke_test: 0.001   # absolute, vignette values are printed to 3 decimals
+
+notes:
+  - IVW must use multiplicative random effects in both (MR model = "random"; TwoSampleMR mr_ivw does this by default). With Q = 99.5 on 27 df the residual SE is above 1, so both scale the SE the same way.
+  - MR-Egger in MendelianRandomization floors the residual SE at 1; TwoSampleMR does not. Here the residual SE is above 1, so they should agree. If they don't, report the residual SE from each.
+  - The weighted-median point estimate is deterministic and must match. Its SE comes from a bootstrap in both packages and they use different random draws, so the SE is reported, not tested.
+  - TwoSampleMR's low-level functions take (b_exp, b_out, se_exp, se_out); the order is not the same as mr_input's (bx, bxse, by, byse).
+  - Egger intercept sign depends on the orientation of the variants; both packages get the same vectors, so the signs must agree.

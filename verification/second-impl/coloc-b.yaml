@@ -1,0 +1,43 @@
+case: coloc-b
+reference: verification/references/coloc/
+reference_kind: hand-computed
+description: Distinct signals (trait 1 at SNP2, trait 2 at SNP4), both quantitative (prior sd 0.15). Trap case - correct answer is high PP.H1, not PP.H3.
+
+package:
+  name: coloc
+  version: 5.2.3
+  source: CRAN
+
+inputs:
+  file: verification/references/coloc/inputs.csv
+  filter: case == "B_distinct"
+  columns: [snp, trait, case, prior_sd, beta, se]
+
+call: |
+  d <- read.csv("verification/references/coloc/inputs.csv")
+  d <- d[d$case == "B_distinct", ]
+  t1 <- d[d$trait == 1, ]; t2 <- d[d$trait == 2, ]
+  res <- coloc::coloc.abf(
+    dataset1 = list(beta = t1$beta, varbeta = t1$se^2, snp = t1$snp, type = "quant", sdY = 1),
+    dataset2 = list(beta = t2$beta, varbeta = t2$se^2, snp = t2$snp, type = "quant", sdY = 1),
+    p1 = 1e-4, p2 = 1e-4, p12 = 1e-5)
+
+outputs:
+  'res$summary["PP.H0.abf"]': PP.H0
+  'res$summary["PP.H1.abf"]': PP.H1
+  'res$summary["PP.H2.abf"]': PP.H2
+  'res$summary["PP.H3.abf"]': PP.H3
+  'res$summary["PP.H4.abf"]': PP.H4
+  'res$results$SNP.PP.H4[res$results$snp == "SNP2"]': SNP.PP.H4.SNP2
+
+expected:
+  file: verification/references/coloc/expected.csv
+  filter: case == "B_distinct"
+
+tolerance:
+  PP: 1e-9
+  lABF: 1e-8
+
+notes:
+  - sdY = 1 is required (see coloc-a.yaml).
+  - SNP5, trait 1 has beta 0.00 (z = 0); this is valid input.
