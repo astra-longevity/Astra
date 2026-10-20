@@ -5,14 +5,14 @@
 # the payloads committed in docs/rust/. Read-only: it only reads JSON.
 #
 # Usage:
-#   scripts/protection-drift.sh LIVE_PROTECTION.json LIVE_RULESET.json
+#   scripts/guards/protection-drift.sh LIVE_PROTECTION.json LIVE_RULESET.json
 #     (files fetched with `gh api` GET; see .github/workflows/protection-drift.yml)
 #
 # Exit 0 = no drift. Exit 1 = drift (a unified diff is printed). Exit 2 = usage
 # or input error. Needs jq.
 set -euo pipefail
 
-root="$(cd "$(dirname "$0")/.." && pwd)"
+root="$(cd "$(dirname "$0")/../.." && pwd)"
 expected_protection="${EXPECTED_PROTECTION:-$root/docs/rust/branch-protection.json}"
 expected_ruleset="${EXPECTED_RULESET:-$root/docs/rust/merge-queue-ruleset.json}"
 

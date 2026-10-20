@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Known-bad / known-good cases for scripts/check-write-paths.sh.
+# Known-bad / known-good cases for scripts/guards/check-write-paths.sh.
 # Each case builds a throwaway git repo: a base commit (agent map + decision
 # log), then PR commits, then runs the check and compares the exit code.
 #
@@ -7,7 +7,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-CHECK="$ROOT/scripts/check-write-paths.sh"
+CHECK="$ROOT/scripts/guards/check-write-paths.sh"
 
 pass=0
 failed=0

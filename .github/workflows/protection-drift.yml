@@ -52,7 +52,7 @@ jobs:
       - name: Compare
         run: |
           set -o pipefail
-          scripts/protection-drift.sh live-protection.json live-ruleset.json 2>&1 | tee drift-report.txt
+          scripts/guards/protection-drift.sh live-protection.json live-ruleset.json 2>&1 | tee drift-report.txt
 
       - name: Open or update the "Protection drift" issue
         if: failure()

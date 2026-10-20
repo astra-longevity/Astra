@@ -7,7 +7,7 @@
 # not a determined bypass.
 #
 # Usage:
-#   scripts/check-write-paths.sh --base <sha> --head <sha> [--body-file <file>]
+#   scripts/guards/check-write-paths.sh --base <sha> --head <sha> [--body-file <file>]
 #
 #   --base       base commit (main). The agent map and the decisions are read
 #                from this commit, never from the PR.

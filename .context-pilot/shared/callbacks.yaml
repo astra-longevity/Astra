@@ -7,7 +7,7 @@ rust-lints:
   success_message: Rust lints OK ✓
   is_global: true
   concurrency_friendly: false
-  script_content: bash "$CP_PROJECT_ROOT/.github/checks/check-rust-lints.sh" --callback
+  script_content: bash "$CP_PROJECT_ROOT/scripts/local-checks.sh" lints
 structure-rust:
   name: structure-rust
   description: Structure family (file lengths ≤500, dir entries ≤8, hash chain) on Rust edits
@@ -17,4 +17,4 @@ structure-rust:
   success_message: Structure OK ✓
   is_global: true
   concurrency_friendly: false
-  script_content: bash "$CP_PROJECT_ROOT/.github/checks/check-structure.sh" --callback
+  script_content: bash "$CP_PROJECT_ROOT/scripts/local-checks.sh" structure

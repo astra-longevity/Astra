@@ -7,7 +7,7 @@
 #
 # The family scripts themselves (.github/checks/) are sealed and unchanged.
 # The blocking callbacks in .context-pilot/shared/callbacks.yaml (also sealed)
-# should call this wrapper; that switch goes in the next re-seal batch.
+# call this wrapper (M2 re-seal batch, docs/rust/seal-extension.md).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

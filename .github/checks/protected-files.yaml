@@ -56,3 +56,39 @@
   whole_file: true
 - path: chain.sh
   whole_file: true
+
+# --- M2 seal extension (D45, D80): every workflow and the scripts they call ---
+# See docs/rust/seal-extension.md for what each file enforces.
+- path: .github/workflows/lifespan.yml
+  whole_file: true
+- path: .github/workflows/protection-drift.yml
+  whole_file: true
+- path: .github/workflows/registers.yml
+  whole_file: true
+- path: .github/workflows/runs.yml
+  whole_file: true
+- path: .github/workflows/site.yml
+  whole_file: true
+- path: scripts/build-lock.sh
+  whole_file: true
+- path: scripts/local-checks.sh
+  whole_file: true
+- path: scripts/runs.py
+  whole_file: true
+- path: scripts/registers.py
+  whole_file: true
+- path: scripts/guards/check-write-paths.sh
+  whole_file: true
+- path: scripts/guards/protection-drift.sh
+  whole_file: true
+- path: scripts/tests/check-write-paths.test.sh
+  whole_file: true
+- path: scripts/tests/registers.test.sh
+  whole_file: true
+- path: scripts/tests/runs.test.sh
+  whole_file: true
+# Drift reference: the payloads the daily drift job compares live settings to.
+- path: docs/rust/branch-protection.json
+  whole_file: true
+- path: docs/rust/merge-queue-ruleset.json
+  whole_file: true

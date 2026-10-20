@@ -1,4 +1,4 @@
-# Agent -> unit map, read by scripts/check-write-paths.sh (D47, D69).
+# Agent -> unit map, read by scripts/guards/check-write-paths.sh (D47, D69).
 #
 # Every commit carries a trailer `Agent: A<n>`. The check looks the agent up
 # here, in the BASE branch's copy of this file, to know which unit it works for.

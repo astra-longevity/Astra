@@ -85,5 +85,5 @@ jobs:
             base="$PR_BASE"; head="$PR_HEAD"
             printf '%s\n' "$PR_BODY" >"$RUNNER_TEMP/body.md"
           fi
-          scripts/check-write-paths.sh --base "$base" --head "$head" --body-file "$RUNNER_TEMP/body.md"
+          scripts/guards/check-write-paths.sh --base "$base" --head "$head" --body-file "$RUNNER_TEMP/body.md"
 
