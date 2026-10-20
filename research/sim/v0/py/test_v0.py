@@ -83,6 +83,28 @@ class ModelTests(unittest.TestCase):
         for k in keys:
             model._apply(model.Params(), model.Perturbation({k: 1.0}))  # raises KeyError if unknown
 
+    def test_mappings_direction_semantics(self):
+        path = os.path.join(os.path.dirname(__file__), "..", "..", "mappings.yaml")
+        expected = {"production": ("production down", "<"), "clearance": ("clearance up", ">"),
+                    "coupling": ("coupling down", "<")}
+        moves, cur = [], None
+        with open(path, encoding="utf-8") as f:
+            for line in f:
+                s = line.split("#")[0].strip()
+                if s.startswith("- parameter:"):
+                    cur = {}
+                    moves.append(cur)
+                elif cur is not None and ":" in s:
+                    k, _, v = s.partition(":")
+                    cur[k.strip()] = v.strip()
+        self.assertTrue(moves)
+        for m in moves:
+            self.assertNotIn("direction", m)
+            effect, side = expected[m["term"]]
+            self.assertEqual(m["effect"], effect)
+            median = float(m["prior_multiplier"].split("median:")[1].split(",")[0])
+            self.assertTrue(median < 1 if side == "<" else median > 1, m)
+
     def test_survival_curve_monotone(self):
         s = [v for _, v in model.survival_curve(model.simulate(100, 2))]
         self.assertEqual(s[0], 1.0)
