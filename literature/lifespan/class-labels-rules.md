@@ -36,6 +36,12 @@ outcome is read (C4). No other source may be substituted.
   classes, and ChEMBL does not mark one as primary, the class is `multi-target`.
 - **Salt forms:** records on the parent and on its salts are pooled. The entry cites the
   form that carries each record.
+- **Name matching (added before the script, amendment 1):** a compound is matched to ChEMBL
+  molecules whose preferred name or synonym equals the compound name exactly,
+  case-insensitive, with Greek letters spelled out (same rule as S3). Each match is reduced to
+  its parent molecule. No fuzzy match, no substructure search. Matched parents and forms are
+  saved in a committed snapshot (`class-labels-chembl37.json`, metadata only), and the yaml is
+  built from that snapshot, so a rebuild is offline and byte-identical.
 
 ## 4. Per-compound calls (A28 calls, A50 ruling)
 
