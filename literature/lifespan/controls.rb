@@ -28,8 +28,17 @@ SPLIT_GLOB = ENV.fetch("CONTROLS_SPLIT_GLOB", File.join(REPO, "research", "metri
 # (A50 ruling 2026-10-20, G155).
 BLIND_COMPOUNDS = { "canagliflozin" => "blind arms B04/B05 (A50 ruling 2026-10-20)" }.freeze
 
+# Compound key: lower case, Greek letters spelled out, every non-alphanumeric removed
+# ("17α-estradiol" and "17-alpha-estradiol" both give "17alphaestradiol").
 def norm(name)
-  name.to_s.downcase.gsub(/[^a-z0-9+]+/, " ").strip
+  name.to_s.downcase.gsub("α", "alpha").gsub("β", "beta").gsub(/[^a-z0-9]/, "")
+end
+
+# A combination ("Rapamycin + 17α-estradiol", "metformin and rapamycin") counts as the
+# whole name and as each component, on both sides of the comparison (A2, review of #109).
+def parts(name)
+  comps = name.to_s.downcase.split(/\s*\+\s*|\s+and\s+|\s*\/\s*/)
+  ([norm(name)] + comps.map { |c| norm(c) }).reject(&:empty?).uniq
 end
 
 rows = Dir[File.join(DIR, "itp", "*.yaml")].sort.map do |p|
@@ -70,14 +79,16 @@ split_compounds = split_files.flat_map do |f|
     problems << "#{f}: no `compound` column, cannot run the compound-level check" unless table.headers.include?("compound")
     table.map { |r| r["compound"] }
   end
-end.compact.map { |c| norm(c) }.uniq
+end.compact.flat_map { |c| parts(c) }.uniq
 controls.each do |r|
-  if split_compounds.include?(norm(r["compound"]))
-    problems << "#{r['id']}: compound '#{r['compound']}' has an arm in the sealed split"
+  hit = parts(r["compound"]) & split_compounds
+  unless hit.empty?
+    problems << "#{r['id']}: compound '#{r['compound']}' (#{hit.join(', ')}) has an arm in the sealed split"
   end
 end
-blind_in_l1 = split_compounds & rows.map { |r| norm(r["compound"]) }
-missing_blind = blind_in_l1 - BLIND_COMPOUNDS.keys.map { |c| norm(c) }
+blind_keys = BLIND_COMPOUNDS.keys.flat_map { |c| parts(c) }
+blind_in_l1 = split_compounds & rows.flat_map { |r| parts(r["compound"]) }
+missing_blind = blind_in_l1 - blind_keys
 problems << "split compounds in L1 but not in BLIND_COMPOUNDS: #{missing_blind.join(', ')}" unless missing_blind.empty?
 split_note = if split_files.empty?
                "no machine-readable sealed split file exists yet (`research/metric/v0/split*`); " \
@@ -164,7 +175,9 @@ md = <<~MD
   - **Kept out of the test sets.** `controls.rb --check` fails if a control arm id (or its
     publication PMID, when recorded) is in `drugage-refill/refill-list.csv` or in the sealed
     split, or if a control's compound has any arm in the sealed split (compound-level test,
-    A50 ruling 2026-10-20). Split: #{split_note}.
+    A50 ruling 2026-10-20). A combination counts as each of its components, on both sides
+    (split arm "rapamycin + 17α-estradiol" blocks every rapamycin and 17α-estradiol control).
+    Split: #{split_note}.
   - **Interval = descriptive only.** It is not a confidence interval and not a pass/fail bar.
     Pass/fail tests on positive controls are defined by A28's sealed test-1 design, not by
     this file.
