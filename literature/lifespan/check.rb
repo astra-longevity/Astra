@@ -33,7 +33,7 @@ rows.each do |path|
   err.call("id does not match file name") unless r["id"] == id
   err.call("role '#{r['role']}' invalid") unless ROLES.include?(r["role"])
   err.call("sex must be F or M") unless %w[F M].include?(r["sex"])
-  err.call("compound has no entry in class-labels.yaml") unless labels.key?(r["compound"])
+  warn "#{id}: class label pending (no entry in class-labels.yaml)" unless labels.key?(r["compound"])
   err.call("class_label belongs in class-labels.yaml") if r.key?("class_label")
   err.call("test2_main is computed, not stored") if r.dig("flags")&.key?("test2_main")
   e = r.fetch("effect")

@@ -1,0 +1,67 @@
+# Strong 2008 (PMC2695675 author manuscript), text, table 1, figs 1-2. Read 2026-10-20.
+id: 2004-aspirin-21ppm-122d-m
+program: ITP
+publication:
+  doi: 10.1111/j.1474-9726.2008.00414.x
+  citation: "Strong R et al., 2008, Aging Cell 7:641-650"
+cohort_year: 2004
+compound: aspirin
+role: extends
+strain: UM-HET3
+sex: M
+start_age_days: 122  # printed "4 months"; 4 x 30.44 d
+dose:
+  value: 21
+  unit: ppm
+  route: diet
+n:
+  treated: null
+  control: null
+lifespan:
+  control:
+    median_days: {value: 786, source: "text"}
+    mean_days: null
+    p90_days: null
+  treated:
+    median_days: {value: 849, source: "text"}
+    mean_days: null
+    p90_days: null
+effect:
+  median_pct: 8.0
+  p90_pct: null
+  se: null
+  se_scale: null
+  se_source: null  # p printed (0.01) but no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "0.01", source: "text, fig 1"}
+  - {test: "alive at 90th percentile (8.9% control vs 13.1% treated), Wang-Allison", value: "0.16", source: "text"}
+curve_source:
+  figure: "fig 1 (pooled), fig 2 (per site)"
+  mpd_id: 834
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites:
+  - {site: TJL, median_days: {control: 781}, p_values: [{test: "log-rank", value: "0.051"}]}
+  - {site: UM, median_days: {control: 876}, p_values: [{test: "log-rank", value: "not significant"}]}
+  - {site: UT, median_days: {control: 739}, p_values: [{test: "log-rank", value: "0.04"}]}
+notes: >
+  Control medians per site from table 1. Effect seen at UT and TJL, where male controls were
+  short-lived, not at UM. Later ITP aspirin arms (C2014, 60/200 ppm) were null. Controls shared
+  by the 4 C2004 compounds.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - n.treated
+    - n.control
