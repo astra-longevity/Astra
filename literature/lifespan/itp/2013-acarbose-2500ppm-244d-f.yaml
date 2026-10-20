@@ -14,6 +14,7 @@ dose:
   value: 2500
   unit: ppm
   route: diet
+  measured: null  # assay printed for the 1000 ppm diet only
 n:
   treated: 152  # table 1 N
   control: 287

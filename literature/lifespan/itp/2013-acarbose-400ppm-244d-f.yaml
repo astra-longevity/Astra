@@ -7,6 +7,7 @@ publication:
 cohort_year: 2013  # paper "C2013" / "Cont_13"; MPD ITP1 listing
 compound: acarbose
 role: "extends"
+role_basis: log-rank
 strain: UM-HET3
 sex: F
 start_age_days: 244  # printed "8 months; 8 x 30.44 d"
@@ -14,6 +15,7 @@ dose:
   value: 400
   unit: ppm
   route: diet
+  measured: null  # assay printed for the 1000 ppm diet only
 n:
   treated: 139  # table 1 N
   control: 287

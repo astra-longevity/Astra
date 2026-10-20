@@ -14,6 +14,7 @@ dose:
   value: 1000
   unit: ppm
   route: diet
+  measured: {value: 231, sd: 109, unit: ppm, source: "text, food assay of pellets"}
 n:
   treated: 161  # table 1 N
   control: 273
