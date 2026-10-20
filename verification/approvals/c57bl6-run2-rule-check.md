@@ -238,3 +238,22 @@ and it is logged.
 4. **Seal record states 2 known limits:** query B finds medians only via TABLE
    sections, so medians printed only in text or figures are missed by B and
    can come in only through A; the hit volume was driven by `survival`.
+
+## Run-2b B5 run-log check (2026-10-20)
+
+Object: PR #134 head `6717ae8`. Checked on a clean copy.
+
+| Item | Result |
+|---|---|
+| Order | #115 on main `b734f00` (16:47 UTC) → `search2b.rb` committed `84a5168` (18:01:44 UTC) → run 18:02 UTC → log `6717ae8` |
+| Rule hashes | `search-rule-run2.md` `5fa16c66…8be`, `search-rule-run2b.md` `d6ef9139…edb`: match cleared; script aborts on mismatch |
+| Query | B5 read verbatim (`CHOSEN = "B5"`), sha `aa39d6e3…` = the counted one; query A `588c38c8…` = run 2 |
+| Counts | A 669, B5 571, union 1233, 38 in run 1, **1195 new ≤ 1500**; equal to the dry run |
+| `search2b.rb` | sha256 `bc6e1bb5…125e` = log; 1500 stop before any metadata fetch |
+| `hits-run2b.tsv` | sha256 `19693241…c379` = log; 1195 rows, 0 duplicate PMIDs, 0 overlap with run-1 `hits.tsv`; sources A 624 / B5 564 / A+B5 7 |
+| Content | PubMed efetch metadata only: pmid, year, journal, last author + affiliation, title, source. No abstract, no full text, no number |
+
+**Verdict: conforms.** Run 2b was run once, under the cleared rule. Next check:
+the screening of the 1195 hits (I1–I5, refill/lab independence on metadata,
+open-copy lookup, still-closed PMIDs listed), with no median read until the
+full passing list is committed. The 2 seal limits (PR #126) stand.
