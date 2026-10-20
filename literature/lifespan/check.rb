@@ -50,9 +50,11 @@ rows.each do |path|
 
   se_ok = !e["se"].nil? && (e["se_source"] == "printed" ||
     (e["se_source"] == "from_curve" && e["digitisations"].to_i >= 2 && e["curve_agreement"] == "pass"))
-  main = f["control_in_ref_range"] == true && f["itp_or_replicated"] == true &&
-         Array(r.dig("verification", "to_verify")).empty? &&
-         !labels.dig(r["compound"], "approved_by").nil? && se_ok
+  ready = f["control_in_ref_range"] == true && f["itp_or_replicated"] == true &&
+          Array(r.dig("verification", "to_verify")).empty? && se_ok
+  label_ok = !labels.dig(r["compound"], "approved_by").nil?
+  err.call("meets test2_main except class label: approved label required") if ready && !label_ok
+  main = ready && label_ok
   puts "#{id}: test2_main=#{main}"
 end
 

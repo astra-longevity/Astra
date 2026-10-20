@@ -1,0 +1,70 @@
+# Harrison 2009 (PMC2786175 author manuscript), table 1 and text. Read 2026-10-20.
+id: 2005-rapamycin-14ppm-600d-m
+program: ITP
+publication:
+  doi: 10.1038/nature08221
+  citation: "Harrison DE et al., 2009, Nature 460:392-395"
+cohort_year: 2005  # MPD ITP1 listing: C2005, rapamycin 14 ppm from 20 months
+compound: rapamycin
+role: extends
+strain: UM-HET3
+sex: M
+start_age_days: 600
+dose:
+  value: 14
+  unit: ppm
+  route: diet, encapsulated
+n:
+  treated: null  # only the total (1901 mice, both sexes, both arms) is printed
+  control: null
+lifespan:
+  control:
+    median_days: null
+    mean_days: null
+    p90_days: {value: 1078, upper_95: 1111, source: "table 1"}
+  treated:
+    median_days: null
+    mean_days: null
+    p90_days: {value: 1179, source: "table 1"}
+effect:
+  median_pct: null
+  p90_pct: 9
+  se: null
+  se_scale: null
+  se_source: null  # only "< 0.0001" printed: no exact p, so no from_p_value SE (C8)
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, pooled sites, treated vs control", value: "< 0.0001", source: "text, fig 1"}
+  - {test: "alive at joint 90th percentile (5.9% control vs 20.2% treated)", value: "< 0.0001", source: "text, supp table S1"}
+curve_source:
+  figure: "fig 1 (pooled), fig 2 (per site)"
+  mpd_id: 829
+flags:
+  control_in_ref_range: false  # range bounds and pooled control median not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites:
+  - {site: TJL, median_days: null, p90_days: {control: 1035, treated: 1142}, effect_p90_pct: 10, effect_mean_pct: 5, p_values: [{test: "alive at 90th percentile", value: "0.008"}]}
+  - {site: UM, median_days: null, p90_days: {control: 1141, treated: 1188}, effect_p90_pct: 4, effect_mean_pct: 8, p_values: [{test: "alive at 90th percentile", value: "0.07"}]}
+  - {site: UT, median_days: null, p90_days: {control: 1020, treated: 1179}, effect_p90_pct: 16, effect_mean_pct: 15, p_values: [{test: "alive at 90th percentile", value: "0.0001"}]}
+notes: >
+  Data cut 2009-02-01, 2% of mice alive. Mean lifespan +9% pooled. Authors: control males
+  differed between sites; at UT and perhaps UM the rapamycin group had lower mortality before
+  600 d, and pre-600-day chow differed between groups there. At TJL both groups ate the same
+  chow (Purina 5LG6) throughout. Site log-rank p range 0.03-0.0001 (fig 2, per site not in text).
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - n.treated
+    - n.control
+    - lifespan.control.median_days
+    - lifespan.treated.median_days

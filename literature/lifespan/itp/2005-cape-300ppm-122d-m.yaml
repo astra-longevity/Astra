@@ -1,0 +1,66 @@
+# Harrison 2009 (PMC2786175), text and supp fig 1. Null arm: "did not differ from controls at the doses used".
+id: 2005-cape-300ppm-122d-m
+program: ITP
+publication:
+  doi: 10.1038/nature08221
+  citation: "Harrison DE et al., 2009, Nature 460:392-395"
+cohort_year: 2005
+compound: cape
+role: "null"
+strain: UM-HET3
+sex: M
+start_age_days: 122  # supp fig 1 legend: "4 months"; 4 x 30.44 d
+dose:
+  value: 300  # MPD ITP1 listing; not printed in the paper's main text
+  unit: ppm
+  route: diet
+n:
+  treated: null
+  control: null
+lifespan:
+  control:
+    median_days: null
+    mean_days: null
+    p90_days: null
+  treated:
+    median_days: null
+    mean_days: null
+    p90_days: null
+effect:
+  median_pct: null
+  p90_pct: null
+  se: null
+  se_scale: null
+  se_source: null
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, pooled sites, treated vs control", value: "not significant", source: "text, supp fig 1 (p in figure, not in text)"}
+curve_source:
+  figure: "supp fig 1"
+  mpd_id: 829
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites: []
+notes: >
+  Null arm (negative-control candidate, T1-A2-2). Started at 4 months, with controls shared with
+  the rapamycin 600-day arm of C2005. Medians and n come from MPD file 829 (fetch job pending).
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - dose.value
+    - n.treated
+    - n.control
+    - lifespan.control.median_days
+    - lifespan.treated.median_days
+    - p_values
