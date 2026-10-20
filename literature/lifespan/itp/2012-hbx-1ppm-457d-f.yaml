@@ -1,0 +1,63 @@
+# Harrison 2019 (PMC6413665), methods, table 1, text. Read 2026-10-20.
+id: 2012-hbx-1ppm-457d-f
+program: ITP
+publication:
+  doi: 10.1111/acel.12898
+  citation: "Harrison DE et al., 2019, Aging Cell 18:e12898"
+cohort_year: 2012  # paper "C2012" / "Cont_12"; MPD ITP1 listing
+compound: 2-(2-hydroxyphenyl)benzothiazole
+role: "null"
+strain: UM-HET3
+sex: F
+start_age_days: 457  # printed "15 months; 15 x 30.44 d"
+dose:
+  value: 1
+  unit: ppm
+  route: diet
+n:
+  treated: 136  # table 1 N
+  control: 279
+lifespan:
+  control:
+    median_days: {value: 877, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1100, source: "table 1"}
+  treated:
+    median_days: {value: 856, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1091, source: "table 1"}
+effect:
+  median_pct: -2.4
+  p90_pct: -0.8
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "0.4", source: "table 1"}
+  - {test: "alive at 90th percentile, Wang-Allison", value: "not significant", source: "table 1"}
+curve_source:
+  figure: "table 1 only; no survival figure for HBX / INT-767"
+  mpd_id: 768
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites: []  # per-site values not printed in the main text
+notes: >
+  No effect. Pilot: diet held 85% of the intended HBX. Pooled across TJL, UM, UT. The same C2012 controls are printed differently in the two papers: Strong 2016 M n 283 median 823 d, F n 278 median 881 d; Harrison 2019 M n 284 median 816 d, F n 279 median 877 d (p90 identical). This row uses the values printed in its own paper; MPD file 768 settles it.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - sites
+    - n.control
+    - lifespan.control.median_days
