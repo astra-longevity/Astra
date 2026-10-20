@@ -161,7 +161,7 @@ Overall validation covered 4 publications (22 survival probabilities, 7 medians,
 
 **Second implementation:** Wei & Royston 2017, *Stata J* 17:786-802, doi:10.1177/1536867X1801700402 (`ipdfc`), reproduces the same example.
 
-**Gap:** D6 needs ≥3 curves; 3 are now identified (Bonner 2006, ICON7 for median/survival only, Goss 2005 for HR only, provisional), see below.
+**Gap:** closed. D6 needs ≥3 curves; 3 are identified (Bonner 2006; ICON7 for median/survival only; Goss 2005 for HR only), see below.
 
 **Curve 2: ICON7.** Perren et al. 2011, *NEJM* 365:2484-2496, doi:10.1056/NEJMoa1103799 (Crossref OK), bevacizumab in ovarian cancer. The trial prints the KM figure, the at-risk table, the median and the HR. Wei & Royston 2017 reconstruct it:
 
@@ -190,10 +190,14 @@ At-risk counts (693 / 464 at 6 / 12 months) are printed only in the Figure 2A im
 Since the D6 target is the original printed median/HR (astra-stats reconstructs, then compares), these trials can serve as curve 3 if their paper prints the KM figure, the at-risk table and a median or HR, and does not flag non-proportional hazards (DOIs checked on Crossref 2026-10-20). Checked in the order van Oers → Goss → Seymour:
 
 - **van Oers 2006: not retained.** Full text paywalled. The abstract prints medians and HRs (PFS from first randomisation 20.2 vs 33.1 months, HR 0.65; maintenance PFS 14.9 vs 51.5 months, HR 0.40; OS HR 0.52), but the at-risk table and any PH statement cannot be checked.
-- **Goss 2005: provisional curve 3.** MA.17 updated analysis, letrozole vs placebo after 5 years of tamoxifen (n 2582 / 2586, median follow-up 30 months). DFS Kaplan-Meier figure with a number-at-risk row (caption "N, number at risk; S, survival percent, 95% CI", reprinted in Goss 2007, *Breast Cancer Res Treat*, doi:10.1007/s10549-007-9698-1 `[to verify]`). Printed: DFS HR 0.58 (0.45, 0.76), P = 0.00003; 92 vs 155 DFS events; OS HR 0.82 (0.57, 1.19). No median DFS is printed (too few events), so this curve gives an **HR target only**. No non-PH statement found in the accessible text `[to verify against the full text]`. Values come from secondary snippets, not yet read in the JNCI full text: `[to verify]`.
-- **Seymour 2007:** not checked, since Goss qualifies provisionally.
+- **Goss 2005: curve 3, confirmed (HR only).** Checked in the JNCI full text (OUP PDF, 2026-10-20). MA.17 updated analysis, letrozole vs placebo after 5 years of tamoxifen; 2583 / 2587 analysed (Table 1, Fig 1), median follow-up 30 months. Locators:
+  - Fig 2 (p. 1265): DFS Kaplan-Meier curves; the caption states "N = number at risk; S = survival percent", so the at-risk row is printed (values in the image only, to be read when digitising).
+  - Abstract and Results, "Disease-Free Survival": HR 0.58 (0.45, 0.76), P < .001; 92 vs 155 events (Table 2); 4-year DFS 94.4% vs 89.8%. No median DFS printed (too few events), so the target is the **HR only**.
+  - Methods, "Statistical Analysis": PH assumption verified by the Grambsch-Therneau test; no non-PH statement anywhere in the paper.
+  - Caveat: the printed HR comes from a Cox model **stratified** on receptor status, nodal status and prior chemotherapy; a reconstruction from the pooled curves gives an unstratified HR. This difference belongs in the observed-deviation data, not in the tolerance.
+- **Seymour 2007:** not needed, since Goss qualifies.
 
-**Usable-HR count:** Bonner 2006 + Goss 2005 = 2 curves with a usable HR (ICON7 excluded), which meets A50's ≥2 requirement once Goss is confirmed.
+**Usable-HR count:** Bonner 2006 + Goss 2005 = 2 curves with a usable HR (ICON7 excluded), which meets A50's ≥2 requirement.
 
 **Tolerance:** not proposed here. Under D38 Verification sets it from ≥3 curves; setting it from one curve, just above the error already observed, would make the test pass by construction.
 
@@ -229,4 +233,4 @@ Relationship: SD_SNR² + 1 = SD_z². The same values are reprinted in van Zwet e
 2. HK: confirm the DL figures of example 2 (z, p, CI).
 3. Rare events: confirm trial names in Figs 1-2 (counts already checked against totals and printed ORs).
 4. RMST: check whether any paper prints an RMST for the Gehan/Freireich data.
-5. Guyot: confirm Goss 2005 (figure, at-risk row, HR 0.58, no non-PH flag) in the JNCI full text; if it fails, check Seymour 2007. ICON7 at-risk arm against Figure 2A.
+5. Guyot: read the at-risk values from Goss Fig 2 and ICON7 Fig 2A when digitising (ICON7 arm assignment `[to verify]`).
