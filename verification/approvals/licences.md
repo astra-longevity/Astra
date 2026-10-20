@@ -151,3 +151,8 @@ Note on the O9 table, LA-007 row (2026-10-20): route out partly met. The
 public deposit (LA-021) covers lifespan, body composition and fasting glucose.
 CBC, echo and GTT keep the O16 route: written NIA request (draft due
 2026-10-30, A2), exit date 2026-11-20 unchanged.
+
+Note on LA-021 conditions (2026-10-20, A50 ruling in G155): LA-021 is not a
+source for C57BL/6 reference range v1. It may enter only as v2, by a rule
+written before the data is read. Any read of the deposit before the D115 seal
+is logged in A67's manual download log.
