@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+import os
 import random
 import unittest
 
@@ -69,6 +70,18 @@ class ModelTests(unittest.TestCase):
         x = dict.fromkeys(model.AXES, 100.0)
         self.assertEqual(model.frailty(x), 1.0)
         self.assertEqual(model.frailty(dict.fromkeys(model.AXES, 0.0)), 0.0)
+
+    def test_mappings_parameters_known_to_model(self):
+        path = os.path.join(os.path.dirname(__file__), "..", "..", "mappings.yaml")
+        with open(path, encoding="utf-8") as f:
+            keys = [
+                line.split("parameter:", 1)[1].split("#")[0].strip()
+                for line in f
+                if line.strip().startswith("- parameter:")
+            ]
+        self.assertTrue(keys)
+        for k in keys:
+            model._apply(model.Params(), model.Perturbation({k: 1.0}))  # raises KeyError if unknown
 
     def test_survival_curve_monotone(self):
         s = [v for _, v in model.survival_curve(model.simulate(100, 2))]
