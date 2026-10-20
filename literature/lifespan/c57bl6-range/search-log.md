@@ -158,3 +158,32 @@ Seal limits (A50, PR #126): medians found via TABLE sections only; volume of
 B1–B4 driven by `survival`.
 
 Agent: A71
+
+## Run 2b, stage 1 (title + abstract)
+
+| | |
+|---|---|
+| Date | 2026-10-20 |
+| Hits screened | 1195 / 1195 (`hits-run2b.tsv`), one stage-1 line each in `screening.csv`, `run` = `2b` |
+| Abstracts | `abstracts2b.rb` (PubMed efetch, local JSONL, not committed: publisher text); 24 records have no abstract |
+| pass | 170 |
+| X_NOT_MOUSE_LIFESPAN | 987 |
+| X_STRAIN | 21 (UM-HET3 / ITP, recombinant inbred) |
+| X_HYBRID | 3 (`pending`) |
+| X_REFILL | 5 |
+| X_REFILL_LAB | 9 |
+
+- `screening.csv` gains the column `run` (run 1 lines = `1`), as `search-rule-run2.md` says.
+- Stage-1 rule: exclude only when the abstract shows a code applies; when unsure the hit
+  passes. B5 hits (median in a table) with a knockout or phenotype design pass unless the
+  abstract shows a non-lifespan design (infection, tumour, acute insult, irradiation,
+  in vitro). Conference supplements with no abstract pass unless the meeting is clinical
+  only (human ICU, transplant, gastro, urology, rheumatology congresses: excluded).
+- Refill independence on metadata only (`refill-authors.tsv` plus PubMed affiliations of
+  the refill co-authors). Two judgment points flagged to A65: 21873593 (Ikeno Y, the hit's
+  last-author affiliation is not printed) and 25711530 (Mitchell SJ, same). One co-author
+  match kept as a pass: 33675469 (Hine C; refill affiliation Harvard, hit Cleveland Clinic).
+- No full text opened, no lifespan number read. Next: open-copy lookup for the 170 passes,
+  then stage 2 (decision and code only).
+
+Agent: A71

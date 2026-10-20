@@ -1,56 +1,1251 @@
-pmid,stage,decision,reason_code,note
-10870527,1,pass,,"C57BL/6 ad lib (NIA colony) in a cataract + CR study; whether lifespan is reported is unclear from abstract"
-12230882,1,pass,,"wild-type C57BL/6 controls vs TRX transgenic; median life span compared"
-12586746,1,pass,,"male C57BL/6 ad lib from 4 months until death (vs CR)"
-15692099,1,exclude,X_STRAIN,"controls are SR-BI/apoE double knockouts on mixed C57BL/6 x 129 x BALB/c background"
-16150717,1,exclude,X_NOT_MOUSE_LIFESPAN,"skin allograft survival, not mouse lifespan"
-17176479,1,exclude,X_TRUNCATED,"mice entered at 21 months (entry age > 12 months, I4); also hypoxia arms"
-17416441,1,pass,,"creatine vs control in aged C57Bl/6J; entry age and diet to check in full text"
-18257658,1,exclude,X_TREATED,"all mice housed at 7 C (cold exposure), not standard housing (I2)"
-18772469,1,pass,,"MCAT vs wild-type littermates on C57BL/6J; congenic status to check in full text"
-19020657,1,exclude,X_NOT_MOUSE_LIFESPAN,"reference intervals of blood parameters, no lifespan study"
-20305363,1,pass,,"BXD recombinant inbred strains; whether parental C57BL/6J controls are included is unclear from abstract"
-20370440,1,pass,,"herbal diet vs control C57BL/6J, both sexes; control diet and entry age to check in full text"
-21576414,1,exclude,X_NOT_MOUSE_LIFESPAN,"tumour growth / metastasis model, not lifespan"
-21737425,1,pass,,"wild-type C57BL/6 vs heterozygous mutant, median lifespan reported"
-21834748,1,exclude,X_TREATED,"melanoma-bearing mice; survival after tumour implantation (I2 insult)"
-22201679,1,exclude,X_NOT_MOUSE_LIFESPAN,"renal disease model in Cd151-null mice; lifespan only in diseased FVB mice"
-24336818,1,pass,,"male C57BL/6J WT, 5% vs 40% CR diets (UC Davis); whether 5% CR counts as ad lib chow (I2) to check in full text"
-24652652,1,exclude,X_TREATED,"all groups p53-/- or p53+/- (genetic modification, I2); no untreated wild-type control"
-25589054,1,exclude,X_REFILL,"PMID is a refill PMID (refill-list.csv)"
-25995165,1,exclude,X_HYBRID,"F2 offspring of a C57BL/6J x DBA/2J cross; logged, pending"
-26518964,1,exclude,X_NOT_MOUSE_LIFESPAN,"cardiac graft survival in CBA recipients, not lifespan"
-26774117,1,pass,,"GDF11 vs lifespan across strains; whether a printed C57BL/6 median exists is unclear from abstract"
-27455862,1,pass,,"grape skin extract vs control C57BL/6J, life-long; control diet and printed median to check in full text"
-28172892,1,exclude,X_TREATED,"all survival groups are Smn-deficient SMA mice (genetic modification, I2)"
-28877457,1,pass,,"control diet vs ketogenic diet from 12 months (I4 allows <= 12 months); control diet to check in full text"
-29806171,1,pass,,"social stress model in C57BL/6J males; whether an unstressed control group has a printed median to check in full text"
-30016220,1,exclude,X_TREATED,"all mice irradiated (16 Gy thorax) (I2 insult)"
-30052781,1,exclude,X_REFILL_LAB,"last author Le Couteur DG is a co-author of refill 29167747, same institution (University of Sydney)"
-30289438,1,exclude,X_REFILL_LAB,"last author Allison DB is a co-author of refill 29921922, same institution (University of Alabama at Birmingham); judgment point flagged to A65"
-30376218,1,exclude,X_STRAIN,"conplastic strains only (C57BL/6J nuclear genome with NOD or MRL mtDNA); no plain C57BL/6 control"
-32163524,1,exclude,X_TREATED,"all mice on high-calorie diet (I2)"
-32651822,1,exclude,X_TREATED,"Lewis lung carcinoma-bearing mice (I2 insult)"
-34439857,1,pass,,"rMSA injection vs control C57BL/6N, both sexes; control vehicle and entry age to check in full text"
-35759167,1,pass,,"longitudinal ageing cohort of C57BL/6, cohort median life span mentioned; printed value and n to check in full text"
-36105811,1,exclude,X_TREATED,"all mice on high-calorie diet (I2)"
-38270807,1,exclude,X_TREATED,"BBN carcinogen in drinking water (I2 insult); no lifespan study"
-39378329,1,pass,,"GH-signalling mutants vs wild-type C57BL/6; wild-type median and congenic status to check in full text"
-39451245,1,pass,,"4-MU vs control C57BL/6J, prospective lifespan study; printed median and n to check in full text"
-10870527,2,exclude,X_NO_FULLTEXT,"doi 10.1006/exer.2000.0835: no PMC, Unpaywall not OA"
-12230882,2,exclude,X_NO_FULLTEXT,"doi 10.1089/15230860260220201: no PMC, Unpaywall not OA"
-12586746,2,exclude,X_NO_PRINTED_MEDIAN,"PMC2839882 (author ms): C57BL/6Nnia M from NIA, AL vs CR; AL medians only in figure, text gives relative differences"
-17416441,2,exclude,X_NO_FULLTEXT,"doi 10.1016/j.neurobiolaging.2007.03.001: no PMC; Unpaywall points to mediaTUM record with no file"
-18772469,2,exclude,X_NO_FULLTEXT,"doi 10.1093/gerona/63.8.813: no PMC, Unpaywall not OA"
-20305363,2,exclude,X_NO_FULLTEXT,"doi 10.1007/BF03324809: no PMC, Unpaywall not OA"
-20370440,2,exclude,X_NO_FULLTEXT,"doi 10.1089/rej.2009.0893: no PMC, Unpaywall not OA"
-21737425,2,exclude,X_STRAIN,"PMC3185405: WT littermates of XRCC1 HZ x C57BL/6 (JAX) cross; congenic status not stated (I1)"
-24336818,2,exclude,X_NO_FULLTEXT,"doi 10.1093/gerona/glt198: PMC4172037 has no body; OUP PDF not reachable"
-26774117,2,exclude,X_NO_FULLTEXT,"doi 10.1093/gerona/glv308: no PMC, Unpaywall not OA"
-27455862,2,exclude,X_NO_FULLTEXT,"doi 10.1007/s12017-016-8428-4: no PMC, Unpaywall not OA"
-28877457,2,exclude,X_TREATED,"PMC5609489: control diet fed in isocaloric amounts from 12 months, not chow ad lib (I2)"
-29806171,2,exclude,X_TREATED,"PMC6052478: all C57BL/6J males in a lifelong psychosocial stress model (I2)"
-34439857,2,exclude,X_NO_PRINTED_MEDIAN,"PMC8394218: C57BL/6N saline controls; medians only in fig 4 (I3)"
-35759167,2,exclude,X_NO_PRINTED_MEDIAN,"PMC9768068: median 'approximately 24 months' for whole cohort, sexes not separated (I3)"
-39378329,2,exclude,X_STRAIN,"PMC11500606: WT of Ghr lines 'derived into a C57BL/6 background', congenic/backcross not stated; WT medians in figure only (I1, I3)"
-39451245,2,pass,,"PMC11506560: C57BL/6J males (Jackson), control chow from 7 weeks, n 20 per group (fig 1 legend), median printed in text; lab = Bollyky PL"
+pmid,stage,decision,reason_code,note,run
+10870527,1,pass,,C57BL/6 ad lib (NIA colony) in a cataract + CR study; whether lifespan is reported is unclear from abstract,1
+12230882,1,pass,,wild-type C57BL/6 controls vs TRX transgenic; median life span compared,1
+12586746,1,pass,,male C57BL/6 ad lib from 4 months until death (vs CR),1
+15692099,1,exclude,X_STRAIN,controls are SR-BI/apoE double knockouts on mixed C57BL/6 x 129 x BALB/c background,1
+16150717,1,exclude,X_NOT_MOUSE_LIFESPAN,"skin allograft survival, not mouse lifespan",1
+17176479,1,exclude,X_TRUNCATED,"mice entered at 21 months (entry age > 12 months, I4); also hypoxia arms",1
+17416441,1,pass,,creatine vs control in aged C57Bl/6J; entry age and diet to check in full text,1
+18257658,1,exclude,X_TREATED,"all mice housed at 7 C (cold exposure), not standard housing (I2)",1
+18772469,1,pass,,MCAT vs wild-type littermates on C57BL/6J; congenic status to check in full text,1
+19020657,1,exclude,X_NOT_MOUSE_LIFESPAN,"reference intervals of blood parameters, no lifespan study",1
+20305363,1,pass,,BXD recombinant inbred strains; whether parental C57BL/6J controls are included is unclear from abstract,1
+20370440,1,pass,,"herbal diet vs control C57BL/6J, both sexes; control diet and entry age to check in full text",1
+21576414,1,exclude,X_NOT_MOUSE_LIFESPAN,"tumour growth / metastasis model, not lifespan",1
+21737425,1,pass,,"wild-type C57BL/6 vs heterozygous mutant, median lifespan reported",1
+21834748,1,exclude,X_TREATED,melanoma-bearing mice; survival after tumour implantation (I2 insult),1
+22201679,1,exclude,X_NOT_MOUSE_LIFESPAN,renal disease model in Cd151-null mice; lifespan only in diseased FVB mice,1
+24336818,1,pass,,"male C57BL/6J WT, 5% vs 40% CR diets (UC Davis); whether 5% CR counts as ad lib chow (I2) to check in full text",1
+24652652,1,exclude,X_TREATED,"all groups p53-/- or p53+/- (genetic modification, I2); no untreated wild-type control",1
+25589054,1,exclude,X_REFILL,PMID is a refill PMID (refill-list.csv),1
+25995165,1,exclude,X_HYBRID,"F2 offspring of a C57BL/6J x DBA/2J cross; logged, pending",1
+26518964,1,exclude,X_NOT_MOUSE_LIFESPAN,"cardiac graft survival in CBA recipients, not lifespan",1
+26774117,1,pass,,GDF11 vs lifespan across strains; whether a printed C57BL/6 median exists is unclear from abstract,1
+27455862,1,pass,,"grape skin extract vs control C57BL/6J, life-long; control diet and printed median to check in full text",1
+28172892,1,exclude,X_TREATED,"all survival groups are Smn-deficient SMA mice (genetic modification, I2)",1
+28877457,1,pass,,control diet vs ketogenic diet from 12 months (I4 allows <= 12 months); control diet to check in full text,1
+29806171,1,pass,,social stress model in C57BL/6J males; whether an unstressed control group has a printed median to check in full text,1
+30016220,1,exclude,X_TREATED,all mice irradiated (16 Gy thorax) (I2 insult),1
+30052781,1,exclude,X_REFILL_LAB,"last author Le Couteur DG is a co-author of refill 29167747, same institution (University of Sydney)",1
+30289438,1,exclude,X_REFILL_LAB,"last author Allison DB is a co-author of refill 29921922, same institution (University of Alabama at Birmingham); judgment point flagged to A65",1
+30376218,1,exclude,X_STRAIN,conplastic strains only (C57BL/6J nuclear genome with NOD or MRL mtDNA); no plain C57BL/6 control,1
+32163524,1,exclude,X_TREATED,all mice on high-calorie diet (I2),1
+32651822,1,exclude,X_TREATED,Lewis lung carcinoma-bearing mice (I2 insult),1
+34439857,1,pass,,"rMSA injection vs control C57BL/6N, both sexes; control vehicle and entry age to check in full text",1
+35759167,1,pass,,"longitudinal ageing cohort of C57BL/6, cohort median life span mentioned; printed value and n to check in full text",1
+36105811,1,exclude,X_TREATED,all mice on high-calorie diet (I2),1
+38270807,1,exclude,X_TREATED,BBN carcinogen in drinking water (I2 insult); no lifespan study,1
+39378329,1,pass,,GH-signalling mutants vs wild-type C57BL/6; wild-type median and congenic status to check in full text,1
+39451245,1,pass,,"4-MU vs control C57BL/6J, prospective lifespan study; printed median and n to check in full text",1
+10870527,2,exclude,X_NO_FULLTEXT,"doi 10.1006/exer.2000.0835: no PMC, Unpaywall not OA",1
+12230882,2,exclude,X_NO_FULLTEXT,"doi 10.1089/15230860260220201: no PMC, Unpaywall not OA",1
+12586746,2,exclude,X_NO_PRINTED_MEDIAN,"PMC2839882 (author ms): C57BL/6Nnia M from NIA, AL vs CR; AL medians only in figure, text gives relative differences",1
+17416441,2,exclude,X_NO_FULLTEXT,doi 10.1016/j.neurobiolaging.2007.03.001: no PMC; Unpaywall points to mediaTUM record with no file,1
+18772469,2,exclude,X_NO_FULLTEXT,"doi 10.1093/gerona/63.8.813: no PMC, Unpaywall not OA",1
+20305363,2,exclude,X_NO_FULLTEXT,"doi 10.1007/BF03324809: no PMC, Unpaywall not OA",1
+20370440,2,exclude,X_NO_FULLTEXT,"doi 10.1089/rej.2009.0893: no PMC, Unpaywall not OA",1
+21737425,2,exclude,X_STRAIN,PMC3185405: WT littermates of XRCC1 HZ x C57BL/6 (JAX) cross; congenic status not stated (I1),1
+24336818,2,exclude,X_NO_FULLTEXT,doi 10.1093/gerona/glt198: PMC4172037 has no body; OUP PDF not reachable,1
+26774117,2,exclude,X_NO_FULLTEXT,"doi 10.1093/gerona/glv308: no PMC, Unpaywall not OA",1
+27455862,2,exclude,X_NO_FULLTEXT,"doi 10.1007/s12017-016-8428-4: no PMC, Unpaywall not OA",1
+28877457,2,exclude,X_TREATED,"PMC5609489: control diet fed in isocaloric amounts from 12 months, not chow ad lib (I2)",1
+29806171,2,exclude,X_TREATED,PMC6052478: all C57BL/6J males in a lifelong psychosocial stress model (I2),1
+34439857,2,exclude,X_NO_PRINTED_MEDIAN,PMC8394218: C57BL/6N saline controls; medians only in fig 4 (I3),1
+35759167,2,exclude,X_NO_PRINTED_MEDIAN,"PMC9768068: median 'approximately 24 months' for whole cohort, sexes not separated (I3)",1
+39378329,2,exclude,X_STRAIN,"PMC11500606: WT of Ghr lines 'derived into a C57BL/6 background', congenic/backcross not stated; WT medians in figure only (I1, I3)",1
+39451245,2,pass,,"PMC11506560: C57BL/6J males (Jackson), control chow from 7 weeks, n 20 per group (fig 1 legend), median printed in text; lab = Bollyky PL",1
+10630984,1,exclude,X_NOT_MOUSE_LIFESPAN,irradiation cytogenetics,2b
+10744644,1,exclude,X_NOT_MOUSE_LIFESPAN,dextran immune response,2b
+10799707,1,exclude,X_NOT_MOUSE_LIFESPAN,SAM muscle pathology,2b
+10831559,1,exclude,X_NOT_MOUSE_LIFESPAN,ovary graft reproductive lifespan,2b
+10861459,1,exclude,X_NOT_MOUSE_LIFESPAN,EL4 tumour-bearing,2b
+10890913,1,exclude,X_NOT_MOUSE_LIFESPAN,M. tuberculosis infection,2b
+10906510,1,exclude,X_NOT_MOUSE_LIFESPAN,CR gene expression,2b
+10948135,1,exclude,X_NOT_MOUSE_LIFESPAN,Candida infection,2b
+10951695,1,exclude,X_NOT_MOUSE_LIFESPAN,SV40 Tag osteosarcoma,2b
+10978857,1,pass,,kombucha longevity,2b
+10985501,1,exclude,X_NOT_MOUSE_LIFESPAN,in utero transplant,2b
+10993912,1,exclude,X_NOT_MOUSE_LIFESPAN,plasma cell survival,2b
+10996667,1,pass,,lifelong aluminium diet,2b
+11050249,1,pass,,"SOD1 lifespan, controls unclear",2b
+11119246,1,exclude,X_NOT_MOUSE_LIFESPAN,immune complexes NZB,2b
+11119534,1,exclude,X_NOT_MOUSE_LIFESPAN,pneumococcal infection,2b
+11121530,1,exclude,X_NOT_MOUSE_LIFESPAN,DR neuronal loss,2b
+11160000,1,exclude,X_NOT_MOUSE_LIFESPAN,anti-CD4 infection,2b
+11166357,1,pass,,death-clock locus lifespan,2b
+11269745,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour-bearing survival,2b
+11270717,1,exclude,X_NOT_MOUSE_LIFESPAN,BDF1 Lewis lung,2b
+11462771,1,pass,,melatonin lifespan,2b
+11517304,1,exclude,X_NOT_MOUSE_LIFESPAN,DNA oxidative damage by age,2b
+11527818,1,exclude,X_NOT_MOUSE_LIFESPAN,CR peritonitis,2b
+11726538,1,pass,,apoE-deficient lifespan,2b
+11739514,1,exclude,X_NOT_MOUSE_LIFESPAN,choroid plexus tumours,2b
+11752172,1,exclude,X_NOT_MOUSE_LIFESPAN,virus-specific T cells,2b
+11773200,1,exclude,X_STRAIN,four-way cross,2b
+11773201,1,exclude,X_STRAIN,four-way cross,2b
+11781044,1,exclude,X_NOT_MOUSE_LIFESPAN,age-related hearing loss,2b
+11909880,1,pass,,"CR mortality after DMBA, AL control status unclear",2b
+12054159,1,exclude,X_NOT_MOUSE_LIFESPAN,bone by age,2b
+12071516,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour survival,2b
+12077350,1,pass,,Frk KO 2-yr survival,2b
+12107460,1,exclude,X_NOT_MOUSE_LIFESPAN,trematode infection,2b
+12181195,1,exclude,X_NOT_MOUSE_LIFESPAN,parietal cell lifespan,2b
+12204345,1,exclude,X_NOT_MOUSE_LIFESPAN,cochlear morphology,2b
+12270695,1,pass,,twitcher lifespan on backgrounds,2b
+12403793,1,pass,,"C57BL/6 survival characteristics, standard diet",2b
+12553376,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma metastasis,2b
+12645075,1,pass,,Plp mutant longevity by background,2b
+12672068,1,pass,,FcgRIIB/Fas lifespan,2b
+12724520,1,pass,,IF vs DR lifespan,2b
+12725570,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma metastasis,2b
+12781806,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma metastasis,2b
+12825236,1,exclude,X_NOT_MOUSE_LIFESPAN,lead lupus,2b
+12853310,1,exclude,X_NOT_MOUSE_LIFESPAN,mating lipid peroxidation,2b
+12898460,1,exclude,X_NOT_MOUSE_LIFESPAN,DR bone,2b
+12933651,1,pass,,GHR KO lifespan C57BL/6J,2b
+12933890,1,exclude,X_NOT_MOUSE_LIFESPAN,Pseudomonas keratitis,2b
+14564677,1,exclude,X_NOT_MOUSE_LIFESPAN,DR bone,2b
+14688200,1,exclude,X_NOT_MOUSE_LIFESPAN,CR adipose expression,2b
+14698754,1,exclude,X_NOT_MOUSE_LIFESPAN,NMDA receptor by age,2b
+14966272,1,exclude,X_NOT_MOUSE_LIFESPAN,leukaemia model,2b
+14977983,1,exclude,X_NOT_MOUSE_LIFESPAN,cryptococcosis,2b
+14980814,1,exclude,X_NOT_MOUSE_LIFESPAN,glial lifespan BrdU,2b
+15081621,1,exclude,X_NOT_MOUSE_LIFESPAN,immunisation,2b
+15235388,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma vaccine,2b
+15257284,1,exclude,X_NOT_MOUSE_LIFESPAN,breast cancer model,2b
+15264220,1,exclude,X_NOT_MOUSE_LIFESPAN,twitcher hippocampus,2b
+15285528,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour vaccine,2b
+15294963,1,exclude,X_NOT_MOUSE_LIFESPAN,HSC TGF-beta2,2b
+15316395,1,exclude,X_NOT_MOUSE_LIFESPAN,LPS response,2b
+15322028,1,exclude,X_NOT_MOUSE_LIFESPAN,M.tb mutants,2b
+15322035,1,exclude,X_NOT_MOUSE_LIFESPAN,fungal infection,2b
+15383573,1,exclude,X_NOT_MOUSE_LIFESPAN,DC survival,2b
+15466380,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic cancer model,2b
+15483668,1,exclude,X_NOT_MOUSE_LIFESPAN,adenoviral vector,2b
+15501021,1,pass,,thiol redox two strains differing lifespan,2b
+15528340,1,exclude,X_NOT_MOUSE_LIFESPAN,lupus B-1a,2b
+15549658,1,exclude,X_NOT_MOUSE_LIFESPAN,sarcoma ICR,2b
+15564139,1,exclude,X_NOT_MOUSE_LIFESPAN,glioma rats,2b
+15585877,1,exclude,X_NOT_MOUSE_LIFESPAN,pneumococcus,2b
+15679268,1,exclude,X_NOT_MOUSE_LIFESPAN,Cav2 mRNA,2b
+15687029,1,exclude,X_NOT_MOUSE_LIFESPAN,tuberculosis,2b
+15730859,1,exclude,X_NOT_MOUSE_LIFESPAN,bone marrow culture,2b
+15781583,1,exclude,X_NOT_MOUSE_LIFESPAN,irradiation fibrosis,2b
+15820611,1,pass,,long-lived Idaho mice lifespan,2b
+15820856,1,exclude,X_NOT_MOUSE_LIFESPAN,enrichment memory,2b
+15863465,1,exclude,X_NOT_MOUSE_LIFESPAN,elastin arteries,2b
+15899823,1,exclude,X_NOT_MOUSE_LIFESPAN,prostate tumour,2b
+15908378,1,exclude,X_NOT_MOUSE_LIFESPAN,M.tb,2b
+15924568,1,pass,,methionine restriction lifespan,2b
+15961611,1,pass,,"lifelong exercise, survival maybe",2b
+15963364,1,exclude,X_NOT_MOUSE_LIFESPAN,Candida vaccine,2b
+15972516,1,exclude,X_NOT_MOUSE_LIFESPAN,pneumococcal pneumonia,2b
+15984421,1,exclude,X_NOT_MOUSE_LIFESPAN,bone phenotype,2b
+16024047,1,pass,,"SOD1 background survival, B6 WT?",2b
+16041050,1,exclude,X_NOT_MOUSE_LIFESPAN,cerebral malaria,2b
+16187329,1,exclude,X_NOT_MOUSE_LIFESPAN,neurogenesis,2b
+16243468,1,exclude,X_NOT_MOUSE_LIFESPAN,muscle contractility by age,2b
+16322238,1,exclude,X_NOT_MOUSE_LIFESPAN,gastric cancer,2b
+16339689,1,exclude,X_NOT_MOUSE_LIFESPAN,HbE transgenic,2b
+16374922,1,pass,,NOABS conference supplement,2b
+16408214,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour vaccine,2b
+16424110,1,exclude,X_NOT_MOUSE_LIFESPAN,ER adipose genes,2b
+16485128,1,exclude,X_NOT_MOUSE_LIFESPAN,glioma vaccine,2b
+16497723,1,pass,,MnSOD survival by background,2b
+16510136,1,pass,,acarbose lifespan rodents,2b
+16531518,1,pass,,NOABS conference supplement,2b
+16563716,1,exclude,X_NOT_MOUSE_LIFESPAN,fish oil autoimmune-prone,2b
+16571105,1,exclude,X_NOT_MOUSE_LIFESPAN,CF model,2b
+16600309,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma metastasis,2b
+16709251,1,exclude,X_NOT_MOUSE_LIFESPAN,CR fasting,2b
+16777725,1,pass,,fecundity lifespan energy intake,2b
+16783642,1,exclude,X_NOT_MOUSE_LIFESPAN,muscle QTL,2b
+16815479,1,exclude,X_NOT_MOUSE_LIFESPAN,Purkinje number,2b
+16869725,1,exclude,X_NOT_MOUSE_LIFESPAN,bone QTL,2b
+16873095,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma metastasis,2b
+16891775,1,exclude,X_NOT_MOUSE_LIFESPAN,irradiation,2b
+16900771,1,exclude,X_NOT_MOUSE_LIFESPAN,bone marrow culture,2b
+16963250,1,exclude,X_NOT_MOUSE_LIFESPAN,fish oil bone,2b
+16982834,1,exclude,X_NOT_MOUSE_LIFESPAN,Y. pestis vaccine,2b
+17020991,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour vaccine,2b
+17032926,1,pass,,p53 dosage HSC aging (B5),2b
+17092545,1,pass,,lifelong vitamin C + cold lifespan,2b
+17092546,1,exclude,X_NOT_MOUSE_LIFESPAN,CR gene expression,2b
+17097059,1,pass,,AgRP KO lifespan,2b
+17113050,1,exclude,X_NOT_MOUSE_LIFESPAN,glutathione redox,2b
+17118599,1,exclude,X_NOT_MOUSE_LIFESPAN,mitochondrial sex differences,2b
+17129217,1,pass,,shorter-lived female C57BL6 lifespan,2b
+17189993,1,exclude,X_NOT_MOUSE_LIFESPAN,Fabry aorta,2b
+17211473,1,exclude,X_NOT_MOUSE_LIFESPAN,TAg/TRAMP cancer models,2b
+17242961,1,pass,,NOABS conference supplement,2b
+17296553,1,pass,,"Olig2 KO (B5, unsure)",2b
+17353791,1,exclude,X_NOT_MOUSE_LIFESPAN,chimerism tolerance,2b
+17369374,1,pass,,NOABS conference supplement,2b
+17379097,1,exclude,X_NOT_MOUSE_LIFESPAN,leukaemogenesis model,2b
+17390073,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour immunotherapy,2b
+17515401,1,exclude,X_NOT_MOUSE_LIFESPAN,myeloma virotherapy,2b
+17516143,1,pass,,THC/green tea survival male C57BL/6,2b
+17525257,1,pass,,low-AGE diet lifespan C57BL6,2b
+17623659,1,exclude,X_NOT_MOUSE_LIFESPAN,skeletal involution,2b
+17652355,1,exclude,X_NOT_MOUSE_LIFESPAN,conducted vasodilation,2b
+17663593,1,exclude,X_NOT_MOUSE_LIFESPAN,enrichment memory,2b
+17696751,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma,2b
+17707521,1,exclude,X_NOT_MOUSE_LIFESPAN,enrichment memory,2b
+17764754,1,exclude,X_NOT_MOUSE_LIFESPAN,tularemia,2b
+17822741,1,pass,,"long-term CR two strains, AL survival maybe",2b
+17872905,1,pass,,fibulin-3 KO lifespan,2b
+17885006,1,exclude,X_NOT_MOUSE_LIFESPAN,ER body composition,2b
+17906077,1,exclude,X_NOT_MOUSE_LIFESPAN,retroviral insertion,2b
+17911587,1,exclude,X_NOT_MOUSE_LIFESPAN,exosome antigen,2b
+17921417,1,pass,,GLUT4 transgenic lifespan,2b
+17944746,1,exclude,X_NOT_MOUSE_LIFESPAN,filarial infection,2b
+17947508,1,exclude,X_NOT_MOUSE_LIFESPAN,DR HSC aging,2b
+17991723,1,exclude,X_NOT_MOUSE_LIFESPAN,CR bone,2b
+17991771,1,exclude,X_NOT_MOUSE_LIFESPAN,Aire autoimmunity,2b
+18000137,1,exclude,X_NOT_MOUSE_LIFESPAN,PohnB6F1 reproductive span (hybrid),2b
+18053669,1,exclude,X_NOT_MOUSE_LIFESPAN,CR insulin first week,2b
+18088189,1,exclude,X_NOT_MOUSE_LIFESPAN,irradiation dermatitis,2b
+18093698,1,exclude,X_NOT_MOUSE_LIFESPAN,avian flu vaccine,2b
+18320030,1,exclude,X_NOT_MOUSE_LIFESPAN,Snord116 growth,2b
+18350547,1,exclude,X_NOT_MOUSE_LIFESPAN,NKT plasma cells,2b
+18363832,1,exclude,X_NOT_MOUSE_LIFESPAN,glioblastoma,2b
+18400105,1,exclude,X_NOT_MOUSE_LIFESPAN,CF mice,2b
+18411292,1,exclude,X_NOT_MOUSE_LIFESPAN,colon tumorigenesis,2b
+18419797,1,exclude,X_NOT_MOUSE_LIFESPAN,superoxide brain,2b
+18438666,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour vaccine,2b
+18522719,1,exclude,X_NOT_MOUSE_LIFESPAN,CR testis expression,2b
+18523772,1,exclude,X_NOT_MOUSE_LIFESPAN,T cell self reactivity,2b
+18541398,1,pass,,metabolic rate two strains lifespan CR,2b
+18552208,1,exclude,X_NOT_MOUSE_LIFESPAN,leukaemia QTL,2b
+18565572,1,exclude,X_NOT_MOUSE_LIFESPAN,DNA mutation frequency,2b
+18575595,1,exclude,X_NOT_MOUSE_LIFESPAN,glioma delivery,2b
+18593280,1,exclude,X_NOT_MOUSE_LIFESPAN,EOD feeding mitochondria,2b
+18599606,1,pass,,glycotoxins CR lifespan,2b
+18631321,1,exclude,X_STRAIN,UM-HET3 (Strong 2008 ITP),2b
+18643912,1,exclude,X_NOT_MOUSE_LIFESPAN,human liver failure,2b
+18678605,1,exclude,X_NOT_MOUSE_LIFESPAN,EAE,2b
+18692537,1,exclude,X_NOT_MOUSE_LIFESPAN,tularemia vaccine,2b
+18697823,1,pass,,"p300 transgenic (B5, survival possible)",2b
+18721759,1,exclude,X_NOT_MOUSE_LIFESPAN,GVHD,2b
+18726148,1,exclude,X_NOT_MOUSE_LIFESPAN,human glioma trial,2b
+18729805,1,exclude,X_NOT_MOUSE_LIFESPAN,IGF-1 cardiomyocyte,2b
+18784733,1,exclude,X_NOT_MOUSE_LIFESPAN,tuberculosis QTL,2b
+18829535,1,exclude,X_NOT_MOUSE_LIFESPAN,colonic tumours diet,2b
+18852040,1,exclude,X_NOT_MOUSE_LIFESPAN,proton leak,2b
+18854208,1,pass,,UCP2/UCP3 lifespan AL,2b
+18936230,1,exclude,X_NOT_MOUSE_LIFESPAN,ER influenza,2b
+18947414,1,pass,,"neurological KO phenotype (B5, survival table possible)",2b
+18982516,1,exclude,X_NOT_MOUSE_LIFESPAN,lung metastasis,2b
+19024650,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation life shortening,2b
+19030125,1,exclude,X_NOT_MOUSE_LIFESPAN,review stem cells aging,2b
+19060130,1,exclude,X_NOT_MOUSE_LIFESPAN,p66Shc cardiomyocytes,2b
+19077044,1,pass,,antioxidant overexpression lifespan,2b
+19131360,1,pass,,"sarcoglycan mdx lifespan reduced, WT controls possible",2b
+19136708,1,exclude,X_NOT_MOUSE_LIFESPAN,corneal graft,2b
+19138040,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation tumorigenesis,2b
+19141702,1,pass,,FR lifespan energy imbalance,2b
+19155299,1,pass,,Rad51c/Trp53 tumorigenesis cohort survival (B5),2b
+19197353,1,exclude,X_NOT_MOUSE_LIFESPAN,mammary tumorigenesis,2b
+19219913,1,exclude,X_NOT_MOUSE_LIFESPAN,xenograft,2b
+19223593,1,exclude,X_NOT_MOUSE_LIFESPAN,naked mole-rat protein stability,2b
+19225777,1,exclude,X_NOT_MOUSE_LIFESPAN,AML vaccine,2b
+19295917,1,exclude,X_NOT_MOUSE_LIFESPAN,prion,2b
+19299708,1,exclude,X_NOT_MOUSE_LIFESPAN,DC survival,2b
+19308767,1,exclude,X_NOT_MOUSE_LIFESPAN,ALS lithium,2b
+19344418,1,exclude,X_NOT_MOUSE_LIFESPAN,human GVHD,2b
+19368729,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour rapamycin sorafenib,2b
+19368784,1,exclude,X_NOT_MOUSE_LIFESPAN,tularemia vaccine,2b
+19383971,1,exclude,X_NOT_MOUSE_LIFESPAN,HDAC inhibitors tumour,2b
+19411449,1,exclude,X_NOT_MOUSE_LIFESPAN,breast cancer stroma,2b
+19417010,1,exclude,X_NOT_MOUSE_LIFESPAN,hyperoxic lung injury,2b
+19457579,1,exclude,X_NOT_MOUSE_LIFESPAN,antitumour,2b
+19464370,1,exclude,X_NOT_MOUSE_LIFESPAN,HD behaviour,2b
+19545620,1,exclude,X_NOT_MOUSE_LIFESPAN,Drosophila,2b
+19584276,1,exclude,X_NOT_MOUSE_LIFESPAN,Min intestinal cancer,2b
+19627267,1,pass,,JAX 31 inbred strains median lifespan,2b
+19649300,1,exclude,X_NOT_MOUSE_LIFESPAN,ALS lithium,2b
+19671078,1,exclude,X_NOT_MOUSE_LIFESPAN,behaviour QTL,2b
+19671666,1,exclude,X_NOT_MOUSE_LIFESPAN,M.tb,2b
+19706698,1,pass,,GHR KO median lifespan (B5),2b
+19720428,1,exclude,X_NOT_MOUSE_LIFESPAN,neutrophil lifespan,2b
+19776219,1,pass,,MnSOD/Gpx1 lifespan,2b
+19797661,1,pass,,S6K1 lifespan,2b
+19798073,1,exclude,X_NOT_MOUSE_LIFESPAN,MOS body weight,2b
+19823581,1,exclude,X_NOT_MOUSE_LIFESPAN,human sepsis,2b
+19880816,1,pass,,mGsta4 lifespan C57BL,2b
+19893026,1,exclude,X_NOT_MOUSE_LIFESPAN,Alzheimer microglia,2b
+20007531,1,exclude,X_NOT_MOUSE_LIFESPAN,Mclk1 immune,2b
+20008787,1,exclude,X_NOT_MOUSE_LIFESPAN,AKT leukaemia,2b
+20064544,1,exclude,X_NOT_MOUSE_LIFESPAN,acute CR metabolism,2b
+20107012,1,exclude,X_NOT_MOUSE_LIFESPAN,prion,2b
+20146790,1,exclude,X_NOT_MOUSE_LIFESPAN,Tsc2 cystadenoma,2b
+20150877,1,exclude,X_NOT_MOUSE_LIFESPAN,ER-alpha hypothalamus,2b
+20162567,1,exclude,X_NOT_MOUSE_LIFESPAN,metastasis,2b
+20174443,1,exclude,X_NOT_MOUSE_LIFESPAN,HD enrichment,2b
+20215524,1,pass,,"Pol zeta spontaneous tumorigenesis (B5, survival cohort)",2b
+20219983,1,pass,,MIF KO long-lived,2b
+20229083,1,exclude,X_NOT_MOUSE_LIFESPAN,advanced tumours,2b
+20351075,1,pass,,PAPP-A KO lifespan,2b
+20383751,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour therapy,2b
+20416260,1,exclude,X_NOT_MOUSE_LIFESPAN,Neospora infection,2b
+20436918,1,exclude,X_NOT_MOUSE_LIFESPAN,islet graft,2b
+20498710,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma immunotherapy,2b
+20534876,1,exclude,X_NOT_MOUSE_LIFESPAN,ER refeeding,2b
+20536788,1,exclude,X_NOT_MOUSE_LIFESPAN,mixed chimerism,2b
+20546706,1,exclude,X_NOT_MOUSE_LIFESPAN,SAMP8 MPTP,2b
+20558214,1,pass,,ALS2 KO B6 congenic gross phenotypes/lifespan,2b
+20566667,1,exclude,X_NOT_MOUSE_LIFESPAN,wound healing,2b
+20600778,1,exclude,X_NOT_MOUSE_LIFESPAN,aged DC IL-23,2b
+20635153,1,exclude,X_NOT_MOUSE_LIFESPAN,body temperature,2b
+20637304,1,exclude,X_NOT_MOUSE_LIFESPAN,vaccine,2b
+20648641,1,exclude,X_NOT_MOUSE_LIFESPAN,astrocytes,2b
+20662608,1,exclude,X_NOT_MOUSE_LIFESPAN,stroma,2b
+20711233,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma,2b
+20739505,1,exclude,X_NOT_MOUSE_LIFESPAN,DNA vaccine tumour,2b
+20807782,1,exclude,X_NOT_MOUSE_LIFESPAN,medulloblastoma,2b
+20818929,1,pass,,atenolol longevity,2b
+20824097,1,exclude,X_NOT_MOUSE_LIFESPAN,S. aureus,2b
+20848301,1,exclude,X_NOT_MOUSE_LIFESPAN,brain tumour,2b
+20921210,1,exclude,X_NOT_MOUSE_LIFESPAN,glioma models,2b
+20974732,1,exclude,X_STRAIN,UM-HET3 (Miller 2011 ITP),2b
+20981551,1,pass,,"lifelong PUFA supplementation, lifespan",2b
+21040401,1,pass,,"Shc locus, longevity",2b
+21059623,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma metastasis,2b
+21059835,1,pass,,tail tendon biomarker predictive of longevity,2b
+21062378,1,exclude,X_NOT_MOUSE_LIFESPAN,CR haloperidol,2b
+21070590,1,pass,,UCP1 skeletal muscle longevity AL,2b
+21072263,1,exclude,X_NOT_MOUSE_LIFESPAN,NEC newborn,2b
+21085469,1,exclude,X_NOT_MOUSE_LIFESPAN,trypanosome,2b
+21151927,1,exclude,X_NOT_MOUSE_LIFESPAN,TMEM135 fat,2b
+21164223,1,exclude,X_STRAIN,129/Sv metformin,2b
+21178956,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian cancer model,2b
+21180889,1,exclude,X_NOT_MOUSE_LIFESPAN,prostate carcinoma,2b
+21212937,1,exclude,X_NOT_MOUSE_LIFESPAN,nicotine dopamine,2b
+21244697,1,exclude,X_NOT_MOUSE_LIFESPAN,MMTV mutations,2b
+21248263,1,exclude,X_NOT_MOUSE_LIFESPAN,TCR repertoire,2b
+21263154,1,exclude,X_NOT_MOUSE_LIFESPAN,leukaemia dasatinib,2b
+21276183,1,exclude,X_STRAIN,UM-HET3 femur predicts survival,2b
+21283571,1,pass,,Irs1 KO lifespan replication,2b
+21285400,1,exclude,X_NOT_MOUSE_LIFESPAN,CR cell proliferation,2b
+21292776,1,exclude,X_NOT_MOUSE_LIFESPAN,HDACi,2b
+21338232,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma metastasis,2b
+21388273,1,exclude,X_NOT_MOUSE_LIFESPAN,radioprotection TBI,2b
+21396117,1,exclude,X_NOT_MOUSE_LIFESPAN,BRCA1 cancer,2b
+21427359,1,exclude,X_NOT_MOUSE_LIFESPAN,ob/ob CR heart,2b
+21474796,1,exclude,X_NOT_MOUSE_LIFESPAN,Salmonella antitumour,2b
+21530646,1,pass,,"CR lifespan two strains thiol redox, AL lifespans",2b
+21593564,1,exclude,X_NOT_MOUSE_LIFESPAN,3xTg-AD enrichment,2b
+21630373,1,exclude,X_NOT_MOUSE_LIFESPAN,calbindin KO,2b
+21666791,1,exclude,X_NOT_MOUSE_LIFESPAN,trypanosome,2b
+21708884,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma metastasis,2b
+21737943,1,exclude,X_NOT_MOUSE_LIFESPAN,LP-BM5 murine AIDS,2b
+21768296,1,exclude,X_NOT_MOUSE_LIFESPAN,IL-2R antibody,2b
+21780831,1,exclude,X_NOT_MOUSE_LIFESPAN,adenoviral vaccine,2b
+21791575,1,pass,,alpha1A-AR lifespan vs WT,2b
+21873593,1,exclude,X_REFILL_LAB,"last author Ikeno Y is a co-author of refill 29921922; first-author affiliation Barshop/UT Health San Antonio, last-author affiliation not printed; judgment point flagged to A65",2b
+21873646,1,exclude,X_NOT_MOUSE_LIFESPAN,particulate pollution,2b
+21875959,1,exclude,X_NOT_MOUSE_LIFESPAN,Candida survival genetics,2b
+21900178,1,exclude,X_NOT_MOUSE_LIFESPAN,nematodes,2b
+21909419,1,exclude,X_NOT_MOUSE_LIFESPAN,SOD1 ALS metformin,2b
+21910975,1,exclude,X_NOT_MOUSE_LIFESPAN,Npc1 spleen,2b
+21911095,1,exclude,X_NOT_MOUSE_LIFESPAN,AML,2b
+21931850,1,exclude,X_NOT_MOUSE_LIFESPAN,sepsis infection,2b
+21951615,1,exclude,X_NOT_MOUSE_LIFESPAN,N-glycomics aging,2b
+21970857,1,exclude,X_NOT_MOUSE_LIFESPAN,Trop2 carcinogenesis,2b
+21989972,1,exclude,X_NOT_MOUSE_LIFESPAN,behaviour across lifespan DR,2b
+22015391,1,exclude,X_NOT_MOUSE_LIFESPAN,BCG tuberculosis,2b
+22056679,1,exclude,X_NOT_MOUSE_LIFESPAN,erythropoiesis,2b
+22105852,1,exclude,X_NOT_MOUSE_LIFESPAN,rapamycin glucose intolerance,2b
+22132081,1,pass,,Igf1r+/- aging lifespan,2b
+22166671,1,pass,,SkQ1 lifespan inbred strains,2b
+22174697,1,exclude,X_NOT_MOUSE_LIFESPAN,NER neuronal,2b
+22182424,1,exclude,X_NOT_MOUSE_LIFESPAN,mitochondrial protein damage,2b
+22182595,1,exclude,X_NOT_MOUSE_LIFESPAN,poxvirus,2b
+22223464,1,exclude,X_NOT_MOUSE_LIFESPAN,glial cells cortex,2b
+22226941,1,exclude,X_NOT_MOUSE_LIFESPAN,allograft rejection,2b
+22265987,1,pass,,DR polyphenols lifespan,2b
+22275868,1,exclude,X_NOT_MOUSE_LIFESPAN,vaccine,2b
+22281526,1,pass,,adiponectin lifespan normal mice,2b
+22291164,1,pass,,DGAT1 KO longevity,2b
+22317751,1,exclude,X_NOT_MOUSE_LIFESPAN,vaccine,2b
+22343713,1,pass,,"caspase-2 KO oxidative (B5, lifespan possible)",2b
+22345452,1,exclude,X_NOT_MOUSE_LIFESPAN,influenza,2b
+22355343,1,exclude,X_NOT_MOUSE_LIFESPAN,tularemia,2b
+22393392,1,exclude,X_NOT_MOUSE_LIFESPAN,DYT1 dystonia,2b
+22401849,1,exclude,X_NOT_MOUSE_LIFESPAN,in utero phthalate,2b
+22440234,1,exclude,X_NOT_MOUSE_LIFESPAN,naked mole-rat behaviour,2b
+22445281,1,exclude,X_NOT_MOUSE_LIFESPAN,cardiac allograft,2b
+22451473,1,exclude,X_STRAIN,UM-HET3 (Strong 2013 ITP),2b
+22452342,1,exclude,X_NOT_MOUSE_LIFESPAN,trauma,2b
+22472122,1,exclude,X_NOT_MOUSE_LIFESPAN,IL-2 tumour,2b
+22476871,1,pass,,NOABS conference supplement,2b
+22477519,1,pass,,NOABS conference supplement,2b
+22494154,1,exclude,X_NOT_MOUSE_LIFESPAN,KEL transgenic,2b
+22505646,1,exclude,X_NOT_MOUSE_LIFESPAN,heart failure AC5,2b
+22534817,1,exclude,X_NOT_MOUSE_LIFESPAN,macrophage tumour,2b
+22547771,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation fibrosis,2b
+22563506,1,exclude,X_NOT_MOUSE_LIFESPAN,malaria immunisation,2b
+22566614,1,pass,,IGF1 strains lifespan (inbred panel incl B6),2b
+22570136,1,exclude,X_STRAIN,Pohn wild-derived QTL,2b
+22570277,1,exclude,X_NOT_MOUSE_LIFESPAN,Cryptococcus,2b
+22571338,1,exclude,X_NOT_MOUSE_LIFESPAN,transplantable tumour,2b
+22661299,1,exclude,X_NOT_MOUSE_LIFESPAN,CR metabolome,2b
+22661498,1,exclude,X_NOT_MOUSE_LIFESPAN,PM2.5 cardiovascular,2b
+22690378,1,exclude,X_NOT_MOUSE_LIFESPAN,S. aureus mapping,2b
+22714285,1,exclude,X_NOT_MOUSE_LIFESPAN,T cell DC,2b
+22734672,1,exclude,X_NOT_MOUSE_LIFESPAN,antitumour CTL,2b
+22750207,1,exclude,X_NOT_MOUSE_LIFESPAN,rapamycin cognition,2b
+22776049,1,pass,,euthanasia markers aged inbred mice (lifespan cohort),2b
+22848356,1,exclude,X_NOT_MOUSE_LIFESPAN,human lung cancer,2b
+22925072,1,exclude,X_NOT_MOUSE_LIFESPAN,murine AIDS,2b
+22927245,1,exclude,X_NOT_MOUSE_LIFESPAN,MDS model,2b
+22952868,1,exclude,X_NOT_MOUSE_LIFESPAN,cardiac allograft,2b
+22975373,1,exclude,X_NOT_MOUSE_LIFESPAN,venous metastases,2b
+22990205,1,exclude,X_NOT_MOUSE_LIFESPAN,antiangiogenic,2b
+23021983,1,exclude,X_NOT_MOUSE_LIFESPAN,metastatic lung cancer,2b
+23024374,1,exclude,X_NOT_MOUSE_LIFESPAN,SIRT1 ischemia,2b
+23077491,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation transcripts,2b
+23092318,1,pass,,p66Shc KO tumour suppression B6 (lifespan cohort possible),2b
+23149921,1,exclude,X_NOT_MOUSE_LIFESPAN,AML,2b
+23220580,1,exclude,X_NOT_MOUSE_LIFESPAN,blepharitis,2b
+23229739,1,pass,,weight cycling lifespan C57BL/6J,2b
+23236485,1,exclude,X_NOT_MOUSE_LIFESPAN,MR obesity,2b
+23241894,1,exclude,X_NOT_MOUSE_LIFESPAN,CR NK cells,2b
+23246627,1,exclude,X_NOT_MOUSE_LIFESPAN,human gene therapy review,2b
+23313150,1,exclude,X_NOT_MOUSE_LIFESPAN,T lymphocyte turnover,2b
+23325454,1,exclude,X_NOT_MOUSE_LIFESPAN,mito ROS species,2b
+23413986,1,exclude,X_NOT_MOUSE_LIFESPAN,haemophilia,2b
+23418460,1,pass,,mtDNA mutator lymphoma B6J (survival),2b
+23420457,1,exclude,X_NOT_MOUSE_LIFESPAN,avian influenza,2b
+23459073,1,pass,,Sod1-/- DR lifespan (WT controls),2b
+23459974,1,exclude,X_NOT_MOUSE_LIFESPAN,rats,2b
+23499052,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian carcinoma,2b
+23532768,1,exclude,X_NOT_MOUSE_LIFESPAN,cardiac arrest,2b
+23542891,1,exclude,X_NOT_MOUSE_LIFESPAN,diastolic filling,2b
+23561934,1,exclude,X_NOT_MOUSE_LIFESPAN,TBI endpoints,2b
+23563226,1,exclude,X_NOT_MOUSE_LIFESPAN,DR 6 months,2b
+23615842,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma,2b
+23638043,1,exclude,X_NOT_MOUSE_LIFESPAN,SOD1 ALS,2b
+23648089,1,exclude,X_STRAIN,HET3 rapamycin glucose,2b
+23677322,1,exclude,X_NOT_MOUSE_LIFESPAN,melioidosis,2b
+23679283,1,exclude,X_NOT_MOUSE_LIFESPAN,metastatic lung cancer,2b
+23734717,1,exclude,X_NOT_MOUSE_LIFESPAN,late rapamycin heart,2b
+23740943,1,exclude,X_NOT_MOUSE_LIFESPAN,ALS,2b
+23775421,1,exclude,X_NOT_MOUSE_LIFESPAN,GL261 tumour,2b
+23795901,1,pass,,lifespanning B6J aging study (survival possible),2b
+23842593,1,exclude,X_NOT_MOUSE_LIFESPAN,oncolytic adenovirus,2b
+23844140,1,exclude,X_NOT_MOUSE_LIFESPAN,NMJ,2b
+23860099,1,exclude,X_NOT_MOUSE_LIFESPAN,CR microbiota,2b
+23863708,1,pass,,rapamycin lifespan B6 (Neff 2013),2b
+23887230,1,exclude,X_NOT_MOUSE_LIFESPAN,exercise organ injury,2b
+23898222,1,exclude,X_NOT_MOUSE_LIFESPAN,human lung cancer,2b
+23898955,1,pass,,IGF-1R+/- longevity by background,2b
+23994069,1,exclude,X_NOT_MOUSE_LIFESPAN,stroke,2b
+24033454,1,exclude,X_NOT_MOUSE_LIFESPAN,ethanol brain,2b
+24067959,1,exclude,X_NOT_MOUSE_LIFESPAN,reovirus,2b
+24131799,1,pass,,chronological vs pathology aging B6J lifespan study,2b
+24141148,1,exclude,X_NOT_MOUSE_LIFESPAN,TDP43 neurodegeneration,2b
+24162160,1,pass,,SERPINB3 transgenic vs 148 C57BL/6J controls survival,2b
+24209966,1,exclude,X_NOT_MOUSE_LIFESPAN,TBI endpoints,2b
+24213918,1,exclude,X_NOT_MOUSE_LIFESPAN,lung injury,2b
+24222124,1,exclude,X_NOT_MOUSE_LIFESPAN,xenograft,2b
+24245565,1,exclude,X_STRAIN,UM-HET3 (Harrison 2014 ITP),2b
+24260392,1,exclude,X_NOT_MOUSE_LIFESPAN,MWCNT lung transcriptomics,2b
+24300828,1,exclude,X_NOT_MOUSE_LIFESPAN,CLP sepsis,2b
+24334761,1,exclude,X_NOT_MOUSE_LIFESPAN,mesothelin,2b
+24341993,1,exclude,X_STRAIN,UM-HET3 (Miller 2014 ITP),2b
+24351912,1,exclude,X_NOT_MOUSE_LIFESPAN,PD models zebrafish,2b
+24409289,1,pass,,rapamycin lifespan C57BL/6J,2b
+24418704,1,exclude,X_NOT_MOUSE_LIFESPAN,irradiation Pig-a,2b
+24431458,1,exclude,X_NOT_MOUSE_LIFESPAN,fluoxetine adolescence,2b
+24440789,1,exclude,X_NOT_MOUSE_LIFESPAN,acetaminophen hepatotoxicity,2b
+24445777,1,pass,,"maspin KO tumour suppression (B5, aging cohort possible)",2b
+24453977,1,exclude,X_NOT_MOUSE_LIFESPAN,malaria,2b
+24503136,1,exclude,X_NOT_MOUSE_LIFESPAN,Pex1 Zellweger,2b
+24504160,1,exclude,X_NOT_MOUSE_LIFESPAN,DR lymphocyte development,2b
+24525846,1,exclude,X_NOT_MOUSE_LIFESPAN,naked mole rat,2b
+24534954,1,exclude,X_NOT_MOUSE_LIFESPAN,focal ischemia,2b
+24556924,1,exclude,X_NOT_MOUSE_LIFESPAN,HER-2/neu transgenic (FVB),2b
+24624994,1,exclude,X_NOT_MOUSE_LIFESPAN,alpha-synuclein M83,2b
+24636482,1,exclude,X_NOT_MOUSE_LIFESPAN,knee OA n=15,2b
+24651711,1,exclude,X_NOT_MOUSE_LIFESPAN,F2 infection,2b
+24660751,1,exclude,X_NOT_MOUSE_LIFESPAN,in utero gene transfer,2b
+24713322,1,exclude,X_NOT_MOUSE_LIFESPAN,vaccine models,2b
+24714520,1,pass,,glucosamine lifespan ageing mice,2b
+24740260,1,pass,,Ku80/DNA-PKcs lifespan (WT controls),2b
+24751831,1,exclude,X_NOT_MOUSE_LIFESPAN,fasting liver ischemia,2b
+24796965,1,pass,,daumone late-life survival,2b
+24800825,1,exclude,X_NOT_MOUSE_LIFESPAN,H5N1,2b
+24871581,1,exclude,X_NOT_MOUSE_LIFESPAN,HCV vaccine,2b
+24886081,1,exclude,X_NOT_MOUSE_LIFESPAN,cardiac allograft,2b
+24894817,1,exclude,X_NOT_MOUSE_LIFESPAN,mRNA vaccine tumour,2b
+24935677,1,exclude,X_NOT_MOUSE_LIFESPAN,MR metabolic phenotype,2b
+24935978,1,exclude,X_NOT_MOUSE_LIFESPAN,tularemia,2b
+24982208,1,exclude,X_NOT_MOUSE_LIFESPAN,bone marrow cultures,2b
+24982209,1,exclude,X_NOT_MOUSE_LIFESPAN,bone marrow cultures,2b
+24994062,1,pass,,DNA base lesion repair lifespan,2b
+24994537,1,pass,,alpha1B/alpha1A-AR lifespan,2b
+25013909,1,exclude,X_NOT_MOUSE_LIFESPAN,peritoneal tumour,2b
+25043004,1,exclude,X_NOT_MOUSE_LIFESPAN,T-ALL,2b
+25048265,1,pass,,transmitochondrial lymphoma B6 (survival),2b
+25052291,1,exclude,X_NOT_MOUSE_LIFESPAN,CR metabolomics,2b
+24508946,1,exclude,X_NOT_MOUSE_LIFESPAN,FTY720 diet atherosclerosis,2b
+25053177,1,exclude,X_NOT_MOUSE_LIFESPAN,glioma,2b
+25078692,1,exclude,X_NOT_MOUSE_LIFESPAN,H7N9,2b
+25088982,1,exclude,X_NOT_MOUSE_LIFESPAN,RP1 photoreceptor,2b
+25096031,1,exclude,X_NOT_MOUSE_LIFESPAN,naked mole rat cells,2b
+25108065,1,exclude,X_NOT_MOUSE_LIFESPAN,luteal progesterone,2b
+25116892,1,exclude,X_NOT_MOUSE_LIFESPAN,Peromyscus haematology,2b
+25123646,1,exclude,X_NOT_MOUSE_LIFESPAN,HSP70 insulin,2b
+25179226,1,exclude,X_NOT_MOUSE_LIFESPAN,retinal responses strains,2b
+25193556,1,pass,,high corn oil longevity aging C57BL/6 (CR comparison),2b
+25221864,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma,2b
+25299392,1,exclude,X_HYBRID,Xpg C57BL6/FVB F1 hybrid,2b
+25300955,1,exclude,X_NOT_MOUSE_LIFESPAN,review oxidative stress models,2b
+25311249,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma,2b
+25313149,1,pass,,dietary fat CR lifespan (AL control?),2b
+25324933,1,exclude,X_NOT_MOUSE_LIFESPAN,immune dysfunction induced,2b
+25325718,1,exclude,X_NOT_MOUSE_LIFESPAN,iron speciation,2b
+25381356,1,exclude,X_NOT_MOUSE_LIFESPAN,breeding format,2b
+25406017,1,exclude,X_NOT_MOUSE_LIFESPAN,GHA glucose,2b
+25406832,1,pass,,TSPO KO normal lifespan (WT controls?) [stage-1 recheck: unsure -> pass],2b
+25409014,1,exclude,X_NOT_MOUSE_LIFESPAN,human biomarkers,2b
+25435316,1,exclude,X_NOT_MOUSE_LIFESPAN,wheel running strains,2b
+25473946,1,exclude,X_NOT_MOUSE_LIFESPAN,parasitic infection,2b
+25477428,1,exclude,X_NOT_MOUSE_LIFESPAN,nerve conduction,2b
+25483062,1,exclude,X_STRAIN,129/Sv,2b
+25485580,1,exclude,X_NOT_MOUSE_LIFESPAN,rapamycin HFD,2b
+25487151,1,exclude,X_NOT_MOUSE_LIFESPAN,human AML,2b
+25493269,1,exclude,X_NOT_MOUSE_LIFESPAN,ALS biomarkers,2b
+25530875,1,exclude,X_NOT_MOUSE_LIFESPAN,glioma review,2b
+25558793,1,pass,,HFD vs control mortality female C57BL/6J,2b
+25584002,1,exclude,X_NOT_MOUSE_LIFESPAN,human trial,2b
+25640200,1,exclude,X_NOT_MOUSE_LIFESPAN,RDEB,2b
+25645995,1,exclude,X_NOT_MOUSE_LIFESPAN,A/J vestibular,2b
+25662754,1,exclude,X_NOT_MOUSE_LIFESPAN,EAE thymic peptide,2b
+25708159,1,exclude,X_NOT_MOUSE_LIFESPAN,endothelin-3,2b
+25711530,1,exclude,X_REFILL_LAB,"last author Mitchell SJ is a co-author of refill 29167747/29514072 (NIA); co-authors at NIA Baltimore, last-author affiliation not printed; judgment point flagged to A65",2b
+25729426,1,exclude,X_NOT_MOUSE_LIFESPAN,review oncology,2b
+25762141,1,exclude,X_NOT_MOUSE_LIFESPAN,glioblastoma vaccine,2b
+25763819,1,pass,,dynactin mutant lifespan B6 background,2b
+25798181,1,exclude,X_NOT_MOUSE_LIFESPAN,GKI calculator,2b
+25874125,1,exclude,X_NOT_MOUSE_LIFESPAN,Min tumorigenesis,2b
+25889584,1,exclude,X_NOT_MOUSE_LIFESPAN,CR ovarian follicle,2b
+25893911,1,pass,,C57BL/6 life span study muscle power,2b
+25903964,1,exclude,X_NOT_MOUSE_LIFESPAN,ARDS,2b
+25948793,1,exclude,X_NOT_MOUSE_LIFESPAN,CR B16F10,2b
+25961064,1,exclude,X_NOT_MOUSE_LIFESPAN,Francisella,2b
+25964428,1,exclude,X_NOT_MOUSE_LIFESPAN,GM1 gangliosidosis,2b
+25973794,1,exclude,X_NOT_MOUSE_LIFESPAN,tularemia vaccines,2b
+25978367,1,pass,,long-term enteric rapamycin health (B6 cohort),2b
+25995385,1,exclude,X_NOT_MOUSE_LIFESPAN,lung cancer mutagenesis,2b
+26055302,1,exclude,X_NOT_MOUSE_LIFESPAN,AML,2b
+26061745,1,exclude,X_NOT_MOUSE_LIFESPAN,graded CR short term,2b
+26068223,1,exclude,X_NOT_MOUSE_LIFESPAN,alpha-synuclein,2b
+26096931,1,exclude,X_NOT_MOUSE_LIFESPAN,mammary involution,2b
+26103448,1,pass,,melinjo extract survival (diet?),2b
+26134652,1,exclude,X_NOT_MOUSE_LIFESPAN,hearing loss,2b
+26139288,1,exclude,X_NOT_MOUSE_LIFESPAN,malaria vaccine,2b
+26139353,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour vaccine,2b
+26141444,1,exclude,X_NOT_MOUSE_LIFESPAN,RBC survival,2b
+26145038,1,exclude,X_REFILL,PMID is a refill PMID (refill-list.csv),2b
+26168721,1,exclude,X_NOT_MOUSE_LIFESPAN,prion,2b
+26216943,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian cancer,2b
+26225121,1,exclude,X_NOT_MOUSE_LIFESPAN,S100A7 tumour,2b
+26228897,1,exclude,X_NOT_MOUSE_LIFESPAN,CD8 costimulation,2b
+26252865,1,exclude,X_NOT_MOUSE_LIFESPAN,ALL dexamethasone,2b
+26263201,1,exclude,X_NOT_MOUSE_LIFESPAN,sperm protein vaccine,2b
+26271539,1,pass,,longitudinal activity rhythms over lifespan (Letter),2b
+26286956,1,exclude,X_NOT_MOUSE_LIFESPAN,graded CR body temperature,2b
+26288094,1,exclude,X_NOT_MOUSE_LIFESPAN,SOD1 guanabenz,2b
+26289253,1,exclude,X_NOT_MOUSE_LIFESPAN,eEPC treatment,2b
+26292757,1,pass,,"Ink4/Cip-Kip KO (B5, survival possible)",2b
+26321221,1,exclude,X_NOT_MOUSE_LIFESPAN,ALL retinoids,2b
+26347815,1,exclude,X_NOT_MOUSE_LIFESPAN,intestinal tumorigenesis,2b
+26414508,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation CBA/J,2b
+26420838,1,exclude,X_NOT_MOUSE_LIFESPAN,Gaucher,2b
+26471744,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour host macrophages,2b
+26477319,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation colorectal,2b
+26478101,1,exclude,X_NOT_MOUSE_LIFESPAN,preterm labour,2b
+26482294,1,exclude,X_NOT_MOUSE_LIFESPAN,irradiated haematopoiesis,2b
+26482575,1,exclude,X_NOT_MOUSE_LIFESPAN,Ehrlich ascites,2b
+26503055,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour immunity,2b
+26526200,1,exclude,X_NOT_MOUSE_LIFESPAN,irradiation brain,2b
+26528816,1,exclude,X_NOT_MOUSE_LIFESPAN,Apc mutant,2b
+26546710,1,exclude,X_NOT_MOUSE_LIFESPAN,aortic aneurysm MFS,2b
+26572927,1,exclude,X_NOT_MOUSE_LIFESPAN,DR bone,2b
+26611605,1,exclude,X_NOT_MOUSE_LIFESPAN,gene therapy review,2b
+26616751,1,exclude,X_NOT_MOUSE_LIFESPAN,renal IRI,2b
+26617514,1,pass,,CR brain metabolism longevity (B5),2b
+26638883,1,exclude,X_NOT_MOUSE_LIFESPAN,RBC stiffness,2b
+26660339,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation immunotherapy,2b
+26669617,1,exclude,X_NOT_MOUSE_LIFESPAN,HCC,2b
+26695882,1,exclude,X_NOT_MOUSE_LIFESPAN,mTOR signalling with age,2b
+26697506,1,exclude,X_NOT_MOUSE_LIFESPAN,metformin sedentariness,2b
+26756888,1,exclude,X_NOT_MOUSE_LIFESPAN,SOD1 ALS,2b
+26766587,1,exclude,X_NOT_MOUSE_LIFESPAN,medulloblastoma,2b
+26803056,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma DC,2b
+26804478,1,exclude,X_NOT_MOUSE_LIFESPAN,bladder cancer,2b
+26876761,1,exclude,X_NOT_MOUSE_LIFESPAN,ER DC development,2b
+26883271,1,exclude,X_NOT_MOUSE_LIFESPAN,brainstem glioma,2b
+26908618,1,exclude,X_NOT_MOUSE_LIFESPAN,BACHD motor,2b
+26922388,1,pass,,Gulo-/- lifespan vs WT? [stage-1 recheck: unsure -> pass],2b
+26924054,1,exclude,X_NOT_MOUSE_LIFESPAN,C3 glomerulopathy,2b
+26926173,1,exclude,X_NOT_MOUSE_LIFESPAN,metastasis,2b
+26942077,1,exclude,X_NOT_MOUSE_LIFESPAN,intestinal tumorigenesis,2b
+26962454,1,exclude,X_NOT_MOUSE_LIFESPAN,CLP sepsis,2b
+26980762,1,exclude,X_NOT_MOUSE_LIFESPAN,liver tumour models,2b
+27007156,1,exclude,X_NOT_MOUSE_LIFESPAN,graded CR short term,2b
+27026084,1,pass,,long-term high-protein diet survival female C57BL/6J (LFD control),2b
+27044097,1,exclude,X_NOT_MOUSE_LIFESPAN,GBM,2b
+27057467,1,exclude,X_NOT_MOUSE_LIFESPAN,HGG vaccine,2b
+27072188,1,exclude,X_NOT_MOUSE_LIFESPAN,WBI immune aging,2b
+27074569,1,exclude,X_NOT_MOUSE_LIFESPAN,cancer stem cells,2b
+27080108,1,exclude,X_NOT_MOUSE_LIFESPAN,NZB/NZW AIHA,2b
+27080944,1,exclude,X_NOT_MOUSE_LIFESPAN,pyranocoumarin exposure,2b
+27091134,1,exclude,X_REFILL,PMID is a refill PMID (refill-list.csv),2b
+27112985,1,exclude,X_NOT_MOUSE_LIFESPAN,pDC lifespan,2b
+27159218,1,exclude,X_NOT_MOUSE_LIFESPAN,ketogenic tumour meta-analysis,2b
+27169467,1,exclude,X_NOT_MOUSE_LIFESPAN,anti-PD-1,2b
+27191548,1,exclude,X_NOT_MOUSE_LIFESPAN,MR bone,2b
+27228189,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma,2b
+27265128,1,exclude,X_NOT_MOUSE_LIFESPAN,Lewis lung carcinoma,2b
+27288490,1,exclude,X_NOT_MOUSE_LIFESPAN,respiratory mechanics,2b
+27307592,1,exclude,X_NOT_MOUSE_LIFESPAN,thyroid cancer,2b
+27324096,1,exclude,X_NOT_MOUSE_LIFESPAN,pregnancy senescence,2b
+27330408,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma vaccine,2b
+27363602,1,pass,,splicing vs strain longevity 6 strains,2b
+27484904,1,exclude,X_NOT_MOUSE_LIFESPAN,geomagnetic field progenitors,2b
+27491077,1,pass,,TDP-43 high-fat jelly lifespan (WT controls),2b
+27549339,1,exclude,X_REFILL,PMID is a refill PMID (refill-list.csv),2b
+27563641,1,pass,,NOABS conference supplement,2b
+27564102,1,exclude,X_NOT_MOUSE_LIFESPAN,human oesophageal cancer,2b
+27568549,1,exclude,X_NOT_MOUSE_LIFESPAN,CR browning,2b
+27618231,1,exclude,X_NOT_MOUSE_LIFESPAN,islet allograft,2b
+27638422,1,exclude,X_NOT_MOUSE_LIFESPAN,long-lived mutants mechanisms (cells),2b
+27671636,1,exclude,X_NOT_MOUSE_LIFESPAN,encephalitis,2b
+27711975,1,exclude,X_REFILL_LAB,"last author Allison DB is a co-author of refill 29921922, same institution (University of Alabama at Birmingham)",2b
+27760758,1,exclude,X_NOT_MOUSE_LIFESPAN,human cord blood trial,2b
+27816971,1,exclude,X_NOT_MOUSE_LIFESPAN,ALL NK cells,2b
+27821326,1,pass,,MsrA transgenic lifespan,2b
+27821710,1,exclude,X_NOT_MOUSE_LIFESPAN,islet transplant,2b
+27878326,1,exclude,X_NOT_MOUSE_LIFESPAN,osteoglycin TLR4,2b
+27882323,1,exclude,X_NOT_MOUSE_LIFESPAN,MR bone NK,2b
+27887984,1,exclude,X_NOT_MOUSE_LIFESPAN,HMB functional deficits,2b
+27930666,1,exclude,X_NOT_MOUSE_LIFESPAN,PET islet graft,2b
+27940170,1,exclude,X_NOT_MOUSE_LIFESPAN,MR DNA methylation,2b
+27997587,1,exclude,X_NOT_MOUSE_LIFESPAN,COX7A2L supercomplex,2b
+28013013,1,exclude,X_NOT_MOUSE_LIFESPAN,dogs,2b
+28108253,1,exclude,X_NOT_MOUSE_LIFESPAN,Dcc dopamine,2b
+28108557,1,exclude,X_NOT_MOUSE_LIFESPAN,MHC class II mutant,2b
+28139067,1,exclude,X_NOT_MOUSE_LIFESPAN,graded CR metabolomics,2b
+28158260,1,pass,,CR POLG mutator lifespan (WT controls),2b
+28159752,1,pass,,ABP KO longevity,2b
+28159921,1,exclude,X_NOT_MOUSE_LIFESPAN,mesothelioma,2b
+28176788,1,exclude,X_NOT_MOUSE_LIFESPAN,human gastric cancer,2b
+28197369,1,exclude,X_NOT_MOUSE_LIFESPAN,lung tumour DC,2b
+28199320,1,exclude,X_NOT_MOUSE_LIFESPAN,urinary proteomics,2b
+28249896,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic cancer,2b
+28304372,1,pass,,miRNAs vs median strain lifespan 6 strains,2b
+28345005,1,exclude,X_NOT_MOUSE_LIFESPAN,CLN2 model,2b
+28381108,1,exclude,X_NOT_MOUSE_LIFESPAN,CR antinociception,2b
+28385189,1,exclude,X_NOT_MOUSE_LIFESPAN,cerebellar dysfunction,2b
+28405514,1,exclude,X_NOT_MOUSE_LIFESPAN,GVHD,2b
+28409331,1,pass,,IGF-1 healthspan lifespan sexually dimorphic,2b
+28424246,1,exclude,X_NOT_MOUSE_LIFESPAN,EATL,2b
+28430387,1,exclude,X_NOT_MOUSE_LIFESPAN,FOXO expression,2b
+28489567,1,exclude,X_NOT_MOUSE_LIFESPAN,xenograft,2b
+28523599,1,pass,,early-life restriction GHR-KO and normal mice lifespan,2b
+28544727,1,exclude,X_NOT_MOUSE_LIFESPAN,UV melanoma,2b
+28556428,1,exclude,X_NOT_MOUSE_LIFESPAN,CR transcriptional markers,2b
+28575190,1,exclude,X_NOT_MOUSE_LIFESPAN,graded CR adipose,2b
+28583134,1,exclude,X_NOT_MOUSE_LIFESPAN,colon tumour,2b
+28596809,1,exclude,X_NOT_MOUSE_LIFESPAN,mistletoe tumour meta-analysis,2b
+28624153,1,exclude,X_NOT_MOUSE_LIFESPAN,human ovarian cancer,2b
+28638448,1,exclude,X_NOT_MOUSE_LIFESPAN,autoantibodies tumour,2b
+28651373,1,exclude,X_NOT_MOUSE_LIFESPAN,acarbose CR metabolomics,2b
+28674496,1,exclude,X_NOT_MOUSE_LIFESPAN,mesothelioma,2b
+28698572,1,exclude,X_NOT_MOUSE_LIFESPAN,CR muscle,2b
+28709412,1,exclude,X_NOT_MOUSE_LIFESPAN,human trial,2b
+28732515,1,exclude,X_NOT_MOUSE_LIFESPAN,microglia hippocampal aging,2b
+28758631,1,exclude,X_NOT_MOUSE_LIFESPAN,scrapie,2b
+28761067,1,pass,,EOD feeding lifespan,2b
+28768896,1,exclude,X_NOT_MOUSE_LIFESPAN,graded CR hypotheses,2b
+28778837,1,exclude,X_NOT_MOUSE_LIFESPAN,varenicline ethanol,2b
+28795532,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour vaccine,2b
+28799249,1,exclude,X_NOT_MOUSE_LIFESPAN,CR cardiac function,2b
+28811537,1,exclude,X_NOT_MOUSE_LIFESPAN,human tongue cancer,2b
+28827345,1,pass,,indoles healthspan mice (lifespan?),2b
+28855418,1,exclude,X_NOT_MOUSE_LIFESPAN,selenotranscriptome,2b
+28855637,1,exclude,X_NOT_MOUSE_LIFESPAN,MR vs leucine restriction,2b
+28868734,1,pass,,NOABS conference supplement,2b
+28877458,1,pass,,ketogenic diet midlife mortality C57BL/6 male (control diet),2b
+28912012,1,exclude,X_NOT_MOUSE_LIFESPAN,aerobic exercise behaviour,2b
+28920104,1,exclude,X_NOT_MOUSE_LIFESPAN,Thbd thrombosis,2b
+28938440,1,exclude,X_NOT_MOUSE_LIFESPAN,protein dilution hormones,2b
+28963717,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation lung C57L,2b
+29029019,1,exclude,X_NOT_MOUSE_LIFESPAN,prostate carcinogenesis,2b
+29107713,1,exclude,X_NOT_MOUSE_LIFESPAN,alcohol neurulation,2b
+29112072,1,exclude,X_NOT_MOUSE_LIFESPAN,BLT humanised HIV,2b
+29147612,1,exclude,X_NOT_MOUSE_LIFESPAN,GVHD,2b
+29147958,1,exclude,X_NOT_MOUSE_LIFESPAN,ginsenoside neurons,2b
+29148265,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatitis,2b
+29149630,1,exclude,X_NOT_MOUSE_LIFESPAN,pattern separation,2b
+29152068,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour microenvironment age,2b
+29155004,1,exclude,X_NOT_MOUSE_LIFESPAN,NOR aging,2b
+29173277,1,exclude,X_NOT_MOUSE_LIFESPAN,Toxoplasma,2b
+29194436,1,exclude,X_NOT_MOUSE_LIFESPAN,ALS model,2b
+29203787,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian carcinoma,2b
+29223359,1,exclude,X_NOT_MOUSE_LIFESPAN,NPC1 disease model,2b
+29229294,1,exclude,X_NOT_MOUSE_LIFESPAN,synucleinopathy DHA,2b
+29275304,1,exclude,X_NOT_MOUSE_LIFESPAN,DEN hepatotoxicity,2b
+29290958,1,exclude,X_NOT_MOUSE_LIFESPAN,human pancreatic cancer,2b
+29296769,1,exclude,X_NOT_MOUSE_LIFESPAN,septic shock,2b
+29339423,1,exclude,X_NOT_MOUSE_LIFESPAN,infection,2b
+29346516,1,pass,,Nrip1 deletion female longevity,2b
+29348479,1,exclude,X_NOT_MOUSE_LIFESPAN,malaria vaccine,2b
+29378959,1,pass,,rapamycin GHR-KO (lifespan?),2b
+29404789,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS ICU congress (human),2b
+29409011,1,exclude,X_NOT_MOUSE_LIFESPAN,cardiac ischaemia,2b
+29430738,1,exclude,X_NOT_MOUSE_LIFESPAN,social behaviour Rag2,2b
+29432884,1,exclude,X_NOT_MOUSE_LIFESPAN,femur innervation,2b
+29439088,1,exclude,X_NOT_MOUSE_LIFESPAN,short-term CR insulin,2b
+29444805,1,pass,,reassessment aging genes demographic (survival data),2b
+29534981,1,exclude,X_NOT_MOUSE_LIFESPAN,acetaminophen,2b
+29571009,1,exclude,X_NOT_MOUSE_LIFESPAN,CR colonic health,2b
+29575030,1,exclude,X_NOT_MOUSE_LIFESPAN,AD microbiota,2b
+29581380,1,exclude,X_NOT_MOUSE_LIFESPAN,sleep cortex aging,2b
+29584588,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation mucositis,2b
+29651131,1,pass,,mt heteroplasmy lifespan B6-mtAKR,2b
+29679380,1,exclude,X_NOT_MOUSE_LIFESPAN,chimeric microglia,2b
+29679894,1,exclude,X_NOT_MOUSE_LIFESPAN,NR alcohol liver,2b
+29691457,1,pass,,GLUT blockade lifespan improvement,2b
+29692350,1,exclude,X_NOT_MOUSE_LIFESPAN,hybrid incompatibilities,2b
+29708498,1,exclude,X_NOT_MOUSE_LIFESPAN,CR transcriptional strain,2b
+29718123,1,exclude,X_NOT_MOUSE_LIFESPAN,graded CR metabolomics,2b
+29727710,1,exclude,X_NOT_MOUSE_LIFESPAN,wheel running cocaine,2b
+29763587,1,exclude,X_NOT_MOUSE_LIFESPAN,BPA behaviour,2b
+29849149,1,pass,,beclin1 F121A longevity,2b
+29854897,1,exclude,X_NOT_MOUSE_LIFESPAN,stroke model,2b
+29925948,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic cancer,2b
+29959213,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma,2b
+30021962,1,exclude,X_NOT_MOUSE_LIFESPAN,protein BCAA metabolism,2b
+30042931,1,exclude,X_NOT_MOUSE_LIFESPAN,JEV virus,2b
+30088666,1,exclude,X_NOT_MOUSE_LIFESPAN,sepsis lung,2b
+30090842,1,exclude,X_NOT_MOUSE_LIFESPAN,Menkes rAAV,2b
+30121784,1,exclude,X_REFILL_LAB,"last author Ikeno Y is a co-author of refill 29921922, same institution (UT Health San Antonio, Barshop Institute)",2b
+30135932,1,exclude,X_NOT_MOUSE_LIFESPAN,ALS SOD1,2b
+30150422,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation mitigator,2b
+30211950,1,pass,,NOABS conference supplement,2b
+30281537,1,exclude,X_NOT_MOUSE_LIFESPAN,P2X7 emotional,2b
+30312106,1,exclude,X_NOT_MOUSE_LIFESPAN,human portopulmonary,2b
+30455232,1,exclude,X_NOT_MOUSE_LIFESPAN,mycobacterium,2b
+30459622,1,exclude,X_NOT_MOUSE_LIFESPAN,mesothelioma,2b
+30465871,1,exclude,X_NOT_MOUSE_LIFESPAN,placental macrophages,2b
+30480229,1,pass,,"3xTg-AD female survival curves (background B6;129 likely hybrid, check full text)",2b
+30501144,1,exclude,X_NOT_MOUSE_LIFESPAN,gastric carcinogenesis,2b
+30512228,1,exclude,X_NOT_MOUSE_LIFESPAN,MR H2S,2b
+30518572,1,exclude,X_NOT_MOUSE_LIFESPAN,LPS proteomics,2b
+30518816,1,exclude,X_NOT_MOUSE_LIFESPAN,human tumour,2b
+30527757,1,exclude,X_NOT_MOUSE_LIFESPAN,doxorubicin,2b
+30532532,1,exclude,X_NOT_MOUSE_LIFESPAN,liposome,2b
+30534126,1,exclude,X_NOT_MOUSE_LIFESPAN,GVHD,2b
+30538440,1,exclude,X_NOT_MOUSE_LIFESPAN,pulmonary hypertension,2b
+30562163,1,pass,,frailty phenotype survival,2b
+30637102,1,exclude,X_NOT_MOUSE_LIFESPAN,human ALS,2b
+30688027,1,exclude,X_STRAIN,UM-HET3 acarbose (ITP),2b
+30700723,1,exclude,X_NOT_MOUSE_LIFESPAN,drebrin oxidative stress,2b
+30723577,1,exclude,X_NOT_MOUSE_LIFESPAN,commentary,2b
+30745468,1,exclude,X_NOT_MOUSE_LIFESPAN,bio-age proteomics,2b
+30758370,1,exclude,X_NOT_MOUSE_LIFESPAN,MR learning,2b
+30778090,1,exclude,X_NOT_MOUSE_LIFESPAN,phage vaccine,2b
+30832616,1,exclude,X_NOT_MOUSE_LIFESPAN,prodrug tumour,2b
+30854655,1,exclude,X_NOT_MOUSE_LIFESPAN,malaria immunity,2b
+30871598,1,exclude,X_NOT_MOUSE_LIFESPAN,microglia priming,2b
+30916479,1,exclude,X_STRAIN,UM-HET3 glycine (ITP),2b
+30938231,1,exclude,X_NOT_MOUSE_LIFESPAN,thyroid carcinoma,2b
+30958526,1,pass,,frailty female mice predicts mortality,2b
+30962630,1,exclude,X_NOT_MOUSE_LIFESPAN,glioblastoma,2b
+30974389,1,exclude,X_NOT_MOUSE_LIFESPAN,leukaemia,2b
+31029679,1,exclude,X_NOT_MOUSE_LIFESPAN,anoxia,2b
+31040320,1,exclude,X_NOT_MOUSE_LIFESPAN,prion helminth,2b
+31076997,1,exclude,X_NOT_MOUSE_LIFESPAN,central IGF-1 cognition,2b
+31102607,1,exclude,X_NOT_MOUSE_LIFESPAN,App NL-G-F motivation,2b
+31105662,1,exclude,X_NOT_MOUSE_LIFESPAN,Aspergillus,2b
+31112530,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic cancer,2b
+31174205,1,exclude,X_NOT_MOUSE_LIFESPAN,Depdc5 seizures,2b
+31182682,1,exclude,X_NOT_MOUSE_LIFESPAN,metformin ovarian aging,2b
+31231711,1,exclude,X_NOT_MOUSE_LIFESPAN,review DR sex differences,2b
+31235852,1,exclude,X_NOT_MOUSE_LIFESPAN,AML,2b
+31267843,1,exclude,X_NOT_MOUSE_LIFESPAN,influenza,2b
+31270396,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS EBMT congress (human),2b
+31270397,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS EBMT congress (human),2b
+31285451,1,exclude,X_NOT_MOUSE_LIFESPAN,Zika,2b
+31292838,1,exclude,X_NOT_MOUSE_LIFESPAN,pericyte BBB,2b
+31304837,1,exclude,X_NOT_MOUSE_LIFESPAN,cardiac LV dilatation,2b
+31315262,1,exclude,X_NOT_MOUSE_LIFESPAN,prostate cancer,2b
+31324799,1,exclude,X_NOT_MOUSE_LIFESPAN,rapalog selectivity,2b
+31333657,1,exclude,X_NOT_MOUSE_LIFESPAN,DENV vaccine,2b
+31340881,1,exclude,X_NOT_MOUSE_LIFESPAN,hepatocyte culture,2b
+31355774,1,pass,,frailty C57BL/6 sexes across lifespan (survival?),2b
+31358986,1,exclude,X_NOT_MOUSE_LIFESPAN,virus MMR,2b
+31381889,1,exclude,X_NOT_MOUSE_LIFESPAN,MIF-KO mtDNA,2b
+31386628,1,exclude,X_NOT_MOUSE_LIFESPAN,Klotho immune,2b
+31398337,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic cancer human,2b
+31415241,1,exclude,X_NOT_MOUSE_LIFESPAN,cardiac fibrosis diet,2b
+31519898,1,exclude,X_NOT_MOUSE_LIFESPAN,lung cancer,2b
+31541079,1,exclude,X_NOT_MOUSE_LIFESPAN,hepatoblastoma,2b
+31571912,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour,2b
+31592235,1,exclude,X_NOT_MOUSE_LIFESPAN,TRAMP tumour,2b
+31604525,1,exclude,X_NOT_MOUSE_LIFESPAN,SMA model,2b
+31685810,1,exclude,X_NOT_MOUSE_LIFESPAN,HRAS/NRAS neonatal,2b
+31717793,1,exclude,X_NOT_MOUSE_LIFESPAN,Ebola,2b
+31730284,1,exclude,X_NOT_MOUSE_LIFESPAN,skin allograft,2b
+31753019,1,exclude,X_NOT_MOUSE_LIFESPAN,cancer therapy,2b
+31771414,1,exclude,X_NOT_MOUSE_LIFESPAN,naked mole-rat,2b
+31773065,1,exclude,X_NOT_MOUSE_LIFESPAN,breast cancer,2b
+31776883,1,exclude,X_NOT_MOUSE_LIFESPAN,thermoneutral heart rate,2b
+31811527,1,exclude,X_NOT_MOUSE_LIFESPAN,human circRNAs (strain median lifespan correlation only),2b
+31842840,1,exclude,X_NOT_MOUSE_LIFESPAN,hyperoxia newborn,2b
+31866157,1,exclude,X_NOT_MOUSE_LIFESPAN,NMJ aging,2b
+31888585,1,exclude,X_NOT_MOUSE_LIFESPAN,pulmonary fibrosis,2b
+31953150,1,exclude,X_REFILL_LAB,last author de Cabo R is the last author of refill 29167747/29514072,2b
+31988049,1,exclude,X_NOT_MOUSE_LIFESPAN,FAHFA across lifespan,2b
+31988194,1,exclude,X_NOT_MOUSE_LIFESPAN,colorectal cancer,2b
+31996359,1,exclude,X_NOT_MOUSE_LIFESPAN,NPC1 model,2b
+32012200,1,exclude,X_NOT_MOUSE_LIFESPAN,haemoglobin lung,2b
+32019495,1,exclude,X_NOT_MOUSE_LIFESPAN,human rats PA,2b
+32044910,1,exclude,X_NOT_MOUSE_LIFESPAN,MR cardiac,2b
+32051723,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma,2b
+32108237,1,exclude,X_NOT_MOUSE_LIFESPAN,oocyte IVF,2b
+32125436,1,exclude,X_NOT_MOUSE_LIFESPAN,meningioma,2b
+32165661,1,exclude,X_NOT_MOUSE_LIFESPAN,prion helminth,2b
+32183600,1,exclude,X_NOT_MOUSE_LIFESPAN,crocidolite mesothelioma,2b
+32187981,1,exclude,X_NOT_MOUSE_LIFESPAN,MR microbiome,2b
+32206674,1,exclude,X_NOT_MOUSE_LIFESPAN,irradiation chimeras,2b
+32209112,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS ICU symposium (human),2b
+32213000,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS UEG (human gastro),2b
+32213001,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS UEG (human gastro),2b
+32222773,1,exclude,X_NOT_MOUSE_LIFESPAN,CR adipose,2b
+32239694,1,exclude,X_NOT_MOUSE_LIFESPAN,KCNQ2 epilepsy,2b
+32240651,1,exclude,X_NOT_MOUSE_LIFESPAN,prostate cancer,2b
+32285172,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic cancer,2b
+32319655,1,exclude,X_NOT_MOUSE_LIFESPAN,GVHD,2b
+32324769,1,exclude,X_NOT_MOUSE_LIFESPAN,CNS effects oral exposure,2b
+32350133,1,exclude,X_NOT_MOUSE_LIFESPAN,human atherosclerosis,2b
+32368707,1,exclude,X_NOT_MOUSE_LIFESPAN,review translational geroscience,2b
+32394346,1,exclude,X_NOT_MOUSE_LIFESPAN,AKR leukaemia,2b
+32423039,1,exclude,X_NOT_MOUSE_LIFESPAN,SAMP8,2b
+32447411,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma,2b
+32469430,1,exclude,X_NOT_MOUSE_LIFESPAN,short-term CR bone,2b
+32503629,1,exclude,X_NOT_MOUSE_LIFESPAN,CR lung injury,2b
+32523052,1,exclude,X_NOT_MOUSE_LIFESPAN,podocalyxin,2b
+32556267,1,exclude,X_REFILL_LAB,last author de Cabo R is the last author of refill 29167747/29514072,2b
+32559205,1,exclude,X_NOT_MOUSE_LIFESPAN,HCC fibre,2b
+32564302,1,exclude,X_NOT_MOUSE_LIFESPAN,aortic aneurysm,2b
+32571943,1,pass,,mating trade-off lifespan (check strain),2b
+32582166,1,exclude,X_NOT_MOUSE_LIFESPAN,placenta,2b
+32597175,1,exclude,X_NOT_MOUSE_LIFESPAN,MR fat,2b
+32625209,1,exclude,X_NOT_MOUSE_LIFESPAN,BCG tuberculosis,2b
+32625300,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA risk assessment furan (secondary),2b
+32625635,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA risk assessment DON (secondary),2b
+32625773,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA risk assessment PFOS (secondary),2b
+32632560,1,exclude,X_NOT_MOUSE_LIFESPAN,Lactobacillus paraquat,2b
+32641778,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic adenocarcinoma,2b
+32698538,1,exclude,X_NOT_MOUSE_LIFESPAN,CLL meta-analysis,2b
+32755011,1,exclude,X_REFILL,PMID is a refill PMID (refill-list.csv),2b
+32765301,1,exclude,X_NOT_MOUSE_LIFESPAN,NAFLD,2b
+32790008,1,exclude,X_NOT_MOUSE_LIFESPAN,BXD epigenetic (S strain),2b
+32804951,1,exclude,X_NOT_MOUSE_LIFESPAN,Loa loa,2b
+32813270,1,exclude,X_NOT_MOUSE_LIFESPAN,CRF expression,2b
+32822475,1,exclude,X_NOT_MOUSE_LIFESPAN,exercise capacity,2b
+32824360,1,exclude,X_NOT_MOUSE_LIFESPAN,human colon cancer,2b
+32831123,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS ICU symposium (human),2b
+32863308,1,exclude,X_NOT_MOUSE_LIFESPAN,taurine lipid,2b
+32874241,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA risk assessment chlorinated paraffins (secondary),2b
+32877690,1,exclude,X_REFILL,PMID is a refill PMID (refill-list.csv),2b
+32886000,1,exclude,X_NOT_MOUSE_LIFESPAN,MI cardiac rupture,2b
+32900821,1,exclude,X_NOT_MOUSE_LIFESPAN,rDNA variation,2b
+32947490,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation syndrome,2b
+32952954,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma vaccine,2b
+32956023,1,pass,,Klotho deficiency background B6 vs 129 (lifespan?),2b
+32984853,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour protocol,2b
+32991668,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour immunity,2b
+32994824,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA PFAS risk assessment (secondary),2b
+33004541,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour chemo,2b
+33043826,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS UEG (human gastro),2b
+33043828,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS UEG (human gastro),2b
+33053185,1,exclude,X_NOT_MOUSE_LIFESPAN,graded CR cerebellum,2b
+33069811,1,exclude,X_NOT_MOUSE_LIFESPAN,social isolation,2b
+33081354,1,exclude,X_NOT_MOUSE_LIFESPAN,colorectal cancer model,2b
+33093456,1,exclude,X_NOT_MOUSE_LIFESPAN,nanocrystal etoposide,2b
+33098510,1,exclude,X_NOT_MOUSE_LIFESPAN,leprosy,2b
+33098728,1,exclude,X_NOT_MOUSE_LIFESPAN,IL-33 CCA tumour,2b
+33106871,1,exclude,X_NOT_MOUSE_LIFESPAN,SAA diet microbiome,2b
+33123847,1,pass,,C60 olive oil lifespan,2b
+33132009,1,pass,,rapamycin ApcMin lifespan (WT arm?) [stage-1 recheck: unsure -> pass],2b
+33132348,1,exclude,X_NOT_MOUSE_LIFESPAN,bell pepper muscle,2b
+33140451,1,exclude,X_NOT_MOUSE_LIFESPAN,Scn8a encephalopathy,2b
+33145977,1,exclude,X_STRAIN,UM-HET3 rapamycin late-life (ITP C2015),2b
+33178495,1,exclude,X_NOT_MOUSE_LIFESPAN,human NSCLC,2b
+33200399,1,exclude,X_NOT_MOUSE_LIFESPAN,stroke hypocaloric,2b
+33201403,1,exclude,X_NOT_MOUSE_LIFESPAN,oesophageal carcinoma,2b
+33207644,1,pass,,grape polyphenols lifespan C57BL/6,2b
+33211821,1,exclude,X_REFILL_LAB,last author de Cabo R is the last author of refill 29167747/29514072,2b
+33218169,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma DBA/2,2b
+33224142,1,exclude,X_NOT_MOUSE_LIFESPAN,human glioma,2b
+33236530,1,exclude,X_NOT_MOUSE_LIFESPAN,gallbladder carcinoma,2b
+33255287,1,exclude,X_NOT_MOUSE_LIFESPAN,rapamycin eyedrops,2b
+33260150,1,pass,,TNFa blockade prolongs survival aging B6,2b
+33311612,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS EBMT congress (human),2b
+33320829,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian graft NMN,2b
+33346092,1,exclude,X_NOT_MOUSE_LIFESPAN,glioma ultrasound,2b
+33359073,1,exclude,X_NOT_MOUSE_LIFESPAN,seizures AChE,2b
+33374132,1,exclude,X_NOT_MOUSE_LIFESPAN,Drosophila irradiation,2b
+33384442,1,exclude,X_NOT_MOUSE_LIFESPAN,epigenetic age methods,2b
+33408344,1,exclude,X_NOT_MOUSE_LIFESPAN,GVL leukaemia,2b
+33432051,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian ageing,2b
+33440856,1,exclude,X_NOT_MOUSE_LIFESPAN,human pancreatic cancer,2b
+33443781,1,exclude,X_NOT_MOUSE_LIFESPAN,metformin cognition,2b
+33482394,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic cancer,2b
+33494935,1,exclude,X_NOT_MOUSE_LIFESPAN,IL-35 ARDS,2b
+33542075,1,exclude,X_NOT_MOUSE_LIFESPAN,glioblastoma,2b
+33542905,1,exclude,X_NOT_MOUSE_LIFESPAN,P. gingivalis BAT,2b
+33552067,1,exclude,X_NOT_MOUSE_LIFESPAN,tenascin-W incisor,2b
+33643325,1,exclude,X_NOT_MOUSE_LIFESPAN,allograft berberine,2b
+33673382,1,exclude,X_NOT_MOUSE_LIFESPAN,vaccine adjuvant,2b
+33675469,1,pass,,late-life IF frailty (lifespan unsure),2b
+33704619,1,exclude,X_NOT_MOUSE_LIFESPAN,Nrip1 skin aging,2b
+33720528,1,exclude,X_HYBRID,PA28a B6N x BALB/c F2 hybrid,2b
+33732387,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA HBCDD risk assessment (secondary),2b
+33764986,1,exclude,X_NOT_MOUSE_LIFESPAN,muscle testosterone,2b
+33767693,1,exclude,X_NOT_MOUSE_LIFESPAN,human sepsis,2b
+33768469,1,exclude,X_NOT_MOUSE_LIFESPAN,DDQ brain aging,2b
+33786674,1,exclude,X_NOT_MOUSE_LIFESPAN,EODF cerebellum,2b
+33788371,1,exclude,X_STRAIN,UM-HET3 17aE2 late life (ITP C2016),2b
+33793095,1,exclude,X_NOT_MOUSE_LIFESPAN,human peritoneal,2b
+33796866,1,exclude,X_REFILL_LAB,last author Lamming DW is the last author of a refill paper,2b
+33810067,1,exclude,X_NOT_MOUSE_LIFESPAN,antibacterial infection,2b
+33829013,1,exclude,X_NOT_MOUSE_LIFESPAN,oral cancer,2b
+33838683,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma lung carcinoma,2b
+33876723,1,exclude,X_NOT_MOUSE_LIFESPAN,cross-sectional function aging,2b
+33920124,1,exclude,X_NOT_MOUSE_LIFESPAN,neural stem tumour,2b
+33986123,1,exclude,X_NOT_MOUSE_LIFESPAN,SCC PD-1,2b
+33986291,1,exclude,X_NOT_MOUSE_LIFESPAN,bladder cancer,2b
+33986303,1,exclude,X_NOT_MOUSE_LIFESPAN,stroke hippocampal,2b
+33996267,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour delivery,2b
+34031536,1,exclude,X_NOT_MOUSE_LIFESPAN,IF memory,2b
+34050173,1,pass,,SIRT6 overexpression lifespan B6,2b
+34050595,1,exclude,X_NOT_MOUSE_LIFESPAN,transplant,2b
+34052331,1,exclude,X_NOT_MOUSE_LIFESPAN,mammary tumour,2b
+34066660,1,exclude,X_NOT_MOUSE_LIFESPAN,ASIC2a RUPP,2b
+34074008,1,exclude,X_NOT_MOUSE_LIFESPAN,antiepileptic,2b
+34080665,1,exclude,X_NOT_MOUSE_LIFESPAN,AML,2b
+34085306,1,pass,,melatonin-proficient survival B6J background,2b
+34086081,1,exclude,X_NOT_MOUSE_LIFESPAN,Dravet,2b
+34104124,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation dose-response,2b
+34109109,1,exclude,X_NOT_MOUSE_LIFESPAN,prostate cancer,2b
+34117297,1,pass,,TS-deficient strains reproduction vs lifespan (WT controls?) [stage-1 recheck: unsure -> pass],2b
+34137841,1,exclude,X_NOT_MOUSE_LIFESPAN,ovary transcriptome,2b
+34146586,1,exclude,X_NOT_MOUSE_LIFESPAN,lens transcriptome,2b
+34151592,1,exclude,X_NOT_MOUSE_LIFESPAN,FGF21 LP diet kidney,2b
+34185423,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic adenocarcinoma,2b
+34199469,1,exclude,X_NOT_MOUSE_LIFESPAN,pNET,2b
+34218083,1,exclude,X_NOT_MOUSE_LIFESPAN,sepsis sEH,2b
+34224739,1,exclude,X_NOT_MOUSE_LIFESPAN,neoantigen vaccine,2b
+34240807,1,pass,,adult-onset GH deficiency lifespan,2b
+34258584,1,exclude,X_NOT_MOUSE_LIFESPAN,bispecific antibody,2b
+34282215,1,exclude,X_NOT_MOUSE_LIFESPAN,DC vaccine melanoma,2b
+34290107,1,exclude,X_NOT_MOUSE_LIFESPAN,macrophage mTORC1,2b
+34302872,1,exclude,X_NOT_MOUSE_LIFESPAN,CUMS depression,2b
+34321593,1,exclude,X_NOT_MOUSE_LIFESPAN,PDE11A social,2b
+34330884,1,exclude,X_NOT_MOUSE_LIFESPAN,gene expression lifespan analysis,2b
+34384141,1,exclude,X_NOT_MOUSE_LIFESPAN,pneumonia tauopathy,2b
+34396466,1,exclude,X_NOT_MOUSE_LIFESPAN,sepsis,2b
+34510763,1,exclude,X_NOT_MOUSE_LIFESPAN,Western diet metformin,2b
+34542534,1,exclude,X_NOT_MOUSE_LIFESPAN,ovary imaging,2b
+34550874,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS urology meeting (human),2b
+34579167,1,pass,,CR microbiota late-life aging (survival?),2b
+34587168,1,exclude,X_NOT_MOUSE_LIFESPAN,litter expansion metabolism,2b
+34610102,1,exclude,X_NOT_MOUSE_LIFESPAN,aerobic exercise frailty,2b
+34653525,1,exclude,X_NOT_MOUSE_LIFESPAN,human LD-RT,2b
+34654824,1,exclude,X_NOT_MOUSE_LIFESPAN,5xFAD phenotyping,2b
+34675118,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic cancer,2b
+34712865,1,exclude,X_NOT_MOUSE_LIFESPAN,Cryptococcus,2b
+34713968,1,exclude,X_STRAIN,recombinant inbred DR (ILSXISS),2b
+34738714,1,exclude,X_NOT_MOUSE_LIFESPAN,oesophageal SCC,2b
+34741979,1,exclude,X_NOT_MOUSE_LIFESPAN,Adcyap1,2b
+34769147,1,exclude,X_NOT_MOUSE_LIFESPAN,PDAC diabetes,2b
+34789620,1,pass,,survival rates 4 inbred strains housing,2b
+34820737,1,exclude,X_NOT_MOUSE_LIFESPAN,white matter FTIR,2b
+34830319,1,exclude,X_NOT_MOUSE_LIFESPAN,CNV radiation offspring,2b
+34835956,1,exclude,X_NOT_MOUSE_LIFESPAN,spermidine liver,2b
+34850562,1,exclude,X_NOT_MOUSE_LIFESPAN,folate methylation,2b
+34851032,1,exclude,X_NOT_MOUSE_LIFESPAN,milk phospholipids stress,2b
+34921136,1,exclude,X_NOT_MOUSE_LIFESPAN,rats liver failure,2b
+34927309,1,exclude,X_NOT_MOUSE_LIFESPAN,NLRP4 tumour,2b
+34936510,1,exclude,X_NOT_MOUSE_LIFESPAN,sepsis hyperoxia,2b
+34941392,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma immunotherapy,2b
+34948179,1,exclude,X_NOT_MOUSE_LIFESPAN,rhabdomyosarcoma,2b
+34983288,1,pass,,Rhoh KO shortened lifespan,2b
+35022041,1,exclude,X_NOT_MOUSE_LIFESPAN,ALS enterovirus,2b
+35039874,1,exclude,X_NOT_MOUSE_LIFESPAN,HBOT beta-cell,2b
+35053591,1,exclude,X_NOT_MOUSE_LIFESPAN,HCC,2b
+35080986,1,exclude,X_NOT_MOUSE_LIFESPAN,medulloblastoma,2b
+35087020,1,exclude,X_NOT_MOUSE_LIFESPAN,BPIFB4 transfer immune,2b
+35088525,1,pass,,uncoupler strain-specific lifespan DIO (check),2b
+35104794,1,exclude,X_NOT_MOUSE_LIFESPAN,glioblastoma,2b
+35124784,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian carcinoma,2b
+35145834,1,exclude,X_NOT_MOUSE_LIFESPAN,doxorubicin tumour,2b
+35163314,1,exclude,X_NOT_MOUSE_LIFESPAN,galangin fibroblast,2b
+35170835,1,exclude,X_NOT_MOUSE_LIFESPAN,dementia intergenerational,2b
+35193929,1,exclude,X_NOT_MOUSE_LIFESPAN,oncolytic adenovirus,2b
+35203502,1,exclude,X_NOT_MOUSE_LIFESPAN,maternal obesity liver,2b
+35220898,1,exclude,X_NOT_MOUSE_LIFESPAN,autophagy mtDNA,2b
+35236758,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour CAF,2b
+35268089,1,pass,,GlyNAC length of life B6,2b
+35277933,1,exclude,X_NOT_MOUSE_LIFESPAN,HPA cancer,2b
+35313348,1,exclude,X_NOT_MOUSE_LIFESPAN,clocks polypharmacy,2b
+35316424,1,exclude,X_NOT_MOUSE_LIFESPAN,IVF telomere,2b
+35338200,1,pass,,Ndufs2 healthspan (lifespan?),2b
+35354808,1,exclude,X_NOT_MOUSE_LIFESPAN,human trial,2b
+35379745,1,exclude,X_NOT_MOUSE_LIFESPAN,plasma cell lifespan,2b
+35386222,1,exclude,X_NOT_MOUSE_LIFESPAN,LPS lung,2b
+35406051,1,exclude,X_NOT_MOUSE_LIFESPAN,FASD,2b
+35417454,1,exclude,X_NOT_MOUSE_LIFESPAN,Salmonella CC,2b
+35446961,1,exclude,X_NOT_MOUSE_LIFESPAN,radioprotection,2b
+35477539,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour poly(I:C),2b
+35508491,1,exclude,X_NOT_MOUSE_LIFESPAN,short-term cocktail phenotypes (UM-HET3?),2b
+35511152,1,exclude,X_NOT_MOUSE_LIFESPAN,human symposium,2b
+35511946,1,pass,,circadian CR longevity B6J male,2b
+35540797,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA acrylamide genotoxicity,2b
+35580930,1,exclude,X_NOT_MOUSE_LIFESPAN,dogs,2b
+35584669,1,exclude,X_NOT_MOUSE_LIFESPAN,CR vs dilution,2b
+35606653,1,exclude,X_NOT_MOUSE_LIFESPAN,Dravet modifier,2b
+35617926,1,exclude,X_NOT_MOUSE_LIFESPAN,MGE transplant,2b
+35623538,1,exclude,X_NOT_MOUSE_LIFESPAN,CR rapamycin molecular,2b
+35633503,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic cancer,2b
+35639808,1,exclude,X_NOT_MOUSE_LIFESPAN,graded CR cell size,2b
+35657341,1,exclude,X_NOT_MOUSE_LIFESPAN,human COVID,2b
+35658773,1,exclude,X_NOT_MOUSE_LIFESPAN,MR muscle,2b
+35667393,1,exclude,X_NOT_MOUSE_LIFESPAN,mole-rat respiration,2b
+35674443,1,exclude,X_NOT_MOUSE_LIFESPAN,microbiota age prediction,2b
+35689354,1,exclude,X_NOT_MOUSE_LIFESPAN,USVs,2b
+35741460,1,exclude,X_NOT_MOUSE_LIFESPAN,spinal cord injury,2b
+35752861,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour,2b
+35756167,1,exclude,X_NOT_MOUSE_LIFESPAN,liver scaffolds,2b
+35804900,1,exclude,X_NOT_MOUSE_LIFESPAN,CLL,2b
+35822667,1,pass,,KLF1 K74 SUMOylation healthy longevity,2b
+35874918,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma human,2b
+35875357,1,exclude,X_NOT_MOUSE_LIFESPAN,prion microglia,2b
+35882705,1,exclude,X_NOT_MOUSE_LIFESPAN,hearing loss long-lived rodents,2b
+35914953,1,pass,,MyMD-1 lifespan old B6 vs rapamycin,2b
+35915171,1,exclude,X_NOT_MOUSE_LIFESPAN,blood parameters EODF,2b
+35916733,1,pass,,neuropathic pain mortality B6 (sham arm lifespan?),2b
+35937459,1,exclude,X_NOT_MOUSE_LIFESPAN,oncolytic virus,2b
+35959207,1,exclude,X_NOT_MOUSE_LIFESPAN,human trial,2b
+35959709,1,exclude,X_NOT_MOUSE_LIFESPAN,galectin-3 cardiac,2b
+36001228,1,exclude,X_NOT_MOUSE_LIFESPAN,human trial,2b
+36012332,1,exclude,X_NOT_MOUSE_LIFESPAN,naked mole rat,2b
+36046654,1,exclude,X_NOT_MOUSE_LIFESPAN,pancreatic cancer,2b
+36064538,1,exclude,X_NOT_MOUSE_LIFESPAN,ARDS,2b
+36070817,1,exclude,X_NOT_MOUSE_LIFESPAN,knock-in reporter,2b
+36079859,1,pass,,Vasn KO shortened lifespan (WT controls?) [stage-1 recheck: unsure -> pass],2b
+36086823,1,exclude,X_NOT_MOUSE_LIFESPAN,histidine metabolic,2b
+36096831,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS paediatric rheumatology (human),2b
+36107978,1,exclude,X_NOT_MOUSE_LIFESPAN,dynactin ALS QTL,2b
+36145430,1,exclude,X_NOT_MOUSE_LIFESPAN,Neospora,2b
+36163141,1,exclude,X_NOT_MOUSE_LIFESPAN,prolactin parental,2b
+36186905,1,exclude,X_NOT_MOUSE_LIFESPAN,oral SCC,2b
+36198430,1,exclude,X_NOT_MOUSE_LIFESPAN,STING kidney,2b
+36203881,1,exclude,X_NOT_MOUSE_LIFESPAN,TB review,2b
+36206301,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian carcinosarcoma,2b
+36229047,1,exclude,X_NOT_MOUSE_LIFESPAN,human ICU antibiotics,2b
+36233193,1,exclude,X_NOT_MOUSE_LIFESPAN,MS drug,2b
+36240125,1,exclude,X_NOT_MOUSE_LIFESPAN,CB1 mRNA,2b
+36248812,1,exclude,X_NOT_MOUSE_LIFESPAN,P2X7 lpr,2b
+36268694,1,pass,,dim light at night decreases longevity (strain?),2b
+36283086,1,exclude,X_NOT_MOUSE_LIFESPAN,heat stroke,2b
+36288956,1,exclude,X_NOT_MOUSE_LIFESPAN,NCGG lung function,2b
+36300186,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian cancer,2b
+36323939,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS EBMT congress (human),2b
+36323940,1,exclude,X_NOT_MOUSE_LIFESPAN,NOABS EBMT congress (human),2b
+36362341,1,exclude,X_NOT_MOUSE_LIFESPAN,SOD1 ALS lifespan,2b
+36367780,1,exclude,X_NOT_MOUSE_LIFESPAN,atrazine oocyte,2b
+36368017,1,pass,,COMP-Ang1 lifespan defects (WT controls?) [stage-1 recheck: unsure -> pass],2b
+36369285,1,pass,,deep phenotyping longevity regulators lifetime trajectories,2b
+36443332,1,exclude,X_NOT_MOUSE_LIFESPAN,human tumour,2b
+36497123,1,exclude,X_NOT_MOUSE_LIFESPAN,enrichment cognition,2b
+36525360,1,pass,,olfactory cues lifespan female mice (strain?),2b
+36527583,1,exclude,X_NOT_MOUSE_LIFESPAN,cold stress GHR-KO,2b
+36571367,1,exclude,X_NOT_MOUSE_LIFESPAN,Schwann cells,2b
+36579667,1,exclude,X_NOT_MOUSE_LIFESPAN,head neck cancer,2b
+36593286,1,exclude,X_NOT_MOUSE_LIFESPAN,urothelial carcinoma,2b
+36674664,1,exclude,X_NOT_MOUSE_LIFESPAN,tuberculosis,2b
+36699245,1,exclude,X_NOT_MOUSE_LIFESPAN,sepsis,2b
+36709715,1,exclude,X_NOT_MOUSE_LIFESPAN,DIPG review,2b
+36709751,1,exclude,X_NOT_MOUSE_LIFESPAN,NOX renal aging,2b
+36717102,1,exclude,X_NOT_MOUSE_LIFESPAN,muscle fibre,2b
+36732754,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation BBB,2b
+36734122,1,exclude,X_REFILL_LAB,"last author Allison DB is a co-author of refill 29921922, same institution (Indiana University School of Public Health)",2b
+36757838,1,exclude,X_NOT_MOUSE_LIFESPAN,graded CR,2b
+36798047,1,exclude,X_NOT_MOUSE_LIFESPAN,HET3 neuropathy,2b
+36840360,1,exclude,X_NOT_MOUSE_LIFESPAN,AP-1 transcription,2b
+36846960,1,exclude,X_NOT_MOUSE_LIFESPAN,olfaction aging,2b
+36861401,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian cancer vaccine,2b
+36878484,1,exclude,X_NOT_MOUSE_LIFESPAN,ADT leuprolide,2b
+36901735,1,exclude,X_NOT_MOUSE_LIFESPAN,synaptic plasticity,2b
+36907105,1,exclude,X_NOT_MOUSE_LIFESPAN,glioblastoma,2b
+36923723,1,exclude,X_NOT_MOUSE_LIFESPAN,prostate cancer,2b
+36925708,1,exclude,X_NOT_MOUSE_LIFESPAN,glioblastoma,2b
+36999063,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA nitrosamines (secondary),2b
+37029450,1,exclude,X_NOT_MOUSE_LIFESPAN,human lymphoma,2b
+37037839,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour liposome,2b
+37043532,1,pass,,chronic social stress lifespan B6J (control arm),2b
+37047437,1,exclude,X_NOT_MOUSE_LIFESPAN,LAV-BPIFB4 epigenetic clock,2b
+37054779,1,exclude,X_NOT_MOUSE_LIFESPAN,choroid plexus carcinoma,2b
+37067548,1,exclude,X_NOT_MOUSE_LIFESPAN,vulvar SCC,2b
+37069690,1,exclude,X_NOT_MOUSE_LIFESPAN,mesothelioma,2b
+37078466,1,exclude,X_NOT_MOUSE_LIFESPAN,CLN3 model,2b
+37085001,1,pass,,neoagarotetraose extends lifespan B6J,2b
+37120630,1,exclude,X_NOT_MOUSE_LIFESPAN,enriched environment development,2b
+37233985,1,exclude,X_NOT_MOUSE_LIFESPAN,islet engraft,2b
+37245566,1,exclude,X_NOT_MOUSE_LIFESPAN,ketogenic tumour meta-analysis,2b
+37258714,1,exclude,X_NOT_MOUSE_LIFESPAN,early life stress,2b
+37305038,1,exclude,X_NOT_MOUSE_LIFESPAN,BAT exosomes fertility,2b
+37311538,1,exclude,X_NOT_MOUSE_LIFESPAN,Nmu-Cre,2b
+37333490,1,exclude,X_NOT_MOUSE_LIFESPAN,melanoma vaccine,2b
+37354128,1,pass,,graded CR XX long-term survival,2b
+37391679,1,pass,,MsrA sexually dimorphic longevity,2b
+37438807,1,exclude,X_NOT_MOUSE_LIFESPAN,gene expression muscle,2b
+37489855,1,exclude,X_NOT_MOUSE_LIFESPAN,sepsis,2b
+37503349,1,exclude,X_NOT_MOUSE_LIFESPAN,IGF2BP cancer,2b
+37532934,1,exclude,X_NOT_MOUSE_LIFESPAN,endometrial cancer,2b
+37554264,1,exclude,X_NOT_MOUSE_LIFESPAN,oncolytic virus,2b
+37567974,1,exclude,X_NOT_MOUSE_LIFESPAN,lymphoma,2b
+37572644,1,exclude,X_NOT_MOUSE_LIFESPAN,glioblastoma,2b
+37586617,1,exclude,X_NOT_MOUSE_LIFESPAN,social sniffing aging,2b
+37606077,1,exclude,X_NOT_MOUSE_LIFESPAN,CR serum myotubes,2b
+37608305,1,exclude,X_NOT_MOUSE_LIFESPAN,biomass smoke,2b
+37612507,1,pass,,nmr Has2 healthspan mice (lifespan?),2b
+37628569,1,exclude,X_NOT_MOUSE_LIFESPAN,twitcher Krabbe,2b
+37629764,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian cryopreservation,2b
+37649524,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA ochratoxin (secondary),2b
+37653270,1,exclude,X_NOT_MOUSE_LIFESPAN,proteomics longevity interventions,2b
+37669389,1,pass,,CR PR lifespan precision gerontology B6 male,2b
+37706611,1,exclude,X_NOT_MOUSE_LIFESPAN,dysferlin,2b
+37721686,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour hypoxia,2b
+37800911,1,exclude,X_NOT_MOUSE_LIFESPAN,cardiac allograft,2b
+37819167,1,exclude,X_NOT_MOUSE_LIFESPAN,neurogenesis polyphenol,2b
+37843590,1,exclude,X_NOT_MOUSE_LIFESPAN,heart failure model,2b
+37845315,1,exclude,X_NOT_MOUSE_LIFESPAN,bifidobacteria infection,2b
+37852737,1,exclude,X_NOT_MOUSE_LIFESPAN,human trial,2b
+37892532,1,exclude,X_NOT_MOUSE_LIFESPAN,fish oil RBC,2b
+37939658,1,exclude,X_STRAIN,isoleucine restriction UM-HET3,2b
+37981117,1,exclude,X_NOT_MOUSE_LIFESPAN,AD ginsenoside,2b
+37990909,1,exclude,X_NOT_MOUSE_LIFESPAN,anastomotic healing,2b
+38002262,1,exclude,X_NOT_MOUSE_LIFESPAN,citrulline C. elegans + mouse disease,2b
+38033493,1,exclude,X_NOT_MOUSE_LIFESPAN,NSCLC review,2b
+38041783,1,exclude,X_STRAIN,UM-HET3 astaxanthin meclizine (ITP C2019),2b
+38042137,1,exclude,X_NOT_MOUSE_LIFESPAN,review,2b
+38069222,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour,2b
+38095113,1,exclude,X_NOT_MOUSE_LIFESPAN,bat bone collagen,2b
+38113962,1,exclude,X_NOT_MOUSE_LIFESPAN,lupus congenic,2b
+38114760,1,exclude,X_NOT_MOUSE_LIFESPAN,styrylbenzoazole,2b
+38176010,1,exclude,X_NOT_MOUSE_LIFESPAN,lead blood cell,2b
+38184304,1,exclude,X_NOT_MOUSE_LIFESPAN,human trial,2b
+38184590,1,exclude,X_NOT_MOUSE_LIFESPAN,Aedes,2b
+38224917,1,exclude,X_NOT_MOUSE_LIFESPAN,radium-223,2b
+38227136,1,exclude,X_NOT_MOUSE_LIFESPAN,juvenile metformin phenotypes,2b
+38259481,1,exclude,X_NOT_MOUSE_LIFESPAN,human LD-RT,2b
+38269035,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA PBDE (secondary),2b
+38295721,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian aging CR,2b
+38324463,1,exclude,X_NOT_MOUSE_LIFESPAN,PDAC liposomes,2b
+38342072,1,exclude,X_NOT_MOUSE_LIFESPAN,MNTB ultrastructure,2b
+38351663,1,exclude,X_NOT_MOUSE_LIFESPAN,ACAD10 metformin,2b
+38352710,1,exclude,X_NOT_MOUSE_LIFESPAN,Klotho bone,2b
+38361183,1,exclude,X_HYBRID,IL23A CBA x B6,2b
+38366025,1,exclude,X_NOT_MOUSE_LIFESPAN,KD AD LTP,2b
+38391668,1,exclude,X_NOT_MOUSE_LIFESPAN,radiation iron,2b
+38409172,1,exclude,X_NOT_MOUSE_LIFESPAN,autism neurogenesis,2b
+38429422,1,exclude,X_NOT_MOUSE_LIFESPAN,GVHD human,2b
+38439091,1,exclude,X_NOT_MOUSE_LIFESPAN,liver failure,2b
+38446314,1,pass,,ergothioneine longevity male mice,2b
+38453040,1,exclude,X_NOT_MOUSE_LIFESPAN,IOP myocilin,2b
+38465473,1,pass,,Polr3b het health during ageing (lifespan?),2b
+38482021,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour,2b
+38538579,1,exclude,X_NOT_MOUSE_LIFESPAN,naked mole-rat,2b
+38550870,1,exclude,X_NOT_MOUSE_LIFESPAN,PRV virus,2b
+38566432,1,exclude,X_NOT_MOUSE_LIFESPAN,IOP aging,2b
+38582033,1,exclude,X_NOT_MOUSE_LIFESPAN,KD motor units,2b
+38598844,1,exclude,X_NOT_MOUSE_LIFESPAN,human surgery,2b
+38619272,1,exclude,X_NOT_MOUSE_LIFESPAN,virus infection,2b
+38630424,1,exclude,X_STRAIN,ITP Gehan reanalysis UM-HET3,2b
+38644380,1,exclude,X_NOT_MOUSE_LIFESPAN,iron powder elastase,2b
+38704585,1,exclude,X_NOT_MOUSE_LIFESPAN,IPF,2b
+38719808,1,exclude,X_NOT_MOUSE_LIFESPAN,C. elegans complex I,2b
+38730731,1,exclude,X_NOT_MOUSE_LIFESPAN,neuroblastoma,2b
+38751503,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA acetamiprid (secondary),2b
+38753230,1,exclude,X_STRAIN,UM-HET3 ITP C2020,2b
+38790233,1,exclude,X_NOT_MOUSE_LIFESPAN,fetal brain strains,2b
+38810714,1,exclude,X_NOT_MOUSE_LIFESPAN,behaviour monitoring,2b
+38829116,1,exclude,X_NOT_MOUSE_LIFESPAN,peri-implantitis,2b
+38850387,1,pass,,CR energy imbalance male B6 (lifespan?),2b
+38862622,1,exclude,X_NOT_MOUSE_LIFESPAN,Dravet modifier,2b
+38867381,1,pass,,GHRH deficiency extended lifespan,2b
+38869763,1,exclude,X_NOT_MOUSE_LIFESPAN,PDAC metastases,2b
+38884925,1,exclude,X_NOT_MOUSE_LIFESPAN,BPIFB4 vascular,2b
+38893116,1,exclude,X_NOT_MOUSE_LIFESPAN,glioblastoma,2b
+38906004,1,exclude,X_NOT_MOUSE_LIFESPAN,MBL senescence,2b
+38909429,1,exclude,X_NOT_MOUSE_LIFESPAN,reproductive health strain,2b
+38927364,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian cancer,2b
+38931310,1,exclude,X_NOT_MOUSE_LIFESPAN,sarcopenia lactoferrin,2b
+38935230,1,pass,,fragility phenotyping predicts lifespan (natural lifespan data),2b
+38937861,1,exclude,X_NOT_MOUSE_LIFESPAN,postnatal overfeeding,2b
+38942798,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour immunity,2b
+38943883,1,exclude,X_NOT_MOUSE_LIFESPAN,PM2.5 steatosis,2b
+38957748,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA organoarsenic (secondary),2b
+38987495,1,exclude,X_NOT_MOUSE_LIFESPAN,social frailty index,2b
+39001456,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour chemokine,2b
+39010865,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA TBBPA (secondary),2b
+39019160,1,exclude,X_NOT_MOUSE_LIFESPAN,glycemic index microbiota,2b
+39059992,1,exclude,X_NOT_MOUSE_LIFESPAN,osteocyte review,2b
+39067875,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour NNMT,2b
+39082901,1,exclude,X_NOT_MOUSE_LIFESPAN,IL-10 ER stress exercise,2b
+39085232,1,exclude,X_NOT_MOUSE_LIFESPAN,ovarian cancer proteomics,2b
+39099001,1,exclude,X_NOT_MOUSE_LIFESPAN,irradiation ARS,2b
+39119146,1,exclude,X_NOT_MOUSE_LIFESPAN,BAT review,2b
+39182436,1,exclude,X_NOT_MOUSE_LIFESPAN,rosmarinic Western diet,2b
+39203495,1,exclude,X_NOT_MOUSE_LIFESPAN,prostate cancer,2b
+39204409,1,exclude,X_NOT_MOUSE_LIFESPAN,tumour quantum dots,2b
+39223312,1,exclude,X_NOT_MOUSE_LIFESPAN,Leigh syndrome,2b
+39230655,1,exclude,X_NOT_MOUSE_LIFESPAN,seizure model,2b
+39248473,1,exclude,X_NOT_MOUSE_LIFESPAN,Pseudomonas,2b
+39261412,1,pass,,mixed-strain housing lifespan female mice,2b
+39266288,1,exclude,X_NOT_MOUSE_LIFESPAN,radiopharmaceutical,2b
+39270646,1,exclude,X_NOT_MOUSE_LIFESPAN,breast cancer,2b
+39312071,1,pass,,DADLE lifespan aged mice,2b
+39312181,1,exclude,X_NOT_MOUSE_LIFESPAN,H2S tissues,2b
+39374394,1,pass,,reproduction female mortality (strain?),2b
+39408336,1,exclude,X_NOT_MOUSE_LIFESPAN,urolithin A gut-brain,2b
+39411804,1,exclude,X_NOT_MOUSE_LIFESPAN,cardiomyopathy TG,2b
+39444985,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA brominated phenols (secondary),2b
+39467133,1,exclude,X_NOT_MOUSE_LIFESPAN,pseudogenes,2b
+39471831,1,pass,,transgenerational lifespan paternal irradiation (F1 unexposed controls),2b
+39489146,1,exclude,X_NOT_MOUSE_LIFESPAN,memory updating,2b
+39501278,1,exclude,X_NOT_MOUSE_LIFESPAN,BPIFB4 cardiac,2b
+39513373,1,exclude,X_NOT_MOUSE_LIFESPAN,GABA sarcopenia,2b
+39553702,1,exclude,X_NOT_MOUSE_LIFESPAN,EFSA saccharin (secondary),2b
+39567986,1,exclude,X_NOT_MOUSE_LIFESPAN,IF FMD transcriptional,2b
+39568151,1,pass,,GH direct effects lifespan,2b
+39604703,1,exclude,X_NOT_MOUSE_LIFESPAN,late-life PR isoleucine signatures,2b
+39605316,1,exclude,X_NOT_MOUSE_LIFESPAN,glioma,2b
+39622658,1,exclude,X_NOT_MOUSE_LIFESPAN,toxoplasmosis,2b
+39626950,1,exclude,X_NOT_MOUSE_LIFESPAN,delay discounting,2b
+39662934,1,pass,,B6 sub-strains age-related changes NCGG (survival?),2b
+39710692,1,exclude,X_NOT_MOUSE_LIFESPAN,oesophageal SCC,2b
+39718666,1,pass,,DAA enzyme deficiency lifespan lymphoma (WT controls),2b
+39727925,1,exclude,X_NOT_MOUSE_LIFESPAN,cancer bone pain,2b
+39732652,1,exclude,X_NOT_MOUSE_LIFESPAN,Western diet cardiac,2b
+39868376,1,exclude,X_NOT_MOUSE_LIFESPAN,HCC,2b
+42638781,1,exclude,X_NOT_MOUSE_LIFESPAN,BCG tuberculosis,2b
