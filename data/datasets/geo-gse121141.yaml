@@ -18,13 +18,18 @@ licence:
   redistribution_of_derived: "yes"
   citation_required: true
   notes: >-
-    "NCBI places no restrictions on the use or distribution of the GEO data.
-    However, some submitters may claim patent, copyright, or other
-    intellectual property rights in all or a portion of the data they have
-    submitted." Read via search engine on 2026-10-20 (direct fetch blocked by
-    a reCAPTCHA page). Verification to check this series for submitter claims.
-    Cite the GEO accession and the paper.
-licence_status: pending
+    LA-013 (A50, 2026-10-20): approve with conditions: cite GSE121141 and Meer
+    et al. 2018 eLife. Terms read by A69: "NCBI places no restrictions on the
+    use or distribution of the GEO data. However, some submitters may claim
+    patent, copyright, or other intellectual property rights in all or a
+    portion of the data they have submitted." Read via search engine on
+    2026-10-20 (direct fetch blocked by a reCAPTCHA page). Verification to
+    check this series for submitter claims. Cite the GEO accession and the
+    paper.
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-013
 checked_at: "2026-10-20"
 source_publications:
   - 10.7554/elife.40675

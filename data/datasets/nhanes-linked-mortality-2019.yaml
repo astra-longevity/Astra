@@ -66,14 +66,20 @@ files:
 licence:
   spdx_or_name: "NCHS data user agreement (US government work)"
   url: https://www.cdc.gov/nchs/policy/data-user-agreement.html
-  redistribution_of_derived: "unclear"
+  redistribution_of_derived: "yes"
   citation_required: true
   notes: >-
-    Use for statistical analysis only; no attempt to identify people; no
-    linkage to individually identifiable data. Aggregate tables look allowed;
-    republishing row-level records is for Verification to decide. Some records
-    have perturbed date or cause of death (vital status is not perturbed).
-licence_status: refused
+    LA-008 (A50, 2026-10-20): approve with conditions, derived tables =
+    AGGREGATE TABLES ONLY. Fetch-only: no row-level file committed, cached in
+    a public artefact or published. Derived tables must be aggregates (no cell
+    that singles out a person). No linkage to any other person-level data.
+    Every output notes that public-use mortality files carry perturbed
+    follow-up/cause for some records. Terms read by A69: Use for statistical
+    analysis only; no attempt to identify people; no linkage to individually
+    identifiable data. Aggregate tables look allowed; republishing row-level
+    records is for Verification to decide. Some records have perturbed date or
+    cause of death (vital status is not perturbed).
+licence_status: approved
 approved_by: A50
 approved_at: "2026-10-20"
 approval_ref: LA-008
@@ -83,6 +89,5 @@ used_by:
   - T1 human
 fetched_at: null
 notes: >-
-  Sizes from HTTP Content-Length on 2026-10-20. LA-008 refused because the
-  terms were not yet checked; this manifest records them, so Verification can
-  re-check the row.
+  Sizes from HTTP Content-Length on 2026-10-20. Fetch-only: never commit a
+  row-level file (LA-008).

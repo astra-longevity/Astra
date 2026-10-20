@@ -21,11 +21,16 @@ files:
 licence:
   spdx_or_name: "No licence on the repository (all rights reserved by default); article CC-BY-4.0"
   url: https://github.com/SinclairLab/pub-Schultz-Kane-2020
-  redistribution_of_derived: "unclear"
+  redistribution_of_derived: "no"
   citation_required: true
   notes: >-
-    GitHub API reports no licence for the repository (checked 2026-10-20). The
-    paper (Nat Commun 2020, PMC7492249) is CC BY 4.0 and says the source data
+    LA-005 (A50, 2026-10-20): refuse (no licence file). LA-004 (article Source
+    Data route) also refused: the Source Data File named in the data statement
+    was never published (only MOESM1-3 exist). Clears with a licence from the
+    Sinclair lab or written permission; request draft in
+    data/requests/schultz-2020-frailty-licence.md. Terms read by A69: GitHub
+    API reports no licence for the repository (checked 2026-10-20). The paper
+    (Nat Commun 2020, PMC7492249) is CC BY 4.0 and says the source data
     underlying all figures are in a Source Data file; that file's URL on
     nature.com returned HTTP 403 to curl and its name is not confirmed.
     Options for Verification: use the CC BY Source Data file, or ask the
@@ -43,7 +48,6 @@ used_by:
 fetched_at: null
 notes: >-
   The paper's data link github.com/SinclairLab/frailty redirects to this
-  repository. Sizes from the GitHub API. Verification refused this GitHub
-  route (LA-005) and approved the article's CC BY Source Data file instead
-  (LA-004); that file's URL is not confirmed yet (nature.com returned 403 to
-  curl), so it gets its own manifest once found.
+  repository. Sizes from the GitHub API. Licence request to the authors
+  drafted in data/requests/schultz-2020-frailty-licence.md (posted by A1 only
+  if the president agrees).
