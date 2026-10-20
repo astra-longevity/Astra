@@ -24,21 +24,18 @@ licence:
   redistribution_of_derived: "no"
   citation_required: true
   notes: >-
-    LA-005 (A50, 2026-10-20): refuse (no licence file). LA-004 (article Source
-    Data route) also refused: the Source Data File named in the data statement
-    was never published (only MOESM1-3 exist). Clears with a licence from the
-    Sinclair lab or written permission; request draft in
-    data/requests/schultz-2020-frailty-licence.md. Terms read by A69: GitHub
-    API reports no licence for the repository (checked 2026-10-20). The paper
-    (Nat Commun 2020, PMC7492249) is CC BY 4.0 and says the source data
-    underlying all figures are in a Source Data file; that file's URL on
-    nature.com returned HTTP 403 to curl and its name is not confirmed.
-    Options for Verification: use the CC BY Source Data file, or ask the
-    authors for a licence.
-licence_status: refused
-approved_by: A50
+    PR12 (president, 2026-10-20, docs/decisions/president-rulings.md): Astra
+    may use this dataset despite its missing licence; this overrules the
+    Verification refusals LA-005 (GitHub repo, no licence file) and LA-004
+    (article Source Data file, never published). The president contacts the
+    authors himself. The ruling does not address publishing derived tables,
+    so redistribution_of_derived stays "no". Terms read by A69: GitHub API
+    reports no licence for the repository (checked 2026-10-20); the paper (Nat
+    Commun 2020, PMC7492249) is CC BY 4.0.
+licence_status: approved
+approved_by: president
 approved_at: "2026-10-20"
-approval_ref: LA-005
+approval_ref: PR12
 checked_at: "2026-10-20"
 source_publications:
   - 10.1038/s41467-020-18446-0
@@ -47,7 +44,7 @@ used_by:
   - L2
 fetched_at: null
 notes: >-
-  The paper's data link github.com/SinclairLab/frailty redirects to this
-  repository. Sizes from the GitHub API. Licence request to the authors
-  drafted in data/requests/schultz-2020-frailty-licence.md (posted by A1 only
-  if the president agrees).
+  Licence missing; president overrule (docs/decisions/president-rulings.md
+  PR12), authors contacted by president. The paper's data link
+  github.com/SinclairLab/frailty redirects to this repository. Sizes from the
+  GitHub API.

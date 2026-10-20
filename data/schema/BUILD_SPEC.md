@@ -219,7 +219,7 @@ Rules the fetch job and any future loader must enforce:
 | `licence` present, with `redistribution_of_derived` ∈ {yes, no, unclear} (quoted in YAML) | error |
 | `files[].sha256` is `null` or 64 lowercase hex chars; never guessed | error |
 | Same `url` twice in one manifest | error |
-| `licence_status` ≠ `pending` ⇒ `approved_by`, `approved_at`, `approval_ref` (row `LA-nnn` in `verification/approvals/licences.md`) | error |
+| `licence_status` ≠ `pending` ⇒ `approved_by`, `approved_at`, `approval_ref` (row `LA-nnn` in `verification/approvals/licences.md`, or `PRn` with `approved_by: president` for a president ruling in `docs/decisions/president-rulings.md`, which overrules Verification) | error |
 | `access: unknown` | warning |
 | `licence_status: approved` with a `files[].sha256` still `null` | warning (pin needed) |
 
