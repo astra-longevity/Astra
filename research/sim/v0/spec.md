@@ -40,9 +40,10 @@ v0 uses organ systems as placeholders:
 | cardiovascular | yes |
 | renal | yes |
 | metabolic_hepatic | yes |
-| immune_haematopoietic | yes (includes cancer escape, see issue S3) |
+| immune_haematopoietic | yes |
 | neural | yes |
 | musculoskeletal | no (feeds coupling only) |
+| neoplastic | yes (placeholder cancer axis: malignant clone burden; O3, issue S3) |
 
 When `axes.md` lands, `AXES` and `VITAL` in `py/model.py` are replaced by its
 list. Any axis the metric reads must be a state here, and vice versa
@@ -82,19 +83,19 @@ enters after the hard threshold fails a test.
 
 | Parameter | Per | Count |
 |---|---|---|
-| `eta_i` damage production slope | axis | 6 |
-| `beta_i` maximum repair rate | axis | 6 |
-| `Xc_i` failure threshold | axis | 6 |
+| `eta_i` damage production slope | axis | 7 |
+| `beta_i` maximum repair rate | axis | 7 |
+| `Xc_i` failure threshold | axis | 7 |
 | `kappa` half-saturation of repair | shared | 1 |
 | `eps` noise intensity | shared | 1 |
 | `c` coupling strength | shared | 1 |
-| **Total** | | **21** |
+| **Total** | | **24** |
 
 Identifiability: from survival curves alone, `eta`, `beta` and `Xc` per axis
 are not separately identifiable (only their ratios shape mortality). The
 longitudinal axis readings (T5 data, metric v0) are what pin each axis
 separately. Until those exist, calibration fits shared values and reports the
-effective count. `Params.free_parameter_count()` returns 21; a fit that ties
+effective count. `Params.free_parameter_count()` returns 24; a fit that ties
 parameters reports the reduced count in its manifest.
 
 Defaults are **uncalibrated placeholders** (`eta = 1`, `beta = 2`, `Xc = 3`,
@@ -136,7 +137,7 @@ treatment before the metric passes its six tests (commandment 9, D115).
 |---|---|
 | S1 | Placeholder axes; replace with `research/metric/v0/axes.md` |
 | S2 | Hard threshold vs soft hazard (section 4) |
-| S3 | Cancer, the main cause of death in mice, isn't its own axis; it may need its own state (O3) |
+| S3 | Cancer, the main cause of death in mice, is only a placeholder `neoplastic` axis with the same damage/repair form as the others; real dynamics (clonal growth, immune surveillance from `immune_haematopoietic`) are needed (O3) |
 | S4 | `mappings.yaml` isn't parsed; CI check of the mapping seal (T2-A10-2) not built |
 | S5 | Sex: one parameter set per sex for now; sex transfer (stratum c) needs a shared structure |
 | S6 | Identifiability (section 5) until longitudinal axis data exist |

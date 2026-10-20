@@ -43,7 +43,7 @@ class ModelTests(unittest.TestCase):
             model.simulate(1, 1, perturbation=model.Perturbation({"eta.liverr": 0.5}))
 
     def test_parameter_count(self):
-        self.assertEqual(model.Params().free_parameter_count(), 21)
+        self.assertEqual(model.Params().free_parameter_count(), 24)
 
     def test_survival_curve_monotone(self):
         s = [v for _, v in model.survival_curve(model.simulate(100, 2))]

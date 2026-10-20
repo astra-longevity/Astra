@@ -5,7 +5,7 @@ Organ-level stochastic model of damage and repair (charter part 2, D115).
 
 | File | What |
 |---|---|
-| `spec.md` | model: axes, dynamics, death rule, 21 free parameters, intervention mapping rules, known issues |
+| `spec.md` | model: axes, dynamics, death rule, 24 free parameters, intervention mapping rules, known issues |
 | `baseline.md` | sealed null: Gompertz on controls + one HR per class, strata (a)/(b)/(c), per-stratum SPRT |
 | `py/model.py` | seeded simulator (standard library only) |
 | `py/baseline.py` | null fit (controls only, train split only), log score, SPRT |

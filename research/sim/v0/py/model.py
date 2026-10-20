@@ -31,8 +31,9 @@ AXES = (
     "immune_haematopoietic",
     "neural",
     "musculoskeletal",
+    "neoplastic",  # placeholder cancer axis (O3, spec issue S3)
 )
-VITAL = frozenset(AXES[:5])
+VITAL = frozenset(AXES) - {"musculoskeletal"}
 
 
 @dataclass(frozen=True)
