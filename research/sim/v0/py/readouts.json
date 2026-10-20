@@ -1,0 +1,357 @@
+{
+ "n_data": 2000,
+ "n_sim": 2000,
+ "ages": [
+  1.0,
+  1.5,
+  2.0,
+  2.5
+ ],
+ "n_per_age": 30,
+ "noise_rel": 0.5,
+ "readouts": {
+  "grip": {
+   "reads": "A1",
+   "assay": "grip strength, rotarod"
+  },
+  "behaviour": {
+   "reads": "A3",
+   "assay": "open field, Y-maze"
+  },
+  "echo": {
+   "reads": "A6",
+   "assay": "echocardiography (EF, LV mass)"
+  },
+  "lung": {
+   "reads": "A8",
+   "assay": "plethysmography"
+  },
+  "kidney": {
+   "reads": "A9",
+   "assay": "BUN, urine albumin"
+  },
+  "gtt": {
+   "reads": "A10",
+   "assay": "glucose tolerance, ALT"
+  },
+  "immune": {
+   "reads": "A11",
+   "assay": "blood flow cytometry"
+  },
+  "cbc": {
+   "reads": "A12",
+   "assay": "complete blood count"
+  },
+  "skin": {
+   "reads": "A13",
+   "assay": "coat/skin score"
+  },
+  "gut": {
+   "reads": "A14",
+   "assay": "gut permeability"
+  },
+  "body_comp": {
+   "reads": "A15",
+   "assay": "lean/fat mass (NMR, DEXA)"
+  },
+  "frailty": {
+   "reads": "A18 (all)",
+   "assay": "clinical frailty index"
+  },
+  "clock": {
+   "reads": "all (proxy)",
+   "assay": "epigenetic clock"
+  }
+ },
+ "survival_only": {
+  "n_recoverable": 1,
+  "noise_floor": 1277.1,
+  "threshold": 3831.4,
+  "n_identified": 0,
+  "identified": []
+ },
+ "single": {
+  "echo": {
+   "n_recoverable": 3,
+   "noise_floor": 7.4,
+   "threshold": 25.0,
+   "n_identified": 0,
+   "identified": []
+  },
+  "immune": {
+   "n_recoverable": 3,
+   "noise_floor": 5.1,
+   "threshold": 25.0,
+   "n_identified": 0,
+   "identified": []
+  },
+  "behaviour": {
+   "n_recoverable": 2,
+   "noise_floor": 10.1,
+   "threshold": 30.2,
+   "n_identified": 0,
+   "identified": []
+  },
+  "lung": {
+   "n_recoverable": 2,
+   "noise_floor": 7.3,
+   "threshold": 25.0,
+   "n_identified": 0,
+   "identified": []
+  },
+  "kidney": {
+   "n_recoverable": 2,
+   "noise_floor": 5.3,
+   "threshold": 25.0,
+   "n_identified": 0,
+   "identified": []
+  },
+  "gtt": {
+   "n_recoverable": 2,
+   "noise_floor": 9.7,
+   "threshold": 29.1,
+   "n_identified": 0,
+   "identified": []
+  },
+  "cbc": {
+   "n_recoverable": 2,
+   "noise_floor": 7.8,
+   "threshold": 25.0,
+   "n_identified": 0,
+   "identified": []
+  },
+  "skin": {
+   "n_recoverable": 2,
+   "noise_floor": 8.7,
+   "threshold": 26.1,
+   "n_identified": 0,
+   "identified": []
+  },
+  "gut": {
+   "n_recoverable": 2,
+   "noise_floor": 5.7,
+   "threshold": 25.0,
+   "n_identified": 0,
+   "identified": []
+  },
+  "frailty": {
+   "n_recoverable": 2,
+   "noise_floor": 17.6,
+   "threshold": 52.7,
+   "n_identified": 0,
+   "identified": []
+  },
+  "clock": {
+   "n_recoverable": 2,
+   "noise_floor": 16.0,
+   "threshold": 48.0,
+   "n_identified": 0,
+   "identified": []
+  },
+  "grip": {
+   "n_recoverable": 1,
+   "noise_floor": 10.0,
+   "threshold": 30.0,
+   "n_identified": 0,
+   "identified": []
+  },
+  "body_comp": {
+   "n_recoverable": 1,
+   "noise_floor": 13.5,
+   "threshold": 40.4,
+   "n_identified": 0,
+   "identified": []
+  }
+ },
+ "greedy": [
+  {
+   "add": "echo",
+   "n_identified": 0,
+   "n_recoverable": 3
+  },
+  {
+   "add": "immune",
+   "n_identified": 0,
+   "n_recoverable": 4
+  },
+  {
+   "add": "frailty",
+   "n_identified": 1,
+   "n_recoverable": 4
+  },
+  {
+   "add": "behaviour",
+   "n_identified": 1,
+   "n_recoverable": 5
+  },
+  {
+   "add": "lung",
+   "n_identified": 1,
+   "n_recoverable": 6
+  },
+  {
+   "add": "kidney",
+   "n_identified": 1,
+   "n_recoverable": 7
+  },
+  {
+   "add": "gtt",
+   "n_identified": 1,
+   "n_recoverable": 8
+  },
+  {
+   "add": "cbc",
+   "n_identified": 1,
+   "n_recoverable": 9
+  },
+  {
+   "add": "skin",
+   "n_identified": 1,
+   "n_recoverable": 10
+  },
+  {
+   "add": "gut",
+   "n_identified": 1,
+   "n_recoverable": 11
+  },
+  {
+   "add": "clock",
+   "n_identified": 1,
+   "n_recoverable": 11
+  },
+  {
+   "add": "grip",
+   "n_identified": 1,
+   "n_recoverable": 11
+  },
+  {
+   "add": "body_comp",
+   "n_identified": 1,
+   "n_recoverable": 12
+  }
+ ],
+ "all_readouts_by_n": {
+  "10": {
+   "n_recoverable": 12,
+   "noise_floor": 13.2,
+   "threshold": 39.6,
+   "n_identified": 1,
+   "identified": [
+    "eps"
+   ]
+  },
+  "30": {
+   "n_recoverable": 12,
+   "noise_floor": 39.6,
+   "threshold": 118.7,
+   "n_identified": 1,
+   "identified": [
+    "eps"
+   ]
+  },
+  "100": {
+   "n_recoverable": 12,
+   "noise_floor": 131.9,
+   "threshold": 395.7,
+   "n_identified": 1,
+   "identified": [
+    "eps"
+   ]
+  }
+ },
+ "all_readouts_plus_survival_by_n": {
+  "10": {
+   "n_recoverable": 1,
+   "noise_floor": 1254.4,
+   "threshold": 3763.2,
+   "n_identified": 0,
+   "identified": []
+  },
+  "30": {
+   "n_recoverable": 1,
+   "noise_floor": 1218.6,
+   "threshold": 3655.7,
+   "n_identified": 0,
+   "identified": []
+  },
+  "100": {
+   "n_recoverable": 2,
+   "noise_floor": 1134.2,
+   "threshold": 3402.7,
+   "n_identified": 0,
+   "identified": []
+  }
+ },
+ "axis_shares_all_readouts": {
+  "A1_muscle": {
+   "ratio": 0.94,
+   "sum": 0.01,
+   "xc": 0.0
+  },
+  "A3_brain": {
+   "ratio": 0.82,
+   "sum": 0.02,
+   "xc": 0.11
+  },
+  "A6_heart": {
+   "ratio": 0.86,
+   "sum": 0.02,
+   "xc": 0.09
+  },
+  "A8_lung": {
+   "ratio": 0.85,
+   "sum": 0.01,
+   "xc": 0.1
+  },
+  "A9_kidney": {
+   "ratio": 0.87,
+   "sum": 0.02,
+   "xc": 0.07
+  },
+  "A10_liver_metabolism": {
+   "ratio": 0.84,
+   "sum": 0.01,
+   "xc": 0.1
+  },
+  "A11_immune": {
+   "ratio": 0.85,
+   "sum": 0.01,
+   "xc": 0.07
+  },
+  "A12_blood": {
+   "ratio": 0.86,
+   "sum": 0.01,
+   "xc": 0.09
+  },
+  "A13_skin_hair": {
+   "ratio": 0.94,
+   "sum": 0.01,
+   "xc": 0.0
+  },
+  "A14_gut": {
+   "ratio": 0.93,
+   "sum": 0.01,
+   "xc": 0.0
+  },
+  "A15_fat": {
+   "ratio": 0.95,
+   "sum": 0.01,
+   "xc": 0.0
+  }
+ },
+ "readout_seed_corr": {
+  "grip": 0.89,
+  "behaviour": 0.821,
+  "echo": 0.87,
+  "lung": 0.89,
+  "kidney": 0.903,
+  "gtt": 0.838,
+  "immune": 0.869,
+  "cbc": 0.864,
+  "skin": 0.883,
+  "gut": 0.884,
+  "body_comp": 0.879,
+  "frailty": 0.948,
+  "clock": 0.947
+ }
+}

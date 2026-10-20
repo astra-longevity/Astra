@@ -29,6 +29,13 @@ class ModelTests(unittest.TestCase):
     def test_other_seed_differs(self):
         self.assertNotEqual(model.simulate(50, 7), model.simulate(50, 8))
 
+    def test_record_keeps_lifespans_and_counts_survivors(self):
+        rec = {1.0: [], 2.0: []}
+        ls = model.simulate(100, 7, record=rec)
+        self.assertEqual(ls, model.simulate(100, 7))
+        for age, states in rec.items():
+            self.assertEqual(len(states), sum(1 for x in ls if x > age))
+
     def test_untreated_median_in_mouse_range(self):
         ls = sorted(model.simulate(200, 1))
         self.assertTrue(1.5 < ls[100] < 3.5, ls[100])
