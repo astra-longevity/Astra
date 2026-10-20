@@ -35,7 +35,7 @@ spots**. So the first job is a measure of biological age built as a set of
 readings, one per organ system and per cause of ageing, rather than a single
 number. No treatment is designed until that measure passes its tests.
 
-*Cites: commandments 5, 6, 9, D114.*
+*Cites: commandments 5, 6, 9, D114, D115.*
 
 ### What to expect in the first 6 months
 
@@ -45,7 +45,8 @@ number. No treatment is designed until that measure passes its tests.
   curve-fit baseline; dated forecasts on mouse studies still running.
 - **By month 6:** a first request for mice, sent only with the measure's
   scorecard and a sealed prediction for the mice to test.
-- **What can go wrong** is tracked as 16 named obstacles, each with an
+- **What can go wrong** is tracked as 20 named obstacles (16 + 4 for
+  Verification), each with an
   owner, an exit and a date (part 9). "Impossible" is never an answer: an
   obstacle is the next target.
 
@@ -57,30 +58,37 @@ number. No treatment is designed until that measure passes its tests.
 |---|---|
 | Separate GitHub identities for agents (D68) | **Refused** 2026-10-20. Agents share one token. |
 | Three missions start before ratification (D78) | **Approved** 2026-10-20: Verification, forecast ledger, tooling. |
-| Where your health data lives (D122) | **Answered** 2026-10-20: public repo, encrypted; key only in a local, git-ignored `.env`. |
+| Where your health data lives (D122) | **Answered** 2026-10-20: public repo, encrypted; key only in a local, git-ignored `.env`. This replaces D116's `astra-private`. |
 | May agents read your raw values (D122) | **Yes.** |
 | What is published about you (D122) | You left it to us: default = per-measure records only for measures you list, none until you list any. |
 | First two blood draws (noise baseline) (D116, D122) | **Later**, when you say so. |
 | `scoring` environment, `main` only (D122) | **Done** 2026-10-20 by A1 at your request. |
-| `PROTECTION_READ_TOKEN` (D122) | **Done** with your full token, at your choice. |
+| `PROTECTION_READ_TOKEN` (D122) | **Done** with your full token, at your choice. Moving it into a `main`-only environment: **asked**. |
+| Charter-level decisions D124, D125 (part 10, part 11) | Voted by the managers with D46; yours to confirm at merge. |
 | Re-seal of code-protection settings (M2) | Pending: the Code Manager sends you the command. |
 | Mice: when and how many | Yours. Each request comes with a sealed prediction (part 4). |
 | Verification's share of workers, each quarter, ≥ 15% | Yours. |
 | Overruling a Verification finding | Only you, in writing. |
-| Ratifying this charter (D46) | After the managers' reviews. |
+| Merging this charter | You merge after the managers ratify it (D46). |
 
-*Cites: D46, D47, D64, D68, D78, D116, D117, D120, D122.*
+*Cites: D46, D47, D64, D68, D78, D116, D117, D120, D122, president ruling of 2026-10-20 (token), M-short-1.*
 
 ### Limits you must know
 
 - **Rules about who writes where are conventions, not proof.** All agents
   share one token, so a careless or tricked agent can break them. We detect
   breaches after the fact (part 7).
-- **Your token is stored as a GitHub secret with full rights.** Only the
-  daily protection check may use it; any other workflow that reads it is
-  an incident.
+- **Your token is stored as a GitHub secret with full rights.** Today it is
+  a repository secret, so a workflow pushed on any branch could read it.
+  Until it moves into a `main`-only environment referenced only by the
+  daily protection check under the seal, "only that check uses it" is a
+  convention.
+- **Your encrypted data can't be audited or withdrawn.** Agents read it
+  through the local key, which leaves no trace in git, so Verification's
+  monthly access audit can't run. If the key ever leaks, the encrypted
+  history stays public.
 
-*Cites: D68, D108, D122.*
+*Cites: D52, D68, D80, D108, D116 (T3-A50-3), D122, president ruling of 2026-10-20.*
 
 ---
 
@@ -108,7 +116,16 @@ baselines sealed in advance:
 6. **Declared validity range:** readings beyond the effect sizes it was
    validated on are labelled "extrapolated".
 
-*Cites: D114 (T1-A28-3, T1-A50-2).*
+Every reading carries its interval (test-retest noise plus model
+uncertainty); a reading without one isn't published. Each version is sealed
+before its test score is computed, and its scorecard is published with its
+failures. Test 2 uses only studies whose controls lived within the normal
+range (ITP or replicated), includes null and life-shortening arms, and
+reports an "everything extends lifespan" baseline next to the measure.
+A standard error read from a curve enters test 2 only if the curve was
+digitised twice and agreed.
+
+*Cites: D114 (T1-A28-3, T1-A50-1, T1-A50-2, T1-A28-5, T1-A2-3, T1-A2-4, T1-A2-5).*
 
 Scores on published interventions are labelled "retrospective, not
 blind". Only sealed forecasts and held-out mice count as blind evidence.
@@ -152,9 +169,12 @@ hazard ratio per class) on three strata: (a) new interventions from known
 classes, (b) new classes, (c) combinations and transfer between sexes. It
 must be no worse on (a) within a sealed margin, and must win on (b) or (c)
 to claim it captures mechanism. Each stratum has its own sequential test;
-"undecided" is published as such.
+"undecided" is published as such. The model's count of free parameters is
+published with each score. A mapping changed after a result is seen makes
+every later prediction using it exploratory until a new held-out item
+resolves.
 
-*Cites: D115 (T2-A28-6, T2-A50-1, T2-A10-4).*
+*Cites: D115 (T2-A28-6, T2-A50-1, T2-A50-3, T2-A10-4).*
 
 Measure, simulation and causal map are built in parallel, but the
 simulation ranks no treatment before the measure passes its six tests.
@@ -180,9 +200,15 @@ a local, git-ignored `.env`. Agents may read raw values. The repo publishes
 forecast hashes, aggregates (≥ 5 resolved items per measure), interval
 widths as a ratio of his noise, and one count of open twin issues.
 Per-item records are published only for measures he lists in `consent.md`.
-Nothing about him is published before `consent.md` exists.
+Nothing about him is published before `consent.md` exists. Reveals and
+per-item scores otherwise stay private.
 
-*Cites: D116, D122 (president's answers, 2026-10-20).*
+His twin is scored against a persistence baseline ("next value = last
+value", interval = his measured noise). Perturbations we forecast stay
+non-medical: a training block he chooses, or a vaccination he and his
+doctor already scheduled. Astra never proposes one.
+
+*Cites: D116 (T3-A10-2, T3-A50-2, T3-A50-4), D122 (president's answers, 2026-10-20).*
 
 ## Part 4: mice and the 3× target
 
@@ -228,9 +254,12 @@ than 7 days old.
 
 Data is fetched by manifests with licences recorded; nothing over 10 MB is
 committed outside the allow-list. A lifespan study that doesn't report a
-cause of death records it as "unknown", never "no change".
+cause of death records it as "unknown", never "no change". Verification
+approves every resolution criterion and every licence before use. Each
+survival curve used for scoring is digitised twice, independently, and the
+build checks agreement.
 
-*Cites: D118, D121 (O9, O15), D120 (T7-A2-2).*
+*Cites: D118 (T5-A50-2, T5-A50-3), D121 (O9, O15), D120 (T7-A2-2).*
 
 ## Part 6: organisation and missions
 
@@ -239,7 +268,7 @@ customer of the Research, Literature and Platform missions. Managers
 orchestrate and never do the work themselves; workers do it. Each mission
 has one owner and one customer.
 
-*Cites: D2, D4, D7, D10, D119 (T6-A1-1).*
+*Cites: president rulings (M-short-1), D2, D119 (T6-A1-1).*
 
 Verification is independent of A1 and reports to the president. Its share
 of workers is ceil(0.15 × cap), never less than the president's quarterly
@@ -273,7 +302,7 @@ Coherence and Interface start no worker without asking A1.
 | L1 Lifespan table | A2 | Every published mouse lifespan intervention, ITP first |
 | L2 Metric dossier | A2 | One file per input and function test of the measure |
 | L3 Refutation file | A2 | One row per causal edge and parameter mapping |
-| P1 Data manifests | A10 (with A9) | Sources fetched by manifest |
+| P1 Data manifests | A9 (manifests), A10 (fetch job) | Sources fetched by manifest |
 | P2 Run manifests | A10 | Seeded re-runs; split check |
 | P3 Issues and ledger jobs | A10 | `issues/` register blocking sealed outputs with open S1/S2 |
 | P4 Twin data rails | A10 | Encrypted storage, hash publishing, aggregate scores |
@@ -282,7 +311,7 @@ Coherence and Interface start no worker without asking A1.
 The old missions M3–M9, the RMST ranking engine as a product, and the
 cardiometabolic flagship are stopped.
 
-*Cites: D119 (T6-A28-1, T6-A2-1, T6-A10-1), D120 (T7-A28-3, T7-A10-3), D122.*
+*Cites: D119 (T6-A28-1, T6-A2-1, T6-A10-1, T6-A1-2), D120 (T7-A28-3, T7-A10-3), D122.*
 
 ## Part 7: decision rights
 
@@ -311,13 +340,13 @@ the fact.
 | D46 ratification | Each member approved the charter | PR reviews all come from one account | Objections quoted verbatim; A50's diff against the log |
 | D47 Verification write paths | Only Verification writes `verification/` | `Agent:` trailers are self-declared | CI check (D47) on trailers + `docs/agents.yaml`; A50's weekly `git log` diff |
 | D61 dual sign-off | Two units approved | Same as D2 | Same as D2 |
-| D66 planted-error key | Verification can't read the answer key | Any agent can read workflow outputs | Commit-reveal hash; label "planted (key not isolated)" |
-| D77 model id | Records which model did the work | Self-reported trailer | Presence check only; useful for drift, not independence |
-| M-tiny-12 no settings / no `--admin` | Nobody edits protection or rulesets | The token allows it | D52 daily drift job → alert to the president; D80 seal on workflows and scripts |
+| D66 planted-error key | Verification can't read the answer key | Any agent can read workflow outputs | Commit-reveal hash; label "planted (key not isolated)" until the keys move into the `scoring` environment (Audits P2) |
+| D124 model id | Records which model did the work | Self-reported trailer | Presence check only; useful for drift, not independence |
+| President's rule: no settings / no `--admin` | Nobody edits protection or rulesets | The token allows it | D52 daily drift job → alert to the president and Verification; D80 seal on workflows and scripts |
 
-The route back to real identities is D43's > 20 writers trigger.
+The route back to real identities is the > 20 writers trigger (D124).
 
-*Cites: D43, D68, D108.*
+*Cites: D66, D68, D108, D120 (Audits P2), D124 (proposed), president ruling of 2026-10-19 (M-tiny-12).*
 
 ## Part 8: verification and procedures
 
@@ -344,12 +373,12 @@ quarter.
 
 *Cites: D66, D71, D102, D120 (T7-A10-2, T7-A50-1).*
 
-The seal covers lint settings, workflows and scripts; changing them needs
-the president's password. A daily job compares live protection with the
-committed settings and alerts the president. Retractions are scanned
-weekly, including mouse papers.
+The seal covers lint settings, workflows and scripts; changing them needs a
+re-seal by the president. A daily job compares live protection with the
+committed settings and alerts the president and Verification. Retractions
+are scanned weekly, including mouse papers.
 
-*Cites: D52, D53, D80, D120 (T7-A10-1).*
+*Cites: D45, D52, D53, D80, D120 (T7-A10-1).*
 
 ## Part 9: obstacles and dates
 
@@ -375,11 +404,19 @@ move.
 | O14 | Gates that rely on trust | A10 | end of week 1 after the re-seal |
 | O15 | Data too big for git | A10 | month 1 |
 | O16 | No public route to SLAM longitudinal data | A2 | month 1 |
+| V1 | No blind test exists yet | A50 + A28 | month 3 |
+| V2 | Hidden keys not isolated | A50 → president | month 1 |
+| V3 | Scorecards checked only by re-running the same code | A50 | with measure v0 |
+| V4 | 13 procedure rules undecided | A50 → chair | done (D120) |
+
+Every obstacle needs an exit dated by month 6 or a dated milestone before
+then; otherwise it counts as unowned. O6, O7, O13 and V3 have neither yet,
+so they count as unowned until their owners date a milestone.
 
 The full exits and month-6 milestones are in
 `arcanum/session-1/topics/T8.md`.
 
-*Cites: commandment 4, D117, D121.*
+*Cites: commandment 4, D117, D121 (T8-A50-1, T8-A1-2).*
 
 ## Part 10: refusals, incidents and launch
 
@@ -387,13 +424,13 @@ Astra never gives dosing or personal medical advice; never uses unpinned
 external data; never scores its own forecasts; never does dual-use work. A
 negative control never counts as progress.
 
-*Cites: D18, D113, D120 (T7-A28-2).*
+*Cites: D124 (proposed; re-issues D18's refusals), D116, D120 (T7-A28-2).*
 
 Incidents are S1 (fixed in 72 h), S2 (2 weeks) or S3 (next release).
 Corrections are add-only. No sealed output ships while an S1 or S2 on it is
 open.
 
-*Cites: D54, D62, D119 (P3).*
+*Cites: D54, D119 (P3).*
 
 Until Verification clears it, CI blocks any page that publishes a
 biological age or forecast of a named individual, or claims a lifespan
@@ -407,11 +444,26 @@ advice" banner.
 Meetings follow the Arcanum rules: the debate happens in files, chat
 messages are at most 2 lines, each turn has a steelman before each
 objection and at least two dissents, objections are recorded, and only the
-clerk commits. Any member may call out flooding.
+clerk commits. Any member may call out flooding. Verification is never red
+team on its own findings.
 
-*Cites: D55, D103, `arcanum/session-1/README.md`.*
+*Cites: D55, president rulings (M-tiny-8, M-tiny-11), `arcanum/session-1/README.md`.*
 
-This charter changes only by numbered decision. The commandments outrank
-it; a decision that contradicts one is void.
+This charter changes only by a numbered decision voted in an Arcanum
+session, then merged by the president. The commandments outrank it; a
+decision that contradicts one is void.
 
-*Cites: D48, D111, commandments.*
+*Cites: D125 (proposed), commandments.*
+
+## Annex: decisions proposed with this charter
+
+Voted by the members in their D46 review (accept / accept with reservation
+/ object), confirmed by the president at merge.
+
+- **D124 (re-issue).** Re-issues from the old log: D18's refusals (no
+  dosing or personal medical advice, no unpinned external data, no scoring
+  of our own forecasts, no dual-use work); D43's trigger (separate agent
+  identities are re-proposed once more than 20 agents write); D77's
+  `Model:` trailer (presence check only).
+- **D125 (charter amendments).** The charter changes only by a numbered
+  decision voted in an Arcanum session, then merged by the president.
