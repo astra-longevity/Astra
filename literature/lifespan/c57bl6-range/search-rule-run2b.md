@@ -28,7 +28,7 @@ Every candidate shares this base (Europe PMC REST `search`):
 BASE = ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6")
        AND HAS_FT:Y AND SRC:MED AND LANG:eng
        AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review"
-TERMS = ("median" AND ("lifespan" OR "life span" OR "survival"))
+TERMS = ("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival"))
 ```
 
 Section fields are Europe PMC's section tags. `S:(TERMS)` requires `median`
@@ -46,12 +46,18 @@ Candidates differ only in the sections allowed, from broadest to narrowest:
 Written out in full (verbatim; the script reads these lines):
 
 ```
-B1: ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6") AND HAS_FT:Y AND SRC:MED AND LANG:eng AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review" AND (RESULTS:("median" AND ("lifespan" OR "life span" OR "survival")) OR METHODS:("median" AND ("lifespan" OR "life span" OR "survival")) OR TABLE:("median" AND ("lifespan" OR "life span" OR "survival")) OR FIG:("median" AND ("lifespan" OR "life span" OR "survival")))
-B2: ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6") AND HAS_FT:Y AND SRC:MED AND LANG:eng AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review" AND (RESULTS:("median" AND ("lifespan" OR "life span" OR "survival")) OR TABLE:("median" AND ("lifespan" OR "life span" OR "survival")) OR FIG:("median" AND ("lifespan" OR "life span" OR "survival")))
-B3: ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6") AND HAS_FT:Y AND SRC:MED AND LANG:eng AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review" AND (RESULTS:("median" AND ("lifespan" OR "life span" OR "survival")) OR TABLE:("median" AND ("lifespan" OR "life span" OR "survival")))
-B4: ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6") AND HAS_FT:Y AND SRC:MED AND LANG:eng AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review" AND (TABLE:("median" AND ("lifespan" OR "life span" OR "survival")) OR FIG:("median" AND ("lifespan" OR "life span" OR "survival")))
-B5: ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6") AND HAS_FT:Y AND SRC:MED AND LANG:eng AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review" AND TABLE:("median" AND ("lifespan" OR "life span" OR "survival"))
+B1: ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6") AND HAS_FT:Y AND SRC:MED AND LANG:eng AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review" AND (RESULTS:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")) OR METHODS:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")) OR TABLE:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")) OR FIG:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")))
+B2: ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6") AND HAS_FT:Y AND SRC:MED AND LANG:eng AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review" AND (RESULTS:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")) OR TABLE:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")) OR FIG:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")))
+B3: ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6") AND HAS_FT:Y AND SRC:MED AND LANG:eng AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review" AND (RESULTS:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")) OR TABLE:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")))
+B4: ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6") AND HAS_FT:Y AND SRC:MED AND LANG:eng AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review" AND (TABLE:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")) OR FIG:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival")))
+B5: ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6") AND HAS_FT:Y AND SRC:MED AND LANG:eng AND PUB_YEAR:[2000 TO 2024] AND NOT PUB_TYPE:"review" AND TABLE:("median" AND ("lifespan" OR "life span" OR "longevity" OR "survival"))
 ```
+
+Amended before any logged count, on A65's hold (PR #117): `longevity`, which
+the cleared run-2 query B had, is added back to TERMS in all five candidates.
+No other change. A count run of `count2b.rb` was started against the first
+version (749a557) shortly before the hold arrived; it was killed after about
+two minutes, printed nothing, and no count from it was seen or logged.
 
 ## Counts (dry run, after this file is committed)
 
