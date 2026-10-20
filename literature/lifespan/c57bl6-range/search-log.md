@@ -126,3 +126,35 @@ run-2 B did not have and which appears in a very large share of papers. The
 counts are logged as returned; the choice rule was applied without change.
 
 Agent: A71
+
+## Run 2b: B5 search (run once)
+
+Run once with `search2b.rb` (committed in 84a5168, before the run), after #115
+merged (b734f00) and A50's ruling (PR #126). The script checks both rule
+hashes, reads query A from `search-rule-run2.md` and B5 from
+`search-rule-run2b.md` verbatim, fetches PMID lists, then PubMed metadata only
+(no abstract, no full text) for new PMIDs, and writes `hits-run2b.tsv`.
+
+| | |
+|---|---|
+| Date | 2026-10-20 18:02 UTC |
+| `search-rule-run2.md` sha256 | `5fa16c66a7c45d48ad01ae4e37cd4e73803a020cac6d0273adf68753b0acd8be` |
+| `search-rule-run2b.md` sha256 | `d6ef9139622aa59287776d18bf11872050871d832b14c33b268eee541be2eedb` |
+| Query A sha256 | `588c38c8f5bd5af98ed546bb9055d55a00f599577ae2fad969515d729baae697` |
+| Query B5 sha256 | `aa39d6e37584ab51a4cea1403d90761771f2d643b48fa5ee238b890b9a736a07` |
+| A, PubMed count | 669 |
+| B5, Europe PMC count | 571 (all with a PMID) |
+| Union | 1233; 38 already in run 1 |
+| **New PMIDs** | **1195** (A only 624, B5 only 564, both 7), ≤ 1500 |
+| `hits-run2b.tsv` | 1195 rows, sha256 `1969324167314c4632939ab0e566ef233c36e40b37b1298304878e97683cc379` |
+| `search2b.rb` sha256 | `bc6e1bb5eecf1f3a8123ed77d939242f2e7243d0804a85fd1e2134d0e434125e` |
+
+Counts equal the dry run (A 669, B5 571, new 1195). Nesting B1 ≥ … ≥ B5 holds.
+Nothing screened, no paper opened, no number read. Next: screening of the 1195
+hits under I1–I5, refill/lab independence on metadata, open-copy lookup for
+paywalled hits; no number read until the full passing list is committed.
+
+Seal limits (A50, PR #126): medians found via TABLE sections only; volume of
+B1–B4 driven by `survival`.
+
+Agent: A71
