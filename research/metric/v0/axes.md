@@ -87,6 +87,55 @@ control. This is logged as issue I-3 below.
 | A17 | Neoplasia | tumour burden at necropsy | ITP necropsy reports `[to verify]` | GLY (fewer pulmonary adenocarcinoma deaths, doi:10.1111/acel.12953) | `[to verify]` | unmeasured |
 | A18 | Whole-body frailty | 31-item frailty index | FRL | Enalapril 30 mg/kg/day in feed, C57BL/6: frailty index lower in middle-aged and old females and old males (doi:10.1093/gerona/gly219), own readout | ERCC1 (frailty, secondhand) | candidate |
 
+**Non-monotonic axes: A10 and A15.** In C57BL/6, glucose tolerance worsens
+up to ~18 months and then improves at 26–28 months as fat mass falls
+(Reynolds 2019, doi:10.14814/phy2.13995; Reynolds 2024, Kondo 2023 via A70,
+L2 PR #70, mouse/06–07). Clamp studies still show lower insulin sensitivity
+in old mice (Ehrhardt 2019, Marmentini 2021, via A70). So for A10 and A15 the
+score is the **trajectory** (peak, then loss), not the level. GTT is dosed per
+lean mass with same-day body composition. A "better" value in an old mouse
+does **not** count as a right-way pass in test 1.
+
+**Lung (A8): non-monotonic, weight-adjusted, endpoint-only.** Lung
+compliance *rises* with age (elastance and resistance fall), most change at
+3–6 months, and reverses at 30 months in survivors (Huang 2007
+doi:10.1152/japplphysiol.00400.2006; Elliott 2016
+doi:10.1152/ajplung.00232.2016; Schulte 2019 doi:10.3389/fphys.2019.01466,
+via A70 mouse/10). Body weight predicts all readings (Isbatan 2025, via
+A70). flexiVent is terminal, so there is no within-mouse trajectory.
+Higher compliance does **not** count as a right-way pass. Limit: **no
+repeatable mouse lung test found** (blind-spot risk, commandment 6).
+
+**Kidney (A9): longitudinal, mouse-only, two readings.**
+- GFR by transcutaneous FITC-sinistrin, awake mice, repeatable over 3 days
+  incl. 24-month B6 (Schock-Kusch 2013 doi:10.1371/journal.pone.0071519;
+  matches plasma clearance, Mullins 2020 doi:10.1111/nep.13713, via A70
+  mouse/11). This replaces the rat-only source as the readout; the right-way
+  control stays `[to verify]` until a mouse source is found.
+- Albuminuria / cystatin C, rising from middle age (Sataranatarajan 2012
+  doi:10.1111/acel.12008).
+- Protocol: fixed clock time and temperature (Wang 2026, via A70); the
+  normalisation (body vs kidney weight) is stated.
+- Limit: GFR falls with age in B6 and CBA but not in an F1 hybrid, and the
+  gap vanishes per kidney weight (Hackbarth 1982 doi:10.1093/geronj/37.5.540).
+  The B6 trend is not assumed for UM-HET3.
+
+**Immune (A11): vaccine response.**
+- Decline with age in B6 is mainly T follicular helper / germinal-centre
+  failure, not B cells (Nicoletti 1994; Silva-Cayetano 2023
+  doi:10.1038/s41590-023-01519-9; Fisher 2024 doi:10.1111/acel.14140, via
+  A70 mouse/12).
+- Protocol: fixed antigen, adjuvant and dose, no booster (adjuvant or booster
+  masks the decline: Baldwin 2018 doi:10.3389/fimmu.2018.00295; Maxwell
+  2026). If longitudinal, a new antigen at each time point.
+- Titre and avidity reported separately (titre falls while avidity rises in
+  females, Bufan 2020 doi:10.1016/j.exger.2020.110857); sex is a factor
+  (Dhakal 2024, mbio.00326-24).
+- Limit: strain can reverse the trend (aged BALB/c higher than young,
+  Nicoletti 1991). The B6 trend is not assumed for UM-HET3.
+
+Sources in the three notes above were opened by A70 (L2), not by A67.
+
 A17 is added because lab mice mostly die of cancer `[to verify]`. Without a
 cancer axis, a treatment that only delays tumours would move the summary and
 none of the other axes.
