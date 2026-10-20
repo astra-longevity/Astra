@@ -24,6 +24,8 @@ How interventions shift it: Miller 2020 reports that in canagliflozin-treated mi
 
 **Novelty search.** PubMed, 2026-10-20: `rapamycin[tiab] AND mice[tiab] AND (neoplasia[tiab] OR tumor incidence[tiab]) AND (serial sacrifice[tiab] OR cross-sectional[tiab] OR age-specific[tiab])` → 0 hits. Partial precedent for B6 males only: Neff 2013 sampled 3 age groups.
 
+**Evidence gaps.** No UM-HET3 female control cause-of-death counts here (Miller 2020 row is males only). No age at tumour onset for either strain, only cause at death. B6 figures come from different colonies and diets, so they are not pooled.
+
 ## O4: combination studies
 
 **Record.** L1 holds two ITP combinations:
@@ -75,3 +77,5 @@ Each mechanism gets its own edge row in `edges.md` once A68's edge list lands.
 **Missing experiment.** Mice carrying bat ASC2 (or Myotis telomere-maintenance genes) followed to death, both sexes, with necropsy cause of death and the metric's axes measured over time. It tests whether lowering inflammation alone slows organ ageing, which R-Sim currently has no causal data for (H11 has no right-way control, see metric dossier).
 
 **Novelty search.** PubMed, 2026-10-20: `(naked mole-rat[tiab] OR bat[tiab]) AND transgenic[tiab] AND mice[tiab] AND (lifespan[tiab] OR longevity[tiab] OR cancer[tiab])` → 9 hits; only Zhang 2023 tests lifespan; Ahn 2023 tests inflammation only.
+
+**Evidence gaps.** One lifespan test only (Zhang 2023, one lab), not replicated. Bat telomere data are from wild bats, no causal test. Other proposed mechanisms (e.g. naked mole-rat protein stability, bat DNA repair) are not covered in this row yet; they get edge rows only if `edges.md` lists them.
