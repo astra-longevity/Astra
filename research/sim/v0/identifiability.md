@@ -408,17 +408,14 @@ Proposal: design the challenge as early (6 months) + late (18 months) arms,
 2–3 doses to measure kappa, ~100 mice per time point; rerun on Actions at
 `n_sim` 20 000 before any mouse is requested.
 
-### 9.4 Mapped route: circularity and unusable classes
+### 9.4 Mapped route: dropped
 
 Fitting eta/beta from a class's treated readouts, then predicting that class's
-lifespan, scores the model on a class it was calibrated on. Rules if the route
-is used: train-set classes only, readouts only (never lifespan), and every
-class so used is moved out of scoring (reported as "used for calibration").
-Of the 4 draft rows in `mappings.yaml`: SGLT2 (canagliflozin, blind arms
-B04/B05) cannot be used at all; mTORC1 (rapamycin trains), α-glucosidase and
-senolytic would become unusable for scoring if used [class membership of the
-split: to confirm with A65]. Mappings also act through hallmarks, which move
-eta on several organs at once, so one class splits several organs together.
+lifespan, scores the model on a class it was calibrated on. On top of that
+circularity the route gains nothing (9.3, best share 0.45). **Decision (A28,
+2026-10-20): the mapped route is dropped.** No class is used for calibration,
+so none is ruled out: SGLT2, mTORC1, α-glucosidase and senolytic all stay
+scorable. The acute challenge is the v0 candidate design: `challenge-design.md`.
 
 ### 9.5 Known mouse challenge tests per organ
 
