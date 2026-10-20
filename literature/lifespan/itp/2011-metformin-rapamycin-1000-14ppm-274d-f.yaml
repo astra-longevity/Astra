@@ -1,0 +1,63 @@
+# Strong 2016 (PMC5013015), methods, table 1, text. Read 2026-10-20.
+id: 2011-metformin-rapamycin-1000-14ppm-274d-f
+program: ITP
+publication:
+  doi: 10.1111/acel.12496
+  citation: "Strong R et al., 2016, Aging Cell 15:872-884"
+cohort_year: 2011  # paper table 1 "C2011"; MPD ITP1 listing
+compound: metformin + rapamycin
+role: "extends"
+strain: UM-HET3
+sex: F
+start_age_days: 274  # printed "9 months; 9 x 30.44 d"
+dose:
+  value: "1000+14"  # metformin 1000 ppm + encapsulated rapamycin 14 ppm
+  unit: ppm
+  route: diet, rapamycin encapsulated
+n:
+  treated: 142  # table 1 N
+  control: 281
+lifespan:
+  control:
+    median_days: {value: 874, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1092, source: "table 1"}
+  treated:
+    median_days: {value: 1078, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1278, source: "table 1"}
+effect:
+  median_pct: 23.3
+  p90_pct: 17.0
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "< 0.001", source: "table 1 (\"0.000\" read as < 0.001, text)"}
+  - {test: "alive at 90th percentile, Wang-Allison", value: "< 0.001", source: "table 1"}
+curve_source:
+  figure: "figs 1-3 (pooled); per-site tables S1-S3 (supplement)"
+  mpd_id: 787
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites: []  # per-site tables are in the supplement, not read; text summary in notes
+notes: >
+  Significant at every site, median and p90 (text). Pooled across TJL, UM, UT. Controls shared by the five
+  C2011 arms. At analysis: F 954 dead, 19 removed, 11 alive; M 1039 dead, 50 removed
+  (fighting), 9 alive.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - sites

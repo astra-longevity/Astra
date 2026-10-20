@@ -39,7 +39,7 @@ An **arm** is one treated group compared with its own controls: one compound, on
 | `dose.value`, `dose.unit`, `dose.route` | number, string, string | As printed (`14`, `ppm`, `diet, encapsulated`). |
 | `n.treated`, `n.control` | int \| null | Mice entering analysis. |
 | `lifespan.treated` / `lifespan.control` | block | `median_days`, `mean_days`, `p90_days` (age at the 90th percentile of deaths), each `{value, source}` or `null`. |
-| `effect.median_pct`, `effect.p90_pct` | number \| null | (treated − control) / control × 100. |
+| `effect.median_pct`, `effect.p90_pct` | number \| null | (treated − control) / control × 100, always computed from the printed medians / p90 ages (1 decimal). When the paper prints a % that differs after rounding, the printed % goes in `notes`. |
 | `effect.se`, `effect.se_scale` | number \| null, scale | See "Standard error" below. |
 | `effect.se_source` | `printed` \| `from_curve` \| `from_p_value` \| null | T1-A2-5. |
 | `effect.digitisations` | int | Independent digitisations behind a `from_curve` SE (0 otherwise). |
