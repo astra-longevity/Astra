@@ -1,0 +1,62 @@
+# Strong 2016 (PMC5013015), methods, table 2, text. Read 2026-10-20.
+id: 2010-fish-oil-15000ppm-274d-m
+program: ITP
+publication:
+  doi: 10.1111/acel.12496
+  citation: "Strong R et al., 2016, Aging Cell 15:872-884"
+cohort_year: 2010  # paper table 2 "C2010"; MPD ITP1 listing
+compound: fish oil
+role: "null"
+strain: UM-HET3
+sex: M
+start_age_days: 274  # printed "9 months"; 9 x 30.44 d
+dose:
+  value: 15000
+  unit: ppm
+  route: diet
+n:
+  treated: 141  # table 2 N
+  control: 274
+lifespan:
+  control:
+    median_days: {value: 780, source: "table 2"}
+    mean_days: null
+    p90_days: {value: 1085, source: "table 2"}
+  treated:
+    median_days: {value: 830, source: "table 2"}
+    mean_days: null
+    p90_days: {value: 1078, source: "table 2"}
+effect:
+  median_pct: 6.4
+  p90_pct: -0.6
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "0.263", source: "table 2"}
+  - {test: "alive at 90th percentile, Wang-Allison", value: "0.864", source: "table 2"}
+curve_source:
+  figure: "fig 4 (pooled); per-site tables S1-S3 (supplement)"
+  mpd_id: 793
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites: []  # per-site tables S1-S3 are in the supplement, not read; text summary in notes
+notes: >
+  No pooled effect (log-rank p = 0.263). Table 2 prints 7% for the median change; computed from the printed medians: 6.4%. Site (text): UT +9% (p = 0.06), others ns. Male weight rose with dose. Pooled across TJL, UM, UT.
+  Controls shared by fish oil and NDGA in C2010.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - sites
