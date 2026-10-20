@@ -68,24 +68,24 @@ control. This is logged as issue I-3 below.
 
 | # | Axis | Functional anchor | Candidate public readout (dataset) | Right way | Wrong way | Status |
 |---|---|---|---|---|---|---|
-| A1 | Skeletal muscle | grip strength, rotarod | TMS limb muscle transcriptome; FRL frailty items | RAPA, late life (motor benefits: doi:10.1111/acel.12109; test detail `[to verify]`) | ERCC1 (frailty, secondhand `[to verify]`) | candidate (molecular only; functional readout `unmeasured`) |
-| A2 | Bone | bone mineral density (micro-CT) | none confirmed | RAPA, late life (skeletal benefits: doi:10.1111/acel.12109; measure `[to verify]`) | LMNA (osteoporosis, secondhand via doi:10.1111/acel.13457) | unmeasured |
-| A3 | Brain, cognition | Barnes or Morris water maze | TMS brain transcriptome | RAPA chow, C57BL/6 both sexes: blocks age-associated cognitive decline in old mice (doi:10.1016/j.neuroscience.2012.06.054); also improves young mice, so age × treatment needed (I-6) | ERCC1 (cognitive decline, secondhand `[to verify]`) | candidate (molecular only) |
+| A1 | Skeletal muscle | grip strength, rotarod | TMS limb muscle transcriptome; FRL frailty items | RAPA fed from 19 months, C57BL/6: rotarod and stride length better than controls at 31 months but not at 25 (age-dependent), grip strength unchanged (Zhang 2014, https://academic.oup.com/biomedgerontology/article/69A/2/119/514438); UM-HET3 rapamycin from 4 or 16 months improves rotarod at 22 months (PMC9977253), own readout (rotarod; grip does not move) | ERCC1: grip strength and rotarod decline from 8 to 16 weeks in Ercc1Δ/− (doi:10.1007/s00401-010-0715-9), own readout | candidate (molecular only; functional readout `unmeasured`) |
+| A2 | Bone | bone mineral density (micro-CT) | none confirmed | CR in aged (17–20 month) male mice attenuated trabecular bone loss on tibia micro-CT, no effect in young (doi:10.3389/fendo.2024.1394263), own readout, age × diet. RAPA does **not** qualify: 2 mg/kg i.p. every 5 days for 8 weeks in 20-month female C57BL/6 left bone microarchitecture and strength unchanged (JBMR Plus ziae001, https://academic.oup.com/jbmrplus/article-pdf/8/2/ziae001/57406113/ziae001.pdf) | LMNA (osteoporosis, secondhand via doi:10.1111/acel.13457) | unmeasured |
+| A3 | Brain, cognition | Barnes or Morris water maze | TMS brain transcriptome | RAPA chow, C57BL/6 both sexes: blocks age-associated cognitive decline in old mice (doi:10.1016/j.neuroscience.2012.06.054); also improves young mice, so age × treatment needed (I-6) | ERCC1: accelerated age-related cognitive decline in Ercc1 mutants, F1 C57BL/6J-FVB/N (Borgesius 2011, doi:10.1523/JNEUROSCI.1589-11.2011), own readout (task `[to verify]`) | candidate (molecular only) |
 | A4 | Hearing | auditory brainstem response (ABR) threshold | none confirmed | `[to verify]` | ERCC1 (hearing loss, secondhand `[to verify]`) | unmeasured |
 | A5 | Vision | electroretinogram / optomotor response | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
 | A6 | Heart | echocardiography (ejection fraction, diastolic function) | TMS heart transcriptome | RAPA, 3 months from 24 months, female C57BL/6J: age-related heart changes reversed or attenuated (doi:10.1111/acel.12109); CR or RAPA for 10 weeks in 27-month mice reversed diastolic dysfunction and hypertrophy (PMC4040127), own readout | HFD for 8 weeks in 76-week male C57BL/6J: heart failure, lower ejection fraction; young mice unaffected (PMID 40637820), own readout, age × diet | candidate (molecular only) |
 | A7 | Vessels | pulse-wave velocity, blood pressure | TMS aorta `[to verify]` | `[to verify]` | LMNA (VSMC loss, secondhand via doi:10.1111/acel.13457) | unmeasured |
-| A8 | Lung | lung function (plethysmography) | TMS lung transcriptome | `[to verify]` | `[to verify]` | candidate (molecular only) |
+| A8 | Lung | lung function (plethysmography) | TMS lung transcriptome | **No known right-way intervention** on a valid readout. Only hit: clearing senescent cells "restores lung compliance" in aged mice (cited in doi:10.1038/ncomms14532, an IPF model paper), but compliance *rises* with age (note below), so this is not a right-way pass. Search: "intervention attenuates age-related decline lung function aged mice flexiVent compliance treatment old" (2026-10-20) | `[to verify]` | candidate (molecular only) |
 | A9 | Kidney | glomerular filtration, albuminuria | TMS kidney transcriptome | CR, **rat only** (prevents age rise in albuminuria, F344: PMID 1415585; less glomerulosclerosis, doi:10.1152/ajprenal.00307.2006); mouse source `[to verify]` | `[to verify]` | candidate (molecular only) |
-| A10 | Liver and metabolism | glucose tolerance test | TMS liver; ITP body weight | CANA (lowers glucose, both sexes) | HFD (doi:10.1038/nature05354; glucose readout `[to verify]`) | candidate |
+| A10 | Liver and metabolism | glucose tolerance test | TMS liver; ITP body weight | CANA 180 ppm from 7 months, UM-HET3: lower fasting glucose and better glucose tolerance in both sexes at 22 months (Miller 2020, as reported in doi:10.1111/acel.13653), own readout; glucose lowering is also a drug effect in young mice, so age × treatment needed (I-6), and A10 is non-monotonic (below) | HFD (doi:10.1038/nature05354; glucose readout `[to verify]`) | candidate |
 | A11 | Immune system | antibody response to a vaccine | TMS spleen, marrow, thymus | RAPA in old mice: vaccinated rapamycin-treated mice all survived a lethal influenza challenge vs 9/12 vehicle deaths (doi:10.1126/scisignal.2000559), own readout | IRR `[to verify]` | candidate (molecular only) |
-| A12 | Blood | complete blood count | TMS marrow | RAPA in old mice restored hematopoiesis (doi:10.1126/scisignal.2000559; blood count `[to verify]`) | IRR (HSC loss, doi:10.1182/blood-2005-04-1418; blood count `[to verify]`) | candidate (molecular only) |
-| A13 | Skin and hair | wound closure time, coat score (frailty item) | TMS skin; FRL coat items | `[to verify]` | ERCC1 (epigenetic age up in skin: doi:10.1101/2022.12.28.522011, preprint) | candidate |
-| A14 | Gut | intestinal permeability | TMS large intestine | `[to verify]` (indirect only: a CR-enriched gut strain lowered permeability in germ-free mice given old microbiota, doi:10.1186/s40168-018-0440-5) | `[to verify]` | candidate (molecular only) |
-| A15 | Fat tissue | body composition (fat mass) | TMS fat depots; ITP body weight | `[to verify]` | LMNA (fat loss, secondhand) | candidate |
+| A12 | Blood | complete blood count | TMS marrow | RAPA in old mice restored hematopoiesis (doi:10.1126/scisignal.2000559; blood count `[to verify]`). **No right-way control on the blood count found.** DR from 12 months in male C57BL/6 cut lymphoma but itself *induced* lymphopenia (PMID 8187095), so DR moves the count the "older" way; DR effects on HSC ageing are strain-dependent and old B6 marrow repopulates *better* than young (Blood 111(3):1709, https://ashpublications.org/blood/article/111/3/1709/25596/). Search: "aged mice complete blood count anemia lymphopenia reversed rapamycin OR dietary restriction old C57BL/6 hematology" (2026-10-20) | IRR (HSC loss, doi:10.1182/blood-2005-04-1418; blood count `[to verify]`) | candidate (molecular only) |
+| A13 | Skin and hair | wound closure time, coat score (frailty item) | TMS skin; FRL coat items | SkQ1 (mitochondria-targeted antioxidant) speeds the impaired wound healing of old mice: faster re-epithelialisation and granulation (doi:10.18632/aging.100772), own readout; D+Q improves burn-wound healing in aged mice (PMID 42320016), own readout. Negative: long-term CR does **not** improve aged wound healing (https://www.sciencedirect.com/science/article/abs/pii/004763749601737X). Age × treatment not shown in either; limit: wound closure may track mid-life (note below) | ERCC1 (epigenetic age up in skin: doi:10.1101/2022.12.28.522011, preprint) | candidate |
+| A14 | Gut | intestinal permeability | TMS large intestine | Young-donor microbiota transplant into old mice lowers FITC-dextran permeability and gut inflammation (doi:10.1038/s41522-025-00677-y), own readout; also a CR-enriched strain lowered permeability in germ-free mice given old microbiota (doi:10.1186/s40168-018-0440-5). Microbiota transfer is a procedure, not a drug; no drug right-way found. Search: "aged mice intestinal permeability FITC-dextran reduced by treatment old mice restores barrier" (2026-10-20) | `[to verify]` | candidate (molecular only) |
+| A15 | Fat tissue | body composition (fat mass) | TMS fat depots; ITP body weight | **No known right-way intervention** on the trajectory readout (A15 is non-monotonic, so lower fat in an old mouse is not a pass). Only hit: orexin injections reduced adiposity in old mice (secondhand, researchgate 317189676). Search: "aged mice adipose tissue dysfunction fat mass redistribution prevented late-life intervention old C57BL/6 body composition" (2026-10-20) | LMNA (fat loss, secondhand) | candidate |
 | A16 | Endocrine and reproduction | oestrous cycling (female), testosterone (male) | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
 | A17 | Neoplasia | tumour burden at necropsy | ITP necropsy reports `[to verify]` | GLY (fewer pulmonary adenocarcinoma deaths, doi:10.1111/acel.12953) | `[to verify]` | unmeasured |
-| A18 | Whole-body frailty | 31-item frailty index | FRL | Enalapril 30 mg/kg/day in feed, C57BL/6: frailty index lower in middle-aged and old females and old males (doi:10.1093/gerona/gly219), own readout | ERCC1 (frailty, secondhand) | candidate |
+| A18 | Whole-body frailty | 31-item frailty index | FRL | Enalapril 30 mg/kg/day in feed, C57BL/6: frailty index lower in middle-aged and old females and old males (doi:10.1093/gerona/gly219), own readout | ERCC1: social frailty index (mSFI) higher in Ercc1−/Δ and Xpg−/− than age-matched wild type, both sexes (doi:10.1007/s11357-024-01263-4); 31-item clinical frailty index in Ercc1−/Δ still `[to verify]` (frailty signs reduced by senolytics, Fuhrmann-Stroissnigg 2017, secondhand via S1568163723002775) | candidate |
 
 **Non-monotonic axes: A10 and A15.** In C57BL/6, glucose tolerance worsens
 up to ~18 months and then improves at 26–28 months as fat mass falls
@@ -110,8 +110,14 @@ repeatable mouse lung test found** (blind-spot risk, commandment 6).
 - GFR by transcutaneous FITC-sinistrin, awake mice, repeatable over 3 days
   incl. 24-month B6 (Schock-Kusch 2013 doi:10.1371/journal.pone.0071519;
   matches plasma clearance, Mullins 2020 doi:10.1111/nep.13713, via A70
-  mouse/11). This replaces the rat-only source as the readout; the right-way
-  control stays `[to verify]` until a mouse source is found.
+  mouse/11). This replaces the rat-only source as the readout. **No mouse
+  right-way control on GFR or albuminuria found.** Closest: 50% CR from 8
+  weeks in male C57BL/6 attenuated age-related kidney changes on histology
+  (H&E, PAS, trichrome) at 12–16 months (PMID 41873790), not a GFR or
+  albuminuria readout; the rat CR source (PMID 1415585) also found no GFR
+  change with age in SPF F344. Search: "aged mice caloric restriction OR
+  rapamycin albuminuria glomerular filtration rate kidney aging improved
+  C57BL/6" (2026-10-20). Right-way stays `[to verify]`.
 - Albuminuria / cystatin C, rising from middle age (Sataranatarajan 2012
   doi:10.1111/acel.12008).
 - Protocol: fixed clock time and temperature (Wang 2026, via A70); the
@@ -148,7 +154,22 @@ repeatable mouse lung test found** (blind-spot risk, commandment 6).
   housing notes required.
 - The B6 trend is not assumed for UM-HET3.
 
-Sources in the four notes above were opened by A70 (L2), not by A67.
+**Gut (A14): FITC-dextran permeability.**
+- 4 kDa FITC-dextran permeability rises with age in most studies, but
+  depends on microbiota and TNF: absent in old germ-free and TNF-KO mice,
+  transferable with old microbiota (Thevaranjan 2017
+  doi:10.1016/j.chom.2017.03.002; Parker 2022 doi:10.1186/s40168-022-01243-w).
+  No age change in SAMR1/SAMP1 (Kurihara 2025 doi:10.1016/j.jphyss.2025.100030).
+- Confounds: high-fat diet and injury raise it (Ahmadi 2020
+  doi:10.1093/gerona/glaa056; Najarro 2022 doi:10.1016/j.exger.2021.111654),
+  so ill or diet-changed mice are excluded.
+- Protocol: fixed probe, dose (fixed or per weight, stated), fasting and
+  sampling time (1 h = small intestine, Woting 2018 doi:10.3390/nu10060685);
+  microbiota and cage recorded as covariates.
+- Limits: no test-retest or same-mouse longitudinal data found; the trend
+  is not assumed for UM-HET3.
+
+Sources in the five notes above were opened by A70 (L2), not by A67.
 
 A17 is added because lab mice mostly die of cancer `[to verify]`. Without a
 cancer axis, a treatment that only delays tumours would move the summary and
@@ -175,7 +196,7 @@ Hallmark list from López-Otín et al. 2023, doi:10.1016/j.cell.2022.11.001
 | H8 | Cellular senescence | p16/p21 expression, SASP | TMS (Cdkn2a, Cdkn1a) | Dasatinib + quercetin (senolytic): fewer p16 and SA-β-gal positive cells in fat of old mice (PMC9924942); lower p16, p19, IL-6 in discs when started at 6, 14 or 18 months (doi:10.1038/s41467-021-25453-2), own readout | ERCC1 (senescence and SASP markers up: aging-us 202321); IRR (p16 and SA-β-gal up in HSCs: doi:10.1182/blood-2005-04-1418) | candidate |
 | H9 | Stem cell exhaustion | colony assays, HSC function | TMS marrow | RAPA in old mice restored HSC self-renewal (doi:10.1126/scisignal.2000559), own readout | IRR (sustained loss of HSC number and function: doi:10.1182/blood-2005-04-1418) | candidate (molecular only) |
 | H10 | Altered intercellular communication | plasma proteome | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
-| H11 | Chronic inflammation | plasma IL-6, TNF | TMS immune cells (indirect) | `[to verify]` | HFD in male C57BL/6J: Tnf, Il1b, Mcp1 up in fat by 24 weeks (PMC4429090); tissue, not plasma (plasma `[to verify]`) | candidate (molecular only) |
+| H11 | Chronic inflammation | plasma IL-6, TNF | TMS immune cells (indirect) | **No known right-way intervention on plasma IL-6/TNF.** Tissue only: liver NF-κB p65 lower with rapamycin, acarbose, canagliflozin, 17α-estradiol, CR (PMC12181462); CR lowers macrophage IL-6/TNF ex vivo (PMID 1768737). Search: "aged mice plasma IL-6 TNF reduced rapamycin OR caloric restriction OR senolytic inflammaging old C57BL/6 serum" (2026-10-20) | HFD in male C57BL/6J: Tnf, Il1b, Mcp1 up in fat by 24 weeks (PMC4429090); tissue, not plasma (plasma `[to verify]`) | candidate (molecular only) |
 | H12 | Dysbiosis | gut microbiome composition | none confirmed | Short-term dietary restriction in old C57BL/6J reverts the age-related microbiota imbalance (doi:10.1007/s10522-019-09830-5), own readout | `[to verify]` | unmeasured |
 
 ## Counts (v0 draft)
@@ -183,15 +204,19 @@ Hallmark list from López-Otín et al. 2023, doi:10.1016/j.cell.2022.11.001
 - 30 axes: 18 organ-system, 12 hallmark.
 - `candidate`: 19. `unmeasured`: 11 (A2, A4, A5, A7, A16, A17, H1, H2, H5,
   H10, H12).
-- Axes with **both** controls named from an opened source: 10. A1, A2, A3
-  (wrong way secondhand), A6, A10, A12 (blood count `[to verify]`), A18
-  (wrong way secondhand), H3, H8, H9.
-- Both controls on the axis's **own readout**: H9 (RAPA restores HSC
+- Axes with **both** controls named from an opened source: 11. A1, A2, A3,
+  A6, A10, A12 (blood count `[to verify]`), A13 (wrong way preprint), A18
+  (wrong way partly secondhand), H3, H8, H9.
+- Both controls on the axis's **own readout**: 6. H9 (RAPA restores HSC
   self-renewal / IRR depletes HSCs), H3 (CR slows blood methylome /
   ERCC1 raises epigenetic age, preprint), A6 (CR or RAPA reverse diastolic
-  dysfunction / HFD causes heart failure in old mice, both echo) and H8
-  (D+Q lowers p16 / IRR and ERCC1 raise it). These are the first axes test 1
-  can actually run on.
+  dysfunction / HFD causes heart failure in old mice, both echo), H8
+  (D+Q lowers p16 / IRR and ERCC1 raise it), A1 (RAPA rotarod / Ercc1 grip
+  and rotarod) and A3 (RAPA blocks cognitive decline / Ercc1 accelerates it).
+  These are the axes test 1 can actually run on.
+- **No known right-way intervention** after a recorded search: A8 lung, A15
+  fat, H11 plasma inflammation, A12 blood count, A9 kidney (GFR/albuminuria).
+  These are findings (obstacles), not gaps to hide.
 - Flynn 2013 (doi:10.1111/acel.12109): only the abstract was read; the
   muscle and bone tests are not named there, so A1 and A2 right-way readouts
   stay `[to verify]`.

@@ -124,9 +124,10 @@ are counted as known classes because the compound or class trains.
 
 One row per arm, columns `part, arm_id, compound, cohort, pmid, sex,
 class_label_proposed, stratum, flag` (A65, PR #110). Combination arm B03 is
-listed as two rows, one per single compound. B04/B05 (canagliflozin) carry
-stratum **"compound seen in training"** (A50 ruling, PR #105). No outcome
-column.
+listed as two rows, one per single compound. B03, B04 and B05 use **one
+encoding** (A65, G154): their a/b/c stratum in `stratum` (B03 c, B04/B05 a),
+and the exact text `compound seen in training` in `flag`, ruling ref after
+`;` (A50 ruling PR #105 for B04/B05; A28/A65 for B03). No outcome column.
 
 ## Train set
 
