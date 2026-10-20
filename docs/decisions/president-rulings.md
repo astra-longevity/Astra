@@ -17,3 +17,4 @@ ruling that changes one cites the row it replaces.
 | PR8 | 2026-10-20 | The president's health data lives in the public repo, symmetrically encrypted; the key stays only in a local, git-ignored `.env`. Agents may read raw values. Publication follows the default (per-measure records only for measures he lists). Noise-baseline draws: later. Replaces D116's `astra-private`. |
 | PR9 | 2026-10-20 | `PROTECTION_READ_TOKEN` holds the president's full token, at his choice. A1 created the `main`-only `scoring` environment at his request. |
 | PR10 | 2026-10-20 | Agents name themselves `<Function> (<Name>)`, workers included. |
+| PR11 | 2026-10-20 | `PROTECTION_READ_TOKEN` stays a repository secret; it is not moved into a `main`-only environment. The charter (PR #28) is merged. |

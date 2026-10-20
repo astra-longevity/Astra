@@ -63,7 +63,7 @@ number. No treatment is designed until that measure passes its tests.
 | What is published about you (D122) | You left it to us: default = per-measure records only for measures you list, none until you list any. |
 | First two blood draws (noise baseline) (D116, D122) | **Later**, when you say so. |
 | `scoring` environment, `main` only (D122) | **Done** 2026-10-20 by A1 at your request. |
-| `PROTECTION_READ_TOKEN` (D122) | **Done** with your full token, at your choice. Moving it into a `main`-only `protection` environment: **planned with the M2 re-seal**, on your go. |
+| `PROTECTION_READ_TOKEN` (D122) | **Done** with your full token, at your choice. Moving it into a `main`-only environment: **refused** 2026-10-20; it stays a repository secret. |
 | Charter-level decisions D124, D125 (part 10, part 11) | Voted by the managers with D46; yours to confirm at merge. |
 | Re-seal of code-protection settings (M2) | Pending: the Code Manager sends you the command. |
 | Mice: when and how many | Yours. Each request comes with a sealed prediction (part 4). |
@@ -80,9 +80,8 @@ number. No treatment is designed until that measure passes its tests.
   breaches after the fact (part 7).
 - **Your token is stored as a GitHub secret with full rights.** Today it is
   a repository secret, so a workflow pushed on any branch could read it.
-  Until it moves into a `main`-only environment referenced only by the
-  daily protection check under the seal, "only that check uses it" is a
-  convention.
+  The president chose to keep it there (PR11), so "only the daily
+  protection check uses it" is a convention.
 - **Your encrypted data can't be audited or withdrawn.** Agents read it
   through the local key, which leaves no trace in git, so Verification's
   monthly access audit can't run. If the key ever leaks, the encrypted
