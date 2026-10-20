@@ -1,0 +1,196 @@
+name: Sim joint (R-Sim v0)
+
+# R-Sim v0 joint survival + readout Fisher, sharded (research/sim/v0/actions-job.md).
+# Manual dispatch only (A10). Synthetic data only (L0): the checkout holds
+# research/sim/v0/py/ and nothing else, so no job can read data/ or a lifespan
+# table. Python 3.13 standard library, no network after setup. Never writes to
+# the repository: shards, result.json and run-info.json are artifacts.
+#
+# One matrix job per n_sim (218 shards each: GitHub caps a matrix at 256), at
+# most 20 runners at a time; the second n_sim starts after the first finishes.
+
+on:
+  workflow_dispatch:
+    inputs:
+      seeds:
+        description: "Derivative seeds (must equal shard.py SEEDS)"
+        type: string
+        default: "11,12"
+      n_sim:
+        description: "Comma-separated n_sim values, at most 2"
+        type: string
+        default: "20000,50000"
+
+permissions:
+  contents: read
+
+env:
+  PY_DIR: research/sim/v0/py
+  PYTHON_VERSION: "3.13"
+
+jobs:
+  plan:
+    name: Plan shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      specs: ${{ steps.plan.outputs.specs }}
+      n_a: ${{ steps.plan.outputs.n_a }}
+      n_b: ${{ steps.plan.outputs.n_b }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: research/sim/v0/py
+          sparse-checkout-cone-mode: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Build matrix
+        id: plan
+        working-directory: ${{ env.PY_DIR }}/studies
+        env:
+          SEEDS_IN: ${{ inputs.seeds }}
+          N_SIM_IN: ${{ inputs.n_sim }}
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os, re, shard
+          seeds = tuple(int(s) for s in os.environ["SEEDS_IN"].split(","))
+          if seeds != tuple(shard.SEEDS):
+              raise SystemExit(f"seeds {seeds} != shard.py SEEDS {shard.SEEDS}: change shard.py by PR")
+          raw = os.environ["N_SIM_IN"].replace(" ", "")
+          if not re.fullmatch(r"\d+(,\d+)?", raw):
+              raise SystemExit(f"n_sim {raw!r}: one or two integers, comma-separated")
+          ns = [int(n) for n in raw.split(",")]
+          specs = shard.specs()
+          print("specs=" + json.dumps([{"i": i, "spec": s} for i, s in enumerate(specs)]))
+          print(f"n_a={ns[0]}")
+          print(f"n_b={ns[1] if len(ns) > 1 else ''}")
+          PY
+          echo "shards per n_sim: $(python3 shard.py --list | wc -l)" >> "$GITHUB_STEP_SUMMARY"
+
+  shard-a:
+    name: Shard n_sim=${{ needs.plan.outputs.n_a }} (${{ matrix.s.i }})
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: true
+      max-parallel: 20
+      matrix:
+        s: ${{ fromJSON(needs.plan.outputs.specs) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: research/sim/v0/py
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Run shard (one retry)
+        working-directory: ${{ env.PY_DIR }}/studies
+        env:
+          SPEC: ${{ matrix.s.spec }}
+          N_SIM: ${{ needs.plan.outputs.n_a }}
+        run: |
+          python3 shard.py --shard "$SPEC" --n-sim "$N_SIM" --out "$RUNNER_TEMP/shards" \
+            || python3 shard.py --shard "$SPEC" --n-sim "$N_SIM" --out "$RUNNER_TEMP/shards"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shard-${{ needs.plan.outputs.n_a }}-${{ matrix.s.i }}
+          path: ${{ runner.temp }}/shards/*.json
+          if-no-files-found: error
+          retention-days: 7
+
+  shard-b:
+    name: Shard n_sim=${{ needs.plan.outputs.n_b }} (${{ matrix.s.i }})
+    needs: [plan, shard-a]
+    if: needs.plan.outputs.n_b != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: true
+      max-parallel: 20
+      matrix:
+        s: ${{ fromJSON(needs.plan.outputs.specs) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: research/sim/v0/py
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Run shard (one retry)
+        working-directory: ${{ env.PY_DIR }}/studies
+        env:
+          SPEC: ${{ matrix.s.spec }}
+          N_SIM: ${{ needs.plan.outputs.n_b }}
+        run: |
+          python3 shard.py --shard "$SPEC" --n-sim "$N_SIM" --out "$RUNNER_TEMP/shards" \
+            || python3 shard.py --shard "$SPEC" --n-sim "$N_SIM" --out "$RUNNER_TEMP/shards"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shard-${{ needs.plan.outputs.n_b }}-${{ matrix.s.i }}
+          path: ${{ runner.temp }}/shards/*.json
+          if-no-files-found: error
+          retention-days: 7
+
+  gather:
+    name: Gather n_sim=${{ matrix.n }}
+    needs: [plan, shard-a, shard-b]
+    if: ${{ !cancelled() && needs.shard-a.result == 'success' && needs.shard-b.result != 'failure' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        n: ${{ fromJSON(format('[{0}{1}{2}]', needs.plan.outputs.n_a, needs.plan.outputs.n_b != '' && ',' || '', needs.plan.outputs.n_b)) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: research/sim/v0/py
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: shard-${{ matrix.n }}-*
+          merge-multiple: true
+          path: ${{ runner.temp }}/shards
+      - name: Gather and analyse
+        working-directory: ${{ env.PY_DIR }}/studies
+        env:
+          N_SIM: ${{ matrix.n }}
+          OUT: ${{ runner.temp }}/out
+        run: |
+          mkdir -p "$OUT"
+          count=$(find "$RUNNER_TEMP/shards" -name '*.json' | wc -l)
+          echo "shards: $count"
+          test "$count" -eq "$(python3 shard.py --list | wc -l)"
+          cp -r "$RUNNER_TEMP/shards" "$OUT/shards"
+          python3 shard.py --gather "$RUNNER_TEMP/shards" --n-sim "$N_SIM" > "$OUT/result.json"
+          python3 - <<'PY' > "$OUT/run-info.json"
+          import hashlib, json, os, platform
+          print(json.dumps({
+              "code_commit": os.environ["GITHUB_SHA"],
+              "run_id": os.environ["GITHUB_RUN_ID"],
+              "n_sim": int(os.environ["N_SIM"]),
+              "python": platform.python_version(),
+              "result_sha256": hashlib.sha256(open(os.path.join(os.environ["OUT"], "result.json"), "rb").read()).hexdigest(),
+          }, indent=1, sort_keys=True))
+          PY
+          {
+            echo "### n_sim ${N_SIM}"
+            echo '```json'
+            cat "$OUT/run-info.json"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sim-joint-${{ matrix.n }}
+          path: ${{ runner.temp }}/out
+          if-no-files-found: error
+          retention-days: 30
