@@ -1,0 +1,4 @@
+# Toy Gompertz run (platform fixture, not science). Hazard per day.
+a: 0.0001
+b: 0.008
+n: 1000

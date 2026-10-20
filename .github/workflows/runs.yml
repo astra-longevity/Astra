@@ -1,0 +1,36 @@
+name: Runs
+
+# Re-runs every run manifest under research/runs/ and fails on any output
+# mismatch (byte-exact). Also runs the known-bad tests of the manifest tool
+# and the build lock. P2, charter part 6.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  merge_group:
+
+permissions:
+  contents: read
+
+jobs:
+  runs:
+    name: Runs (manifests · re-run)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Self-tests (known-bad manifests, build lock)
+        run: scripts/tests/runs.test.sh
+
+      - name: Check manifests
+        run: python3 scripts/runs.py check research/runs/*/manifest.yaml
+
+      - name: Re-run manifests
+        run: python3 scripts/runs.py rerun research/runs/*/manifest.yaml

@@ -1,0 +1,15 @@
+schema: astra-run-manifest/1
+id: toy-gompertz-v0
+description: Toy seeded Gompertz lifespan run; platform fixture for the re-run job, not science
+code_commit: b6ec27200c361cc7f14d49b8d234b125b12ec91a
+command: python3 "$ASTRA_ROOT/scripts/toy/gompertz_toy.py" --params params.yaml --seed {seed} --out output.csv
+seed: 42
+params_file: params.yaml
+params_sha256: 98bb4dbca8a3fbfa6898088d652329da40cbdcb8f458d213a770c5bd1ebdd45f
+code:
+  scripts/toy/gompertz_toy.py: 81f06a104d156f0e56cf49ba12ff22d2c2c147823ec017f956716d6f56d5e127
+data: {}
+toolchain:
+  python3: 3.13.13
+outputs:
+  output.csv: 7fdcd49aaeec795d11800125d0a6034f99ba0b30068e7204616f37ff275ba68d

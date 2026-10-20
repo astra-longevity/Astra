@@ -105,6 +105,20 @@ the queue run ~2 min). Allow up to 10 minutes when the queue is busy.
 - If something looks stuck (checks pending for more than 60 minutes, PR
   removed from the queue), report it to your manager. Do not work around it.
 
+## Local builds: at most 2 at once
+
+All agents share one machine. Every local build, test or check goes through
+the build lock, which lets at most 2 run at once and makes the others wait:
+
+```bash
+scripts/build-lock.sh cargo test
+scripts/local-checks.sh            # the 3 check families, through the lock
+scripts/local-checks.sh lints      # one family: lints | tests | structure
+```
+
+Slots live in `/tmp/astra-build-lock/`; a slot left by a dead process is
+reclaimed. Heavy work belongs in GitHub Actions, not on this machine.
+
 ## Where the settings live
 
 The settings are versioned in the repository; changing them requires the
