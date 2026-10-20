@@ -73,7 +73,7 @@ control. This is logged as issue I-3 below.
 | A3 | Brain, cognition | Barnes or Morris water maze | TMS brain transcriptome | RAPA chow, C57BL/6 both sexes: blocks age-associated cognitive decline in old mice (doi:10.1016/j.neuroscience.2012.06.054); also improves young mice, so age × treatment needed (I-6) | ERCC1 (cognitive decline, secondhand `[to verify]`) | candidate (molecular only) |
 | A4 | Hearing | auditory brainstem response (ABR) threshold | none confirmed | `[to verify]` | ERCC1 (hearing loss, secondhand `[to verify]`) | unmeasured |
 | A5 | Vision | electroretinogram / optomotor response | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
-| A6 | Heart | echocardiography (ejection fraction, diastolic function) | TMS heart transcriptome | RAPA, 3 months from 24 months, female C57BL/6J: age-related heart changes reversed or attenuated (doi:10.1111/acel.12109) | `[to verify]` | candidate (molecular only) |
+| A6 | Heart | echocardiography (ejection fraction, diastolic function) | TMS heart transcriptome | RAPA, 3 months from 24 months, female C57BL/6J: age-related heart changes reversed or attenuated (doi:10.1111/acel.12109); CR or RAPA for 10 weeks in 27-month mice reversed diastolic dysfunction and hypertrophy (PMC4040127), own readout | HFD for 8 weeks in 76-week male C57BL/6J: heart failure, lower ejection fraction; young mice unaffected (PMID 40637820), own readout, age × diet | candidate (molecular only) |
 | A7 | Vessels | pulse-wave velocity, blood pressure | TMS aorta `[to verify]` | `[to verify]` | LMNA (VSMC loss, secondhand via doi:10.1111/acel.13457) | unmeasured |
 | A8 | Lung | lung function (plethysmography) | TMS lung transcriptome | `[to verify]` | `[to verify]` | candidate (molecular only) |
 | A9 | Kidney | glomerular filtration, albuminuria | TMS kidney transcriptome | CR, **rat only** (prevents age rise in albuminuria, F344: PMID 1415585; less glomerulosclerosis, doi:10.1152/ajprenal.00307.2006); mouse source `[to verify]` | `[to verify]` | candidate (molecular only) |
@@ -81,11 +81,11 @@ control. This is logged as issue I-3 below.
 | A11 | Immune system | antibody response to a vaccine | TMS spleen, marrow, thymus | RAPA in old mice: vaccinated rapamycin-treated mice all survived a lethal influenza challenge vs 9/12 vehicle deaths (doi:10.1126/scisignal.2000559), own readout | IRR `[to verify]` | candidate (molecular only) |
 | A12 | Blood | complete blood count | TMS marrow | RAPA in old mice restored hematopoiesis (doi:10.1126/scisignal.2000559; blood count `[to verify]`) | IRR (HSC loss, doi:10.1182/blood-2005-04-1418; blood count `[to verify]`) | candidate (molecular only) |
 | A13 | Skin and hair | wound closure time, coat score (frailty item) | TMS skin; FRL coat items | `[to verify]` | ERCC1 (epigenetic age up in skin: doi:10.1101/2022.12.28.522011, preprint) | candidate |
-| A14 | Gut | intestinal permeability | TMS large intestine | `[to verify]` | `[to verify]` | candidate (molecular only) |
+| A14 | Gut | intestinal permeability | TMS large intestine | `[to verify]` (indirect only: a CR-enriched gut strain lowered permeability in germ-free mice given old microbiota, doi:10.1186/s40168-018-0440-5) | `[to verify]` | candidate (molecular only) |
 | A15 | Fat tissue | body composition (fat mass) | TMS fat depots; ITP body weight | `[to verify]` | LMNA (fat loss, secondhand) | candidate |
 | A16 | Endocrine and reproduction | oestrous cycling (female), testosterone (male) | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
 | A17 | Neoplasia | tumour burden at necropsy | ITP necropsy reports `[to verify]` | GLY (fewer pulmonary adenocarcinoma deaths, doi:10.1111/acel.12953) | `[to verify]` | unmeasured |
-| A18 | Whole-body frailty | 31-item frailty index | FRL | `[to verify]` | ERCC1 (frailty, secondhand) | candidate |
+| A18 | Whole-body frailty | 31-item frailty index | FRL | Enalapril 30 mg/kg/day in feed, C57BL/6: frailty index lower in middle-aged and old females and old males (doi:10.1093/gerona/gly219), own readout | ERCC1 (frailty, secondhand) | candidate |
 
 A17 is added because lab mice mostly die of cancer `[to verify]`. Without a
 cancer axis, a treatment that only delays tumours would move the summary and
@@ -105,26 +105,29 @@ Hallmark list from López-Otín et al. 2023, doi:10.1016/j.cell.2022.11.001
 | H1 | Genomic instability | DNA damage foci, mutation burden | none confirmed | `[to verify]` | ERCC1, IRR | unmeasured |
 | H2 | Telomere attrition | telomere length (qPCR / flow-FISH) | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
 | H3 | Epigenetic alterations | methylation clock | GEO-M: GSE80672 (blood RRBS, 141 C57BL/6 males, Petkovich 2017) | CR slows blood methylome ageing (PMC5946071, data GSE80672), own readout; RAPA and CR in liver (doi:10.1186/s13059-017-1186-2, title only `[to verify]`) | ERCC1 (epigenetic age up in blood, brain, liver, muscle, skin: doi:10.1101/2022.12.28.522011, preprint) | candidate |
-| H4 | Loss of proteostasis | protein aggregates, chaperone expression | TMS (chaperone genes) | `[to verify]` | `[to verify]` | candidate (molecular only) |
+| H4 | Loss of proteostasis | protein aggregates, chaperone expression | TMS (chaperone genes) | CR or RAPA for 10 weeks in 27-month mouse hearts: longer protein half-lives, less oxidative damage and ubiquitination (PMC4040127), own readout (heart) | `[to verify]` | candidate (molecular only) |
 | H5 | Disabled macroautophagy | autophagic flux (LC3-II turnover) | none confirmed | RAPA (mTOR inhibition, `[to verify]` on this readout) | `[to verify]` | unmeasured |
 | H6 | Deregulated nutrient sensing | IGF-1, insulin, mTOR activity | ITP body weight; TMS | RAPA, ACA, CANA | HFD `[to verify]`; LMNA (IGF deficiency, secondhand) | candidate |
 | H7 | Mitochondrial dysfunction | respiration (Seahorse), exercise capacity | TMS (OXPHOS genes) | SS-31 (elamipretide) in aged mice: better mitochondrial quality and exercise tolerance (PMID 30597195), own readout | `[to verify]` | candidate (molecular only) |
-| H8 | Cellular senescence | p16/p21 expression, SASP | TMS (Cdkn2a, Cdkn1a) | `[to verify]` | ERCC1 (senescence and SASP markers up: aging-us 202321); IRR (p16 and SA-β-gal up in HSCs: doi:10.1182/blood-2005-04-1418) | candidate |
+| H8 | Cellular senescence | p16/p21 expression, SASP | TMS (Cdkn2a, Cdkn1a) | Dasatinib + quercetin (senolytic): fewer p16 and SA-β-gal positive cells in fat of old mice (PMC9924942); lower p16, p19, IL-6 in discs when started at 6, 14 or 18 months (doi:10.1038/s41467-021-25453-2), own readout | ERCC1 (senescence and SASP markers up: aging-us 202321); IRR (p16 and SA-β-gal up in HSCs: doi:10.1182/blood-2005-04-1418) | candidate |
 | H9 | Stem cell exhaustion | colony assays, HSC function | TMS marrow | RAPA in old mice restored HSC self-renewal (doi:10.1126/scisignal.2000559), own readout | IRR (sustained loss of HSC number and function: doi:10.1182/blood-2005-04-1418) | candidate (molecular only) |
 | H10 | Altered intercellular communication | plasma proteome | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
-| H11 | Chronic inflammation | plasma IL-6, TNF | TMS immune cells (indirect) | `[to verify]` | HFD `[to verify]` | candidate (molecular only) |
-| H12 | Dysbiosis | gut microbiome composition | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
+| H11 | Chronic inflammation | plasma IL-6, TNF | TMS immune cells (indirect) | `[to verify]` | HFD in male C57BL/6J: Tnf, Il1b, Mcp1 up in fat by 24 weeks (PMC4429090); tissue, not plasma (plasma `[to verify]`) | candidate (molecular only) |
+| H12 | Dysbiosis | gut microbiome composition | none confirmed | Short-term dietary restriction in old C57BL/6J reverts the age-related microbiota imbalance (doi:10.1007/s10522-019-09830-5), own readout | `[to verify]` | unmeasured |
 
 ## Counts (v0 draft)
 
 - 30 axes: 18 organ-system, 12 hallmark.
 - `candidate`: 19. `unmeasured`: 11 (A2, A4, A5, A7, A16, A17, H1, H2, H5,
   H10, H12).
-- Axes with **both** controls named from an opened source: 7. A1, A2, A3
-  (wrong way secondhand), A10, A12 (blood count `[to verify]`), H3, H9.
+- Axes with **both** controls named from an opened source: 10. A1, A2, A3
+  (wrong way secondhand), A6, A10, A12 (blood count `[to verify]`), A18
+  (wrong way secondhand), H3, H8, H9.
 - Both controls on the axis's **own readout**: H9 (RAPA restores HSC
-  self-renewal / IRR depletes HSCs) and H3 (CR slows blood methylome /
-  ERCC1 raises epigenetic age, preprint). These are the first axes test 1
+  self-renewal / IRR depletes HSCs), H3 (CR slows blood methylome /
+  ERCC1 raises epigenetic age, preprint), A6 (CR or RAPA reverse diastolic
+  dysfunction / HFD causes heart failure in old mice, both echo) and H8
+  (D+Q lowers p16 / IRR and ERCC1 raise it). These are the first axes test 1
   can actually run on.
 - Flynn 2013 (doi:10.1111/acel.12109): only the abstract was read; the
   muscle and bone tests are not named there, so A1 and A2 right-way readouts
