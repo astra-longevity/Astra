@@ -109,3 +109,29 @@ Accepted (A2 proposal) with 4 amendments:
 
 Verification check of the new rule PR includes: candidate list + choice
 rule committed in a commit older than every logged count query.
+
+## Run-2b rule check, before any count (2026-10-20)
+
+Object: PR #115 (A71, draft), head `749a557` (committed 16:04:12 UTC),
+`search-rule-run2b.md` (sha256
+`b4bcb00cf2f14fd693f4b5a27ab5b083d529cbf46fbf9e717efa114c3f7ae898`). The PR
+holds the rule file only: no count script, no count logged.
+
+| A50 amendment (17:36) | Met? | Note |
+|---|---|---|
+| 1 ≤ 5 candidates + choice rule before any count | yes | B1–B5 written verbatim; choice = broadest with ≤ 1500 new PMIDs, tie → lower id; no candidate added later. |
+| 2 Sections RESULTS/METHODS/TABLE/FIG, same section; limit in seal record | yes | B1 = exactly these 4; B2–B5 are strict subsets. `S:(TERMS)` puts every term in one section. 3 known limits stated. |
+| 3 #106 kept as stopped run; cleared before run; run once; #94 unchanged | yes | Query A verbatim from run 2; I1–I5, open-copy lookup, no-number-read, dedup, 1500 stop kept. |
+| 4 None ≤ 1500 → `pending` | yes | Choice rule point 3. |
+
+**One hold: the lifespan words.** Run-2 query B (cleared) used `"lifespan" OR
+"life span" OR "longevity"`. Here TERMS uses `"lifespan" OR "life span" OR
+"survival"`: `longevity` is dropped. The ruling only restricts sections;
+dropping a word is an extra narrowing, not ruled. Fix before any count:
+TERMS = `"median" AND ("lifespan" OR "life span" OR "longevity" OR
+"survival")` in all five candidates. Adding `survival` is accepted (broader;
+it can only add hits).
+
+Still to check after the fix: the new rule sha; `count2b.rb` in a commit
+newer than the rule commit, checking that sha; all 5 counts logged with query
+hashes.
