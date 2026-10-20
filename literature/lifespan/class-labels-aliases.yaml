@@ -1,0 +1,17 @@
+# Name aliases for class-label lookup (rules amendment 2, committed before the script).
+# Each alias is another name of the SAME substance (INN, IUPAC/trivial name, salt or acid form).
+# The lookup (ChEMBL S1 and MeSH S3) tries the split name first, then every alias, exact match only.
+# No alias widens to a different substance or a class. Chosen from names only, before any lookup
+# result is applied.
+aliases:
+  17alpha-estradiol: [alfatradiol, 17alpha-estradiol, 17-alpha-estradiol, "estradiol, 17alpha"]
+  L-deprenyl: [selegiline]
+  dichloroacetate: [dichloroacetic acid, sodium dichloroacetate]
+  nordihydroguaiaretic acid: [masoprocol]
+  alpha-ketoglutarate: [alpha-ketoglutaric acid, ketoglutaric acids, 2-oxoglutaric acid]
+  nicotinamide: [niacinamide]
+  nicotinamide riboside: [nicotinamide riboside chloride]
+  rapamycin: [sirolimus]
+  C60 fullerene: [fullerene c60, buckminsterfullerene]
+  glucosamine sulfate: [glucosamine sulphate]
+  sodium thiosulfate: [sodium thiosulphate]

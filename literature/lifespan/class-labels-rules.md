@@ -42,6 +42,9 @@ outcome is read (C4). No other source may be substituted.
   its parent molecule. No fuzzy match, no substructure search. Matched parents and forms are
   saved in a committed snapshot (`class-labels-chembl37.json`, metadata only), and the yaml is
   built from that snapshot, so a rebuild is offline and byte-identical.
+- **Aliases (amendment 2):** besides the split name, the lookup (S1 and S3) tries the names in
+  `class-labels-aliases.yaml`: other names of the same substance only (INN, acid/salt form,
+  spelling). Committed before the script; changed only by a new rules commit.
 
 ## 4. Per-compound calls (A28 calls, A50 ruling)
 
