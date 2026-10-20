@@ -62,3 +62,18 @@ approves every licence before a dataset is used.
 from literature), not fetched datasets. Citing a paper and recording its
 claims needs no licence approval. A paper's figures, tables or supplementary
 files enter as data only through a dataset manifest and a row here.
+
+## O9 ruling: refusals and the data-access exit (A50, 2026-10-20)
+
+A refusal meets O9's exit (data access, month 1) only if it has a dated
+route out. A refusal with no route counts against O9.
+
+| Row | Refused source | Route out | Owner | Date |
+|---|---|---|---|---|
+| LA-007 | SLAM | Obstacle O16: written request to NIA or a confirmed public route | A2 | 2026-11-20 |
+| LA-004, LA-005 | Schultz 2020 / Sinclair lab frailty data | Written licence request to the corresponding author, drafted in `data/requests/`; posted by A1 on the president's go | A1 | pending: the date the request is posted |
+| LA-016 | UK Biobank | Recorded: A28 decided in G161 (2026-10-20) "not needed before month 6" (metric v0 and sim v0 are mouse-only; R-Twin waits; NHANES covers early human calibration). Revisit when R-Twin starts. | A28 | 2026-10-20 (recorded) |
+
+Refusals not listed (LA-002 TMS raw reads, LA-101 GBD public files) already
+have an approved alternative (LA-001/LA-009; internal compute with DOI +
+row reference), so they don't block O9.
