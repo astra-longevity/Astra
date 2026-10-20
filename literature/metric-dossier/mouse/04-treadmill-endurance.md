@@ -12,12 +12,12 @@ The mouse runs on a motorised treadmill whose speed rises in steps (for example 
 
 ## Training or reference population
 
-No standard reference. Age data are almost all from male C57BL/6 (B6); one longitudinal study covers both sexes (Pajski 2024). Protocols (speed steps, incline, criterion) differ by lab, so absolute times cannot be compared across labs. No UM-HET3 reference curve found `[to verify]`.
+No standard reference. Age data are almost all from male C57BL/6 (B6); one longitudinal study covers both sexes (Pajski 2024). Protocols (speed steps, incline, criterion) differ by lab, so absolute times cannot be compared across labs. No UM-HET3 reference curve in the sources here (named gap).
 
 ## Noise
 
-- No published same-mouse test-retest coefficient (ICC or CV) found for this test. `[to verify]`
-- Smallest real change for one mouse: not published. `[to verify]`
+- No same-mouse test-retest coefficient (ICC or CV) for this test in the sources here (named gap).
+- Smallest real change for one mouse: not in the sources here (named gap).
 - Practical controls: fix the exhaustion criterion before the study; train all mice the same way on the belt before scoring; one tester; same time of day.
 
 ## Known failure modes
@@ -36,7 +36,7 @@ No standard reference. Age data are almost all from male C57BL/6 (B6); one longi
 | Pajski 2024 (longitudinal, same mice) | C57BL/6 males and females, tested at 6, 12, 18, 24 and 28 months | Males: treadmill score 41.6% lower at 25 months and 38.5% lower at 29 months than at 6 months; the biggest drop was between 18 and 25 months (−40.0%). Females: changes of −10.8%, +1.9%, −21.9%, −9.9% over the successive intervals |
 | Kerr 2024 | Male C57BL/6J, young (4–9 mo) vs old (23–32 mo) | Running time 20% lower at 23–24 months (grip 21% lower, muscle mass 15% lower); 51% lower after 30 months (grip 34%, muscle mass 30%) |
 | Baumann 2018 | C57BL/6, followed to 32 months | Time to fatigue fell 13–46% from 23 to 32 months; endurance dropped before grip did (grip fell 9–17% from 29 to 32 months). Frail/pre-frail mice had 17% less endurance than non-frail at 23 months |
-| Baumann 2019 | Male and female C57BL/6 | Used as one of the frailty-phenotype criteria: "poor endurance" = lowest 20%, cut-offs 944.2 s and 915.6 s (which sex is which `[to verify]`) |
+| Baumann 2019 | Male and female C57BL/6 | Used as one of the frailty-phenotype criteria: "poor endurance" = lowest 20%, sex-specific cut-offs (values in Baumann 2019; not quoted here) |
 
 Take-home: endurance falls by roughly 20% by 2 years and 40–50% by 2.5 years in B6 males, and it falls earlier and further than grip or muscle mass (Kerr 2024; Baumann 2018). That makes it the most age-sensitive of the A1 readouts, at the cost of a motivation confound.
 

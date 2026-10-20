@@ -27,18 +27,17 @@ There is no published same-mouse test-retest study found yet; the published nois
 | Study | Setting | Inter-rater ICC |
 | --- | --- | --- |
 | Feridooni 2015 | 233 male C57BL/6J, 11.5–14 months, 2 raters, criteria refined during the study | 0.77 (95% CI 0.67–0.83) by the final set |
-| Kane 2015 | Longevity-intervention study, mean of 2 raters | 0.88 (0.80–0.92) per PMC full text; a secondary source quotes 0.92 inter-rater and 0.93 intra-rater `[to verify]` which figure is the paper's |
-| Kane, rater-factor study (4 raters, 45 mice) | 2 experienced + 2 inexperienced raters | 0.80 overall; 0.76 across experience levels; 0.86 across rater sex `[to verify]` primary (found in a thesis draft and a figure caption) |
+| Kane 2015 | Longevity-intervention study, mean of 2 raters | 0.88 (0.80–0.92) (Kane 2015 full text) |
 | Howlett 2015 (commentary summarising Kane's projects) | Technicians vs researchers | **0.20–0.49** (poor) between raters of different professional background; 0.88 between scientists |
 
 - In plain English: two raters of the same background agree well (ICC ~0.8–0.9); raters from different backgrounds agree poorly. Rule: **one rater (or one trained team of the same background), blinded to treatment, for all readings of a cohort.**
-- Smallest real change for one mouse: not published. `[to verify]` Needs a repeat-scoring study (same mouse, same day, same and different raters).
+- Smallest real change for one mouse: not in the sources here (named gap). Needs a repeat-scoring study (same mouse, same day, same and different raters).
 - AFRAID's error on remaining lifespan: median 53 days across ages (Schultz 2020, Nature Communications); the earlier conference abstract gave r² = 0.375 and median error 46.4 days (Schultz 2019 abstract). Use the journal figure.
 
 ## Known failure modes
 
 - Rater background and handling technique (above).
-- Environment: time and place of scoring, housing. `[to verify]` effect sizes.
+- Environment: time and place of scoring, housing (effect sizes not quoted here).
 - Floor effect in young mice: the index is near 0.02 at 5 months (Whitehead 2014), so it says little before middle age.
 - Strain calibration (Zhu 2026, above).
 
