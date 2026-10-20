@@ -416,8 +416,8 @@ move.
 | V4 | 13 procedure rules undecided | A50 → chair | done (D120) |
 
 Every obstacle needs an exit dated by month 6 or a dated milestone before
-then; otherwise it counts as unowned. Only V3 has neither yet; Verification
-dates it at the next register update. The register job that raises the
+then; otherwise it counts as unowned. Every row is now dated (V3 by
+Verification, PR #51). The register job that raises the
 alarm on missed dates is live by month 1 (A10).
 
 The full exits and month-6 milestones are in
