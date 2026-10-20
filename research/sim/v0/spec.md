@@ -142,12 +142,19 @@ Hallmark multipliers `m_h` are fixed at 1 in untreated mice and move only
 through sealed mappings (section 6). They are never fitted, so they add 0 free
 parameters. Each mapping's prior is published with the score.
 
-Identifiability: from survival curves alone, `eta`, `beta` and `Xc` per axis
-are not separately identifiable (only their ratios shape mortality). The
-longitudinal axis readings (T5 data, metric v0) are what pin each axis
-separately. Until those exist, calibration fits shared values and reports the
-effective count. `Params.free_parameter_count()` returns 54; a fit that ties
-parameters reports the reduced count in its manifest.
+Identifiability (`identifiability.md`): control survival alone recovers only
+2 directions of the 54 parameters. **Reduced v0 (accepted by A28):** per sex,
+fit a shared multiplier on `eta` and one on `Xc` over the vital axes
+(4 fitted parameters for both sexes, the size of the Gompertz null). The other
+52 stay at the stated defaults and are labelled **"prior, not identified"**
+in this spec and in every score's parameter count, until axis readouts pin
+them (`identifiability.md`, readouts section). `Params.free_parameter_count()`
+returns 54; a fit that ties parameters reports the reduced count in its
+manifest.
+
+Consequence for scoring: with 4 fitted parameters on controls, the simulation
+has no edge over the null on stratum (a). It can only beat the null through
+the mechanistic mappings (section 6), i.e. on strata (b) and (c).
 
 Defaults are **uncalibrated placeholders** (`eta = 1`, `beta = 2`, `Xc = 3.6`,
 `kappa = 0.5`, `eps = 0.6`, `c = 0.3`) chosen only so that the untreated median

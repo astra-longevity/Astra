@@ -169,8 +169,14 @@ def simulate(
     perturbation: Perturbation | None = None,
     dt: float = 7 / 365.25,
     t_max: float = 6.0,
+    record: dict | None = None,
 ) -> list[float]:
-    """Return n simulated lifespans in years (t_max if still alive: right-censored)."""
+    """Return n simulated lifespans in years (t_max if still alive: right-censored).
+
+    `record` (optional) maps ages in years to lists; the axis state of every
+    mouse still alive at that age is appended (a dict copy). Recording draws
+    no random numbers, so lifespans are identical with or without it.
+    """
     base = params or Params()
     treated = _apply(base, perturbation) if perturbation else base
     phases = ((base, _effective(base)), (treated, _effective(treated)))
@@ -188,10 +194,14 @@ def simulate(
             for a, eta, beta, _ in rows:
                 drift = eta * t * coupling - beta * x[a] / (p.kappa + x[a])
                 x[a] = max(0.0, x[a] + drift * dt + noise * rng.gauss(0.0, 1.0))
-            t += dt
+            t_prev, t = t, t + dt
             if any(x[a] >= xc for a, _, _, xc in rows if a in VITAL):
                 death = t
                 break
+            if record:
+                for age, sink in record.items():
+                    if t_prev < age <= t:
+                        sink.append(dict(x))
         lifespans.append(death)
     return lifespans
 
