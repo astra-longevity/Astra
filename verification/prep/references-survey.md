@@ -168,7 +168,17 @@ Overall validation covered 4 publications (22 survival probabilities, 7 medians,
 
 Pick 2 trials whose publication prints the at-risk table and a median or HR, and whose reconstructed value is printed in one of these papers.
 
-**Tolerance:** survival probability 1.5 percentage points absolute; median 1 month or 5% relative. For the HR, use 10% relative, and only when the at-risk table and total events are printed. On Bonner 2006 the original HR is 0.68 [0.52, 0.89], Guyot gives 0.73 [0.57, 0.94] and `ipdfc` 0.72 [0.56, 0.93] (Wei & Royston 2017, Table 1), already 6-7% apart, so 5% would be too strict.
+**Tolerance:** not proposed here. Under D38 Verification sets it from ≥3 curves; setting it from one curve, just above the error already observed, would make the test pass by construction.
+
+**Observed deviations on Bonner 2006 (data, `[to verify]` against the source tables):**
+
+| Quantity | Original | Guyot 2012 | ipdfc (Wei & Royston 2017) |
+|----------|----------|------------|----------------------------|
+| RT survival 1 y / 2 y / 3 y (%) | 55 / 41 / 34 | 56.1 / 41.1 / 34.7 (Δ +1.1 / +0.1 / +0.7) | - |
+| RT+cetuximab survival 2 y / 3 y (%) | 50 / 47 | 50.4 / 46.7 (Δ +0.4 / −0.3) | - |
+| Median RT (months) | 14.9 | 14.9 (Δ 0) | 16.1 (as found in a snippet, `[to verify]`) |
+| Median RT+cetuximab (months) | 24.4 | 24.3 (Δ −0.1) | - |
+| HR (95% CI) | 0.68 (0.52, 0.89) | 0.73 (0.57, 0.94), +7.4% | 0.72 (0.56, 0.93), +5.9% |
 
 ## 7. van Zwet-Schwab-Senn shrinkage prior
 
