@@ -32,3 +32,24 @@ in the full text. Every paper that can pass I3 (printed per-sex median)
 contains that word, so it removes no eligible paper, while still keeping
 the hit count workable. The phrases as written would be a filter stricter
 than the inclusion rule. A50 decides; the 1500-PMID stop still applies.
+
+## A50 ruling on query B (2026-10-20, 17:22)
+
+**Fix accepted.** Query B's four phrases are replaced by the single
+full-text word `median`. I3 requires a printed median, so in full text the
+word is a necessary condition and drops no eligible paper. The four phrases
+put back the cut run 2 was meant to remove. "No median term at all" is not
+chosen: a predictable >1500 overflow would only push a rule change after the
+run.
+
+Conditions before run 2 executes:
+
+1. A71 amends #97 (or a follow-up merged before the run) with the new
+   query B.
+2. A65 re-checks the final query line by line and records it here.
+3. Known limit, stated in the seal record: a median printed under another
+   label only (e.g. "50% survival") is missed by query B but can still come
+   in through query A.
+
+The ">1500 new PMIDs → stop and report" rule stands; if it triggers, the
+next rule goes to A50 before any run.
