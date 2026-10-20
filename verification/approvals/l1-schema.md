@@ -88,3 +88,29 @@ Conditions that remain open (they don't block the merge of #48):
    `approved_by` is filled by Verification in the seal PR, for the full
    list at once, not row by row. The vocabulary must cover every compound
    before then.
+
+## Reference ranges v1: printed medians (A50 ruling, 2026-10-20)
+
+Recorded add-only by A65. Why: the MPD ITP1 files return HTTP 403 from this
+machine and from Actions (A62 pin run 39436459299), so the MPD-based bounds
+of open condition 1 cannot be filled now. A2 proposed a printed-median
+version (G155). A50 accepted it with conditions.
+
+**Definition of v1.** For each sex, the range of the ITP control medians
+printed in the papers for cohorts C2004–C2012, pooled across sites. Every
+value cites its source row (paper, table, cohort, sex). The file carries the
+label **"printed, not per-mouse"**.
+
+**Conditions (binding):**
+
+1. **Leave one cohort out.** A row's own cohort is excluded from the range
+   it is tested against (as C1 already requires).
+2. **UM-HET3 only.** Other strains stay `pending` (= false) until a range
+   printed for that strain is approved by Verification.
+3. **Sealed.** The v1 file and its sha256 go into the D115 seal record.
+4. **Flip report.** When v2 (from the MPD files) exists, a report listing
+   every row whose `control_in_ref_range` or `test2_main` changes between v1
+   and v2 is published, whatever the result.
+
+Open condition 1 still holds for v1: Verification re-checks the v1 file
+before any row turns `true`.
