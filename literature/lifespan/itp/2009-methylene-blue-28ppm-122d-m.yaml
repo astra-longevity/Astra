@@ -1,0 +1,68 @@
+# Harrison 2014 (PMC3954939), methods, table 1, text. Read 2026-10-20.
+id: 2009-methylene-blue-28ppm-122d-m
+program: ITP
+publication:
+  doi: 10.1111/acel.12170
+  citation: "Harrison DE et al., 2014, Aging Cell 13:273-282"
+cohort_year: 2009  # paper: "Cohort 2009"
+compound: methylene blue
+role: "null"
+strain: UM-HET3
+sex: M
+start_age_days: 122  # printed "4 months"; 4 x 30.44 d
+dose:
+  value: 28
+  unit: ppm
+  route: diet
+n:
+  treated: null  # not printed
+  control: null
+lifespan:
+  control:
+    median_days: {value: 807, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1094, source: "table 1"}
+  treated:
+    median_days: {value: 790, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1037, source: "table 1"}
+effect:
+  median_pct: -2.1
+  p90_pct: -5.2
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "0.27", source: "table 1"}
+  - {test: "alive at 90th percentile, Wang-Allison (Fisher)", value: "0.6", source: "table 1"}
+curve_source:
+  figure: "fig 5E (M), fig 5F (F) (pooled), fig S7 (per site)"
+  mpd_id: 798
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites:
+  - {site: TJL, median_days: {control: 807, treated: 701}, p90_days: {control: 1061, treated: 1009}, p_values: [{test: "log-rank", value: "0.07"}, {test: "alive at 90th percentile, Wang-Allison", value: "0.2"}]}
+  - {site: UM, median_days: {control: 925, treated: 905}, p90_days: {control: 1151, treated: 1157}, p_values: [{test: "log-rank", value: "0.96"}, {test: "alive at 90th percentile, Wang-Allison", value: "0.8"}]}
+  - {site: UT, median_days: {control: 704, treated: 699}, p90_days: {control: 1013, treated: 980}, p_values: [{test: "log-rank", value: "0.9"}, {test: "alive at 90th percentile, Wang-Allison", value: "0.9"}]}
+notes: >
+  No effect pooled. TJL median -13% (p = 0.07). Methods give 28 ppm, results text 27 mg/kg. UM male control p90 is printed as 1051 in the ACA block and 1151 in the EST/MB blocks (same controls). All mice dead at analysis; 3-5% removed (about 20% of TJL
+  female controls). Controls shared by ACA, EST and MB in C2009.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - n.treated
+    - n.control
+    - dose.value
+    - sites[UM].p90_days.control
