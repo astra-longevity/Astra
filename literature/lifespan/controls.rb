@@ -63,12 +63,18 @@ end
 # Compound-level test (A50 canagliflozin ruling, A65 item 1): the split's blind arms are
 # B01-B19, not L1 ids, so their compound names are read from a `compound` column (CSV/TSV)
 # or `compound` keys (YAML). A control whose compound equals a blind compound fails.
-split_compounds = split_files.flat_map do |f|
+SEEN_TAG = "compound seen in training"
+# One record per blind split arm: compound parts, cohort year, stratum tag (A50 option 4, G155).
+blind_arm = lambda do |h|
+  { parts: parts(h["compound"]), cohort: h["cohort"].to_s[/\d{4}/],
+    tagged: [h["flag"], h["stratum"]].join(" ").downcase.include?(SEEN_TAG) }
+end
+split_arms = split_files.flat_map do |f|
   if f.end_with?(".yaml", ".yml")
     doc = YAML.safe_load(File.read(f), permitted_classes: [Date])
     walk = lambda do |x|
       case x
-      when Hash then (x.key?("compound") ? [x["compound"]] : []) + x.values.flat_map { |v| walk.call(v) }
+      when Hash then (x.key?("compound") ? [blind_arm.call(x)] : []) + x.values.flat_map { |v| walk.call(v) }
       when Array then x.flat_map { |v| walk.call(v) }
       else []
       end
@@ -77,19 +83,28 @@ split_compounds = split_files.flat_map do |f|
   else
     table = CSV.read(f, headers: true, col_sep: f.end_with?(".tsv") ? "\t" : ",")
     problems << "#{f}: no `compound` column, cannot run the compound-level check" unless table.headers.include?("compound")
-    table.map { |r| r["compound"] }
-  end
-end.compact.flat_map { |c| parts(c) }.uniq
-controls.each do |r|
-  hit = parts(r["compound"]) & split_compounds
-  unless hit.empty?
-    problems << "#{r['id']}: compound '#{r['compound']}' (#{hit.join(', ')}) has an arm in the sealed split"
+    # Only blind arms count (A2, 2026-10-20): split.csv also lists the retrospective
+    # refill arms (part=retro), whose compounds may train and be controls.
+    table = table.select { |r| r["part"].to_s.strip.downcase == "blind" } if table.headers.include?("part")
+    table.reject { |r| r["compound"].nil? }.map { |r| blind_arm.call(r.to_h) }
   end
 end
-blind_keys = BLIND_COMPOUNDS.keys.flat_map { |c| parts(c) }
-blind_in_l1 = split_compounds & rows.flat_map { |r| parts(r["compound"]) }
-missing_blind = blind_in_l1 - blind_keys
-problems << "split compounds in L1 but not in BLIND_COMPOUNDS: #{missing_blind.join(', ')}" unless missing_blind.empty?
+# A50 option 4 (G155, supersedes the canagliflozin point 2): a control sharing a compound
+# AND the cohort with a blind arm fails; compound-only overlap passes only if that blind
+# arm carries the "compound seen in training" tag in the split file.
+controls.each do |r|
+  cparts = parts(r["compound"])
+  split_arms.each do |a|
+    hit = cparts & a[:parts]
+    next if hit.empty?
+    if a[:cohort] && a[:cohort] == r["cohort_year"].to_s
+      problems << "#{r['id']}: compound '#{r['compound']}' (#{hit.join(', ')}) and cohort #{a[:cohort]} match a blind split arm"
+    elsif !a[:tagged]
+      problems << "#{r['id']}: compound '#{r['compound']}' (#{hit.join(', ')}) has a blind split arm not tagged '#{SEEN_TAG}'"
+    end
+  end
+end
+problems.uniq!
 split_note = if split_files.empty?
                "no machine-readable sealed split file exists yet (`research/metric/v0/split*`); " \
                  "the check runs automatically once it does"
