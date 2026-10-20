@@ -1,0 +1,66 @@
+# Harrison 2014 (PMC3954939), methods, table 1, text. Read 2026-10-20.
+id: 2009-17-alpha-estradiol-4.8ppm-304d-f
+program: ITP
+publication:
+  doi: 10.1111/acel.12170
+  citation: "Harrison DE et al., 2014, Aging Cell 13:273-282"
+cohort_year: 2009  # paper: "Cohort 2009"
+compound: 17-alpha-estradiol
+role: "null"
+strain: UM-HET3
+sex: F
+start_age_days: 304  # printed "10 months"; 10 x 30.44 d
+dose:
+  value: 4.8
+  unit: ppm
+  route: diet
+n:
+  treated: null  # not printed
+  control: null
+lifespan:
+  control:
+    median_days: {value: 896, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1072, source: "table 1"}
+  treated:
+    median_days: {value: 893, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1068, source: "table 1"}
+effect:
+  median_pct: -0.3
+  p90_pct: -0.4
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "0.8", source: "table 1"}
+  - {test: "alive at 90th percentile, Wang-Allison (Fisher)", value: "0.9", source: "table 1"}
+curve_source:
+  figure: "fig 5A (M), fig S3A (F) (pooled), fig 5B-D (M), fig S3B-D (F) (per site)"
+  mpd_id: 798
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites:
+  - {site: TJL, median_days: {control: 918, treated: 867}, p90_days: {control: 1084, treated: 1107}, p_values: [{test: "log-rank", value: "0.9"}, {test: "alive at 90th percentile, Wang-Allison", value: "0.5"}]}
+  - {site: UM, median_days: {control: 887, treated: 910}, p90_days: {control: 1089, treated: 1006}, p_values: [{test: "log-rank", value: "0.3"}, {test: "alive at 90th percentile, Wang-Allison", value: "0.2"}]}
+  - {site: UT, median_days: {control: 864, treated: 903}, p90_days: {control: 1062, treated: 1079}, p_values: [{test: "log-rank", value: "0.6"}, {test: "alive at 90th percentile, Wang-Allison", value: "0.4"}]}
+notes: >
+  No effect pooled or at any site. All mice dead at analysis; 3-5% removed (about 20% of TJL
+  female controls). Controls shared by ACA, EST and MB in C2009.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - n.treated
+    - n.control
