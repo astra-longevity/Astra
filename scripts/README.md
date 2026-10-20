@@ -45,7 +45,8 @@ Without it, the `check-structure.sh` check fails.
 | `guards/protection-drift.sh` | Live protection vs. `docs/rust/*.json` (D52); `protection-drift.yml` |
 | `guards/check-workflows.sh` | `actionlint` on every workflow; `workflow-lint.yml` |
 | `runs.py`, `registers.py` | Run manifests (O13); issue + obstacle registers |
-| `build-lock.sh`, `local-checks.sh` | At most 2 local builds at once; local check families |
+| `fetch-datasets.sh` | Downloads and hash-checks the `data/datasets/` manifests; `fetch.yml` |
+| `local/build-lock.sh`, `local/local-checks.sh` | At most 2 local builds at once; local check families |
 | `tests/` | Known-bad tests of each script, run by its workflow |
 
 All of these are sealed (`docs/rust/seal-extension.md`).

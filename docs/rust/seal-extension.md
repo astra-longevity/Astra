@@ -20,27 +20,29 @@ This batch also carries two PRs that touch sealed files:
 | `.github/workflows/lifespan.yml` | `literature/lifespan/check.rb` on every PR (L1 table) |
 | `.github/workflows/protection-drift.yml` | Daily compare of live protection/ruleset with `docs/rust/` (D52); opens an issue on drift |
 | `.github/workflows/workflow-lint.yml` | `actionlint` (pinned 1.7.12) on every workflow, PR + merge queue: invalid YAML, bad expressions, shellcheck in `run:` (the #60 failure) |
+| `.github/workflows/fetch.yml` | Weekly download of every approved `data/datasets` manifest, each file checked against its pinned sha256 and size (P1, O9, O15) |
+| `.github/workflows/file-sizes.yml` | No committed file over 10 MB outside the allow-list (O15) |
+| `.github/large-files-allow.txt` | The 10 MB allow-list; a new line would loosen the size gate |
+| `scripts/fetch-datasets.sh` | The download step of `fetch.yml`: cache by sha256, unpinned files only in `pin` mode, never writes to the repo |
 | `scripts/guards/check-workflows.sh` | The actionlint wrapper; fixtures in `scripts/tests/fixtures/workflows/` (one good, three known-bad) |
 | `scripts/guards/check-write-paths.sh` | Only Verification writes `verification/`; cited `Dnn` exist on base (D47, D69) |
 | `scripts/guards/protection-drift.sh` | Normalises and diffs live protection vs. the committed payloads (D52) |
 | `scripts/runs.py` | Run manifest schema, hashes and re-run (O13) |
 | `scripts/registers.py` | Issue/obstacle schemas, S1/S2 gate, obstacle due-check |
-| `scripts/build-lock.sh`, `scripts/local-checks.sh` | At most 2 local builds at once (part 6); callbacks run the sealed families through the lock |
+| `scripts/local/build-lock.sh`, `scripts/local/local-checks.sh` | At most 2 local builds at once (part 6); callbacks run the sealed families through the lock |
 | `scripts/tests/*.test.sh` | Known-bad tests of the scripts above (a weakened test is a bypass) |
 | `docs/rust/branch-protection.json`, `docs/rust/merge-queue-ruleset.json` | Drift reference; editing them would hide a drift |
-| `.context-pilot/shared/callbacks.yaml` (already sealed; changed) | Blocking callbacks now call `scripts/local-checks.sh` (build lock) |
+| `.context-pilot/shared/callbacks.yaml` (already sealed; changed) | Blocking callbacks now call `scripts/local/local-checks.sh` (build lock) |
 
 Not sealed on purpose: `literature/lifespan/check.rb` (owned by Literature,
 changes with the L1 schema; its workflow is sealed), the toy run under
 `scripts/toy/` (pinned by its manifest hash), `docs/agents.yaml` (rule R3 of
-the write-path check governs it).
+the write-path check governs it), the `astra-fetch` crate (Rust; its 10 MB
+limit `LIMIT_BYTES` in `crates/astra-fetch/src/sizes.rs` is covered by the
+Rust lints and tests, not by the seal).
 
-## Pending: PR #55 (A62, P1)
-
-`.github/workflows/fetch.yml`, `.github/workflows/file-sizes.yml` and
-`scripts/fetch-datasets.sh` are not on `main` yet. They join the seal either
-in this batch (if #55 merges first and this branch is rebased) or in the next
-re-seal.
+`scripts/` holds at most 8 entries, so the guards live in `scripts/guards/`
+and the build lock in `scripts/local/`.
 
 ## President: command to run
 

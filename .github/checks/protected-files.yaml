@@ -71,9 +71,17 @@
   whole_file: true
 - path: .github/workflows/workflow-lint.yml
   whole_file: true
-- path: scripts/build-lock.sh
+- path: .github/workflows/fetch.yml
   whole_file: true
-- path: scripts/local-checks.sh
+- path: .github/workflows/file-sizes.yml
+  whole_file: true
+- path: .github/large-files-allow.txt
+  whole_file: true
+- path: scripts/fetch-datasets.sh
+  whole_file: true
+- path: scripts/local/build-lock.sh
+  whole_file: true
+- path: scripts/local/local-checks.sh
   whole_file: true
 - path: scripts/runs.py
   whole_file: true

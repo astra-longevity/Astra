@@ -115,9 +115,9 @@ All agents share one machine. Every local build, test or check goes through
 the build lock, which lets at most 2 run at once and makes the others wait:
 
 ```bash
-scripts/build-lock.sh cargo test
-scripts/local-checks.sh            # the 3 check families, through the lock
-scripts/local-checks.sh lints      # one family: lints | tests | structure
+scripts/local/build-lock.sh cargo test
+scripts/local/local-checks.sh            # the 3 check families, through the lock
+scripts/local/local-checks.sh lints      # one family: lints | tests | structure
 ```
 
 Slots live in `/tmp/astra-build-lock/`; a slot left by a dead process is
