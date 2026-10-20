@@ -58,3 +58,26 @@ temporary file, not committed. No lifespan number is taken from an abstract.
 Judgment point for A65: 30289438 (Allison DB) is `X_REFILL_LAB` because the
 same person co-authors refill 29921922 at the same university (UAB), in a
 different school. Institution was read as the university.
+
+## Run 2: stopped at the size check
+
+Rule: `search-rule-run2.md` (PR #97 + #101, on main 58866c2), file sha256
+`5fa16c66a7c45d48ad01ae4e37cd4e73803a020cac6d0273adf68753b0acd8be` as cleared
+by A65 (PR #102). Run once by `search2.rb`, which checks that hash and reads
+both queries verbatim from the rule.
+
+| | |
+|---|---|
+| Date | 2026-10-20 15:33 UTC |
+| Query A sha256 | `588c38c8f5bd5af98ed546bb9055d55a00f599577ae2fad969515d729baae697` |
+| Query B sha256 | `a3f9a32e5ce94deff352962526852814173c2cfc90d07c30de476d66f59dd580` |
+| A, PubMed count | 669 |
+| B, Europe PMC count | 6476 (all with a PMID) |
+| Union | 7001; 38 already in run 1 |
+| **New PMIDs** | **6963** (A only 505, B only 6332, A+B 126) |
+| `search2.rb` sha256 | `439e82c9f611546adbadaaab8a51c5b42fdf1045df5b9874e1b696d5a810035d` |
+
+6963 > 1500, so per the rule (Size) the script stopped before writing
+`hits-run2.tsv` or fetching any metadata. Nothing was screened and no paper
+was opened. Counts reported to A2/A50; any narrowing is a new rule that goes
+to A50 before it runs.
