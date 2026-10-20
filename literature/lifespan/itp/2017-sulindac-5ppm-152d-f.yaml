@@ -1,0 +1,64 @@
+# Strong 2022 (PMC9741502, Europe PMC full text), methods, tables 1-5, text. Read 2026-10-20.
+id: 2017-sulindac-5ppm-152d-f
+program: ITP
+publication:
+  doi: 10.1111/acel.13724
+  pmid: "36179270"
+  citation: "Strong R et al., 2022, Aging Cell 21:e13724"
+cohort_year: 2017  # paper "Cont_17"; MPD ITP1 listing C2017
+compound: sulindac
+role: "null"
+strain: UM-HET3
+sex: F
+start_age_days: 152  # printed "5 months"; 5 x 30.44 d
+dose:
+  value: 5
+  unit: ppm
+  route: diet
+n:
+  treated: 136  # table 1 count
+  control: 276
+lifespan:
+  control:
+    median_days: {value: 868, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1060, source: "table 1"}
+  treated:
+    median_days: {value: 853, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1081, source: "table 1"}
+effect:
+  median_pct: -1.7
+  p90_pct: 2.0
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, all mice, treated vs control", value: "0.87", source: "table 1"}
+  - {test: "alive at 90th percentile, Wang-Allison", value: "0.30", source: "table 1"}
+curve_source:
+  figure: "pooled and per-site survival figures in the paper (figure numbers not recorded)"
+  mpd_id: 737
+flags:
+  control_in_ref_range: true  # computed by check.rb: control median 868 d vs leave-one-cohort-out range [866, 900]
+  reference: reference-ranges.yaml@1
+  itp_or_replicated: true
+  replicated_by: null
+sites:  # tables 2 (F) and 3 (M)
+  - {site: TJL, n: {control: 96, treated: 48}, median_days: {control: 871, treated: 875}, p90_days: {control: 1068, treated: 1127}, effect_median_pct_printed: 0, effect_p90_pct_printed: 6, p_values: [{test: "log-rank", value: "0.36"}, {test: "Wang-Allison", value: "0.09"}]}
+  - {site: UM, n: {control: 90, treated: 44}, median_days: {control: 902, treated: 841}, p90_days: {control: 1094, treated: 1072}, effect_median_pct_printed: -7, effect_p90_pct_printed: -2, p_values: [{test: "log-rank", value: "0.03"}, {test: "Wang-Allison", value: "0.55"}]}
+  - {site: UT, n: {control: 90, treated: 44}, median_days: {control: 824, treated: 850}, p90_days: {control: 979, treated: 1061}, effect_median_pct_printed: 3, effect_p90_pct_printed: 8, p_values: [{test: "log-rank", value: "0.19"}, {test: "Wang-Allison", value: "0.23"}]}
+notes: >
+  At UM median -7% with log-rank p = 0.03 (shorter); not significant at TJL or UT, nor pooled. Sensitivity, TJL + UM only (table 4): N 92 vs 186, median 856 vs 890 d (-4%), log-rank p 0.45. Table note: p < 0.001 is tabulated as 0.001 (stored as "<= 0.001"). Count, median, p90 and Wang-Allison exclude removed mice; log-rank includes all mice. p not adjusted for multiple comparisons. Controls shared by the C2017 arms.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify: []
