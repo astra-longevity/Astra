@@ -1,0 +1,61 @@
+part,arm_id,compound,cohort,pmid,sex,class_label_proposed,stratum,flag
+blind,B01,dichloroacetate,ITP 2021,,both,PDK inhibitor,b,
+blind,B02,TPPU,ITP 2023,,both,soluble epoxide hydrolase inhibitor,b,
+blind,B03,rapamycin,ITP 2023,,both,mTORC1 inhibitor,c,combination with 17alpha-estradiol
+blind,B03,17alpha-estradiol,ITP 2023,,both,non-feminising oestrogen,c,combination with rapamycin
+blind,B04,canagliflozin,ITP 2023,,both,SGLT2 inhibitor,compound seen in training,A50 ruling PR #105
+blind,B05,canagliflozin,ITP 2023,,both,SGLT2 inhibitor,compound seen in training,A50 ruling PR #105
+blind,B06,sodium thiosulfate,ITP 2023,,both,H2S donor,a,
+blind,B07,lactoferrin,ITP 2023,,both,iron-binding protein,b,
+blind,B08,captopril,ITP 2024,,both,ACE inhibitor,a,
+blind,B09,trametinib,ITP 2024,,both,MEK inhibitor,b,
+blind,B10,mianserin,ITP 2024,,both,serotonin receptor antagonist,b,
+blind,B11,cinnarizine,ITP 2024,,both,calcium channel blocker,b,
+blind,B12,L-deprenyl,ITP 2024,,both,MAO-B inhibitor,b,
+blind,B13,sildenafil,ITP 2024,,both,PDE5 inhibitor,b,
+blind,B14,alpelisib,ITP 2024,,both,PI3K-alpha inhibitor,b,
+blind,B15,alogliptin,ITP 2025,,both,DPP-4 inhibitor,a,
+blind,B16,BT2,ITP 2025,,both,BCKDK inhibitor,b,
+blind,B17,glucosamine sulfate,ITP 2025,,both,hexosamine pathway,b,
+blind,B18,taurine,ITP 2025,,both,amino acid,a,
+blind,B19,urolithin A,ITP 2025,,both,mitophagy inducer,b,
+retro,RF001,nordihydroguaiaretic acid,,25380600,male,lipoxygenase inhibitor,a,
+retro,RF002,nordihydroguaiaretic acid,,25380600,male,lipoxygenase inhibitor,a,
+retro,RF003,nordihydroguaiaretic acid,,25380600,male,lipoxygenase inhibitor,a,
+retro,RF004,nordihydroguaiaretic acid,,25380600,male,lipoxygenase inhibitor,a,
+retro,RF005,ivabradine,,25589054,male,HCN channel blocker,b,
+retro,RF006,epimedium extract,,26145038,male,no defined target,a,
+retro,RF007,icariin,,26145038,male,multi-target,b,class overlaps blind B13 if PDE5 named primary
+retro,RF008,rapamycin,,27091134,female,mTORC1 inhibitor,a,compound in blind B03
+retro,RF009,nicotinamide riboside,,27127236,unknown,NAD+ precursor,a,
+retro,RF010,rapamycin,,27549339,female,mTORC1 inhibitor,a,compound in blind B03
+retro,RF011,rapamycin,,27549339,female,mTORC1 inhibitor,a,compound in blind B03
+retro,RF012,rapamycin,,27549339,male,mTORC1 inhibitor,a,compound in blind B03
+retro,RF013,rapamycin,,27549339,male,mTORC1 inhibitor,a,compound in blind B03
+retro,RF014,BP-C3,,27574962,female,no defined target,a,
+retro,RF015,putrescine,,27841876,female,polyamine,b,
+retro,RF016,spermidine,,27841876,female,polyamine,b,
+retro,RF017,spermidine,,27841876,female,polyamine,b,
+retro,RF018,spermine,,27841876,female,polyamine,b,
+retro,RF019,spermidine,,28386016,male,polyamine,b,
+retro,RF020,metformin,,29167747,male,biguanide,a,
+retro,RF021,metformin,,29167747,male,biguanide,a,
+retro,RF022,nicotinamide,,29514072,male,NAD+ precursor,a,
+retro,RF023,nicotinamide,,29514072,male,NAD+ precursor,a,
+retro,RF024,L2-Cmu,,29921922,female,IGF-1R antagonist,b,
+retro,RF025,fisetin,,30279143,pooled,senolytic flavonoid,a,
+retro,RF026,berberine,,31773901,male,multi-target,b,
+retro,RF027,CASIN,,32755011,female,Cdc42 inhibitor,b,
+retro,RF028,alpha-ketoglutarate,,32877690,female,Krebs-cycle metabolite,a,
+retro,RF029,alpha-ketoglutarate,,32877690,female,Krebs-cycle metabolite,a,
+retro,RF030,alpha-ketoglutarate,,32877690,male,Krebs-cycle metabolite,a,
+retro,RF031,alpha-ketoglutarate,,32877690,male,Krebs-cycle metabolite,a,
+retro,RF032,metformin,,33585467,female,biguanide,a,
+retro,RF033,C60 fullerene,,33849306,female,no defined target,a,
+retro,RF034,C60 fullerene,,33849306,male,no defined target,a,
+retro,RF035,procyanidin C1,,34873338,pooled,senolytic flavonoid,a,
+retro,RF036,78c,,35263032,female,CD38 inhibitor,b,
+retro,RF037,78c,,35263032,male,CD38 inhibitor,b,
+retro,RF038,chloroquine,,35609021,male,lysosomal autophagy inhibitor,b,
+retro,RF039,oridonin,,35662728,male,NLRP3 inhibitor,b,
+retro,RF040,hesperetin,,35871686,male,polyphenol,a,

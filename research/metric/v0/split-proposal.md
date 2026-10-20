@@ -66,6 +66,41 @@ had to exist to be replicated). The refill therefore uses a
    not replaced.
 6. Label: "retrospective, not blind" (pretraining leak, above).
 
+### Retrospective part: DrugAge refill list (filled 2026-10-20)
+
+- List: `literature/lifespan/drugage-refill/refill-list.csv`, built by A71
+  (PR #75, bb0d11f) under A65's approval (PR #62, #64), checked byte-identical
+  by A65 (PR #77). 23 studies, 40 arms (RF001–RF040), PubMed years 2015–2022.
+- List sha256 `792d54b653d6089c67edf9f30ea759788f8148ac63d87878b81512fd7b20786d`;
+  `build.rb` sha256 `ea277d5f78dfd2844b4954dd3e2bf69f35b7e3676cbc1a40577dba7cca81f382`;
+  source DrugAge Build 5, zip sha256 `d12f5971…fa80` (LA-017).
+- Label: **"retrospective, not blind, DrugAge-selected"** (DrugAge
+  under-reports nulls).
+- Research read only the README and the outcome-stripped CSV. Neither DrugAge
+  nor the 23 papers were opened.
+- Per-arm class label and stratum: `split.csv` (below). Labels are proposals
+  from pharmacology, mechanism sources `[to verify]` (A71 adds them to
+  `literature/lifespan/class-labels.yaml`; A65 approves).
+
+Stratum counts (40 arms): (a) known class 25, (b) new class 15, (c) 0.
+Proposed new classes (b): HCN channel blocker, polyamine, IGF-1R antagonist,
+Cdc42 inhibitor, CD38 inhibitor, lysosomal autophagy inhibitor, NLRP3
+inhibitor, multi-target (icariin, berberine). They need vocabulary entries
+before the seal.
+
+**Overlap with the blind part (flagged, not dropped; A50 condition 6):**
+RF008, RF010–RF013 are rapamycin, a single compound of blind arm B03
+(rapamycin + 17α-estradiol). `controls.rb --check` matches whole compound
+names, so it will flag them. Decision for A28/A65.
+
+## Machine-readable split: `split.csv`
+
+One row per arm, columns `part, arm_id, compound, cohort, pmid, sex,
+class_label_proposed, stratum, flag` (A65, PR #110). Combination arm B03 is
+listed as two rows, one per single compound. B04/B05 (canagliflozin) carry
+stratum **"compound seen in training"** (A50 ruling, PR #105). No outcome
+column.
+
 ## Train set
 
 All finished ITP arms (cohorts 2004–2022) are train. The table lists the
@@ -136,7 +171,7 @@ seal move to train.
 
 | Requirement | Status |
 |---|---|
-| ≥ 10 held-out interventions, ≥ 2 classes | blind part: 19, met; retrospective: 0 |
+| ≥ 10 held-out interventions, ≥ 2 classes | blind part: 19 arms, met; retrospective: 40 arms / 23 studies, met |
 | Both sexes | ITP arms are both sexes unless noted (B04–B19 per page) |
 | Null and shortening arms (T1-A2-4) | blind outcomes unknown by design; shortening arms in train: none yet (S-3) |
 | Control median in reference range (T1-A2-3) | A71 at scoring |
@@ -146,9 +181,11 @@ seal move to train.
 ## Open issues
 
 - S-1: pretraining leak on all published arms (stated above, uncontrolled).
-- S-2: retrospective part empty after reading the NIA page; refill only
-  by the metadata-only rule above (list built by A71 via A2, outcomes
-  stripped).
+- S-2: closed: retrospective part filled by the DrugAge refill list (40 arms).
+- S-6: 5 refill arms share rapamycin with blind B03; flagged, awaiting
+  A28/A65 decision.
+- S-7: refill class labels and strata need mechanism sources and new
+  vocabulary entries before the seal.
 - S-5: any blind arm whose result is published before the seal (B01 risk)
   moves to train; A65 checks at seal.
 - S-3: no life-shortening arm in train yet; A71 to name.
