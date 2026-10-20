@@ -11,6 +11,10 @@ Organ-level stochastic model of damage and repair (charter part 2, D115).
 | `py/baseline.py` | null fit (controls only, train split only), log score, SPRT |
 | `py/run.py` | CLI: simulate N mice, write `survival.csv` + `manifest.json` |
 | `py/test_v0.py` | unit tests |
+| `py/studies/` | identifiability studies: `identifiability.py`, `recovery.py`, `readouts.py`, `longitudinal.py` (see `identifiability.md`) |
+| `results/` | study outputs (JSON) |
+| `identifiability.md` | which parameters survival, readouts and repeated measures can recover |
+| `actions-job.md` | spec of the joint survival + readout job on GitHub Actions (A10 runs it) |
 
 Mappings live in `../mappings.yaml` (empty until the seal).
 

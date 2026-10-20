@@ -30,8 +30,10 @@ import os
 import pickle
 import sys
 
-import model
-from identifiability import H, N_DATA, SE_OK, T_MAX, _corr, bin_probs, full_names, jacobi_eigen
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # py/: model, baseline
+
+import model  # noqa: E402
+from identifiability import H, N_DATA, SE_OK, T_MAX, _corr, bin_probs, full_names, jacobi_eigen  # noqa: E402
 
 AGES = (1.0, 1.5, 2.0, 2.5)  # years: 12, 18, 24, 30 months
 N_PER_AGE = 30

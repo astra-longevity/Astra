@@ -36,6 +36,14 @@ class ModelTests(unittest.TestCase):
         for age, states in rec.items():
             self.assertEqual(len(states), sum(1 for x in ls if x > age))
 
+    def test_track_follows_same_mouse(self):
+        tr = {1.0: {}, 2.0: {}}
+        ls = model.simulate(100, 7, track=tr)
+        self.assertEqual(ls, model.simulate(100, 7))
+        for age, states in tr.items():
+            self.assertEqual(set(states), {i for i, x in enumerate(ls) if x > age})
+        self.assertTrue(set(tr[2.0]) <= set(tr[1.0]))
+
     def test_untreated_median_in_mouse_range(self):
         ls = sorted(model.simulate(200, 1))
         self.assertTrue(1.5 < ls[100] < 3.5, ls[100])
