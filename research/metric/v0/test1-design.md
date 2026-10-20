@@ -49,6 +49,11 @@ For axis *k* and control *c*:
 - **Wrong-sign result** (the axis moves the wrong way under a control): the
   axis fails and an issue is opened (commandment 8). It is not averaged with
   the other control.
+- **Drug effect vs slower ageing**: rapamycin changed many traits in young
+  mice as much as in old ones (Neff 2013, doi:10.1172/JCI67674). A right-way
+  control passes only if the effect is larger in old than in young treated
+  mice (age × treatment interaction). Without a young-treated arm the pass
+  is labelled "treatment effect only", not "slows ageing".
 
 ## Sealed baselines
 
@@ -72,7 +77,8 @@ An axis whose control effect disappears after weight adjustment is labelled
   glycine doi:10.1111/acel.12953), because their lifespan effect is
   replicated across 3 sites.
 - Wrong-way: progeroid models (Ercc1−/Δ, Lmna G609G; refs in `axes.md`),
-  high-fat diet and irradiation (`[to verify]`).
+  high-calorie diet (doi:10.1038/nature05354) and sub-lethal irradiation
+  (doi:10.1182/blood-2005-04-1418).
 - A progeroid model is a valid wrong-way control for an axis only if the axis
   is part of its documented phenotype (issue I-3 in `axes.md`). Otherwise the
   pairing is labelled "weak control" on the scorecard.
