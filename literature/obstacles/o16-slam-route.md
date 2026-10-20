@@ -38,7 +38,20 @@ Zip sha256 `c6e20eccc88e603dea1c33d27f4a1fd012c9d802968e4ef707049835decacaff` (7
 | `Glucose_Lactate.csv` | fasting glucose and lactate per bleed | 13 811 glucose values, 2 394 mice, 2-38 mo, median 6 per mouse (max 11) |
 | `BW_Temp_FC_All_2019-11-16.csv` | body weight, temperature, food intake | not yet summarised |
 
-Lifespan: causes include "Found dead" 686, "Culled Per Vet" 200, "DVR or Pathology" 57 (natural or humane-endpoint deaths) but also "End of study, organs removed" 279, "Used in experiment" 268, "Per PI" 138, "Not in room" 54, "Died during procedure" 40, which must be treated as censored. Counting only the first three as deaths: B6 F 246 (median 25.4 mo), B6 M 235 (25.5), HET3 F 217 (24.6), HET3 M 244 (24.4). 1 013 census mice have no death record (alive at the data cut or missing). These medians are a rough count on deaths only, not a survival analysis; censoring rules must be set before any use.
+Lifespan: causes include "Found dead" 686, "Culled Per Vet" 200, "DVR or Pathology" 57 (natural or humane-endpoint deaths) but also "End of study, organs removed" 279, "Used in experiment" 268, "Per PI" 138, "Not in room" 54, "Died during procedure" 40 and smaller classes, which must be treated as censored.
+
+### Censoring, per strain × sex
+
+Counts from `census.csv` joined to `Survival.csv` on tag. "Died" = cause "Found dead", "Culled Per Vet" or "DVR or Pathology". "Removed" = any other cause (end of study, used in experiment, per PI, procedure deaths, etc.). "No record" = in the census, no row in `Survival.csv`.
+
+| Strain × sex | Mice | Died | Removed | No record |
+| --- | --- | --- | --- | --- |
+| B6 F | 690 | 246 | 200 | 244 |
+| B6 M | 688 | 235 | 206 | 247 |
+| HET3 F | 697 | 217 | 214 | 266 |
+| HET3 M | 708 | 244 | 208 | 256 |
+
+The files carry **no censoring flag** and the deposit has **no README**: `Survival.csv` has only tag, date of death and cause, and the Zenodo record has one zip and an abstract. Mice with no record cannot be told apart as alive at the cut or lost; their last NMR or glucose date is the only available last-seen date. Which causes count as deaths is a rule to set (and seal) before any lifespan use; no lifespan analysis is done here.
 
 Per-file sha256 (first 16 hex): census `40bbd8986557dc97`, Survival `76ec762f06a4cfaa`, NMR `fa54986c8e2bee9d`, Glucose_Lactate `886991d04d340fc3`, BW_Temp_FC `798c24aee4c4380d`.
 
@@ -62,7 +75,9 @@ Since lean mass and glucose sit in the same deposit for the same mice, the "GTT 
 
 1. A66/A50: licence ruling for zenodo.5167639 (CC BY 4.0; derived from NIA intramural data).
 2. A9: manifest `slam-nia` can point to the Zenodo deposit for the covered readouts.
-3. A70: NIA request draft for CBC, echo, GTT (+ frailty/grip/rotarod) by 2026-10-30, format of `data/requests/mpd-itp1-access.md`.
+3. NIA request draft for CBC, echo, GTT (+ frailty, grip, rotarod, gait, and death/censor status after the 2019 cut): `data/requests/nia-slam-access.md`.
+
+The zip was downloaded once, only to measure the files and record hashes; the local copy is deleted. Future fetches go through A9's manifest.
 
 ## Sources
 
