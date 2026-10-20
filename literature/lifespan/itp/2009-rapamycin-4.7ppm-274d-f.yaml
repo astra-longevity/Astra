@@ -1,0 +1,65 @@
+# Miller 2014 (PMC4032600), methods, table 1, text. Read 2026-10-20.
+id: 2009-rapamycin-4.7ppm-274d-f
+program: ITP
+publication:
+  doi: 10.1111/acel.12194
+  citation: "Miller RA et al., 2014, Aging Cell 13:468-477"
+cohort_year: 2009  # MPD ITP1 listing: C2009 rapamycin 4.7/14/42 ppm from 9 months
+compound: rapamycin
+role: "extends"
+strain: UM-HET3
+sex: F
+start_age_days: 274  # printed "9 months"; 9 x 30.44 d
+dose:
+  value: 4.7
+  unit: ppm
+  route: diet, encapsulated
+n:
+  treated: 136  # table 1 N
+  control: 280
+lifespan:
+  control:
+    median_days: {value: 896, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1159, source: "table 1"}
+  treated:
+    median_days: {value: 1043, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1218, source: "table 1"}
+effect:
+  median_pct: 16.4
+  p90_pct: 5.1
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "< 0.0001", source: "table 1"}
+  - {test: "alive at 90th percentile, Wang-Allison (Fisher)", value: "< 0.0001", source: "table 1"}
+curve_source:
+  figure: "fig 1 (pooled), fig S1 (per site)"
+  mpd_id: 798
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites: []  # per-site table S1 is in the supplementary docx, not read; text summary in notes
+notes: >
+  Median +16% pooled; significant at every site, log-rank and Wang-Allison (text). Female control p90 is 1159 d here but 1072 d in Harrison 2014 (same C2009 controls by median). Pooled across TJL, UM, UT; under 1% alive at analysis
+  (2 controls, 15 treated). Censored: 74 males for fight wounds, 104 TJL mice for an immune
+  study, 5 accidents, 6 dermatitis. Controls appear shared with ACA, EST and MB in C2009
+  (same medians as Harrison 2014); the paper does not say so.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - sites
+    - lifespan.control.p90_days
