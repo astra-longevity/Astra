@@ -64,10 +64,12 @@ end
 # B01-B19, not L1 ids, so their compound names are read from a `compound` column (CSV/TSV)
 # or `compound` keys (YAML). A control whose compound equals a blind compound fails.
 SEEN_TAG = "compound seen in training"
-# One record per blind split arm: compound parts, cohort year, stratum tag (A50 option 4, G155).
+# One record per blind split arm: compound parts, cohort year, tag (A50 option 4, G155).
+# The tag is read from the `flag` column only (A65 #142 change): the single encoding A50
+# accepted. A tag written in `stratum` does not count.
 blind_arm = lambda do |h|
   { parts: parts(h["compound"]), cohort: h["cohort"].to_s[/\d{4}/],
-    tagged: [h["flag"], h["stratum"]].join(" ").downcase.include?(SEEN_TAG) }
+    tagged: h["flag"].to_s.downcase.include?(SEEN_TAG) }
 end
 split_arms = split_files.flat_map do |f|
   if f.end_with?(".yaml", ".yml")
