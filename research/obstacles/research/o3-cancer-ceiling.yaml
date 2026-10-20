@@ -1,0 +1,11 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
+id: o3-cancer-ceiling
+title: Cancer ceiling
+owner: A28 (module), A2 (evidence)
+exit: Model reproduces causes of death at necropsy in control mice
+check: judge:A50
+evidence: verification/evidence/o3-cancer-ceiling.md
+date: 2027-07-20
+status: open
+milestone: Necropsy cause-of-death table (T4-A2-1) loaded; model's cause-of-death output compared on controls
+milestone_date: 2027-04-20

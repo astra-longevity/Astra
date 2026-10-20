@@ -1,0 +1,10 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
+id: o14-trust-gates
+title: Gates that rely on trust (shared token, D68 refused)
+owner: A10
+exit: M2 batch merged; drift job live with the president's read-only token; seal covers workflows and scripts
+check: judge:A50
+evidence: verification/evidence/o14-trust-gates.md
+date: 2026-11-20
+status: open
+note: Evidence = M2 batch merge hash + first green drift-job run. Date set by A10 (month 1).

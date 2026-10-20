@@ -1,0 +1,12 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
+id: o7-combined-toxicity
+title: Combined toxicity
+owner: A28 + A2
+exit: Toxicity check for every candidate combination before a request
+check: judge:A50
+evidence: verification/evidence/o7-combined-toxicity.md
+date: 2027-07-20
+status: open
+milestone: Adverse findings and worsened axes for every O4 combination
+milestone_date: 2027-04-20
+note: Dated by owners in G160. Co-owners A28 (module) + A2 (evidence).

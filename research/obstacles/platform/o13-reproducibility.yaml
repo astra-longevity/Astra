@@ -1,0 +1,9 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
+id: o13-reproducibility
+title: Results that can't be reproduced
+owner: A10
+exit: Run manifests + one seeded re-run in CI (month 1); then every sealed prediction and published number re-runs from its manifest before sealing
+check: job:Runs (manifests · re-run)
+date: 2026-11-20
+status: open
+note: After month 1 the exit is ongoing: every sealed prediction re-runs before sealing.

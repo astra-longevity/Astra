@@ -1,0 +1,11 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
+id: o5-lifespan-test-time
+title: 3 years per lifespan test
+owner: A28
+exit: A metric reading at 6-12 months predicts final lifespan in held-out mice (T1 test 4, read early)
+check: judge:A50
+evidence: verification/evidence/o5-lifespan-test-time.md
+date: 2027-07-20
+status: open
+milestone: First early-reading -> remaining-lifespan score on held-out mice from public longitudinal data
+milestone_date: 2027-03-20

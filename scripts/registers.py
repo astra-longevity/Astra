@@ -30,7 +30,8 @@ DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ISSUE_FIELDS = ("id", "title", "severity", "target", "opened", "status", "owner")
 ISSUE_OPTIONAL = ("closed", "evidence", "note")
 OBSTACLE_FIELDS = ("id", "title", "owner", "exit", "check", "date", "status")
-OBSTACLE_OPTIONAL = ("judge", "evidence", "note")
+OBSTACLE_OPTIONAL = ("judge", "evidence", "note", "milestone", "milestone_date",
+                     "milestone_status")
 CHECK_TIMEOUT_S = 600
 
 
@@ -68,17 +69,27 @@ def _date(v):
 
 
 def load_dir(root, rel, required, optional, validate):
-    """Returns (records, errors). Every *.yaml in root/rel except README."""
+    """Returns (records, errors). Every *.yaml under root/rel, recursively
+    (sub-folders group files by unit; the structure check allows <= 8 entries
+    per folder). Ids are unique across the whole register."""
     d = os.path.join(root, rel)
     recs, errs = [], []
     if not os.path.isdir(d):
         return recs, errs
-    for name in sorted(os.listdir(d)):
-        if not name.endswith(".yaml"):
+    files = []
+    for dirpath, dirnames, names in os.walk(d):
+        dirnames.sort()
+        files += [os.path.join(dirpath, n) for n in names if n.endswith(".yaml")]
+    seen = {}
+    for full in sorted(files):
+        name = os.path.basename(full)
+        path = os.path.relpath(full, root)
+        if name in seen:
+            errs.append(f"{path}: duplicate id {name[:-5]} (also {seen[name]})")
             continue
-        path = os.path.join(rel, name)
+        seen[name] = path
         try:
-            with open(os.path.join(d, name)) as f:
+            with open(full) as f:
                 r = parse_flat(f.read())
         except (OSError, ValueError) as e:
             errs.append(f"{path}: {e}")
@@ -118,10 +129,24 @@ def _validate_issue(r):
 
 def _validate_obstacle(r):
     e = []
-    if r["status"] not in ("open", "met", "failed"):
-        e.append("status: open | met | failed")
-    if not _date(r["date"]):
-        e.append("date: YYYY-MM-DD (an obstacle without a date counts as unowned, T8-A1-2)")
+    if r["status"] not in ("open", "met", "failed", "unowned"):
+        e.append("status: open | met | failed | unowned")
+    if r["date"] == "null":
+        if r["status"] != "unowned":
+            e.append("date: null only with status: unowned (T8-A1-2)")
+    elif not _date(r["date"]):
+        e.append("date: YYYY-MM-DD, or null with status: unowned (no relative dates, T8-A1-2)")
+    elif r["status"] == "unowned":
+        e.append("status: unowned only with date: null")
+    has_ms = [k for k in ("milestone", "milestone_date") if r.get(k)]
+    if len(has_ms) == 1:
+        e.append("milestone and milestone_date go together")
+    if r.get("milestone_date") and not _date(r["milestone_date"]):
+        e.append("milestone_date: YYYY-MM-DD")
+    if r.get("milestone_status", "open") not in ("open", "met"):
+        e.append("milestone_status: open | met")
+    if "milestone_status" in r and not has_ms:
+        e.append("milestone_status without a milestone")
     c = r["check"]
     if c.startswith("job:"):
         if not c[4:].strip():
@@ -187,14 +212,23 @@ def run_check(root, check):
 
 
 def report_block(o, today, status, detail):
-    late = (today - dt.date.fromisoformat(o["date"])).days
-    head = "FAILED" if status == "fail" else "NEEDS CHECK"
+    heads = {"fail": "FAILED", "manual": "NEEDS CHECK", "unowned": "UNOWNED",
+             "milestone": "MILESTONE DUE"}
+    if status == "unowned":
+        when = "none (no absolute date: unowned, T8-A1-2)"
+    elif status == "milestone":
+        late = (today - dt.date.fromisoformat(o["milestone_date"])).days
+        when = (f"milestone {o['milestone_date']} ({late} day(s) past): {o['milestone']}; "
+                f"exit date {o['date']}")
+    else:
+        late = (today - dt.date.fromisoformat(o["date"])).days
+        when = f"{o['date']} ({late} day(s) past)"
     return "\n".join([
-        f"### [{head}] Obstacle {o['id']}: {o['title']}",
+        f"### [{heads[status]}] Obstacle {o['id']}: {o['title']}",
         "",
         f"- Owner: {o['owner']}",
         f"- Exit: {o['exit']}",
-        f"- Date: {o['date']} ({late} day(s) past)",
+        f"- Date: {when}",
         f"- Check: `{o['check']}`",
         f"- File: `{o['_path']}`",
         "",
@@ -214,7 +248,19 @@ def obstacles(root, today, schema_only):
         return 1 if errs else 0
     reports = []
     for o in recs:
-        if o["status"] != "open" or dt.date.fromisoformat(o["date"]) > today:
+        if o["status"] in ("met", "failed"):
+            continue
+        ms_due = (o.get("milestone_date") and o.get("milestone_status", "open") != "met"
+                  and dt.date.fromisoformat(o["milestone_date"]) <= today)
+        if ms_due:
+            print(f"ms-due {o['id']} (milestone {o['milestone_date']})")
+            reports.append(report_block(o, today, "milestone",
+                                        "milestone judged by A50; set milestone_status: met"))
+        if o["status"] == "unowned":
+            print(f"unowned {o['id']}")
+            reports.append(report_block(o, today, "unowned", "give the exit an absolute date"))
+            continue
+        if dt.date.fromisoformat(o["date"]) > today:
             continue
         status, detail = run_check(root, o["check"])
         print(f"{status:6} {o['id']} (due {o['date']})")

@@ -1,0 +1,9 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
+id: o11-publication-bias
+title: Published lifespan effects are biased (sick controls, unpublished nulls)
+owner: A2
+exit: L1 complete with T1-A2-3 flags; share of flagged results reported
+check: judge:A50
+evidence: verification/evidence/o11-publication-bias.md
+date: 2027-01-20
+status: open

@@ -1,0 +1,9 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
+id: o9-data-access
+title: Data access
+owner: A9 + A50
+exit: Every T5 source fetched by manifest with its licence recorded
+check: judge:A50
+evidence: verification/evidence/o9-data-access.md
+date: 2026-11-20
+status: open

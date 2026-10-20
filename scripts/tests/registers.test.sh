@@ -136,6 +136,48 @@ if [ -n "$(find "$R" -newer "$work/before" -type f)" ]; then
   failed=$((failed + 1)); echo "FAIL obstacles wrote into the root"
 fi
 
+# --- unowned rows and milestones -------------------------------------------
+
+# set_line <file> <key> <value>: replace or append a key.
+set_line() {
+  if grep -q "^$2:" "$1"; then sed -i.bak "s|^$2:.*|$2: $3|" "$1"; rm -f "$1.bak"
+  else echo "$2: $3" >>"$1"; fi
+}
+F() { echo "$R/research/obstacles/$1.yaml"; }
+
+fresh; obstacle u1 null "judge:A50" unowned; set_line "$(F u1)" evidence verification/evidence/u1.md
+expect "date null + unowned is valid" 0 "1 valid, 0 error" -- obstacles --schema-only
+
+fresh; obstacle u1 null "judge:A50" unowned; set_line "$(F u1)" evidence verification/evidence/u1.md
+expect "unowned row is reported daily" 1 "\[UNOWNED\] Obstacle u1" -- obstacles --today 2026-10-20
+
+fresh; obstacle u2 null "true" open
+expect "date null with status open fails" 1 "date: null only with status: unowned" -- obstacles --schema-only
+
+fresh; obstacle u3 2027-01-20 "true" unowned
+expect "unowned with a real date fails" 1 "unowned only with date: null" -- obstacles --schema-only
+
+fresh; obstacle m1 2027-07-20 "true"; set_line "$(F m1)" milestone "sim v0 sealed"; set_line "$(F m1)" milestone_date 2026-10-15
+expect "due milestone is reported before the exit date" 1 "\[MILESTONE DUE\] Obstacle m1" -- obstacles --today 2026-10-20
+
+fresh; obstacle m2 2027-07-20 "true"; set_line "$(F m2)" milestone "sim v0 sealed"; set_line "$(F m2)" milestone_date 2026-10-15; set_line "$(F m2)" milestone_status met
+expect "met milestone is not reported" 0 "nothing missed" -- obstacles --today 2026-10-20
+
+fresh; obstacle m3 2027-07-20 "true"; set_line "$(F m3)" milestone "sim v0 sealed"
+expect "milestone without milestone_date fails" 1 "go together" -- obstacles --schema-only
+
+fresh; obstacle m4 2027-07-20 "true"; set_line "$(F m4)" milestone "x"; set_line "$(F m4)" milestone_date "month 4"
+expect "relative milestone_date fails" 1 "milestone_date: YYYY-MM-DD" -- obstacles --schema-only
+
+# --- unit sub-folders (<= 8 entries per folder) ---------------------------------
+
+fresh; obstacle s1 2026-10-10 "false"; mkdir -p "$R/research/obstacles/platform"; mv "$(F s1)" "$R/research/obstacles/platform/"
+expect "row in a unit sub-folder is loaded and reported" 1 "research/obstacles/platform/s1.yaml" -- obstacles --today 2026-10-20
+
+fresh; obstacle d1 2027-01-01 "true"; mkdir -p "$R/research/obstacles/a" "$R/research/obstacles/b"
+cp "$(F d1)" "$R/research/obstacles/a/"; mv "$(F d1)" "$R/research/obstacles/b/"
+expect "same id in two sub-folders fails" 1 "duplicate id d1" -- obstacles --schema-only
+
 echo ""
 echo "registers tests: $pass passed, $failed failed"
 [ "$failed" = 0 ]

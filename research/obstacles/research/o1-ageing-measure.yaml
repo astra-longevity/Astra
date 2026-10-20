@@ -1,0 +1,9 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
+id: o1-ageing-measure
+title: No measure that reads ageing reliably
+owner: A28 + A50
+exit: Metric v0 passes T1 tests 1-4 on public data; tests 5-6 reported
+check: judge:A50
+evidence: verification/evidence/o1-ageing-measure.md
+date: 2027-04-20
+status: open

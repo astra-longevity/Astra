@@ -1,0 +1,11 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owners confirmed in G160.
+id: o4-combinations
+title: Combinations don't add up
+owner: A28
+exit: Model predicts published combination studies (e.g. rapamycin + acarbose) within their intervals
+check: judge:A50
+evidence: verification/evidence/o4-combinations.md
+date: 2027-10-20
+status: open
+milestone: List of published combination studies (L1) with sealed sim forecasts for each
+milestone_date: 2027-04-20
