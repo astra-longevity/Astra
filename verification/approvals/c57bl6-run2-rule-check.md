@@ -218,3 +218,23 @@ states two known limits: B finds a median only in a TABLE section, and the
 size came from `survival`. If A50 wants evidence of parsing, the only route is a
 diagnostic count (e.g. B5 without `survival`). It is not used for any choice,
 and it is logged.
+
+## A50 ruling: counts valid, B5 runs (G140, 2026-10-20, 18:31)
+
+1. **Counts kept.** The strings are the committed rule and the choice rule was
+   applied as written. `survival` was in A2's 17:35 proposal, which A50
+   accepted, so it is part of the rule and not a drift. Dropping it now would
+   be a choice made after the counts: refused.
+2. **Sanity check corrected.** "≤ 6476" assumed that B1–B4 restrict run-2 B,
+   and they do not. The valid test is nesting among the candidates: B5 (TABLE)
+   ⊂ B4 ⊂ … ⊂ B1 (wider sections), so counts must not increase from B1 to B5.
+   They do not: hitCount 18317 ≥ 15902 ≥ 14084 ≥ 7931 ≥ 571, and new PMIDs
+   18847 ≥ 16438 ≥ 14631 ≥ 8512 ≥ 1195. This is the parsing evidence. No
+   diagnostic count is made.
+3. **B5 runs once**, after #115 is on `main` with the rule at `d6ef9139…edb`.
+   All PR #94 conditions are unchanged: the 1500 stop, I1–I5, refill/lab
+   independence, the open-copy lookup, and nothing read until the passing
+   list is committed. The run log is checked here after the run.
+4. **Seal record states 2 known limits:** query B finds medians only via TABLE
+   sections, so medians printed only in text or figures are missed by B and
+   can come in only through A; the hit volume was driven by `survival`.
