@@ -48,3 +48,23 @@ this file records it.
    fitted to the data. No margin in v1. The seal record states that the
    extreme cohorts are `false` by construction; v2 (MPD) may revisit the
    statistic, decided before v2's values are read.
+
+## A50 ruling on C2013 (2026-10-20, 16:47)
+
+**Include C2013.** "C2004–C2012" described what was in L1 at the time; it
+was not a cut-off. The rule: v1 = every printed pooled control median of
+every ITP cohort in L1 at freeze time. Dropping a cohort that meets it, after
+seeing which flags change, would be a choice by result. Leave-one-cohort-out
+applies to C2013 rows too. Freeze = the sha256 in the D115 seal record; any
+cohort added later means a new version and a flip report.
+
+With this ruling, PR #88 @`fee554f` conforms in full. The hold above is
+lifted: the 44 `true` flags stand as computed by `check.rb`.
+
+## A50 ruling: no margin in v1 (2026-10-20, 16:48)
+
+The refusal of a margin (question 4) is endorsed. The 12 extreme-cohort rows
+(C2007 F, C2010 F, C2013 M) stay `false` and are listed by id in the D115
+seal record. The test-2 scorecard reports a sensitivity line with and
+without a margin; the main analysis is without. A margin may come only in a
+later version, by a rule stated before that version's data is read.
