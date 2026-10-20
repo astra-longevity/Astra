@@ -1,0 +1,32 @@
+# Control-lifespan reference ranges (T1-A2-3 (a), Verification ruling C1).
+# Rows cite this file as `reference-ranges.yaml@<version>`.
+# Bounds are null until the MPD ITP1 per-mouse files arrive through Platform's
+# fetch job (manifest by Database); phenome.jax.org returns 403 from the local
+# machine. While bounds are null, every row has control_in_ref_range: false.
+version: 0
+definition:
+  source: >
+    ITP control groups, all cohorts C2004-C2021, per-mouse lifespan files of
+    MPD project ITP1 (RRID:SCR_003212), file ids listed in each range.
+  statistic: >
+    Kaplan-Meier median lifespan (days) of the control group, all sites pooled,
+    one value per cohort.
+  range: "[min, max] of those cohort medians"
+  bounds_inclusive: true
+  own_cohort_excluded: >
+    The range used for a row is recomputed without the row's own cohort, so a
+    control group is never compared with itself.
+  site_level: "not used: the flag is checked on the pooled-site median"
+ranges:
+  - strain: UM-HET3
+    sex: F
+    mpd_file_ids: [834, 829, 823, 804, 798, 793, 787, 768, 762, 782, 748, 754, 737, 558, 573, 707, 772]
+    cohort_medians_days: null
+    lower_days: null
+    upper_days: null
+  - strain: UM-HET3
+    sex: M
+    mpd_file_ids: [834, 829, 823, 804, 798, 793, 787, 768, 762, 782, 748, 754, 737, 558, 573, 707, 772]
+    cohort_medians_days: null
+    lower_days: null
+    upper_days: null

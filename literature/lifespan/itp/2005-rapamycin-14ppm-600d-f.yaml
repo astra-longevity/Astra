@@ -5,7 +5,7 @@ program: ITP
 publication:
   doi: 10.1038/nature08221
   citation: "Harrison DE et al., 2009, Nature 460:392-395"
-cohort_year: 2005  # paper names the 270-day study "Cohort 2006", begun "one year later"; 2005 is inferred
+cohort_year: 2005  # MPD ITP1 listing: C2005, rapamycin 14 ppm from 20 months
 compound: rapamycin
 role: extends
 strain: UM-HET3
@@ -32,23 +32,21 @@ effect:
   p90_pct: 14
   se: null
   se_scale: null
-  se_source: null
+  se_source: null  # only "< 0.0001" printed: no exact p, so no from_p_value SE (C8)
   digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
 p_values:
   - {test: "log-rank, pooled sites, treated vs control", value: "< 0.0001", source: "text, fig 1"}
   - {test: "alive at joint 90th percentile (4.8% control vs 21.5% treated)", value: "< 0.0001", source: "text, supp table S1"}
 curve_source:
   figure: "fig 1 (pooled), fig 2 (per site)"
-  mpd_id: null
+  mpd_id: 829  # MPD ITP1 C2005 lifespan file, fetched by Platform's job (pending)
 flags:
-  control_in_ref_range: pending
-  reference: null
+  control_in_ref_range: false  # range bounds and pooled control median not yet known
+  reference: reference-ranges.yaml@0
   itp_or_replicated: true
-  test2_main: false  # no SE yet; to_verify not empty
-class_label:
-  proposed: mTORC1 inhibitor
-  source: "Harrison 2009 discussion (mTORC1 pathway); rpS6 phosphorylation reduced, fig 3B"
-  approved: null
+  replicated_by: null
 sites:
   - {site: TJL, median_days: null, p90_days: {control: 1100, treated: 1282}, effect_p90_pct: 17, effect_mean_pct: 15, p_values: [{test: "alive at 90th percentile", value: "0.0006"}]}
   - {site: UM, median_days: null, p90_days: {control: 1094, treated: 1250}, effect_p90_pct: 14, effect_mean_pct: 16, p_values: [{test: "alive at 90th percentile", value: "0.0001"}]}
@@ -67,7 +65,6 @@ verification:
   doi_checked: 2026-10-20
   numbers_checked: paper
   to_verify:
-    - cohort_year
     - n.treated
     - n.control
     - lifespan.control.median_days
