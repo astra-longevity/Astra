@@ -1,0 +1,54 @@
+name: Lifespan
+
+# Runs literature/lifespan/check.rb (L1 lifespan table: row schema + test2_main).
+# Owner: A10 (Code). Requested by A2/A65 before the D115 seal.
+# No on.paths filter: the job always reports, and passes with "no lifespan
+# change" when literature/lifespan/** is untouched (safe as a required check).
+
+on:
+  pull_request:
+  merge_group:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lifespan:
+    name: Lifespan (check.rb)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect lifespan changes
+        id: changes
+        env:
+          EVENT: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          MQ_BASE: ${{ github.event.merge_group.base_sha }}
+          PUSH_BEFORE: ${{ github.event.before }}
+        run: |
+          case "$EVENT" in
+            pull_request) base="$PR_BASE" ;;
+            merge_group)  base="$MQ_BASE" ;;
+            *)            base="$PUSH_BEFORE" ;;
+          esac
+          if [ -z "$base" ] || ! git cat-file -e "$base^{commit}" 2>/dev/null; then
+            echo "Base unknown: running the check."
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          elif git diff --name-only "$base" HEAD | grep -q '^literature/lifespan/'; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run check.rb
+        if: steps.changes.outputs.run == 'true'
+        run: ruby literature/lifespan/check.rb
+
+      - name: No lifespan change
+        if: steps.changes.outputs.run != 'true'
+        run: echo "No change under literature/lifespan/: nothing to check."
