@@ -8,7 +8,7 @@ landing_url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE121141
 access: public
 files:
   - url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE121nnn/GSE121141/suppl/GSE121141_RAW.tar"
-    sha256: null
+    sha256: c05a0873e1150162aae3549ca4c2291de8801aed4e60ef407e523bf446422674
     size_bytes: 2982471680
     format: tar
     note: "all per-sample supplementary files"
@@ -36,7 +36,7 @@ source_publications:
 used_by:
   - R-Metric
   - L2
-fetched_at: null
+fetched_at: "2026-10-20"
 notes: >-
   GEO series and paper linked via NCBI E-utilities on 2026-10-20. Size from
   HTTP Content-Length.

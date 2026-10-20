@@ -9,58 +9,58 @@ landing_url: https://www.cdc.gov/nchs/data-linkage/mortality-public.htm
 access: public
 files:
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_1999_2000_MORT_2019_PUBLIC.dat"
-    sha256: null
+    sha256: 562bd367107add0b2b40fed36a062d8b194fca31e11aab897a0efad4bebc8b26
     size_bytes: 487666
     format: dat
     note: "cycle 1999-2000"
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2001_2002_MORT_2019_PUBLIC.dat"
-    sha256: null
+    sha256: 2788c8c8a02995ea5686882b5fe65b4b9cd415016031525f8a3c1a3646c47f1b
     size_bytes: 540362
     format: dat
     note: "cycle 2001-2002"
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2003_2004_MORT_2019_PUBLIC.dat"
-    sha256: null
+    sha256: 639f6b3292a55b112fbfc842954af3d8d32bcce287cd8ae49319e5aca1c033c0
     size_bytes: 495722
     format: dat
     note: "cycle 2003-2004"
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2005_2006_MORT_2019_PUBLIC.dat"
-    sha256: null
+    sha256: 69388ea13a4f395f29d9d21bc51941b9759003490d4b00f6ff12a1bc5f8dba5c
     size_bytes: 506774
     format: dat
     note: "cycle 2005-2006"
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2007_2008_MORT_2019_PUBLIC.dat"
-    sha256: null
+    sha256: 75f89bd545a13ba726a7eb56de4d62f6dfc8f0f76d505dc18ced9752d5e2c77d
     size_bytes: 498376
     format: dat
     note: "cycle 2007-2008"
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2009_2010_MORT_2019_PUBLIC.dat"
-    sha256: null
+    sha256: eabf074331e20d3f3cbb8ddf21e3a43e517f5694187c12b755741f4472894786
     size_bytes: 517751
     format: dat
     note: "cycle 2009-2010"
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2011_2012_MORT_2019_PUBLIC.dat"
-    sha256: null
+    sha256: ff98b6c87172643426b1c6d20f76495592bebd618ea18f742d98a44b84456b30
     size_bytes: 475574
     format: dat
     note: "cycle 2011-2012"
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2013_2014_MORT_2019_PUBLIC.dat"
-    sha256: null
+    sha256: 588acea1d4cdf47a14cc9a35bd56e372739b8788d63ca0af98bf954c70c29905
     size_bytes: 494268
     format: dat
     note: "cycle 2013-2014"
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2015_2016_MORT_2019_PUBLIC.dat"
-    sha256: null
+    sha256: f392baaf9c20a4c75bc9936775ba956e64528fa5ada5102b08f86f64e41e84a0
     size_bytes: 484288
     format: dat
     note: "cycle 2015-2016"
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/NHANES_2017_2018_MORT_2019_PUBLIC.dat"
-    sha256: null
+    sha256: 42989d4fe35754d696b770f26553b0a309c110a9e26ab0ee504be3eae5987523
     size_bytes: 449623
     format: dat
     note: "cycle 2017-2018"
   - url: "https://ftp.cdc.gov/pub/Health_Statistics/NCHS/datalinkage/linked_mortality/R_ReadInProgramAllSurveys.R"
-    sha256: null
-    size_bytes: null
+    sha256: 04c514fd6b798ceb7eeed1afea61f42c6cdd270734c1483e1803027ff9066ac3
+    size_bytes: 9146
     format: r
     note: "official read-in program"
 licence:
@@ -87,7 +87,7 @@ checked_at: "2026-10-20"
 used_by:
   - R-Metric
   - T1 human
-fetched_at: null
+fetched_at: "2026-10-20"
 notes: >-
   Sizes from HTTP Content-Length on 2026-10-20. Fetch-only: never commit a
   row-level file (LA-008).
