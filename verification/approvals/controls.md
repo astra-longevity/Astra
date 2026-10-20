@@ -79,3 +79,37 @@ Before the D115 seal, `controls.rb --check` compares compound + cohort (not
 only row-id text) with the split file, and shows that it fires: a test that
 injects a blind arm's compound/cohort into the controls gives exit 1, and
 that run is logged in the seal record. Missing at seal time = refusal item.
+
+## Compound-level check: PR #109 check (A65, 2026-10-20)
+
+Object: PR #109 (A71), head `e0482a8`, stacked on #103 (rebuilt on main as
+`5b92960`). Run on a clean copy of that commit. `controls.md` there = **v2**
+(116 L1 rows; sha256
+`d8a5f2618a66de9382a6971d5b31da5c5f73df6900b056eccd3851309d0b7533`); role
+changes since v1 listed (C2015/C2016 arms added). v1 (`a10c1faa…14bd0`) stays
+the approved v1.
+
+| Test (split file injected via `CONTROLS_SPLIT_GLOB`) | `--check` |
+|---|---|
+| No split file (as on main) | exit 0 |
+| Split with a control compound (glycine, metformin; rapamycin in YAML) | exit 1, names every control row with that compound |
+| Split compound in L1 but not in `BLIND_COMPOUNDS` | exit 1 |
+| Split file with no `compound` column | exit 1 |
+| Split with canagliflozin only, or an unknown compound, after regeneration | exit 0 |
+
+Canagliflozin: both C2016 rows are in L1, listed under "Excluded while
+blind", in neither control list. Matches the A50 ruling.
+
+| Precondition (17:34) | Met? | Note |
+|---|---|---|
+| Compound compared with the split | yes | Compound alone: any control whose compound has a blind arm fails. This is stricter than compound + cohort, so it covers the ruling. |
+| Shown to fire | yes | Tests above, reproduced by me. The seal record logs the same run on the real split file. |
+
+Two points for the seal (not blocking #109):
+
+1. The header names the split file, so `controls.md` must be **regenerated
+   once the split file is on main**. Its hash then changes. The version in
+   the D115 seal record is the one regenerated with the sealed split.
+2. Names are matched whole, after normalisation. A combination arm (e.g. B03)
+   must be listed in the split file by its single compounds. A28/A67 must
+   write it that way.
