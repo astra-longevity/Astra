@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Findings{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>Findings</h1>
+  <p class="lead">What the data in the repository shows so far: published mouse lifespan results, which parts of the body our measure of biological age can already see, and the reproducible runs.</p>
+</section>
+
+<h2>Mouse lifespan results (ITP)</h2>
+<p class="muted">The Interventions Testing Program feeds drugs to genetically mixed mice at three sites. Each dot is one group of treated mice (one drug, dose, start year and sex): how much longer, in percent, the middle mouse lived than in the untreated group. Green: the paper reports a lifespan gain. Grey: no clear effect. A hollow dot means some numbers in that file are still to be checked. Only the central value is shown: the files do not yet give uncertainty ranges, so no error bars are drawn. Click a dot to open its file.</p>
+<p class="muted">{{ plotted_count }} of {{ arm_count }} groups have a median change; {{ unverified_count }} of those still have numbers to check. Source: <a href="{{ itp_href }}">literature/lifespan/itp/</a>.</p>
+<div class="chart-wrap">{{ forest | safe }}</div>
+{% if missing %}
+<details class="missing">
+  <summary>{{ missing | length }} group(s) with no median change in the file yet</summary>
+  <ul class="doc-list">
+    {% for a in missing %}<li><a href="{{ a.href }}">{{ a.compound }}</a>, {{ a.detail }}</li>{% endfor %}
+  </ul>
+</details>
+{% endif %}
+
+<h2>Coverage of the biological-age measure</h2>
+<p class="muted">Biological age is measured on many axes: one per organ system and one per hallmark of ageing. An axis with no public data to read it from is a blind spot; it stays on the list until one is found. Source: <a href="{{ axes_href }}">research/metric/v0/axes.md</a> (draft).</p>
+<p>{{ axis_counts.total }} axes: <span class="cov cov-readout">{{ axis_counts.readout }} with a public readout</span> <span class="cov cov-molecular">{{ axis_counts.molecular }} with molecular data only</span> <span class="cov cov-gap">{{ axis_counts.gap }} blind spots</span></p>
+{% for g in axis_groups %}
+<h3>{{ g.label }}</h3>
+{% if g.axes %}
+<ul class="coverage">
+  {% for x in g.axes %}<li class="{{ x.class }}" title="{{ x.label }}"><span class="code">{{ x.code }}</span> {{ x.name }}<span class="muted"> {{ x.label }}</span></li>{% endfor %}
+</ul>
+{% else %}
+<p class="empty">No axis listed.</p>
+{% endif %}
+{% endfor %}
+
+<h2>Reproducible runs</h2>
+<p class="muted">Each run is re-run on every change and must give the same output files, byte for byte. Source: <a href="{{ runs_href }}">research/runs/</a>.</p>
+{% if runs %}
+<table class="table">
+  <thead><tr><th>Run</th><th>What it is</th><th>Seed</th><th>Output files</th></tr></thead>
+  <tbody>
+  {% for r in runs %}
+    <tr>
+      <td><a href="{{ r.href }}">{{ r.id }}</a></td>
+      <td>{{ r.description }}</td>
+      <td>{{ r.seed }}</td>
+      <td>{% for o in r.outputs %}<a href="{{ o.href }}">{{ o.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty">No run yet.</p>
+{% endif %}
+{% endblock %}

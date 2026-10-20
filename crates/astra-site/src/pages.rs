@@ -9,7 +9,7 @@ use rusqlite::Connection;
 
 use crate::docs::{self, MissionDir};
 use crate::project::git::{self, History};
-use crate::project::{decisions, gantt, obstacles, status};
+use crate::project::{decisions, findings, gantt, obstacles, status};
 use crate::query::{self, rows, text};
 use crate::{BuildReport, SiteError, SitePaths, io_at};
 use crate::{glossary, markdown};
@@ -74,6 +74,7 @@ fn leak_name(name: &'static str) -> &'static str {
         "status" => "status.html",
         "roadmap" => "roadmap.html",
         "decisions" => "decisions.html",
+        "findings" => "findings.html",
         _ => "glossary.html",
     }
 }
@@ -223,6 +224,7 @@ fn project_pages(repo: &Path, history: &History) -> Result<Vec<Page>, SiteError>
         Page::top("status", status_vars),
         Page::top("roadmap", roadmap_vars),
         Page::top("decisions", context! { groups => decisions::index(repo)? }),
+        Page::top("findings", findings::vars(repo)?),
     ];
     for path in decisions::files(repo)? {
         let text = fs::read_to_string(&path).map_err(io_at(&path))?;
