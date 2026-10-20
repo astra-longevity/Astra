@@ -1,7 +1,7 @@
 # Planted errors: draft (D66)
 
-Status: DRAFT for A10 + A50. Nothing here is a rule until A10 and A50 fix the cut-offs (D66).
-Every threshold marked "provisional" follows A50's R5 target: detection < 80% = unreliable.
+Status: cut-offs agreed A10 + A50 (D66), 2026-10-20. The 80% detection target stays provisional (A50's R5 target: detection < 80% = unreliable).
+Error types and mutation rules are a draft Verification may extend.
 
 ## 0. Ground rules (from D66, D71)
 
@@ -10,7 +10,8 @@ Every threshold marked "provisional" follows A50's R5 target: detection < 80% = 
 - A plant is written by a Verification agent, never by a producer (Literature, Research, Database).
 - A plant lives only in the audit packet handed to the auditor. It is never committed to `data/`, so it can never reach the score.
 - A plant must pass every mechanical check (schema, `db build --check`, DOI resolves, CI). Plants test the reader, not the linter. A plant a linter would catch is a broken plant: fix the plant, don't count it.
-- A plant counts as detected only if the auditor flags that item **and** names the right field. Flagging the item for another reason is a miss.
+- A plant counts as detected only if the auditor flags that item **and** names the right field. Flagging the item for another reason is a miss (A50 ruling).
+- Each quarter also reports a separate "flagged, wrong cause" rate (plants flagged for a reason other than the planted error, over all plants), so a blind spot is not hidden behind lucky flags.
 - Plants feed D71 (accuracy against known truth) as their own row, labelled "planted".
 
 ## 1. Error type catalogue
@@ -38,7 +39,12 @@ Per-type detection rates are not estimable from one quarter (about 2 plants per 
 
 D63 uses a 3-month pool and three outcomes: pass / double the next sample / incident. Same shape here.
 
-Pool: the last quarter's plants, n = 20 by default (n = 40 after a "double" outcome). Count m = misses (plants not detected with the right field).
+Pool: the last quarter's plants. n = 20 minimum. n = 40 in three cases (A50 ruling, mirrors D63's doubled first 3 months and after any S1):
+- a unit's first quarter;
+- the quarter after any S1 incident;
+- the quarter after a "double" outcome.
+
+Count m = misses (plants not detected with the right field).
 
 The judged quantity is the true miss rate q. Target (provisional): q ≤ 20%, i.e. detection ≥ 80%.
 
@@ -50,20 +56,29 @@ The judged quantity is the true miss rate q. Target (provisional): q ≤ 20%, i.
 | 5–7 | double: next quarter n = 40 | Observed detection 65–75%. Not strong evidence on its own: with q = 20% exactly, m ≥ 5 happens 37% of the time. |
 | ≥ 8 | incident (S-level set by A50) | With q = 20%, P(m ≥ 8) = 3.2%. So m ≥ 8 is strong evidence detection is below 80%. |
 
-**n = 40 (after a double)**
+**n = 40 (first quarter, after S1, after a double)**
 
 | Misses m | Outcome | Reasoning |
 |----------|---------|-----------|
 | 0–8 | pass | Observed detection ≥ 80%. |
-| 9–13 | incident | Two quarters in a row below 80% observed. |
-| ≥ 14 | incident | With q = 20%, P(m ≥ 14) = 1.9%. |
+| 9–13 | double: next quarter n = 40 again | Observed detection 67.5–77.5%. Expected misses at q = 20% are 8, so m ≥ 9 happens 41% of the time when detection is truly 80%: too common to call an incident. |
+| ≥ 14 | incident (S-level set by A50) | With q = 20%, P(m ≥ 14) = 1.9%. |
 
-Binomial tails, P(m ≥ k) for n = 20 (computed with exact binomial sums, script in the PR description):
+Binomial tails, P(m ≥ k) (exact binomial sums, script in the PR description):
+
+n = 20
 
 | k | q = 10% | q = 20% | q = 30% | q = 40% | q = 50% |
 |---|---------|---------|---------|---------|---------|
 | 5 | 0.043 | 0.370 | 0.762 | 0.949 | 0.994 |
 | 8 | 0.000 | 0.032 | 0.228 | 0.584 | 0.868 |
+
+n = 40
+
+| k | q = 10% | q = 20% | q = 30% | q = 40% | q = 50% |
+|---|---------|---------|---------|---------|---------|
+| 9 | 0.015 | 0.407 | 0.889 | 0.994 | 1.000 |
+| 14 | 0.000 | 0.019 | 0.297 | 0.789 | 0.981 |
 
 What n = 20 can and cannot do (state it publicly):
 
@@ -72,12 +87,14 @@ What n = 20 can and cannot do (state it publicly):
 - Catching a team at 50% detection: incident 87% in one quarter.
 - Telling 80% from 75% apart needs a few hundred plants. Out of reach; do not claim it.
 
+What n = 40 adds: false incident 1.9% a quarter at true 80%; a team at 70% detection gets an incident 30% of the time and "double" or worse 89% of the time.
+
 Also an incident, whatever m: any plant that reaches `data/` on main, or any plant written by a producer.
 
-Open choices for A10 + A50:
-1. Should 9–13 at n = 40 be "incident" or a second double? Draft says incident (two weak signals in a row).
-2. Should the first quarter of a new unit use n = 40 (mirrors D63's doubled first 3 months)? Draft says yes.
-3. Does a plant flagged with the wrong cause count half? Draft says no (miss).
+Cut-offs agreed A10 + A50 (D66), 2026-10-20; 80% stays provisional:
+1. n = 40 has a double band: pass 0–8 / double 9–13 / incident ≥ 14.
+2. n = 40 in a unit's first quarter and the quarter after any S1, then n = 20 minimum.
+3. A plant flagged for the wrong reason is a miss; the "flagged, wrong cause" rate is reported separately.
 
 ## 3. Key handling
 
@@ -102,3 +119,15 @@ Protects: secrecy against agents, as long as no agent can change the workflow th
 Does not protect: a workflow change that prints the seed if it gets merged; the president as single point of trust; and it needs a president setup step. The commit-reveal hash (option A) is still published on top, so B adds secrecy, A keeps honesty.
 
 Draft recommendation: start with A now, label "planted (key not isolated)"; ask the president for B when D66 cut-offs are fixed.
+
+## 4. Sealing (A10 amendment, agreed A10 + A50)
+
+The sealed file for a quarter holds more than the key. It contains:
+
+- the manifest (plant items, types, mutations, seed);
+- the quarter's n (20 or 40, and why: default, first quarter, after S1, after a double);
+- the cut-off table for that n (pass / double / incident bands from section 2).
+
+Its sha256 (with the salt) is committed alongside the key hash before the audit packet goes out. So the bands and n are fixed before anyone sees a result.
+
+At reveal, A10's reveal job (ships after the M2 batch) recomputes the hash, counts misses and "flagged, wrong cause" from the audit results, and computes pass / double / incident mechanically from the sealed table. No band is chosen after seeing the result. Until that job exists, a Verification agent does the same steps by hand and the outcome is labelled "manual reveal".
