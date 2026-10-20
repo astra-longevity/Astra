@@ -16,17 +16,27 @@ NAMED_POSITIVE = ["rapamycin", "acarbose", "17-alpha-estradiol", "ndga", "canagl
 
 # Version of the lists (A50 approval of PR #99, condition 4). Later versions only by
 # regeneration: bump VERSION, keep the older roles file, the diff goes in controls.md.
-VERSION = 1
+VERSION = 2
 ROLES_V1 = File.join(DIR, "controls-roles-v1.tsv")
 REFILL = File.join(DIR, "drugage-refill", "refill-list.csv")
 REPO = File.expand_path("../..", DIR)
 # Machine-readable sealed split (D115). Not on main yet; checked as soon as it exists.
-SPLIT_GLOB = File.join(REPO, "research", "metric", "v0", "split*.{csv,tsv,yaml,yml}")
+# CONTROLS_SPLIT_GLOB overrides the location (used only by the firing test).
+SPLIT_GLOB = ENV.fetch("CONTROLS_SPLIT_GLOB", File.join(REPO, "research", "metric", "v0", "split*.{csv,tsv,yaml,yml}"))
+# Compounds with blind arms in the split (research/metric/v0/split-proposal.md). Their L1
+# rows stay in the table (they train) but are never controls while any arm is blind
+# (A50 ruling 2026-10-20, G155).
+BLIND_COMPOUNDS = { "canagliflozin" => "blind arms B04/B05 (A50 ruling 2026-10-20)" }.freeze
+
+def norm(name)
+  name.to_s.downcase.gsub(/[^a-z0-9+]+/, " ").strip
+end
 
 rows = Dir[File.join(DIR, "itp", "*.yaml")].sort.map do |p|
   YAML.safe_load(File.read(p), permitted_classes: [Date])
 end
-controls = rows.select { |r| %w[null extends].include?(r["role"]) }
+blind_rows = rows.select { |r| BLIND_COMPOUNDS.key?(r["compound"]) }
+controls = rows.select { |r| %w[null extends].include?(r["role"]) } - blind_rows
 
 # Condition 1: no control arm may sit in the sealed split or in the refill list.
 problems = []
@@ -41,6 +51,34 @@ controls.each do |r|
   problems << "#{r['id']}: publication PMID #{pmid} is in refill-list.csv" if !pmid.empty? && refill_pmids.include?(pmid)
   problems << "#{r['id']}: arm id appears in sealed split #{split_files.join(', ')}" if split_text.include?(r["id"])
 end
+# Compound-level test (A50 canagliflozin ruling, A65 item 1): the split's blind arms are
+# B01-B19, not L1 ids, so their compound names are read from a `compound` column (CSV/TSV)
+# or `compound` keys (YAML). A control whose compound equals a blind compound fails.
+split_compounds = split_files.flat_map do |f|
+  if f.end_with?(".yaml", ".yml")
+    doc = YAML.safe_load(File.read(f), permitted_classes: [Date])
+    walk = lambda do |x|
+      case x
+      when Hash then (x.key?("compound") ? [x["compound"]] : []) + x.values.flat_map { |v| walk.call(v) }
+      when Array then x.flat_map { |v| walk.call(v) }
+      else []
+      end
+    end
+    walk.call(doc)
+  else
+    table = CSV.read(f, headers: true, col_sep: f.end_with?(".tsv") ? "\t" : ",")
+    problems << "#{f}: no `compound` column, cannot run the compound-level check" unless table.headers.include?("compound")
+    table.map { |r| r["compound"] }
+  end
+end.compact.map { |c| norm(c) }.uniq
+controls.each do |r|
+  if split_compounds.include?(norm(r["compound"]))
+    problems << "#{r['id']}: compound '#{r['compound']}' has an arm in the sealed split"
+  end
+end
+blind_in_l1 = split_compounds & rows.map { |r| norm(r["compound"]) }
+missing_blind = blind_in_l1 - BLIND_COMPOUNDS.keys.map { |c| norm(c) }
+problems << "split compounds in L1 but not in BLIND_COMPOUNDS: #{missing_blind.join(', ')}" unless missing_blind.empty?
 split_note = if split_files.empty?
                "no machine-readable sealed split file exists yet (`research/metric/v0/split*`); " \
                  "the check runs automatically once it does"
@@ -96,7 +134,7 @@ end
 def section(title, rows, role, named)
   out = ["## #{title}", ""]
   by = rows.select { |r| r["role"] == role }.group_by { |r| r["compound"] }
-  missing = named.reject { |c| by.key?(c) }
+  missing = named.reject { |c| by.key?(c) }.map { |c| BLIND_COMPOUNDS.key?(c) ? "#{c} (in L1, excluded while blind)" : c }
   by.keys.sort_by { |c| [named.include?(c) ? 0 : 1, c] }.each do |c|
     tag = named.include?(c) ? " (named control)" : ""
     out << "### #{c}#{tag}" << ""
@@ -122,10 +160,11 @@ md = <<~MD
   **Approval (A50, PR #99) and its conditions:**
   - **Version.** v1 = the lists approved in PR #99 (draft sha256 `e3eed40e…be59`; same tables,
     this header added). Roles of v1 are frozen in `controls-roles-v1.tsv`. Later versions
-    (canagliflozin, C2015 onward) only by regeneration, with the role diff below.
+    (canagliflozin, C2015 onward) only by regeneration, with the role diff below. This is v#{VERSION}.
   - **Kept out of the test sets.** `controls.rb --check` fails if a control arm id (or its
     publication PMID, when recorded) is in `drugage-refill/refill-list.csv` or in the sealed
-    split. Split: #{split_note}.
+    split, or if a control's compound has any arm in the sealed split (compound-level test,
+    A50 ruling 2026-10-20). Split: #{split_note}.
   - **Interval = descriptive only.** It is not a confidence interval and not a pass/fail bar.
     Pass/fail tests on positive controls are defined by A28's sealed test-1 design, not by
     this file.
@@ -145,8 +184,15 @@ md = <<~MD
     replication notes are in each row's `notes`; this file makes no judgment of its own.
   - Approval of these lists: Verification (A50).
 
-  #{section('Negative controls (role: null)', rows, 'null', NAMED_NEGATIVE)}
-  #{section('Positive controls (role: extends)', rows, 'extends', NAMED_POSITIVE)}
+  #{section('Negative controls (role: null)', controls, 'null', NAMED_NEGATIVE)}
+  #{section('Positive controls (role: extends)', controls, 'extends', NAMED_POSITIVE)}
+  ## Excluded while blind
+
+  Compounds with an arm in the blind part of the split are never controls (A50 ruling,
+  2026-10-20). Their rows stay in L1 and train as usual.
+
+  #{blind_rows.empty? ? 'None.' : blind_rows.map { |r| "- `#{r['id']}` (#{r['role']}): #{BLIND_COMPOUNDS[r['compound']]}" }.join("\n")}
+
   ## Other roles
 
   #{other.empty? ? 'None (no row has role shortens or mixed).' : other.map { |r| "- `#{r['id']}`: #{r['role']}" }.join("\n")}
