@@ -1,0 +1,62 @@
+# Strong 2013 (PMC3598361), methods, table 1, text, figs 2-3. Read 2026-10-20.
+id: 2007-oxaloacetic-acid-2200ppm-122d-m
+program: ITP
+publication:
+  doi: 10.1093/gerona/gls070
+  citation: "Strong R et al., 2013, J Gerontol A Biol Sci Med Sci 68:6-16"
+cohort_year: 2007  # paper: "Cohort 2007"
+compound: oxaloacetic acid
+role: "null"
+strain: UM-HET3
+sex: M
+start_age_days: 122  # printed "4 months"; 4 x 30.44 d
+dose:
+  value: 2200
+  unit: ppm
+  route: diet
+n:
+  treated: null  # table 1 notes give only the range 153-158 across treated groups
+  control: {value: 294, source: "table 1 notes"}
+lifespan:
+  control:
+    median_days: {value: 786, ci95: [742, 826], source: "table 1"}
+    mean_days: null
+    p90_days: null
+  treated:
+    median_days: {value: 819, ci95: [756, 857], source: "table 1"}
+    mean_days: null
+    p90_days: null
+effect:
+  median_pct: 4.2
+  p90_pct: null
+  se: null
+  se_scale: null
+  se_source: null  # no HR or exact p printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "> 0.3", source: "fig 3 legend"}
+curve_source:
+  figure: "fig 3 (pooled)"
+  mpd_id: 804
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites: []
+notes: >
+  Null arm (negative-control candidate, T1-A2-2). Pooled medians from table 1 (mice removed
+  from the study excluded). No significant effect at any single site (text, data not shown).
+  Controls shared by the 5 C2007 compounds. First cohort with diets standardised across sites. OAA was labile in chow: measured 164-555 ppm vs 2200 nominal; authors infer mice got at most 250-560 ppm, possibly negligible.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - n.treated
