@@ -74,6 +74,10 @@ route out. A refusal with no route counts against O9.
 | LA-004, LA-005 | Schultz 2020 / Sinclair lab frailty data | Written licence request to the corresponding author, drafted in `data/requests/`; posted by A1 on the president's go | A1 | pending: the date the request is posted |
 | LA-016 | UK Biobank | Recorded: A28 decided in G161 (2026-10-20) "not needed before month 6" (metric v0 and sim v0 are mouse-only; R-Twin waits; NHANES covers early human calibration). Revisit when R-Twin starts. | A28 | 2026-10-20 (recorded) |
 
+Note on the LA-004, LA-005 row (2026-10-20): request draft deleted 2026-10-20
+under PR12 (manifest `225a8ff`); route out = president's contact (see PR12
+section).
+
 Refusals not listed (LA-002 TMS raw reads, LA-101 GBD public files) already
 have an approved alternative (LA-001/LA-009; internal compute with DOI +
 row reference), so they don't block O9.
@@ -88,6 +92,9 @@ overrule a Verification finding (charter).
 |---|---|---|---|
 | LA-004 | used under president overrule PR12 | Stays as written above: no Source Data file was published. | The president contacts the authors himself (PR12, 2026-10-20). No agent posts a licence request; the `data/requests/` draft is not sent. |
 | LA-005 | used under president overrule PR12 | Stays as written above: `SinclairLab/frailty` has no licence file. | Same as LA-004. |
+
+Note on the LA-004 row (2026-10-20): request draft deleted 2026-10-20 under
+PR12 (manifest `225a8ff`); route out = president's contact (see PR12 section).
 
 This section replaces the Schultz route in the O9 table above. The rows
 above are left unchanged.
