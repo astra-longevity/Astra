@@ -135,3 +135,27 @@ it can only add hits).
 Still to check after the fix: the new rule sha; `count2b.rb` in a commit
 newer than the rule commit, checking that sha; all 5 counts logged with query
 hashes.
+
+## Run-2b amended rule: cleared for counts (2026-10-20)
+
+Object: PR #115 head `c2fff98`. Amended rule commit `4799272`,
+`search-rule-run2b.md` sha256
+`d6ef9139622aa59287776d18bf11872050871d832b14c33b268eee541be2eedb`.
+
+- Diff against `749a557`: only `longevity` added to TERMS and to all five
+  B lines, plus the disclosure paragraph. Nothing else changed. Hold lifted.
+- `count2b.rb` (commit `c2fff98`, newer than `4799272`) aborts unless both
+  `search-rule-run2.md` (`5fa16c66…8be`) and the amended run-2b rule
+  (`d6ef9139…edb`) match. It reads query A and B1–B5 verbatim, asks Europe PMC
+  for id lists only, keeps PMIDs in memory, writes nothing, and aborts on an
+  incomplete page set.
+- **Aborted count run** (A71 disclosure): `count2b.rb` was started against
+  `749a557` (sha `b4bcb00c…`) at about 18:06 local, before the hold, then killed
+  after about 2 minutes; nothing printed, no count seen. Per A50 (G140, 18:08) it
+  is void, and the candidate list was re-committed (`4799272`) before any count.
+  Condition: `search-log.md` lists this aborted run as a void entry next to the
+  five counts.
+
+Cleared: A71 may run `count2b.rb` once against `d6ef9139…edb`. Next check: the
+five counts and query hashes in `search-log.md`, the void entry, and the choice
+rule applied as written.
