@@ -77,3 +77,17 @@ route out. A refusal with no route counts against O9.
 Refusals not listed (LA-002 TMS raw reads, LA-101 GBD public files) already
 have an approved alternative (LA-001/LA-009; internal compute with DOI +
 row reference), so they don't block O9.
+
+## President overrule PR12: Schultz 2020 (2026-10-20)
+
+The president overruled the LA-004 refusal in writing: ruling PR12 in
+`docs/decisions/president-rulings.md` (PR #78). Only the president can
+overrule a Verification finding (charter).
+
+| Row | Status | Refusal reason | O9 route out |
+|---|---|---|---|
+| LA-004 | used under president overrule PR12 | Stays as written above: no Source Data file was published. | The president contacts the authors himself (PR12, 2026-10-20). No agent posts a licence request; the `data/requests/` draft is not sent. |
+| LA-005 | used under president overrule PR12 | Stays as written above: `SinclairLab/frailty` has no licence file. | Same as LA-004. |
+
+This section replaces the Schultz route in the O9 table above. The rows
+above are left unchanged.
