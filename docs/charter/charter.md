@@ -1,11 +1,18 @@
 # Astra founding charter (draft for D46 ratification)
 
-Drafted by the chair (A1) from the decision log
-`docs/decisions/founding-council-log.md` at `d3eddfb` (D1–D113), plus the
-president's rulings of 2026-10-20 on D68 and D78. Nothing in this charter
-is new: every paragraph ends with the decisions it rests on. A paragraph
-with no citation, or a citation that does not cover what the paragraph
-says, is a defect that the D46 diff must flag.
+Drafted by the chair (A1) from:
+- the president's ten commandments (`docs/charter/commandments.md`), which
+  outrank everything below;
+- Arcanum session 1 decisions D114–D123 (`arcanum/session-1/topics/`,
+  merged at `c24b135`);
+- the president's answers of 2026-10-20 to the session-close form (D122);
+- the old log D1–D113 (`docs/decisions/founding-council-log.md`), which is
+  read-only history. An old decision binds only if session 1 re-issued it
+  (T7, D120). Anything not re-issued is dead.
+
+Nothing in this charter is new. Every paragraph ends with the decisions it
+rests on. A paragraph with no citation, or with a citation that doesn't
+cover what it says, is a defect that the D46 diff must flag.
 
 ---
 
@@ -13,139 +20,290 @@ says, is a defect that the D46 diff must flag.
 
 ### What Astra is
 
-Astra is a team of AI agents, run for its president, that tries to find
-which existing therapies most extend healthy life in people aged 70–79.
-Its yardstick is how many extra months, over 10 years, a person lives
-without death, dementia or lasting disability. It aims to produce new,
-checkable results, not summaries of other people's work.
+Astra is a team of AI agents, run for its president, whose purpose is to
+extend mammalian lifespan by at least 2 to 3 times. The mouse target is 3×,
+and it never moves. Its core is **simulation**: a computer model of how a
+body ages. Real experiments, on mice and on the president's own samples,
+exist only to confirm or refute what the model predicted in advance.
 
-*Cites: D20, D33.*
+*Cites: commandments 1–3, D115, D117.*
 
-### What to expect in year 1
+### What comes first
 
-- **No ranking of therapies.** Only one trial measures our yardstick in
-  healthy people aged 70–79: the aspirin trial (ASPREE). Aspirin is our
-  negative control, a drug we expect to show no benefit, so it checks our
-  tools and never counts as a result.
-- **What year 1 does deliver:** the tools, each checked against published
-  numbers; a public table of what is known and missing for all 16 types
-  of therapy; estimates labelled "extrapolated from sick populations",
-  kept apart from the main yardstick; and a list of forecasts on ongoing
-  trials, written before their results are known.
-- **Scale:** progress is measured in months, not decades. Every output has
-  a date (part 5).
-- **Likeliest failure:** we find no outside researcher willing to review
-  our work, or our extraction from papers is less accurate than we think.
-  Both are measured and published (G9, G10, D71).
+Nothing advances without a way to **measure biological age with no blind
+spots**. So the first job is a measure of biological age built as a set of
+readings, one per organ system and per cause of ageing, rather than a single
+number. No treatment is designed until that measure passes its tests.
 
-*Cites: D70, D79, D87, D92, D113, D1, D17.*
+*Cites: commandments 5, 6, 9, D114.*
+
+### What to expect in the first 6 months
+
+- **Week 1:** data fetched by manifest; the train/test split sealed.
+- **Months 1–6:** measure v0 on public mouse data with its scorecard; the
+  simulation v0 calibrated on untreated mice and scored against a simple
+  curve-fit baseline; dated forecasts on mouse studies still running.
+- **By month 6:** a first request for mice, sent only with the measure's
+  scorecard and a sealed prediction for the mice to test.
+- **What can go wrong** is tracked as 16 named obstacles, each with an
+  owner, an exit and a date (part 9). "Impossible" is never an answer: an
+  obstacle is the next target.
+
+*Cites: commandment 4, D117, D119, D121.*
 
 ### Decisions that belong to you
 
 | Decision | State |
 |---|---|
-| Separate GitHub identities for agents (D68) | **Refused** 2026-10-20. Agents keep the shared token. |
-| Three missions start before this charter is ratified (D78) | **Approved** 2026-10-20: Verification, forecast ledger, tooling. |
-| Re-seal of code-protection settings, once, batched (D45, D80) | Pending: the tooling mission sends you the command. |
-| Legal and medical-advice review before any score goes public (D88) | Pending: needs a human reviewer. |
-| Sponsor and money: none in year 1 unless you decide otherwise; review at month 3 if no sponsor (D36, D76) | Open. |
-| Verification's share of agent work, set each quarter, ≥ 15% (D64) | First setting due at day 1. |
-| Ratifying this charter (D46) | After the council's reviews. |
-| Overruling a Verification finding | Only you, in writing (D47). |
+| Separate GitHub identities for agents (D68) | **Refused** 2026-10-20. Agents share one token. |
+| Three missions start before ratification (D78) | **Approved** 2026-10-20: Verification, forecast ledger, tooling. |
+| Where your health data lives (D122) | **Answered** 2026-10-20: public repo, encrypted; key only in a local, git-ignored `.env`. |
+| May agents read your raw values (D122) | **Yes.** |
+| What is published about you (D122) | You left it to us: default = per-measure records only for measures you list, none until you list any. |
+| First two blood draws (noise baseline) (D116, D122) | **Later**, when you say so. |
+| `scoring` environment, `main` only (D122) | **Done** 2026-10-20 by A1 at your request. |
+| `PROTECTION_READ_TOKEN` (D122) | **Done** with your full token, at your choice. |
+| Re-seal of code-protection settings (M2) | Pending: the Code Manager sends you the command. |
+| Mice: when and how many | Yours. Each request comes with a sealed prediction (part 4). |
+| Verification's share of workers, each quarter, ≥ 15% | Yours. |
+| Overruling a Verification finding | Only you, in writing. |
+| Ratifying this charter (D46) | After the managers' reviews. |
 
-*Cites: D36, D45, D46, D47, D64, D68, D76, D78, D80, D88.*
+*Cites: D46, D47, D64, D68, D78, D116, D117, D120, D122.*
 
-### One limit you must know
+### Limits you must know
 
-**Write paths are a convention, not proof, while all agents share one
-token.** You refused separate identities (D68), so every rule in part 3's
-table can be broken by an agent that is tricked or careless. We detect
-breaches after the fact; we cannot prevent them.
+- **Rules about who writes where are conventions, not proof.** All agents
+  share one token, so a careless or tricked agent can break them. We detect
+  breaches after the fact (part 7).
+- **Your token is stored as a GitHub secret with full rights.** Only the
+  daily protection check may use it; any other workflow that reads it is
+  an incident.
 
-*Cites: D47, D68, D108.*
+*Cites: D68, D108, D122.*
 
 ---
 
-## Part 1: purpose and yardstick
+## Part 1: the measure of biological age
 
-The north star is the 10-year gain in restricted mean survival time (RMST)
-free of major disease and disability. In practice the scored composite is
-ASPREE's: death, dementia or persistent physical disability. The other
-events of the D21 list are shown beside it, never mixed in. Ages 70–79 are
-scored; ages 60–69 are shown only where a trial printed a 60–69 result,
-otherwise "not estimable". There is no discounting within 10 years.
+Biological age is a **vector**: one axis per organ system and per hallmark
+of ageing, each tied to a functional test (for example grip strength for
+muscle). A summary number is published, but it is never an objective, so
+no gain on one axis can hide a loss on another.
 
-*Cites: D20, D21, D33, D94.*
+*Cites: commandments 5–6, D114.*
 
-The engine (`astra-score`) rebuilds survival curves from published
-figures, applies a shrunk hazard ratio to a baseline curve and computes the
-10-year RMST difference by fixed-seed simulation. Serious harms are shown
-per 1,000 people over 10 years, never converted into time. A smallest
-worthwhile gain of 3 months is pre-registered and shown, not used to sort.
+A version of the measure counts only if it passes six tests, against
+baselines sealed in advance:
+1. **Coverage with proof:** every organ system and hallmark has an axis,
+   and each axis moves the right way under an intervention known to act on
+   it, and the other way under one that shortens life.
+2. **Agreement with lifespan effects** on ≥ 10 published mouse
+   interventions from ≥ 2 classes, both sexes, on a sealed test set.
+3. **Negative controls:** null arms of the Interventions Testing Program
+   must read as null within their observed interval.
+4. **Individual level:** it predicts each held-out mouse's remaining
+   lifespan better than chronological age.
+5. **Adversarial cases** written by Verification, never by Research.
+6. **Declared validity range:** readings beyond the effect sizes it was
+   validated on are labelled "extrapolated".
 
-*Cites: D12, D91, D95.*
+*Cites: D114 (T1-A28-3, T1-A50-2).*
 
-Proxies such as epigenetic clocks, frailty or gait speed are displayed,
-never scored, until a trial-level test promotes them (R² ≥ 0.8, lower
-bound ≥ 0.6, on ≥ 10 trials from ≥ 2 classes).
+Scores on published interventions are labelled "retrospective, not
+blind". Only sealed forecasts and held-out mice count as blind evidence.
+Test 4 is labelled "blind (key not isolated)" until its keys sit in the
+`scoring` environment.
 
-*Cites: D16, D23.*
+*Cites: D114 (T1-A50-3, T1-A10-4).*
 
-## Part 2: organisation
+A **confirmed worsening** on an axis is decided by a family-wise rule that
+Verification fixes when the version is sealed, on axes that passed test 1.
+Axes that didn't are published as "unmeasured" blind spots. An
+intervention or combination with a confirmed worsening can't count toward
+3×, can't be called progress and can't be the subject of a treatment
+request, unless a sealed, tested simulation predicts that a combination
+cancels it. Trade-offs are always reported in full.
 
-The president owns Astra. A1 is his vice-president and interface, and acts
-as interim strategy lead and customer of every year-1 mission. Managers
+*Cites: commandment 6, D114 (T1-A1-3, T1-A28-6).*
+
+The human version uses the same axis names, built only from affordable,
+repeatable samples.
+
+*Cites: D114 (T1-A28-4), D116.*
+
+## Part 2: the simulation
+
+Simulation v0 is an organ-level model of damage and repair whose state is
+the measure's axes. Deeper levels (cells, molecules) are added only after a
+recorded failure of the level above.
+
+*Cites: commandment 1, D115.*
+
+Interventions are mapped to model parameters from mechanistic evidence
+only, and sealed before any lifespan result is seen. The train/test split,
+its strata and the class of every intervention are sealed together in one
+record.
+
+*Cites: D115 (T2-A2-4, T2-A10-5).*
+
+The model is scored against a sealed simple baseline (Gompertz curve plus a
+hazard ratio per class) on three strata: (a) new interventions from known
+classes, (b) new classes, (c) combinations and transfer between sexes. It
+must be no worse on (a) within a sealed margin, and must win on (b) or (c)
+to claim it captures mechanism. Each stratum has its own sequential test;
+"undecided" is published as such.
+
+*Cites: D115 (T2-A28-6, T2-A50-1, T2-A10-4).*
+
+Measure, simulation and causal map are built in parallel, but the
+simulation ranks no treatment before the measure passes its six tests.
+
+*Cites: commandment 9, D115.*
+
+## Part 3: the president as a resource
+
+The president's role is to calibrate and challenge his model ("twin"),
+never to validate the measure. We ask him for measurements only: no dosing,
+no personal medical advice; any treatment goes through his doctor.
+
+*Cites: D18, D116.*
+
+The first request is a noise baseline: two draws a week apart plus one
+blind split duplicate, sent with a sealed expected test-retest interval.
+It waits until he says go.
+
+*Cites: D116, D122.*
+
+His raw data is stored encrypted in the public repo; the key lives only in
+a local, git-ignored `.env`. Agents may read raw values. The repo publishes
+forecast hashes, aggregates (≥ 5 resolved items per measure), interval
+widths as a ratio of his noise, and one count of open twin issues.
+Per-item records are published only for measures he lists in `consent.md`.
+Nothing about him is published before `consent.md` exists.
+
+*Cites: D116, D122 (president's answers, 2026-10-20).*
+
+## Part 4: mice and the 3× target
+
+Mice come only when the president is confident they'll be useful, and
+there are few shots. Cohort 1 is untreated (UM-HET3, both sexes) and tests
+sealed forecasts: axis trajectories and remaining lifespan per mouse. Its
+data trains only the next version of the measure.
+
+*Cites: commandment 2, D117.*
+
+Every mouse request is a file that CI checks: a sealed prediction hash, a
+refutation criterion, a reproducible power calculation, a dated search
+showing the experiment isn't already done, and no open S1 or S2 incident
+on the model.
+
+*Cites: D117 (T4-A10-1, T4-A50-1, T4-A2-4).*
+
+3× (or 2×) is claimed only after full survival, on median and maximum
+lifespan, against controls within the normal range, and replicated at a
+second site whose prediction was sealed before the first site's result.
+
+*Cites: D117 (T4-A50-2).*
+
+Mouse evidence is rated with SYRCLE risk of bias, capped by flags for
+short-lived controls and lack of replication.
+
+*Cites: D120 (T7-A2-1).*
+
+## Part 5: data and blindness
+
+A forecast is blind if it was sealed before any public trace of the
+quantity it forecasts. A forecast sealed after an interim result names that
+interim curve, hashes its extrapolated baseline at sealing, and is labelled
+"blind (post-interim)".
+
+*Cites: D118 (T5-A28-6).*
+
+Before every seal, Literature runs a dated search for public traces,
+meeting abstracts included. The seal is refused if that search is more
+than 7 days old.
+
+*Cites: D118 (T5-A2-4, T5-A10-4).*
+
+Data is fetched by manifests with licences recorded; nothing over 10 MB is
+committed outside the allow-list. A lifespan study that doesn't report a
+cause of death records it as "unknown", never "no change".
+
+*Cites: D118, D121 (O9, O15), D120 (T7-A2-2).*
+
+## Part 6: organisation and missions
+
+The president owns Astra. A1 is his vice-president and interface, and the
+customer of the Research, Literature and Platform missions. Managers
 orchestrate and never do the work themselves; workers do it. Each mission
-has one owner (the producer of its headline number) and one customer. A
-program lead exists only once a program has two live missions. Depth stays
-at most 4 levels below the president; a director layer comes when a
-director would have 4 or more managers.
+has one owner and one customer.
 
-*Cites: D2, D4, D7, D10, D101.*
+*Cites: D2, D4, D7, D10, D119 (T6-A1-1).*
 
-Verification is independent of A1 and reports to the president directly.
-It starts with 1 manager and 4 workers, never has less than 15% of active
-worker-weeks, and grows when any of its four signals slips: review queue
-longer than 2 weeks, share of score-feeding findings sealed, audit error
-count, planted-error detection.
+Verification is independent of A1 and reports to the president. Its share
+of workers is ceil(0.15 × cap), never less than the president's quarterly
+setting; a lower re-measured cap applies at once.
 
-*Cites: D3, D39, D47, D64, D100.*
+*Cites: D47, D64, D119, D120 (T7-A50-4).*
 
-Strategy splits from the chair when there are 5 live missions or at month
-6, whichever comes first. There is no Chief of Staff; a temporary clerk
-keeps the minutes.
+**Worker cap.** This computer is shared, so the whole fleet runs at most 9
+workers at once, plus managers, with at most 2 local builds (lock file).
+Anything heavier runs in GitHub Actions. The Code Manager re-measures the
+cap monthly.
 
-*Cites: D48, D56.*
+| Phase | Research | Literature | Platform | Verification | Database |
+|---|---|---|---|---|---|
+| 1: until split sealed and L1 drafted | 2 | 2 | 2 | 2 | 1 |
+| 2: after | 3 | 2 | 2 | 2 | 0 |
 
-## Part 3: decision rights
+Coherence and Interface start no worker without asking A1.
 
-Each mission's protocol is sealed before any data is read, signed by its
-owner and contributor, and fixes its extraction and analysis choices. It
-names exactly one primary outcome. Verification seals no protocol without
-one. On missions where A1 is customer, Verification and A1 both sign off
-the result, checking it against the sealed protocol; a departure without a
-sealed amendment is exploratory.
+*Cites: D119 (T6-A10-2, T6-A1-4).*
 
-*Cites: D2, D61, D110.*
+| Mission | Owner | Output |
+|---|---|---|
+| M0 Verification | A50 | Seals, audits, adversarial cases, independent recompute of scorecards |
+| M1 Forecast ledger | A28 | Sealed forecasts on mouse lifespan studies |
+| M2 Platform rails | A10 | Write paths, decision citations, drift job, launch gate, seal on workflows |
+| R-Metric v0 | A28 | Mouse measure v0 on public data, with its scorecard |
+| R-Sim v0 | A28 | Organ-level model calibrated on control mice, scored on the sealed test set |
+| R-Twin | A28 | Noise baseline, then quarterly sealed forecasts on the president |
+| R-Cohort 1 protocol | A28 | Cohort protocol, sent with measure v0's scorecard |
+| L1 Lifespan table | A2 | Every published mouse lifespan intervention, ITP first |
+| L2 Metric dossier | A2 | One file per input and function test of the measure |
+| L3 Refutation file | A2 | One row per causal edge and parameter mapping |
+| P1 Data manifests | A10 (with A9) | Sources fetched by manifest |
+| P2 Run manifests | A10 | Seeded re-runs; split check |
+| P3 Issues and ledger jobs | A10 | `issues/` register blocking sealed outputs with open S1/S2 |
+| P4 Twin data rails | A10 | Encrypted storage, hash publishing, aggregate scores |
+| P5 `astra-sim` port | A10 | Rust port of sim v0 within the agreed tolerance |
 
-Acceptance criteria change only by numbered decision in
-`docs/decisions/`. A commit citing a decision passes CI only if that
-decision exists on `main` before the change and names the changed path.
-Contested rulings are recorded with a review question and a month-6 date.
-Two members may appeal a chair ruling to the president, weekly, one page
-each; the ruling stands after 7 days without answer.
+The old missions M3–M9, the RMST ranking engine as a product, and the
+cardiometabolic flagship are stopped.
 
-*Cites: D48, D49, D69, D104.*
+*Cites: D119 (T6-A28-1, T6-A2-1, T6-A10-1), D120 (T7-A28-3, T7-A10-3), D122.*
 
-Only the president can overrule a Verification finding, in writing. The
-chair cannot downgrade an incident's severity.
+## Part 7: decision rights
 
-*Cites: D47, D54.*
+Each mission protocol is sealed before any data is read, signed by its
+owner and by Verification, and names exactly one primary outcome. A
+departure without a sealed amendment is exploratory.
 
-**Rules that are conventions, not proof.** All agents push with one
-shared token (D68 refused). The rules below are conventions, not proof,
-with no end date. A determined or tricked agent can break them; detection
-is after the fact.
+*Cites: D2, D61, D110, D120 (T7-A50-1).*
+
+Acceptance criteria change only by numbered decision. A commit citing a
+decision passes CI only if that decision exists on `main` before the change.
+Two members may appeal a chair ruling to the president; the ruling stands
+after 7 days without answer. Only the president can overrule a Verification
+finding, in writing.
+
+*Cites: D47, D48, D49, D69, D120 (T7-A28-1).*
+
+**Rules that are conventions, not proof.** All agents push with one shared
+token (D68 refused). The rules below are conventions, not proof, with no
+end date. A determined or tricked agent can break them; detection is after
+the fact.
 
 | Rule | What it claims | Why it's only a convention | What still catches a breach |
 |---|---|---|---|
@@ -161,178 +319,99 @@ The route back to real identities is D43's > 20 writers trigger.
 
 *Cites: D43, D68, D108.*
 
-## Part 4: year-1 goals
+## Part 8: verification and procedures
 
-All goals are computed by one CI job. A failure triggers a written review
-within 2 weeks. Targets never move after day 1; G5 was changed once before
-day 1 (D87) and that change is never a precedent.
+Sealing follows `verification/procedures/sealing.md` P1–P5: only
+Verification seals, never an author; "no data read" is the owner's
+statement plus the fetch-job log and the dated trace search, and a false
+statement is an S1 incident; every refusal is recorded.
 
-*Cites: D17, D87.*
+*Cites: D120.*
 
-| # | Goal | Target | Failure |
-|---|---|---|---|
-| G1 | Sealed original findings, at most one per sealed protocol, nulls counted; extrapolated findings on their own line | ≥ 12 | < 5 |
-| G2 | Resolved forecasts (excluding trials ending before council end) | ≥ 40, ≥ 12 external | < 20 or < 5 external |
-| G3 | Forecast skill vs base rate, external items, per type | 90% interval lower bound > −0.05 | point ≤ 0 |
-| G4 | Forecasts that never resolve | ≤ 10% | > 20% |
-| G5 | All 16 therapy classes mapped, with trust level and named missing evidence; number estimated reported, no target | 16/16 | any class unmapped at month 3 |
-| G6 | Genetic (MR) panel | ≥ 8 targets, all positive controls pass | any control fails or < 4 |
-| G7 | Re-derivation of a published calibration | within its CI and 10% | outside CI, unexplained |
-| G8 | Surrogate-outcome test (Mission 2b) | pre-registered, run, published | not pre-registered by month 6 |
-| G9 | Re-runs reproduce; estimators in a score have a printed reference | 100% / 100% | any miss = incident |
-| G10 | Written review by a named outside researcher | ≥ 1 | 0 |
+Audits follow `verification/procedures/audits.md` P1–P8: seeded sampling;
+seed and planted-error keys in the `main`-only `scoring` environment; an
+error is any field mismatch beyond declared rounding, with effect-changing
+errors counted separately; the D51 threshold applies per finding over a
+rolling 3 months, per mission; small pools keep the same rates with exact
+binomial bounds; nobody audits their own work.
 
-*Cites: D17, D72, D86, D87, D92, D110, D102.*
+*Cites: D51, D63, D120.*
 
-G5 originally read "every class has an entry; ≥ 4 estimated". It was
-reversed by D87 because of D70: the only class estimable in year 1 is
-aspirin, the negative control, which never counts.
+Planted errors now also test the measure and the simulation: bugs planted
+in model code, labels swapped in training data. Accuracy is measured
+against known truth. An outside reviewer samples metric scorecards each
+quarter.
 
-*Cites: D70, D87, D96, D113.*
-
-## Part 5: roadmap and missions
-
-Phase A (months 0–3) builds instruments before answers; phase B (months
-3–12) produces first numbers; phase C (years 2–3) adds transport and new
-data. Exits are tied to the goals. First score is expected in weeks 6–8 if
-extraction holds; tooling takes about 8–10 worker-weeks.
-
-*Cites: D30, D107.*
-
-| Mission | Owner | Start |
-|---|---|---|
-| M0 Verification | A50 | now (D78) |
-| M1 Forecast ledger v1 | A28 | now (D78) |
-| M2 Platform rails | A10 | now (D78) |
-| M3 Schema calendar | A9 | after ratification |
-| M4 PICO registry + outcome table | A2 | after ratification |
-| M5 Metrics standard (2a) + ASPREE curve | A28 / A2 | after ratification |
-| M6 MR panel | A28 | after ratification |
-| M7 Calibration re-derivation | A28 / A2 | after ratification |
-| M8 Flagship extraction | A2 → A28 | after ratification |
-| M9 Mission 2b protocol | A28 | after ratification |
-
-*Cites: D5, D9, D31, D78, D101.*
-
-The flagship is framed as "non-cardiovascular effects of cardiometabolic
-drugs, extrapolated", never as progress on the north star. The database
-ships at most one schema deliverable per week, each with its check rule;
-extraction pilots on 3 trials in week 3.
-
-*Cites: D37, D97.*
-
-When behind, work is dropped in this order: trial-level R², Steiger test,
-Hartung-Knapp, rank intervals, Cox models.
-
-*Cites: D42.*
-
-## Part 6: methods and scoring
-
-An estimator is merged only once it reproduces an independent printed
-reference case; package vignettes are smoke tests only. An estimator
-without a reference by its due week ships "not validated", and results
-using it are capped at the lowest level. The first MR result is capped the
-same way until colocalisation passes. Survival-curve reconstruction is
-validated on ≥ 3 published curves within a tolerance set by Verification.
-
-*Cites: D6, D38, D40, D106.*
-
-Code is Rust for the rails and the engine, R for mature statistics
-packages, Python only where neither fits, each with pinned versions and
-lints sealed. Analyses run in GitHub Actions only.
-
-*Cites: D45.*
-
-A finding's trust level is the pair (GRADE certainty, population match).
-No list or chart mixes direct and extrapolated evidence. Only GRADE
-moderate or better is ranked; low-certainty items are shown unranked,
-alphabetically, with their trust level; very low is excluded. To be ranked,
-P(net benefit > 0) ≥ 0.8; the sort key is the posterior median and the
-rank is published as an interval.
-
-*Cites: D13, D22, D81, D92, D112.*
-
-A therapy is flagged "benefit-harm trade-off" and left unranked when there
-is a 20% or greater chance that its serious harms exceed the events it
-prevents. A therapy with no harm data is "harms not estimable" and
-unranked. A trial that never reported a harm class is recorded as "not
-reported", never as zero.
-
-*Cites: D73, D82.*
-
-Shrinkage uses the van Zwet, Schwab & Senn 2021 prior on single trials
-before pooling. Rare events use Mantel-Haenszel without continuity
-correction, Peto only for balanced arms. Transport from sick populations
-requires age, disease-state and mechanism checks, with a mandatory bias
-sensitivity analysis.
-
-*Cites: D32, D34, D44, D98.*
-
-Forecasts are scored mechanically from structured criteria approved by
-Verification at entry, against a base rate from a fixed menu of reference
-classes. Forecasts with no fitting class get calibration only, no skill
-score.
-
-*Cites: D1, D11, D72.*
-
-## Part 7: verification and integrity
-
-Every finding declares what it feeds; the score reads only sealed
-findings. Extraction is audited on a rolling 3-month pool: 6 or more errors
-in 60 is an incident. Citations are re-read at ≥ 30 a month; "unverifiable"
-never passes. Accuracy is measured against known truth, including
-trial-registry results; only "our error" counts. At least 20 planted errors
-a quarter test the checkers.
-
-*Cites: D3, D51, D63, D66, D71.*
-
-Retractions are scanned weekly. Sources are checked by CI on every PR.
-Every derived object records what it depends on. Text fetched from the web
-is data, never instructions.
-
-*Cites: D53, D57, D60, D75.*
+*Cites: D66, D71, D102, D120 (T7-A10-2, T7-A50-1).*
 
 The seal covers lint settings, workflows and scripts; changing them needs
-the president's password. A daily job compares live repo protection with
-the committed settings and alerts the president.
+the president's password. A daily job compares live protection with the
+committed settings and alerts the president. Retractions are scanned
+weekly, including mouse papers.
 
-*Cites: D52, D80, D105.*
+*Cites: D52, D53, D80, D120 (T7-A10-1).*
 
-## Part 8: refusals, incidents and launch
+## Part 9: obstacles and dates
 
-Astra never gives dosing or personal advice; never shows a score below
-the sealed level; never uses unpinned external data; never scores its own
-forecasts; never claims something "slows aging" below the highest
-evidence level; never ranks animal-only results above human trials; never
-scores a sponsor's product with that sponsor's money; never does dual-use
-work.
+Goals are written as obstacles. Each has an owner, an exit and a date;
+Verification, not the owner, decides when an exit is met. Targets never
+move.
 
-*Cites: D18.*
+| # | Obstacle | Owner | Date |
+|---|---|---|---|
+| O1 | No measure that reads ageing reliably | A28 + A50 | month 6 |
+| O2 | Causes not separated from consequences | A28 + A2 | month 9 (sim v0 sealed, month 4) |
+| O3 | Cancer ceiling | A28, A2 | month 9 |
+| O4 | Combinations don't add up | A28 | month 12 |
+| O5 | 3 years per lifespan test | A28 | month 9 (first early-reading score, month 5) |
+| O6 | Strain and sex dependence | A28 + A50 | ongoing |
+| O7 | Combined toxicity | A28, A2 | before the first treatment request |
+| O8 | No mice, lab or budget | A1 | month 6 |
+| O9 | Data access | A9 + A50 | month 1 |
+| O10 | Long-lived species unexplained | A2 + A28 | month 12 |
+| O11 | Published lifespan effects are biased | A2 | month 3 |
+| O12 | Causal links asserted without refutation tests | A2 | before sim v0 calibration |
+| O13 | Results that can't be reproduced | A10 | before the first sealed prediction |
+| O14 | Gates that rely on trust | A10 | end of week 1 after the re-seal |
+| O15 | Data too big for git | A10 | month 1 |
+| O16 | No public route to SLAM longitudinal data | A2 | month 1 |
+
+The full exits and month-6 milestones are in
+`arcanum/session-1/topics/T8.md`.
+
+*Cites: commandment 4, D117, D121.*
+
+## Part 10: refusals, incidents and launch
+
+Astra never gives dosing or personal medical advice; never uses unpinned
+external data; never scores its own forecasts; never does dual-use work. A
+negative control never counts as progress.
+
+*Cites: D18, D113, D120 (T7-A28-2).*
 
 Incidents are S1 (fixed in 72 h), S2 (2 weeks) or S3 (next release).
-Corrections are add-only. A positive aspirin result opens an S2 incident;
-if the engine is cleared, it is published as "unexpected result on a
-negative control", never suppressed and never counted.
+Corrections are add-only. No sealed output ships while an S1 or S2 on it is
+open.
 
-*Cites: D54, D62, D113.*
+*Cites: D54, D62, D119 (P3).*
 
-Launch means the first scored number on the public site. Until the legal
-and medical-advice review is done, CI blocks score pages, and every page
-carries a "research prototype, not medical advice" banner. Conflict-of-
-interest and data-licence rules apply from day 1.
+Until Verification clears it, CI blocks any page that publishes a
+biological age or forecast of a named individual, or claims a lifespan
+effect we predicted. Every page carries a "research prototype, not medical
+advice" banner.
 
-*Cites: D88, D109.*
+*Cites: D109, D120 (T7-A10-2).*
 
-## Part 9: meetings and amendments
+## Part 11: meetings and amendments
 
-Every meeting keeps the council's rules: full turns, a steelman before
-each objection, at least two dissents per turn, recorded objections, no
-empty messages. Any member may call out flooding. The chair rotates; the
-red team is never the chair.
+Meetings follow the Arcanum rules: the debate happens in files, chat
+messages are at most 2 lines, each turn has a steelman before each
+objection and at least two dissents, objections are recorded, and only the
+clerk commits. Any member may call out flooding.
 
-*Cites: D55, D103.*
+*Cites: D55, D103, `arcanum/session-1/README.md`.*
 
-This charter changes only by numbered decision. Nothing appears only in an
-appendix.
+This charter changes only by numbered decision. The commandments outrank
+it; a decision that contradicts one is void.
 
-*Cites: D48, D111.*
+*Cites: D48, D111, commandments.*
