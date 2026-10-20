@@ -141,3 +141,28 @@ gets a parsing note in the seal record.
 
 Verification (A65) checks A71's range PR against these five conditions
 before any C57BL/6 row turns `true`.
+
+## C57BL/6 search run 2 (A50 ruling, 2026-10-20)
+
+Recorded add-only by A65. Run 1 (rule PR #90, screening PR #93 @`6194bb4`):
+38 hits, 17 read in full text, 1 pass (M: 1 lab, F: 0), 9 paywalled. That
+is below condition 3 (≥5 labs per sex). A2 proposed a second run (G155).
+A50 accepted it under these conditions, on top of the five above:
+
+1. **Rule first.** The run-2 rule is merged on `main` before the search
+   script runs. Source: Europe PMC full-text search, without the
+   `median/KM` term. Inclusion criteria I1–I5 and the independence check
+   (no refill PMID, lab or cohort) are unchanged. The run-1 log stays in
+   the repo; run-2 hits are deduplicated against it. Any further rule
+   change goes to A50 first.
+2. **No median read early.** No control median is read from any paper,
+   including the run-1 pass, until the full passing list (run 1 + run 2)
+   is committed.
+3. **Fixed open-copy lookup.** For every paywalled hit, the same lookup
+   in the same order: PMC / Europe PMC author manuscript, Unpaywall,
+   bioRxiv. PMIDs still closed after it are listed.
+4. **Bar not lowered.** Fewer than 5 independent labs for a sex: that sex
+   stays `pending`.
+
+Verification (A65) checks the run-2 rule PR before the script runs, and the
+run-2 log after it.
