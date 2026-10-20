@@ -63,7 +63,7 @@ number. No treatment is designed until that measure passes its tests.
 | What is published about you (D122) | You left it to us: default = per-measure records only for measures you list, none until you list any. |
 | First two blood draws (noise baseline) (D116, D122) | **Later**, when you say so. |
 | `scoring` environment, `main` only (D122) | **Done** 2026-10-20 by A1 at your request. |
-| `PROTECTION_READ_TOKEN` (D122) | **Done** with your full token, at your choice. Moving it into a `main`-only environment: **asked**. |
+| `PROTECTION_READ_TOKEN` (D122) | **Done** with your full token, at your choice. Moving it into a `main`-only `protection` environment: **planned with the M2 re-seal**, on your go. |
 | Charter-level decisions D124, D125 (part 10, part 11) | Voted by the managers with D46; yours to confirm at merge. |
 | Re-seal of code-protection settings (M2) | Pending: the Code Manager sends you the command. |
 | Mice: when and how many | Yours. Each request comes with a sealed prediction (part 4). |
@@ -71,7 +71,7 @@ number. No treatment is designed until that measure passes its tests.
 | Overruling a Verification finding | Only you, in writing. |
 | Merging this charter | You merge after the managers ratify it (D46). |
 
-*Cites: D46, D47, D64, D68, D78, D116, D117, D120, D122, president ruling of 2026-10-20 (token), M-short-1.*
+*Cites: D46, D47, D64, D68, D78, D116, D117, D120, D122, president rulings PR1, PR8, PR9 (`docs/decisions/president-rulings.md`).*
 
 ### Limits you must know
 
@@ -88,7 +88,7 @@ number. No treatment is designed until that measure passes its tests.
   monthly access audit can't run. If the key ever leaks, the encrypted
   history stays public.
 
-*Cites: D52, D68, D80, D108, D116 (T3-A50-3), D122, president ruling of 2026-10-20.*
+*Cites: D52, D68, D80, D108, D116 (T3-A50-3), D122, PR8, PR9.*
 
 ---
 
@@ -122,7 +122,9 @@ before its test score is computed, and its scorecard is published with its
 failures. Test 2 uses only studies whose controls lived within the normal
 range (ITP or replicated), includes null and life-shortening arms, and
 reports an "everything extends lifespan" baseline next to the measure.
-A standard error read from a curve enters test 2 only if the curve was
+Each standard error records its source (`printed`, `from_curve` or
+`from_p_value`); `from_p_value` is used only in a sensitivity run, and a
+standard error read from a curve enters test 2 only if the curve was
 digitised twice and agreed.
 
 *Cites: D114 (T1-A28-3, T1-A50-1, T1-A50-2, T1-A28-5, T1-A2-3, T1-A2-4, T1-A2-5).*
@@ -268,7 +270,7 @@ customer of the Research, Literature and Platform missions. Managers
 orchestrate and never do the work themselves; workers do it. Each mission
 has one owner and one customer.
 
-*Cites: president rulings (M-short-1), D2, D119 (T6-A1-1).*
+*Cites: PR1, PR2, D119 (T6-A1-1).*
 
 Verification is independent of A1 and reports to the president. Its share
 of workers is ceil(0.15 × cap), never less than the president's quarterly
@@ -277,7 +279,8 @@ setting; a lower re-measured cap applies at once.
 *Cites: D47, D64, D119, D120 (T7-A50-4).*
 
 **Worker cap.** This computer is shared, so the whole fleet runs at most 9
-workers at once, plus managers, with at most 2 local builds (lock file).
+workers at once, plus managers, with at most 2 local builds (lock file,
+delivered with P2 in week 1).
 Anything heavier runs in GitHub Actions. The Code Manager re-measures the
 cap monthly.
 
@@ -334,6 +337,10 @@ token (D68 refused). The rules below are conventions, not proof, with no
 end date. A determined or tricked agent can break them; detection is after
 the fact.
 
+D47, D52, D69, D80 and D109 are built but enforced only from the M2 merge,
+after the president's re-seal; until then they are conventions too, and
+Verification's weekly `git log` diff is the only check.
+
 | Rule | What it claims | Why it's only a convention | What still catches a breach |
 |---|---|---|---|
 | D2 co-signed protocols | Producer + Verification both sealed it | Signatures are agent names in a file | Seal hash in git history; D46/D61 review record |
@@ -346,7 +353,7 @@ the fact.
 
 The route back to real identities is the > 20 writers trigger (D124).
 
-*Cites: D66, D68, D108, D120 (Audits P2), D124 (proposed), president ruling of 2026-10-19 (M-tiny-12).*
+*Cites: D66, D68, D78, D108, D120 (Audits P2), D121 (O14), D124, PR7.*
 
 ## Part 8: verification and procedures
 
@@ -390,17 +397,17 @@ move.
 |---|---|---|---|
 | O1 | No measure that reads ageing reliably | A28 + A50 | month 6 |
 | O2 | Causes not separated from consequences | A28 + A2 | month 9 (sim v0 sealed, month 4) |
-| O3 | Cancer ceiling | A28, A2 | month 9 |
-| O4 | Combinations don't add up | A28 | month 12 |
+| O3 | Cancer ceiling | A28, A2 | month 9 (milestone month 6) |
+| O4 | Combinations don't add up | A28 | month 12 (milestone month 6) |
 | O5 | 3 years per lifespan test | A28 | month 9 (first early-reading score, month 5) |
-| O6 | Strain and sex dependence | A28 + A50 | ongoing |
-| O7 | Combined toxicity | A28, A2 | before the first treatment request |
+| O6 | Strain and sex dependence | A28 + A50 | ongoing (sex transfer stratum sealed, month 4; test 2 per sex, month 6) |
+| O7 | Combined toxicity | A28 + A2 | before the first treatment request (adverse findings for every O4 combination, month 6) |
 | O8 | No mice, lab or budget | A1 | month 6 |
 | O9 | Data access | A9 + A50 | month 1 |
-| O10 | Long-lived species unexplained | A2 + A28 | month 12 |
+| O10 | Long-lived species unexplained | A2 + A28 | month 12 (milestone month 6) |
 | O11 | Published lifespan effects are biased | A2 | month 3 |
-| O12 | Causal links asserted without refutation tests | A2 | before sim v0 calibration |
-| O13 | Results that can't be reproduced | A10 | before the first sealed prediction |
+| O12 | Causal links asserted without refutation tests | A2 | month 3 (L3 row for every sim v0 edge and mapping, approved by A50) |
+| O13 | Results that can't be reproduced | A10 | month 1 (run manifests + one seeded re-run in CI); then every sealed prediction re-runs before sealing |
 | O14 | Gates that rely on trust | A10 | end of week 1 after the re-seal |
 | O15 | Data too big for git | A10 | month 1 |
 | O16 | No public route to SLAM longitudinal data | A2 | month 1 |
@@ -410,13 +417,14 @@ move.
 | V4 | 13 procedure rules undecided | A50 → chair | done (D120) |
 
 Every obstacle needs an exit dated by month 6 or a dated milestone before
-then; otherwise it counts as unowned. O6, O7, O13 and V3 have neither yet,
-so they count as unowned until their owners date a milestone.
+then; otherwise it counts as unowned. Only V3 has neither yet; Verification
+dates it at the next register update. The register job that raises the
+alarm on missed dates is live by month 1 (A10).
 
 The full exits and month-6 milestones are in
 `arcanum/session-1/topics/T8.md`.
 
-*Cites: commandment 4, D117, D121 (T8-A50-1, T8-A1-2).*
+*Cites: commandment 4, D117, D121 (T8-A50-1, T8-A1-2, T8-A28-4, T8-A10-1, T8-A10-4); owner datings in the D46 reviews of A28 and A2.*
 
 ## Part 10: refusals, incidents and launch
 
@@ -424,7 +432,7 @@ Astra never gives dosing or personal medical advice; never uses unpinned
 external data; never scores its own forecasts; never does dual-use work. A
 negative control never counts as progress.
 
-*Cites: D124 (proposed; re-issues D18's refusals), D116, D120 (T7-A28-2).*
+*Cites: D124 (re-issues D18's refusals), D116, D120 (T7-A28-2).*
 
 Incidents are S1 (fixed in 72 h), S2 (2 weeks) or S3 (next release).
 Corrections are add-only. No sealed output ships while an S1 or S2 on it is
@@ -447,18 +455,20 @@ objection and at least two dissents, objections are recorded, and only the
 clerk commits. Any member may call out flooding. Verification is never red
 team on its own findings.
 
-*Cites: D55, president rulings (M-tiny-8, M-tiny-11), `arcanum/session-1/README.md`.*
+*Cites: D55, PR5, PR6, `arcanum/session-1/README.md`.*
 
 This charter changes only by a numbered decision voted in an Arcanum
-session, then merged by the president. The commandments outrank it; a
-decision that contradicts one is void.
+session; Verification diffs each amendment's citations before the
+president merges it. The commandments outrank it; a decision that
+contradicts one is void.
 
-*Cites: D125 (proposed), commandments.*
+*Cites: D125, commandments.*
 
 ## Annex: decisions proposed with this charter
 
-Voted by the members in their D46 review (accept / accept with reservation
-/ object), confirmed by the president at merge.
+Voted by the members in their D46 reviews of `1e69101`: D124 accepted by
+all four; D125 accepted by all four with A50's reservation, now part of
+its text. Confirmed by the president at merge.
 
 - **D124 (re-issue).** Re-issues from the old log: D18's refusals (no
   dosing or personal medical advice, no unpinned external data, no scoring
@@ -466,4 +476,6 @@ Voted by the members in their D46 review (accept / accept with reservation
   identities are re-proposed once more than 20 agents write); D77's
   `Model:` trailer (presence check only).
 - **D125 (charter amendments).** The charter changes only by a numbered
-  decision voted in an Arcanum session, then merged by the president.
+  decision voted in an Arcanum session. Verification diffs the amendment's
+  citations before the president merges it; once D69 is live, CI also
+  refuses a charter change that cites no decision on `main`.
