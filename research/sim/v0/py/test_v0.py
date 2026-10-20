@@ -43,7 +43,32 @@ class ModelTests(unittest.TestCase):
             model.simulate(1, 1, perturbation=model.Perturbation({"eta.liverr": 0.5}))
 
     def test_parameter_count(self):
-        self.assertEqual(model.Params().free_parameter_count(), 24)
+        self.assertEqual(model.Params().free_parameter_count(), 54)
+
+    def test_axes_match_metric_v0(self):
+        self.assertEqual(len(model.AXES), 17)
+        self.assertEqual(len(model.HALLMARKS), 12)
+        self.assertTrue(model.NO_READOUT <= set(model.AXES))
+        self.assertTrue(model.VITAL <= set(model.AXES))
+        self.assertTrue(model.HALLMARKS_NO_READOUT <= set(model.HALLMARKS))
+        # 11 unmeasured in axes.md: 6 organ + 5 hallmark.
+        self.assertEqual(len(model.NO_READOUT) + len(model.HALLMARKS_NO_READOUT), 11)
+
+    def test_every_axis_has_a_production_driver(self):
+        for a in model.AXES:
+            self.assertTrue(model._drivers("production", a), a)
+
+    def test_hallmark_multiplier_moves_survival(self):
+        base = sorted(model.simulate(200, 4))[100]
+        slower = model.Perturbation({"hallmark.H6_nutrient_sensing": 0.5})
+        faster = model.Perturbation({"hallmark.H5_autophagy": 0.5})
+        self.assertGreater(sorted(model.simulate(200, 4, perturbation=slower))[100], base)
+        self.assertLess(sorted(model.simulate(200, 4, perturbation=faster))[100], base)
+
+    def test_frailty_readout_bounded(self):
+        x = dict.fromkeys(model.AXES, 100.0)
+        self.assertEqual(model.frailty(x), 1.0)
+        self.assertEqual(model.frailty(dict.fromkeys(model.AXES, 0.0)), 0.0)
 
     def test_survival_curve_monotone(self):
         s = [v for _, v in model.survival_curve(model.simulate(100, 2))]

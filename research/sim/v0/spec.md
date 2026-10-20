@@ -31,32 +31,79 @@ no claim from them.
 
 ## 2. State: the axes
 
-The state variables **are the metric's axes** (T2-A28-1). The metric's axis
-list (`research/metric/v0/axes.md`, sister worker A67) hasn't landed yet, so
-v0 uses organ systems as placeholders:
+The state variables **are the metric's axes** (T2-A28-1), taken from
+`research/metric/v0/axes.md` (A67, PR #45). Its 30 axes map as follows:
 
-| Axis | Vital (death on failure) |
-|---|---|
-| cardiovascular | yes |
-| renal | yes |
-| metabolic_hepatic | yes |
-| immune_haematopoietic | yes |
-| neural | yes |
-| musculoskeletal | no (feeds coupling only) |
-| neoplastic | yes (placeholder cancer axis: malignant clone burden; O3, issue S3) |
+- **Organ-system axes A1–A17** are the state `X_i` (17 states).
+- **A18 whole-body frailty** is a derived readout, `frailty(x) = mean_i min(1, X_i/Xc_i)`,
+  not a state. Making it a state would double-count the other axes
+  (axes.md issue I-4).
+- **Hallmarks H1–H12** are processes, not organs. Each is a multiplier `m_h`
+  (1 in untreated mice) on damage production, repair or coupling of the organ
+  axes it drives (section 3). Interventions act mainly here (section 6).
 
-When `axes.md` lands, `AXES` and `VITAL` in `py/model.py` are replaced by its
-list. Any axis the metric reads must be a state here, and vice versa
-(commandment 6: no blind spots).
+"No readout" = axes.md status `unmeasured`: the state is simulated and
+predicted, but no public data can check it yet (commandment 6: kept and
+published as a blind spot, never dropped).
+
+| Axis | Vital | Readout |
+|---|---|---|
+| A1 muscle | no | molecular only |
+| A2 bone | no | **no readout** |
+| A3 brain | yes | molecular only |
+| A4 hearing | no | **no readout** |
+| A5 vision | no | **no readout** |
+| A6 heart | yes | molecular only |
+| A7 vessels | yes | **no readout** |
+| A8 lung | yes | molecular only |
+| A9 kidney | yes | molecular only |
+| A10 liver and metabolism | yes | candidate |
+| A11 immune | yes | molecular only |
+| A12 blood | yes | molecular only |
+| A13 skin and hair | no | candidate |
+| A14 gut | no | molecular only |
+| A15 fat | no | candidate |
+| A16 endocrine and reproduction | no | **no readout** |
+| A17 neoplasia | yes | **no readout** (O3, issue S3) |
+| A18 frailty | derived | candidate |
+
+| Hallmark | Scales | Organ axes driven | Readout |
+|---|---|---|---|
+| H1 genomic instability | production | all | **no readout** |
+| H2 telomere attrition | production | A11, A12, A13, A14 (high-turnover tissues) | **no readout** |
+| H3 epigenetic alterations | production | all | candidate |
+| H4 proteostasis | production | all | molecular only |
+| H5 macroautophagy | repair | all | **no readout** |
+| H6 nutrient sensing | production | all | candidate |
+| H7 mitochondria | production | all | molecular only |
+| H8 senescence | repair | all | candidate |
+| H9 stem cell exhaustion | repair | A1, A2, A11, A12, A13, A14 | molecular only |
+| H10 intercellular communication | coupling | all | **no readout** |
+| H11 chronic inflammation | coupling | all | molecular only |
+| H12 dysbiosis | production | A10, A11, A14 | **no readout** |
+
+Count check: 6 organ + 5 hallmark = 11 unmeasured, as in axes.md.
+
+Vital set: an axis is vital when its failure kills a mouse quickly. Muscle,
+bone, senses, skin, gut, fat and endocrine failure are disabling, not
+directly lethal in a lab cage. This is a modelling choice (issue S11).
+
+Each hallmark-to-organ link is a causal edge. Under T2-A28-2 each needs an L3
+refutation row before calibration (issue S10).
 
 ## 3. Dynamics
 
 For each axis `i`, with `t` the age in years:
 
 ```
-dX_i = [ eta_i · t · (1 + c · I)  −  beta_i · X_i / (kappa + X_i) ] dt  +  sqrt(2·eps) dW_i
+dX_i = [ eta_i · P_i · t · (1 + c · C · I)  −  beta_i · R_i · X_i / (kappa + X_i) ] dt  +  sqrt(2·eps) dW_i
 I    = mean_j ( X_j / Xc_j )
+P_i  = mean of m_h over production hallmarks driving axis i
+R_i  = mean of m_h over repair hallmarks driving axis i
+C    = mean of m_h over coupling hallmarks (H10, H11)
 ```
+
+In untreated mice every `m_h = 1`, so `P_i = R_i = C = 1`.
 
 | Term | Meaning |
 |---|---|
@@ -83,24 +130,28 @@ enters after the hard threshold fails a test.
 
 | Parameter | Per | Count |
 |---|---|---|
-| `eta_i` damage production slope | axis | 7 |
-| `beta_i` maximum repair rate | axis | 7 |
-| `Xc_i` failure threshold | axis | 7 |
+| `eta_i` damage production slope | organ axis | 17 |
+| `beta_i` maximum repair rate | organ axis | 17 |
+| `Xc_i` failure threshold | organ axis | 17 |
 | `kappa` half-saturation of repair | shared | 1 |
 | `eps` noise intensity | shared | 1 |
 | `c` coupling strength | shared | 1 |
-| **Total** | | **24** |
+| **Total** | | **54** |
+
+Hallmark multipliers `m_h` are fixed at 1 in untreated mice and move only
+through sealed mappings (section 6). They are never fitted, so they add 0 free
+parameters. Each mapping's prior is published with the score.
 
 Identifiability: from survival curves alone, `eta`, `beta` and `Xc` per axis
 are not separately identifiable (only their ratios shape mortality). The
 longitudinal axis readings (T5 data, metric v0) are what pin each axis
 separately. Until those exist, calibration fits shared values and reports the
-effective count. `Params.free_parameter_count()` returns 24; a fit that ties
+effective count. `Params.free_parameter_count()` returns 54; a fit that ties
 parameters reports the reduced count in its manifest.
 
-Defaults are **uncalibrated placeholders** (`eta = 1`, `beta = 2`, `Xc = 3`,
+Defaults are **uncalibrated placeholders** (`eta = 1`, `beta = 2`, `Xc = 3.6`,
 `kappa = 0.5`, `eps = 0.6`, `c = 0.3`) chosen only so that the untreated median
-lifespan lands near 2.3 years. Calibration on ITP **control** survival (UM-HET3,
+lifespan lands near 2.5 years. Calibration on ITP **control** survival (UM-HET3,
 both sexes, 3 sites, per sex) comes later, under a run manifest.
 
 ## 6. Interventions: mapping from mechanism only
@@ -135,14 +186,17 @@ treatment before the metric passes its six tests (commandment 9, D115).
 
 | # | Issue |
 |---|---|
-| S1 | Placeholder axes; replace with `research/metric/v0/axes.md` |
+| S1 | Done on this branch: state = axes.md A1–A17, A18 derived, H1–H12 multipliers. Re-sync when axes.md changes |
 | S2 | Hard threshold vs soft hazard (section 4) |
-| S3 | Cancer, the main cause of death in mice, is only a placeholder `neoplastic` axis with the same damage/repair form as the others; real dynamics (clonal growth, immune surveillance from `immune_haematopoietic`) are needed (O3) |
+| S3 | Cancer, the main cause of death in mice, is axis A17 with the same damage/repair form as the others; real dynamics (clonal growth, immune surveillance from A11) are needed (O3) |
 | S4 | `mappings.yaml` isn't parsed; CI check of the mapping seal (T2-A10-2) not built |
 | S5 | Sex: one parameter set per sex for now; sex transfer (stratum c) needs a shared structure |
 | S6 | Identifiability (section 5) until longitudinal axis data exist |
 | S7 | Manifest is a minimal local format; align with A10's P2 run manifests |
 | S8 | Parent models' fits and failure modes not yet checked by Literature (T2-A2-3) |
 | S9 | Pure-Python speed: ~0.3 s per 300 mice; calibration will need vectorising or the Rust port (T2-A10-3) |
+| S10 | Hallmark → organ links (section 2) are asserted, not sourced; each needs an L3 refutation row and a mechanistic source before calibration |
+| S11 | Vital set is a modelling choice; check against ITP necropsy causes of death when available |
+| S12 | Hallmark factors are a plain mean; a hallmark driving all axes weighs the same as one driving three. Weights would add parameters, so only after a test fails |
 
 These move to the repo issue register when it exists.
