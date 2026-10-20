@@ -34,7 +34,7 @@ No standard reference. Wound data come from small groups of young vs old C57BL/6
 | Mukai 2019 | Females, 80 weeks | Delayed healing in old females; topical oestrogen reduced wound area and inflammation |
 | Kopcewicz 2020 | C57BL/6, both sexes, 5 vs 21 months, low- or high-fat diet | Age affected healing at particular stages (TGFβ-1, MCP-1, MMP-9, MMP-13 expression) |
 | Bagood 2021 | C57BL/6 and BALB/c, both sexes, splinted vs not | Wound area closure did not match re-epithelialisation; the "impaired healing in old mice" result depended on model, sex and strain |
-| Shvedova 2025 (preprint) | Young vs aged mice | Aged mice had larger open wounds from day 6; nearly all young closed by day 18, most aged 3–6 days later |
+| Shvedova 2025 (preprint) | Young vs aged mice | Aged mice had larger open wounds from day 6; nearly all young closed by day 18, most aged 3–6 days later (sole source for these day counts; preprint, not peer-reviewed) |
 | Ogiso 2025 | C57BL/6J and C57BL/6N, both sexes, to 21 months+ | Alopecia highest in B6J females, peak about 18 months; ulcers in B6N males from fighting |
 | Crum 2025 | Frailty-index cohort, both sexes | Coat items scored 0/0.5/1; male alopecia mostly before 12 months; female alopecia variable |
 
