@@ -130,3 +130,24 @@ Crossref.
 Access is not a licence question: MPD returns HTTP 403 to curl and Actions.
 These three ride on the president's MPD access request of 2026-10-20 (route
 out already recorded in the O9 note for LA-006).
+
+## SLAM public deposit on Zenodo (O16 route note PR #155, checked 2026-10-20)
+
+Zenodo API (`https://zenodo.org/api/records/5167639`): `license` = `cc-by-4.0`,
+`access_right` = open, published 2021-08-06, one file. Record 5167639 is the
+latest version of concept 10.5281/zenodo.5167638. The zip was downloaded once
+to check its checksums, then deleted; it was not opened. Its md5 matches
+Zenodo's and its sha256 matches the O16 note. Paper DOI checked on Crossref.
+
+| Id | Source | URL checked (2026-10-20) | Licence found | Verdict | Derived tables in repo | Conditions |
+|---|---|---|---|---|---|---|
+| LA-021 | SLAM per-mouse data, Zenodo 10.5281/zenodo.5167639 ("Data and Code from: Fasting Blood Glucose as a Predictor of Mortality: Lost in Translation"; C57BL/6 and UM-HET3, both sexes, cut 2019) | https://zenodo.org/records/5167639 ; https://zenodo.org/api/records/5167639 | CC BY 4.0 | approve with conditions | yes | Cite Palliyaguru et al. 2021, Cell Metab 33:2189-2200.e3 (10.1016/j.cmet.2021.08.013) and the deposit DOI 10.5281/zenodo.5167639. Pin record 5167639 and the zip `ISG Cell Metabolism archived data and code to share.zip` (79062609 bytes, md5 `26c26661aa1e29dddb2ac070d67d21c9`, sha256 `c6e20eccc88e603dea1c33d27f4a1fd012c9d802968e4ef707049835decacaff`). Enters through an A9 manifest. Covers what the deposit holds (lifespan and cause of death, NMR body composition, fasting glucose, body weight, temperature, food intake); it does not cover CBC, echo or GTT. |
+
+Note on LA-007 (2026-10-20): LA-007 stays as written. For this deposit it is
+superseded by LA-021. SLAM data not in the deposit (CBC, echo, GTT, later
+cuts) is still covered by LA-007 and stays with the NIA request (O16).
+
+Note on the O9 table, LA-007 row (2026-10-20): route out partly met. The
+public deposit (LA-021) covers lifespan, body composition and fasting glucose.
+CBC, echo and GTT keep the O16 route: written NIA request (draft due
+2026-10-30, A2), exit date 2026-11-20 unchanged.
