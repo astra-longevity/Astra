@@ -6,6 +6,7 @@ use std::path::{Path, PathBuf};
 
 use rusqlite::Connection;
 
+use crate::pages::{BANNER_MARKER, BANNER_TEXT, D88_RECORD};
 use crate::{ErrorKind, SitePaths, build, build_from};
 
 /// Fixture rows, mirroring `data/examples/`.
@@ -160,4 +161,52 @@ fn literature_notes_become_pages() {
     assert!(note.contains("doc prose"), "interface/templates/doc.html used");
     let map = page(&paths, "map.html");
     assert!(map.contains("literature/aging-map/01-genomic-instability.html"), "doc_href filled");
+}
+
+/// Replaces `from` with `to` in the fake repo's copy of `template`.
+fn patch_template(repo: &Path, template: &str, from: &str, to: &str) {
+    let path = repo.join("interface/templates").join(template);
+    let text = fs::read_to_string(&path).unwrap();
+    assert!(text.contains(from), "{template} has no {from:?}");
+    fs::write(&path, text.replacen(from, to, 1)).unwrap();
+}
+
+/// Builds and returns the error kind, if any.
+fn gate_result(paths: &SitePaths) -> Result<(), ErrorKind> {
+    build_from(&fixture_db(), paths).map(|_| ()).map_err(|err| err.kind())
+}
+
+#[test]
+fn every_page_carries_the_banner() {
+    let paths = SitePaths::from_repo(&fake_repo("banner"));
+    let _report = build_from(&fixture_db(), &paths).unwrap();
+    for file in
+        ["index.html", "claims/C-0001.html", "sources/isbn_9780000000000.html", "literature/aging-map/00-overview.html"]
+    {
+        let html = page(&paths, file);
+        assert!(html.contains(BANNER_MARKER) && html.contains(BANNER_TEXT), "{file} has no D109 banner");
+    }
+}
+
+#[test]
+fn page_without_banner_is_refused() {
+    let repo = fake_repo("nobanner");
+    patch_template(&repo, "base.html", BANNER_MARKER, "data-removed");
+    let paths = SitePaths::from_repo(&repo);
+    assert_eq!(gate_result(&paths), Err(ErrorKind::Gate), "banner removed from base.html");
+    assert!(!paths.output.exists(), "nothing written when the gate fails");
+}
+
+#[test]
+fn score_page_is_refused_before_d88_review() {
+    let repo = fake_repo("score");
+    patch_template(&repo, "claim.html", "{% block content %}", "{% block content %}<span data-astra-score>0.42</span>");
+    let paths = SitePaths::from_repo(&repo);
+    assert_eq!(gate_result(&paths), Err(ErrorKind::Gate), "score without D88 record");
+    let record = repo.join(D88_RECORD);
+    fs::create_dir_all(record.parent().unwrap()).unwrap();
+    fs::write(&record, "# D88 review\n\nStatus: pending\n").unwrap();
+    assert_eq!(gate_result(&paths), Err(ErrorKind::Gate), "record present but not done");
+    fs::write(&record, "# D88 review\n\nStatus: done\n").unwrap();
+    assert_eq!(gate_result(&paths), Ok(()), "score allowed once D88 is recorded as done");
 }

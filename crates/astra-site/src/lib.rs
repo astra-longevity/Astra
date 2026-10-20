@@ -65,6 +65,9 @@ pub enum ErrorKind {
     Template,
     /// A file could not be read or written.
     Io,
+    /// A page breaks the D109 launch gate: no prototype banner, or a score
+    /// shown before the D88 legal/medical-advice review is recorded.
+    Gate,
 }
 
 /// Failure while building the site: a category and a message.
@@ -93,6 +96,11 @@ impl SiteError {
         let message =
             format!("refusing output folder {}: it is neither empty nor a previously generated site", path.display());
         Self::new(ErrorKind::UnsafeOutput, message)
+    }
+
+    /// Page `file` breaks the D109 launch gate for `reason`.
+    pub(crate) fn gate(file: &str, reason: &str) -> Self {
+        Self::new(ErrorKind::Gate, format!("D109 launch gate, {file}: {reason}"))
     }
 }
 

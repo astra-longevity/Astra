@@ -16,6 +16,34 @@ use crate::{glossary, markdown};
 /// Number of commits shown on the dashboard.
 const RECENT_COMMITS: usize = 8;
 
+/// D109: attribute of the banner element every page must carry.
+pub(crate) const BANNER_MARKER: &str = "data-astra-banner";
+/// D109: text of the banner.
+pub(crate) const BANNER_TEXT: &str = "Research prototype, not medical advice.";
+/// D109: attribute that marks a score on a page (any element showing one).
+pub(crate) const SCORE_MARKER: &str = "data-astra-score";
+/// D88 review record, relative to the repository root. Scores are allowed only
+/// once this file exists and holds the line [`D88_DONE`].
+pub(crate) const D88_RECORD: &str = "docs/decisions/d88-legal-medical-review.md";
+/// Line that marks the D88 review as done in [`D88_RECORD`].
+pub(crate) const D88_DONE: &str = "Status: done";
+
+/// True when the D88 legal/medical-advice review is recorded as done.
+fn d88_review_done(repo: &Path) -> bool {
+    fs::read_to_string(repo.join(D88_RECORD)).is_ok_and(|text| text.lines().any(|line| line.trim() == D88_DONE))
+}
+
+/// D109 launch gate on one rendered page.
+fn check_gate(file: &str, html: &str, scores_allowed: bool) -> Result<(), SiteError> {
+    if !html.contains(BANNER_MARKER) || !html.contains(BANNER_TEXT) {
+        return Err(SiteError::gate(file, "the \"Research prototype, not medical advice\" banner is missing"));
+    }
+    if !scores_allowed && html.contains(SCORE_MARKER) {
+        return Err(SiteError::gate(file, &format!("shows a score but {D88_RECORD} does not record the D88 review")));
+    }
+    Ok(())
+}
+
 /// One page to render.
 struct Page {
     /// Output path relative to the site root.
@@ -66,9 +94,18 @@ pub(crate) fn render_site(conn: &Connection, paths: &SitePaths) -> Result<BuildR
         env.add_template(markdown::TEMPLATE_NAME, markdown::DEFAULT_TEMPLATE)?;
     }
     env.set_loader(path_loader(templates));
+    let scores_allowed = d88_review_done(&paths.repo);
+    let rendered = pages
+        .iter()
+        .map(|page| {
+            let html = render_page(&env, page, &base)?;
+            check_gate(&page.file, &html, scores_allowed)?;
+            Ok((page.file.as_str(), html))
+        })
+        .collect::<Result<Vec<_>, SiteError>>()?;
     reset_output(&paths.output)?;
-    for page in &pages {
-        write_page(&env, &paths.output, page, &base)?;
+    for (file, html) in rendered {
+        write_file(&paths.output, file, &html)?;
     }
     copy_static(&paths.repo.join("interface").join("static"), &paths.output.join("static"))?;
     Ok(BuildReport { pages: pages.len() })
@@ -156,14 +193,18 @@ fn doc_pages(repo: &Path) -> Result<Vec<Page>, SiteError> {
         .collect()
 }
 
-/// Renders one page and writes it under `out`.
-fn write_page(env: &Environment<'_>, out: &Path, page: &Page, base: &Value) -> Result<(), SiteError> {
+/// Renders one page to HTML.
+fn render_page(env: &Environment<'_>, page: &Page, base: &Value) -> Result<String, SiteError> {
     let root = "../".repeat(page.file.matches('/').count());
     let page_id = page.template.trim_end_matches(".html");
     let own = context! { root => root, page => page_id };
     let vars = merge_maps([own, page.vars.clone(), base.clone()]);
-    let html = env.get_template(page.template)?.render(vars)?;
-    let target = out.join(&page.file);
+    Ok(env.get_template(page.template)?.render(vars)?)
+}
+
+/// Writes `html` at `file` under `out`.
+fn write_file(out: &Path, file: &str, html: &str) -> Result<(), SiteError> {
+    let target = out.join(file);
     if let Some(parent) = target.parent() {
         fs::create_dir_all(parent).map_err(io_at(parent))?;
     }
