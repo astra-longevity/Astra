@@ -17,11 +17,11 @@ Vendor reference ranges exist for young adult B6 mice, not for old mice.
 - Charles River C57BL/6NCrl, North American colonies 2008–2012: WBC mean 8.90 ×10³/µL in males (95% interval 4.45–13.96, n = 123) and 8.44 in females (3.90–13.94, n = 125); lymphocytes 77.4% (males) and 79.6% (females) of WBC; neutrophils 15.9% and 14.0%.
 - Ages 3–24 months, every 3 months, B6J and B6N, both sexes (Almunia 2026).
 
-No UM-HET3 reference curve found `[to verify]`.
+No UM-HET3 reference curve in the sources here (named gap).
 
 ## Noise
 
-- No published same-mouse test-retest coefficient (ICC or CV) found. `[to verify]`
+- No same-mouse test-retest coefficient (ICC or CV) in the sources here (named gap).
 - Reference ranges are wide: the 95% interval for WBC spans about threefold in young B6NCrl males (4.45–13.96 ×10³/µL, Charles River). One reading in one mouse says little; trends over repeated samples are more informative.
 - Lymphocyte and total WBC counts "were subject to considerable variation" over the lifespan (Leuenberger 1976).
 - Smallest real change for one mouse: not published.
@@ -30,8 +30,8 @@ No UM-HET3 reference curve found `[to verify]`.
 
 - **Sampling site.** In anaesthetised BALB/c mice, WBC was highest in tail blood, lower in eye blood and significantly lower in heart blood; RBC, platelets and haematocrit were also higher in tail than heart blood (Nemzek 2001). One site must be used for the whole study.
 - **Strain and substrain.** At 24 months, B6J males had higher WBC (especially lymphocytes) than B6N; CD4+ T cells fell between 6 and 24 months in B6N and in females, not in B6J males (Almunia 2026). Do not pool substrains.
-- **Sex.** Young female B6 differ from males in red cells and neutrophils (Taconic B6 summary: HCT 48.8% vs 41.8%, neutrophils 0.41 vs 1.28 ×10³/µL) `[to verify]` (vendor web page, ages and method not checked).
-- **Late-life disease.** Lymphoma and other blood cancers are common in old B6 mice and can raise WBC; a rising WBC late in life may be disease, not ageing `[to verify]` (not checked in a source today).
+- **Sex.** Treat sex as a factor; vendor reference pages show sex differences in young B6 red cells and neutrophils, but no peer-reviewed figure is quoted here.
+- **Late-life disease.** Caution, no source cited here: a late rise in WBC may reflect disease (e.g. blood cancers) rather than ageing; record necropsy findings before reading it as ageing.
 
 ## Functional anchor and age trajectory
 

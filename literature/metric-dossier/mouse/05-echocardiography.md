@@ -1,6 +1,6 @@
 # Mouse echocardiography (heart ultrasound)
 
-Axis: A6 heart (axes.md @116f1f8). Human counterpart: none yet in `human-tests/` `[to verify]` whether metric v0 needs a human echo file.
+Axis: A6 heart (axes.md @116f1f8). Human counterpart: none; echo is not on the human test list (T3-A2-1).
 
 ## What it measures
 
@@ -13,7 +13,7 @@ In human ageing, EF is mostly preserved and filling worsens (Walter 2025; Dai 20
 
 ## Training or reference population
 
-No standard reference. Age data are mostly from male C57BL/6 (B6), and the B6 substrain matters: in 24-month B6J mice from Janvier, EF fell (to 48.6%) with heart enlargement, while B6J from Charles River kept their EF (Walter 2025). No UM-HET3 reference curve found `[to verify]`.
+No standard reference. Age data are mostly from male C57BL/6 (B6), and the B6 substrain matters: in 24-month B6J mice from Janvier, EF fell (to 48.6%) with heart enlargement, while B6J from Charles River kept their EF (Walter 2025). No UM-HET3 reference curve in the sources here (named gap).
 
 Example adult B6 values (review table, Salerno 2025): E/A 1.52 ± 0.40, e′ 43.2 ± 10.9 mm/s, E/e′ 15.2 ± 6.7.
 
@@ -28,7 +28,7 @@ Example adult B6 values (review table, Salerno 2025): E/A 1.52 ± 0.40, e′ 43.
 | Salerno 2025 (review) | EF and FS | Vary by ±8–12% between observers and up to 15% between machines (different probe frequencies or frame rates) |
 
 - In plain English: size measurements repeat well; wall thickness and diastolic readings depend on who measures. Rule: **one trained sonographer, one machine, blinded, for all readings of a cohort.**
-- Smallest real change for one mouse: not published as such. `[to verify]`
+- Smallest real change for one mouse: not in the sources here (named gap).
 
 ## Known failure modes
 
@@ -52,7 +52,7 @@ Take-home: heart ageing in mice shows mainly as thicker, heavier ventricles and 
 
 ## Confounders
 
-Anaesthesia depth and heart rate, body temperature, sonographer, machine and probe, substrain, sex and sex hormones, body-weight loss in late life, time since the last meal `[to verify]`.
+Anaesthesia depth and heart rate, body temperature, sonographer, machine and probe, substrain, sex and sex hormones, body-weight loss in late life.
 
 ## Sources
 
