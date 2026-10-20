@@ -1,0 +1,38 @@
+# Agent -> unit map, read by scripts/check-write-paths.sh (D47, D69).
+#
+# Every commit carries a trailer `Agent: A<n>`. The check looks the agent up
+# here, in the BASE branch's copy of this file, to know which unit it works for.
+#
+# Rules enforced in CI (convention, not proof: trailers are self-declared and
+# all agents share one token; D68 refused):
+#   - only active `unit: verification` agents may change verification/**,
+#     unless the PR cites a decision that exists on main and names the path;
+#   - verification agents may only change verification/** and their own unit's
+#     rows in this file;
+#   - rows with `unit: verification` may only be added, changed or ended by an
+#     agent who is verification in the base branch's copy of this file;
+#   - an agent with `status: ended` may not author new commits.
+#
+# Format: one entry per agent, keys exactly `id`, `unit`, `status`
+# (active | ended), optional `note`. Keep one key per line, no flow style.
+#
+# TODO(A7): add the rows of the other units (literature, research, code,
+# database, coherence, interface, chair). Owner of this file: A7 (docs/).
+
+agents:
+  - id: A50
+    unit: verification
+    status: active
+    note: Verification manager; bootstrap row, D47
+  - id: A52
+    unit: verification
+    status: ended
+    note: D67 prep worker (coloc reference cases)
+  - id: A53
+    unit: verification
+    status: active
+    note: D67 prep worker (references survey)
+  - id: A54
+    unit: verification
+    status: active
+    note: D67 prep worker (licences, ledger template)
