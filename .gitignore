@@ -7,3 +7,7 @@ interface/dist/
 .context-pilot/shared/*
 !.context-pilot/shared/callbacks.yaml
 .DS_Store
+
+# Local secrets (data encryption key of the president). Never commit.
+.env
+.env.*
