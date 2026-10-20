@@ -1,0 +1,9 @@
+# Known-bad: unknown context in an expression.
+name: Bad expression
+on:
+  pull_request:
+jobs:
+  ctx:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "${{ github.evnt.pull_request.number }}"

@@ -99,6 +99,10 @@ the queue run ~2 min). Allow up to 10 minutes when the queue is busy.
   technically: this is a rule. Any violation is reverted.
 - **Never use `--no-verify`** to skip the local checks.
 - **One branch per mission.** Do not mix unrelated changes in one PR.
+- **`Agent:` trailers (D47 write-path check).** In the merge queue every
+  `Agent:` trailer applies to every file, so never mix Verification and
+  non-Verification commits in one PR touching `verification/`, or a
+  Verification commit in a PR touching other paths.
 - **Small PRs.** Smaller changes pass the checks faster and are easier to
   revert.
 - **Delete the branch after the merge.**
@@ -111,9 +115,9 @@ All agents share one machine. Every local build, test or check goes through
 the build lock, which lets at most 2 run at once and makes the others wait:
 
 ```bash
-scripts/build-lock.sh cargo test
-scripts/local-checks.sh            # the 3 check families, through the lock
-scripts/local-checks.sh lints      # one family: lints | tests | structure
+scripts/local/build-lock.sh cargo test
+scripts/local/local-checks.sh            # the 3 check families, through the lock
+scripts/local/local-checks.sh lints      # one family: lints | tests | structure
 ```
 
 Slots live in `/tmp/astra-build-lock/`; a slot left by a dead process is

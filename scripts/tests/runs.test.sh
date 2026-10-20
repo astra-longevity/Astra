@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Known-bad / known-good cases for scripts/runs.py and scripts/build-lock.sh.
+# Known-bad / known-good cases for scripts/runs.py and scripts/local/build-lock.sh.
 # Manifest cases copy research/runs/toy-gompertz-v0 into a temp folder of the
 # same name, break one thing, and expect check/rerun to fail.
 #
@@ -8,7 +8,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 RUNS="$ROOT/scripts/runs.py"
-LOCK="$ROOT/scripts/build-lock.sh"
+LOCK="$ROOT/scripts/local/build-lock.sh"
 SRC="$ROOT/research/runs/toy-gompertz-v0"
 
 pass=0

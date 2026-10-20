@@ -2,16 +2,16 @@
 # local-checks.sh — run the sealed check families locally, through the build
 # lock (at most 2 local builds/test runs at once on the shared machine).
 #
-#   scripts/local-checks.sh             # lints, tests, structure
-#   scripts/local-checks.sh lints       # one family: lints | tests | structure
+#   scripts/local/local-checks.sh             # lints, tests, structure
+#   scripts/local/local-checks.sh lints       # one family: lints | tests | structure
 #
 # The family scripts themselves (.github/checks/) are sealed and unchanged.
 # The blocking callbacks in .context-pilot/shared/callbacks.yaml (also sealed)
-# should call this wrapper; that switch goes in the next re-seal batch.
+# call this wrapper (M2 re-seal batch, docs/rust/seal-extension.md).
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-LOCK="$ROOT/scripts/build-lock.sh"
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+LOCK="$ROOT/scripts/local/build-lock.sh"
 mode="${LOCAL_CHECKS_MODE:---callback}"
 
 families=("$@")

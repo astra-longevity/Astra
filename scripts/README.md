@@ -36,3 +36,17 @@ The same scripts run automatically:
 The rule files are sealed by a password-protected hash chain.
 After a legitimate change, the password holder runs `./chain.sh`.
 Without it, the `check-structure.sh` check fails.
+
+## Guards and tooling in this folder
+
+| Path | What it does |
+|------|--------------|
+| `guards/check-write-paths.sh` | Write paths for `verification/` and cited decisions (D47, D69); `ci.yml` |
+| `guards/protection-drift.sh` | Live protection vs. `docs/rust/*.json` (D52); `protection-drift.yml` |
+| `guards/check-workflows.sh` | `actionlint` on every workflow; `workflow-lint.yml` |
+| `runs.py`, `registers.py` | Run manifests (O13); issue + obstacle registers |
+| `fetch-datasets.sh` | Downloads and hash-checks the `data/datasets/` manifests; `fetch.yml` |
+| `local/build-lock.sh`, `local/local-checks.sh` | At most 2 local builds at once; local check families |
+| `tests/` | Known-bad tests of each script, run by its workflow |
+
+All of these are sealed (`docs/rust/seal-extension.md`).

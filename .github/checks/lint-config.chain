@@ -27,3 +27,2457 @@ index d78f2d7..d02f7fc 100644
  env:
    CARGO_TERM_COLOR: always
 # --- End entry #2 ---
+3:357f71cba7457b970bf063df429284743d1223b46a40e8b3b913d1164fbb3008:9fe222f08c0766c6180aec9508b9fb5c6363d596a3ec83ec57b1e14cdd8a2301:7cfecc0411715350b66bf91e4db4048feb7d8121dbc38788177df229c99735a1
+# --- Diff for entry #3 ---
+diff --git a/.github/checks/protected-files.yaml b/.github/checks/protected-files.yaml
+index 9cbcf18..a8e3926 100644
+--- a/.github/checks/protected-files.yaml
++++ b/.github/checks/protected-files.yaml
+@@ -56,3 +56,61 @@
+   whole_file: true
+ - path: chain.sh
+   whole_file: true
++
++# --- M2 seal extension (D45, D80): every workflow and the scripts they call ---
++# See docs/rust/seal-extension.md for what each file enforces.
++- path: .github/workflows/lifespan.yml
++  whole_file: true
++- path: .github/workflows/protection-drift.yml
++  whole_file: true
++- path: .github/workflows/registers.yml
++  whole_file: true
++- path: .github/workflows/runs.yml
++  whole_file: true
++- path: .github/workflows/site.yml
++  whole_file: true
++- path: .github/workflows/workflow-lint.yml
++  whole_file: true
++- path: .github/workflows/fetch.yml
++  whole_file: true
++- path: .github/workflows/file-sizes.yml
++  whole_file: true
++- path: .github/large-files-allow.txt
++  whole_file: true
++- path: scripts/fetch-datasets.sh
++  whole_file: true
++- path: scripts/local/build-lock.sh
++  whole_file: true
++- path: scripts/local/local-checks.sh
++  whole_file: true
++- path: scripts/runs.py
++  whole_file: true
++- path: scripts/registers.py
++  whole_file: true
++- path: scripts/guards/check-write-paths.sh
++  whole_file: true
++- path: scripts/guards/protection-drift.sh
++  whole_file: true
++- path: scripts/guards/check-workflows.sh
++  whole_file: true
++- path: scripts/tests/check-workflows.test.sh
++  whole_file: true
++- path: scripts/tests/fixtures/workflows/good.yml
++  whole_file: true
++- path: scripts/tests/fixtures/workflows/bad-yaml.yml
++  whole_file: true
++- path: scripts/tests/fixtures/workflows/bad-expr.yml
++  whole_file: true
++- path: scripts/tests/fixtures/workflows/bad-shell.yml
++  whole_file: true
++- path: scripts/tests/check-write-paths.test.sh
++  whole_file: true
++- path: scripts/tests/registers.test.sh
++  whole_file: true
++- path: scripts/tests/runs.test.sh
++  whole_file: true
++# Drift reference: the payloads the daily drift job compares live settings to.
++- path: docs/rust/branch-protection.json
++  whole_file: true
++- path: docs/rust/merge-queue-ruleset.json
++  whole_file: true
+diff --git a/Cargo.toml b/Cargo.toml
+index 9cf20f6..0d6871d 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -1,12 +1,12 @@
+ [workspace]
+ resolver = "3"
+-members = ["crates/astra-cli", "crates/astra-db", "crates/astra-site"]
++members = ["crates/astra-cli", "crates/astra-db", "crates/astra-fetch", "crates/astra-site"]
+ 
+ [workspace.package]
+ version = "0.1.0"
+ edition = "2024"
+ license = "MIT"
+-repository = "https://github.com/bigmoostache/Astra"
++repository = "https://github.com/astra-longevity/Astra"
+ readme = "README.md"
+ 
+ [workspace.dependencies]
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index d02f7fc..36c4461 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -54,3 +54,36 @@ jobs:
+       - name: Structure
+         run: .github/checks/check-structure.sh --ci
+ 
++  # D47 write paths for verification/ + D69 decision citations.
++  # Convention, not proof: self-declared `Agent:` trailers, shared token (D68 refused).
++  write-paths:
++    name: Write paths (D47 · D69)
++    if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++        with:
++          fetch-depth: 0
++
++      - name: Self-tests
++        run: scripts/tests/check-write-paths.test.sh
++
++      - name: Check write paths
++        env:
++          EVENT: ${{ github.event_name }}
++          PR_BASE: ${{ github.event.pull_request.base.sha }}
++          PR_HEAD: ${{ github.event.pull_request.head.sha }}
++          PR_BODY: ${{ github.event.pull_request.body }}
++          MQ_BASE: ${{ github.event.merge_group.base_sha }}
++          MQ_HEAD: ${{ github.event.merge_group.head_sha }}
++        run: |
++          if [ "$EVENT" = "merge_group" ]; then
++            base="$MQ_BASE"; head="$MQ_HEAD"
++            # The squash message carries the PR body and the commits' trailers.
++            git log --format=%B "$base..$head" >"$RUNNER_TEMP/body.md"
++          else
++            base="$PR_BASE"; head="$PR_HEAD"
++            printf '%s\n' "$PR_BODY" >"$RUNNER_TEMP/body.md"
++          fi
++          scripts/guards/check-write-paths.sh --base "$base" --head "$head" --body-file "$RUNNER_TEMP/body.md"
++
+diff --git a/.context-pilot/shared/callbacks.yaml b/.context-pilot/shared/callbacks.yaml
+index 1601c6c..250e0ab 100644
+--- a/.context-pilot/shared/callbacks.yaml
++++ b/.context-pilot/shared/callbacks.yaml
+@@ -7,7 +7,7 @@ rust-lints:
+   success_message: Rust lints OK ✓
+   is_global: true
+   concurrency_friendly: false
+-  script_content: bash "$CP_PROJECT_ROOT/.github/checks/check-rust-lints.sh" --callback
++  script_content: bash "$CP_PROJECT_ROOT/scripts/local/local-checks.sh" lints
+ structure-rust:
+   name: structure-rust
+   description: Structure family (file lengths ≤500, dir entries ≤8, hash chain) on Rust edits
+@@ -17,4 +17,4 @@ structure-rust:
+   success_message: Structure OK ✓
+   is_global: true
+   concurrency_friendly: false
+-  script_content: bash "$CP_PROJECT_ROOT/.github/checks/check-structure.sh" --callback
++  script_content: bash "$CP_PROJECT_ROOT/scripts/local/local-checks.sh" structure
+diff --git a/.github/workflows/lifespan.yml b/.github/workflows/lifespan.yml
+new file mode 100644
+index 0000000..063b439
+--- /dev/null
++++ b/.github/workflows/lifespan.yml
+@@ -0,0 +1,54 @@
++name: Lifespan
++
++# Runs literature/lifespan/check.rb (L1 lifespan table: row schema + test2_main).
++# Owner: A10 (Code). Requested by A2/A65 before the D115 seal.
++# No on.paths filter: the job always reports, and passes with "no lifespan
++# change" when literature/lifespan/** is untouched (safe as a required check).
++
++on:
++  pull_request:
++  merge_group:
++  push:
++    branches: [main]
++
++permissions:
++  contents: read
++
++jobs:
++  lifespan:
++    name: Lifespan (check.rb)
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++        with:
++          fetch-depth: 0
++
++      - name: Detect lifespan changes
++        id: changes
++        env:
++          EVENT: ${{ github.event_name }}
++          PR_BASE: ${{ github.event.pull_request.base.sha }}
++          MQ_BASE: ${{ github.event.merge_group.base_sha }}
++          PUSH_BEFORE: ${{ github.event.before }}
++        run: |
++          case "$EVENT" in
++            pull_request) base="$PR_BASE" ;;
++            merge_group)  base="$MQ_BASE" ;;
++            *)            base="$PUSH_BEFORE" ;;
++          esac
++          if [ -z "$base" ] || ! git cat-file -e "$base^{commit}" 2>/dev/null; then
++            echo "Base unknown: running the check."
++            echo "run=true" >> "$GITHUB_OUTPUT"
++          elif git diff --name-only "$base" HEAD | grep -Eq '^(literature/lifespan/|\.github/workflows/lifespan\.yml$)'; then
++            echo "run=true" >> "$GITHUB_OUTPUT"
++          else
++            echo "run=false" >> "$GITHUB_OUTPUT"
++          fi
++
++      - name: Run check.rb
++        if: steps.changes.outputs.run == 'true'
++        run: ruby literature/lifespan/check.rb
++
++      - name: No lifespan change
++        if: steps.changes.outputs.run != 'true'
++        run: 'echo "No change under literature/lifespan/ or lifespan.yml, nothing to check."'
+diff --git a/.github/workflows/protection-drift.yml b/.github/workflows/protection-drift.yml
+new file mode 100644
+index 0000000..7f57d38
+--- /dev/null
++++ b/.github/workflows/protection-drift.yml
+@@ -0,0 +1,80 @@
++name: Protection drift
++
++# D52 (docs/decisions/founding-council-log.md): once a day, read the live
++# branch protection of main and the merge-queue ruleset, and compare them with
++# the payloads committed in docs/rust/. Any difference fails the job and opens
++# (or comments on) one issue titled "Protection drift".
++#
++# Read-only. Reading branch protection and rulesets needs repository
++# "Administration: read", which the default GITHUB_TOKEN does not have, so the
++# GET calls use the PROTECTION_READ_TOKEN secret, stored in the `protection`
++# environment (deployment branches: main only). GITHUB_TOKEN is only used to
++# write the issue.
++on:
++  schedule:
++    - cron: "17 6 * * *"
++  workflow_dispatch:
++
++permissions:
++  contents: read
++  issues: write
++
++concurrency:
++  group: protection-drift
++  cancel-in-progress: false
++
++env:
++  RULESET_ID: "25413974"
++  ISSUE_TITLE: "Protection drift"
++
++jobs:
++  drift:
++    name: Compare live protection with docs/rust/
++    runs-on: ubuntu-latest
++    # PROTECTION_READ_TOKEN lives in this main-only environment, not at repo
++    # level, so no workflow on another branch can read it.
++    environment: protection
++    steps:
++      - uses: actions/checkout@v4
++
++      - name: Read live settings (GET only)
++        env:
++          GH_TOKEN: ${{ secrets.PROTECTION_READ_TOKEN }}
++        run: |
++          if [ -z "$GH_TOKEN" ]; then
++            echo "::error::secret PROTECTION_READ_TOKEN is missing: cannot read live protection" > /dev/stderr
++            echo "missing-token" > drift-report.txt
++            exit 1
++          fi
++          gh api "repos/${{ github.repository }}/branches/main/protection" > live-protection.json
++          gh api "repos/${{ github.repository }}/rulesets/${RULESET_ID}" > live-ruleset.json
++
++      - name: Compare
++        run: |
++          set -o pipefail
++          scripts/guards/protection-drift.sh live-protection.json live-ruleset.json 2>&1 | tee drift-report.txt
++
++      - name: Open or update the "Protection drift" issue
++        if: failure()
++        env:
++          GH_TOKEN: ${{ github.token }}
++          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
++        run: |
++          {
++            echo "@bigmoostache the live branch protection or merge-queue ruleset no longer matches the payloads committed in \`docs/rust/\` (D52)."
++            echo
++            echo "Run: $RUN_URL"
++            echo
++            echo '```diff'
++            head -c 60000 drift-report.txt 2>/dev/null || echo "(no report: the check could not run, see the run log)"
++            echo '```'
++            echo
++            echo "No agent may change protection or rulesets. The president decides whether to restore the settings or to update the committed payloads by PR."
++          } > issue-body.md
++          number="$(gh issue list --repo "${{ github.repository }}" --state open --search "\"$ISSUE_TITLE\" in:title" --json number,title \
++            --jq "map(select(.title == \"$ISSUE_TITLE\")) | .[0].number // empty")"
++          if [ -n "$number" ]; then
++            gh issue comment "$number" --repo "${{ github.repository }}" --body-file issue-body.md
++          else
++            gh issue create --repo "${{ github.repository }}" --title "$ISSUE_TITLE" --body-file issue-body.md
++          fi
+diff --git a/.github/workflows/registers.yml b/.github/workflows/registers.yml
+new file mode 100644
+index 0000000..a2fcef1
+--- /dev/null
++++ b/.github/workflows/registers.yml
+@@ -0,0 +1,64 @@
++name: Registers
++
++# Issue register (issues/) and obstacle register (research/obstacles/). P3,
++# charter parts 8 and 9, T8-A10-1.
++#   - On every PR / queue / push: self-tests + schema of both registers.
++#   - Daily (and on demand): run every obstacle check that is due and print an
++#     issue-ready report of missed or failing exits. The job fails when there
++#     is one, so the red run is the alarm. It never writes to the repo
++#     (contents: read, no issue creation from the job).
++on:
++  push:
++    branches: [main]
++  pull_request:
++    branches: [main]
++  merge_group:
++  schedule:
++    - cron: "37 6 * * *"
++  workflow_dispatch:
++
++permissions:
++  contents: read
++
++jobs:
++  schema:
++    name: Registers (schema · tests)
++    if: github.event_name != 'schedule' && github.event_name != 'workflow_dispatch'
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++
++      - uses: actions/setup-python@v5
++        with:
++          python-version: "3.13"
++
++      - name: Self-tests (known-bad issues and obstacles)
++        run: scripts/tests/registers.test.sh
++
++      - name: Issue register schema
++        run: python3 scripts/registers.py issues
++
++      - name: Obstacle register schema
++        run: python3 scripts/registers.py obstacles --schema-only
++
++  due:
++    name: Obstacles due (daily)
++    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++        with:
++          fetch-depth: 0
++
++      - uses: actions/setup-python@v5
++        with:
++          python-version: "3.13"
++
++      - name: Run due checks
++        run: |
++          set -o pipefail
++          python3 scripts/registers.py obstacles | tee "$RUNNER_TEMP/report.md"
++
++      - name: Issue-ready report
++        if: failure()
++        run: cat "$RUNNER_TEMP/report.md" >>"$GITHUB_STEP_SUMMARY"
+diff --git a/.github/workflows/runs.yml b/.github/workflows/runs.yml
+new file mode 100644
+index 0000000..21a3324
+--- /dev/null
++++ b/.github/workflows/runs.yml
+@@ -0,0 +1,36 @@
++name: Runs
++
++# Re-runs every run manifest under research/runs/ and fails on any output
++# mismatch (byte-exact). Also runs the known-bad tests of the manifest tool
++# and the build lock. P2, charter part 6.
++on:
++  push:
++    branches: [main]
++  pull_request:
++    branches: [main]
++  merge_group:
++
++permissions:
++  contents: read
++
++jobs:
++  runs:
++    name: Runs (manifests · re-run)
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++        with:
++          fetch-depth: 0
++
++      - uses: actions/setup-python@v5
++        with:
++          python-version: "3.13"
++
++      - name: Self-tests (known-bad manifests, build lock)
++        run: scripts/tests/runs.test.sh
++
++      - name: Check manifests
++        run: python3 scripts/runs.py check research/runs/*/manifest.yaml
++
++      - name: Re-run manifests
++        run: python3 scripts/runs.py rerun research/runs/*/manifest.yaml
+diff --git a/.github/workflows/site.yml b/.github/workflows/site.yml
+index 43839cc..579e5ee 100644
+--- a/.github/workflows/site.yml
++++ b/.github/workflows/site.yml
+@@ -36,6 +36,11 @@ jobs:
+       - name: Cargo cache
+         uses: Swatinem/rust-cache@v2
+ 
++      # Charter part 8: nothing is published while an open S1/S2 issue
++      # targets what this job publishes (issues/, scripts/registers.py).
++      - name: Issue gate (open S1/S2)
++        run: python3 scripts/registers.py gate interface/ data/
++
+       - name: Build database
+         run: cargo run --release -p astra-cli -- db build
+ 
+diff --git a/.github/workflows/workflow-lint.yml b/.github/workflows/workflow-lint.yml
+new file mode 100644
+index 0000000..af08b90
+--- /dev/null
++++ b/.github/workflows/workflow-lint.yml
+@@ -0,0 +1,42 @@
++name: Workflows
++
++# actionlint on every workflow (YAML syntax, expressions, contexts, and
++# shellcheck on run: blocks), plus its known-bad fixtures. Added after PR #60
++# merged a workflow with invalid YAML that GitHub silently never ran.
++# Kept out of ci.yml on purpose; sealed with it (docs/rust/seal-extension.md).
++on:
++  push:
++    branches: [main]
++  pull_request:
++    branches: [main]
++  merge_group:
++
++permissions:
++  contents: read
++
++env:
++  ACTIONLINT_VERSION: "1.7.12"
++
++jobs:
++  actionlint:
++    name: Workflows (actionlint)
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++
++      - uses: actions/setup-go@v5
++        with:
++          go-version: "1.24"
++          cache: false
++
++      # Pinned version; the Go checksum database verifies the module.
++      - name: Install actionlint ${{ env.ACTIONLINT_VERSION }}
++        run: |
++          go install "github.com/rhysd/actionlint/cmd/actionlint@v${ACTIONLINT_VERSION}"
++          echo "$(go env GOPATH)/bin" >>"$GITHUB_PATH"
++
++      - name: Self-tests (known-bad workflows)
++        run: scripts/tests/check-workflows.test.sh
++
++      - name: Lint every workflow
++        run: scripts/guards/check-workflows.sh
+diff --git a/.github/workflows/fetch.yml b/.github/workflows/fetch.yml
+new file mode 100644
+index 0000000..ada328e
+--- /dev/null
++++ b/.github/workflows/fetch.yml
+@@ -0,0 +1,75 @@
++name: Dataset fetch
++
++# P1 fetch job. Downloads the files of every data/datasets manifest whose
++# licence Verification approved, checks each against its pinned sha256 and
++# size, and caches them. Never writes to the repository.
++#   - schedule: download + verify; unpinned files and mismatches fail the run
++#     with issue-ready messages in the job summary.
++#   - dispatch with pin=true: also downloads unpinned files and prints their
++#     sha256 / size_bytes / fetched_at, to be added to the manifest by PR.
++
++on:
++  schedule:
++    - cron: "23 5 * * 1"
++  workflow_dispatch:
++    inputs:
++      pin:
++        description: "Download unpinned files and print their hashes"
++        type: boolean
++        default: false
++
++env:
++  CARGO_TERM_COLOR: always
++  RUST_VERSION: "1.97.1"
++
++permissions:
++  contents: read
++
++concurrency:
++  group: dataset-fetch
++  cancel-in-progress: false
++
++jobs:
++  fetch:
++    name: Fetch datasets
++    runs-on: ubuntu-latest
++    timeout-minutes: 120
++    steps:
++      - uses: actions/checkout@v4
++
++      - name: Install Rust ${{ env.RUST_VERSION }}
++        run: |
++          rustup toolchain install ${{ env.RUST_VERSION }} --profile minimal
++          rustup default ${{ env.RUST_VERSION }}
++
++      - name: Cargo cache
++        uses: Swatinem/rust-cache@v2
++
++      - name: Build astra
++        run: cargo build --release -p astra-cli
++
++      - name: Plan (checks every manifest)
++        run: target/release/astra fetch plan > "$RUNNER_TEMP/plan.tsv"
++
++      - name: Dataset cache
++        uses: actions/cache@v4
++        with:
++          path: .cache/datasets
++          key: datasets-${{ hashFiles('data/datasets/**') }}
++          restore-keys: datasets-
++
++      - name: Download
++        env:
++          MODE: ${{ inputs.pin && 'pin' || 'verify' }}
++        run: scripts/fetch-datasets.sh "$RUNNER_TEMP/plan.tsv" .cache/datasets "$MODE"
++
++      - name: Verify hashes and sizes
++        if: ${{ always() && !inputs.pin }}
++        run: |
++          set -o pipefail
++          {
++            echo "### Verify"
++            echo '```'
++            target/release/astra fetch verify --cache .cache/datasets 2>&1
++            echo '```'
++          } | tee -a "$GITHUB_STEP_SUMMARY"
+diff --git a/.github/workflows/file-sizes.yml b/.github/workflows/file-sizes.yml
+new file mode 100644
+index 0000000..3f1eeea
+--- /dev/null
++++ b/.github/workflows/file-sizes.yml
+@@ -0,0 +1,36 @@
++name: File sizes
++
++# No committed file over 10 MB outside .github/large-files-allow.txt.
++# Datasets are fetched through data/datasets manifests instead (fetch.yml).
++
++on:
++  push:
++    branches: [main]
++  pull_request:
++    branches: [main]
++  merge_group:
++
++env:
++  CARGO_TERM_COLOR: always
++  RUST_VERSION: "1.97.1"
++
++permissions:
++  contents: read
++
++jobs:
++  sizes:
++    name: File sizes (10 MB)
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++
++      - name: Install Rust ${{ env.RUST_VERSION }}
++        run: |
++          rustup toolchain install ${{ env.RUST_VERSION }} --profile minimal
++          rustup default ${{ env.RUST_VERSION }}
++
++      - name: Cargo cache
++        uses: Swatinem/rust-cache@v2
++
++      - name: Check committed file sizes
++        run: cargo run -q -p astra-cli -- check sizes
+diff --git a/.github/large-files-allow.txt b/.github/large-files-allow.txt
+new file mode 100644
+index 0000000..b352470
+--- /dev/null
++++ b/.github/large-files-allow.txt
+@@ -0,0 +1,3 @@
++# Files allowed above 10 MB in the repository (checked by `astra check sizes`,
++# .github/workflows/file-sizes.yml). One repository-relative path per line,
++# followed by `# reason`. Prefer a data/datasets manifest over adding a line here.
+diff --git a/scripts/fetch-datasets.sh b/scripts/fetch-datasets.sh
+new file mode 100755
+index 0000000..a436ca3
+--- /dev/null
++++ b/scripts/fetch-datasets.sh
+@@ -0,0 +1,120 @@
++#!/usr/bin/env bash
++# P1 dataset fetch job: downloads the files listed by `astra fetch plan`.
++#
++# Usage:
++#   scripts/fetch-datasets.sh PLAN.tsv CACHE_DIR verify|pin
++#
++# PLAN.tsv lines (from `astra fetch plan`):
++#   fetch\t<id>\t<n>\t<interval>\t<sha256>\t<url>    approved + pinned
++#   unpinned\t<id>\t<n>\t<interval>\t-\t<url>        approved, no hash yet
++#   skipped\t<id>\t<licence_status>                  licence not approved
++#
++# - Pinned files are stored as CACHE_DIR/<sha256>; a cache hit sends no request.
++#   `astra fetch verify` checks hashes and sizes afterwards.
++# - Unpinned files are downloaded only in `pin` mode, and their sha256, size and
++#   date are printed to paste into the manifest by PR. Nothing is written to the repo.
++# - Requests to one host are spaced by at least the manifest's
++#   min_interval_seconds (a licence condition, e.g. MPD asks for 2 s).
++# - HTTP 403 = "source blocks automated fetch": that file fails, the others go
++#   on. No retry loop, no custom headers.
++#
++# Exit 0 = every needed file downloaded; 1 = at least one problem; 2 = usage.
++set -euo pipefail
++
++if [ "$#" -ne 3 ] || { [ "$3" != verify ] && [ "$3" != pin ]; }; then
++  echo "usage: $0 PLAN.tsv CACHE_DIR verify|pin" >&2
++  exit 2
++fi
++plan="$1"
++cache="$2"
++mode="$3"
++astra="${ASTRA:-target/release/astra}"
++summary="${GITHUB_STEP_SUMMARY:-/dev/null}"
++
++mkdir -p "$cache"
++tmp="$(mktemp -d)"
++trap 'rm -rf "$tmp"' EXIT
++
++mkdir -p "$tmp/hosts"
++problems=()
++pins=()
++skipped=()
++downloaded=0
++hits=0
++
++# Waits until `interval` seconds have passed since the last request to `host`.
++wait_for_host() {
++  local stamp="$tmp/hosts/$1" interval="$2" elapsed
++  if [ -f "$stamp" ]; then
++    elapsed=$(($(date +%s) - $(cat "$stamp")))
++    if [ "$elapsed" -lt "$interval" ]; then
++      sleep $((interval - elapsed))
++    fi
++  fi
++  date +%s >"$stamp"
++}
++
++# Downloads `url` to `out`; on failure records an issue-ready problem.
++download() {
++  local id="$1" n="$2" interval="$3" url="$4" out="$5" host code
++  host="$(printf '%s' "$url" | sed -E 's#^[a-z]+://([^/]+).*#\1#')"
++  wait_for_host "$host" "$interval"
++  code="$(curl -sS -L --max-time 300 -o "$out" -w '%{http_code}' "$url" 2>"$tmp/curl.err" || true)"
++  case "$code" in
++    200) return 0 ;;
++    403) problems+=("Source blocks automated fetch: dataset \`$id\` files[$n] ($url) returned HTTP 403. Do not work around it (no header spoofing, no retries); ask the source for an access route or download it by hand under a logged procedure.") ;;
++    000) problems+=("Download failed: dataset \`$id\` files[$n] ($url): $(tr '\n' ' ' <"$tmp/curl.err")") ;;
++    *) problems+=("Download failed: dataset \`$id\` files[$n] ($url) returned HTTP $code.") ;;
++  esac
++  rm -f "$out"
++  return 1
++}
++
++while IFS=$'\t' read -r kind id n interval sha url; do
++  case "$kind" in
++    fetch)
++      if [ -f "$cache/$sha" ]; then
++        hits=$((hits + 1))
++      elif download "$id" "$n" "$interval" "$url" "$tmp/part"; then
++        mv "$tmp/part" "$cache/$sha"
++        downloaded=$((downloaded + 1))
++      fi
++      ;;
++    unpinned)
++      if [ "$mode" = pin ] && download "$id" "$n" "$interval" "$url" "$tmp/part"; then
++        pins+=("$id files[$n] ($url)"$'\n'"$("$astra" fetch pin "$tmp/part" | sed 's/^/  /')")
++        rm -f "$tmp/part"
++      fi
++      ;;
++    skipped) skipped+=("$id ($n)") ;;
++    "") ;;
++    *) problems+=("Bad plan line: $kind $id") ;;
++  esac
++done <"$plan"
++
++{
++  echo "## Dataset fetch ($mode)"
++  echo
++  echo "Downloaded: $downloaded. Cache hits: $hits."
++  if [ "${#skipped[@]}" -gt 0 ]; then
++    echo
++    echo "### Skipped (licence not approved)"
++    printf -- '- %s\n' "${skipped[@]}"
++  fi
++  if [ "${#pins[@]}" -gt 0 ]; then
++    echo
++    echo "### Pins (paste into the manifest by PR)"
++    echo '```'
++    printf '%s\n' "${pins[@]}"
++    echo '```'
++  fi
++  if [ "${#problems[@]}" -gt 0 ]; then
++    echo
++    echo "### Problems"
++    printf -- '- %s\n' "${problems[@]}"
++  fi
++} | tee -a "$summary"
++
++if [ "${#problems[@]}" -gt 0 ]; then
++  exit 1
++fi
+diff --git a/scripts/local/build-lock.sh b/scripts/local/build-lock.sh
+new file mode 100755
+index 0000000..8c70860
+--- /dev/null
++++ b/scripts/local/build-lock.sh
+@@ -0,0 +1,82 @@
++#!/usr/bin/env bash
++# build-lock.sh — run a command only when one of N local build slots is free.
++#
++# All agents share one machine (10 cores, 16 GB). The charter caps local
++# builds/test runs at 2 at once (part 6, T6-A10-2). Wrap every local build,
++# test or check with this script:
++#
++#   scripts/local/build-lock.sh cargo test
++#   scripts/local/build-lock.sh .github/checks/check-rust-lints.sh --callback
++#
++# A slot is a directory under $ASTRA_BUILD_LOCK_DIR (mkdir is atomic on every
++# filesystem, unlike flock which macOS lacks). The slot holds the owner's PID;
++# a slot whose PID is dead is reclaimed. The slot is released on exit, on
++# Ctrl-C and on kill (trap).
++#
++# Environment:
++#   ASTRA_BUILD_LOCK_DIR      default /tmp/astra-build-lock
++#   ASTRA_BUILD_SLOTS         default 2
++#   ASTRA_BUILD_LOCK_TIMEOUT  seconds to wait before giving up (default 0 =
++#                             wait forever); exit 75 on timeout.
++#
++# Exit code: the wrapped command's, or 75 on timeout, 2 on usage error.
++set -euo pipefail
++
++if [ $# -eq 0 ]; then
++  echo "usage: $0 <command> [args...]" >&2
++  exit 2
++fi
++
++lock_dir="${ASTRA_BUILD_LOCK_DIR:-/tmp/astra-build-lock}"
++slots="${ASTRA_BUILD_SLOTS:-2}"
++timeout="${ASTRA_BUILD_LOCK_TIMEOUT:-0}"
++mkdir -p "$lock_dir"
++
++held=""
++release() { if [ -n "$held" ]; then rm -rf "$held"; held=""; fi; }
++trap release EXIT
++trap 'release; exit 130' INT
++trap 'release; exit 143' TERM
++
++try_take() {
++  local i slot pid
++  for i in $(seq 1 "$slots"); do
++    slot="$lock_dir/slot-$i"
++    if mkdir "$slot" 2>/dev/null; then
++      echo "$$" >"$slot/pid"
++      held="$slot"
++      return 0
++    fi
++    # Reclaim a slot whose owner died without cleaning up.
++    pid="$(cat "$slot/pid" 2>/dev/null || true)"
++    if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
++      rm -rf "$slot"
++      if mkdir "$slot" 2>/dev/null; then
++        echo "$$" >"$slot/pid"
++        held="$slot"
++        return 0
++      fi
++    fi
++  done
++  return 1
++}
++
++waited=0
++until try_take; do
++  if [ $((waited % 10)) -eq 0 ]; then
++    owners="$(cat "$lock_dir"/slot-*/pid 2>/dev/null | tr '\n' ' ' || true)"
++    echo "build-lock: all $slots slots busy (PIDs: ${owners:-?}); waiting... (${waited}s)" >&2
++  fi
++  if [ "$timeout" -gt 0 ] && [ "$waited" -ge "$timeout" ]; then
++    echo "build-lock: gave up after ${waited}s" >&2
++    exit 75
++  fi
++  sleep 1
++  waited=$((waited + 1))
++done
++
++echo "build-lock: took ${held##*/} for: $*" >&2
++status=0
++"$@" || status=$?
++release
++exit "$status"
+diff --git a/scripts/local/local-checks.sh b/scripts/local/local-checks.sh
+new file mode 100755
+index 0000000..9bd74bb
+--- /dev/null
++++ b/scripts/local/local-checks.sh
+@@ -0,0 +1,30 @@
++#!/usr/bin/env bash
++# local-checks.sh — run the sealed check families locally, through the build
++# lock (at most 2 local builds/test runs at once on the shared machine).
++#
++#   scripts/local/local-checks.sh             # lints, tests, structure
++#   scripts/local/local-checks.sh lints       # one family: lints | tests | structure
++#
++# The family scripts themselves (.github/checks/) are sealed and unchanged.
++# The blocking callbacks in .context-pilot/shared/callbacks.yaml (also sealed)
++# call this wrapper (M2 re-seal batch, docs/rust/seal-extension.md).
++set -euo pipefail
++
++ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
++LOCK="$ROOT/scripts/local/build-lock.sh"
++mode="${LOCAL_CHECKS_MODE:---callback}"
++
++families=("$@")
++[ ${#families[@]} -gt 0 ] || families=(lints tests structure)
++
++status=0
++for f in "${families[@]}"; do
++  case "$f" in
++    lints) script="check-rust-lints.sh" ;;
++    tests) script="check-rust-tests.sh" ;;
++    structure) script="check-structure.sh" ;;
++    *) echo "unknown family: $f (lints | tests | structure)" >&2; exit 2 ;;
++  esac
++  "$LOCK" bash "$ROOT/.github/checks/$script" "$mode" || status=$?
++done
++exit "$status"
+diff --git a/scripts/runs.py b/scripts/runs.py
+new file mode 100755
+index 0000000..2c5790a
+--- /dev/null
++++ b/scripts/runs.py
+@@ -0,0 +1,291 @@
++#!/usr/bin/env python3
++"""runs.py — run manifests: schema check, re-run, record.
++
++A run manifest (research/runs/<id>/manifest.yaml) pins everything needed to
++reproduce a run: the code commit and code file hashes, the params file and
++its hash, the seed, input data hashes, toolchain versions, and the hashes of
++the outputs. Re-running a manifest must give byte-identical outputs.
++
++  python3 scripts/runs.py check  research/runs/*/manifest.yaml
++  python3 scripts/runs.py rerun  research/runs/*/manifest.yaml
++  python3 scripts/runs.py record research/runs/<id>   # writes manifest.yaml
++
++Exit 0 = all good, 1 = at least one failure, 2 = usage.
++Stdlib only (no PyYAML): manifests use a small YAML subset, see SCHEMA.
++"""
++
++import hashlib
++import os
++import re
++import shutil
++import subprocess
++import sys
++import tempfile
++
++SCHEMA_ID = "astra-run-manifest/1"
++
++# field -> kind. "map" = one nested level of `key: value`.
++SCHEMA = {
++    "schema": "str",
++    "id": "str",
++    "description": "str",
++    "code_commit": "sha",
++    "command": "str",
++    "seed": "int",
++    "params_file": "str",
++    "params_sha256": "sha256",
++    "code": "map",
++    "data": "map",
++    "toolchain": "map",
++    "outputs": "map",
++}
++NON_EMPTY_MAPS = ("code", "toolchain", "outputs")
++
++HEX40 = re.compile(r"^[0-9a-f]{40}$")
++HEX64 = re.compile(r"^[0-9a-f]{64}$")
++ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
++
++
++# --- YAML subset --------------------------------------------------------------
++
++def _scalar(v):
++    v = v.strip()
++    if len(v) >= 2 and v[0] == v[-1] and v[0] in "\"'":
++        return v[1:-1]
++    return v
++
++
++def parse(text):
++    """Top-level `key: value` and `key:` + indented `sub: value`. `{}` = empty map."""
++    out, cur = {}, None
++    for n, raw in enumerate(text.splitlines(), 1):
++        line = raw.split(" #", 1)[0].rstrip() if not raw.lstrip().startswith("#") else ""
++        if not line.strip():
++            continue
++        indented = line[0] in " \t"
++        if ":" not in line:
++            raise ValueError(f"line {n}: expected 'key: value'")
++        k, v = line.strip().split(":", 1)
++        k, v = k.strip(), v.strip()
++        if indented:
++            if cur is None:
++                raise ValueError(f"line {n}: indented key outside a map")
++            out[cur][_scalar(k)] = _scalar(v)
++            continue
++        if k in out:
++            raise ValueError(f"line {n}: duplicate key {k}")
++        if v == "":
++            out[k], cur = {}, k
++        elif v == "{}":
++            out[k], cur = {}, None
++        else:
++            out[k], cur = _scalar(v), None
++    return out
++
++
++def dump(m):
++    lines = []
++    for k in SCHEMA:
++        v = m[k]
++        if isinstance(v, dict):
++            if not v:
++                lines.append(f"{k}: {{}}")
++            else:
++                lines.append(f"{k}:")
++                lines += [f"  {sk}: {v[sk]}" for sk in sorted(v)]
++        else:
++            lines.append(f"{k}: {v}")
++    return "\n".join(lines) + "\n"
++
++
++# --- helpers -----------------------------------------------------------------
++
++def sha256(path):
++    h = hashlib.sha256()
++    with open(path, "rb") as f:
++        for chunk in iter(lambda: f.read(1 << 16), b""):
++            h.update(chunk)
++    return h.hexdigest()
++
++
++def repo_root():
++    return subprocess.run(["git", "rev-parse", "--show-toplevel"], capture_output=True,
++                          text=True, check=True).stdout.strip()
++
++
++def toolchain_now(names):
++    out = {}
++    for name in names:
++        try:
++            r = subprocess.run([name, "--version"], capture_output=True, text=True)
++            txt = (r.stdout or r.stderr).strip().splitlines()[0]
++            m = re.search(r"\d+\.\d+(\.\d+)?", txt)
++            out[name] = m.group(0) if m else txt
++        except (OSError, IndexError):
++            out[name] = "missing"
++    return out
++
++
++def _same_minor(a, b):
++    return a.split(".")[:2] == b.split(".")[:2]
++
++
++# --- check -------------------------------------------------------------------
++
++def check(path, root):
++    """Schema + hashes. Returns (manifest or None, list of errors, list of warnings)."""
++    errs, warns = [], []
++    try:
++        with open(path) as f:
++            m = parse(f.read())
++    except (OSError, ValueError) as e:
++        return None, [f"cannot read: {e}"], warns
++
++    for k, kind in SCHEMA.items():
++        if k not in m:
++            errs.append(f"missing field: {k}")
++            continue
++        v = m[k]
++        if kind == "map" and not isinstance(v, dict):
++            errs.append(f"{k}: expected a map")
++        elif kind != "map" and isinstance(v, dict):
++            errs.append(f"{k}: expected a value, got a map")
++        elif kind == "int" and not re.fullmatch(r"-?\d+", v):
++            errs.append(f"{k}: expected an integer, got {v!r}")
++        elif kind == "sha" and not HEX40.match(v):
++            errs.append(f"{k}: expected a 40-hex commit id")
++        elif kind == "sha256" and not HEX64.match(v):
++            errs.append(f"{k}: expected a sha256")
++    for k in m:
++        if k not in SCHEMA:
++            errs.append(f"unknown field: {k}")
++    if errs:
++        return None, errs, warns
++
++    run_dir = os.path.dirname(os.path.abspath(path))
++    if m["schema"] != SCHEMA_ID:
++        errs.append(f"schema: expected {SCHEMA_ID}")
++    if m["id"] != os.path.basename(run_dir) or not ID_RE.match(m["id"]):
++        errs.append(f"id: must be the run folder name, lowercase-dashed ({os.path.basename(run_dir)})")
++    if "{seed}" not in m["command"]:
++        errs.append("command: must take the seed as {seed}")
++    for k in NON_EMPTY_MAPS:
++        if not m[k]:
++            errs.append(f"{k}: must not be empty")
++    for k in ("code", "data", "outputs"):
++        for p, h in m[k].items():
++            if not HEX64.match(h):
++                errs.append(f"{k}.{p}: expected a sha256")
++
++    # The merge queue squashes, so a branch commit vanishes from main's history.
++    # The code file hashes below are the binding pin; the commit is a pointer.
++    r = subprocess.run(["git", "-C", root, "cat-file", "-e", m["code_commit"] + "^{commit}"],
++                       capture_output=True)
++    if r.returncode != 0:
++        warns.append(f"code_commit {m['code_commit'][:12]} not in local history (squashed?); "
++                     "code file hashes still checked")
++
++    pf = os.path.join(run_dir, m["params_file"])
++    if not os.path.isfile(pf):
++        errs.append(f"params_file missing: {m['params_file']}")
++    elif sha256(pf) != m["params_sha256"]:
++        errs.append(f"params_sha256 mismatch: {m['params_file']} changed")
++    for k in ("code", "data"):
++        for p, h in m[k].items():
++            fp = os.path.join(root, p)
++            if not os.path.isfile(fp):
++                errs.append(f"{k} file missing: {p}")
++            elif sha256(fp) != h:
++                errs.append(f"{k} hash mismatch: {p}")
++    for p, h in m["outputs"].items():
++        op = os.path.join(run_dir, p)
++        if not os.path.isfile(op):
++            errs.append(f"output missing: {p}")
++        elif sha256(op) != h:
++            errs.append(f"committed output {p} does not match its recorded hash")
++
++    now = toolchain_now(m["toolchain"])
++    for name, ver in m["toolchain"].items():
++        if not _same_minor(now[name], ver):
++            warns.append(f"toolchain {name}: recorded {ver}, running {now[name]}")
++    return m, errs, warns
++
++
++# --- rerun -------------------------------------------------------------------
++
++def rerun(path, root):
++    m, errs, warns = check(path, root)
++    if errs:
++        return errs, warns
++    run_dir = os.path.dirname(os.path.abspath(path))
++    with tempfile.TemporaryDirectory() as tmp:
++        shutil.copy(os.path.join(run_dir, m["params_file"]), tmp)
++        cmd = m["command"].replace("{seed}", m["seed"])
++        env = dict(os.environ, ASTRA_ROOT=root, PYTHONHASHSEED="0", LC_ALL="C", TZ="UTC")
++        r = subprocess.run(cmd, shell=True, cwd=tmp, env=env, capture_output=True, text=True)
++        if r.returncode != 0:
++            return [f"command failed ({r.returncode}): {r.stderr.strip()[-400:]}"], warns
++        for p, h in sorted(m["outputs"].items()):
++            fp = os.path.join(tmp, p)
++            if not os.path.isfile(fp):
++                errs.append(f"re-run did not produce {p}")
++            elif sha256(fp) != h:
++                errs.append(f"output mismatch: {p} (recorded {h[:12]}, got {sha256(fp)[:12]})")
++            elif sha256(os.path.join(run_dir, p)) != h:
++                errs.append(f"committed {p} does not match its recorded hash")
++    return errs, warns
++
++
++# --- record ------------------------------------------------------------------
++
++def record(run_dir, root):
++    """Fill hashes of an existing draft manifest after running it once."""
++    path = os.path.join(run_dir, "manifest.yaml")
++    with open(path) as f:
++        m = parse(f.read())
++    m["schema"] = SCHEMA_ID
++    m["id"] = os.path.basename(os.path.abspath(run_dir))
++    m["code_commit"] = subprocess.run(["git", "-C", root, "rev-parse", "HEAD"], capture_output=True,
++                                      text=True, check=True).stdout.strip()
++    m["params_sha256"] = sha256(os.path.join(run_dir, m["params_file"]))
++    for k in ("code", "data"):
++        m[k] = {p: sha256(os.path.join(root, p)) for p in m.get(k, {})}
++    m["toolchain"] = toolchain_now(m["toolchain"])
++    cmd = m["command"].replace("{seed}", m["seed"])
++    env = dict(os.environ, ASTRA_ROOT=root, PYTHONHASHSEED="0", LC_ALL="C", TZ="UTC")
++    subprocess.run(cmd, shell=True, cwd=run_dir, env=env, check=True)
++    m["outputs"] = {p: sha256(os.path.join(run_dir, p)) for p in m["outputs"]}
++    with open(path, "w") as f:
++        f.write(dump(m))
++    print(f"recorded {path}")
++
++
++def main(argv):
++    if len(argv) < 3 or argv[1] not in ("check", "rerun", "record"):
++        print(__doc__.strip(), file=sys.stderr)
++        return 2
++    root = repo_root()
++    if argv[1] == "record":
++        for d in argv[2:]:
++            record(d, root)
++        return 0
++    bad = 0
++    for p in argv[2:]:
++        if argv[1] == "check":
++            _, errs, warns = check(p, root)
++        else:
++            errs, warns = rerun(p, root)
++        for w in warns:
++            print(f"WARN {p}: {w}")
++        for e in errs:
++            print(f"FAIL {p}: {e}")
++        if errs:
++            bad += 1
++        else:
++            print(f"ok   {p}")
++    print(f"runs {argv[1]}: {len(argv) - 2 - bad} ok, {bad} failed")
++    return 1 if bad else 0
++
++
++if __name__ == "__main__":
++    sys.exit(main(sys.argv))
+diff --git a/scripts/registers.py b/scripts/registers.py
+new file mode 100755
+index 0000000..34088e9
+--- /dev/null
++++ b/scripts/registers.py
+@@ -0,0 +1,325 @@
++#!/usr/bin/env python3
++"""registers.py: issue register (issues/) and obstacle register (research/obstacles/).
++
++  python3 scripts/registers.py issues                 # schema check of issues/*.yaml
++  python3 scripts/registers.py gate <target>...       # exit 1 if an open S1/S2 hits a target
++  python3 scripts/registers.py obstacles --schema-only
++  python3 scripts/registers.py obstacles [--today YYYY-MM-DD]
++                                                      # run every due check, print issue-ready
++                                                      # report of missed/failed exits
++
++Common option: --root <dir> (default: git top level).
++Exit 0 = ok, 1 = schema error / blocked / exit missed or failed, 2 = usage.
++Never writes to the repository. Stdlib only; files use a flat `key: value`
++YAML subset (one key per line, no nesting).
++
++Charter part 8: no sealed output ships while an S1 or S2 on it is open.
++Charter part 9 + T8-A10-1: every obstacle has an owner, an exit, a `check:`
++and a date; a missed or failed exit must raise an alarm.
++"""
++
++import datetime as dt
++import os
++import re
++import subprocess
++import sys
++
++ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
++DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
++
++ISSUE_FIELDS = ("id", "title", "severity", "target", "opened", "status", "owner")
++ISSUE_OPTIONAL = ("closed", "evidence", "note")
++OBSTACLE_FIELDS = ("id", "title", "owner", "exit", "check", "date", "status")
++OBSTACLE_OPTIONAL = ("judge", "evidence", "note", "milestone", "milestone_date",
++                     "milestone_status")
++CHECK_TIMEOUT_S = 600
++
++
++# --- parsing -------------------------------------------------------------------
++
++def _scalar(v):
++    v = v.strip()
++    if len(v) >= 2 and v[0] == v[-1] and v[0] in "\"'":
++        return v[1:-1]
++    return v
++
++
++def parse_flat(text):
++    out = {}
++    for n, raw in enumerate(text.splitlines(), 1):
++        if not raw.strip() or raw.lstrip().startswith("#"):
++            continue
++        if raw[0] in " \t" or ":" not in raw:
++            raise ValueError(f"line {n}: expected top-level 'key: value'")
++        k, v = raw.split(":", 1)
++        k = k.strip()
++        if k in out:
++            raise ValueError(f"line {n}: duplicate key {k}")
++        out[k] = _scalar(v)
++    return out
++
++
++def _date(v):
++    if not DATE_RE.match(v):
++        return None
++    try:
++        return dt.date.fromisoformat(v)
++    except ValueError:
++        return None
++
++
++def load_dir(root, rel, required, optional, validate):
++    """Returns (records, errors). Every *.yaml under root/rel, recursively
++    (sub-folders group files by unit; the structure check allows <= 8 entries
++    per folder). Ids are unique across the whole register."""
++    d = os.path.join(root, rel)
++    recs, errs = [], []
++    if not os.path.isdir(d):
++        return recs, errs
++    files = []
++    for dirpath, dirnames, names in os.walk(d):
++        dirnames.sort()
++        files += [os.path.join(dirpath, n) for n in names if n.endswith(".yaml")]
++    seen = {}
++    for full in sorted(files):
++        name = os.path.basename(full)
++        path = os.path.relpath(full, root)
++        if name in seen:
++            errs.append(f"{path}: duplicate id {name[:-5]} (also {seen[name]})")
++            continue
++        seen[name] = path
++        try:
++            with open(full) as f:
++                r = parse_flat(f.read())
++        except (OSError, ValueError) as e:
++            errs.append(f"{path}: {e}")
++            continue
++        e = [f"missing field: {k}" for k in required if not r.get(k)]
++        e += [f"unknown field: {k}" for k in r if k not in required + optional]
++        if not e:
++            if r["id"] != name[:-5] or not ID_RE.match(r["id"]):
++                e.append(f"id must equal the file name, lowercase-dashed ({name[:-5]})")
++            e += validate(r)
++        errs += [f"{path}: {x}" for x in e]
++        if not e:
++            r["_path"] = path
++            recs.append(r)
++    return recs, errs
++
++
++def _validate_issue(r):
++    e = []
++    if r["severity"] not in ("S1", "S2", "S3"):
++        e.append("severity: S1 | S2 | S3")
++    if r["status"] not in ("open", "closed"):
++        e.append("status: open | closed")
++    opened = _date(r["opened"])
++    if not opened:
++        e.append("opened: YYYY-MM-DD")
++    if r["status"] == "closed":
++        closed = _date(r.get("closed", ""))
++        if not closed:
++            e.append("closed: YYYY-MM-DD required when status is closed")
++        elif opened and closed < opened:
++            e.append("closed is before opened")
++    elif "closed" in r:
++        e.append("closed: only when status is closed")
++    return e
++
++
++def _validate_obstacle(r):
++    e = []
++    if r["status"] not in ("open", "met", "failed", "unowned"):
++        e.append("status: open | met | failed | unowned")
++    if r["date"] == "null":
++        if r["status"] != "unowned":
++            e.append("date: null only with status: unowned (T8-A1-2)")
++    elif not _date(r["date"]):
++        e.append("date: YYYY-MM-DD, or null with status: unowned (no relative dates, T8-A1-2)")
++    elif r["status"] == "unowned":
++        e.append("status: unowned only with date: null")
++    has_ms = [k for k in ("milestone", "milestone_date") if r.get(k)]
++    if len(has_ms) == 1:
++        e.append("milestone and milestone_date go together")
++    if r.get("milestone_date") and not _date(r["milestone_date"]):
++        e.append("milestone_date: YYYY-MM-DD")
++    if r.get("milestone_status", "open") not in ("open", "met"):
++        e.append("milestone_status: open | met")
++    if "milestone_status" in r and not has_ms:
++        e.append("milestone_status without a milestone")
++    c = r["check"]
++    if c.startswith("job:"):
++        if not c[4:].strip():
++            e.append("check: job:<workflow job name>")
++    elif c.startswith("judge:"):
++        if not r.get("evidence"):
++            e.append("check judge:<agent> needs an evidence: file (T8-A10-1)")
++    return e
++
++
++def load_issues(root):
++    return load_dir(root, "issues", ISSUE_FIELDS, ISSUE_OPTIONAL, _validate_issue)
++
++
++def load_obstacles(root):
++    return load_dir(root, "research/obstacles", OBSTACLE_FIELDS, OBSTACLE_OPTIONAL,
++                    _validate_obstacle)
++
++
++# --- gate ----------------------------------------------------------------------
++
++def _hits(issue_target, target):
++    """Same id/path, or one is a folder containing the other."""
++    a, b = issue_target.rstrip("/"), target.rstrip("/")
++    return a == b or b.startswith(a + "/") or a.startswith(b + "/")
++
++
++def gate(root, targets):
++    issues, errs = load_issues(root)
++    if errs:
++        for e in errs:
++            print(f"FAIL {e}")
++        print("gate: issue register invalid; refusing to seal/publish")
++        return 1
++    blocking = [i for i in issues if i["status"] == "open" and i["severity"] in ("S1", "S2")
++                and any(_hits(i["target"], t) for t in targets)]
++    for i in blocking:
++        print(f"BLOCKED by {i['_path']}: {i['severity']} '{i['title']}' on {i['target']} "
++              f"(opened {i['opened']}, owner {i['owner']})")
++    if blocking:
++        print(f"gate: {len(blocking)} open S1/S2 issue(s) on {' '.join(targets)}; "
++              "nothing sealed or published")
++        return 1
++    print(f"gate: no open S1/S2 issue on {' '.join(targets)}")
++    return 0
++
++
++# --- obstacles -----------------------------------------------------------------
++
++def run_check(root, check):
++    """Returns (status, detail): status in pass | fail | manual."""
++    if check.startswith("job:"):
++        return "manual", f"CI job '{check[4:].strip()}': check its last run on main"
++    if check.startswith("judge:"):
++        return "manual", f"judged by {check[6:].strip()} from the evidence file"
++    try:
++        r = subprocess.run(check, shell=True, cwd=root, capture_output=True, text=True,
++                           timeout=CHECK_TIMEOUT_S)
++    except subprocess.TimeoutExpired:
++        return "fail", f"timed out after {CHECK_TIMEOUT_S}s"
++    tail = (r.stdout + r.stderr).strip()[-600:]
++    return ("pass" if r.returncode == 0 else "fail"), f"exit {r.returncode}\n{tail}"
++
++
++def report_block(o, today, status, detail):
++    heads = {"fail": "FAILED", "manual": "NEEDS CHECK", "unowned": "UNOWNED",
++             "milestone": "MILESTONE DUE"}
++    if status == "unowned":
++        when = "none (no absolute date: unowned, T8-A1-2)"
++    elif status == "milestone":
++        late = (today - dt.date.fromisoformat(o["milestone_date"])).days
++        when = (f"milestone {o['milestone_date']} ({late} day(s) past): {o['milestone']}; "
++                f"exit date {o['date']}")
++    else:
++        late = (today - dt.date.fromisoformat(o["date"])).days
++        when = f"{o['date']} ({late} day(s) past)"
++    return "\n".join([
++        f"### [{heads[status]}] Obstacle {o['id']}: {o['title']}",
++        "",
++        f"- Owner: {o['owner']}",
++        f"- Exit: {o['exit']}",
++        f"- Date: {when}",
++        f"- Check: `{o['check']}`",
++        f"- File: `{o['_path']}`",
++        "",
++        "```",
++        detail,
++        "```",
++        "",
++    ])
++
++
++def obstacles(root, today, schema_only):
++    recs, errs = load_obstacles(root)
++    for e in errs:
++        print(f"FAIL {e}")
++    if schema_only or errs:
++        print(f"obstacles: {len(recs)} valid, {len(errs)} error(s)")
++        return 1 if errs else 0
++    reports = []
++    for o in recs:
++        if o["status"] in ("met", "failed"):
++            continue
++        ms_due = (o.get("milestone_date") and o.get("milestone_status", "open") != "met"
++                  and dt.date.fromisoformat(o["milestone_date"]) <= today)
++        if ms_due:
++            print(f"ms-due {o['id']} (milestone {o['milestone_date']})")
++            reports.append(report_block(o, today, "milestone",
++                                        "milestone judged by A50; set milestone_status: met"))
++        if o["status"] == "unowned":
++            print(f"unowned {o['id']}")
++            reports.append(report_block(o, today, "unowned", "give the exit an absolute date"))
++            continue
++        if dt.date.fromisoformat(o["date"]) > today:
++            continue
++        status, detail = run_check(root, o["check"])
++        print(f"{status:6} {o['id']} (due {o['date']})")
++        if status != "pass":
++            reports.append(report_block(o, today, status, detail))
++    if reports:
++        print("")
++        print(f"## Obstacle register: {len(reports)} exit(s) missed or failing ({today})")
++        print("")
++        print("\n".join(reports))
++        print("Open one issue per block (or update the existing one). "
++              "Never move an exit date after the fact (T8-A28-1).")
++        return 1
++    print(f"obstacles: nothing missed or failing ({today})")
++    return 0
++
++
++# --- cli -----------------------------------------------------------------------
++
++def main(argv):
++    args = argv[1:]
++    root, today, schema_only = None, dt.date.today(), False
++    rest = []
++    i = 0
++    while i < len(args):
++        a = args[i]
++        if a == "--root" and i + 1 < len(args):
++            root, i = args[i + 1], i + 2
++        elif a == "--today" and i + 1 < len(args):
++            today = _date(args[i + 1])
++            if not today:
++                print("--today: YYYY-MM-DD", file=sys.stderr)
++                return 2
++            i += 2
++        elif a == "--schema-only":
++            schema_only, i = True, i + 1
++        else:
++            rest.append(a)
++            i += 1
++    if not rest or rest[0] not in ("issues", "gate", "obstacles"):
++        print(__doc__.strip(), file=sys.stderr)
++        return 2
++    if root is None:
++        root = subprocess.run(["git", "rev-parse", "--show-toplevel"], capture_output=True,
++                              text=True, check=True).stdout.strip()
++    cmd = rest[0]
++    if cmd == "issues":
++        recs, errs = load_issues(root)
++        for e in errs:
++            print(f"FAIL {e}")
++        print(f"issues: {len(recs)} valid, {len(errs)} error(s)")
++        return 1 if errs else 0
++    if cmd == "gate":
++        if len(rest) < 2:
++            print("gate: give at least one target (path or sealed id)", file=sys.stderr)
++            return 2
++        return gate(root, rest[1:])
++    return obstacles(root, today, schema_only)
++
++
++if __name__ == "__main__":
++    sys.exit(main(sys.argv))
+diff --git a/scripts/guards/check-write-paths.sh b/scripts/guards/check-write-paths.sh
+new file mode 100755
+index 0000000..b8cc08a
+--- /dev/null
++++ b/scripts/guards/check-write-paths.sh
+@@ -0,0 +1,218 @@
++#!/usr/bin/env bash
++# check-write-paths.sh — write-path rules for verification/ (D47) and
++# decision citations (D69).
++#
++# Convention, not proof: `Agent: A<n>` trailers are self-declared and every
++# agent shares one GitHub token (D68 refused). This check catches mistakes,
++# not a determined bypass.
++#
++# Usage:
++#   scripts/guards/check-write-paths.sh --base <sha> --head <sha> [--body-file <file>]
++#
++#   --base       base commit (main). The agent map and the decisions are read
++#                from this commit, never from the PR.
++#   --head       PR head commit. Commits checked = base..head (no merges).
++#   --body-file  PR description. `Dnn` ids cited there must exist (D69) and
++#                can authorise a non-Verification change to verification/.
++#
++# Rules:
++#   R1  A commit touching verification/** must come from an active
++#       Verification agent, unless the PR body cites a decision that exists in
++#       docs/decisions/ on base and names the path (or a parent folder).
++#       A commit with no `Agent:` trailer touching verification/** fails.
++#   R2  A Verification agent's commit may only touch verification/** and the
++#       `unit: verification` rows of docs/agents.yaml.
++#   R3  Rows with `unit: verification` in docs/agents.yaml may only be added,
++#       changed or removed by an agent that is Verification on base.
++#   R4  An agent whose base row says `status: ended` may not author commits.
++#   D69 Every `Dnn` cited in the PR body exists in docs/decisions/ on base.
++#   Missing or unknown trailer outside verification/**: warning only.
++#
++# Exit 0 = pass (warnings allowed), 1 = at least one violation, 2 = usage.
++set -euo pipefail
++
++MAP_PATH="docs/agents.yaml"
++DECISIONS_DIR="docs/decisions"
++VERIF_DIR="verification/"
++
++base=""
++head=""
++body_file=""
++while [ $# -gt 0 ]; do
++  case "$1" in
++    --base) base="${2:-}"; shift 2 ;;
++    --head) head="${2:-}"; shift 2 ;;
++    --body-file) body_file="${2:-}"; shift 2 ;;
++    *) echo "usage: $0 --base <sha> --head <sha> [--body-file <file>]" >&2; exit 2 ;;
++  esac
++done
++if [ -z "$base" ] || [ -z "$head" ]; then
++  echo "usage: $0 --base <sha> --head <sha> [--body-file <file>]" >&2
++  exit 2
++fi
++
++tmp="$(mktemp -d)"
++trap 'rm -rf "$tmp"' EXIT
++
++errors=0
++warnings=0
++fail() { echo "FAIL: $*"; errors=$((errors + 1)); }
++warn() { echo "WARN: $*"; warnings=$((warnings + 1)); }
++
++# --- agents.yaml parsing -----------------------------------------------------
++
++# Prints one line per agent: "id|unit|status|note".
++parse_map() {
++  awk '
++    function flush() { if (id != "") print id "|" unit "|" status "|" note; id = unit = status = note = "" }
++    /^[[:space:]]*-[[:space:]]*id:/ { flush(); v = $0; sub(/^[^:]*:[[:space:]]*/, "", v); id = v; next }
++    /^[[:space:]]+unit:/   { v = $0; sub(/^[^:]*:[[:space:]]*/, "", v); unit = v; next }
++    /^[[:space:]]+status:/ { v = $0; sub(/^[^:]*:[[:space:]]*/, "", v); status = v; next }
++    /^[[:space:]]+note:/   { v = $0; sub(/^[^:]*:[[:space:]]*/, "", v); note = v; next }
++    END { flush() }
++  '
++}
++
++# Map file content at a commit, empty if absent.
++map_at() { git show "$1:$MAP_PATH" 2>/dev/null | parse_map || true; }
++
++base_has_map=1
++git cat-file -e "$base:$MAP_PATH" 2>/dev/null || base_has_map=0
++map_at "$base" >"$tmp/base.map"
++
++field_of() { awk -F'|' -v id="$1" -v f="$2" '$1 == id { print $f; exit }' "$tmp/base.map"; }
++is_verif() { [ "$(field_of "$1" 2)" = "verification" ] && [ "$(field_of "$1" 3)" = "active" ]; }
++is_verif_any_status() { [ "$(field_of "$1" 2)" = "verification" ]; }
++
++# Verification rows (by unit on either side) of a parsed map, sorted.
++verif_rows() { awk -F'|' '$2 == "verification"' "$1" | sort; }
++other_rows() { awk -F'|' '$2 != "verification"' "$1" | sort; }
++
++# --- decisions ---------------------------------------------------------------
++
++# Decision text on base: table rows "| Dnn | ..." or headings "# Dnn ...".
++decision_text() {
++  git grep -h -E "^(\|[[:space:]]*$1[[:space:]]*\||#+[[:space:]]+$1([^0-9]|$))" \
++    "$base" -- "$DECISIONS_DIR" 2>/dev/null || true
++}
++
++cited=""
++if [ -n "$body_file" ] && [ -s "$body_file" ]; then
++  cited="$(grep -oE '\bD[0-9]+\b' "$body_file" | sort -u || true)"
++fi
++for d in $cited; do
++  if [ -z "$(decision_text "$d")" ]; then
++    fail "D69: PR body cites $d, which does not exist in $DECISIONS_DIR/ on base"
++  fi
++done
++
++# True if a cited decision on base names $1 or one of its parent folders.
++authorised_by_decision() {
++  local path="$1" d text p
++  for d in $cited; do
++    text="$(decision_text "$d")"
++    [ -n "$text" ] || continue
++    # The file itself, then each parent folder written with a trailing slash.
++    case "$text" in *"$path"*) echo "$d"; return 0 ;; esac
++    p="$path"
++    while case "$p" in */*) true ;; *) false ;; esac; do
++      p="${p%/*}"
++      case "$text" in *"$p/"*) echo "$d"; return 0 ;; esac
++    done
++  done
++  return 1
++}
++
++# --- per-commit checks -------------------------------------------------------
++
++commits="$(git rev-list --reverse --no-merges "$base..$head")"
++if [ -z "$commits" ]; then
++  echo "No commits in $base..$head."
++fi
++
++for c in $commits; do
++  short="$(git rev-parse --short "$c")"
++  agents="$(git log -1 --format=%B "$c" \
++    | sed -nE 's/^[[:space:]]*(\*[[:space:]]*)?Agent:[[:space:]]*(A[0-9]+)[[:space:]]*$/\2/p' \
++    | sort -u)"
++  git diff-tree --no-commit-id --name-only -r "$c" >"$tmp/files"
++
++  touches_verif=0
++  grep -q "^$VERIF_DIR" "$tmp/files" && touches_verif=1
++
++  # Missing trailer.
++  if [ -z "$agents" ]; then
++    if [ "$touches_verif" = 1 ]; then
++      fail "$short: no 'Agent:' trailer on a commit touching $VERIF_DIR"
++    else
++      warn "$short: no 'Agent:' trailer"
++    fi
++    continue
++  fi
++
++  for a in $agents; do
++    # R4: ended agents.
++    if [ "$(field_of "$a" 3)" = "ended" ]; then
++      fail "$short: agent $a is ended in $MAP_PATH on base"
++      continue
++    fi
++    if [ -z "$(field_of "$a" 1)" ]; then
++      warn "$short: agent $a is not in $MAP_PATH on base"
++    fi
++
++    if is_verif "$a"; then
++      # R2: Verification agents stay in verification/ (+ their map rows).
++      while IFS= read -r f; do
++        case "$f" in
++          "$VERIF_DIR"*) ;;
++          "$MAP_PATH")
++            git show "$c^:$MAP_PATH" 2>/dev/null | parse_map | other_rows /dev/stdin >"$tmp/o1" || true
++            git show "$c:$MAP_PATH" 2>/dev/null | parse_map | other_rows /dev/stdin >"$tmp/o2" || true
++            if ! cmp -s "$tmp/o1" "$tmp/o2"; then
++              fail "$short: Verification agent $a changed non-verification rows of $MAP_PATH (R2)"
++            fi
++            ;;
++          *) fail "$short: Verification agent $a touched $f, outside $VERIF_DIR (R2)" ;;
++        esac
++      done <"$tmp/files"
++    else
++      # R1: others need a cited decision naming the path.
++      while IFS= read -r f; do
++        case "$f" in
++          "$VERIF_DIR"*)
++            if d="$(authorised_by_decision "$f")"; then
++              echo "OK:   $short: $a touched $f, authorised by $d (D69)"
++            else
++              fail "$short: $a is not an active Verification agent and touched $f; cite a decision on base naming this path (R1/D47)"
++            fi
++            ;;
++        esac
++      done <"$tmp/files"
++    fi
++  done
++
++  # R3: verification rows of the map.
++  if grep -qx "$MAP_PATH" "$tmp/files"; then
++    git show "$c^:$MAP_PATH" 2>/dev/null | parse_map >"$tmp/m1" || true
++    git show "$c:$MAP_PATH" 2>/dev/null | parse_map >"$tmp/m2" || true
++    verif_rows "$tmp/m1" >"$tmp/v1"
++    verif_rows "$tmp/m2" >"$tmp/v2"
++    # Rows that move into or out of verification also count.
++    if ! cmp -s "$tmp/v1" "$tmp/v2"; then
++      if [ "$base_has_map" = 0 ]; then
++        warn "$short: $MAP_PATH does not exist on base; verification rows accepted as bootstrap (R3)"
++      else
++        ok=1
++        for a in $agents; do is_verif_any_status "$a" && [ "$(field_of "$a" 3)" = "active" ] || ok=0; done
++        if [ "$ok" = 0 ]; then
++          fail "$short: unit:verification rows of $MAP_PATH changed by $(echo "$agents" | tr '\n' ' ')- only agents who are Verification on base may (R3)"
++        fi
++      fi
++    fi
++  fi
++done
++
++echo ""
++echo "convention, not proof (self-declared trailers; D68 refused)"
++echo "write-paths: $errors violation(s), $warnings warning(s)"
++[ "$errors" = 0 ]
+diff --git a/scripts/guards/protection-drift.sh b/scripts/guards/protection-drift.sh
+new file mode 100755
+index 0000000..c5e5734
+--- /dev/null
++++ b/scripts/guards/protection-drift.sh
+@@ -0,0 +1,100 @@
++#!/usr/bin/env bash
++# D52 protection drift check (founding-council-log.md, D52).
++#
++# Compares the LIVE branch protection of main and the merge-queue ruleset with
++# the payloads committed in docs/rust/. Read-only: it only reads JSON.
++#
++# Usage:
++#   scripts/guards/protection-drift.sh LIVE_PROTECTION.json LIVE_RULESET.json
++#     (files fetched with `gh api` GET; see .github/workflows/protection-drift.yml)
++#
++# Exit 0 = no drift. Exit 1 = drift (a unified diff is printed). Exit 2 = usage
++# or input error. Needs jq.
++set -euo pipefail
++
++root="$(cd "$(dirname "$0")/../.." && pwd)"
++expected_protection="${EXPECTED_PROTECTION:-$root/docs/rust/branch-protection.json}"
++expected_ruleset="${EXPECTED_RULESET:-$root/docs/rust/merge-queue-ruleset.json}"
++
++if [ "$#" -ne 2 ]; then
++  echo "usage: $0 LIVE_PROTECTION.json LIVE_RULESET.json" >&2
++  exit 2
++fi
++live_protection="$1"
++live_ruleset="$2"
++for f in "$live_protection" "$live_ruleset" "$expected_protection" "$expected_ruleset"; do
++  if ! jq -e . "$f" >/dev/null 2>&1; then
++    echo "not a readable JSON file: $f" >&2
++    exit 2
++  fi
++done
++
++# Settings that are not in the committed PUT payload but must keep GitHub's
++# default. Any change to them is drift too.
++extras_default='{
++  "required_signatures": false,
++  "required_linear_history": false,
++  "required_conversation_resolution": false,
++  "lock_branch": false,
++  "block_creations": false,
++  "allow_fork_syncing": false,
++  "require_last_push_approval": false
++}'
++
++# Live GET response -> same shape as the committed PUT payload (+ extras).
++normalise_live_protection='{
++  required_status_checks: (if .required_status_checks == null then null else {
++    strict: .required_status_checks.strict,
++    contexts: (.required_status_checks.contexts | sort)
++  } end),
++  enforce_admins: (.enforce_admins.enabled // false),
++  required_pull_request_reviews: (if .required_pull_request_reviews == null then null else {
++    required_approving_review_count: .required_pull_request_reviews.required_approving_review_count,
++    dismiss_stale_reviews: .required_pull_request_reviews.dismiss_stale_reviews,
++    require_code_owner_reviews: .required_pull_request_reviews.require_code_owner_reviews
++  } end),
++  restrictions: (.restrictions // null),
++  allow_force_pushes: (.allow_force_pushes.enabled // false),
++  allow_deletions: (.allow_deletions.enabled // false),
++  extras: {
++    required_signatures: (.required_signatures.enabled // false),
++    required_linear_history: (.required_linear_history.enabled // false),
++    required_conversation_resolution: (.required_conversation_resolution.enabled // false),
++    lock_branch: (.lock_branch.enabled // false),
++    block_creations: (.block_creations.enabled // false),
++    allow_fork_syncing: (.allow_fork_syncing.enabled // false),
++    require_last_push_approval: (.required_pull_request_reviews.require_last_push_approval // false)
++  }
++}'
++
++# Committed payload -> canonical shape.
++normalise_expected_protection='. + {extras: $extras}
++  | .required_status_checks.contexts |= (if . == null then null else sort end)'
++
++# Ruleset: drop server-side identity and timestamps, keep everything enforced.
++normalise_ruleset='del(.id, .node_id, .source, .source_type, .created_at, .updated_at,
++  ._links, .current_user_can_bypass)'
++
++tmp="$(mktemp -d)"
++trap 'rm -rf "$tmp"' EXIT
++
++jq -S "$normalise_live_protection" "$live_protection" >"$tmp/protection.live.json"
++jq -S --argjson extras "$extras_default" "$normalise_expected_protection" \
++  "$expected_protection" >"$tmp/protection.expected.json"
++jq -S "$normalise_ruleset" "$live_ruleset" >"$tmp/ruleset.live.json"
++jq -S "$normalise_ruleset" "$expected_ruleset" >"$tmp/ruleset.expected.json"
++
++status=0
++for name in protection ruleset; do
++  if ! diff -u --label "committed $name" --label "live $name" \
++    "$tmp/$name.expected.json" "$tmp/$name.live.json"; then
++    status=1
++  fi
++done
++
++if [ "$status" -eq 0 ]; then
++  echo "No drift: live branch protection and ruleset match docs/rust/."
++else
++  echo "DRIFT: live settings differ from docs/rust/ (see diff above)." >&2
++fi
++exit "$status"
+diff --git a/scripts/guards/check-workflows.sh b/scripts/guards/check-workflows.sh
+new file mode 100755
+index 0000000..98c26e5
+--- /dev/null
++++ b/scripts/guards/check-workflows.sh
+@@ -0,0 +1,47 @@
++#!/usr/bin/env bash
++# check-workflows.sh — lint every GitHub Actions workflow with actionlint
++# (YAML syntax, expressions, contexts, and shellcheck on `run:` blocks).
++#
++# Why: PR #60 merged a workflow with invalid YAML; GitHub never ran it and
++# nothing went red. This check fails the PR instead.
++#
++# Usage:
++#   scripts/guards/check-workflows.sh [file.yml | dir]...
++#   (default: .github/workflows/*.yml and *.yaml)
++#
++# Needs `actionlint` on PATH (the Workflows job installs a pinned version).
++# Exit 0 = clean, 1 = at least one finding, 2 = usage / actionlint missing.
++set -euo pipefail
++
++ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
++
++if ! command -v actionlint >/dev/null 2>&1; then
++  echo "check-workflows: actionlint not found on PATH" >&2
++  exit 2
++fi
++
++files=()
++[ $# -gt 0 ] || set -- "$ROOT/.github/workflows"
++for arg in "$@"; do
++  if [ -d "$arg" ]; then
++    for f in "$arg"/*.yml "$arg"/*.yaml; do [ -e "$f" ] && files+=("$f"); done
++  elif [ -f "$arg" ]; then
++    files+=("$arg")
++  else
++    echo "check-workflows: no such file or folder: $arg" >&2
++    exit 2
++  fi
++done
++if [ ${#files[@]} -eq 0 ]; then
++  echo "check-workflows: no workflow file found" >&2
++  exit 2
++fi
++
++status=0
++actionlint -no-color "${files[@]}" || status=$?
++if [ "$status" = 0 ]; then
++  echo "check-workflows: ${#files[@]} workflow(s) clean"
++  exit 0
++fi
++echo "check-workflows: findings above (actionlint exit $status)"
++exit 1
+diff --git a/scripts/tests/check-workflows.test.sh b/scripts/tests/check-workflows.test.sh
+new file mode 100755
+index 0000000..34e0eaf
+--- /dev/null
++++ b/scripts/tests/check-workflows.test.sh
+@@ -0,0 +1,39 @@
++#!/usr/bin/env bash
++# Known-bad / known-good cases for scripts/guards/check-workflows.sh.
++#
++# Usage: scripts/tests/check-workflows.test.sh
++set -euo pipefail
++
++ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
++CHECK="$ROOT/scripts/guards/check-workflows.sh"
++FX="$ROOT/scripts/tests/fixtures/workflows"
++
++pass=0
++failed=0
++out="$(mktemp)"
++trap 'rm -f "$out"' EXIT
++
++# expect <name> <want exit> [pattern] -- <args...>
++expect() {
++  local name="$1" want="$2" pat="$3" got=0
++  shift 4
++  "$CHECK" "$@" >"$out" 2>&1 || got=$?
++  if [ "$got" = "$want" ] && { [ -z "$pat" ] || grep -qE "$pat" "$out"; }; then
++    pass=$((pass + 1)); echo "ok   $name"
++  else
++    failed=$((failed + 1)); echo "FAIL $name (want $want, got $got${pat:+, pattern \"$pat\"})"
++    sed 's/^/     /' "$out"
++  fi
++}
++
++expect "good workflow passes" 0 "1 workflow\(s\) clean" -- "$FX/good.yml"
++expect "invalid YAML fails (PR #60 case)" 1 "could not parse as YAML" -- "$FX/bad-yaml.yml"
++expect "unknown expression context fails" 1 "evnt" -- "$FX/bad-expr.yml"
++expect "shellcheck finding in run: fails" 1 "shellcheck" -- "$FX/bad-shell.yml"
++expect "one bad file among good ones fails" 1 "" -- "$FX/good.yml" "$FX/bad-yaml.yml"
++expect "missing path is a usage error" 2 "no such file" -- "$FX/nope.yml"
++expect "repo workflows are clean" 0 "clean" --
++
++echo ""
++echo "check-workflows tests: $pass passed, $failed failed"
++[ "$failed" = 0 ]
+diff --git a/scripts/tests/fixtures/workflows/good.yml b/scripts/tests/fixtures/workflows/good.yml
+new file mode 100644
+index 0000000..584d6bc
+--- /dev/null
++++ b/scripts/tests/fixtures/workflows/good.yml
+@@ -0,0 +1,12 @@
++name: Good
++on:
++  pull_request:
++permissions:
++  contents: read
++jobs:
++  ok:
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++      - name: Say something
++        run: echo "nothing to check"
+diff --git a/scripts/tests/fixtures/workflows/bad-yaml.yml b/scripts/tests/fixtures/workflows/bad-yaml.yml
+new file mode 100644
+index 0000000..8bd93a8
+--- /dev/null
++++ b/scripts/tests/fixtures/workflows/bad-yaml.yml
+@@ -0,0 +1,10 @@
++# Known-bad: the PR #60 case, an unquoted ': ' inside a plain scalar.
++name: Bad YAML
++on:
++  pull_request:
++jobs:
++  skip:
++    runs-on: ubuntu-latest
++    steps:
++      - name: Nothing to do
++        run: echo No change under literature/lifespan/: nothing to check.
+diff --git a/scripts/tests/fixtures/workflows/bad-expr.yml b/scripts/tests/fixtures/workflows/bad-expr.yml
+new file mode 100644
+index 0000000..3245205
+--- /dev/null
++++ b/scripts/tests/fixtures/workflows/bad-expr.yml
+@@ -0,0 +1,9 @@
++# Known-bad: unknown context in an expression.
++name: Bad expression
++on:
++  pull_request:
++jobs:
++  ctx:
++    runs-on: ubuntu-latest
++    steps:
++      - run: echo "${{ github.evnt.pull_request.number }}"
+diff --git a/scripts/tests/fixtures/workflows/bad-shell.yml b/scripts/tests/fixtures/workflows/bad-shell.yml
+new file mode 100644
+index 0000000..e3d455b
+--- /dev/null
++++ b/scripts/tests/fixtures/workflows/bad-shell.yml
+@@ -0,0 +1,11 @@
++# Known-bad: shellcheck finding in a run block (unquoted variable in test).
++name: Bad shell
++on:
++  pull_request:
++jobs:
++  sh:
++    runs-on: ubuntu-latest
++    steps:
++      - run: |
++          x=$(ls)
++          if [ $x = "" ]; then echo empty; fi
+diff --git a/scripts/tests/check-write-paths.test.sh b/scripts/tests/check-write-paths.test.sh
+new file mode 100755
+index 0000000..7da2cb8
+--- /dev/null
++++ b/scripts/tests/check-write-paths.test.sh
+@@ -0,0 +1,129 @@
++#!/usr/bin/env bash
++# Known-bad / known-good cases for scripts/guards/check-write-paths.sh.
++# Each case builds a throwaway git repo: a base commit (agent map + decision
++# log), then PR commits, then runs the check and compares the exit code.
++#
++# Usage: scripts/tests/check-write-paths.test.sh
++set -euo pipefail
++
++ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
++CHECK="$ROOT/scripts/guards/check-write-paths.sh"
++
++pass=0
++failed=0
++work="$(mktemp -d)"
++trap 'rm -rf "$work"' EXIT
++
++BASE_MAP='agents:
++  - id: A50
++    unit: verification
++    status: active
++  - id: A52
++    unit: verification
++    status: ended
++  - id: A10
++    unit: code
++    status: active
++'
++
++BASE_LOG='# Log
++| D47 | Verification owns its path. | decided | A50 |
++| D90 | A10 may add verification/second-impl/ outputs. | decided | A10 |
++| D91 | Unrelated decision about data/. | decided | A9 |
++'
++
++# new_repo [with_map=1]: fresh repo with a base commit; echoes nothing.
++new_repo() {
++  local with_map="${1:-1}"
++  rm -rf "$work/repo"
++  mkdir -p "$work/repo/docs/decisions" "$work/repo/verification"
++  cd "$work/repo"
++  git init -q -b main
++  git config user.email t@t
++  git config user.name t
++  printf '%s' "$BASE_LOG" >docs/decisions/log.md
++  echo seed >verification/README.md
++  echo seed >README.md
++  if [ "$with_map" = 1 ]; then printf '%s' "$BASE_MAP" >docs/agents.yaml; fi
++  git add -A
++  git commit -qm "base"
++  BASE="$(git rev-parse HEAD)"
++}
++
++# commit <message> <file> [content]: write file and commit with message.
++commit() {
++  mkdir -p "$(dirname "$2")"
++  printf '%s\n' "${3:-change}" >>"$2"
++  git add -A
++  git commit -qm "$1"
++}
++
++# expect <name> <exit code> [body]
++expect() {
++  local name="$1" want="$2" body="${3:-}" got=0
++  printf '%s' "$body" >"$work/body"
++  "$CHECK" --base "$BASE" --head HEAD --body-file "$work/body" >"$work/out" 2>&1 || got=$?
++  if [ "$got" = "$want" ]; then
++    pass=$((pass + 1)); echo "ok   $name"
++  else
++    failed=$((failed + 1)); echo "FAIL $name (want $want, got $got)"; sed 's/^/     /' "$work/out"
++  fi
++  cd "$ROOT"
++}
++
++T=$'\n\nAgent: '
++
++new_repo; commit "v${T}A50" verification/x.md
++expect "verification agent writes verification/" 0
++
++new_repo; commit "v${T}A10" verification/x.md
++expect "non-verification agent writes verification/" 1
++
++new_repo; commit "v${T}A10" verification/second-impl/out.csv
++expect "cited decision names parent folder" 0 "Per D90."
++
++new_repo; commit "v${T}A10" verification/x.md
++expect "cited decision does not name path" 1 "Per D91."
++
++new_repo; commit "v${T}A10" README.md
++expect "D69: cited decision missing on base" 1 "Per D999."
++
++new_repo; commit "v" verification/x.md
++expect "no trailer on verification/" 1
++
++new_repo; commit "v" README.md
++expect "no trailer elsewhere is a warning" 0
++
++new_repo; commit "v${T}A77" README.md
++expect "unknown agent elsewhere is a warning" 0
++
++new_repo; commit "v${T}A50" README.md
++expect "verification agent outside its path (R2)" 1
++
++new_repo; commit "v${T}A52" verification/x.md
++expect "ended agent (R4)" 1
++
++new_repo; commit "v${T}A50" docs/agents.yaml $'  - id: A64\n    unit: verification\n    status: active'
++expect "verification agent adds a verification row" 0
++
++new_repo; commit "v${T}A10" docs/agents.yaml $'  - id: A64\n    unit: verification\n    status: active'
++expect "non-verification agent adds a verification row (R3)" 1
++
++new_repo; commit "v${T}A50" docs/agents.yaml $'  - id: A64\n    unit: code\n    status: active'
++expect "verification agent adds a code row (R2)" 1
++
++new_repo; commit "v${T}A10" docs/agents.yaml $'  - id: A64\n    unit: code\n    status: active'
++expect "non-verification agent adds a code row" 0
++
++new_repo 0; commit "v${T}A7" docs/agents.yaml "$BASE_MAP"
++expect "bootstrap: map absent on base" 0
++
++new_repo; commit $'squash (#9)\n\n* first\n\n  Agent: A50\n\n* second\n\n  Agent: A10' verification/x.md
++expect "squash message: one non-verification agent fails" 1
++
++new_repo; commit $'squash (#9)\n\n* first\n\n  Agent: A50' verification/x.md
++expect "squash message: indented trailer is parsed" 0
++
++echo ""
++echo "check-write-paths tests: $pass passed, $failed failed"
++[ "$failed" = 0 ]
+diff --git a/scripts/tests/registers.test.sh b/scripts/tests/registers.test.sh
+new file mode 100755
+index 0000000..856422c
+--- /dev/null
++++ b/scripts/tests/registers.test.sh
+@@ -0,0 +1,183 @@
++#!/usr/bin/env bash
++# Known-bad / known-good cases for scripts/registers.py.
++# Each case builds a throwaway root with issues/ and research/obstacles/.
++#
++# Usage: scripts/tests/registers.test.sh
++set -euo pipefail
++
++ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
++REG="$ROOT/scripts/registers.py"
++
++pass=0
++failed=0
++work="$(mktemp -d)"
++trap 'rm -rf "$work"' EXIT
++R="$work/root"
++
++fresh() { rm -rf "$R"; mkdir -p "$R/issues" "$R/research/obstacles"; }
++
++# issue <id> <severity> <target> <status> [extra line]
++issue() {
++  {
++    echo "id: $1"
++    echo "title: test issue $1"
++    echo "severity: $2"
++    echo "target: $3"
++    echo "opened: 2026-10-01"
++    echo "status: $4"
++    echo "owner: A50"
++    [ -z "${5:-}" ] || echo "$5"
++  } >"$R/issues/$1.yaml"
++}
++
++# obstacle <id> <date> <check> [status]
++obstacle() {
++  {
++    echo "id: $1"
++    echo "title: test obstacle $1"
++    echo "owner: A10"
++    echo "exit: the check passes"
++    echo "check: $3"
++    echo "date: $2"
++    echo "status: ${4:-open}"
++  } >"$R/research/obstacles/$1.yaml"
++}
++
++# expect <name> <want exit> [grep pattern] -- <registers.py args...>
++expect() {
++  local name="$1" want="$2" pat="$3" got=0
++  shift 4
++  python3 "$REG" --root "$R" "$@" >"$work/out" 2>&1 || got=$?
++  if [ "$got" = "$want" ] && { [ -z "$pat" ] || grep -qE "$pat" "$work/out"; }; then
++    pass=$((pass + 1)); echo "ok   $name"
++  else
++    failed=$((failed + 1)); echo "FAIL $name (want $want, got $got${pat:+, pattern: $pat})"
++    sed 's/^/     /' "$work/out"
++  fi
++}
++
++# --- issues + gate -------------------------------------------------------------
++
++fresh; issue s1-split S1 research/metric-v0/split.yaml open
++expect "open S1 on the target blocks" 1 "BLOCKED by issues/s1-split.yaml" -- gate research/metric-v0/split.yaml
++
++fresh; issue s2-folder S2 research/metric-v0/ open
++expect "open S2 on a parent folder blocks" 1 "BLOCKED" -- gate research/metric-v0/split.yaml
++
++fresh; issue s1-file S1 interface/templates/base.html open
++expect "open S1 inside a published folder blocks" 1 "BLOCKED" -- gate interface/
++
++fresh; issue s1-sealed S1 SEAL-metric-v0 open
++expect "open S1 on a sealed id blocks" 1 "BLOCKED" -- gate SEAL-metric-v0
++
++fresh; issue s3-minor S3 research/metric-v0/ open
++expect "open S3 does not block" 0 "no open S1/S2" -- gate research/metric-v0/split.yaml
++
++fresh; issue s1-done S1 research/metric-v0/ closed "closed: 2026-10-03"
++expect "closed S1 does not block" 0 "" -- gate research/metric-v0/split.yaml
++
++fresh; issue s1-other S1 data/ open
++expect "open S1 elsewhere does not block" 0 "" -- gate research/metric-v0/split.yaml
++
++fresh; issue s1-prefix S1 research/metric open
++expect "name prefix is not a parent folder" 0 "" -- gate research/metric-v0/split.yaml
++
++fresh; issue bad S1 x open; sed -i.bak '/^severity:/d' "$R/issues/bad.yaml"; rm -f "$R/issues/bad.yaml.bak"
++expect "issue missing field fails the schema" 1 "missing field: severity" -- issues
++
++fresh; issue bad S1 x open; sed -i.bak '/^severity:/d' "$R/issues/bad.yaml"; rm -f "$R/issues/bad.yaml.bak"
++expect "invalid register refuses the gate" 1 "register invalid" -- gate x
++
++fresh; issue bad S4 x open
++expect "unknown severity fails" 1 "severity" -- issues
++
++fresh; issue bad S2 x closed
++expect "closed without a closed date fails" 1 "closed: YYYY-MM-DD" -- issues
++
++fresh; issue wrong-name S2 x open; mv "$R/issues/wrong-name.yaml" "$R/issues/other.yaml"
++expect "id differs from file name fails" 1 "id must equal" -- issues
++
++fresh; issue ok-1 S2 x open
++expect "valid issue passes the schema" 0 "1 valid, 0 error" -- issues
++
++# --- obstacles -----------------------------------------------------------------
++
++fresh; obstacle o1-metric 2026-10-10 "false"
++expect "past date + failing check is reported" 1 "\[FAILED\] Obstacle o1-metric" -- obstacles --today 2026-10-20
++
++fresh; obstacle o1-metric 2026-10-10 "false"
++expect "report names owner and lateness" 1 "10 day\(s\) past" -- obstacles --today 2026-10-20
++
++fresh; obstacle o2-ok 2026-10-10 "true"
++expect "past date + passing check is not reported" 0 "nothing missed" -- obstacles --today 2026-10-20
++
++fresh; obstacle o3-later 2026-12-01 "false"
++expect "future date is not run" 0 "nothing missed" -- obstacles --today 2026-10-20
++
++fresh; obstacle o4-met 2026-10-10 "false" met
++expect "met obstacle is not re-run" 0 "" -- obstacles --today 2026-10-20
++
++fresh; obstacle o5-job 2026-10-10 "job:Runs (manifests · re-run)"
++expect "due CI-job check is reported for a manual look" 1 "NEEDS CHECK" -- obstacles --today 2026-10-20
++
++fresh; obstacle o6-bad 2026-10-10 "true"; sed -i.bak '/^owner:/d' "$R/research/obstacles/o6-bad.yaml"; rm -f "$R/research/obstacles/o6-bad.yaml.bak"
++expect "obstacle missing field fails" 1 "missing field: owner" -- obstacles --schema-only
++
++fresh; obstacle o7-nodate 2026-10-10 "true"; sed -i.bak 's/^date:.*/date: month 6/' "$R/research/obstacles/o7-nodate.yaml"; rm -f "$R/research/obstacles/o7-nodate.yaml.bak"
++expect "relative date ('month 6') fails" 1 "date: YYYY-MM-DD" -- obstacles --schema-only
++
++fresh; obstacle o8-judge 2026-10-10 "judge:A50"
++expect "judge check without evidence fails" 1 "evidence" -- obstacles --schema-only
++
++fresh; obstacle o9-ok 2026-10-10 "true"
++touch "$work/before"
++expect "check runs without writing to the repo" 0 "" -- obstacles --today 2026-10-20
++if [ -n "$(find "$R" -newer "$work/before" -type f)" ]; then
++  failed=$((failed + 1)); echo "FAIL obstacles wrote into the root"
++fi
++
++# --- unowned rows and milestones -------------------------------------------
++
++# set_line <file> <key> <value>: replace or append a key.
++set_line() {
++  if grep -q "^$2:" "$1"; then sed -i.bak "s|^$2:.*|$2: $3|" "$1"; rm -f "$1.bak"
++  else echo "$2: $3" >>"$1"; fi
++}
++F() { echo "$R/research/obstacles/$1.yaml"; }
++
++fresh; obstacle u1 null "judge:A50" unowned; set_line "$(F u1)" evidence verification/evidence/u1.md
++expect "date null + unowned is valid" 0 "1 valid, 0 error" -- obstacles --schema-only
++
++fresh; obstacle u1 null "judge:A50" unowned; set_line "$(F u1)" evidence verification/evidence/u1.md
++expect "unowned row is reported daily" 1 "\[UNOWNED\] Obstacle u1" -- obstacles --today 2026-10-20
++
++fresh; obstacle u2 null "true" open
++expect "date null with status open fails" 1 "date: null only with status: unowned" -- obstacles --schema-only
++
++fresh; obstacle u3 2027-01-20 "true" unowned
++expect "unowned with a real date fails" 1 "unowned only with date: null" -- obstacles --schema-only
++
++fresh; obstacle m1 2027-07-20 "true"; set_line "$(F m1)" milestone "sim v0 sealed"; set_line "$(F m1)" milestone_date 2026-10-15
++expect "due milestone is reported before the exit date" 1 "\[MILESTONE DUE\] Obstacle m1" -- obstacles --today 2026-10-20
++
++fresh; obstacle m2 2027-07-20 "true"; set_line "$(F m2)" milestone "sim v0 sealed"; set_line "$(F m2)" milestone_date 2026-10-15; set_line "$(F m2)" milestone_status met
++expect "met milestone is not reported" 0 "nothing missed" -- obstacles --today 2026-10-20
++
++fresh; obstacle m3 2027-07-20 "true"; set_line "$(F m3)" milestone "sim v0 sealed"
++expect "milestone without milestone_date fails" 1 "go together" -- obstacles --schema-only
++
++fresh; obstacle m4 2027-07-20 "true"; set_line "$(F m4)" milestone "x"; set_line "$(F m4)" milestone_date "month 4"
++expect "relative milestone_date fails" 1 "milestone_date: YYYY-MM-DD" -- obstacles --schema-only
++
++# --- unit sub-folders (<= 8 entries per folder) ---------------------------------
++
++fresh; obstacle s1 2026-10-10 "false"; mkdir -p "$R/research/obstacles/platform"; mv "$(F s1)" "$R/research/obstacles/platform/"
++expect "row in a unit sub-folder is loaded and reported" 1 "research/obstacles/platform/s1.yaml" -- obstacles --today 2026-10-20
++
++fresh; obstacle d1 2027-01-01 "true"; mkdir -p "$R/research/obstacles/a" "$R/research/obstacles/b"
++cp "$(F d1)" "$R/research/obstacles/a/"; mv "$(F d1)" "$R/research/obstacles/b/"
++expect "same id in two sub-folders fails" 1 "duplicate id d1" -- obstacles --schema-only
++
++echo ""
++echo "registers tests: $pass passed, $failed failed"
++[ "$failed" = 0 ]
+diff --git a/scripts/tests/runs.test.sh b/scripts/tests/runs.test.sh
+new file mode 100755
+index 0000000..1d91c31
+--- /dev/null
++++ b/scripts/tests/runs.test.sh
+@@ -0,0 +1,111 @@
++#!/usr/bin/env bash
++# Known-bad / known-good cases for scripts/runs.py and scripts/local/build-lock.sh.
++# Manifest cases copy research/runs/toy-gompertz-v0 into a temp folder of the
++# same name, break one thing, and expect check/rerun to fail.
++#
++# Usage: scripts/tests/runs.test.sh
++set -euo pipefail
++
++ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
++RUNS="$ROOT/scripts/runs.py"
++LOCK="$ROOT/scripts/local/build-lock.sh"
++SRC="$ROOT/research/runs/toy-gompertz-v0"
++
++pass=0
++failed=0
++work="$(mktemp -d)"
++trap 'rm -rf "$work"' EXIT
++
++ok()  { pass=$((pass + 1)); echo "ok   $1"; }
++bad() { failed=$((failed + 1)); echo "FAIL $1"; sed 's/^/     /' "$work/out"; }
++
++# fresh: copy the toy run; echoes the manifest path.
++fresh() {
++  rm -rf "$work/runs"
++  mkdir -p "$work/runs"
++  cp -R "$SRC" "$work/runs/"
++  echo "$work/runs/toy-gompertz-v0/manifest.yaml"
++}
++
++# expect <name> <want exit> <check|rerun> <manifest>
++expect() {
++  local got=0
++  (cd "$ROOT" && python3 "$RUNS" "$3" "$4") >"$work/out" 2>&1 || got=$?
++  if [ "$got" = "$2" ]; then ok "$1"; else bad "$1 (want $2, got $got)"; fi
++}
++
++# set_field <manifest> <key> <value>
++set_field() { sed -i.bak -E "s|^($2):.*|\\1: $3|" "$1" && rm -f "$1.bak"; }
++
++# --- manifests ---------------------------------------------------------------
++
++m="$(fresh)"; expect "good manifest: check" 0 check "$m"
++m="$(fresh)"; expect "good manifest: rerun reproduces outputs" 0 rerun "$m"
++
++m="$(fresh)"; set_field "$m" seed 43
++expect "changed seed: rerun output mismatch" 1 rerun "$m"
++
++m="$(fresh)"; sed -i.bak 's/^b: .*/b: 0.009/' "$(dirname "$m")/params.yaml"; rm -f "$(dirname "$m")/params.yaml.bak"
++expect "changed param: params hash mismatch" 1 check "$m"
++
++m="$(fresh)"; sed -i.bak '/^seed:/d' "$m"; rm -f "$m.bak"
++expect "missing field (seed)" 1 check "$m"
++
++m="$(fresh)"; sed -i.bak '/^toolchain:/,/^outputs:/{/^toolchain:/!{/^outputs:/!d;};}' "$m"; rm -f "$m.bak"
++expect "empty toolchain map" 1 check "$m"
++
++m="$(fresh)"; echo "tampered,1" >>"$(dirname "$m")/output.csv"
++expect "committed output edited after the run" 1 check "$m" # still passes schema...
++m="$(fresh)"; echo "tampered,1" >>"$(dirname "$m")/output.csv"
++expect "committed output edited: rerun catches it" 1 rerun "$m"
++
++m="$(fresh)"; sed -i.bak -E 's|(gompertz_toy.py: )[0-9a-f]{6}|\1000000|' "$m"; rm -f "$m.bak"
++expect "code hash mismatch" 1 check "$m"
++
++m="$(fresh)"; echo "extra: 1" >>"$m"
++expect "unknown field" 1 check "$m"
++
++m="$(fresh)"; set_field "$m" command 'python3 x.py --seed 42'
++expect "command without {seed}" 1 check "$m"
++
++m="$(fresh)"; set_field "$m" code_commit 1111111111111111111111111111111111111111
++expect "unknown code_commit is a warning" 0 check "$m"
++
++# --- build lock --------------------------------------------------------------
++
++export ASTRA_BUILD_LOCK_DIR="$work/lock"
++log="$work/conc.log"
++: >"$log"
++job() { echo "start" >>"$log"; sleep 1; echo "end" >>"$log"; }
++export -f job
++export log
++for _ in 1 2 3 4; do "$LOCK" bash -c job 2>/dev/null & done
++wait
++max="$(awk '/start/{c++; if (c>m) m=c} /end/{c--} END{print m}' "$log")"
++if [ "$max" -le 2 ] && [ "$(grep -c start "$log")" = 4 ]; then ok "lock: 4 jobs, at most 2 at once (max $max)"
++else echo "max=$max" >"$work/out"; bad "lock: concurrency"; fi
++
++got=0
++"$LOCK" sleep 3 2>/dev/null &
++"$LOCK" sleep 3 2>/dev/null &
++sleep 0.5
++ASTRA_BUILD_LOCK_TIMEOUT=1 "$LOCK" true >"$work/out" 2>&1 || got=$?
++wait
++if [ "$got" = 75 ]; then ok "lock: timeout exits 75"; else bad "lock: timeout (got $got)"; fi
++
++mkdir -p "$ASTRA_BUILD_LOCK_DIR/slot-1" "$ASTRA_BUILD_LOCK_DIR/slot-2"
++echo 999999 >"$ASTRA_BUILD_LOCK_DIR/slot-1/pid"
++echo 999999 >"$ASTRA_BUILD_LOCK_DIR/slot-2/pid"
++got=0
++ASTRA_BUILD_LOCK_TIMEOUT=2 "$LOCK" true >"$work/out" 2>&1 || got=$?
++if [ "$got" = 0 ]; then ok "lock: stale slot of a dead PID is reclaimed"; else bad "lock: stale reclaim (got $got)"; fi
++
++rm -rf "$ASTRA_BUILD_LOCK_DIR"/slot-*
++got=0
++"$LOCK" bash -c 'exit 7' >"$work/out" 2>&1 || got=$?
++if [ "$got" = 7 ] && [ -z "$(ls "$ASTRA_BUILD_LOCK_DIR")" ]; then ok "lock: exit code passed through, slot released"
++else bad "lock: exit/release (got $got)"; fi
++
++echo ""
++echo "runs tests: $pass passed, $failed failed"
++[ "$failed" = 0 ]
+diff --git a/docs/rust/branch-protection.json b/docs/rust/branch-protection.json
+index a6915d1..b2ae806 100644
+--- a/docs/rust/branch-protection.json
++++ b/docs/rust/branch-protection.json
+@@ -1 +1 @@
+-{"required_status_checks":{"strict":true,"contexts":["Rust (lints · tests)","Structure (lengths · folders · chain)"]},"enforce_admins":false,"required_pull_request_reviews":null,"restrictions":null,"allow_force_pushes":false,"allow_deletions":false}
++{"required_status_checks":{"strict":false,"contexts":["Rust (lints · tests)","Structure (lengths · folders · chain)"]},"enforce_admins":true,"required_pull_request_reviews":{"required_approving_review_count":0,"dismiss_stale_reviews":false,"require_code_owner_reviews":false},"restrictions":null,"allow_force_pushes":false,"allow_deletions":false}
+diff --git a/docs/rust/merge-queue-ruleset.json b/docs/rust/merge-queue-ruleset.json
+new file mode 100644
+index 0000000..52eca16
+--- /dev/null
++++ b/docs/rust/merge-queue-ruleset.json
+@@ -0,0 +1,26 @@
++{
++  "name": "main merge queue",
++  "target": "branch",
++  "enforcement": "active",
++  "bypass_actors": [],
++  "conditions": {
++    "ref_name": {
++      "include": ["~DEFAULT_BRANCH"],
++      "exclude": []
++    }
++  },
++  "rules": [
++    {
++      "type": "merge_queue",
++      "parameters": {
++        "merge_method": "SQUASH",
++        "grouping_strategy": "ALLGREEN",
++        "max_entries_to_build": 5,
++        "min_entries_to_merge": 1,
++        "max_entries_to_merge": 5,
++        "min_entries_to_merge_wait_minutes": 1,
++        "check_response_timeout_minutes": 60
++      }
++    }
++  ]
++}
+# --- End entry #3 ---

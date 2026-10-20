@@ -1,0 +1,11 @@
+# Known-bad: shellcheck finding in a run block (unquoted variable in test).
+name: Bad shell
+on:
+  pull_request:
+jobs:
+  sh:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          x=$(ls)
+          if [ $x = "" ]; then echo empty; fi

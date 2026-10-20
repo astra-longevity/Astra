@@ -1,0 +1,12 @@
+name: Good
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  ok:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Say something
+        run: echo "nothing to check"

@@ -5,8 +5,8 @@
 # builds/test runs at 2 at once (part 6, T6-A10-2). Wrap every local build,
 # test or check with this script:
 #
-#   scripts/build-lock.sh cargo test
-#   scripts/build-lock.sh .github/checks/check-rust-lints.sh --callback
+#   scripts/local/build-lock.sh cargo test
+#   scripts/local/build-lock.sh .github/checks/check-rust-lints.sh --callback
 #
 # A slot is a directory under $ASTRA_BUILD_LOCK_DIR (mkdir is atomic on every
 # filesystem, unlike flock which macOS lacks). The slot holds the owner's PID;
