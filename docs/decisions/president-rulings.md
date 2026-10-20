@@ -18,3 +18,4 @@ ruling that changes one cites the row it replaces.
 | PR9 | 2026-10-20 | `PROTECTION_READ_TOKEN` holds the president's full token, at his choice. A1 created the `main`-only `scoring` environment at his request. |
 | PR10 | 2026-10-20 | Agents name themselves `<Function> (<Name>)`, workers included. |
 | PR11 | 2026-10-20 | `PROTECTION_READ_TOKEN` stays a repository secret; it is not moved into a `main`-only environment. The charter (PR #28) is merged. |
+| PR12 | 2026-10-20 | Astra may use the Schultz 2020 mouse frailty dataset (SinclairLab/frailty) despite its missing licence; this overrules the LA-004 refusal. The president contacts the authors himself; no agent posts a licence request. |
