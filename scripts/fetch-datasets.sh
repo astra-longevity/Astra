@@ -7,6 +7,7 @@
 # PLAN.tsv lines (from `astra fetch plan`):
 #   fetch\t<id>\t<n>\t<interval>\t<sha256>\t<url>    approved + pinned
 #   unpinned\t<id>\t<n>\t<interval>\t-\t<url>        approved, no hash yet
+#   large\t<id>\t<n>\t<size_bytes>\t<sha256>\t<url>  above --max-bytes: listed, never downloaded here
 #   skipped\t<id>\t<licence_status>                  licence not approved
 #
 # - Pinned files are stored as CACHE_DIR/<sha256>; a cache hit sends no request.
@@ -39,6 +40,7 @@ mkdir -p "$tmp/hosts"
 problems=()
 pins=()
 skipped=()
+large=()
 downloaded=0
 hits=0
 
@@ -87,6 +89,7 @@ while IFS=$'\t' read -r kind id n interval sha url; do
       fi
       ;;
     skipped) skipped+=("$id ($n)") ;;
+    large) large+=("$id files[$n]: $interval bytes ($url)") ;;
     "") ;;
     *) problems+=("Bad plan line: $kind $id") ;;
   esac
@@ -100,6 +103,11 @@ done <"$plan"
     echo
     echo "### Skipped (licence not approved)"
     printf -- '- %s\n' "${skipped[@]}"
+  fi
+  if [ "${#large[@]}" -gt 0 ]; then
+    echo
+    echo "### Left to the job that uses them (above the size limit, not downloaded)"
+    printf -- '- %s\n' "${large[@]}"
   fi
   if [ "${#pins[@]}" -gt 0 ]; then
     echo

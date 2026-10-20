@@ -7,6 +7,10 @@ name: Dataset fetch
 #     with issue-ready messages in the job summary.
 #   - dispatch with pin=true: also downloads unpinned files and prints their
 #     sha256 / size_bytes / fetched_at, to be added to the manifest by PR.
+#   - Only pinned files <= MAX_BYTES are downloaded, cached and verified here
+#     (actions/cache holds 10 GB per repo). Bigger files are listed in the
+#     summary; the job that uses them runs `astra fetch plan` without
+#     --max-bytes, downloads them and runs `astra fetch verify` itself.
 
 on:
   schedule:
@@ -21,6 +25,8 @@ on:
 env:
   CARGO_TERM_COLOR: always
   RUST_VERSION: "1.97.1"
+  # 500 MB: files above it are left to the job that uses them.
+  MAX_BYTES: "500000000"
 
 permissions:
   contents: read
@@ -49,7 +55,7 @@ jobs:
         run: cargo build --release -p astra-cli
 
       - name: Plan (checks every manifest)
-        run: target/release/astra fetch plan > "$RUNNER_TEMP/plan.tsv"
+        run: target/release/astra fetch plan --max-bytes "$MAX_BYTES" > "$RUNNER_TEMP/plan.tsv"
 
       - name: Dataset cache
         uses: actions/cache@v4
@@ -70,6 +76,6 @@ jobs:
           {
             echo "### Verify"
             echo '```'
-            target/release/astra fetch verify --cache .cache/datasets 2>&1
+            target/release/astra fetch verify --cache .cache/datasets --max-bytes "$MAX_BYTES" 2>&1
             echo '```'
           } | tee -a "$GITHUB_STEP_SUMMARY"
