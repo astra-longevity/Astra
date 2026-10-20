@@ -24,3 +24,24 @@ Next: screening of all 38 hits into `screening.csv` (stage 1 title + abstract,
 stage 2 full text), reason codes from the rule only.
 
 Agent: A71
+
+## Stage 1 screening (title + abstract)
+
+All 38 hits screened into `screening.csv` (stage 1), reason codes from the rule
+only. Unclear hits pass to stage 2. Abstracts fetched from PubMed (efetch) to a
+temporary file, not committed. No lifespan number is taken from an abstract.
+
+| Decision | Hits |
+|---|---|
+| pass to stage 2 | 17 |
+| X_TREATED | 9 |
+| X_NOT_MOUSE_LIFESPAN | 5 |
+| X_STRAIN | 2 |
+| X_REFILL_LAB | 2 |
+| X_REFILL | 1 |
+| X_HYBRID | 1 (pending) |
+| X_TRUNCATED | 1 |
+
+Judgment point for A65: 30289438 (Allison DB) is `X_REFILL_LAB` because the
+same person co-authors refill 29921922 at the same university (UAB), in a
+different school. Institution was read as the university.
