@@ -36,6 +36,11 @@ jobs:
       - name: Cargo cache
         uses: Swatinem/rust-cache@v2
 
+      # Charter part 8: nothing is published while an open S1/S2 issue
+      # targets what this job publishes (issues/, scripts/registers.py).
+      - name: Issue gate (open S1/S2)
+        run: python3 scripts/registers.py gate interface/ data/
+
       - name: Build database
         run: cargo run --release -p astra-cli -- db build
 

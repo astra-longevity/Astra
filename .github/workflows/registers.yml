@@ -1,0 +1,64 @@
+name: Registers
+
+# Issue register (issues/) and obstacle register (research/obstacles/). P3,
+# charter parts 8 and 9, T8-A10-1.
+#   - On every PR / queue / push: self-tests + schema of both registers.
+#   - Daily (and on demand): run every obstacle check that is due and print an
+#     issue-ready report of missed or failing exits. The job fails when there
+#     is one, so the red run is the alarm. It never writes to the repo
+#     (contents: read, no issue creation from the job).
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  merge_group:
+  schedule:
+    - cron: "37 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  schema:
+    name: Registers (schema · tests)
+    if: github.event_name != 'schedule' && github.event_name != 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Self-tests (known-bad issues and obstacles)
+        run: scripts/tests/registers.test.sh
+
+      - name: Issue register schema
+        run: python3 scripts/registers.py issues
+
+      - name: Obstacle register schema
+        run: python3 scripts/registers.py obstacles --schema-only
+
+  due:
+    name: Obstacles due (daily)
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Run due checks
+        run: |
+          set -o pipefail
+          python3 scripts/registers.py obstacles | tee "$RUNNER_TEMP/report.md"
+
+      - name: Issue-ready report
+        if: failure()
+        run: cat "$RUNNER_TEMP/report.md" >>"$GITHUB_STEP_SUMMARY"
