@@ -1,0 +1,27 @@
+# Class labels per compound (T2-A2-4, Verification ruling C4-C6).
+# Hashed by the test-2 split seal (D115). approved_by / approved_date are set by
+# Verification only. A label source must report no lifespan outcome
+# (pharmacology paper, or a ChEMBL / DrugBank / IUPHAR entry with snapshot date).
+#
+# Rules:
+# - class = primary molecular target, from the vocabulary below (closed list).
+# - Primary target = the target the source names as the main mechanism.
+#   If the source names two or more targets without ranking them: multi-target.
+#   Mixtures and extracts without a single defined active compound: no defined target.
+# - Vocabulary entries may be added only before the split is sealed, with
+#   Verification approval. No new class after the seal.
+vocabulary:
+  - mTORC1 inhibitor
+  - multi-target
+  - no defined target
+labels:
+  - compound: rapamycin
+    class: mTORC1 inhibitor
+    source: >
+      IUPHAR/BPS Guide to Pharmacology, ligand sirolimus (ligandId 6031):
+      https://www.guidetopharmacology.org/GRAC/LigandDisplayForward?ligandId=6031
+      (complex with FKBP12 inhibits mTOR)
+    source_date: 2026-10-20
+    proposed_by: A71
+    approved_by: null
+    approved_date: null
