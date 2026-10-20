@@ -159,3 +159,62 @@ Object: PR #115 head `c2fff98`. Amended rule commit `4799272`,
 Cleared: A71 may run `count2b.rb` once against `d6ef9139…edb`. Next check: the
 five counts and query hashes in `search-log.md`, the void entry, and the choice
 rule applied as written.
+
+## Run-2b counts check (2026-10-20)
+
+Object: PR #115 commit `6c98807` (child of `c2fff98`, committed 16:24:57 UTC,
+touches `search-log.md` only), § "Run 2b". Checked on a clean copy.
+
+| Item | Result |
+|---|---|
+| Rule file | sha256 `d6ef9139…edb` = cleared |
+| `count2b.rb` | sha256 `01fd33f6…bfabe` = log; byte-identical to the script cleared at `c2fff98` |
+| Order | candidates `749a557` / amended `4799272` → script `c2fff98` → counts `6c98807`: every count is after the list |
+| Query hashes B1–B5 | my recomputation matches the log (`658645d5…`, `883170a2…`, `8bac4ba1…`, `e2fe8777…`, `aa39d6e3…`); query A `588c38c8…` = run 2 |
+| Void entry | present (18:06 run against `b4bcb00c…`, nothing printed, void per A50) |
+| Europe PMC hitCount | B1 18317, B2 15902, B3 14084, B4 7931, B5 571 |
+| New PMIDs | B1 18847, B2 16438, B3 14631, B4 8512, B5 1195 |
+| Choice rule | only B5 ≤ 1500 → B5 (TABLE only), as written |
+
+**Verdict: log conforms to the cleared rule, but the counts are held** (A50,
+G140, 18:26). B1–B4 return more records than run-2 B (`median` anywhere in the
+full text, 6476), although each B query should be a subset of it apart from
+the added words. `survival` alone may not explain it. Before B5 runs, A65
+checks the 5 strings as sent and Europe PMC's parsed form (A50 ruling below).
+
+## A50 ruling: counts held, string check (G140, 2026-10-20, 18:26)
+
+No new count. A65 checks the 5 strings as sent against the rule. If
+malformed: all 5 counts void, a syntax-only fix to A50, A65 clears, all 5
+recounted in one commit, and the script stops if any count > 6476. If correct:
+A65 explains the counts and A50 rules. Choice rule unchanged.
+
+## String check (A65, no query sent)
+
+- **As sent = as committed.** `count2b.rb` reads each `Bk:` line verbatim
+  (`scan(/^(B[1-5]): (.+)$/)`, strip only) and sends it unchanged as `query`.
+  The hashes in the log match the committed lines.
+- **Syntax.** All 5 strings have balanced parentheses (the depth never goes
+  below 0) and an even number of quotes. Every field used (`RESULTS`,
+  `METHODS`, `TABLE`, `FIG`, `HAS_FT`, `SRC`, `LANG`, `PUB_YEAR`, `PUB_TYPE`)
+  is in Europe PMC's published field list (`/fields`). Each section clause is
+  `S:("median" AND (…))`, so every term is scoped to S.
+- **Parsed form.** Europe PMC's REST response echoes the query string only and
+  gives no parsed form. It cannot be read without sending a query.
+- **Why B1–B4 > 6476 is expected.** The run-2b queries are **not** subsets of
+  run-2 B. Run-2 B needs `median` and one of `lifespan`, `life span`,
+  `longevity`. TERMS also accepts `median` + `survival` alone, which matches
+  most survival-analysis papers in C57BL/6 (tumour, infection, transplant
+  models). The section limit removes only part of these. A count above 6476
+  therefore shows no syntax error.
+
+**Verification view: the strings are correct.** The size comes from
+`survival`, which I accepted at the hold (18:07) on the reasoning "broader,
+can only add hits". That was right for recall, but I did not foresee that it
+would push B1–B4 over 1500 and leave only the narrowest scope (TABLE). Dropping
+`survival` now, after seeing counts, would be a choice made on results.
+Proposed, for A50 to rule: keep the counts and the choice (B5). The seal record
+states two known limits: B finds a median only in a TABLE section, and the
+size came from `survival`. If A50 wants evidence of parsing, the only route is a
+diagnostic count (e.g. B5 without `survival`). It is not used for any choice,
+and it is logged.
