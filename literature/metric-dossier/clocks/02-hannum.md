@@ -7,14 +7,14 @@ An estimate of age from methylation at 71 sites, in **whole blood only**. Traine
 ## Training population
 
 - Whole blood of 656 people aged 19 to 101, Illumina 450K (Hannum 2013; consistent across reviews).
-- Training/validation split: secondary sources give 482 training + 174 validation. `[to verify]`
-- Ancestry: secondary reviews describe the cohort as US-based; exact ancestry mix `[to verify]`.
+- Two cohorts: 482 people for training, 174 for validation, processed the same way (Hannum 2013).
+- Ancestry: 426 Caucasian and 230 Hispanic people (Hannum 2013). Other ancestries are outside training range.
 - Consequence: valid for adult blood only. Any non-blood sample or child is outside training range.
 
 ## Noise
 
-- Reported fit: correlation 0.91–0.96, error about 3.9–4.9 years depending on the review quoted. `[to verify]` exact figures in primary.
-- Replicate spread: several years between technical replicates for the original version; reduced by principal-component version (Higgins-Chen 2022). `[to verify]` value.
+- Reported fit: training cohort r = 0.96, error 3.9 years; validation cohort r = 0.91, error 4.9 years (Hannum 2013). The validation figures are the honest ones.
+- Replicate spread: the original version disagrees between technical replicates more than its principal-component version (Higgins-Chen 2022). No value or smallest-real-change figure is quoted here.
 
 ## Known failure modes
 
@@ -27,7 +27,9 @@ None directly; tracks calendar age in adults.
 
 ## Confounders
 
-Blood cell-type mix, sex, array batch. `[to verify]` list from primary.
+- Sex: men's methylome aged about 4% faster than women's, confirmed in the validation cohort; BMI had no significant effect (Hannum 2013).
+- Ancestry and diabetes could not be tested because they were tangled with array batch (Hannum 2013): batch is a confounder.
+- Blood cell-type mix.
 
 ## Sources
 
