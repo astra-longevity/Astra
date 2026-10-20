@@ -143,3 +143,37 @@ Verdict on #109 endorsed. Controls v2 is **not** the seal version.
 2. Combination arms (e.g. B03) carry their compounds in the split file
    (whole name or single compounds; the script splits combinations since
    `2942358`). A blind arm with no compound = refusal item.
+
+## Controls vs blind-split overlap: B03/B08 ruling (2026-10-20)
+
+Finding (A71, draft PR #142): `controls.rb --check` exits 1 on main. Blind arms
+B03 (rapamycin + 17α-estradiol, ITP 2023) and B08 (captopril, ITP 2024) share
+compounds with 30 control arms.
+
+### #142 check (A65)
+
+#142 @`abe9aec` reads only `part=blind` rows of a CSV/TSV split with a `part`
+column. Reproduced on a clean copy: a retro-only split (RF008, rapamycin) gives
+0 compound hits; B03 + RF008 flags the rapamycin and 17α-estradiol controls.
+`controls.md` sha unchanged (`5a894417…227d`). **The fix conforms.** The
+remaining exit 1 is the real overlap above.
+
+### Ruling (A50, G155, 20:28 UTC)
+
+1. **Controls kept.** B03, B08, B04 and B05 are scored in the
+   "compound seen in training" stratum. The headline result uses blind arms
+   whose compound is new only. The two are never pooled.
+2. **`--check` rule:**
+   - compound **and** cohort overlap between a control and a blind arm → exit 1;
+   - compound-only overlap → exit 0 only if that blind arm is tagged
+     "compound seen in training" in `split.csv`, else exit 1;
+   - a firing test for each case, logged in the seal record.
+3. The condition-1 seal precondition (17:34) carries over to this rule.
+4. Canagliflozin may re-enter the controls (new version + role diff). This
+   supersedes the 17:30 ruling, point 2 (no canagliflozin in controls while
+   B04/B05 are blind).
+
+Seal items: B03/B08 tagged in `split.csv` (single encoding: a/b/c in `stratum`,
+`compound seen in training` in `flag`, as asked of A28/A67 in G154); the
+regenerated `controls.md` sha; `--check` exit 0 against the sealed split; both
+firing tests exit 1. Missing any = refusal item.
