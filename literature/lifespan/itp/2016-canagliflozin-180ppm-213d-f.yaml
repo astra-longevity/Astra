@@ -1,0 +1,64 @@
+# Miller 2020 (PMC7710304), table 1 (image, read by OCR and checked against the text), text. Read 2026-10-20.
+id: 2016-canagliflozin-180ppm-213d-f
+program: ITP
+publication:
+  doi: 10.1172/jci.insight.140019
+  citation: "Miller RA et al., 2020, JCI Insight 5:e140019"
+cohort_year: 2016  # paper "cohort 2016" / "Cont_16"; MPD ITP1 listing
+compound: canagliflozin
+role: "null"
+strain: UM-HET3
+sex: F
+start_age_days: 213  # printed "7 months; 7 x 30.44 d"
+dose:
+  value: 180
+  unit: ppm
+  route: diet
+n:
+  treated: 136  # table 1
+  control: 304
+lifespan:
+  control:
+    median_days: {value: 874, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1050, source: "table 1"}
+  treated:
+    median_days: {value: 886, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1059, source: "table 1"}
+effect:
+  median_pct: 1.4
+  p90_pct: 0.9
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "0.512", source: "table 1"}
+  - {test: "alive at 90th percentile, Wang-Allison", value: "0.50", source: "table 1"}
+curve_source:
+  figure: "fig 1 (pooled and per site)"
+  mpd_id: 754
+flags:
+  control_in_ref_range: true
+  reference: reference-ranges.yaml@1
+  itp_or_replicated: true
+  replicated_by: null
+sites:
+  - {site: TJL, median_days: {control: 883, treated: 912}, p90_days: {control: 1057, treated: 1097}, effect_median_pct_printed: 3, p_values: [{test: "log-rank", value: "0.173"}, {test: "Wang-Allison", value: "0.26"}]}
+  - {site: UM, median_days: {control: 858, treated: 897}, p90_days: {control: 1034, treated: 1076}, effect_median_pct_printed: 4, p_values: [{test: "log-rank", value: "0.263"}, {test: "Wang-Allison", value: "0.38"}]}
+  - {site: UT, median_days: {control: 882, treated: 849}, p90_days: {control: 1058, treated: 1003}, effect_median_pct_printed: -4, p_values: [{test: "log-rank", value: "0.142"}, {test: "Wang-Allison", value: "0.56"}]}
+notes: >
+  SGLT2 inhibitor. Null in females (text: median +1%, p90 +1%, NS). Pooled across TJL, UM, UT; per-site treated n 51-54 M, 44-48 F. Same Cont_16 controls as Harrison 2021, printed with different site values (M site control medians TJL 749 / UM 814 here vs 752 / 826 there; F control p90 1050 here vs 1047). Removed mice: 4.8% of controls, 3.8% of Cana. Canagliflozin arms B04/B05 are in the blind split: this row is not a control (A50 ruling) and is excluded from controls.md.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - lifespan  # table 1 is an image, read by OCR; pooled and site % checked against the text

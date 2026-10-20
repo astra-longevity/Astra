@@ -1,0 +1,63 @@
+# Harrison 2021 (PMC8135004), table 1 (pooled), table 2 (per site), text. Read 2026-10-20.
+id: 2016-candesartan-cilexetil-30ppm-244d-m
+program: ITP
+publication:
+  doi: 10.1111/acel.13328
+  citation: "Harrison DE et al., 2021, Aging Cell 20:e13328"
+cohort_year: 2016  # paper "cohort 2016" / "Cont_16"; MPD ITP1 listing
+compound: candesartan cilexetil
+role: "null"
+strain: UM-HET3
+sex: M
+start_age_days: 244  # printed "8 months; 8 x 30.44 d"
+dose:
+  value: 30
+  unit: ppm
+  route: diet
+n:
+  treated: 156  # table 1
+  control: 303
+lifespan:
+  control:
+    median_days: {value: 787, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1047, source: "table 1"}
+  treated:
+    median_days: {value: 820, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1055, source: "table 1"}
+effect:
+  median_pct: 4.2
+  p90_pct: 0.8
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "0.370", source: "table 1"}
+  - {test: "alive at 90th percentile, Wang-Allison", value: "0.733", source: "table 1"}
+curve_source:
+  figure: "fig 2 (pooled)"
+  mpd_id: 754
+flags:
+  control_in_ref_range: true
+  reference: reference-ranges.yaml@1
+  itp_or_replicated: true
+  replicated_by: null
+sites:
+  - {site: TJL, median_days: {control: 752, treated: 826}, effect_median_pct_printed: 10, p_values: [{test: "log-rank", value: "0.035"}]}
+  - {site: UM, median_days: {control: 826, treated: 866}, effect_median_pct_printed: 5, p_values: [{test: "log-rank", value: "0.487"}]}
+  - {site: UT, median_days: {control: 799, treated: 770}, effect_median_pct_printed: -4, p_values: [{test: "log-rank", value: "0.689"}]}
+notes: >
+  Angiotensin II receptor blocker. Null pooled; TJL +10% (p = 0.035). Pooled across TJL, UM, UT; per-site treated n 51-54 M, 44-48 F. Controls shared by all C2016 arms.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify: []
