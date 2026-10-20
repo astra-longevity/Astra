@@ -1,0 +1,73 @@
+case: guyot-bonner
+reference: verification/prep/references-survey.md (section 6)
+reference_kind: printed
+description: >
+  Guyot 2012 KM reconstruction (doi:10.1186/1471-2288-12-9), worked example of Table 3:
+  Bonner et al. 2006 (doi:10.1056/NEJMoa053422), radiotherapy vs radiotherapy + cetuximab.
+  Compare reconstructed values with the values printed in Bonner 2006.
+
+package:
+  name: IPDfromKM
+  version: 0.1.10
+  source: CRAN
+  extra: [survival]   # for coxph; version recorded from the R library in the run
+
+inputs:
+  shipped_by: IPDfromKM 0.1.10
+  dataset: Radiationdata   # Bonner 2006 curves digitised by the package authors
+  parts:
+    radio: RT arm curve points (time in months, survival in %)
+    radioplus: RT + cetuximab arm curve points
+    trisk: at-risk times (months)
+    nrisk.radio: at-risk counts, RT arm
+    nrisk.radioplus: at-risk counts, RT + cetuximab arm
+  file: null   # the call writes guyot-bonner-ipd.csv as an artifact
+
+call: |
+  library(IPDfromKM); library(survival)
+  d <- Radiationdata
+  p0 <- preprocess(dat = d$radio,     trisk = d$trisk, nrisk = d$nrisk.radio,     maxy = 100)
+  p1 <- preprocess(dat = d$radioplus, trisk = d$trisk, nrisk = d$nrisk.radioplus, maxy = 100)
+  ipd0 <- getIPD(prep = p0, armID = 0)$IPD
+  ipd1 <- getIPD(prep = p1, armID = 1)$IPD
+  ipd  <- rbind(ipd0, ipd1)
+  write.csv(ipd, "guyot-bonner-ipd.csv", row.names = FALSE)
+  km <- survfit(Surv(time, status) ~ arm, data = ipd)
+  s  <- summary(km, times = c(12, 24, 36))
+  cx <- coxph(Surv(time, status) ~ arm, data = ipd)
+
+outputs:
+  surv_rt_12:      's$surv[s$strata == "arm=0" & s$time == 12] * 100'
+  surv_rt_24:      's$surv[s$strata == "arm=0" & s$time == 24] * 100'
+  surv_rt_36:      's$surv[s$strata == "arm=0" & s$time == 36] * 100'
+  surv_rtcet_24:   's$surv[s$strata == "arm=1" & s$time == 24] * 100'
+  surv_rtcet_36:   's$surv[s$strata == "arm=1" & s$time == 36] * 100'
+  median_rt:       'summary(km)$table["arm=0", "median"]'
+  median_rtcet:    'summary(km)$table["arm=1", "median"]'
+  hr:              'exp(coef(cx))'
+  hr_lower:        'exp(confint(cx))[1]'
+  hr_upper:        'exp(confint(cx))[2]'
+
+expected:   # printed in Bonner 2006, as quoted in Guyot 2012 Table 3 (survey section 6)
+  surv_rt_12: 55
+  surv_rt_24: 41
+  surv_rt_36: 34
+  surv_rtcet_24: 50
+  surv_rtcet_36: 47
+  median_rt: 14.9
+  median_rtcet: 24.4
+  hr: 0.68
+  hr_lower: 0.52
+  hr_upper: 0.89
+  for_context:   # earlier reconstructions, not a reference
+    guyot_2012: {surv_rt: [56.1, 41.1, 34.7], surv_rtcet: [50.4, 46.7], median: [14.9, 24.3], hr: [0.73, 0.57, 0.94]}
+    ipdfc_2017: {hr: [0.72, 0.56, 0.93]}
+
+tolerance: null   # D38: Verification sets it from all 3 curves. Report deviations only.
+
+notes:
+  - Radiationdata is the package authors' own digitisation, not Guyot's. Small differences from Guyot 2012 Table 3 are expected and are data, not failures.
+  - Survival at 12 months for RT + cetuximab is not printed in Bonner 2006; report it but do not compare it.
+  - "arm" coding: 0 = RT, 1 = RT + cetuximab, so HR < 1 favours cetuximab, as in Bonner.
+  - Check that the arm sizes in the reconstructed IPD equal nrisk at time 0 for each arm.
+  - The survey marks the Guyot ref [7] = Bonner 2006 link as [to verify]; it does not affect this run.
