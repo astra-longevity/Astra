@@ -117,7 +117,7 @@ This matches the Fisher result: survival pins 2 directions and no more.
 
 ## 6. Which axis readouts unlock the rest (synthetic)
 
-Code: `py/readouts.py`, output `py/readouts.json`. Same simulator, same
+Code: `py/readouts.py`, output `results/readouts.json`. Same simulator, same
 cross-seed Fisher (seeds 11/12, `n_sim` 2000, all 54 parameters).
 
 **Readout model.** One quantity per measured organ axis (11 axes; the 6
@@ -240,5 +240,5 @@ cd research/sim/v0/py
 python3 identifiability.py 2000 > ident.json   # ~6.5 min, stdlib only
 python3 recovery.py eta,xc > rec2.json
 python3 recovery.py eta,beta,xc > rec3.json
-READOUTS_CACHE=/tmp/readouts.pkl python3 readouts.py 2000 > readouts.json   # ~6 min, then instant from cache
+READOUTS_CACHE=/tmp/readouts.pkl python3 readouts.py 2000 > ../results/readouts.json   # ~6 min, then instant from cache
 ```
