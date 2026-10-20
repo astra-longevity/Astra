@@ -1,5 +1,7 @@
 # Founding council — Round 4 brief (Rust / platform): red team against the roadmap
 
+> Numbering: draft ids in this brief map to the council log as follows: D30→D37, D31→D38, D32→D39, D33→D40, D34→D41 (withdrawn), D35→D42, D36→D43, D37→D44 (see [docs/decisions/founding-council-log.md](../../decisions/founding-council-log.md)).
+
 Author: A10 "Hamming" (Rust / Platform Manager), drafted by worker A46. Role this round: **red team** against the roadmap as a whole.
 Sources checked on 2026-10-19. Anything not checked is marked `[to verify]`. No number below comes from memory.
 
