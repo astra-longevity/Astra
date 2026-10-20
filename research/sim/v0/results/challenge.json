@@ -1,0 +1,3593 @@
+{
+ "n_sim": 600,
+ "seeds": [
+  11,
+  12
+ ],
+ "weeks": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  26
+ ],
+ "dose_xc": 0.3,
+ "map_mult": 0.7,
+ "noise_rel": 0.5,
+ "n_sweep": [
+  10,
+  30,
+  100
+ ],
+ "runs": [
+  {
+   "kappa": 0.5,
+   "t0": 1.5,
+   "split_at_n10": {
+    "baseline": [],
+    "challenge": [],
+    "mapped_known": [],
+    "mapped_free": []
+   },
+   "per_organ": {
+    "A1_muscle": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.74,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.83,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.73,
+       "sum": 0.0,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.19,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.94,
+       "sum": 0.13,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.16,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.19,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.19,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.94,
+       "sum": 0.13,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.16,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.19,
+       "xc": 0.0
+      }
+     }
+    },
+    "A3_brain": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.73,
+       "sum": 0.01,
+       "xc": 0.11
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.84,
+       "sum": 0.03,
+       "xc": 0.98
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.74,
+       "sum": 0.0,
+       "xc": 0.08
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.73,
+       "sum": 0.0,
+       "xc": 0.07
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.73,
+       "sum": 0.19,
+       "xc": 0.25
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.84,
+       "sum": 0.23,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.75,
+       "sum": 0.31,
+       "xc": 0.09
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.73,
+       "sum": 0.2,
+       "xc": 0.07
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.76,
+       "sum": 0.34,
+       "xc": 0.91
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.84,
+       "sum": 0.23,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.75,
+       "sum": 0.31,
+       "xc": 0.09
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.73,
+       "sum": 0.2,
+       "xc": 0.07
+      }
+     }
+    },
+    "A6_heart": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.01,
+       "xc": 0.1
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.92,
+       "sum": 0.03,
+       "xc": 0.92
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.85,
+       "sum": 0.0,
+       "xc": 0.06
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.82,
+       "sum": 0.0,
+       "xc": 0.06
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.88,
+       "sum": 0.34,
+       "xc": 0.93
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.92,
+       "sum": 0.3,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.92,
+       "sum": 0.28,
+       "xc": 0.91
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.89,
+       "sum": 0.41,
+       "xc": 0.92
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.88,
+       "sum": 0.34,
+       "xc": 0.93
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.92,
+       "sum": 0.3,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.92,
+       "sum": 0.28,
+       "xc": 0.91
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.89,
+       "sum": 0.41,
+       "xc": 0.92
+      }
+     }
+    },
+    "A8_lung": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.82,
+       "sum": 0.01,
+       "xc": 0.04
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.01,
+       "xc": 0.97
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.79,
+       "sum": 0.0,
+       "xc": 0.03
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.78,
+       "sum": 0.0,
+       "xc": 0.03
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.85,
+       "sum": 0.07,
+       "xc": 0.72
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.01,
+       "xc": 0.97
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.84,
+       "sum": 0.09,
+       "xc": 0.67
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.1,
+       "xc": 0.51
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.85,
+       "sum": 0.07,
+       "xc": 0.72
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.91,
+       "sum": 0.21,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.84,
+       "sum": 0.09,
+       "xc": 0.67
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.1,
+       "xc": 0.51
+      }
+     }
+    },
+    "A9_kidney": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.82,
+       "sum": 0.01,
+       "xc": 0.07
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.92,
+       "sum": 0.03,
+       "xc": 0.98
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.87,
+       "sum": 0.12,
+       "xc": 0.03
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.1,
+       "xc": 0.04
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.87,
+       "sum": 0.11,
+       "xc": 0.91
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.92,
+       "sum": 0.12,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.87,
+       "sum": 0.12,
+       "xc": 0.82
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.86,
+       "sum": 0.16,
+       "xc": 0.82
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.87,
+       "sum": 0.11,
+       "xc": 0.91
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.92,
+       "sum": 0.12,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.87,
+       "sum": 0.12,
+       "xc": 0.82
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.86,
+       "sum": 0.16,
+       "xc": 0.82
+      }
+     }
+    },
+    "A10_liver_metabolism": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.82,
+       "sum": 0.0,
+       "xc": 0.06
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.94,
+       "sum": 0.03,
+       "xc": 0.85
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.84,
+       "sum": 0.0,
+       "xc": 0.03
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.0,
+       "xc": 0.03
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.83,
+       "sum": 0.09,
+       "xc": 0.65
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.94,
+       "sum": 0.14,
+       "xc": 0.98
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.92,
+       "sum": 0.19,
+       "xc": 0.98
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.9,
+       "sum": 0.25,
+       "xc": 0.98
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.3,
+       "xc": 0.98
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.94,
+       "sum": 0.14,
+       "xc": 0.98
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.92,
+       "sum": 0.19,
+       "xc": 0.98
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.9,
+       "sum": 0.25,
+       "xc": 0.98
+      }
+     }
+    },
+    "A11_immune": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.7,
+       "sum": 0.0,
+       "xc": 0.12
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.82,
+       "sum": 0.0,
+       "xc": 0.95
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.0,
+       "xc": 0.04
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.72,
+       "sum": 0.0,
+       "xc": 0.03
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.71,
+       "sum": 0.07,
+       "xc": 0.8
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.93,
+       "sum": 0.08,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.87,
+       "sum": 0.29,
+       "xc": 0.94
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.74,
+       "sum": 0.18,
+       "xc": 0.83
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.25,
+       "xc": 0.98
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.93,
+       "sum": 0.08,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.87,
+       "sum": 0.29,
+       "xc": 0.94
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.88,
+       "sum": 0.41,
+       "xc": 0.96
+      }
+     }
+    },
+    "A12_blood": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.8,
+       "sum": 0.01,
+       "xc": 0.08
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.01,
+       "xc": 0.93
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.79,
+       "sum": 0.0,
+       "xc": 0.04
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.76,
+       "sum": 0.0,
+       "xc": 0.04
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.03,
+       "xc": 0.82
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.13,
+       "xc": 1.0
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.18,
+       "xc": 0.98
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.89,
+       "sum": 0.24,
+       "xc": 0.97
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.25,
+       "xc": 0.98
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.13,
+       "xc": 1.0
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.18,
+       "xc": 0.98
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.89,
+       "sum": 0.24,
+       "xc": 0.97
+      }
+     }
+    },
+    "A13_skin_hair": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.83,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.85,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.8,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.16,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.86,
+       "sum": 0.26,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.23,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.87,
+       "sum": 0.22,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.88,
+       "sum": 0.26,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.86,
+       "sum": 0.26,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.23,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.87,
+       "sum": 0.22,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.88,
+       "sum": 0.26,
+       "xc": 0.0
+      }
+     }
+    },
+    "A14_gut": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.8,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.8,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.73,
+       "sum": 0.0,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.19,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.92,
+       "sum": 0.16,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.92,
+       "sum": 0.22,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.23,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.19,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.92,
+       "sum": 0.16,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.92,
+       "sum": 0.22,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.23,
+       "xc": 0.0
+      }
+     }
+    },
+    "A15_fat": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.82,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.8,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.78,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.76,
+       "sum": 0.0,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.27,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.92,
+       "sum": 0.15,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.21,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.89,
+       "sum": 0.24,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.27,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.92,
+       "sum": 0.15,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.21,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.89,
+       "sum": 0.24,
+       "xc": 0.0
+      }
+     }
+    }
+   }
+  },
+  {
+   "kappa": 0.5,
+   "t0": 0.5,
+   "split_at_n10": {
+    "baseline": [],
+    "challenge": [],
+    "mapped_known": [],
+    "mapped_free": []
+   },
+   "per_organ": {
+    "A1_muscle": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.74,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.17,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.87,
+       "sum": 0.2,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.8,
+       "sum": 0.17,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.19,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.17,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.87,
+       "sum": 0.2,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.87,
+       "sum": 0.22,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.19,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.17,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.87,
+       "sum": 0.2,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.87,
+       "sum": 0.22,
+       "xc": 0.0
+      }
+     }
+    },
+    "A3_brain": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.73,
+       "sum": 0.01,
+       "xc": 0.11
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.76,
+       "sum": 0.18,
+       "xc": 0.17
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.77,
+       "sum": 0.19,
+       "xc": 0.17
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.72,
+       "sum": 0.19,
+       "xc": 0.16
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.73,
+       "sum": 0.19,
+       "xc": 0.25
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.76,
+       "sum": 0.18,
+       "xc": 0.17
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.8,
+       "sum": 0.28,
+       "xc": 0.96
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.73,
+       "sum": 0.2,
+       "xc": 0.32
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.76,
+       "sum": 0.34,
+       "xc": 0.91
+      },
+      "challenge": {
+       "n_recoverable": 4,
+       "ratio": 0.87,
+       "sum": 0.94,
+       "xc": 0.96
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.8,
+       "sum": 0.28,
+       "xc": 0.96
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.73,
+       "sum": 0.2,
+       "xc": 0.32
+      }
+     }
+    },
+    "A6_heart": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.01,
+       "xc": 0.1
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.83,
+       "sum": 0.18,
+       "xc": 0.15
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.87,
+       "sum": 0.14,
+       "xc": 0.09
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.12,
+       "xc": 0.08
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.88,
+       "sum": 0.34,
+       "xc": 0.93
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.91,
+       "sum": 0.19,
+       "xc": 0.93
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.94,
+       "sum": 0.14,
+       "xc": 0.95
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.91,
+       "sum": 0.21,
+       "xc": 0.95
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.88,
+       "sum": 0.34,
+       "xc": 0.93
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.91,
+       "sum": 0.19,
+       "xc": 0.93
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.94,
+       "sum": 0.14,
+       "xc": 0.95
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.91,
+       "sum": 0.21,
+       "xc": 0.95
+      }
+     }
+    },
+    "A8_lung": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.82,
+       "sum": 0.01,
+       "xc": 0.04
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.0,
+       "xc": 0.03
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.86,
+       "sum": 0.36,
+       "xc": 0.03
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.35,
+       "xc": 0.03
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.85,
+       "sum": 0.07,
+       "xc": 0.72
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.88,
+       "sum": 0.24,
+       "xc": 0.03
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.86,
+       "sum": 0.37,
+       "xc": 0.86
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.85,
+       "sum": 0.37,
+       "xc": 0.87
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.85,
+       "sum": 0.07,
+       "xc": 0.72
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.88,
+       "sum": 0.29,
+       "xc": 0.79
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.86,
+       "sum": 0.37,
+       "xc": 0.86
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.85,
+       "sum": 0.37,
+       "xc": 0.87
+      }
+     }
+    },
+    "A9_kidney": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.82,
+       "sum": 0.01,
+       "xc": 0.07
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.86,
+       "sum": 0.09,
+       "xc": 0.1
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.83,
+       "sum": 0.14,
+       "xc": 0.14
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.78,
+       "sum": 0.14,
+       "xc": 0.13
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.87,
+       "sum": 0.11,
+       "xc": 0.91
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.86,
+       "sum": 0.09,
+       "xc": 0.1
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.84,
+       "sum": 0.17,
+       "xc": 0.8
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.85,
+       "sum": 0.19,
+       "xc": 0.81
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.87,
+       "sum": 0.11,
+       "xc": 0.91
+      },
+      "challenge": {
+       "n_recoverable": 4,
+       "ratio": 0.9,
+       "sum": 0.99,
+       "xc": 0.91
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.84,
+       "sum": 0.17,
+       "xc": 0.8
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.85,
+       "sum": 0.19,
+       "xc": 0.81
+      }
+     }
+    },
+    "A10_liver_metabolism": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.82,
+       "sum": 0.0,
+       "xc": 0.06
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.74,
+       "sum": 0.0,
+       "xc": 0.05
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.83,
+       "sum": 0.0,
+       "xc": 0.04
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.79,
+       "sum": 0.13,
+       "xc": 0.11
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.83,
+       "sum": 0.09,
+       "xc": 0.65
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.95,
+       "sum": 0.22,
+       "xc": 0.9
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.45,
+       "xc": 0.04
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.79,
+       "sum": 0.13,
+       "xc": 0.11
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.3,
+       "xc": 0.98
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.95,
+       "sum": 0.22,
+       "xc": 0.9
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.45,
+       "xc": 0.04
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.79,
+       "sum": 0.13,
+       "xc": 0.11
+      }
+     }
+    },
+    "A11_immune": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.7,
+       "sum": 0.0,
+       "xc": 0.12
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.64,
+       "sum": 0.0,
+       "xc": 0.11
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.82,
+       "sum": 0.19,
+       "xc": 0.08
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.71,
+       "sum": 0.15,
+       "xc": 0.06
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.71,
+       "sum": 0.07,
+       "xc": 0.8
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.92,
+       "sum": 0.33,
+       "xc": 0.87
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.82,
+       "sum": 0.19,
+       "xc": 0.08
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.71,
+       "sum": 0.15,
+       "xc": 0.06
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.25,
+       "xc": 0.98
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.92,
+       "sum": 0.33,
+       "xc": 0.87
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.82,
+       "sum": 0.19,
+       "xc": 0.08
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.71,
+       "sum": 0.15,
+       "xc": 0.06
+      }
+     }
+    },
+    "A12_blood": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.8,
+       "sum": 0.01,
+       "xc": 0.08
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.83,
+       "sum": 0.21,
+       "xc": 0.21
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.15,
+       "xc": 0.05
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.82,
+       "sum": 0.14,
+       "xc": 0.05
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.03,
+       "xc": 0.82
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.91,
+       "sum": 0.21,
+       "xc": 0.97
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.94,
+       "sum": 0.15,
+       "xc": 0.98
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.91,
+       "sum": 0.18,
+       "xc": 0.98
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.25,
+       "xc": 0.98
+      },
+      "challenge": {
+       "n_recoverable": 4,
+       "ratio": 0.91,
+       "sum": 0.92,
+       "xc": 1.0
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.94,
+       "sum": 0.15,
+       "xc": 0.98
+      },
+      "mapped_free": {
+       "n_recoverable": 4,
+       "ratio": 0.91,
+       "sum": 0.18,
+       "xc": 0.98
+      }
+     }
+    },
+    "A13_skin_hair": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.83,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.17,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.84,
+       "sum": 0.29,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.78,
+       "sum": 0.25,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.86,
+       "sum": 0.26,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.17,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.84,
+       "sum": 0.29,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.78,
+       "sum": 0.25,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.86,
+       "sum": 0.26,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.91,
+       "sum": 0.99,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.84,
+       "sum": 0.29,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.78,
+       "sum": 0.25,
+       "xc": 0.0
+      }
+     }
+    },
+    "A14_gut": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.8,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.14,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.84,
+       "sum": 0.14,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.19,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.93,
+       "sum": 0.17,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.14,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.89,
+       "sum": 0.16,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.19,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.93,
+       "sum": 0.86,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.14,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.89,
+       "sum": 0.16,
+       "xc": 0.0
+      }
+     }
+    },
+    "A15_fat": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.82,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.92,
+       "sum": 0.16,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.31,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.83,
+       "sum": 0.29,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.27,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.92,
+       "sum": 0.16,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.31,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.89,
+       "sum": 0.32,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.9,
+       "sum": 0.27,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.93,
+       "sum": 0.79,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.89,
+       "sum": 0.31,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.89,
+       "sum": 0.32,
+       "xc": 0.0
+      }
+     }
+    }
+   }
+  },
+  {
+   "kappa": 2.0,
+   "t0": 1.5,
+   "split_at_n10": {
+    "baseline": [],
+    "challenge": [],
+    "mapped_known": [],
+    "mapped_free": []
+   },
+   "per_organ": {
+    "A1_muscle": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.87,
+       "sum": 0.08,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.85,
+       "sum": 0.06,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.05,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.79,
+       "sum": 0.04,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.87,
+       "sum": 0.08,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.85,
+       "sum": 0.06,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.05,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.79,
+       "sum": 0.04,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.87,
+       "sum": 0.08,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.85,
+       "sum": 0.06,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.05,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.79,
+       "sum": 0.04,
+       "xc": 0.0
+      }
+     }
+    },
+    "A3_brain": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.3,
+       "sum": 0.03,
+       "xc": 0.66
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.71,
+       "sum": 0.22,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.15,
+       "xc": 0.99
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.73,
+       "sum": 0.13,
+       "xc": 0.98
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.3,
+       "sum": 0.03,
+       "xc": 0.66
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.71,
+       "sum": 0.22,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.15,
+       "xc": 0.99
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.73,
+       "sum": 0.13,
+       "xc": 0.98
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.3,
+       "sum": 0.03,
+       "xc": 0.66
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.71,
+       "sum": 0.22,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.15,
+       "xc": 0.99
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.73,
+       "sum": 0.13,
+       "xc": 0.98
+      }
+     }
+    },
+    "A6_heart": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.69,
+       "sum": 0.13,
+       "xc": 0.63
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.67,
+       "sum": 0.19,
+       "xc": 1.0
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.17,
+       "xc": 0.97
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.17,
+       "xc": 0.97
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.69,
+       "sum": 0.13,
+       "xc": 0.63
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.67,
+       "sum": 0.19,
+       "xc": 1.0
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.17,
+       "xc": 0.97
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.17,
+       "xc": 0.97
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.69,
+       "sum": 0.13,
+       "xc": 0.63
+      },
+      "challenge": {
+       "n_recoverable": 3,
+       "ratio": 0.67,
+       "sum": 0.19,
+       "xc": 1.0
+      },
+      "mapped_known": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.17,
+       "xc": 0.97
+      },
+      "mapped_free": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.17,
+       "xc": 0.97
+      }
+     }
+    },
+    "A8_lung": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.39,
+       "sum": 0.11,
+       "xc": 0.41
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.75,
+       "sum": 0.16,
+       "xc": 1.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.53,
+       "sum": 0.05,
+       "xc": 0.3
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.52,
+       "sum": 0.05,
+       "xc": 0.29
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.39,
+       "sum": 0.11,
+       "xc": 0.41
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.75,
+       "sum": 0.16,
+       "xc": 1.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.53,
+       "sum": 0.05,
+       "xc": 0.3
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.52,
+       "sum": 0.05,
+       "xc": 0.29
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.39,
+       "sum": 0.11,
+       "xc": 0.41
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.75,
+       "sum": 0.16,
+       "xc": 1.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.53,
+       "sum": 0.05,
+       "xc": 0.3
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.52,
+       "sum": 0.05,
+       "xc": 0.29
+      }
+     }
+    },
+    "A9_kidney": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.47,
+       "sum": 0.06,
+       "xc": 0.39
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.68,
+       "sum": 0.17,
+       "xc": 0.97
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.79,
+       "sum": 0.18,
+       "xc": 0.94
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.77,
+       "sum": 0.17,
+       "xc": 0.94
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.47,
+       "sum": 0.06,
+       "xc": 0.39
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.68,
+       "sum": 0.17,
+       "xc": 0.97
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.79,
+       "sum": 0.18,
+       "xc": 0.94
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.77,
+       "sum": 0.17,
+       "xc": 0.94
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.47,
+       "sum": 0.06,
+       "xc": 0.39
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.68,
+       "sum": 0.17,
+       "xc": 0.97
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.79,
+       "sum": 0.18,
+       "xc": 0.94
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.77,
+       "sum": 0.17,
+       "xc": 0.94
+      }
+     }
+    },
+    "A10_liver_metabolism": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.17,
+       "sum": 0.0,
+       "xc": 0.59
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.18,
+       "xc": 0.95
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.82,
+       "sum": 0.16,
+       "xc": 0.77
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.79,
+       "sum": 0.16,
+       "xc": 0.77
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.17,
+       "sum": 0.0,
+       "xc": 0.59
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.18,
+       "xc": 0.95
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.82,
+       "sum": 0.16,
+       "xc": 0.77
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.79,
+       "sum": 0.16,
+       "xc": 0.77
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.17,
+       "sum": 0.0,
+       "xc": 0.59
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.18,
+       "xc": 0.95
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.82,
+       "sum": 0.16,
+       "xc": 0.77
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.79,
+       "sum": 0.16,
+       "xc": 0.77
+      }
+     }
+    },
+    "A11_immune": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.47,
+       "sum": 0.08,
+       "xc": 0.43
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.2,
+       "sum": 0.03,
+       "xc": 0.76
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.42,
+       "sum": 0.05,
+       "xc": 0.47
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.41,
+       "sum": 0.05,
+       "xc": 0.46
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.47,
+       "sum": 0.08,
+       "xc": 0.43
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.2,
+       "sum": 0.03,
+       "xc": 0.76
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.42,
+       "sum": 0.05,
+       "xc": 0.47
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.41,
+       "sum": 0.05,
+       "xc": 0.46
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.47,
+       "sum": 0.08,
+       "xc": 0.43
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.2,
+       "sum": 0.03,
+       "xc": 0.76
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.42,
+       "sum": 0.05,
+       "xc": 0.47
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.41,
+       "sum": 0.05,
+       "xc": 0.46
+      }
+     }
+    },
+    "A12_blood": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.67,
+       "sum": 0.06,
+       "xc": 0.21
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.78,
+       "sum": 0.1,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.76,
+       "sum": 0.13,
+       "xc": 0.31
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.62,
+       "sum": 0.04,
+       "xc": 0.18
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.67,
+       "sum": 0.06,
+       "xc": 0.21
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.78,
+       "sum": 0.1,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.76,
+       "sum": 0.13,
+       "xc": 0.31
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.62,
+       "sum": 0.04,
+       "xc": 0.18
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.67,
+       "sum": 0.06,
+       "xc": 0.21
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.78,
+       "sum": 0.1,
+       "xc": 0.99
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.76,
+       "sum": 0.13,
+       "xc": 0.31
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.62,
+       "sum": 0.04,
+       "xc": 0.18
+      }
+     }
+    },
+    "A13_skin_hair": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.76,
+       "sum": 0.08,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.76,
+       "sum": 0.06,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.05,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.73,
+       "sum": 0.05,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.76,
+       "sum": 0.08,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.76,
+       "sum": 0.06,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.05,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.73,
+       "sum": 0.05,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.76,
+       "sum": 0.08,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.76,
+       "sum": 0.06,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.05,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.73,
+       "sum": 0.05,
+       "xc": 0.0
+      }
+     }
+    },
+    "A14_gut": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.69,
+       "sum": 0.08,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.06,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.67,
+       "sum": 0.05,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.65,
+       "sum": 0.04,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.69,
+       "sum": 0.08,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.06,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.67,
+       "sum": 0.05,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.65,
+       "sum": 0.04,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.69,
+       "sum": 0.08,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.75,
+       "sum": 0.06,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.67,
+       "sum": 0.05,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.65,
+       "sum": 0.04,
+       "xc": 0.0
+      }
+     }
+    },
+    "A15_fat": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.78,
+       "sum": 0.06,
+       "xc": 0.01
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.74,
+       "sum": 0.04,
+       "xc": 0.01
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.78,
+       "sum": 0.06,
+       "xc": 0.01
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.74,
+       "sum": 0.04,
+       "xc": 0.01
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.78,
+       "sum": 0.06,
+       "xc": 0.01
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.74,
+       "sum": 0.04,
+       "xc": 0.01
+      }
+     }
+    }
+   }
+  },
+  {
+   "kappa": 8.0,
+   "t0": 1.5,
+   "split_at_n10": {
+    "baseline": [],
+    "challenge": [],
+    "mapped_known": [],
+    "mapped_free": []
+   },
+   "per_organ": {
+    "A1_muscle": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.06,
+       "sum": 0.04,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.08,
+       "sum": 0.04,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.07,
+       "sum": 0.04,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.07,
+       "sum": 0.04,
+       "xc": 0.0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.06,
+       "sum": 0.04,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.08,
+       "sum": 0.04,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.07,
+       "sum": 0.04,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.07,
+       "sum": 0.04,
+       "xc": 0.0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.06,
+       "sum": 0.04,
+       "xc": 0.0
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.08,
+       "sum": 0.04,
+       "xc": 0.0
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.07,
+       "sum": 0.04,
+       "xc": 0.0
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.07,
+       "sum": 0.04,
+       "xc": 0.0
+      }
+     }
+    },
+    "A3_brain": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     }
+    },
+    "A6_heart": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.21,
+       "sum": 0.12,
+       "xc": 0.41
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.2,
+       "sum": 0.12,
+       "xc": 0.41
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.21,
+       "sum": 0.12,
+       "xc": 0.41
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.2,
+       "sum": 0.12,
+       "xc": 0.41
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.21,
+       "sum": 0.12,
+       "xc": 0.41
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.2,
+       "sum": 0.12,
+       "xc": 0.41
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     }
+    },
+    "A8_lung": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     }
+    },
+    "A9_kidney": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.17,
+       "sum": 0.1,
+       "xc": 0.04
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.17,
+       "sum": 0.1,
+       "xc": 0.04
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.03,
+       "xc": 0.01
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.03,
+       "xc": 0.01
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.17,
+       "sum": 0.1,
+       "xc": 0.04
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.17,
+       "sum": 0.1,
+       "xc": 0.04
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.03,
+       "xc": 0.01
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.03,
+       "xc": 0.01
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.17,
+       "sum": 0.1,
+       "xc": 0.04
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.17,
+       "sum": 0.1,
+       "xc": 0.04
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.03,
+       "xc": 0.01
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.03,
+       "xc": 0.01
+      }
+     }
+    },
+    "A10_liver_metabolism": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.03,
+       "sum": 0.07,
+       "xc": 0.84
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.03,
+       "sum": 0.06,
+       "xc": 0.85
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.05,
+       "xc": 0.84
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.05,
+       "xc": 0.84
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.03,
+       "sum": 0.07,
+       "xc": 0.84
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.03,
+       "sum": 0.06,
+       "xc": 0.85
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.05,
+       "xc": 0.84
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.05,
+       "xc": 0.84
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 1,
+       "ratio": 0.03,
+       "sum": 0.07,
+       "xc": 0.84
+      },
+      "challenge": {
+       "n_recoverable": 1,
+       "ratio": 0.03,
+       "sum": 0.06,
+       "xc": 0.85
+      },
+      "mapped_known": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.05,
+       "xc": 0.84
+      },
+      "mapped_free": {
+       "n_recoverable": 1,
+       "ratio": 0.04,
+       "sum": 0.05,
+       "xc": 0.84
+      }
+     }
+    },
+    "A11_immune": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     }
+    },
+    "A12_blood": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     }
+    },
+    "A13_skin_hair": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     }
+    },
+    "A14_gut": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.55,
+       "sum": 0.16,
+       "xc": 0.02
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.6,
+       "sum": 0.18,
+       "xc": 0.01
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.52,
+       "sum": 0.16,
+       "xc": 0.02
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.51,
+       "sum": 0.15,
+       "xc": 0.02
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.55,
+       "sum": 0.16,
+       "xc": 0.02
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.6,
+       "sum": 0.18,
+       "xc": 0.01
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.52,
+       "sum": 0.16,
+       "xc": 0.02
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.51,
+       "sum": 0.15,
+       "xc": 0.02
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 2,
+       "ratio": 0.55,
+       "sum": 0.16,
+       "xc": 0.02
+      },
+      "challenge": {
+       "n_recoverable": 2,
+       "ratio": 0.6,
+       "sum": 0.18,
+       "xc": 0.01
+      },
+      "mapped_known": {
+       "n_recoverable": 2,
+       "ratio": 0.52,
+       "sum": 0.16,
+       "xc": 0.02
+      },
+      "mapped_free": {
+       "n_recoverable": 2,
+       "ratio": 0.51,
+       "sum": 0.15,
+       "xc": 0.02
+      }
+     }
+    },
+    "A15_fat": {
+     "10": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "30": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "100": {
+      "baseline": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "challenge": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_known": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "mapped_free": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     }
+    }
+   }
+  }
+ ]
+}

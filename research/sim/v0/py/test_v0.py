@@ -44,6 +44,19 @@ class ModelTests(unittest.TestCase):
             self.assertEqual(set(states), {i for i, x in enumerate(ls) if x > age})
         self.assertTrue(set(tr[2.0]) <= set(tr[1.0]))
 
+    def test_challenge_draws_no_random_numbers(self):
+        base = model.simulate(100, 7)
+        self.assertEqual(model.simulate(100, 7, challenge={"A9_kidney": (9.0, 1.0)}), base)
+        a, b = {1.6: {}}, {1.6: {}}
+        model.simulate(100, 7, track=a)
+        model.simulate(100, 7, track=b, challenge={"A9_kidney": (1.5, 0.5)})
+        common = set(a[1.6]) & set(b[1.6])
+        self.assertTrue(common)
+        # One RNG stream for all mice: once deaths differ, later mice draw differently,
+        # so compare the cohort mean, not mouse by mouse.
+        gain = sum(b[1.6][i]["A9_kidney"] - a[1.6][i]["A9_kidney"] for i in common) / len(common)
+        self.assertGreater(gain, 0.25)
+
     def test_untreated_median_in_mouse_range(self):
         ls = sorted(model.simulate(200, 1))
         self.assertTrue(1.5 < ls[100] < 3.5, ls[100])
