@@ -110,3 +110,23 @@ that tables derived from the Schultz 2020 frailty dataset may be published,
 with citation (Schultz, Kane et al. 2020, Nat Commun 11:4618,
 10.1038/s41467-020-18446-0). LA-004 and LA-005 derived tables in repo: yes,
 under PR12 + PR14.
+
+## R-Sim readout manifests, MPD projects (`26336bb`, checked 2026-10-20)
+
+All three are Mouse Phenome Database projects from the JAX Nathan Shock
+Center (NIH AG025707). Each project page (Contact, Acknowledgements, Data
+changelog, Downloads) adds no terms of its own, so the MPD terms of use apply
+as in LA-006: "MPD data contributors waive copyright and related rights [...]
+Scholarly citation norms must be followed for content reuse", including "data
+derived by MPD (such as summary data) and any plots, tables". DOIs checked on
+Crossref.
+
+| Id | Manifest | URL checked (2026-10-20) | Verdict | Derived tables in repo | Conditions |
+|---|---|---|---|---|---|
+| LA-018 | `mpd-peters4` (MPD:243, CBC, 30 strains) | https://phenome.jax.org/projects/Peters4 ; https://phenome.jax.org/about/termsofuse | approve with conditions (LA-006 terms) | yes | No paper on the project page: cite the MPD project page (Peters LL, with Schultz D, Godfrey D; MPD:243) and MPD (RRID:SCR_003212) per https://phenome.jax.org/about/citing. Other LA-006 conditions apply (meta robots, ≥ 2 s between requests, pin download date + sha256). |
+| LA-019 | `mpd-petkova1` (MPD:242, flow + CBC, 32 strains) | https://phenome.jax.org/projects/Petkova1 ; https://phenome.jax.org/about/termsofuse | approve with conditions (LA-006 terms) | yes | Cite Petkova et al. 2008, Physiol Genomics 34:304-314 (10.1152/physiolgenomics.00185.2007), the MPD project (MPD:242) and MPD. Other LA-006 conditions apply. |
+| LA-020 | `mpd-korstanje1` (MPD:297, urine albumin/creatinine, 30 strains) | https://phenome.jax.org/projects/Korstanje1 ; https://phenome.jax.org/about/termsofuse | approve with conditions (LA-006 terms) | yes | Cite Tsaih et al. 2010, Kidney Int 77:201-210 (10.1038/ki.2009.434), the MPD project (MPD:297) and MPD. The project has 2 upstream corrections in its changelog: pin download date + sha256. Other LA-006 conditions apply. |
+
+Access is not a licence question: MPD returns HTTP 403 to curl and Actions.
+These three ride on the president's MPD access request of 2026-10-20 (route
+out already recorded in the O9 note for LA-006).
