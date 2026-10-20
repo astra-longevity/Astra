@@ -1,0 +1,37 @@
+id: mpd-korstanje1
+title: "Aging study: urine albumin and creatinine in 30 inbred strains (MPD Korstanje1)"
+description: >-
+  Urine microalbumin, creatinine and albumin/creatinine ratio of 30 inbred mouse strains, both sexes, at 12, 18 and 24 months, average 7 mice per strain, sex and age. JAX Nathan Shock Center. Candidate source for the R-Sim v0 kidney axis (A9), albuminuria only.
+maintainer: "Korstanje R, The Jackson Laboratory, Nathan Shock Center (AG025707); hosted by the Mouse Phenome Database (project Korstanje1, MPD:297)"
+landing_url: https://phenome.jax.org/projects/Korstanje1
+access: public
+files:
+  - url: "https://phenome.jax.org/phenomedoc?name=MPD_projdatasets/Korstanje1.csv"
+    sha256: null
+    size_bytes: null
+    format: csv
+    note: "per-animal urine albumin/creatinine data, MPD project download"
+licence:
+  spdx_or_name: "MPD terms of use (contributors waive copyright; citation required)"
+  url: https://phenome.jax.org/about/termsofuse
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    Same MPD terms as mpd-itp1 (LA-006): contributors waive copyright, MPD and
+    project citation required, respect meta robots, at least 2 s between
+    requests. Verification to confirm LA-006 conditions extend to this project.
+licence_status: pending
+fetch:
+  min_interval_seconds: 2
+checked_at: "2026-10-20"
+source_publications:
+  - 10.1038/ki.2009.434
+used_by:
+  - R-Sim
+fetched_at: null
+notes: >-
+  Screened for R-Sim v0 readout calibration (identifiability.md 6.4); see
+  data/datasets/coverage/rsim-v0-readouts.md. Partial fit: n about 7 per
+  strain, sex and age (target 10), no 30-month point. MPD returns HTTP 403 to
+  plain curl and GitHub Actions; fetch rides on the MPD access request sent by
+  the president on 2026-10-20. Not fetched; sha256 and size unknown.
