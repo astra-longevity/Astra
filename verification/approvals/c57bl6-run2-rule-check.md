@@ -89,3 +89,23 @@ and stopped as the rule requires. It yields no hit list and stays in the log
 as a stopped run. C57BL/6 stays `pending` (M 1 lab, F 0). The next rule
 (A50 ruling G155, 17:36: count-only dry runs, section-restricted query B) is
 checked here line by line before it runs.
+
+## A50 ruling: count-only dry runs, section-restricted query B (G155, 2026-10-20, 17:36)
+
+Accepted (A2 proposal) with 4 amendments:
+
+1. **Candidates first.** The rule PR lists every candidate query B (at most
+   5) and the choice rule (the broadest candidate under 1500 new PMIDs)
+   **before** any count is queried. All counts are logged. No candidate is
+   added after a count is seen.
+2. **Sections.** Europe PMC sections RESULTS, METHODS, TABLE, FIG, with
+   same-section co-occurrence of the terms. The known limit (a median printed
+   only in another section is missed by B) goes in the seal record.
+3. **Log and run.** #106 stays in the log as a stopped run. Verification
+   clears the new rule line by line before it runs; it runs once; all PR #94
+   conditions are unchanged.
+4. **No candidate under 1500** → C57BL/6 stays `pending`. The bar is not
+   lowered.
+
+Verification check of the new rule PR includes: candidate list + choice
+rule committed in a commit older than every logged count query.
