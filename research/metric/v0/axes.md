@@ -70,16 +70,16 @@ control. This is logged as issue I-3 below.
 |---|---|---|---|---|---|---|
 | A1 | Skeletal muscle | grip strength, rotarod | TMS limb muscle transcriptome; FRL frailty items | RAPA, late life (motor benefits: doi:10.1111/acel.12109; test detail `[to verify]`) | ERCC1 (frailty, secondhand `[to verify]`) | candidate (molecular only; functional readout `unmeasured`) |
 | A2 | Bone | bone mineral density (micro-CT) | none confirmed | RAPA, late life (skeletal benefits: doi:10.1111/acel.12109; measure `[to verify]`) | LMNA (osteoporosis, secondhand via doi:10.1111/acel.13457) | unmeasured |
-| A3 | Brain, cognition | Barnes or Morris water maze | TMS brain transcriptome | `[to verify]` | ERCC1 (cognitive decline, secondhand `[to verify]`) | candidate (molecular only) |
+| A3 | Brain, cognition | Barnes or Morris water maze | TMS brain transcriptome | RAPA chow, C57BL/6 both sexes: blocks age-associated cognitive decline in old mice (doi:10.1016/j.neuroscience.2012.06.054); also improves young mice, so age × treatment needed (I-6) | ERCC1 (cognitive decline, secondhand `[to verify]`) | candidate (molecular only) |
 | A4 | Hearing | auditory brainstem response (ABR) threshold | none confirmed | `[to verify]` | ERCC1 (hearing loss, secondhand `[to verify]`) | unmeasured |
 | A5 | Vision | electroretinogram / optomotor response | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
 | A6 | Heart | echocardiography (ejection fraction, diastolic function) | TMS heart transcriptome | RAPA, 3 months from 24 months, female C57BL/6J: age-related heart changes reversed or attenuated (doi:10.1111/acel.12109) | `[to verify]` | candidate (molecular only) |
 | A7 | Vessels | pulse-wave velocity, blood pressure | TMS aorta `[to verify]` | `[to verify]` | LMNA (VSMC loss, secondhand via doi:10.1111/acel.13457) | unmeasured |
 | A8 | Lung | lung function (plethysmography) | TMS lung transcriptome | `[to verify]` | `[to verify]` | candidate (molecular only) |
-| A9 | Kidney | glomerular filtration, albuminuria | TMS kidney transcriptome | `[to verify]` | `[to verify]` | candidate (molecular only) |
+| A9 | Kidney | glomerular filtration, albuminuria | TMS kidney transcriptome | CR, **rat only** (prevents age rise in albuminuria, F344: PMID 1415585; less glomerulosclerosis, doi:10.1152/ajprenal.00307.2006); mouse source `[to verify]` | `[to verify]` | candidate (molecular only) |
 | A10 | Liver and metabolism | glucose tolerance test | TMS liver; ITP body weight | CANA (lowers glucose, both sexes) | HFD (doi:10.1038/nature05354; glucose readout `[to verify]`) | candidate |
-| A11 | Immune system | antibody response to a vaccine | TMS spleen, marrow, thymus | `[to verify]` | IRR `[to verify]` | candidate (molecular only) |
-| A12 | Blood | complete blood count | TMS marrow | `[to verify]` | IRR (HSC loss, doi:10.1182/blood-2005-04-1418; blood count `[to verify]`) | candidate (molecular only) |
+| A11 | Immune system | antibody response to a vaccine | TMS spleen, marrow, thymus | RAPA in old mice: vaccinated rapamycin-treated mice all survived a lethal influenza challenge vs 9/12 vehicle deaths (doi:10.1126/scisignal.2000559), own readout | IRR `[to verify]` | candidate (molecular only) |
+| A12 | Blood | complete blood count | TMS marrow | RAPA in old mice restored hematopoiesis (doi:10.1126/scisignal.2000559; blood count `[to verify]`) | IRR (HSC loss, doi:10.1182/blood-2005-04-1418; blood count `[to verify]`) | candidate (molecular only) |
 | A13 | Skin and hair | wound closure time, coat score (frailty item) | TMS skin; FRL coat items | `[to verify]` | ERCC1 (epigenetic age up in skin: doi:10.1101/2022.12.28.522011, preprint) | candidate |
 | A14 | Gut | intestinal permeability | TMS large intestine | `[to verify]` | `[to verify]` | candidate (molecular only) |
 | A15 | Fat tissue | body composition (fat mass) | TMS fat depots; ITP body weight | `[to verify]` | LMNA (fat loss, secondhand) | candidate |
@@ -104,13 +104,13 @@ Hallmark list from López-Otín et al. 2023, doi:10.1016/j.cell.2022.11.001
 |---|---|---|---|---|---|---|
 | H1 | Genomic instability | DNA damage foci, mutation burden | none confirmed | `[to verify]` | ERCC1, IRR | unmeasured |
 | H2 | Telomere attrition | telomere length (qPCR / flow-FISH) | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
-| H3 | Epigenetic alterations | methylation clock | GEO-M `[to verify]` | RAPA, CR (clocks slowed, `[to verify]`) | ERCC1 (epigenetic age up in blood, brain, liver, muscle, skin: doi:10.1101/2022.12.28.522011, preprint) | candidate |
+| H3 | Epigenetic alterations | methylation clock | GEO-M: GSE80672 (blood RRBS, 141 C57BL/6 males, Petkovich 2017) | CR slows blood methylome ageing (PMC5946071, data GSE80672), own readout; RAPA and CR in liver (doi:10.1186/s13059-017-1186-2, title only `[to verify]`) | ERCC1 (epigenetic age up in blood, brain, liver, muscle, skin: doi:10.1101/2022.12.28.522011, preprint) | candidate |
 | H4 | Loss of proteostasis | protein aggregates, chaperone expression | TMS (chaperone genes) | `[to verify]` | `[to verify]` | candidate (molecular only) |
 | H5 | Disabled macroautophagy | autophagic flux (LC3-II turnover) | none confirmed | RAPA (mTOR inhibition, `[to verify]` on this readout) | `[to verify]` | unmeasured |
 | H6 | Deregulated nutrient sensing | IGF-1, insulin, mTOR activity | ITP body weight; TMS | RAPA, ACA, CANA | HFD `[to verify]`; LMNA (IGF deficiency, secondhand) | candidate |
-| H7 | Mitochondrial dysfunction | respiration (Seahorse), exercise capacity | TMS (OXPHOS genes) | `[to verify]` | `[to verify]` | candidate (molecular only) |
+| H7 | Mitochondrial dysfunction | respiration (Seahorse), exercise capacity | TMS (OXPHOS genes) | SS-31 (elamipretide) in aged mice: better mitochondrial quality and exercise tolerance (PMID 30597195), own readout | `[to verify]` | candidate (molecular only) |
 | H8 | Cellular senescence | p16/p21 expression, SASP | TMS (Cdkn2a, Cdkn1a) | `[to verify]` | ERCC1 (senescence and SASP markers up: aging-us 202321); IRR (p16 and SA-β-gal up in HSCs: doi:10.1182/blood-2005-04-1418) | candidate |
-| H9 | Stem cell exhaustion | colony assays, HSC function | TMS marrow | `[to verify]` | IRR (sustained loss of HSC number and function: doi:10.1182/blood-2005-04-1418) | candidate (molecular only) |
+| H9 | Stem cell exhaustion | colony assays, HSC function | TMS marrow | RAPA in old mice restored HSC self-renewal (doi:10.1126/scisignal.2000559), own readout | IRR (sustained loss of HSC number and function: doi:10.1182/blood-2005-04-1418) | candidate (molecular only) |
 | H10 | Altered intercellular communication | plasma proteome | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
 | H11 | Chronic inflammation | plasma IL-6, TNF | TMS immune cells (indirect) | `[to verify]` | HFD `[to verify]` | candidate (molecular only) |
 | H12 | Dysbiosis | gut microbiome composition | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
@@ -120,10 +120,16 @@ Hallmark list from López-Otín et al. 2023, doi:10.1016/j.cell.2022.11.001
 - 30 axes: 18 organ-system, 12 hallmark.
 - `candidate`: 19. `unmeasured`: 11 (A2, A4, A5, A7, A16, A17, H1, H2, H5,
   H10, H12).
-- Axes with **both** controls named from an opened source: A1 (RAPA /
-  ERCC1, ERCC1 secondhand), A2 (RAPA / LMNA, secondhand), A10 (CANA / HFD).
-  None has both controls measured on the axis's own readout; every one
-  still has a `[to verify]` on the readout. Test 1 can't pass any axis yet.
+- Axes with **both** controls named from an opened source: 7. A1, A2, A3
+  (wrong way secondhand), A10, A12 (blood count `[to verify]`), H3, H9.
+- Both controls on the axis's **own readout**: H9 (RAPA restores HSC
+  self-renewal / IRR depletes HSCs) and H3 (CR slows blood methylome /
+  ERCC1 raises epigenetic age, preprint). These are the first axes test 1
+  can actually run on.
+- Flynn 2013 (doi:10.1111/acel.12109): only the abstract was read; the
+  muscle and bone tests are not named there, so A1 and A2 right-way readouts
+  stay `[to verify]`.
+- Kidney (A9) right-way evidence is rat only. Mouse source needed.
 - Most `candidate` axes are molecular only (TMS transcriptomes). Their
   functional anchor has no public readout yet. That gap is the main blind
   spot of v0.
