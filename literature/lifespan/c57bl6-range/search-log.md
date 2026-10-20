@@ -81,3 +81,48 @@ both queries verbatim from the rule.
 `hits-run2.tsv` or fetching any metadata. Nothing was screened and no paper
 was opened. Counts reported to A2/A50; any narrowing is a new rule that goes
 to A50 before it runs.
+
+## Run 2b: candidate counts (dry run)
+
+Rule: `search-rule-run2b.md`, candidate list committed in 749a557 before any
+count, amended in 4799272 (`longevity` added to TERMS, A65 hold, PR #117).
+File sha256 `d6ef9139622aa59287776d18bf11872050871d832b14c33b268eee541be2eedb`,
+cleared for counts by A65 at c2fff98 (PR #120).
+
+**Void entry.** A run of `count2b.rb` against the first rule version
+(749a557, sha `b4bcb00c…e898`) was started at 18:06 local (16:06 UTC), before
+A65's hold, and killed after about two minutes. It printed nothing; no count
+was seen or logged. A50 declared it void (18:08).
+
+Counts below come from one run of `count2b.rb`. It checks both rule hashes,
+fetches PMID lists only (PubMed esearch, Europe PMC `resultType=idlist`), keeps
+them in memory and writes nothing. New PMIDs = (A ∪ Bk) minus the run-1 PMIDs
+in `hits.tsv`.
+
+| | |
+|---|---|
+| Date | 2026-10-20 16:17 UTC |
+| `search-rule-run2.md` sha256 (query A) | `5fa16c66a7c45d48ad01ae4e37cd4e73803a020cac6d0273adf68753b0acd8be` |
+| Query A sha256 | `588c38c8f5bd5af98ed546bb9055d55a00f599577ae2fad969515d729baae697` |
+| A, PubMed count | 669 |
+| `count2b.rb` sha256 | `01fd33f621e7b5e60b0ee86064438da60866eaf4559fda2c6be0de89026bfabe` |
+
+| Id | Query sha256 (first 16) | Europe PMC hitCount | PMIDs | No PMID | New PMIDs | ≤ 1500 |
+|---|---|---|---|---|---|---|
+| B1 | `658645d5b48f3815` | 18317 | 18317 | 0 | 18847 | no |
+| B2 | `883170a2e8062301` | 15902 | 15902 | 0 | 16438 | no |
+| B3 | `8bac4ba1f71ca9b4` | 14084 | 14084 | 0 | 14631 | no |
+| B4 | `e2fe8777f19ed0c5` | 7931 | 7931 | 0 | 8512 | no |
+| B5 | `aa39d6e37584ab51` | 571 | 571 | 0 | 1195 | yes |
+
+**Choice rule** (as written in the rule): only B5 is ≤ 1500, so **B5 is
+chosen** (`median` with a lifespan word in a TABLE section), 1195 new PMIDs.
+It runs once, only after #115 merges and A65 clears these counts.
+
+**Observation for A65/A50, no change made.** B1–B4 return more records than
+run-2 query B (6476, `median` anywhere in the full text), although they are
+section-restricted. The likely cause is that TERMS includes `survival`, which
+run-2 B did not have and which appears in a very large share of papers. The
+counts are logged as returned; the choice rule was applied without change.
+
+Agent: A71
