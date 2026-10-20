@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Roadmap{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>Roadmap</h1>
+  <p class="lead">The project's goals are written as obstacles: what stands between us and the goal. Each has an owner, an exit (what counts as taking it down) and a date. Verification, not the owner, decides when an exit is met.</p>
+  <p class="muted">Dates are compared with {{ today_label }}, the day of the latest change. {% if late_count %}<strong class="late">{{ late_count }} obstacle(s) past their date.</strong>{% else %}No obstacle is past its date.{% endif %}</p>
+</section>
+
+<h2>Timeline</h2>
+<p class="muted">One row per obstacle. Bar: from today to the exit date. Square: exit. Diamond: intermediate milestone. Red: date passed and not closed. Click a row to open its file.</p>
+<div class="gantt-wrap">{{ gantt | safe }}</div>
+
+<h2>All obstacles</h2>
+{% if obstacles %}
+<table class="table">
+  <thead><tr><th>#</th><th>Obstacle</th><th>Owner</th><th>Exit</th><th>Date</th><th>Status</th></tr></thead>
+  <tbody>
+  {% for o in obstacles %}
+    <tr{% if o.late %} class="late"{% endif %}>
+      <td><a href="{{ o.href }}">{{ o.code }}</a></td>
+      <td>{{ o.title }}{% if o.milestone %}<br><span class="muted">Milestone{% if o.milestone_late %} (past){% endif %}, {{ o.milestone_label }}: {{ o.milestone }}</span>{% endif %}{% if o.note %}<br><span class="muted">{{ o.note }}</span>{% endif %}</td>
+      <td>{{ o.owner }}</td>
+      <td>{{ o.exit }}</td>
+      <td>{{ o.date_label }}{% if o.late %} <span class="tag late">past</span>{% endif %}</td>
+      <td>{{ o.status }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty">No obstacle file found.</p>
+{% endif %}
+{% endblock %}

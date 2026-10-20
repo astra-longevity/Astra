@@ -90,7 +90,7 @@ fn page(paths: &SitePaths, file: &str) -> String {
 fn builds_every_page() {
     let paths = SitePaths::from_repo(&fake_repo("pages"));
     let report = build_from(&fixture_db(), &paths).unwrap();
-    assert_eq!(report.pages, 13, "7 top pages + 2 claims + 2 sources + 2 notes");
+    assert_eq!(report.pages, 16, "10 top pages + 2 claims + 2 sources + 2 notes");
     for file in ["index.html", "map.html", "journal.html", "glossary.html", "static/style.css"] {
         assert!(paths.output.join(file).is_file(), "{file} missing");
     }
@@ -161,6 +161,101 @@ fn literature_notes_become_pages() {
     assert!(note.contains("doc prose"), "interface/templates/doc.html used");
     let map = page(&paths, "map.html");
     assert!(map.contains("literature/aging-map/01-genomic-instability.html"), "doc_href filled");
+}
+
+/// Fake repo with two obstacles, a charter part 6 and one decision file.
+fn project_repo(name: &str) -> SitePaths {
+    let repo = fake_repo(name);
+    let files = [
+        (
+            "research/obstacles/research/o1-a.yaml",
+            "id: o1-a\ntitle: First\nowner: A28\nexit: x\ndate: 2000-01-20\nstatus: open\n",
+        ),
+        (
+            "research/obstacles/research/o2-b.yaml",
+            "id: o2-b\ntitle: Second\nowner: A28\nexit: y\ndate: 2001-01-20\nstatus: open\nmilestone: m\nmilestone_date: 2000-06-01\n",
+        ),
+        (
+            "docs/charter/charter.md",
+            "# Charter\n\n## Part 6: missions\n\n| Mission | Owner | Output |\n|---|---|---|\n| R-Metric v0 | A28 | A measure |\n",
+        ),
+        ("docs/decisions/0001-a.md", "# First decision\n\nText.\n"),
+    ];
+    for (file, text) in files {
+        let path = repo.join(file);
+        fs::create_dir_all(path.parent().unwrap()).unwrap();
+        fs::write(path, text).unwrap();
+    }
+    SitePaths::from_repo(&repo)
+}
+
+#[test]
+fn roadmap_page_shows_obstacles() {
+    let paths = project_repo("roadmap");
+    let report = build_from(&fixture_db(), &paths).unwrap();
+    assert_eq!(report.pages, 18, "16 + 2 decision files");
+    let roadmap = page(&paths, "roadmap.html");
+    assert!(roadmap.contains("<svg class=\"gantt\""), "gantt");
+    assert!(roadmap.contains("milestone open"), "milestone drawn (no history: nothing is late)");
+    assert!(roadmap.contains("research/obstacles/research/o1-a.yaml"), "row links to its file");
+    assert!(!roadmap.contains(">open<"), "no raw status code");
+}
+
+#[test]
+fn status_and_decisions_pages() {
+    let paths = project_repo("status");
+    let _report = build_from(&fixture_db(), &paths).unwrap();
+    let status = page(&paths, "status.html");
+    assert!(status.contains("R-Metric v0") && status.contains("o1-a.yaml"), "mission with next obstacle");
+    let index = page(&paths, "decisions.html");
+    assert!(index.contains("docs/decisions/0001-a.html") && index.contains("First decision"), "decision listed");
+    assert!(page(&paths, "docs/decisions/0001-a.html").contains("Text."), "decision rendered");
+    for file in ["status.html", "roadmap.html", "decisions.html", "journal.html"] {
+        let html = page(&paths, file);
+        assert!(!html.contains("none\"") && !html.contains(">None<"), "{file} shows a raw none");
+        assert!(html.contains(BANNER_TEXT), "{file} banner");
+    }
+}
+
+/// Every generated `.html` file under `dir`, recursively.
+fn html_files(dir: &Path, found: &mut Vec<PathBuf>) {
+    for item in fs::read_dir(dir).unwrap() {
+        let path = item.unwrap().path();
+        if path.is_dir() {
+            html_files(&path, found);
+        } else if path.extension().is_some_and(|ext| ext == "html") {
+            found.push(path);
+        } else {
+            // Static assets carry no links to check.
+        }
+    }
+}
+
+/// Relative link targets (no scheme, no pure anchor) of one page.
+fn relative_links(html: &str) -> Vec<String> {
+    html.split("href=\"")
+        .skip(1)
+        .filter_map(|part| part.split('"').next())
+        .filter(|target| !target.contains("://") && !target.starts_with("mailto:"))
+        .filter_map(|target| target.split('#').next())
+        .filter(|file| !file.is_empty())
+        .map(str::to_owned)
+        .collect()
+}
+
+/// Every relative `href` of every generated page points to a generated file.
+#[test]
+fn no_broken_relative_links() {
+    let paths = project_repo("brokenlinks");
+    let _report = build_from(&fixture_db(), &paths).unwrap();
+    let mut found = Vec::new();
+    html_files(&paths.output, &mut found);
+    for path in found {
+        let html = fs::read_to_string(&path).unwrap().replace("&#x2f;", "/");
+        for file in relative_links(&html) {
+            assert!(path.parent().unwrap().join(&file).is_file(), "{} links to missing {file}", path.display());
+        }
+    }
 }
 
 /// Replaces `from` with `to` in the fake repo's copy of `template`.

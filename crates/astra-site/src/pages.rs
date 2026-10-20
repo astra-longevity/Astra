@@ -8,7 +8,8 @@ use minijinja::{Environment, Value, context, path_loader};
 use rusqlite::Connection;
 
 use crate::docs::{self, MissionDir};
-use crate::git::{self, History};
+use crate::project::git::{self, History};
+use crate::project::{decisions, gantt, obstacles, status};
 use crate::query::{self, rows, text};
 use crate::{BuildReport, SiteError, SitePaths, io_at};
 use crate::{glossary, markdown};
@@ -70,6 +71,9 @@ fn leak_name(name: &'static str) -> &'static str {
         "sources" => "sources.html",
         "questions" => "questions.html",
         "journal" => "journal.html",
+        "status" => "status.html",
+        "roadmap" => "roadmap.html",
+        "decisions" => "decisions.html",
         _ => "glossary.html",
     }
 }
@@ -87,6 +91,7 @@ pub(crate) fn render_site(conn: &Connection, paths: &SitePaths) -> Result<BuildR
     pages.extend(claim_pages(conn)?);
     pages.extend(source_pages(conn)?);
     pages.extend(doc_pages(&paths.repo)?);
+    pages.extend(project_pages(&paths.repo, &history)?);
 
     let templates = paths.repo.join("interface").join("templates");
     let mut env = Environment::new();
@@ -191,6 +196,41 @@ fn doc_pages(repo: &Path) -> Result<Vec<Page>, SiteError> {
             Ok(Page { file: markdown::html_name(&file), template: markdown::TEMPLATE_NAME, vars })
         })
         .collect()
+}
+
+/// Template of one decision page (charter, commandments, decision log).
+const DECISION_TEMPLATE: &str = "decision.html";
+
+/// Status, roadmap and decisions pages, plus one page per decision file.
+fn project_pages(repo: &Path, history: &History) -> Result<Vec<Page>, SiteError> {
+    let today = history.today();
+    let found = obstacles::load(repo)?;
+    let rows: Vec<Value> = found.iter().map(|item| item.to_value(&today)).collect();
+    let late = found.iter().filter(|item| item.is_late(&today)).count();
+    let status_vars = context! {
+        missions => status::missions(repo, &found)?,
+        activity => status::activity(repo)?,
+        charter_href => crate::project::blob(status::CHARTER),
+        owners_href => crate::project::blob(status::OWNERS),
+    };
+    let roadmap_vars = context! {
+        obstacles => rows,
+        late_count => late,
+        today_label => git::day_label(&today),
+        gantt => gantt::svg(&found, &today),
+    };
+    let mut pages = vec![
+        Page::top("status", status_vars),
+        Page::top("roadmap", roadmap_vars),
+        Page::top("decisions", context! { groups => decisions::index(repo)? }),
+    ];
+    for path in decisions::files(repo)? {
+        let text = fs::read_to_string(&path).map_err(io_at(&path))?;
+        let file = docs::relative_name(repo, &path);
+        let vars = markdown::doc_vars(&text, &file);
+        pages.push(Page { file: markdown::html_name(&file), template: DECISION_TEMPLATE, vars });
+    }
+    Ok(pages)
 }
 
 /// Renders one page to HTML.
