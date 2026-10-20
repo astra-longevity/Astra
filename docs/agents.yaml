@@ -30,9 +30,17 @@ agents:
     note: D67 prep worker (coloc reference cases)
   - id: A53
     unit: verification
-    status: active
+    status: ended
     note: D67 prep worker (references survey)
   - id: A54
     unit: verification
-    status: active
+    status: ended
     note: D67 prep worker (licences, ledger template)
+  - id: A65
+    unit: verification
+    status: active
+    note: M0 Seal Worker (Neyman); D115 seal records
+  - id: A66
+    unit: verification
+    status: active
+    note: M0 Criteria Worker (Bradford); licence + criteria approvals
