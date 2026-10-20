@@ -42,12 +42,19 @@ queries verbatim from this file. Date window and language as in run 1.
 
   ```
   ("C57BL/6" OR "C57BL/6J" OR "C57BL/6N" OR "C57BL6")
-  AND ("median lifespan" OR "median life span" OR "median survival" OR "median longevity")
+  AND "median"
   AND ("lifespan" OR "life span" OR "longevity")
   AND HAS_FT:Y AND SRC:MED AND LANG:eng
   AND PUB_YEAR:[2000 TO 2024]
   AND NOT PUB_TYPE:"review"
   ```
+
+  Amended before any run, by A50 ruling (recorded by A65 in PR #98): the
+  four exact phrases of the first version (`"median lifespan"`,
+  `"median life span"`, `"median survival"`, `"median longevity"`, PR #97)
+  are replaced by the single full-text word `"median"`, which I3 needs anyway.
+  No other change. Known limit: a median printed only under another label
+  (e.g. "50% survival") is missed by B; it can still come in through A.
 
   Only records with a PMID are kept (SRC:MED); records without one are
   counted in the log.
