@@ -161,14 +161,38 @@ Overall validation covered 4 publications (22 survival probabilities, 7 medians,
 
 **Second implementation:** Wei & Royston 2017, *Stata J* 17:786-802, doi:10.1177/1536867X1801700402 (`ipdfc`), reproduces the same example.
 
-**Gap:** D6 needs ≥3 curves and only 1 is itemised. Guyot 2012 validated on 6 curve pairs from 4 publications (its refs [12], [27]-[29]), but the per-curve results are not printed in the text. Candidate sources for 2 more curves, each with the figure, at-risk table and a printed median or HR:
+**Gap:** D6 needs ≥3 curves; 2 are now identified (Bonner 2006 above, ICON7 below), 1 is missing.
+
+**Curve 2: ICON7.** Perren et al. 2011, *NEJM* 365:2484-2496, doi:10.1056/NEJMoa1103799 (Crossref OK), bevacizumab in ovarian cancer. The trial prints the KM figure, the at-risk table, the median and the HR. Wei & Royston 2017 reconstruct it:
+
+| Quantity | Original | ipdfc (Wei & Royston 2017) |
+|----------|----------|----------------------------|
+| HR (95% CI) | 0.81 (0.70, 0.94) | 0.83 (0.72, 0.96) |
+| Median, chemotherapy arm (months) | 17.3 | 17.5 (16.1, 18.7) |
+| At risk at 6 / 12 months | 693 / 464 | 694 / 465 |
+
+Endpoint (PFS assumed) and the arm for the at-risk counts: `[to verify]` against the NEJM figure.
+
+**Not usable:** the third worked example in Wei & Royston 2017 prints no original HR or median (only log-rank p 0.0003 vs 0.0006 reconstructed, and an absolute risk reduction 1.9% vs 1.82%), so it fails the "printed median or HR" requirement.
+
+**Candidate for curve 3:** Saluja et al. 2019, *Res Synth Methods* 10:465-475, doi:10.1002/jrsm.1362 (Crossref OK): 118 KM curves from 55 RCTs with reported vs reconstructed HRs. Whether it itemises the per-trial values: `[to verify]`. Guyot 2012 validated on 6 curve pairs from 4 publications (its refs [12], [27]-[29]), but the per-curve results are not printed in the text. Candidate sources for 2 more curves, each with the figure, at-risk table and a printed median or HR:
 
 - Wei & Royston 2017 (above) for further worked examples `[to verify]`.
 - Saluja et al. 2019, *Res Synth Methods*, doi:10.1002/jrsm.1362: 118 KM curves from 55 RCTs, with the reported HR next to the reconstructed HR `[to verify: DOI on Crossref, per-trial table]`.
 
 Pick 2 trials whose publication prints the at-risk table and a median or HR, and whose reconstructed value is printed in one of these papers.
 
-**Tolerance:** survival probability 1.5 percentage points absolute; median 1 month or 5% relative. For the HR, use 10% relative, and only when the at-risk table and total events are printed. On Bonner 2006 the original HR is 0.68 [0.52, 0.89], Guyot gives 0.73 [0.57, 0.94] and `ipdfc` 0.72 [0.56, 0.93] (Wei & Royston 2017, Table 1), already 6-7% apart, so 5% would be too strict.
+**Tolerance:** not proposed here. Under D38 Verification sets it from ≥3 curves; setting it from one curve, just above the error already observed, would make the test pass by construction.
+
+**Observed deviations on Bonner 2006 (data, `[to verify]` against the source tables):**
+
+| Quantity | Original | Guyot 2012 | ipdfc (Wei & Royston 2017) |
+|----------|----------|------------|----------------------------|
+| RT survival 1 y / 2 y / 3 y (%) | 55 / 41 / 34 | 56.1 / 41.1 / 34.7 (Δ +1.1 / +0.1 / +0.7) | - |
+| RT+cetuximab survival 2 y / 3 y (%) | 50 / 47 | 50.4 / 46.7 (Δ +0.4 / −0.3) | - |
+| Median RT (months) | 14.9 | 14.9 (Δ 0) | 16.1 (as found in a snippet, `[to verify]`) |
+| Median RT+cetuximab (months) | 24.4 | 24.3 (Δ −0.1) | - |
+| HR (95% CI) | 0.68 (0.52, 0.89) | 0.73 (0.57, 0.94), +7.4% | 0.72 (0.56, 0.93), +5.9% |
 
 ## 7. van Zwet-Schwab-Senn shrinkage prior
 
