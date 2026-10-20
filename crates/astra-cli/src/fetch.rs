@@ -22,17 +22,25 @@ struct Opts {
     root: PathBuf,
     /// Download cache (`fetch verify` only).
     cache: Option<PathBuf>,
+    /// Pinned files above this size are left to the job that uses them.
+    max_bytes: Option<u64>,
 }
 
-/// Parses `--root DIR` and `--cache DIR`.
+/// Parses a `--max-bytes` value.
+fn parse_bytes(value: &str) -> Result<u64, String> {
+    value.parse().map_err(|_err| format!("--max-bytes needs a whole number of bytes, got {value}"))
+}
+
+/// Parses `--root DIR`, `--cache DIR` and `--max-bytes N`.
 fn parse(args: &[String]) -> Result<Opts, String> {
-    let mut opts = Opts { root: PathBuf::from("."), cache: None };
+    let mut opts = Opts { root: PathBuf::from("."), cache: None, max_bytes: None };
     let mut iter = args.iter();
     while let Some(flag) = iter.next() {
         let value = iter.next().ok_or_else(|| format!("missing value after {flag}"))?;
         match flag.as_str() {
             "--root" => opts.root = PathBuf::from(value),
             "--cache" => opts.cache = Some(PathBuf::from(value)),
+            "--max-bytes" => opts.max_bytes = Some(parse_bytes(value)?),
             other => return Err(format!("unknown option: {other}")),
         }
     }
@@ -49,9 +57,9 @@ fn failed(problems: &[String]) -> Reply {
     Reply { code: 1, out: String::new(), err: problems.join("\n") }
 }
 
-/// Loads the manifests under `root` and builds the plan.
-fn load_plan(root: &Path) -> Result<Plan, Vec<String>> {
-    astra_fetch::load_all(root).map(|manifests| Plan::new(&manifests))
+/// Loads the manifests under `root` and builds the plan, splitting files above `max_bytes`.
+fn load_plan(root: &Path, max_bytes: Option<u64>) -> Result<Plan, Vec<String>> {
+    astra_fetch::load_all(root).map(|manifests| Plan::limited(&manifests, max_bytes))
 }
 
 /// Runs `astra fetch pin FILE`.
@@ -75,7 +83,12 @@ fn verify_cache(plan: &Plan, cache: &Path) -> Reply {
     match verify(plan, cache) {
         Ok(count) => Reply {
             code: 0,
-            out: format!("{count} files verified, {} datasets skipped (licence not approved)", plan.skipped.len()),
+            out: format!(
+                "{count} files verified, {} large files left to the job that uses them, {} datasets skipped \
+                 (licence not approved)",
+                plan.large.len(),
+                plan.skipped.len()
+            ),
             err: String::new(),
         },
         Err(problems) => failed(&problems),
@@ -91,7 +104,7 @@ pub(crate) fn fetch(action: &str, args: &[String]) -> Reply {
         Ok(parsed) => parsed,
         Err(message) => return usage(message),
     };
-    let plan = match load_plan(&opts.root) {
+    let plan = match load_plan(&opts.root, opts.max_bytes) {
         Ok(found) => found,
         Err(problems) => return failed(&problems),
     };
@@ -161,6 +174,8 @@ mod tests {
         assert_eq!(opts.cache.as_deref().and_then(|path| path.to_str()), Some("c"), "cache");
         assert!(parse(&args(&["--root"])).is_err(), "missing value");
         assert!(parse(&args(&["--bad", "x"])).is_err(), "unknown flag");
+        assert_eq!(parse(&args(&["--max-bytes", "500000000"])).unwrap().max_bytes, Some(500_000_000), "limit");
+        assert!(parse(&args(&["--max-bytes", "500MB"])).is_err(), "limit not a number");
     }
 
     #[test]

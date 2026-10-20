@@ -112,6 +112,18 @@ fn plan_skips_unapproved_and_flags_unpinned() {
 }
 
 #[test]
+fn files_above_the_limit_are_left_to_their_job() {
+    let manifest = check("itp-demo", &good()).unwrap();
+    let size = u64::try_from(BODY.len()).unwrap();
+    let under = Plan::limited(std::slice::from_ref(&manifest), Some(size));
+    assert_eq!((under.fetch.len(), under.large.len()), (1, 0), "at the limit: cached");
+    let over = Plan::limited(std::slice::from_ref(&manifest), Some(size - 1));
+    assert_eq!((over.fetch.len(), over.large.len()), (0, 1), "above the limit: large");
+    assert!(over.render().starts_with(&format!("large\titp-demo\t0\t{size}\t")), "{}", over.render());
+    assert_eq!(Plan::new(&[manifest]).large.len(), 0, "no limit: everything fetched");
+}
+
+#[test]
 fn min_interval_is_carried_and_checked() {
     let mut slow = good();
     let inserted = slow.as_object_mut().unwrap().insert("min_interval_seconds".to_owned(), json!(2u64));
