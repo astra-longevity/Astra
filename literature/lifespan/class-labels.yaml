@@ -10,10 +10,33 @@
 #   Mixtures and extracts without a single defined active compound: no defined target.
 # - Vocabulary entries may be added only before the split is sealed, with
 #   Verification approval. No new class after the seal.
+#
+# Sources for the R-Metric v0 split (research/metric/v0/split.csv), A28 task, 2026-10-20:
+# - ChEMBL REST API, mechanism endpoint only (no activity or outcome data read),
+#   https://www.ebi.ac.uk/chembl/api/data/mechanism.json?molecule_chembl_id=<id>.
+#   The mechanism may sit on a salt form; `chembl_id` is the form that carries it.
+# - IUPHAR/BPS Guide to Pharmacology: web services and ligand pages are login-only
+#   since 2026-10-20 (HTTP 401 "API key is missing"; pages redirect to login.jsp).
+#   Not used for new entries; access requested via A2.
+# - `labels`: ChEMBL mechanism matches the class proposed in split.csv.
+# - `conflicts`: ChEMBL mechanism differs from the proposed class. No class chosen
+#   here: A28 decides the class, Verification approves the mapping.
+# - `missing`: no usable ChEMBL/IUPHAR mechanism entry. No other source substituted.
+#   reason: unusable (entry exists, mechanism not a target) | no_mechanism (molecule in
+#   ChEMBL, no mechanism record) | not_in_chembl (no molecule by exact name/synonym).
 vocabulary:
+  - ACE inhibitor
+  - DPP-4 inhibitor
+  - HCN channel blocker
+  - MAO-B inhibitor
+  - MEK inhibitor
   - mTORC1 inhibitor
   - multi-target
   - no defined target
+  - PDE5 inhibitor
+  - PDK inhibitor
+  - PI3K-alpha inhibitor
+  - SGLT2 inhibitor
 labels:
   - compound: rapamycin
     class: mTORC1 inhibitor
@@ -22,6 +45,159 @@ labels:
       https://www.guidetopharmacology.org/GRAC/LigandDisplayForward?ligandId=6031
       (complex with FKBP12 inhibits mTOR)
     source_date: 2026-10-20
+    access: login-only since 2026-10-20
+    chembl_conflict: >
+      ChEMBL CHEMBL413 (sirolimus) mechanism = FK506-binding protein 1A inhibitor
+      (target CHEMBL1902), not mTOR. Listed under conflicts for A28/Verification.
     proposed_by: A71
     approved_by: null
     approved_date: null
+  - compound: dichloroacetate
+    class: PDK inhibitor
+    source: >
+      ChEMBL CHEMBL306823 (sodium dichloroacetate), mechanism: Pyruvate dehydrogenase
+      kinase inhibitor (target CHEMBL2096665)
+    source_url: https://www.ebi.ac.uk/chembl/api/data/mechanism.json?molecule_chembl_id=CHEMBL306823
+    source_date: 2026-10-20
+    proposed_by: A71
+    approved_by: null
+    approved_date: null
+  - compound: canagliflozin
+    class: SGLT2 inhibitor
+    source: >
+      ChEMBL CHEMBL4594217 (canagliflozin), mechanism: Sodium/glucose cotransporter 2
+      inhibitor (target CHEMBL3884)
+    source_url: https://www.ebi.ac.uk/chembl/api/data/mechanism.json?molecule_chembl_id=CHEMBL4594217
+    source_date: 2026-10-20
+    proposed_by: A71
+    approved_by: null
+    approved_date: null
+  - compound: captopril
+    class: ACE inhibitor
+    source: >
+      ChEMBL CHEMBL1560 (captopril), mechanism: Angiotensin-converting enzyme inhibitor
+      (target CHEMBL1808)
+    source_url: https://www.ebi.ac.uk/chembl/api/data/mechanism.json?molecule_chembl_id=CHEMBL1560
+    source_date: 2026-10-20
+    proposed_by: A71
+    approved_by: null
+    approved_date: null
+  - compound: trametinib
+    class: MEK inhibitor
+    source: >
+      ChEMBL CHEMBL2103875 (trametinib), mechanism: Dual specificity mitogen-activated
+      protein kinase kinase; MEK1/2 inhibitor (target CHEMBL2111289)
+    source_url: https://www.ebi.ac.uk/chembl/api/data/mechanism.json?molecule_chembl_id=CHEMBL2103875
+    source_date: 2026-10-20
+    proposed_by: A71
+    approved_by: null
+    approved_date: null
+  - compound: L-deprenyl
+    class: MAO-B inhibitor
+    source: >
+      ChEMBL CHEMBL972 (selegiline), mechanism: Monoamine oxidase B inhibitor
+      (target CHEMBL2039)
+    source_url: https://www.ebi.ac.uk/chembl/api/data/mechanism.json?molecule_chembl_id=CHEMBL972
+    source_date: 2026-10-20
+    proposed_by: A71
+    approved_by: null
+    approved_date: null
+  - compound: sildenafil
+    class: PDE5 inhibitor
+    source: >
+      ChEMBL CHEMBL1737 (sildenafil citrate; parent CHEMBL192), mechanism:
+      Phosphodiesterase 5A inhibitor (target CHEMBL1827)
+    source_url: https://www.ebi.ac.uk/chembl/api/data/mechanism.json?molecule_chembl_id=CHEMBL1737
+    source_date: 2026-10-20
+    proposed_by: A71
+    approved_by: null
+    approved_date: null
+  - compound: alpelisib
+    class: PI3K-alpha inhibitor
+    source: >
+      ChEMBL CHEMBL2396661 (alpelisib), mechanism: PI3-kinase p110-alpha subunit
+      inhibitor (target CHEMBL4005)
+    source_url: https://www.ebi.ac.uk/chembl/api/data/mechanism.json?molecule_chembl_id=CHEMBL2396661
+    source_date: 2026-10-20
+    proposed_by: A71
+    approved_by: null
+    approved_date: null
+  - compound: alogliptin
+    class: DPP-4 inhibitor
+    source: >
+      ChEMBL CHEMBL227529 (alogliptin benzoate; parent CHEMBL376359), mechanism:
+      Dipeptidyl peptidase IV inhibitor (target CHEMBL284)
+    source_url: https://www.ebi.ac.uk/chembl/api/data/mechanism.json?molecule_chembl_id=CHEMBL227529
+    source_date: 2026-10-20
+    proposed_by: A71
+    approved_by: null
+    approved_date: null
+  - compound: ivabradine
+    class: HCN channel blocker
+    source: >
+      ChEMBL CHEMBL471737 (ivabradine), mechanism: Potassium/sodium
+      hyperpolarization-activated cyclic nucleotide-gated channel 4 blocker
+      (target CHEMBL1250417)
+    source_url: https://www.ebi.ac.uk/chembl/api/data/mechanism.json?molecule_chembl_id=CHEMBL471737
+    source_date: 2026-10-20
+    proposed_by: A71
+    approved_by: null
+    approved_date: null
+conflicts:
+  - compound: rapamycin
+    proposed: mTORC1 inhibitor
+    chembl: CHEMBL413, FK506-binding protein 1A inhibitor (target CHEMBL1902)
+    note: current label cites IUPHAR 6031 (mTOR via FKBP12 complex), login-only since 2026-10-20
+  - compound: cinnarizine
+    proposed: calcium channel blocker
+    chembl: >
+      CHEMBL43064, Voltage-gated L-type calcium channel blocker (CHEMBL2095229) and
+      Histamine H1 receptor antagonist (CHEMBL231), unranked
+    note: two unranked targets; the rule would give multi-target
+  - compound: metformin
+    proposed: biguanide
+    chembl: >
+      CHEMBL1703 (metformin hydrochloride), Mitochondrial complex I (NADH dehydrogenase)
+      inhibitor (CHEMBL2363065) and Mitochondrial glycerol-3-phosphate dehydrogenase
+      inhibitor (CHEMBL3391681), unranked
+    note: biguanide is a chemical class, not a target; two unranked targets would give multi-target
+  - compound: nordihydroguaiaretic acid
+    proposed: lipoxygenase inhibitor
+    chembl: >
+      CHEMBL313972 (masoprocol), Unknown; Receptor protein-tyrosine kinase erbB-2
+      inhibitor (CHEMBL1824); Insulin-like growth factor I receptor inhibitor (CHEMBL1957)
+    note: no lipoxygenase mechanism in ChEMBL
+  - compound: chloroquine
+    proposed: lysosomal autophagy inhibitor
+    chembl: >
+      CHEMBL76 forms CHEMBL58510 / CHEMBL4297165, Ferriprotoporphyrin IX inhibitor /
+      binding agent (target CHEMBL613897)
+    note: antimalarial mechanism; no lysosomal/autophagy mechanism in ChEMBL
+missing:
+  - {compound: sodium thiosulfate, reason: unusable, detail: "CHEMBL2096650 mechanism 'Unknown'"}
+  - {compound: glucosamine sulfate, reason: unusable, detail: "CHEMBL493287 mechanism 'Supplement'"}
+  - {compound: 17alpha-estradiol, reason: no_mechanism, detail: CHEMBL286452}
+  - {compound: mianserin, reason: no_mechanism, detail: CHEMBL6437}
+  - {compound: taurine, reason: no_mechanism, detail: CHEMBL239243}
+  - {compound: icariin, reason: no_mechanism, detail: CHEMBL553204}
+  - {compound: nicotinamide riboside, reason: no_mechanism, detail: CHEMBL438497}
+  - {compound: nicotinamide, reason: no_mechanism, detail: CHEMBL1140}
+  - {compound: putrescine, reason: no_mechanism, detail: CHEMBL46257}
+  - {compound: spermidine, reason: no_mechanism, detail: CHEMBL19612}
+  - {compound: spermine, reason: no_mechanism, detail: CHEMBL23194}
+  - {compound: fisetin, reason: no_mechanism, detail: CHEMBL31574}
+  - {compound: berberine, reason: no_mechanism, detail: CHEMBL295124}
+  - {compound: alpha-ketoglutarate, reason: no_mechanism, detail: CHEMBL1686}
+  - {compound: procyanidin C1, reason: no_mechanism, detail: CHEMBL290632}
+  - {compound: oridonin, reason: no_mechanism, detail: CHEMBL1164920}
+  - {compound: hesperetin, reason: no_mechanism, detail: CHEMBL399121}
+  - {compound: TPPU, reason: not_in_chembl}
+  - {compound: BT2, reason: not_in_chembl}
+  - {compound: CASIN, reason: not_in_chembl}
+  - {compound: 78c, reason: not_in_chembl}
+  - {compound: L2-Cmu, reason: not_in_chembl}
+  - {compound: BP-C3, reason: not_in_chembl}
+  - {compound: lactoferrin, reason: not_in_chembl}
+  - {compound: epimedium extract, reason: not_in_chembl}
+  - {compound: urolithin A, reason: not_in_chembl}
+  - {compound: C60 fullerene, reason: not_in_chembl}
