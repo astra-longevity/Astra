@@ -1,0 +1,17 @@
+# Pinned sources for class-labels.rb (rules amendment 1, section 5). Written by --pin.
+---
+chembl:
+  file: class-labels-chembl37.json
+  sha256: a99bc5d7656d88e76a9f58b9b3c3978de35b6aa9b70c309496b7512a0619aa0b
+  release: ChEMBL_37
+mesh:
+- file: pa2026.xml
+  url: https://nlmpubs.nlm.nih.gov/projects/mesh/MESH_FILES/xmlmesh/pa2026.xml
+  downloaded: '2026-10-20'
+  sha256: 000e1b6ee151101f68e1f6ce1835486cc278f2bf6268579fa6ab57c3a16e3d9f
+  committed: false
+- file: desc2026.xml
+  url: https://nlmpubs.nlm.nih.gov/projects/mesh/MESH_FILES/xmlmesh/desc2026.xml
+  downloaded: '2026-10-20'
+  sha256: 449792ed59ba4d60035e44724352f7361ec0dc945b67dcd821a50ff32f81bcdb
+  committed: false

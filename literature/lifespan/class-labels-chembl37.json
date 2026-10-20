@@ -1,0 +1,854 @@
+{
+  "release": "ChEMBL_37",
+  "release_date": "2026-05-01",
+  "fetched": "2026-10-20",
+  "endpoints": [
+    "status",
+    "molecule",
+    "molecule_form",
+    "mechanism",
+    "target"
+  ],
+  "targets": {
+    "CHEMBL284": "Dipeptidyl peptidase 4",
+    "CHEMBL4005": "Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform",
+    "CHEMBL3884": "Sodium/glucose cotransporter 2",
+    "CHEMBL1808": "Angiotensin-converting enzyme",
+    "CHEMBL613897": "Ferriprotoporphyrin IX",
+    "CHEMBL2095229": "Voltage-gated L-type calcium channel",
+    "CHEMBL231": "Histamine H1 receptor",
+    "CHEMBL2096665": "Pyruvate dehydrogenase kinase",
+    "CHEMBL1250417": "Potassium/sodium hyperpolarization-activated cyclic nucleotide-gated channel 4",
+    "CHEMBL2039": "Amine oxidase [flavin-containing] B",
+    "CHEMBL2363065": "Mitochondrial complex I (NADH dehydrogenase)",
+    "CHEMBL3391681": "Glycerol-3-phosphate dehydrogenase, mitochondrial",
+    "CHEMBL1824": "Receptor tyrosine-protein kinase erbB-2",
+    "CHEMBL1957": "Insulin-like growth factor 1 receptor",
+    "CHEMBL1902": "Peptidyl-prolyl cis-trans isomerase FKBP1A",
+    "CHEMBL1827": "cGMP-specific 3',5'-cyclic phosphodiesterase",
+    "CHEMBL2111289": "Dual specificity mitogen-activated protein kinase kinase; MEK1/2",
+    "CHEMBL2964": "Dual specificity mitogen-activated protein kinase kinase 2",
+    "CHEMBL3587": "Dual specificity mitogen-activated protein kinase kinase 1"
+  },
+  "compounds": [
+    {
+      "compound": "17alpha-estradiol",
+      "molecules": [
+        {
+          "parent": "CHEMBL286452",
+          "matched_names": [
+            "17alpha-estradiol",
+            "alfatradiol"
+          ],
+          "forms": [
+            "CHEMBL286452",
+            "CHEMBL3349337"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "78c",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "alogliptin",
+      "molecules": [
+        {
+          "parent": "CHEMBL376359",
+          "matched_names": [
+            "alogliptin"
+          ],
+          "forms": [
+            "CHEMBL227529",
+            "CHEMBL376359",
+            "CHEMBL458537",
+            "CHEMBL459806"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL227529",
+              "mechanism_of_action": "Dipeptidyl peptidase IV inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL284",
+              "mec_id": 465
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "alpelisib",
+      "molecules": [
+        {
+          "parent": "CHEMBL2396661",
+          "matched_names": [
+            "alpelisib"
+          ],
+          "forms": [
+            "CHEMBL2396661"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL2396661",
+              "mechanism_of_action": "PI3-kinase p110-alpha subunit inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL4005",
+              "mec_id": 4681
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "alpha-ketoglutarate",
+      "molecules": [
+        {
+          "parent": "CHEMBL1686",
+          "matched_names": [
+            "alpha-ketoglutaric acid"
+          ],
+          "forms": [
+            "CHEMBL1686"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "berberine",
+      "molecules": [
+        {
+          "parent": "CHEMBL295124",
+          "matched_names": [
+            "berberine"
+          ],
+          "forms": [
+            "CHEMBL12089",
+            "CHEMBL1985435",
+            "CHEMBL295124",
+            "CHEMBL492613"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "BP-C3",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "BT2",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "C60 fullerene",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "canagliflozin",
+      "molecules": [
+        {
+          "parent": "CHEMBL2048484",
+          "matched_names": [
+            "canagliflozin"
+          ],
+          "forms": [
+            "CHEMBL2048484",
+            "CHEMBL2103841",
+            "CHEMBL4594217"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL4594217",
+              "mechanism_of_action": "Sodium/glucose cotransporter 2 inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL3884",
+              "mec_id": 939
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "captopril",
+      "molecules": [
+        {
+          "parent": "CHEMBL1560",
+          "matched_names": [
+            "captopril"
+          ],
+          "forms": [
+            "CHEMBL1560"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1560",
+              "mechanism_of_action": "Angiotensin-converting enzyme inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL1808",
+              "mec_id": 114
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "CASIN",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "chloroquine",
+      "molecules": [
+        {
+          "parent": "CHEMBL76",
+          "matched_names": [
+            "chloroquine"
+          ],
+          "forms": [
+            "CHEMBL1669",
+            "CHEMBL2052012",
+            "CHEMBL2095223",
+            "CHEMBL4297165",
+            "CHEMBL5399629",
+            "CHEMBL5411819",
+            "CHEMBL5422185",
+            "CHEMBL5427439",
+            "CHEMBL5435980",
+            "CHEMBL58510",
+            "CHEMBL76"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL4297165",
+              "mechanism_of_action": "Ferriprotoporphyrin IX binding agent",
+              "action_type": "BINDING AGENT",
+              "target": "CHEMBL613897",
+              "mec_id": 1003
+            },
+            {
+              "form": "CHEMBL58510",
+              "mechanism_of_action": "Ferriprotoporphyrin IX inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL613897",
+              "mec_id": 1000
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "cinnarizine",
+      "molecules": [
+        {
+          "parent": "CHEMBL43064",
+          "matched_names": [
+            "cinnarizine"
+          ],
+          "forms": [
+            "CHEMBL43064"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL43064",
+              "mechanism_of_action": "Voltage-gated L-type calcium channel blocker",
+              "action_type": "BLOCKER",
+              "target": "CHEMBL2095229",
+              "mec_id": 6785
+            },
+            {
+              "form": "CHEMBL43064",
+              "mechanism_of_action": "Histamine H1 receptor antagonist",
+              "action_type": "ANTAGONIST",
+              "target": "CHEMBL231",
+              "mec_id": 6888
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "dichloroacetate",
+      "molecules": [
+        {
+          "parent": "CHEMBL13960",
+          "matched_names": [
+            "dichloroacetate",
+            "dichloroacetic acid"
+          ],
+          "forms": [
+            "CHEMBL13960"
+          ],
+          "mechanisms": [
+
+          ]
+        },
+        {
+          "parent": "CHEMBL306823",
+          "matched_names": [
+            "sodium dichloroacetate"
+          ],
+          "forms": [
+            "CHEMBL306823"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL306823",
+              "mechanism_of_action": "Pyruvate dehydrogenase kinase inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2096665",
+              "mec_id": 5904
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "epimedium extract",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "fisetin",
+      "molecules": [
+        {
+          "parent": "CHEMBL31574",
+          "matched_names": [
+            "fisetin"
+          ],
+          "forms": [
+            "CHEMBL1728023",
+            "CHEMBL31574"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "glucosamine sulfate",
+      "molecules": [
+        {
+          "parent": "CHEMBL493287",
+          "matched_names": [
+            "glucosamine sulfate"
+          ],
+          "forms": [
+            "CHEMBL1707007",
+            "CHEMBL3989618",
+            "CHEMBL3989707",
+            "CHEMBL3989750",
+            "CHEMBL493287"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL493287",
+              "mechanism_of_action": "Supplement",
+              "action_type": null,
+              "target": null,
+              "mec_id": 8265
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "hesperetin",
+      "molecules": [
+        {
+          "parent": "CHEMBL399121",
+          "matched_names": [
+            "hesperetin"
+          ],
+          "forms": [
+            "CHEMBL399121"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "icariin",
+      "molecules": [
+        {
+          "parent": "CHEMBL553204",
+          "matched_names": [
+            "icariin"
+          ],
+          "forms": [
+            "CHEMBL553204"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "ivabradine",
+      "molecules": [
+        {
+          "parent": "CHEMBL471737",
+          "matched_names": [
+            "ivabradine"
+          ],
+          "forms": [
+            "CHEMBL2145077",
+            "CHEMBL471737"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL2145077",
+              "mechanism_of_action": "Potassium/sodium hyperpolarization-activated cyclic nucleotide-gated channel 4 blocker",
+              "action_type": "BLOCKER",
+              "target": "CHEMBL1250417",
+              "mec_id": 2313
+            },
+            {
+              "form": "CHEMBL471737",
+              "mechanism_of_action": "Potassium/sodium hyperpolarization-activated cyclic nucleotide-gated channel 4 blocker",
+              "action_type": "BLOCKER",
+              "target": "CHEMBL1250417",
+              "mec_id": 7273
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "L-deprenyl",
+      "molecules": [
+        {
+          "parent": "CHEMBL972",
+          "matched_names": [
+            "l-deprenyl",
+            "selegiline"
+          ],
+          "forms": [
+            "CHEMBL1200904",
+            "CHEMBL5194110",
+            "CHEMBL972"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1200904",
+              "mechanism_of_action": "Monoamine oxidase B inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2039",
+              "mec_id": 836
+            },
+            {
+              "form": "CHEMBL972",
+              "mechanism_of_action": "Monoamine oxidase B inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2039",
+              "mec_id": 837
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "L2-Cmu",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "lactoferrin",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "metformin",
+      "molecules": [
+        {
+          "parent": "CHEMBL1431",
+          "matched_names": [
+            "metformin"
+          ],
+          "forms": [
+            "CHEMBL1431",
+            "CHEMBL1703",
+            "CHEMBL3094198"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1703",
+              "mechanism_of_action": "Mitochondrial complex I (NADH dehydrogenase) inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2363065",
+              "mec_id": 1570
+            },
+            {
+              "form": "CHEMBL1703",
+              "mechanism_of_action": "Mitochondrial glycerol-3-phosphate dehydrogenase inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL3391681",
+              "mec_id": 2370
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "mianserin",
+      "molecules": [
+        {
+          "parent": "CHEMBL6437",
+          "matched_names": [
+            "mianserin"
+          ],
+          "forms": [
+            "CHEMBL544428",
+            "CHEMBL6437"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "nicotinamide",
+      "molecules": [
+        {
+          "parent": "CHEMBL1140",
+          "matched_names": [
+            "niacinamide",
+            "nicotinamide"
+          ],
+          "forms": [
+            "CHEMBL1140"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "nicotinamide riboside",
+      "molecules": [
+        {
+          "parent": "CHEMBL438497",
+          "matched_names": [
+            "nicotinamide riboside"
+          ],
+          "forms": [
+            "CHEMBL438497"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "nordihydroguaiaretic acid",
+      "molecules": [
+        {
+          "parent": "CHEMBL313972",
+          "matched_names": [
+            "masoprocol",
+            "nordihydroguaiaretic acid"
+          ],
+          "forms": [
+            "CHEMBL313972"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL313972",
+              "mechanism_of_action": "Unknown",
+              "action_type": null,
+              "target": null,
+              "mec_id": 2143
+            },
+            {
+              "form": "CHEMBL313972",
+              "mechanism_of_action": "Receptor protein-tyrosine kinase erbB-2 inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL1824",
+              "mec_id": 4740
+            },
+            {
+              "form": "CHEMBL313972",
+              "mechanism_of_action": "Insulin-like growth factor I receptor inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL1957",
+              "mec_id": 4741
+            }
+          ]
+        },
+        {
+          "parent": "CHEMBL52",
+          "matched_names": [
+            "nordihydroguaiaretic acid"
+          ],
+          "forms": [
+            "CHEMBL52"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "oridonin",
+      "molecules": [
+        {
+          "parent": "CHEMBL1164920",
+          "matched_names": [
+            "oridonin"
+          ],
+          "forms": [
+            "CHEMBL1164920"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "procyanidin C1",
+      "molecules": [
+        {
+          "parent": "CHEMBL290632",
+          "matched_names": [
+            "procyanidin c1"
+          ],
+          "forms": [
+            "CHEMBL290632"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "putrescine",
+      "molecules": [
+        {
+          "parent": "CHEMBL46257",
+          "matched_names": [
+            "putrescine"
+          ],
+          "forms": [
+            "CHEMBL1255652",
+            "CHEMBL1528028",
+            "CHEMBL3229239",
+            "CHEMBL46257"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "rapamycin",
+      "molecules": [
+        {
+          "parent": "CHEMBL413",
+          "matched_names": [
+            "rapamycin",
+            "sirolimus"
+          ],
+          "forms": [
+            "CHEMBL413"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL413",
+              "mechanism_of_action": "FK506-binding protein 1A inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL1902",
+              "mec_id": 383
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "sildenafil",
+      "molecules": [
+        {
+          "parent": "CHEMBL192",
+          "matched_names": [
+            "sildenafil"
+          ],
+          "forms": [
+            "CHEMBL1737",
+            "CHEMBL192",
+            "CHEMBL5276310"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1737",
+              "mechanism_of_action": "Phosphodiesterase 5A inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL1827",
+              "mec_id": 187
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "sodium thiosulfate",
+      "molecules": [
+        {
+          "parent": "CHEMBL1208642",
+          "matched_names": [
+            "sodium thiosulfate"
+          ],
+          "forms": [
+            "CHEMBL1208642",
+            "CHEMBL2096650",
+            "CHEMBL2251960",
+            "CHEMBL3753202"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL2096650",
+              "mechanism_of_action": "Unknown",
+              "action_type": null,
+              "target": null,
+              "mec_id": 10014
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "spermidine",
+      "molecules": [
+        {
+          "parent": "CHEMBL19612",
+          "matched_names": [
+            "spermidine"
+          ],
+          "forms": [
+            "CHEMBL1256356",
+            "CHEMBL1473196",
+            "CHEMBL19612"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "spermine",
+      "molecules": [
+        {
+          "parent": "CHEMBL23194",
+          "matched_names": [
+            "spermine"
+          ],
+          "forms": [
+            "CHEMBL1256357",
+            "CHEMBL1556584",
+            "CHEMBL23194"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "taurine",
+      "molecules": [
+        {
+          "parent": "CHEMBL239243",
+          "matched_names": [
+            "taurine"
+          ],
+          "forms": [
+            "CHEMBL239243"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "TPPU",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "trametinib",
+      "molecules": [
+        {
+          "parent": "CHEMBL2103875",
+          "matched_names": [
+            "trametinib"
+          ],
+          "forms": [
+            "CHEMBL2103875",
+            "CHEMBL2105741"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL2103875",
+              "mechanism_of_action": "Dual specificity mitogen-activated protein kinase kinase; MEK1/2 inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2111289",
+              "mec_id": 7580
+            },
+            {
+              "form": "CHEMBL2105741",
+              "mechanism_of_action": "Dual specificity mitogen-activated protein kinase kinase 2 inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2964",
+              "mec_id": 935
+            },
+            {
+              "form": "CHEMBL2105741",
+              "mechanism_of_action": "Dual specificity mitogen-activated protein kinase kinase 1 inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL3587",
+              "mec_id": 948
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "urolithin A",
+      "molecules": [
+
+      ]
+    }
+  ]
+}
