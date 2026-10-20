@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["crates/astra-cli", "crates/astra-db", "crates/astra-site"]
+members = ["crates/astra-cli", "crates/astra-db", "crates/astra-fetch", "crates/astra-site"]
 
 [workspace.package]
 version = "0.1.0"

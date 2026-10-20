@@ -3,6 +3,8 @@
 //! Subcommands:
 //! - `astra db build [--root DIR] [--data-dir DIR] [--check] [--strict]`: validates `data/`, builds the database.
 //! - `astra site build [--repo DIR] [--out DIR]`: generates the static site.
+//! - `astra fetch plan|verify|pin`: P1 dataset fetch job (`data/datasets/`).
+//! - `astra check sizes`: no committed file over 10 MB outside the allow-list.
 //! - `astra --version`: prints the version.
 
 use std::io::{self, Write};
@@ -12,6 +14,7 @@ use std::process::ExitCode;
 use astra_site::SitePaths;
 
 mod db;
+mod fetch;
 
 /// Version string reported by `astra`.
 const VERSION: &str = env!("CARGO_PKG_VERSION");
@@ -20,6 +23,10 @@ const VERSION: &str = env!("CARGO_PKG_VERSION");
 const USAGE: &str = "usage:
   astra db build [--root DIR] [--data-dir DIR] [--check] [--strict]
   astra site build [--repo DIR] [--out DIR]
+  astra fetch plan [--root DIR]
+  astra fetch verify --cache DIR [--root DIR]
+  astra fetch pin FILE
+  astra check sizes [--root DIR]
   astra --version";
 
 /// Builds the version line.
@@ -91,6 +98,8 @@ fn run(args: &[String]) -> Reply {
         (Some("--version" | "-V"), None) => Reply::from_result(Ok(version_line())),
         (Some("db"), Some("build")) => db::build(rest),
         (Some("site"), Some("build")) => Reply::from_result(site_build(rest)),
+        (Some("fetch"), Some(action)) => fetch::fetch(action, rest),
+        (Some("check"), Some("sizes")) => fetch::check_sizes(rest),
         _ => Reply { code: 2, out: String::new(), err: String::from(USAGE) },
     }
 }

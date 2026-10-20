@@ -15,6 +15,7 @@ path = "src/main.rs"
 
 [dependencies]
 astra-db = { path = "../astra-db" }
+astra-fetch = { path = "../astra-fetch" }
 astra-site = { path = "../astra-site" }
 
 [lints]

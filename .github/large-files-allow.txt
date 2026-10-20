@@ -1,0 +1,3 @@
+# Files allowed above 10 MB in the repository (checked by `astra check sizes`,
+# .github/workflows/file-sizes.yml). One repository-relative path per line,
+# followed by `# reason`. Prefer a data/datasets manifest over adding a line here.
