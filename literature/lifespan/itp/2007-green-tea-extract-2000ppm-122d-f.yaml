@@ -1,0 +1,63 @@
+# Strong 2013 (PMC3598361), methods, table 1, text, figs 2-3. Read 2026-10-20.
+id: 2007-green-tea-extract-2000ppm-122d-f
+program: ITP
+publication:
+  doi: 10.1093/gerona/gls070
+  citation: "Strong R et al., 2013, J Gerontol A Biol Sci Med Sci 68:6-16"
+cohort_year: 2007  # paper: "Cohort 2007"
+compound: green tea extract
+role: "null"
+strain: UM-HET3
+sex: F
+start_age_days: 122  # printed "4 months"; 4 x 30.44 d
+dose:
+  value: 2000
+  unit: ppm
+  route: diet
+n:
+  treated: null  # table 1 notes give only the range 129-136 across treated groups
+  control: {value: 281, source: "table 1 notes"}
+lifespan:
+  control:
+    median_days: {value: 866, ci95: [832, 891], source: "table 1"}
+    mean_days: null
+    p90_days: null
+  treated:
+    median_days: {value: 923, ci95: [887, 939], source: "table 1"}
+    mean_days: null
+    p90_days: null
+effect:
+  median_pct: 6.6
+  p90_pct: null
+  se: null
+  se_scale: null
+  se_source: null  # no HR or exact p printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "> 0.15", source: "fig 2 legend"}
+  - {test: "Wilcoxon-Breslow (secondary, post hoc), site-stratified", value: "0.03", source: "text"}
+curve_source:
+  figure: "fig 2 (pooled)"
+  mpd_id: 804
+flags:
+  control_in_ref_range: false  # range bounds not yet known
+  reference: reference-ranges.yaml@0
+  itp_or_replicated: true
+  replicated_by: null
+sites: []
+notes: >
+  Null arm (negative-control candidate, T1-A2-2). Pooled medians from table 1 (mice removed
+  from the study excluded). No significant effect at any single site (text, data not shown).
+  Controls shared by the 5 C2007 compounds. First cohort with diets standardised across sites. Secondary Wilcoxon-Breslow test suggests lower midlife mortality in females (p = 0.03, post hoc; authors: interpret cautiously).
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - n.treated
