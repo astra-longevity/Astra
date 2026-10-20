@@ -84,6 +84,8 @@ Calls apply only to the compound named. They are recorded in the entry as
 | CHEMBL3884 | Sodium/glucose cotransporter 2 | SGLT2 inhibitor |
 | CHEMBL1808 | Angiotensin-converting enzyme | ACE inhibitor |
 | CHEMBL2111289 | MEK1/2 | MEK inhibitor |
+| CHEMBL3587 | MEK1 | MEK inhibitor |
+| CHEMBL2964 | MEK2 | MEK inhibitor |
 | CHEMBL2039 | Monoamine oxidase B | MAO-B inhibitor |
 | CHEMBL1827 | Phosphodiesterase 5A | PDE5 inhibitor |
 | CHEMBL4005 | PI3-kinase p110-alpha | PI3K-alpha inhibitor |
@@ -93,6 +95,11 @@ Calls apply only to the compound named. They are recorded in the entry as
 
 Targets that occur only inside a `multi-target` result (complex I, mGPD, L-type Ca, H1,
 erbB-2, IGF-1R) need no row. FKBP1A (CHEMBL1902) has no row on purpose (section 4).
+
+Amendment 3 (before the first build): rows CHEMBL3587 (MEK1) and CHEMBL2964 (MEK2) added.
+The ChEMBL 37 snapshot lists trametinib's mechanism on MEK1/2 and on each subunit. All three
+are the same class, so they get the same row. This was decided from the snapshot's target list
+only, before any label was generated.
 
 ## 7. Output
 
