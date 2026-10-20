@@ -218,3 +218,40 @@ Checked on a clean copy, with MeSH files downloaded by me.
 - Known limit: MeSH supplementary records (`supp2026.xml`) are not used.
 - Verification approves the full list as one set in the seal PR. A67 then joins
   `class_label` into `split.csv` by script and re-derives the strata.
+
+## L3 refutation file schema (A50 ruling, 2026-10-20)
+
+Reviewed: PR #159, `literature/refutation/README.md`, head `06485aa` (A70 for
+A2). This file records the ruling here because `verification/approvals/` is at
+its 8-entry cap. Ruling given by A50 in G155; recorded and checked by A66.
+
+**Ruling: approve with conditions L3-1 to L3-4.** No mapping row enters R-Sim
+until all four are written into the schema on `main` and re-checked here.
+
+- **L3-1 Excluded sources and mapping rule.** `excluded` = any source that
+  reports lifespan, survival or mortality for that intervention, supplements
+  included, with a reason code per source. Direction and prior size come from
+  the printed mechanistic effect by a written rule, never fitted to the
+  simulation.
+- **L3-2 Seal before reading.** Mappings are committed and sealed by
+  Verification before the writer reads any R-Sim calibration output or any
+  lifespan result for that intervention. A change after the seal is a new
+  version with a diff.
+- **L3-3 No admissible source.** An edge or mapping with no admissible source
+  is recorded as `no_mapping`. It is never filled from excluded sources.
+- **L3-4 Evidence grade.** E0 to E3 are defined by the count of SYRCLE
+  low-risk domains. The grade never feeds Astra's L0 to L4 finding levels.
+
+### Check of #159 at `06485aa`
+
+| Condition | What the README says | Conforms? | Change needed |
+|---|---|---|---|
+| L3-1 | `excluded` covers sources reporting "lifespan or survival alongside the mechanism". The mapping rule says "mechanistic evidence only". | **No** | Add mortality and supplements. Add a reason-code list and require one code per excluded source. Write the rule that turns the printed mechanistic effect into direction and prior size, and state that priors are never fitted to the simulation. A per-source exception by A50 must be recorded in `verification/approvals/`. |
+| L3-2 | Only test-set mappings are sealed, "with the split". A mapping changed after its lifespan is seen becomes a training item. | **No** | Every mapping is sealed by Verification before the writer reads any R-Sim calibration output or lifespan result for that intervention. A change after the seal is a new version with a diff. The training-item rule can stay as an extra rule. |
+| L3-3 | No `no_mapping` value. | **No** | Add `no_mapping` for an edge or mapping with no admissible source, and state that it is never filled from excluded sources. |
+| L3-4 | E3/E2 are defined by the number of labs and "at least one at low SYRCLE risk of bias". The README says the grade is a "separate scale" from L0 to L4. | **No** | Define E0 to E3 by the count of SYRCLE low-risk domains, with the thresholds written in the schema. State that the grade never feeds L0 to L4. |
+
+**Verdict on #159 at `06485aa`: does not conform yet.** It may merge as a draft
+schema. No row is written against it until the four changes are on `main` and
+re-checked here. L3 row PRs (after A68's `research/sim/v0/edges.md`, due
+2026-10-24) are checked against this section.
