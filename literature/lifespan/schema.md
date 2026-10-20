@@ -39,6 +39,7 @@ An **arm** is one treated group compared with its own controls: one compound, on
 | `strain`, `sex`, `start_age_days` | string, `F`\|`M`, int | `UM-HET3` for ITP. |
 | `dose.value`, `dose.unit`, `dose.route` | number, string, string | As printed (`14`, `ppm`, `diet, encapsulated`). |
 | `dose.measured` | `{value, sd, unit, source}` \| null | Optional. Dose found by a food assay, when the paper prints one; `dose.value` stays the nominal dose. |
+| `dose.schedule` | string | Optional. Dosing schedule when it is not continuous from `start_age_days` until death (e.g. 1 month on / 1 month off, or stopped at a given age), with the paper's group label. Arms differing only by schedule get an id suffix (`-cycles`, `-stop23mo`). |
 | `n.treated`, `n.control` | int \| null | Mice entering analysis. |
 | `lifespan.treated` / `lifespan.control` | block | `median_days`, `mean_days`, `p90_days` (age at the 90th percentile of deaths), each `{value, source}` or `null`. |
 | `effect.median_pct`, `effect.p90_pct` | number \| null | (treated − control) / control × 100, always computed from the printed medians / p90 ages (1 decimal). When the paper prints a % that differs after rounding, the printed % goes in `notes`. |

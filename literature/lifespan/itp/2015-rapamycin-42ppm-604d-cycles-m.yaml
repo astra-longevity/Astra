@@ -1,0 +1,62 @@
+# Strong 2020 (PMC7681050), results, tables 1-2, text. Read 2026-10-20.
+id: 2015-rapamycin-42ppm-604d-cycles-m
+program: ITP
+publication:
+  doi: 10.1111/acel.13269
+  citation: "Strong R et al., 2020, Aging Cell 19:e13269"
+cohort_year: 2015  # paper "C2015"; MPD ITP1 listing
+compound: rapamycin
+role: "extends"
+strain: UM-HET3
+sex: M
+start_age_days: 604  # printed "20 months; treatment onset at 604 d (text)"
+dose:
+  value: 42
+  unit: ppm
+  route: diet, encapsulated
+  schedule: "cycles from 20 months: 1 month on, 1 month off, until death (paper: 'Rapa cycles')"
+n:
+  treated: 159  # table 1 count
+  control: 300
+lifespan:
+  control:
+    median_days: {value: 772, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1049, source: "table 1"}
+  treated:
+    median_days: {value: 841, source: "table 1"}
+    mean_days: null
+    p90_days: {value: 1144, source: "table 1"}
+effect:
+  median_pct: 8.9
+  p90_pct: 9.1
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "0.002", source: "table 1"}
+  - {test: "alive at 90th percentile, Wang-Allison", value: "0.001", source: "table 1"}
+curve_source:
+  figure: "fig 1 (pooled), fig S1 (per site)"
+  mpd_id: 748
+flags:
+  control_in_ref_range: false
+  reference: reference-ranges.yaml@1
+  itp_or_replicated: true
+  replicated_by: null
+sites: []  # per-site values not printed in a table
+notes: >
+  Site medians (text): -5% to +41% (UT < TJL < UM). Per-site results are in figure S1 / text only. Text: before treatment began at 604 d, Rapa-assigned groups at some sites (UM males, TJL females, UT males) had fewer deaths than controls, and Rapa-assigned males were lighter than control males at 12 and 18 months (p < 0.005); the authors suspect differences between the two batches of drug-free 5LG6 chow (different preparation equipment). Treat the male effects with caution. Pooled across TJL, UM, UT. Controls shared by all C2015 arms.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - sites

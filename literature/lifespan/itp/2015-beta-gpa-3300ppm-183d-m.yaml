@@ -1,0 +1,61 @@
+# Strong 2020 (PMC7681050), results, tables 1-2, text. Read 2026-10-20.
+id: 2015-beta-gpa-3300ppm-183d-m
+program: ITP
+publication:
+  doi: 10.1111/acel.13269
+  citation: "Strong R et al., 2020, Aging Cell 19:e13269"
+cohort_year: 2015  # paper "C2015"; MPD ITP1 listing
+compound: beta-guanidinopropionic acid
+role: "null"
+strain: UM-HET3
+sex: M
+start_age_days: 183  # printed "6 months; 6 x 30.44 d"
+dose:
+  value: 3300
+  unit: ppm
+  route: diet
+n:
+  treated: 156  # table 2 count
+  control: 300
+lifespan:
+  control:
+    median_days: {value: 772, source: "table 2"}
+    mean_days: null
+    p90_days: {value: 1049, source: "table 2"}
+  treated:
+    median_days: {value: 764, source: "table 2"}
+    mean_days: null
+    p90_days: {value: 1054, source: "table 2"}
+effect:
+  median_pct: -1.0
+  p90_pct: 0.5
+  se: null
+  se_scale: null
+  se_source: null  # no HR printed
+  digitisations: 0
+  curve_agreement: null
+  curve_check_ref: null
+p_values:
+  - {test: "log-rank, site-stratified, treated vs control", value: "0.73", source: "table 2"}
+  - {test: "alive at 90th percentile, Wang-Allison", value: "0.86", source: "table 2"}
+curve_source:
+  figure: "fig 3 (pooled)"
+  mpd_id: 748
+flags:
+  control_in_ref_range: false
+  reference: reference-ranges.yaml@1
+  itp_or_replicated: true
+  replicated_by: null
+sites: []  # per-site values not printed in a table
+notes: >
+  Creatine analogue. Null. Pooled across TJL, UM, UT. Controls shared by all C2015 arms.
+extraction:
+  by: A71
+  date: 2026-10-20
+  second_by: null
+  second_date: null
+verification:
+  doi_checked: 2026-10-20
+  numbers_checked: paper
+  to_verify:
+    - sites
