@@ -44,9 +44,18 @@ seed at 20 000) but easy to shard on Actions.
 - Matrix job, at most 20 runners at once; one shard ≈ 1 min at 20 000 per
   2 000-mouse-minute measured locally (scale linearly) [to measure on runner].
 - A final job gathers the shards, builds the matrices and runs the analysis.
-- Scripts need one small change to support this: a `--shard seed,param,sign`
-  mode that writes one shard, and a `--gather dir` mode. A68 adds it in a
-  separate PR before the first run.
+- CLI (`py/studies/shard.py`, from `py/studies/`):
+  - `python3 shard.py --list` prints the 218 specs `seed,param,sign`, one per
+    line (matrix input; `sign` is `+`, `-`, or `0` for `base`).
+  - `python3 shard.py --shard <spec> --n-sim 20000 --out shards/` writes one
+    JSON shard: survival bins and readout moments (`readouts.py`, which also
+    gives the survival-only result of `identifiability.py`) plus per-mouse
+    track moments (`longitudinal.py`), all from one `simulate` call.
+  - `python3 shard.py --gather shards/ --n-sim 20000 > result.json` runs both
+    studies' analyses unchanged on the gathered derivatives.
+- Readout numbers equal a direct `readouts.py` run (tested). Longitudinal
+  numbers differ from a direct `longitudinal.py` run by Monte-Carlo noise
+  only: shards simulate to 6 years, the direct run stops at 30 months.
 
 ## Outputs
 

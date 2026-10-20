@@ -80,20 +80,28 @@ def run(mult: dict, n_sim: int, seed: int) -> tuple[list[float], dict]:
     """Bin probabilities and, per age, readout (mean, variance) among survivors."""
     rec = {a: [] for a in AGES}
     pert = model.Perturbation(mult) if mult else None
-    p = bin_probs(model.simulate(n_sim, seed, perturbation=pert, t_max=T_MAX, record=rec))
-    return p, {a: _moments(rec[a]) for a in AGES}
+    return summarise(model.simulate(n_sim, seed, perturbation=pert, t_max=T_MAX, record=rec), rec)
 
 
-def derivatives(names: list[str], n_sim: int, seed: int) -> dict:
-    p0, m0 = run({}, n_sim, seed)
-    d = {"p0": p0, "m0": m0, "dp": [], "dm": []}
-    for nm in names:
-        pu, mu = run({nm: math.exp(H)}, n_sim, seed)
-        pd, md = run({nm: math.exp(-H)}, n_sim, seed)
+def summarise(lifespans: list[float], rec: dict) -> tuple[list[float], dict]:
+    """Bin probabilities + per-age readout moments from one simulation (shard.py reuses it)."""
+    return bin_probs(lifespans), {a: _moments(rec[a]) for a in AGES}
+
+
+def derive(base: tuple, ups: list[tuple], downs: list[tuple]) -> dict:
+    """Central differences from (p, m) summaries: base, then one up/down pair per parameter."""
+    d = {"p0": base[0], "m0": base[1], "dp": [], "dm": []}
+    for (pu, mu), (pd, md) in zip(ups, downs):
         d["dp"].append([(u - v) / (2 * H) for u, v in zip(pu, pd)])
         d["dm"].append({a: {r: tuple((mu[a][r][i] - md[a][r][i]) / (2 * H) for i in (0, 1)) for r in READOUTS}
                         for a in AGES})
     return d
+
+
+def derivatives(names: list[str], n_sim: int, seed: int) -> dict:
+    ups = [run({nm: math.exp(H)}, n_sim, seed) for nm in names]
+    downs = [run({nm: math.exp(-H)}, n_sim, seed) for nm in names]
+    return derive(run({}, n_sim, seed), ups, downs)
 
 
 def _sym(u1: list[float], u2: list[float], w: float, f: list[list[float]]) -> None:
@@ -179,6 +187,11 @@ def main() -> None:
         if cache:
             with open(cache, "wb") as fh:
                 pickle.dump((n_sim, d1, d2), fh)
+    json.dump(analyse(d1, d2, n_sim, names), sys.stdout, indent=1)
+
+
+def analyse(d1: dict, d2: dict, n_sim: int, names: list[str]) -> dict:
+    """Full readout study from two seeds' derivatives (main and shard.py --gather)."""
     fs = survival_fisher(d1, d2)
     fr = {r: readout_fisher(d1, d2, r) for r in READOUTS}  # per mouse per age
 
@@ -216,7 +229,7 @@ def main() -> None:
         "axis_shares_all_readouts": axis_shares(only(list(READOUTS), N_PER_AGE), names),
         "readout_seed_corr": seed_corr,
     }
-    json.dump(out, sys.stdout, indent=1)
+    return out
 
 
 if __name__ == "__main__":

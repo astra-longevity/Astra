@@ -101,6 +101,11 @@ def run(mult: dict, n_sim: int, seed: int) -> dict:
     track = {a: {} for a in AGES}
     pert = model.Perturbation(mult) if mult else None
     model.simulate(n_sim, seed, perturbation=pert, t_max=AGES[-1] + 0.1, track=track)
+    return summarise(track)
+
+
+def summarise(track: dict) -> dict:
+    """Cross-sectional and per-dropout-pattern moments from one tracked simulation."""
     vals = {a: {i: {r: g(x) for r, (g, *_) in ALL.items()} for i, x in track[a].items()} for a in AGES}
     enrolled = max(1, len(track[AGES[0]]))
     out = {"w": {}, "cross": {r: {} for r in ALL}, "long": {r: {} for r in ALL}}
@@ -126,13 +131,17 @@ def _diff(u, d):
     return (u - d) / (2 * H)
 
 
+def derive(base: dict, ups: list[dict], downs: list[dict]) -> dict:
+    """Central differences from summaries: base, then one up/down pair per parameter."""
+    dd = [_diff({"cross": u["cross"], "long": u["long"]}, {"cross": d["cross"], "long": d["long"]})
+          for u, d in zip(ups, downs)]
+    return {"m0": base, "dd": dd}
+
+
 def derivatives(names: list[str], n_sim: int, seed: int) -> dict:
-    r0 = run({}, n_sim, seed)
-    dd = []
-    for nm in names:
-        up, dn = run({nm: math.exp(H)}, n_sim, seed), run({nm: math.exp(-H)}, n_sim, seed)
-        dd.append(_diff({"cross": up["cross"], "long": up["long"]}, {"cross": dn["cross"], "long": dn["long"]}))
-    return {"m0": r0, "dd": dd}
+    ups = [run({nm: math.exp(H)}, n_sim, seed) for nm in names]
+    downs = [run({nm: math.exp(-H)}, n_sim, seed) for nm in names]
+    return derive(run({}, n_sim, seed), ups, downs)
 
 
 def _inv(a: list[list[float]]) -> list[list[float]]:
@@ -245,6 +254,11 @@ def main() -> None:
         if cache:
             with open(cache, "wb") as fh:
                 pickle.dump((n_sim, d1, d2), fh)
+    json.dump(analyse(d1, d2, n_sim, names), sys.stdout, indent=1)
+
+
+def analyse(d1: dict, d2: dict, n_sim: int, names: list[str]) -> dict:
+    """Full repeated-measures study from two seeds' derivatives (main and shard.py --gather)."""
     per = {(r, dz): fisher(d1, d2, r, dz, 1.0) for r in ALL for dz in ("cross", "long")}
     out = {"n_sim": n_sim, "ages": AGES, "n_per_age": N_PER_AGE, "noise_rel": NOISE_REL, "peak": PEAK,
            "pattern_weights": d1["m0"]["w"],
@@ -259,7 +273,7 @@ def main() -> None:
                            sorted(single.items(), key=lambda kv: -kv[1]["n_recoverable"])},
                 "all_by_n": {n: assess(_sum([per[(r, dz)] for r in group], n), names) for n in N_SWEEP},
             }
-    json.dump(out, sys.stdout, indent=1)
+    return out
 
 
 if __name__ == "__main__":
