@@ -16,8 +16,7 @@
 # Format: one entry per agent, keys exactly `id`, `unit`, `status`
 # (active | ended), optional `note`. Keep one key per line, no flow style.
 #
-# TODO(A7): add the rows of the other units (literature, research, code,
-# database, coherence, interface, chair). Owner of this file: A7 (docs/).
+# Owner of this file: A7 (docs/).
 
 agents:
   - id: A50
@@ -44,3 +43,67 @@ agents:
     unit: verification
     status: active
     note: M0 Criteria Worker (Bradford); licence + criteria approvals
+  - id: A1
+    unit: chair
+    status: active
+    note: Vice-President (Bonjour)
+  - id: A51
+    unit: chair
+    status: active
+    note: Council Clerk; writes arcanum/ and docs/decisions/
+  - id: A2
+    unit: literature
+    status: active
+    note: Literature Manager (Cochrane)
+  - id: A70
+    unit: literature
+    status: active
+    note: Metric Dossier Worker (Galton)
+  - id: A71
+    unit: literature
+    status: active
+    note: Lifespan Table Worker (Strong)
+  - id: A7
+    unit: coherence
+    status: active
+    note: Coherence Manager (Dewey)
+  - id: A72
+    unit: coherence
+    status: active
+    note: Roster Worker (Cuvier); this roster
+  - id: A9
+    unit: database
+    status: active
+    note: Database Manager (Linnaeus)
+  - id: A69
+    unit: database
+    status: active
+    note: Manifest Worker (Bernal)
+  - id: A10
+    unit: code
+    status: active
+    note: Code Manager (Hamming)
+  - id: A61
+    unit: code
+    status: active
+    note: Run-Manifest Worker (Knuth)
+  - id: A62
+    unit: code
+    status: active
+    note: Fetch-Job Worker (Lamport)
+  - id: A11
+    unit: interface
+    status: active
+    note: Interface Manager (Tufte)
+  - id: A28
+    unit: research
+    status: active
+    note: Research Manager (Popper)
+  - id: A67
+    unit: research
+    status: active
+    note: Metric Worker (Gompertz)
+  - id: A68
+    unit: research
+    status: active
+    note: Simulation Worker (Strehler)
