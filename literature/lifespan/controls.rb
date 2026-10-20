@@ -77,6 +77,9 @@ split_compounds = split_files.flat_map do |f|
   else
     table = CSV.read(f, headers: true, col_sep: f.end_with?(".tsv") ? "\t" : ",")
     problems << "#{f}: no `compound` column, cannot run the compound-level check" unless table.headers.include?("compound")
+    # Only blind arms count (A2, 2026-10-20): split.csv also lists the retrospective
+    # refill arms (part=retro), whose compounds may train and be controls.
+    table = table.select { |r| r["part"].to_s.strip.downcase == "blind" } if table.headers.include?("part")
     table.map { |r| r["compound"] }
   end
 end.compact.flat_map { |c| parts(c) }.uniq
