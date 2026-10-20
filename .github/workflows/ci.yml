@@ -54,3 +54,36 @@ jobs:
       - name: Structure
         run: .github/checks/check-structure.sh --ci
 
+  # D47 write paths for verification/ + D69 decision citations.
+  # Convention, not proof: self-declared `Agent:` trailers, shared token (D68 refused).
+  write-paths:
+    name: Write paths (D47 · D69)
+    if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Self-tests
+        run: scripts/tests/check-write-paths.test.sh
+
+      - name: Check write paths
+        env:
+          EVENT: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          MQ_BASE: ${{ github.event.merge_group.base_sha }}
+          MQ_HEAD: ${{ github.event.merge_group.head_sha }}
+        run: |
+          if [ "$EVENT" = "merge_group" ]; then
+            base="$MQ_BASE"; head="$MQ_HEAD"
+            # The squash message carries the PR body and the commits' trailers.
+            git log --format=%B "$base..$head" >"$RUNNER_TEMP/body.md"
+          else
+            base="$PR_BASE"; head="$PR_HEAD"
+            printf '%s\n' "$PR_BODY" >"$RUNNER_TEMP/body.md"
+          fi
+          scripts/check-write-paths.sh --base "$base" --head "$head" --body-file "$RUNNER_TEMP/body.md"
+
