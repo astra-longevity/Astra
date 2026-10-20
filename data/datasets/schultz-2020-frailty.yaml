@@ -21,21 +21,22 @@ files:
 licence:
   spdx_or_name: "No licence on the repository (all rights reserved by default); article CC-BY-4.0"
   url: https://github.com/SinclairLab/pub-Schultz-Kane-2020
-  redistribution_of_derived: "no"
+  redistribution_of_derived: "yes"
   citation_required: true
   notes: >-
     PR12 (president, 2026-10-20, docs/decisions/president-rulings.md): Astra
     may use this dataset despite its missing licence; this overrules the
     Verification refusals LA-005 (GitHub repo, no licence file) and LA-004
     (article Source Data file, never published). The president contacts the
-    authors himself. The ruling does not address publishing derived tables,
-    so redistribution_of_derived stays "no". Terms read by A69: GitHub API
+    authors himself. PR14 (president, 2026-10-20, 322ad44): derived tables
+    publishable with citation, so redistribution_of_derived is "yes" and
+    citation_required true. Terms read by A69: GitHub API
     reports no licence for the repository (checked 2026-10-20); the paper (Nat
     Commun 2020, PMC7492249) is CC BY 4.0.
 licence_status: approved
 approved_by: president
 approved_at: "2026-10-20"
-approval_ref: PR12
+approval_ref: PR14
 checked_at: "2026-10-20"
 source_publications:
   - 10.1038/s41467-020-18446-0
@@ -45,6 +46,7 @@ used_by:
 fetched_at: null
 notes: >-
   Licence missing; president overrule (docs/decisions/president-rulings.md
-  PR12), authors contacted by president. The paper's data link
-  github.com/SinclairLab/frailty redirects to this repository. Sizes from the
-  GitHub API.
+  PR12: use allowed; PR14: derived tables publishable with citation).
+  approval_ref holds PR14, the later ruling; PR12 is kept here. Authors
+  contacted by president. The paper's data link github.com/SinclairLab/frailty
+  redirects to this repository. Sizes from the GitHub API.
