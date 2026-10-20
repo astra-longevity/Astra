@@ -191,7 +191,7 @@ treatment before the metric passes its six tests (commandment 9, D115).
 | S3 | Cancer, the main cause of death in mice, is axis A17 with the same damage/repair form as the others; real dynamics (clonal growth, immune surveillance from A11) are needed (O3) |
 | S4 | `mappings.yaml` isn't parsed; CI check of the mapping seal (T2-A10-2) not built |
 | S5 | Sex: one parameter set per sex for now; sex transfer (stratum c) needs a shared structure |
-| S6 | Identifiability (section 5) until longitudinal axis data exist |
+| S6 | Identifiability (section 5): survival alone recovers 2 directions of 54 (`identifiability.md`); survival-only calibration fits 2 params per sex until longitudinal axis data exist |
 | S7 | Manifest is a minimal local format; align with A10's P2 run manifests |
 | S8 | Parent models' fits and failure modes not yet checked by Literature (T2-A2-3) |
 | S9 | Pure-Python speed: ~0.3 s per 300 mice; calibration will need vectorising or the Rust port (T2-A10-3) |
