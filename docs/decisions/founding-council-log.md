@@ -1,8 +1,9 @@
-# Founding council: decision log (D1–D107)
+# Founding council: decision log (D1–D113)
 
-Compiled by the council clerk (A51) from the G60 record, 2026-10-19.
-Compact by design: one line per decision, no debate history. Status as of
-the chair's R6 close (18:21:48). The charter (D46) will cite these ids.
+Compiled by the council clerk (A51) from the G60 record (R1–R6, 2026-10-19)
+and G122 (R7, 2026-10-20). Compact by design: one line per decision, no
+debate history. Status as of the chair's R7 close (09:40:25). The charter
+(D46) will cite these ids.
 
 Status values: **decided** · **amended** (decided, later changed; final
 wording shown) · **merged** (folded into another id) · **superseded** ·
@@ -17,16 +18,16 @@ members.
 - **To the president (sent at R6 close):** D68 (agent identities before
   day 1, backed by all four members and now the chair) and D78 (M0–M2 start
   at R6 close).
-- **R7, in a fresh group, input = this log:** votes on D81–D88, D87 (G5
-  reversal) first; the chair objects provisionally to D81. Then the charter
-  draft and D46 ratification.
+- **Next:** the chair drafts the charter in `docs/charter/` (A10's nine
+  parts + A28's three + A2's three; D111 front page; paragraph-level D-id
+  citations), then D46 ratification in G122. A10 drafts the D108 table.
 - **Year-1 headline (D70):** only aspirin (ASPREE, the negative control) can
   feed the D33 headline. The charter must say year 1 delivers the
   instruments, the extrapolated column and the outcome table, not a headline
   ranking.
-- **Formal dissent:** none outstanding (chair, R6 close). A50's two R6
-  dissents (D33 headline in year 1; same-model agreement as accuracy) were
-  answered by D70 and D71.
+- **Formal dissent:** none outstanding (chair, R7 close). A50's two R6
+  dissents were answered by D70 and D71. A10 withdrew his D87 dissent. A50's
+  view against D81 is recorded as a minority view, not a formal dissent.
 
 ## Numbering notes
 
@@ -36,8 +37,10 @@ members.
 - R5: A50's D57/D58 became D66/D67.
 - R6: A50's D68–D75 became D70–D77; A28's D70/D71 became D78/D79;
   A10's second "D78" became D80.
-- D81–D88 = A2's R6 items (to R7); D89 unused. D90–D107 were assigned by the clerk to decisions taken
-  without a number.
+- D81–D88 = A2's R6 items (settled in R7); D89 unused. D90–D107 were
+  assigned by the clerk to decisions taken without a number.
+- R7: A10's D108/D109 stand; A28's D108/D109 became D110/D111; A50's D108
+  became D112; A2's "D112" became D113.
 
 ## R2: organisation (closed 17:29)
 
@@ -45,7 +48,7 @@ members.
 |---|---|---|---|
 | D1 | Ledger scored by a mechanical CI job. Structured criteria (source, record id, field path, comparator, threshold, deadline, fallback), no free text. T1 criteria point to the registered CT.gov outcome measure, hashed at sealing. Verification approves every criterion at entry. Never-reported items are scored via the mandatory fallback; non-resolution rate published. | decided | Verification (criteria), A10 (job) |
 | D2 | Mission owner = producer of the headline number. Protocol co-signed by owner and contributor before any data read, fixing extraction choices. No pooled number published, ledgered or scored without its GRADE (one record, two signatures). Flagship: owner A28; A2 owns registration, extraction, QA, GRADE. | decided | A1 |
-| D3 | Verification tiered by stakes: every finding carries `feeds:`; the score reads only ≥ L2-sealed. Growth signals: queue < 2 weeks; 100% of score-feeding findings L2-sealed; extraction-audit error rate (≥20 outcomes/unit/month, 100% below). Single sizing rule (R6): the only percentage is the ≥15% floor (D64); start 1 + 4 (D100); grows when any of four signals slips (queue, L2-sealed share, D63 count rule, D66 count rule). "~25%" dropped. | amended (R6) | Verification |
+| D3 | Verification tiered by stakes: every finding carries `feeds:`; the score reads only ≥ L2-sealed. Growth signals: queue > 2 weeks; 100% of score-feeding findings L2-sealed; extraction-audit error rate (≥20 outcomes/unit/month, 100% below). Single sizing rule (R6): the only percentage is the ≥15% floor (D64); start 1 + 4 (D100); grows when any of four signals slips (queue, L2-sealed share, D63 count rule, D66 count rule). "~25%" dropped. | amended (R6) | Verification |
 | D4 | Owner + customer per mission. Program leads only once a program has ≥2 live missions. A1 is interim Strategy/customer in year 1. Disputes on A1-customer missions go to the president. Adjudications and rulings logged in `docs/decisions/`. | decided | A1 |
 | D5 | Mission 2 split: 2a metrics standard + scoring rule v0 (early); 2b trial-level surrogate test, fed by flagship extraction. Owner A28. Minimum trial count pre-registered; below it R² < 0.5 means "not shown". | decided | A28 |
 | D6 | Estimators merge only with independent printed reference cases (per-SNP / per-study inputs). Independent = printed in a peer-reviewed paper, or computed by a different implementation. Vignettes are smoke tests only. Property tests: allele flip, SNP order, unit scaling. Hartung-Knapp in the validated core. | amended (R4) | A10 (code), Verification (references) |
@@ -82,7 +85,7 @@ members.
 | G2 | Resolved ledger items (excl. trials ending before council end) | ≥ 40, ≥ 12 external | < 20 or < 5 external |
 | G3 | Brier skill vs base rate, external items, per type | 90% interval LB > −0.05 | point ≤ 0 |
 | G4 | Ledger non-resolution rate | ≤ 10% | > 20% |
-| G5 | Every one of 16 classes has an entry; "estimated" = full D33 composite (D96). Reversal proposed (D87, R7): ceiling is 1 class | ≥ 4 estimated at L2-sealed | < 2 |
+| G5 | Original: every one of 16 classes has an entry; ≥ 4 estimated (full D33 composite, D96). **Reversed by D87 because of D70** (pre-day-1 amendment, never a precedent): 16/16 classes mapped with trust level and named missing evidence; number estimated reported, no target | 16/16 mapped (CI) | any class unmapped at month 3 |
 | G6 | MR panel | ≥ 8 targets, all positive controls pass | any control fails or < 4 |
 | G7 | Calibration re-derivation | within published CI and 10% | outside CI, unexplained |
 | G8 | Mission 2b | pre-registered, run, published | not pre-registered by month 6 |
@@ -134,10 +137,10 @@ members.
 | D63 | Rolling 3-month audit pool: ≥ 6/60 errors = incident, 3–5 = double next sample, ≤ 2 = pass. Doubled sample in a unit's first 3 months and after any S1. | decided | Verification |
 | D64 | Verification ≥ 15% of active worker-weeks, set by the president quarterly, never cut mid-quarter; blocks lifted only by him in writing; audit rotation every 2 months; measured by `workers:` per mission. | decided | President, A9/A10 |
 | D65 | Monthly drift report (needs source-type and design fields). Audit trigger = D63's count rule; the ">5%" wording dropped (R6). | decided | A2 |
-| D66 | Planted errors: ≥ 20 a quarter, rolling count rule, cut-offs fixed by A10 + A50 first. Error types public; sample choice hidden (key in a president-approved environment, else "planted (key not isolated)"); never written by a producer. | decided | A10, Verification |
+| D66 | Planted errors: ≥ 20 a quarter, rolling count rule, cut-offs fixed by A10 + A50 first; until then "detection < 80% = unreliable" (A50, R5) applies as provisional. Error types public; sample choice hidden (key in a president-approved environment, else "planted (key not isolated)"); never written by a producer. | decided | A10, Verification |
 | D67 | Verification read-only prep before council end (references, DOI/licence checks, ledger template). No data reads, forecasts or seals. | president (approved) | Verification |
 
-## R6: challenge and convergence (closed 18:21)
+## R6: challenge and convergence (closed 18:21; D81–D88 settled in R7)
 
 | Id | Decision | Status | Owner |
 |---|---|---|---|
@@ -154,19 +157,37 @@ members.
 | D78 | M0, M1, M2 start at R6 close, not after ratification. | to president | A28 |
 | D79 | Charter "Expectations" page: scale (months, not decades), what year 1 won't produce, dated outputs, likeliest failure. | decided | A1 |
 | D80 | Seal hash chain extended to `.github/workflows/`, `scripts/` and check scripts; batched with the D45 re-seal. | decided | A10 |
-| D81 | Rank only on GRADE ≥ moderate (chair objects provisionally: rank within trust tier instead). | open (R7) | A2 |
-| D82 | SAE completeness check per trial and organ class; missing ≠ zero events. | open (R7) | A2, A9 |
-| D83 | One pre-registered primary outcome per PICO; others secondary. | open (R7) | A2, Verification |
-| D84 | Novelty check (PROSPERO, published reviews) in every protocol before sealing. | open (R7) | A2 |
-| D85 | D21/D33 outcome definitions in one versioned file; changed only by numbered decision. | open (R7) | A2, A9 |
-| D86 | Extrapolated findings count toward G1 only under the label "extrapolated", on a separate line. | open (R7) | A1 |
-| D87 | G5 reversal: "16/16 classes mapped, number estimated reported, no target" (or ≥ 1, reviewed at month 6). | open (R7, first item) | A2 |
-| D88 | Guardrails before public launch: legal/medical-advice review, COI register, data-licence rules. | open (R7) | A1, president |
+| D81 | Only GRADE ≥ moderate is ranked; low-certainty items shown unranked, alphabetical, with their trust level; `astra-score` sorts eligible items only. (A10's version; A50 minority view.) | decided (R7, 4–1) | A2, A10 |
+| D82 | SAE completeness: field `reported: yes \| no \| partial` per organ class; `db build` fails on zero events without `reported: yes`; a missing organ-class row → harms "not estimable" (D73). With A9's week-5 work. | decided (R7) | A2, A9 |
+| D83 | One primary outcome per PICO. | withdrawn → D110 | A2 |
+| D84 | Novelty check (PROSPERO, published reviews) before sealing; search string and hits sealed in the protocol; novelty calls join the D102 G10 sample; Verification checks presence only; public label "search unverified". | decided with reservations (R7) | A2 |
+| D85 | One outcome-definitions file. | withdrawn, merged into D21 | A2 |
+| D86 | Extrapolated findings count toward G1 on their own labelled line. | merged into D17/D92 | A1 |
+| D87 | G5 reversed: 16/16 classes mapped (trust level + named missing evidence, CI-checked), fails if any class unmapped at month 3; number estimated reported, no target. Pre-day-1 amendment, never a precedent. | decided (R7, unanimous) | A2 |
+| D88 | Launch guardrails: legal/medical-advice review (president), COI register and licence rules from day 1 (`verification/prep/licences.md` as starting list); lay group and geriatrician under D76. Trigger = D109. | decided (R7) | A1, president |
 
 Also decided in R6: A9 calendar as amended (chair 18:12:51); the `meta`
 cross-check or a hand-computed DL is mandatory for the Normand reference
 (D6); charter outline = A10's nine parts + A28's three + A2's three
 additions.
+
+## R7: votes on D81–D88, charter rules (G122, closed 09:40)
+
+D81–D88 outcomes are in the R6 table above. New items:
+
+| Id | Decision | Status | Owner |
+|---|---|---|---|
+| D108 | Charter part 3 (decision rights) lists every rule that is only a convention while agents share one token (D46, D47 write paths, D61, D66, D77, agent trailers), until D68 is ruled. | decided | A10 |
+| D109 | Launch = the first scored number on the site. Until the D88 legal/medical-advice review is done, CI blocks score pages; every page carries a "research prototype, not medical advice" banner. | decided | A10 |
+| D110 | Primary outcome is a required D2 protocol field; Verification seals no protocol without exactly one (`primary: true`, CI-checked). G1 counts at most one finding per sealed protocol; secondary outcomes published, never counted. | decided | A28, A10 |
+| D111 | Charter page 1 = D79 expectations page, D70, and the president's decision list; readable in 5 minutes; everything else is reference. D47's "convention, not proof" line appears verbatim. | decided | A1 |
+| D112 | Trust level = (GRADE certainty, `population_match`). No list or chart mixes `population_match` values; the extrapolated column stays separate (D20/D92). | decided (definition) | A50 |
+| D113 | Aspirin (ASPREE) is an engine validation on a negative control, excluded from G1, G5 and any rank (protocol field `role: negative_control`). A result with P(net > 0) ≥ 0.8 opens an S2 incident; if Verification clears the engine, it is published as "unexpected result on a negative control", never suppressed. | decided (with chair amendment) | A2, A10 |
+
+Also ruled in R7: every charter **paragraph** cites its D-ids in a trailing
+line (page 1 in one footnote); A50's D46 diff flags any uncited paragraph or
+a citation that doesn't cover its content. "Nothing appears only in an
+appendix" is part 9 of A10's R6 charter outline (not D9).
 
 ## Decisions taken without a number (D90–D107)
 
