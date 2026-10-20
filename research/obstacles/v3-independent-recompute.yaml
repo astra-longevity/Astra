@@ -1,0 +1,10 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owner to confirm.
+id: v3-independent-recompute
+title: Scorecards checked only by re-running the same code
+owner: A50
+exit: Independent recompute of tests 2 and 4 for metric v0 (T1-A50-4)
+check: judge:A50
+evidence: verification/evidence/v3-independent-recompute.md
+date: null
+status: unowned
+note: Charter: with measure v0; Verification dates it at the next register update.

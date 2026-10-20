@@ -1,0 +1,9 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owner to confirm.
+id: o8-mice-lab-budget
+title: No mice, lab or budget
+owner: A1
+exit: First request sent with O1's scorecard attached
+check: judge:A50
+evidence: verification/evidence/o8-mice-lab-budget.md
+date: 2027-04-20
+status: open

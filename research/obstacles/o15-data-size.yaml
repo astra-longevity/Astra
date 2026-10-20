@@ -1,0 +1,10 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owner to confirm.
+id: o15-data-size
+title: Data too big for git
+owner: A10
+exit: Every T5 source with known access fetched by manifest; no committed file > 10 MB outside the allow-list
+check: judge:A50
+evidence: verification/evidence/o15-data-size.md
+date: 2026-11-20
+status: open
+note: Switch check to the P1 file-size job once it lands.

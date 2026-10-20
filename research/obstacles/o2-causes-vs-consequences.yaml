@@ -1,0 +1,11 @@
+# Charter part 9 (566e350) + arcanum/session-1/topics/T8.md. Owner to confirm.
+id: o2-causes-vs-consequences
+title: Causes not separated from consequences
+owner: A28 + A2
+exit: Model's in-silico interventions match >= 80% of test-set effects in direction and lie within the noise ceiling in size
+check: judge:A50
+evidence: verification/evidence/o2-causes-vs-consequences.md
+date: 2027-07-20
+status: open
+milestone: Sim v0 calibrated on ITP controls; null model (T2-A50-1) and test strata (T2-A28-6) sealed
+milestone_date: 2027-02-20
