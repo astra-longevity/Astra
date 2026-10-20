@@ -9,12 +9,12 @@ landing_url: https://github.com/SinclairLab/pub-Schultz-Kane-2020
 access: public
 files:
   - url: "https://raw.githubusercontent.com/SinclairLab/pub-Schultz-Kane-2020/fc70a21a28e0c13ed145cfdd9fc11305560be3f8/Frailty%20data%20from%20Schultz_Kane_et_al.xlsx"
-    sha256: null
+    sha256: a0ffc800cbad6debe97a7f3ba1c73ab3b98f64b6c5191c9d1beea35c154a45fb
     size_bytes: 51725
     format: xlsx
     note: "frailty data, pinned commit"
   - url: "https://raw.githubusercontent.com/SinclairLab/pub-Schultz-Kane-2020/fc70a21a28e0c13ed145cfdd9fc11305560be3f8/sampleData.csv"
-    sha256: null
+    sha256: 9448781867e970c5d21060a893ce124d2ccfc96bd225150a4e6dc15b48f64b5c
     size_bytes: 5385
     format: csv
     note: "methionine restriction example data"
@@ -45,7 +45,7 @@ source_publications:
 used_by:
   - R-Metric
   - L2
-fetched_at: null
+fetched_at: "2026-10-20"
 notes: >-
   The paper's data link github.com/SinclairLab/frailty redirects to this
   repository. Sizes from the GitHub API. Licence request to the authors
