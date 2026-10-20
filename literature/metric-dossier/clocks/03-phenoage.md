@@ -6,27 +6,26 @@ Built in two steps. First, a "phenotypic age" was made from calendar age plus ni
 
 ## Training population
 
-- Step 1 (phenotypic age): US national health survey data (NHANES). `[to verify]` which survey waves and n.
-- Step 2 (methylation): secondary sources give 456 blood samples (InCHIANTI, Italy). `[to verify]`
-- Age range quoted 21–100. `[to verify]`
-- Consequence: an adult European-ancestry blood sample is closest to training; other ancestries `[to verify]`.
+- Step 1 (phenotypic age): US national health survey NHANES III (1988–94), 9,926 adults aged 20+ with complete blood markers and up to 23 years of mortality follow-up; checked in NHANES IV (1999–2014), 6,209 adults (Levine 2018).
+- Step 2 (methylation): 456 people from the Italian InCHIANTI study, blood sampled at two time points, ages 21–100; 513 sites chosen from 20,169 (Levine 2018).
+- Consequence: an adult blood sample from a European-ancestry population is closest to the methylation training set; fit in other ancestries is not stated here.
 
 ## Noise
 
-- Original version: technical replicates can differ by several years; one of the noisiest common clocks before the principal-component fix (Higgins-Chen 2022). `[to verify]` value.
+- Original version: technical replicates can differ by several years; one of the noisiest common clocks before the principal-component fix (Higgins-Chen 2022).
 
 ## Known failure modes
 
 - Inherits the nine blood markers' biases (infection, recent illness move them).
-- Replicate noise large enough to swamp small intervention effects unless the PC version is used.
+- Replicate noise large enough to swamp small intervention effects unless the principal-component version is used.
 
 ## Functional anchor and age trajectory
 
-Anchored to mortality and disease risk, not to a function test. Reported associations: all-cause mortality, cancer, heart disease, Alzheimer's (secondary review). `[to verify]` effect sizes.
+Anchored to mortality and disease risk, not to a function test. Across the validation cohorts, each extra year of DNAm PhenoAge went with about 4.5% higher risk of death (Levine 2018 abstract). Also linked to more coexisting diseases and physical-function limits (Levine 2018).
 
 ## Confounders
 
-Blood cell-type mix, acute inflammation, smoking. `[to verify]`
+Blood cell-type mix, acute inflammation, smoking. List not exhaustive.
 
 ## Sources
 
