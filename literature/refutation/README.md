@@ -49,18 +49,37 @@ Deadline: a row for every sim v0 edge and mapping before the calibration date, *
 | `excluded` | every source that reports lifespan or survival alongside the mechanism, recorded and not used |
 | `grade` | E0 to E3 |
 | `seal` | A50 seal record, or "not sealed" |
+| `version` | v1, v2, … with the diff from the previous version (condition 3) |
+| `status` | `mapped` or `no_mapping` (condition 4) |
 
-**Mapping rule.** Direction and prior size come from mechanistic evidence only. A lifespan or survival result is never read or cited for a mapping. A source that reports both is recorded under `excluded` and not used, even for its mechanistic part, unless A50 rules otherwise for that source. A test-set intervention's mapping is sealed with the split. A mapping changed after its intervention's lifespan is seen makes that intervention a training item from then on (T2-A2-2).
+**Mapping rule.** Direction and prior size come from mechanistic evidence only. A lifespan or survival result is never read or cited for a mapping. A test-set intervention's mapping is sealed with the split. A mapping changed after its intervention's lifespan is seen makes that intervention a training item from then on (T2-A2-2).
+
+Conditions set by A50 on this schema (2026-10-20):
+
+1. **Exclusion is mechanical.** A source goes to `excluded` if it reports any lifespan, survival or mortality outcome for that intervention, in the main text or in any supplement, even if it also has mechanistic data. Each exclusion carries one reason code:
+
+   | Code | Reason |
+   | --- | --- |
+   | `X-LS` | reports lifespan (median, mean, maximum, survival curve) for the intervention |
+   | `X-MORT` | reports mortality, hazard or deaths for the intervention |
+   | `X-SUPP` | the lifespan, survival or mortality outcome is only in a supplement |
+   | `X-REV` | review or meta-analysis that pools lifespan outcomes with mechanism |
+
+2. **Prior size by a written rule, never fitted.** Direction = sign of the printed effect on the target or biomarker. Prior size = the effect size and interval as printed in the mechanistic source (one source), or the inverse-variance pooled effect and interval (several sources, all listed). If no interval is printed, the spread is set to the size itself (prior centred on the printed value, standard deviation equal to it). The size is never chosen or adjusted to fit the simulation.
+3. **Seal before reading.** Each mapping is committed and sealed by A50 before its author reads any R-Sim calibration output or any lifespan result for that intervention. A later change is a new version of the row with a diff, never an edit in place.
+4. **`no_mapping`.** If no admissible mechanistic source exists, the row says `no_mapping` and the mapping is listed as a blind spot. It is never filled from an excluded source.
 
 ## Evidence grade
 
-The repo's L0 to L4 levels rate Astra's own findings (`research/README.md`). The grade here rates published evidence for one edge, so it uses a separate scale. Risk of bias of animal studies is judged with the SYRCLE tool (D120).
+The repo's L0 to L4 levels rate Astra's own findings (`research/README.md`). The grade here rates published evidence for one edge or mapping, so it uses a separate scale. **The E grade never feeds an L0 to L4 level.**
+
+Risk of bias of each animal study is scored with the SYRCLE tool (D120): 10 domains (sequence generation, baseline characteristics, allocation concealment, random housing, caregiver blinding, random outcome assessment, assessor blinding, incomplete outcome data, selective reporting, other bias). A study's score is its number of domains rated low risk (0 to 10), written in the row with the domain list. A "causal test" manipulates the cause in a mammal (drug, genetic change, diet, surgery) and measures the effect.
 
 | Grade | Rule |
 | --- | --- |
-| E3 | the cause was manipulated in a mammal and the effect measured, in at least 2 independent labs, at least one at low SYRCLE risk of bias |
-| E2 | one such mammalian causal test, or several all at high risk of bias |
-| E1 | association only (cross-sectional, longitudinal correlation), or causal evidence only in vitro or in non-mammals |
+| E3 | causal tests from at least 2 independent labs, each scoring at least 5 low-risk domains |
+| E2 | one causal test scoring at least 5, or at least 2 independent causal tests scoring below 5 |
+| E1 | one causal test scoring below 5; or association only (cross-sectional, longitudinal correlation); or causal evidence only in vitro or in non-mammals |
 | E0 | no evidence found by a dated search |
 
 Caps:
