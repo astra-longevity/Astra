@@ -1,0 +1,44 @@
+id: drugage
+title: "DrugAge: database of ageing-related drugs (Build 5)"
+description: >-
+  Curated lifespan results of drugs and compounds in model organisms (3,406
+  entries in Build 5, 2024-11-29). Source of the R-Metric v0 retrospective
+  refill list (mouse studies, PubMed year 2015-2022).
+maintainer: "Human Ageing Genomic Resources (de Magalhaes lab)"
+landing_url: https://genomics.senescence.info/drugs/
+access: public
+files:
+  - url: "https://genomics.senescence.info/drugs/dataset.zip"
+    sha256: null
+    size_bytes: 45365
+    format: zip
+    note: "Build 5 (2024-11-29): drugage.csv + release.html; last-modified 2025-03-23. LA-017 recorded zip sha256 d12f59717de60a207748f53bdbcdb484ed07e30d8608eb8e4a101e2a08d7fa80: the pin run must match it."
+licence:
+  spdx_or_name: "CC-BY-3.0"
+  url: https://genomics.senescence.info/legal.html
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    LA-017 (A50, 2026-10-20): approve with conditions; derived tables allowed,
+    incl. the outcome-stripped refill list. Cite Barardo et al. 2017 Aging Cell
+    16(3):594-597 (10.1111/acel.12585) and HAGR, link the licence, and state
+    the changes in any derived list (filtered to Mus musculus, PubMed year
+    2015-2022, outcome columns removed). Pin Build 5 and its zip sha256; a new
+    build = new pin. One bulk download per pin, no scraping. release.html: "Use
+    of the DrugAge is free but subject to the conditions of the Human Ageing
+    Genomic Resources" (CC BY 3.0 Unported).
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-017
+checked_at: "2026-10-20"
+source_publications:
+  - 10.1111/acel.12585
+used_by:
+  - R-Metric
+fetched_at: null
+notes: >-
+  Used only for the R-Metric v0 retrospective refill
+  (verification/approvals/r-metric-v0-refill.md): A71 builds the list by
+  script on metadata only; A28 and A67 never open DrugAge. Size and
+  last-modified from HTTP headers on 2026-10-20.
