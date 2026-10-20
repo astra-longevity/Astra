@@ -78,6 +78,12 @@ Note on the LA-004, LA-005 row (2026-10-20): request draft deleted 2026-10-20
 under PR12 (manifest `225a8ff`); route out = president's contact (see PR12
 section).
 
+Note on LA-006 `mpd-itp1` (2026-10-20): the licence stays approved; only data
+access is pending. The fetch job in Actions gets HTTP 403 from MPD. Route out:
+the president sent a written access request to phenome@jax.org on 2026-10-20
+(text in `data/requests/mpd-itp1-access.md`, `967ebf7`; PR14). A9 posts MPD's
+reply.
+
 Refusals not listed (LA-002 TMS raw reads, LA-101 GBD public files) already
 have an approved alternative (LA-001/LA-009; internal compute with DOI +
 row reference), so they don't block O9.
@@ -98,3 +104,9 @@ PR12 (manifest `225a8ff`); route out = president's contact (see PR12 section).
 
 This section replaces the Schultz route in the O9 table above. The rows
 above are left unchanged.
+
+Note (2026-10-20): president ruling PR14 (PR #124, merged `322ad44`) adds
+that tables derived from the Schultz 2020 frailty dataset may be published,
+with citation (Schultz, Kane et al. 2020, Nat Commun 11:4618,
+10.1038/s41467-020-18446-0). LA-004 and LA-005 derived tables in repo: yes,
+under PR12 + PR14.
