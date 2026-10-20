@@ -63,12 +63,12 @@
       "enum": ["pending", "approved", "refused"],
       "description": "Set by Verification (A50) only. The fetch job fetches approved manifests only."
     },
-    "approved_by": { "type": "string", "pattern": "^A[0-9]+$" },
+    "approved_by": { "type": "string", "pattern": "^(A[0-9]+|president)$", "description": "Verification agent id, or president for a president ruling." },
     "approved_at": { "$ref": "common.schema.json#/$defs/date" },
     "approval_ref": {
       "type": "string",
-      "pattern": "^LA-[0-9]{3}$",
-      "description": "Row id in verification/approvals/licences.md that records the verdict."
+      "pattern": "^(LA-[0-9]{3}|PR[0-9]+)$",
+      "description": "Row id in verification/approvals/licences.md that records the verdict, or PRn = president ruling in docs/decisions/president-rulings.md."
     },
     "fetch": {
       "type": "object",
