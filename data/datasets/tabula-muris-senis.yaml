@@ -1,0 +1,42 @@
+id: tabula-muris-senis
+title: "Tabula Muris Senis single-cell atlas (processed objects)"
+description: >-
+  Single-cell RNA-seq of 23 mouse tissues at ages 1 to 30 months (FACS and
+  droplet methods), as AnnData objects. Input for molecular ageing axes per
+  tissue.
+maintainer: "Chan Zuckerberg Biohub (Tabula Muris Consortium), on figshare"
+landing_url: https://doi.org/10.6084/m9.figshare.8273102.v3
+access: public
+files:
+  - url: "https://ndownloader.figshare.com/files/23939711"
+    sha256: null
+    size_bytes: 2365256176
+    format: h5ad
+    note: "tabula-muris-senis-facs-official-raw-obj.h5ad"
+  - url: "https://ndownloader.figshare.com/files/23938934"
+    sha256: null
+    size_bytes: 4056529818
+    format: h5ad
+    note: "tabula-muris-senis-droplet-official-raw-obj.h5ad"
+licence:
+  spdx_or_name: "MIT"
+  url: https://opensource.org/licenses/MIT
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    Licence field of figshare articles 8273102 and 12654728 (API, 2026-10-20).
+    MIT requires keeping the copyright and licence notice; cite the paper.
+licence_status: pending
+checked_at: "2026-10-20"
+source_publications:
+  - 10.1038/s41586-020-2496-1
+used_by:
+  - R-Metric
+fetched_at: null
+notes: >-
+  Only the two raw-count objects are listed (6.4 GB). Processed objects (facs
+  4795677086 B, droplet 8244494258 B) and per-tissue files (figshare 12654728,
+  39 files) can be added. figshare publishes MD5 only, so sha256 stays null
+  until the pin run. Raw FASTQ on AWS are out of scope (refused, LA-002).
+  LA-001 approved figshare item 19545169 (CC BY 4.0); these files are from
+  item 8273102 (MIT), so Verification must confirm or swap items.

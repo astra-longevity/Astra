@@ -201,3 +201,36 @@ Format version 0.1 → 1.0 (`build_info.format_version`). Everything is now in E
 
 **Messages:** all diagnostics are in English (§4); levels are `error` /
 `warning`; stdout lines in §7 are in English.
+
+## 10. Dataset fetch manifests (`data/datasets/`)
+
+`data/datasets/<id>.yaml` describes one **external dataset**: where to
+download it, the expected hashes and its licence. It is not one of the 8 card
+kinds: `astra db build` does not load it (no table, `schema.sql` unchanged).
+The fetch job (Platform, A10) reads it. Schema: `dataset.schema.json`.
+
+Rules the fetch job and any future loader must enforce:
+
+| Rule | Level |
+|---|---|
+| File validates against `dataset.schema.json`; file name = `<id>.yaml` | error |
+| `id` unique across `data/datasets/` | error |
+| Every `landing_url` and `files[].url` starts with `https://` | error |
+| `licence` present, with `redistribution_of_derived` ∈ {yes, no, unclear} (quoted in YAML) | error |
+| `files[].sha256` is `null` or 64 lowercase hex chars; never guessed | error |
+| Same `url` twice in one manifest | error |
+| `licence_status` ≠ `pending` ⇒ `approved_by`, `approved_at`, `approval_ref` (row `LA-nnn` in `verification/approvals/licences.md`) | error |
+| `access: unknown` | warning |
+| `licence_status: approved` with a `files[].sha256` still `null` | warning (pin needed) |
+
+Fetching:
+
+1. Only `licence_status: approved` manifests are fetched; others are skipped
+   and listed.
+2. `fetch.min_interval_seconds` (if set) is the minimum wait between two
+   requests to that host.
+3. **Pin step.** While `sha256` is `null`, a manual `pin` run downloads the
+   file and prints its hash; a PR then commits the hash and `fetched_at`.
+   After that, a hash mismatch fails the job. The job never writes to the repo.
+4. Raw files are never committed. Only small derived tables may be, and only
+   when `redistribution_of_derived: yes` and the licence is approved.

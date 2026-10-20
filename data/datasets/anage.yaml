@@ -1,0 +1,30 @@
+id: anage
+title: "AnAge: database of animal ageing and longevity"
+description: >-
+  Maximum lifespan, body mass and life-history traits for over 4,000 species.
+  Comparative-species data (T5) for long-lived species.
+maintainer: "Human Ageing Genomic Resources (de Magalhaes lab)"
+landing_url: https://genomics.senescence.info/species/
+access: public
+files:
+  - url: "https://genomics.senescence.info/species/dataset.zip"
+    sha256: null
+    size_bytes: 169150
+    format: zip
+    note: "full AnAge export; last-modified 2023-07-03"
+licence:
+  spdx_or_name: "CC-BY-3.0"
+  url: https://genomics.senescence.info/legal.html
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    "HAGR is free for all purposes, including commercial, educational, and
+    research purposes, provided you mention the use of HAGR". Cite the 2024
+    NAR paper.
+licence_status: pending
+checked_at: "2026-10-20"
+source_publications:
+  - 10.1093/nar/gkad927
+used_by:
+  - R-Sim
+fetched_at: null

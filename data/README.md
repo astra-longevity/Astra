@@ -82,4 +82,29 @@ Dates are written in quotes: `verified_at: "2026-10-19"`.
 - Do not edit another project's card without telling its owner.
 - Never commit `astra.sqlite` to git (already excluded by `.gitignore`).
 
+## Dataset manifests (`datasets/`)
+
+Besides the 8 kinds of cards, `datasets/` lists the **external datasets**
+Astra downloads (mouse lifespan tables, methylation data, life tables…). One
+file per dataset, `datasets/<id>.yaml`, says:
+
+- where to download each file (`files`: url, expected `sha256`, size, format);
+- who publishes it and how to get access (`access`: public, registration,
+  request, unknown);
+- its **licence**, and whether we may publish small tables derived from it
+  (`redistribution_of_derived`: yes, no, unclear);
+- `licence_status`: `pending` until Verification (A50) decides; `approved` or
+  `refused` with `approved_by`, `approved_at` and `approval_ref` (the row in
+  `verification/approvals/licences.md`). Only Verification changes it.
+
+The raw data is **never** committed. A Platform job downloads approved
+datasets, checks the hashes and caches them.
+
+**Pin step.** A new file has `sha256: null` (we never guess a hash). A manual
+`pin` run of the fetch job downloads it and prints the hash; a PR then writes
+the hash and `fetched_at` into the manifest. From then on, a changed file
+fails the job.
+
+Rules: `schema/dataset.schema.json` and `schema/BUILD_SPEC.md` section 10.
+
 Technical details for developers: `schema/BUILD_SPEC.md`.

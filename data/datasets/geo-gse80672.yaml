@@ -1,0 +1,39 @@
+id: geo-gse80672
+title: "GEO GSE80672: mouse DNA methylation by age (Petkovich 2017)"
+description: >-
+  Mouse DNA methylation profiles across ages, 255 samples, used to build the
+  Petkovich 2017 epigenetic clock. Input for the methylation axis of metric
+  v0.
+maintainer: "NCBI Gene Expression Omnibus (submitted by the authors)"
+landing_url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE80672
+access: public
+files:
+  - url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE80nnn/GSE80672/suppl/GSE80672_RAW.tar"
+    sha256: null
+    size_bytes: 3086766080
+    format: tar
+    note: "all per-sample supplementary files"
+licence:
+  spdx_or_name: "NCBI GEO disclaimer (no NCBI restrictions; submitters may claim rights)"
+  url: https://www.ncbi.nlm.nih.gov/geo/info/disclaimer.html
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    "NCBI places no restrictions on the use or distribution of the GEO data.
+    However, some submitters may claim patent, copyright, or other
+    intellectual property rights in all or a portion of the data they have
+    submitted." Read via search engine on 2026-10-20 (direct fetch blocked by
+    a reCAPTCHA page). Verification to check this series for submitter claims.
+    Cite the GEO accession and the paper.
+licence_status: pending
+checked_at: "2026-10-20"
+source_publications:
+  - 10.1016/j.cmet.2017.03.016
+used_by:
+  - R-Metric
+  - L2
+fetched_at: null
+notes: >-
+  GEO series and paper linked via NCBI E-utilities on 2026-10-20. Size from
+  HTTP Content-Length. RRBS of mouse blood; series also cited by a 2018 paper
+  (PMID 29575528).

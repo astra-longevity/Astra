@@ -1,0 +1,29 @@
+id: human-mortality-database
+title: "Human Mortality Database life tables"
+description: >-
+  Period and cohort life tables and death rates by country, sex and age.
+  Baseline human mortality curves.
+maintainer: "Max Planck Institute for Demographic Research and UC Berkeley"
+landing_url: https://www.mortality.org
+access: registration
+files: []
+licence:
+  spdx_or_name: "CC-BY-4.0 (HMD-built series only)"
+  url: https://www.mortality.org
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    Per verification/prep/licences.md section 3: HMD-built series are CC BY
+    4.0; raw input data stays under each provider's terms. Free account
+    needed.
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-103
+checked_at: "2026-10-20"
+used_by:
+  - R-Sim
+  - T1 human
+fetched_at: null
+notes: >-
+  Files need a login: none listed until the fetch job has credentials.

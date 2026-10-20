@@ -1,0 +1,37 @@
+id: geo-gse121141
+title: "GEO GSE121141: mouse DNA methylation by age (Meer 2018)"
+description: >-
+  Mouse DNA methylation profiles across ages, 81 samples, used to build the
+  Meer 2018 epigenetic clock. Input for the methylation axis of metric v0.
+maintainer: "NCBI Gene Expression Omnibus (submitted by the authors)"
+landing_url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE121141
+access: public
+files:
+  - url: "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE121nnn/GSE121141/suppl/GSE121141_RAW.tar"
+    sha256: null
+    size_bytes: 2982471680
+    format: tar
+    note: "all per-sample supplementary files"
+licence:
+  spdx_or_name: "NCBI GEO disclaimer (no NCBI restrictions; submitters may claim rights)"
+  url: https://www.ncbi.nlm.nih.gov/geo/info/disclaimer.html
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    "NCBI places no restrictions on the use or distribution of the GEO data.
+    However, some submitters may claim patent, copyright, or other
+    intellectual property rights in all or a portion of the data they have
+    submitted." Read via search engine on 2026-10-20 (direct fetch blocked by
+    a reCAPTCHA page). Verification to check this series for submitter claims.
+    Cite the GEO accession and the paper.
+licence_status: pending
+checked_at: "2026-10-20"
+source_publications:
+  - 10.7554/elife.40675
+used_by:
+  - R-Metric
+  - L2
+fetched_at: null
+notes: >-
+  GEO series and paper linked via NCBI E-utilities on 2026-10-20. Size from
+  HTTP Content-Length.

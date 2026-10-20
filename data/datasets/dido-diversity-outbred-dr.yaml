@@ -1,0 +1,41 @@
+id: dido-diversity-outbred-dr
+title: "JAX Diversity Outbred dietary restriction lifespan study (DRiDO)"
+description: >-
+  960 female Diversity Outbred mice on five diets (ad libitum, two
+  intermittent fasting, two caloric restriction levels), phenotyped repeatedly
+  and followed to death. Genetically diverse longitudinal data for metric v0.
+maintainer: "The Jackson Laboratory and Calico Life Sciences"
+landing_url: https://github.com/calico/DRiDO_Paper_Release
+access: public
+files:
+  - url: "https://raw.githubusercontent.com/calico/DRiDO_Paper_Release/28f84d361bb87843bcec1a0d7a3d38dcda70325b/data/SurvTest.csv"
+    sha256: null
+    size_bytes: 361223
+    format: csv
+    note: "survival data, pinned commit"
+  - url: "https://raw.githubusercontent.com/calico/DRiDO_Paper_Release/28f84d361bb87843bcec1a0d7a3d38dcda70325b/data/phenotyping_data.csv"
+    sha256: null
+    size_bytes: 8715971
+    format: csv
+    note: "longitudinal phenotypes, pinned commit"
+licence:
+  spdx_or_name: "MIT"
+  url: https://github.com/calico/DRiDO_Paper_Release/blob/main/LICENSE
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    Repository licence MIT (GitHub API, 2026-10-20). The paper itself is CC
+    BY-NC-ND 4.0, which covers its text and figures, not this repository.
+    Verification to confirm the MIT licence is meant to cover the data files.
+licence_status: pending
+checked_at: "2026-10-20"
+source_publications:
+  - 10.1038/s41586-024-08026-3
+used_by:
+  - R-Metric
+  - L1
+fetched_at: null
+notes: >-
+  T5 names 'JAX ageing centre Diversity Outbred studies'; this is the one with
+  a confirmed public data file. Other DO ageing data on MPD not pinned (MPD
+  API refused curl).
