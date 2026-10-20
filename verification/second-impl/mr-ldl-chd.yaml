@@ -64,7 +64,7 @@ expected:
     egger_intercept_se: 0.015
 
 tolerance:
-  # proposed by A59, A50 to confirm
+  # accepted by A50 (G126, 2026-10-20)
   ivw_estimate: 1e-8
   ivw_se: 1e-8
   egger_slope: 1e-8

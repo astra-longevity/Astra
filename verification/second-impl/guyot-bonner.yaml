@@ -1,6 +1,7 @@
 case: guyot-bonner
 reference: verification/prep/references-survey.md (section 6)
 reference_kind: printed
+input_kind: package-digitised curve, not a D93 double digitisation   # A50 ruling: pipeline run only, cannot feed D38 on its own
 description: >
   Guyot 2012 KM reconstruction (doi:10.1186/1471-2288-12-9), worked example of Table 3:
   Bonner et al. 2006 (doi:10.1056/NEJMoa053422), radiotherapy vs radiotherapy + cetuximab.
