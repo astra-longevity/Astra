@@ -19,3 +19,4 @@ ruling that changes one cites the row it replaces.
 | PR10 | 2026-10-20 | Agents name themselves `<Function> (<Name>)`, workers included. |
 | PR11 | 2026-10-20 | `PROTECTION_READ_TOKEN` stays a repository secret; it is not moved into a `main`-only environment. The charter (PR #28) is merged. |
 | PR12 | 2026-10-20 | Astra may use the Schultz 2020 mouse frailty dataset (SinclairLab/frailty) despite its missing licence; this overrules the LA-004 refusal. The president contacts the authors himself; no agent posts a licence request. |
+| PR13 | 2026-10-20 | Standing mandate: the Interface Manager proactively keeps the public site reflecting the project at all times (status, findings, roadmap, visualisations), built from the repo only. |
