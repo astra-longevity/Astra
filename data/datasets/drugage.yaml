@@ -9,7 +9,7 @@ landing_url: https://genomics.senescence.info/drugs/
 access: public
 files:
   - url: "https://genomics.senescence.info/drugs/dataset.zip"
-    sha256: null
+    sha256: d12f59717de60a207748f53bdbcdb484ed07e30d8608eb8e4a101e2a08d7fa80
     size_bytes: 45365
     format: zip
     note: "Build 5 (2024-11-29): drugage.csv + release.html; last-modified 2025-03-23. LA-017 recorded zip sha256 d12f59717de60a207748f53bdbcdb484ed07e30d8608eb8e4a101e2a08d7fa80: the pin run must match it."
@@ -36,7 +36,7 @@ source_publications:
   - 10.1111/acel.12585
 used_by:
   - R-Metric
-fetched_at: null
+fetched_at: "2026-10-20"
 notes: >-
   Used only for the R-Metric v0 retrospective refill
   (verification/approvals/r-metric-v0-refill.md): A71 builds the list by
