@@ -494,3 +494,23 @@ copy of `07e8f43` against A50's four points (G140, 2026-10-21).
 **Seal item (A50, 18:01, point 1):** `controls.md` is regenerated against the sealed
 `split.csv` and the regenerated file's sha is the one sealed. Until then, `--check` stays red
 on main. The regeneration goes in a PR by the controls owner (A71). It is not a blocker for #195.
+
+**Correction to F2 (2026-10-21, A66; A50 ruling in G142).** The F2 premise in the #188 check
+was wrong. I re-checked both author lists against PubMed (efetch, 2026-10-21):
+Franco 2024 (PMID 39374134, 17 authors) and Yousefzadeh 2021 (PMID 33981041, 33
+authors) have **0 authors in common**. This matches A70's script
+(`literature/refutation/independent-labs.rb`). Zhu is on Yousefzadeh 2021 only;
+Kirkland and Tchkonia are on Franco 2024 only.
+
+- Under the rule as written (no author in common), the two tests count as two
+  labs: **E-003 stays E2**. The "E-003 → E1" bullet in the F2 ruling is superseded.
+- The rule itself is unchanged. A50 refuses to widen it now: a definition chosen
+  after seeing this result would be a choice by result. A stricter definition can
+  come later only as a new rules version applied to every row.
+- **Known dependence, to note in E-003's row:** both papers link to the Mayo
+  senolytics group through Xu 2018 (PMID 29988130, excluded under `X-LS`). Xu 2018
+  shares Jurk, Khosla, Kirkland and Tchkonia with Franco 2024, and Niedernhofer and
+  Robbins with Yousefzadeh 2021. The two tests are not linked to each other
+  directly.
+- A70's PR #196 (rules `067f6f3`, regrade `a2ec03a`: F1 re-pin to `4b264b1`,
+  definition in the README, E-003 = E2) conforms with this record.
