@@ -13,7 +13,7 @@ each entry cites its row, where the source table and DOI are recorded.
   split, or if a control's compound has any arm in the sealed split (compound-level test,
   A50 ruling 2026-10-20). A combination counts as each of its components, on both sides
   (split arm "rapamycin + 17α-estradiol" blocks every rapamycin and 17α-estradiol control).
-  Split: no machine-readable sealed split file exists yet (`research/metric/v0/split*`); the check runs automatically once it does.
+  Split: checked against `research/metric/v0/split.csv`.
 - **Interval = descriptive only.** It is not a confidence interval and not a pass/fail bar.
   Pass/fail tests on positive controls are defined by A28's sealed test-1 design, not by
   this file.
