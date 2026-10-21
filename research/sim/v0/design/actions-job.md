@@ -41,8 +41,10 @@ seed at 20 000) but easy to shard on Actions.
 - One shard = (seed, parameter, ±) → one `simulate` call, saved as JSON
   (bin probabilities + readout moments). 2 seeds × (54 × 2 + 1) = 218 shards
   per `n_sim`.
-- Matrix job, at most 20 runners at once; one shard ≈ 1 min at 20 000 per
-  2 000-mouse-minute measured locally (scale linearly) [to measure on runner].
+- Matrix job, at most 20 runners at once. Measured wall time on runners:
+  joint run (436 shards) 36 min; challenge run (462 shards,
+  `shard_challenge.py`) **2 h 07 min**, not the ~55 min estimated. Size future
+  challenge-type runs at ≈ 5.5 runner-minutes per shard at `n_sim` 20 000.
 - A final job gathers the shards, builds the matrices and runs the analysis.
 - CLI (`py/studies/shard.py`, from `py/studies/`):
   - `python3 shard.py --list` prints the 218 specs `seed,param,sign`, one per

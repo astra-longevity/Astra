@@ -25,7 +25,8 @@ import os
 import pickle
 import sys
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # py/: model
+_PY = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path[:0] = [_PY, os.path.join(_PY, "studies")]  # py/: model; py/studies/: study modules
 
 import model  # noqa: E402
 from identifiability import H, full_names  # noqa: E402

@@ -10,7 +10,7 @@ Companion to `identifiability.md`. Three parts:
    public data is missing, plus the factorial arm O4 needs.
 
 All synthetic fits use the same seeded Fisher machinery as `identifiability.md`
-(`public_design.py`, seeds 11/12, ideal assay, assay noise `NOISE_REL` × SD).
+(`py/design/public_design.py`, seeds 11/12, ideal assay, assay noise `NOISE_REL` × SD).
 Mice come only after metric v0 passes (charter part 6); nothing here is a
 request.
 
@@ -138,5 +138,5 @@ pending a dedicated search.
 
 ```
 cd research/sim/v0/py/studies
-PUBLIC_CACHE=/tmp/public.pkl python3 public_design.py 1000 > ../../results/public-design.json
+PUBLIC_CACHE=/tmp/public.pkl python3 ../design/public_design.py 1000 > ../../results/public-design.json
 ```
