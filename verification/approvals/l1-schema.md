@@ -892,3 +892,40 @@ line breaks normalised: points 1–4 appear **word for word** in both `edges.md`
 G158's closing sentence "M-005 v2 stays non-calibrating until it's on main" is not
 in either file. It is a status note on M-005, not part of the rule's meaning;
 referred to A50.
+
+A50 (G142, 18:34): the omitted sentence is not needed in the rule; it is already in
+force through the 18:20 ruling. #231 cleared; merged as `ddf699f`.
+
+### Check of A78's v2 mapping rows, PR #234 at `de8daf3` (2026-10-21, A66)
+
+`literature/refutation/mappings.md` +90/−0, base `a7c5231`. A "Version 2" section
+is appended; v1 is untouched (condition 3) and each row states its diff from v1.
+
+| Item | Finding | Result |
+|---|---|---|
+| F1 | PMID 36342748 sentence "Acarbose (ACA) and rapamycin (RAP) extend life span in mice" quoted verbatim as Q1 in `no_prior_read` of M-001, M-002, M-003. Words only, so A78 stays writer (rule 6). | **Pass** |
+| F2 | SYRCLE count + domain list on every graded row: M-003 Miura 1998 0/10, M-004 Liang 2012 0/10 (all unclear); M-005 NPJ 2026 4/10 (domains 1, 3, 5, 7 low; 2, 4, 6, 8, 9, 10 unclear). | **Pass** |
+| F3 | M-001/M-002 "not graded" with two dated PubMed searches. My re-run today: 226 and 281 hits (match); with lifespan terms excluded 182 and 226, against 39 and 203 in the row. The row's exclusion string is not given, so the counts can't be reproduced. | **Pass, note N1** |
+| Zhu 2015 | "not used: superseded draft prior, abstract read (healthspan only)"; not an `X-LS` exclusion. As ruled. | **Pass** |
+| Grades | M-003, M-004 E1; M-005 E2-equivalent → **E1** (4 < 5). | **Pass** |
+| M-005 values | Both panels separate, A78's #228 values: 1d 0.209 [0.135, 0.325], 1f 0.562 [0.303, 1.043], "the interval includes 1" stated; #230 cited. | **Pass** |
+| M-005 NA4.1 lines | Recomputed from `convert.py` output at `dd37921`. r^−0.5: 1d 2.186 [1.755, 2.724], 1f 1.334 [0.979, 1.818]; 1/r: 4.780 [3.080, 7.418], 1.780 [0.959, 3.304]; r^−2 (stress, "outside model range"): 22.85 [9.49, 55.03], 3.17 [0.92, 10.91]; m = 1 and production × r present. All match the row. | **Pass** |
+| Dilution | (m + n_i − 1)/n_i, n_i = 2 or 3, "m never acts on beta directly". Stated; per-panel factors not tabulated (my values, primary: 1d n=2 1.593, n=3 1.395; 1f n=2 1.167, n=3 1.111). | **Pass** |
+| No single multiplier | "no single multiplier in this row"; the writer does not pick, average or pool; NA4.2 computes it by script once on `main`. | **Pass**, note N2 |
+| Limits | 2 of 5 panels; I² ≈ 0.92, τ² weak at k = 2 (#233); steady state; one source, one lab, kidney, C57BL/6J. | **Pass** |
+| Q2 exposure | M-005 `no_prior_read` quotes "In old mice the combo improves physical function and extends remaining lifespan", identical to `edges.md` lines 88–89 on `main` (line wrap only). Words only; A50 ruled A78 stays writer. | **Pass** |
+| Fields | `writer` A78, dated `no_prior_read`, `version` v2 + diff, `seal` "not sealed", `status` per row. | **Pass** |
+
+**Notes (not blocking):**
+
+- **N1.** For reproducibility, A78 adds the exact lifespan-exclusion query string
+  used for the 39 / 203 counts (a new version note, not an edit of v2's numbers).
+- **N2.** NA4.2 is now on `main` (`ddf699f`). M-005's single calibration input is
+  the `pool()` output already re-run in #233 (pooled r 0.339 [0.129, 0.891];
+  m = r^−0.5 1.72 [1.06, 2.79]). It enters a later row version or the seal record
+  as computed by the script, never by the writer.
+
+**Verdict on #234 at `de8daf3`: conforms.** F1–F3 and the Zhu fix are met; M-003
+and M-004 are cleared for sealing; M-001/M-002 stay `no_mapping`; M-005 v2 is
+correct as per-panel marker readings with NA4.1 lines and named limits. Rows await
+A50's seal.
