@@ -74,3 +74,15 @@ sealed class list).
 | NA1 | **Combination rule:** a combination multiplies its classes' multipliers (no interaction term) | No ITP combination has both singles in the same cohort (A70, `literature/refutation/obstacles.md` O4; PubMed factorial search 0 hits) | Every combination prediction carries "NA1, uncalibrated"; a factorial arm (both singles + combo, same cohort) is a first-mouse-request candidate |
 | NA2 | Hallmark factors are a plain mean over the hallmarks driving an axis | Weights would add parameters (S12) | — |
 | NA3 | Vital set (E4) | Modelling choice (S11) | — |
+| NA4 | **Senolytic acts on H8 clearance only** (L3 mapping M-005, M5): the H8 clearance multiplier goes up (sign +), damage production is unchanged. A fall in a senescence marker under a senolytic is attributed entirely to clearance. Basis: the class is defined by its mechanism, selective removal of senescent cells (PMID 35165353, doi:10.1038/s41598-022-06448-5, abstract only, class-definition sentence; its in vitro clearance result is not stated in the abstract: [to verify]). Rule set by A28, 2026-10-21 | No source separates clearance from production for D+Q; one marker fall can't split them | **Pre-registered sensitivity:** calibration also runs the same marker fall read as production down (an H8-driven production multiplier < 1, clearance unchanged) and reports both. Size stays `no_mapping` until A78's tick-reading rules commit is on main |
+
+NA4 is committed before calibration and before any D+Q lifespan result is
+read by its writer (A76).
+
+- exposure (NA4, A76, 2026-10-21): web search snippets only, nothing opened:
+  "In old mice the combo improves physical function and extends remaining
+  lifespan" (regenerated.com) and a 2-year D+Q study in primates
+  (inflammation markers, biomogging.com). No number, no survival curve. The
+  cited abstract reports frailty, motor and cognitive gains in SAMP10 mice; no
+  survival or lifespan result. NA4's content is A28's rule, so the exposure
+  left the writer no discretion. Logged in `research/metric/v0/manual-downloads.csv`.
