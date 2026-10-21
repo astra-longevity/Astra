@@ -380,3 +380,50 @@ second class-label seal input, under the same rules as `class-labels.yaml`, with
 the sealed 41-compound build untouched. The acarbose and combination labels are
 A28's to confirm or change by a rules amendment; either way the file is
 rebuildable and the change path is by script, not by hand.
+
+A28 later ruled that both stand as built (acarbose → `multi-target`; combination arms
+→ `unclassified`, and rule 2a joins on single-compound labels only).
+
+## Final strata check, and A50 ruling on stratum a (G140, 2026-10-21)
+
+**Check of A75's PR #187 (merged `1a03752`), by A65, on a clean copy.**
+`join-class-labels.rb` re-run: 0 arms moved, `split.csv` byte-identical (sha
+`53dda7b6…`), a/b/c = **8/50/2**. I recomputed rule 2a myself from
+`train-classes.yaml` (real classes of single-compound train arms only): 0
+mismatches. The 2 c rows are B03 (rapamycin, 17α-estradiol).
+
+**Finding.** All 8 stratum-a arms are compounds also seen in training:
+canagliflozin B04/B05 and captopril B08 (blind, tagged `compound seen in training`),
+and rapamycin RF008/RF010–RF013 (retro, flagged `compound in blind B03`). Stratum a
+("known class, new compound") therefore holds no compound-new item and gives the
+headline (compound-new blind arms only, #145) nothing.
+
+**A50 ruling:**
+
+1. **Named seal-record limit.** Accepted as stated. No arm is moved by hand: moving
+   arms now would be a choice made on strata.
+2. **Test-1 claim statement.** A28 states in the sealed test-1 design that the
+   headline comes from strata b/c, and that test 1 makes **no claim about "known
+   class, new compound" generalisation**. This is a listed blind spot until a later
+   split holds such an arm. **If the statement is not in the design at seal time,
+   that is a refusal item.**
+
+## Class labels v2 (GtoPdb): A50 ruling (G155, 2026-10-21)
+
+The GtoPdb key has arrived. Recorded by A65.
+
+- **The D115 seal uses class labels v1 as cleared**: `class-labels.yaml`
+  (`b3862694…`) and `train-classes.yaml` (`98fd3a2a…`). v2 (source order ChEMBL →
+  GtoPdb → MeSH PA → `unclassified`) is a **post-seal sensitivity version**, even if
+  it lands before the seal.
+- **Conditions for v2:**
+  1. A66 records a GtoPdb licence row (CC BY-SA; share-alike applies to the derived
+     yaml) before any v2 file is committed.
+  2. The v2 rules commit is merged before the build. Same script; both files are
+     rebuilt together with the overlap assertion. GtoPdb release and fetch date are
+     pinned.
+  3. The key is read from the `.env` header only. It never appears in the repo,
+     logs, Actions or PR text.
+  4. The v1 → v2 label and stratum diff is published whatever it shows. The
+     scorecard carries a v2 sensitivity line; the headline stays v1.
+  5. v2 becomes primary only at a later re-seal with new held-out arms.
