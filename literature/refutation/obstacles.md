@@ -2,7 +2,7 @@
 
 Status: v0, 2026-10-20 (A70, for A2). Schema: `README.md` in this folder. All DOIs checked on Crossref on 2026-10-20.
 
-These rows are descriptive. Lifespan results appear only in O4 and O6, which are about lifespan by design, and never feed a mapping row. O4 and O6 counts come from the L1 table (`literature/lifespan/itp/`, 132 rows, ITP cohorts 2004 to 2017). The held-out arms of the metric split (`research/metric/v0/split.csv`, ITP 2021 to 2025) are not in L1 and were not read; no 2021+ ITP paper is cited here.
+These rows are descriptive. Lifespan results appear only in O4 and O6, which are about lifespan by design, and never feed a mapping row. O4 and O6 counts come from the L1 table (`literature/lifespan/itp/`, 132 rows, ITP cohorts 2004 to 2017). The held-out arms of the metric split (`research/metric/v0/split.csv`, ITP 2021 to 2025) are not in L1 and were not read; no paper on an ITP cohort started 2021+ is cited here.
 
 ## O3: causes of death in control mice
 
