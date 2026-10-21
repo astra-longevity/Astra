@@ -6,7 +6,9 @@ Rule (design/edges.md §4 NA4.2, spec.md §6). Generic for every L3 mapping with
 Step 2, pool: random effects on log r (DerSimonian-Laird). Panel i gives
 log r_i and SE_i = SE(log r_i) from rule 8 (delta method); weights 1/SE_i^2.
 k < 3: the pooled interval is the wider of the fixed- and random-effects
-intervals. k = 1: that panel alone. k = 0: no_mapping.
+intervals. k = 1: that panel alone. k = 0: no_mapping. The fixed-effect
+result is returned next to the pooled one; at k = 2 tau2 is flagged
+"weakly estimated".
 
 Step 3, carry: pooled log r and its interval -> NA4.1 lines (m = r^-0.5
 primary; m = 1/r; m = 1; production x r; stress m = r^-2) -> repair factor
@@ -61,7 +63,9 @@ def pool(panels: list[tuple[float, float]]) -> dict:
     if k < 3 and fe[1] - fe[0] > re[1] - re[0]:
         lo, hi = fe
     return {"status": "pooled", "k": k, "log_r": mu_re, "se": se_re, "lo": lo, "hi": hi,
-            "fe": fe, "re": re, "tau2": tau2, "i2": i2, "q": q}
+            "fe_log_r": mu_fe, "fe": fe, "re": re, "tau2": tau2, "i2": i2, "q": q,
+            "tau2_note": "weakly estimated" if k == 2 else None,
+            "interval_used": "fixed" if (lo, hi) == fe and fe != re else "random"}
 
 
 def _m_lines(log_r: float, lo: float, hi: float) -> dict:

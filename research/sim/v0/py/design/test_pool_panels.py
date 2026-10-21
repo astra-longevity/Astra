@@ -1,4 +1,4 @@
-"""Tests for pool_panels.py (NA4.2). Made-up inputs only; no panel value of any mapping.
+"""Tests for pool_panels.py (NA4.2). Synthetic inputs only; no panel value of any mapping.
 
     python3 test_pool_panels.py
 """
@@ -48,6 +48,13 @@ class Pool(unittest.TestCase):
         self.assertEqual((p["lo"], p["hi"]), p["re"])
         p = pool([(0.0, 0.1), (0.05, 0.3)])  # tau2 = 0: FE = RE, same width
         self.assertGreaterEqual(p["hi"] - p["lo"], p["fe"][1] - p["fe"][0] - 1e-12)
+
+    def test_fe_reported_and_weak_tau2_at_k2(self):
+        p = pool([(0.0, 1.0), (4.0, 1.0)])
+        self.assertAlmostEqual(p["fe_log_r"], 2.0)
+        self.assertEqual(p["tau2_note"], "weakly estimated")
+        self.assertEqual(p["interval_used"], "random")
+        self.assertIsNone(pool([(0.0, 1.0), (4.0, 1.0), (2.0, 1.0)])["tau2_note"])
 
     def test_k3_uses_random_effects(self):
         p = pool([(0.0, 1.0), (4.0, 1.0), (2.0, 1.0)])
