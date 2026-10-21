@@ -78,15 +78,53 @@ had to exist to be replicated). The refill therefore uses a
   under-reports nulls).
 - Research read only the README and the outcome-stripped CSV. Neither DrugAge
   nor the 23 papers were opened.
-- Per-arm class label and stratum: `split.csv` (below). Labels are proposals
-  from pharmacology, mechanism sources `[to verify]` (A71 adds them to
-  `literature/lifespan/class-labels.yaml`; A65 approves).
+- Per-arm class label and stratum: `split.csv` (below). The `class_label`
+  column is filled by a scripted join, `join-class-labels.rb`, keyed on
+  `compound` against `literature/lifespan/class-labels.yaml` (41 labels,
+  built by A71's `class-labels.rb`; A65 approves). No hand edits.
 
-Stratum counts (40 arms): (a) known class 25, (b) new class 15, (c) 0.
-Proposed new classes (b): HCN channel blocker, polyamine, IGF-1R antagonist,
-Cdc42 inhibitor, CD38 inhibitor, lysosomal autophagy inhibitor, NLRP3
-inhibitor, multi-target (icariin, berberine). They need vocabulary entries
-before the seal.
+### Scripted stratum re-derivation (`join-class-labels.rb`, A28 rule G144)
+
+The same script re-derives the a/b/c stratum from the joined `class_label`,
+in one pass, with the rule A28 fixed in G144 (2026-10-21):
+
+- **c** = any combination or sex-transfer arm (read from `flag`), whatever its
+  class.
+- **a** = else, iff `class_label` is a real class (not `unclassified`, not
+  `multi-target`) **and that class has at least one train arm**.
+- **b** = else: every `unclassified` and `multi-target` arm, and any real class
+  with no train example.
+
+The "compound seen in training" tag stays in `flag` and never sets `stratum`
+(A65, #144): a scorecard grouping on stratum must not mix class-novelty with
+leakage.
+
+**Provisional a/b split (flagged).** The train set is the 132 finished ITP
+arms in `literature/lifespan/itp/`, not rows of this file, so "class present
+in train" needs each train compound's class. `class-labels.yaml` labels only
+the 41 held-out split compounds; most ITP train compounds are unlabelled. A71
+is extending `class-labels.rb` to emit a `train-classes` file (same pinned
+ChEMBL 37 + MeSH 2026; A28 option (a), G144). **Until it lands, rule 2a runs
+with every real class provisionally present in train**, so the pipeline runs;
+the a/b split below is provisional and is re-derived (and re-reported) when the
+train-class file is committed. Point `TRAIN_CLASSES_FILE` in the script at it to
+switch to the final run.
+
+Stratum counts (60 arms: 20 blind + 40 retrospective), before vs after the
+scripted re-derive:
+
+| Stratum | Before (hand) | After (provisional) |
+|---|---|---|
+| a known class | 32 | 16 |
+| b new / unclassified | 26 | 42 |
+| c combination / transfer | 2 | 2 |
+
+30 arms moved (all a↔b; c unchanged). The moves follow the yaml only: arms the
+yaml labels `unclassified` or `multi-target` (e.g. metformin → multi-target,
+nicotinamide riboside, taurine, α-ketoglutarate → unclassified) move to b;
+arms with a named target (dichloroacetate → PDK inhibitor, trametinib → MEK
+inhibitor, sildenafil, alpelisib) move to a. The final run can only move real
+classes from a to b (a class with no train example), never b to a.
 
 **Overlap with the blind part (flagged, not dropped; A50 condition 6):**
 RF008, RF010–RF013 are rapamycin, a single compound of blind arm B03
@@ -97,33 +135,23 @@ forecast. Both B03 compounds train (finished ITP rapamycin arms; 17α-estradiol
 T06), so B03 is tagged **"compound seen in training"** like B04/B05 and stays
 in stratum (c). A65 confirms at the seal.
 
-### Proposed new classes (for A65's vocabulary, before the seal)
+### Class vocabulary: see `class-labels.yaml`
 
-Mechanism = primary target as named in pharmacology. Sources must report no
-lifespan outcome (class-labels.yaml rules); none opened yet, so all
-`[to verify]` (A71 supplies IUPHAR / ChEMBL / DrugBank entries).
-
-| Class | Mechanism | Arms | Source |
-|---|---|---|---|
-| HCN channel blocker | blocks the funny current (I_f) in sinoatrial cells, lowers heart rate | RF005 ivabradine | `[to verify]` |
-| polyamine | natural polycations; spermidine is the eIF5A hypusination substrate and induces autophagy | RF015–RF019 putrescine, spermidine, spermine | `[to verify]` |
-| IGF-1R antagonist | blocks the IGF-1 receptor | RF024 L2-Cmu | `[to verify]` |
-| Cdc42 inhibitor | inhibits the Rho GTPase Cdc42 | RF027 CASIN | `[to verify]` |
-| CD38 inhibitor | inhibits the NAD+-consuming enzyme CD38 | RF036–RF037 78c | `[to verify]` |
-| lysosomal autophagy inhibitor | raises lysosomal pH, blocks autophagic flux | RF038 chloroquine | `[to verify]` |
-| NLRP3 inhibitor | inhibits NLRP3 inflammasome assembly | RF039 oridonin | `[to verify]` |
-| multi-target | source names two or more targets without ranking (vocabulary entry exists) | RF007 icariin, RF026 berberine | `[to verify]` |
-
-`multi-target` is already in the vocabulary, so 7 classes are new. Other
-labels in `split.csv` that are not in the vocabulary yet (biguanide, NAD+
-precursor, senolytic flavonoid, Krebs-cycle metabolite, lipoxygenase
-inhibitor, polyphenol, and the blind-part classes) also need entries; they
-are counted as known classes because the compound or class trains.
+The class of every compound is now the authoritative, scripted value in
+`literature/lifespan/class-labels.yaml` (A71's `class-labels.rb`, pinned
+ChEMBL 37 + MeSH 2026). This file no longer carries a hand class table; the
+join reads the yaml. For A65's vocabulary review, the classes to approve are
+exactly the distinct `class` values in that yaml (built: ChEMBL 11, A28 calls
+3, MeSH 3, `unclassified` 24, `multi-target` 5). Any flagged label (e.g.
+17α-estradiol → 5-alpha reductase inhibitor; mianserin, sodium thiosulfate →
+multi-target) changes only by a rule change ruled by A50, never by hand here.
 
 ## Machine-readable split: `split.csv`
 
 One row per arm, columns `part, arm_id, compound, cohort, pmid, sex,
-class_label_proposed, stratum, flag` (A65, PR #110). Combination arm B03 is
+class_label, stratum, flag` (A65, PR #110; `class_label` filled by the
+scripted join). The `stratum` values below predate the re-derive; the
+authoritative a/b/c is the script output above. Combination arm B03 is
 listed as two rows, one per single compound. B03, B04, B05 and B08 use **one
 encoding** (A65, G154): their a/b/c stratum in `stratum` (B03 c, B04/B05/B08 a),
 and the exact text `compound seen in training` in `flag`, ruling ref after
