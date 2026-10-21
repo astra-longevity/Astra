@@ -1,0 +1,9 @@
+# Train-only name canonicalisation for class-labels.rb --train (rules amendment 4, §1b).
+# Maps an ITP spelling (literature/lifespan/itp/*.yaml `compound`) to the canonical split/alias
+# key used by class-labels-aliases.yaml, so the ChEMBL S1 and MeSH S3 lookups find the same
+# substance. Name-only, another name of the SAME substance, committed before the build.
+# This file is read only by the train code path; class-labels-aliases.yaml is unchanged, so
+# the 41-compound split build (class-labels.yaml) stays byte-identical.
+canonical:
+  ndga: nordihydroguaiaretic acid
+  "17-alpha-estradiol": 17alpha-estradiol

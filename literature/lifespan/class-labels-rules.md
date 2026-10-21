@@ -12,6 +12,27 @@ Every distinct value of the `compound` column of `research/metric/v0/split.csv` 
 2026-10-20). Combination arms are listed in the split by their single compounds. Each
 compound gets exactly one entry.
 
+### 1b. Train scope (amendment 4, A28 ruling G158 2026-10-20)
+
+`train-classes.yaml` labels every distinct value of the `compound` field of
+`literature/lifespan/itp/*.yaml` (43 on 2026-10-21), for A67's R-Metric v0 stratum rule 2a
+("class present in train"). It is built by the **same script, same rules, same fallback
+order → `unclassified`**, the same pinned MeSH 2026 files, but a **separate** train-only
+ChEMBL 37 snapshot `class-labels-train-chembl37.json` (A28 option 1). The 41-compound split
+snapshot `class-labels-chembl37.json` and its sha256 are **untouched**; `train-classes.yaml`
+has its own build sha and a byte-identical rebuild.
+
+- **Train-name canonicalisation (name-only, before any lookup).** The ITP spelling of a
+  compound is mapped to the canonical split/alias key through `class-labels-train-names.yaml`
+  before the ChEMBL and MeSH lookups (e.g. `ndga` → `nordihydroguaiaretic acid`,
+  `17-alpha-estradiol` → `17alpha-estradiol`). Only names of the same substance; chosen from
+  names, before any result is applied. The shared `class-labels-aliases.yaml` is **not**
+  changed, so the 41-compound split build stays byte-identical.
+- **Combination arms** (`metformin + rapamycin`, `rapamycin + acarbose`) match no single
+  ChEMBL molecule and have no single primary target, so they fall through to `unclassified`.
+  They are emitted as-is and flagged; whether A67 wants a component-level class for the 2a
+  join is A28's call, not decided here.
+
 ## 2. Source order (first step that gives a class wins)
 
 | Step | Source | Used when |
@@ -101,6 +122,35 @@ The ChEMBL 37 snapshot lists trametinib's mechanism on MEK1/2 and on each subuni
 are the same class, so they get the same row. This was decided from the snapshot's target list
 only, before any label was generated.
 
+Amendment 4 (before the train build, for the ITP train compounds of §1b). Rows added for the
+ChEMBL targets that appear in the **train** snapshot's usable mechanism records but not in the
+41-compound split. Each class name is derived mechanically from the target's ChEMBL
+`pref_name` and the record's `action_type` ("<target> inhibitor/antagonist/agonist"), from the
+snapshot's target list only, before any label was generated. No therapeutic class, no hand
+label.
+
+| ChEMBL target | Target name (ChEMBL) | Class | Train compound(s) |
+|---|---|---|---|
+| CHEMBL2045 | Pancreatic alpha-amylase | alpha-amylase inhibitor | acarbose |
+| CHEMBL2074 | Maltase-glucoamylase | alpha-glucosidase inhibitor | acarbose |
+| CHEMBL2094253 | Cyclooxygenase | cyclooxygenase inhibitor | aspirin, sulindac |
+| CHEMBL227 | Type-1 angiotensin II receptor | angiotensin II receptor antagonist | candesartan cilexetil |
+| CHEMBL2111348 | Soluble guanylate cyclase | soluble guanylate cyclase inhibitor | methylene blue |
+| CHEMBL2363135 | Bacterial 70S ribosome | bacterial ribosome inhibitor | minocycline |
+| CHEMBL402 | 3-hydroxy-3-methylglutaryl-coenzyme A reductase | HMG-CoA reductase inhibitor | simvastatin |
+| CHEMBL2047 | Bile acid receptor | FXR agonist | ursodeoxycholic acid |
+
+Notes:
+- **acarbose** has two usable records on two different targets (pancreatic alpha-amylase and
+  maltase-glucoamylase) with no primary marked, so by §3 it is `multi-target`. **Flag for
+  A28/A65:** if A28 prefers a single class (both are intestinal carbohydrate hydrolases,
+  acarbose's canonical class being "alpha-glucosidase inhibitor"), that is a one-line change
+  to this table (map both rows to the same class), ruled by A50 — not decided here.
+- **methylene blue**: its "Reducing agent" record names no target, so it is not usable (§3);
+  the single usable target is soluble guanylate cyclase.
+- **enalapril** maps to CHEMBL1808 (ACE), already in §6; no new row.
+- `aspirin` and `sulindac` share the cyclooxygenase row.
+
 ## 7. Output
 
 `class-labels.yaml`: per compound `class`, `source_step` (S1, S1-call, S2-skipped+S3, S4),
@@ -111,3 +161,15 @@ the cited record(s) (ChEMBL ids or MeSH UI + URL), `source_date`, `flags`, `prop
 - `unclassified` compounds stay held-out and never enter stratum a (A28).
 - If an IUPHAR key arrives after the freeze, this rule is re-run as a new version and
   published with a label and stratum diff (A50 #141 pt 4).
+
+## 8. Train build: overlap consistency check (amendment 4, A28 binding condition)
+
+`train-classes.yaml` (§1b) is built from its own train-only ChEMBL 37 snapshot, fetched at a
+different time from the sealed 41-compound snapshot. Five compounds are in both snapshots:
+**canagliflozin, captopril, metformin, nicotinamide riboside, rapamycin** (plus their
+aliases). The train build asserts that each of the five gets the **same `class`** in
+`train-classes.yaml` as in the sealed `class-labels.yaml`. The build records both snapshots'
+`fetched` date and `endpoints`, prints the five-row overlap table, and **aborts** on any
+mismatch — a mismatch would mean a silent within-release-37 drift between the two fetch times,
+which is flagged to A28, not papered over. A65 approves `train-classes.yaml` as a seal input
+alongside `class-labels.yaml`.
