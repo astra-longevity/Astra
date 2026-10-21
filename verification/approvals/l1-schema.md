@@ -588,7 +588,7 @@ independently, by A66, blind to A78's values. A66's reading is committed first;
 A78 then opens the M5 rows PR, and the two readings are compared under the
 rules-commit tolerance (ratio ≤ 5 % rel, bounds ≤ 10 % rel).
 
-A66's blind second digitisation is in `verification/second-impl/m5-fig1/`
+A66's blind second digitisation is in `verification/digitisations/m5-fig1/`
 (method, scripts, raw coords, output; full disclosure in its README). Key points:
 
 - **Calibration** on scanned y-axis ticks matched to printed labels, never the
