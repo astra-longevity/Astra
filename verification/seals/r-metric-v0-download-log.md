@@ -22,8 +22,21 @@ seal impact.
 | sha256 | `c6e20eccc88e603dea1c33d27f4a1fd012c9d802968e4ef707049835decacaff` (= manifest pin and LA-021) |
 | Size | 79 062 609 B |
 | Purpose | Hash pin only (LA-021 condition 3). Pin mode does not verify or read the content |
-| Kept? | **Open:** A9 is to confirm that no artifact R-Metric can open was kept (Actions cache or artifact). A50 forwards the answer |
+| Kept? | **No.** A10 (via A50, G140 17:06): hash only, no unzip, 0 artifacts, no cache entry. The run failed on the MPD 403s and the runner VM was deleted |
+| Ruling (A50, 17:06) | A later Actions cache entry of the zip is not a read and needs no re-seal, because SLAM has no blind-split arm. Any unzip or parse of the zip before the seal gets its own line in this log first |
 | Seal impact | None expected. The deposit holds untreated NIA SLAM colony mice (C57BL/6J, UM-HET3, cut 2019), not ITP blind-split arms (ITP 2021+). Same file and sha as A70's 2026-10-20 O16 download, already in `manual-downloads.csv` (line 39) |
 
-At the seal: the fetch job re-fetches this URL, the sha256 must match the one above,
-and A9's answer on artifacts is attached here.
+At the seal: the fetch job re-fetches this URL, and the sha256 must match the one above.
+
+### 2. A9 verify run 39622203341 (2026-10-21 15:04Z)
+
+| Field | Value |
+|---|---|
+| Who | A9 (Database Manager), GitHub Actions run 39622203341 on `main` @ `b31d1be` |
+| Dataset | `slam-zenodo-5167639` (LA-021), second CI download |
+| URL | same as entry 1 |
+| sha256 | `c6e20eccc88e603dea1c33d27f4a1fd012c9d802968e4ef707049835decacaff`: **matches** LA-021 and the manifest |
+| Size | 79 062 609 B: **matches** |
+| Purpose | Verify the pinned hash and size only. No unzip |
+| Kept? | **Not confirmed.** A10 is asked via A9 whether the run left an artifact or an Actions cache entry. Under the 17:06 ruling a cache entry is not a read; any unzip or parse before the seal gets its own line |
+| Seal impact | None expected (same deposit as entry 1, no blind-split arm) |
