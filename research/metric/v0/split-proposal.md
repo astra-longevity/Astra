@@ -125,6 +125,23 @@ RF038 chloroquine. The 8 remaining stratum-a arms are canagliflozin (B04,
 B05), captopril (B08) and rapamycin (RF008, RF010–RF013): every one is also
 a compound seen in training (tag in `flag`).
 
+**Named limit (A28, G171 2026-10-21): stratum a (known class, new compound)
+is empty in v0.** Stratum a scores only compounds seen in training; it is
+reported apart and never enters the headline. Arms are not moved to fill it
+(that would be selection).
+
+Compound-new arms per stratum (row = held-out arm; "seen" = any component
+compound names a single-compound train entry of `train-classes.yaml`, after
+`class-labels-train-names.yaml` canonicalisation; exact name match):
+
+| Stratum | Rows | Compound-new | Compound seen in training |
+|---|---|---|---|
+| a | 8 | 0 | 8 |
+| b | 50 | 42 | 8 (NDGA RF001–RF004, nicotinamide riboside RF009, metformin RF020, RF021, RF032) |
+| c | 2 | 0 | 2 (B03 rapamycin + 17α-estradiol) |
+
+So the compound-new headline (A50 #145) rests on the 42 stratum-b arms only.
+
 **Overlap with the blind part (flagged, not dropped; A50 condition 6):**
 RF008, RF010–RF013 are rapamycin, a single compound of blind arm B03
 (rapamycin + 17α-estradiol). `controls.rb --check` matches whole compound
