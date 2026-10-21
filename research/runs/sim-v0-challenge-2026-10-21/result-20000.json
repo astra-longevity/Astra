@@ -1,0 +1,4804 @@
+{
+ "n_sim": 20000,
+ "seeds": [
+  11,
+  12
+ ],
+ "weeks": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  26
+ ],
+ "doses_xc": [
+  0.15,
+  0.3,
+  0.6
+ ],
+ "t0s": [
+  0.5,
+  1.5
+ ],
+ "kappas": [
+  "prior",
+  2.0,
+  8.0
+ ],
+ "noise_rel": 0.5,
+ "n_sweep": [
+  10,
+  30,
+  100
+ ],
+ "runs": [
+  {
+   "kappa": 0.5,
+   "per_organ": {
+    "A1_muscle": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.84,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.25,
+       "xc": 0.0
+      },
+      "100": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.25,
+       "xc": 0.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.22,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.22,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.22,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.92,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.94,
+        "sum": 0.16,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.94,
+        "sum": 0.16,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.95,
+        "sum": 0.98,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.82,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.19,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.82,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.16,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.16,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.83,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.14,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.14,
+        "xc": 0.0
+       }
+      }
+     }
+    },
+    "A3_brain": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.01,
+       "xc": 0.07
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.18,
+       "xc": 0.35
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.26,
+       "xc": 0.99
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.19,
+        "xc": 0.15
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.19,
+        "xc": 0.98
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.19,
+        "xc": 0.98
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.85,
+        "sum": 0.19,
+        "xc": 0.08
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.2,
+        "xc": 0.95
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.2,
+        "xc": 0.95
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.91,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.04,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.94,
+        "sum": 0.98,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.79,
+        "sum": 0.0,
+        "xc": 0.08
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.2,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.2,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.91,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.16,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.16,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.01,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.06,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.06,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A6_heart": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.01,
+       "xc": 0.08
+      },
+      "30": {
+       "n_recoverable": 3,
+       "ratio": 0.91,
+       "sum": 0.22,
+       "xc": 0.99
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.91,
+       "sum": 0.22,
+       "xc": 0.99
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.19,
+        "xc": 0.18
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.2,
+        "xc": 0.98
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.2,
+        "xc": 0.98
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.85,
+        "sum": 0.2,
+        "xc": 0.1
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.2,
+        "xc": 0.96
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.2,
+        "xc": 0.96
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.03,
+        "xc": 0.95
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.05,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.95,
+        "sum": 0.97,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.8,
+        "sum": 0.0,
+        "xc": 0.08
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.19,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.19,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.91,
+        "sum": 0.02,
+        "xc": 0.95
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.14,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.14,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.01,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.06,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.06,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A8_lung": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.83,
+       "sum": 0.01,
+       "xc": 0.07
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.83,
+       "sum": 0.17,
+       "xc": 0.29
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.91,
+       "sum": 0.23,
+       "xc": 0.99
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.85,
+        "sum": 0.19,
+        "xc": 0.12
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.19,
+        "xc": 0.97
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.19,
+        "xc": 0.97
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.86,
+        "sum": 0.18,
+        "xc": 0.09
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.19,
+        "xc": 0.96
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.93,
+        "sum": 0.95,
+        "xc": 0.99
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.04,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.95,
+        "sum": 0.97,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.81,
+        "sum": 0.0,
+        "xc": 0.07
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.2,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.2,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.16,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.16,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.94,
+        "sum": 0.01,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.06,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.06,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A9_kidney": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.01,
+       "xc": 0.07
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.16,
+       "xc": 0.34
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.24,
+       "xc": 0.99
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.21,
+        "xc": 0.16
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.22,
+        "xc": 0.98
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.22,
+        "xc": 0.98
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.85,
+        "sum": 0.2,
+        "xc": 0.09
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.2,
+        "xc": 0.97
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.2,
+        "xc": 0.97
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.02,
+        "xc": 0.95
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.04,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.94,
+        "sum": 0.96,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.8,
+        "sum": 0.0,
+        "xc": 0.08
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.21,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.21,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.16,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.16,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.01,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.06,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.06,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A10_liver_metabolism": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.01,
+       "xc": 0.07
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.82,
+       "sum": 0.1,
+       "xc": 0.61
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.25,
+       "xc": 0.99
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.18,
+        "xc": 0.15
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.19,
+        "xc": 0.98
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.19,
+        "xc": 0.98
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.85,
+        "sum": 0.2,
+        "xc": 0.11
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.2,
+        "xc": 0.97
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.93,
+        "sum": 0.96,
+        "xc": 0.99
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.91,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.03,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.94,
+        "sum": 0.96,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.8,
+        "sum": 0.0,
+        "xc": 0.08
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.21,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.21,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.91,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.15,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.15,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.01,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.08,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.08,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A11_immune": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.01,
+       "xc": 0.06
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.14,
+       "xc": 0.44
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.89,
+       "sum": 0.25,
+       "xc": 0.98
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.19,
+        "xc": 0.15
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.9,
+        "sum": 0.2,
+        "xc": 0.97
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.9,
+        "sum": 0.2,
+        "xc": 0.97
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.76,
+        "sum": 0.0,
+        "xc": 0.05
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.21,
+        "xc": 0.95
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.21,
+        "xc": 0.95
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.91,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.03,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.94,
+        "sum": 0.96,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.81,
+        "sum": 0.0,
+        "xc": 0.08
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.21,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.91,
+        "sum": 0.21,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.91,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.16,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.16,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.01,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.07,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.07,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A12_blood": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.82,
+       "sum": 0.01,
+       "xc": 0.06
+      },
+      "30": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.26,
+       "xc": 0.99
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.9,
+       "sum": 0.26,
+       "xc": 0.99
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.21,
+        "xc": 0.13
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.21,
+        "xc": 0.97
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.21,
+        "xc": 0.97
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.76,
+        "sum": 0.0,
+        "xc": 0.05
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.21,
+        "xc": 0.95
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.93,
+        "sum": 0.93,
+        "xc": 0.99
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.03,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.95,
+        "sum": 0.97,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.8,
+        "sum": 0.0,
+        "xc": 0.09
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.22,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.22,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.02,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.15,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.92,
+        "sum": 0.15,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.01,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.06,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.06,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A13_skin_hair": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.84,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.25,
+       "xc": 0.0
+      },
+      "100": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.25,
+       "xc": 0.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.75,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.23,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.77,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.93,
+        "sum": 0.88,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.94,
+        "sum": 0.15,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.94,
+        "sum": 0.15,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.95,
+        "sum": 0.96,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.82,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.19,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.83,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.16,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.16,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.83,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.14,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.14,
+        "xc": 0.0
+       }
+      }
+     }
+    },
+    "A14_gut": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.85,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.27,
+       "xc": 0.0
+      },
+      "100": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.27,
+       "xc": 0.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.76,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.24,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.24,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.78,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.9,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.79,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.94,
+        "sum": 0.16,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.96,
+        "sum": 0.97,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.81,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.19,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.82,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.16,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.16,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.83,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.13,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.13,
+        "xc": 0.0
+       }
+      }
+     }
+    },
+    "A15_fat": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.84,
+       "sum": 0.0,
+       "xc": 0.0
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.25,
+       "xc": 0.0
+      },
+      "100": {
+       "n_recoverable": 2,
+       "ratio": 0.91,
+       "sum": 0.25,
+       "xc": 0.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.75,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.24,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.92,
+        "sum": 0.24,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.77,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.94,
+        "sum": 0.89,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.94,
+        "sum": 0.17,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.94,
+        "sum": 0.17,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.95,
+        "sum": 0.96,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.82,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.18,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.18,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.83,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.15,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.93,
+        "sum": 0.15,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.83,
+        "sum": 0.0,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.94,
+        "sum": 0.13,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.94,
+        "sum": 0.13,
+        "xc": 0.0
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "kappa": 2.0,
+   "per_organ": {
+    "A1_muscle": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.78,
+       "sum": 0.07,
+       "xc": 0.0
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.26,
+       "xc": 0.0
+      },
+      "100": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.26,
+       "xc": 0.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.2,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.19,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.18,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.18,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.89,
+        "sum": 0.88,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.76,
+        "sum": 0.06,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.81,
+        "sum": 0.24,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.81,
+        "sum": 0.24,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.77,
+        "sum": 0.05,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.22,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.22,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.78,
+        "sum": 0.05,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.2,
+        "xc": 0.0
+       }
+      }
+     }
+    },
+    "A3_brain": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 2,
+       "ratio": 0.76,
+       "sum": 0.13,
+       "xc": 1.0
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.76,
+       "sum": 0.13,
+       "xc": 1.0
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.76,
+       "sum": 0.31,
+       "xc": 1.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.56,
+        "sum": 0.05,
+        "xc": 0.83
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.77,
+        "sum": 0.23,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.77,
+        "sum": 0.23,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.73,
+        "sum": 0.05,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.78,
+        "sum": 0.22,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.78,
+        "sum": 0.22,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.78,
+        "sum": 0.13,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.78,
+        "sum": 0.13,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.87,
+        "sum": 0.98,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.77,
+        "sum": 0.14,
+        "xc": 0.98
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.25,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.25,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.76,
+        "sum": 0.15,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.78,
+        "sum": 0.19,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.78,
+        "sum": 0.19,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.76,
+        "sum": 0.15,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.78,
+        "sum": 0.17,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.78,
+        "sum": 0.17,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A6_heart": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.4,
+       "sum": 0.07,
+       "xc": 0.5
+      },
+      "30": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.27,
+       "xc": 1.0
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.27,
+       "xc": 1.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.53,
+        "sum": 0.07,
+        "xc": 0.66
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.78,
+        "sum": 0.22,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.78,
+        "sum": 0.22,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.43,
+        "sum": 0.11,
+        "xc": 0.52
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.19,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.19,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.77,
+        "sum": 0.15,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.15,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.15,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.78,
+        "sum": 0.15,
+        "xc": 0.97
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.81,
+        "sum": 0.22,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.81,
+        "sum": 0.22,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.76,
+        "sum": 0.16,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.2,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.2,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.75,
+        "sum": 0.16,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.17,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.17,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A8_lung": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.42,
+       "sum": 0.07,
+       "xc": 0.46
+      },
+      "30": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.27,
+       "xc": 1.0
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.27,
+       "xc": 1.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.5,
+        "sum": 0.1,
+        "xc": 0.56
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.21,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.21,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.47,
+        "sum": 0.13,
+        "xc": 0.51
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.2,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.2,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.78,
+        "sum": 0.14,
+        "xc": 0.98
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.14,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.86,
+        "sum": 0.89,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.77,
+        "sum": 0.15,
+        "xc": 0.95
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.24,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.24,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.75,
+        "sum": 0.16,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.21,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.21,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.77,
+        "sum": 0.14,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.14,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.14,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A9_kidney": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.43,
+       "sum": 0.08,
+       "xc": 0.47
+      },
+      "30": {
+       "n_recoverable": 3,
+       "ratio": 0.81,
+       "sum": 0.24,
+       "xc": 1.0
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.81,
+       "sum": 0.24,
+       "xc": 1.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.53,
+        "sum": 0.1,
+        "xc": 0.56
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.82,
+        "sum": 0.21,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.82,
+        "sum": 0.21,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.47,
+        "sum": 0.13,
+        "xc": 0.49
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.83,
+        "sum": 0.19,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.83,
+        "sum": 0.19,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.79,
+        "sum": 0.14,
+        "xc": 0.98
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.81,
+        "sum": 0.15,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.86,
+        "sum": 0.79,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.78,
+        "sum": 0.16,
+        "xc": 0.97
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.24,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.24,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.77,
+        "sum": 0.16,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.81,
+        "sum": 0.21,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.81,
+        "sum": 0.21,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.77,
+        "sum": 0.15,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.82,
+        "sum": 0.15,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.82,
+        "sum": 0.15,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A10_liver_metabolism": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.44,
+       "sum": 0.08,
+       "xc": 0.44
+      },
+      "30": {
+       "n_recoverable": 3,
+       "ratio": 0.79,
+       "sum": 0.23,
+       "xc": 1.0
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.79,
+       "sum": 0.23,
+       "xc": 1.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.56,
+        "sum": 0.09,
+        "xc": 0.56
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.2,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.2,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.47,
+        "sum": 0.14,
+        "xc": 0.44
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.18,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.18,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.77,
+        "sum": 0.14,
+        "xc": 0.98
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.14,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.88,
+        "sum": 0.92,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.77,
+        "sum": 0.15,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.22,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.22,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.76,
+        "sum": 0.15,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.19,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.19,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.74,
+        "sum": 0.16,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.17,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.17,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A11_immune": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.43,
+       "sum": 0.06,
+       "xc": 0.46
+      },
+      "30": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.3,
+       "xc": 1.0
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.78,
+       "sum": 0.3,
+       "xc": 1.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.52,
+        "sum": 0.07,
+        "xc": 0.64
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.23,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.79,
+        "sum": 0.23,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.51,
+        "sum": 0.08,
+        "xc": 0.66
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.24,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.24,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.13,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.14,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 4,
+        "ratio": 0.86,
+        "sum": 0.93,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.79,
+        "sum": 0.15,
+        "xc": 0.98
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.25,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.25,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.77,
+        "sum": 0.15,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.2,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.2,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.78,
+        "sum": 0.13,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.81,
+        "sum": 0.15,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.81,
+        "sum": 0.15,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A12_blood": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.46,
+       "sum": 0.06,
+       "xc": 0.45
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.8,
+       "sum": 0.12,
+       "xc": 0.99
+      },
+      "100": {
+       "n_recoverable": 3,
+       "ratio": 0.8,
+       "sum": 0.26,
+       "xc": 1.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.57,
+        "sum": 0.06,
+        "xc": 0.66
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.22,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.22,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.5,
+        "sum": 0.07,
+        "xc": 0.58
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.82,
+        "sum": 0.18,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.82,
+        "sum": 0.18,
+        "xc": 1.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.12,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.82,
+        "sum": 0.12,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.82,
+        "sum": 0.12,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.79,
+        "sum": 0.15,
+        "xc": 0.98
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.22,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.8,
+        "sum": 0.22,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.79,
+        "sum": 0.14,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.81,
+        "sum": 0.19,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.81,
+        "sum": 0.19,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.12,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.82,
+        "sum": 0.13,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.82,
+        "sum": 0.13,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A13_skin_hair": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.78,
+       "sum": 0.07,
+       "xc": 0.0
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.24,
+       "xc": 0.0
+      },
+      "100": {
+       "n_recoverable": 2,
+       "ratio": 0.81,
+       "sum": 0.24,
+       "xc": 0.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.2,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.19,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.17,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.17,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.17,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.77,
+        "sum": 0.06,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.81,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.81,
+        "sum": 0.23,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.77,
+        "sum": 0.05,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.22,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.22,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.78,
+        "sum": 0.05,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.2,
+        "xc": 0.0
+       }
+      }
+     }
+    },
+    "A14_gut": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.76,
+       "sum": 0.07,
+       "xc": 0.0
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.78,
+       "sum": 0.25,
+       "xc": 0.0
+      },
+      "100": {
+       "n_recoverable": 2,
+       "ratio": 0.78,
+       "sum": 0.25,
+       "xc": 0.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.2,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.19,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.81,
+        "sum": 0.18,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.81,
+        "sum": 0.18,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.81,
+        "sum": 0.18,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.76,
+        "sum": 0.06,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.23,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.76,
+        "sum": 0.05,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.22,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.8,
+        "sum": 0.22,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.77,
+        "sum": 0.05,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.81,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.81,
+        "sum": 0.2,
+        "xc": 0.0
+       }
+      }
+     }
+    },
+    "A15_fat": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.81,
+       "sum": 0.08,
+       "xc": 0.0
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.83,
+       "sum": 0.25,
+       "xc": 0.0
+      },
+      "100": {
+       "n_recoverable": 2,
+       "ratio": 0.83,
+       "sum": 0.25,
+       "xc": 0.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.21,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.2,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.2,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.85,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.85,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.85,
+        "sum": 0.19,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.77,
+        "sum": 0.06,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.82,
+        "sum": 0.23,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.78,
+        "sum": 0.05,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.83,
+        "sum": 0.21,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.78,
+        "sum": 0.05,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.84,
+        "sum": 0.19,
+        "xc": 0.0
+       }
+      }
+     }
+    }
+   }
+  },
+  {
+   "kappa": 8.0,
+   "per_organ": {
+    "A1_muscle": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.62,
+       "sum": 0.24,
+       "xc": 0.0
+      },
+      "30": {
+       "n_recoverable": 1,
+       "ratio": 0.62,
+       "sum": 0.24,
+       "xc": 0.0
+      },
+      "100": {
+       "n_recoverable": 1,
+       "ratio": 0.62,
+       "sum": 0.24,
+       "xc": 0.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.19,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.19,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.19,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.18,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.18,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.18,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.63,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.63,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.63,
+        "sum": 0.23,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.63,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.63,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.63,
+        "sum": 0.23,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.64,
+        "sum": 0.22,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.64,
+        "sum": 0.22,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.64,
+        "sum": 0.22,
+        "xc": 0.0
+       }
+      }
+     }
+    },
+    "A3_brain": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.08,
+       "sum": 0.05,
+       "xc": 0.79
+      },
+      "30": {
+       "n_recoverable": 1,
+       "ratio": 0.08,
+       "sum": 0.05,
+       "xc": 0.79
+      },
+      "100": {
+       "n_recoverable": 1,
+       "ratio": 0.08,
+       "sum": 0.05,
+       "xc": 0.79
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.1,
+        "sum": 0.05,
+        "xc": 0.77
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.1,
+        "sum": 0.05,
+        "xc": 0.77
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.1,
+        "sum": 0.05,
+        "xc": 0.77
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.09,
+        "sum": 0.04,
+        "xc": 0.79
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.09,
+        "sum": 0.04,
+        "xc": 0.79
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.09,
+        "sum": 0.04,
+        "xc": 0.79
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.0,
+        "xc": 0.97
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.0,
+        "xc": 0.97
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.0,
+        "xc": 0.97
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.08,
+        "sum": 0.04,
+        "xc": 0.86
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.08,
+        "sum": 0.04,
+        "xc": 0.86
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.08,
+        "sum": 0.04,
+        "xc": 0.86
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.04,
+        "sum": 0.02,
+        "xc": 0.92
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.04,
+        "sum": 0.02,
+        "xc": 0.92
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.04,
+        "sum": 0.02,
+        "xc": 0.92
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.01,
+        "xc": 0.98
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.01,
+        "xc": 0.98
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.01,
+        "xc": 0.98
+       }
+      }
+     }
+    },
+    "A6_heart": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 2,
+       "ratio": 0.12,
+       "sum": 0.14,
+       "xc": 0.94
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.12,
+       "sum": 0.14,
+       "xc": 0.94
+      },
+      "100": {
+       "n_recoverable": 2,
+       "ratio": 0.12,
+       "sum": 0.14,
+       "xc": 0.94
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.07,
+        "sum": 0.12,
+        "xc": 0.92
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.07,
+        "sum": 0.12,
+        "xc": 0.92
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.07,
+        "sum": 0.12,
+        "xc": 0.92
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.09,
+        "sum": 0.13,
+        "xc": 0.93
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.09,
+        "sum": 0.13,
+        "xc": 0.93
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.09,
+        "sum": 0.13,
+        "xc": 0.93
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.12,
+        "sum": 0.15,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.12,
+        "sum": 0.15,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.12,
+        "sum": 0.15,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.19,
+        "sum": 0.18,
+        "xc": 0.94
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.19,
+        "sum": 0.18,
+        "xc": 0.94
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.19,
+        "sum": 0.18,
+        "xc": 0.94
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.18,
+        "sum": 0.17,
+        "xc": 0.97
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.18,
+        "sum": 0.17,
+        "xc": 0.97
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.18,
+        "sum": 0.17,
+        "xc": 0.97
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.16,
+        "sum": 0.17,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.16,
+        "sum": 0.17,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.16,
+        "sum": 0.17,
+        "xc": 0.99
+       }
+      }
+     }
+    },
+    "A8_lung": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.0,
+       "sum": 0.0,
+       "xc": 0.91
+      },
+      "30": {
+       "n_recoverable": 1,
+       "ratio": 0.0,
+       "sum": 0.0,
+       "xc": 0.91
+      },
+      "100": {
+       "n_recoverable": 1,
+       "ratio": 0.0,
+       "sum": 0.0,
+       "xc": 0.91
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.0,
+        "sum": 0.0,
+        "xc": 0.9
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.0,
+        "sum": 0.0,
+        "xc": 0.9
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.0,
+        "sum": 0.0,
+        "xc": 0.9
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.0,
+        "sum": 0.0,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.0,
+        "sum": 0.0,
+        "xc": 0.96
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.0,
+        "sum": 0.0,
+        "xc": 0.96
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.0,
+        "sum": 0.0,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.0,
+        "sum": 0.0,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.0,
+        "sum": 0.0,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.03,
+        "sum": 0.02,
+        "xc": 0.94
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.03,
+        "sum": 0.02,
+        "xc": 0.94
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.03,
+        "sum": 0.02,
+        "xc": 0.94
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.02,
+        "sum": 0.01,
+        "xc": 0.96
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.02,
+        "sum": 0.01,
+        "xc": 0.96
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.02,
+        "sum": 0.01,
+        "xc": 0.96
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.0,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.0,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.0,
+        "xc": 0.99
+       }
+      }
+     }
+    },
+    "A9_kidney": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "30": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "100": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       },
+       "30": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       },
+       "100": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       },
+       "30": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       },
+       "100": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.02,
+        "sum": 0.01,
+        "xc": 0.98
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.02,
+        "sum": 0.01,
+        "xc": 0.98
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.02,
+        "sum": 0.01,
+        "xc": 0.98
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.13,
+        "sum": 0.07,
+        "xc": 0.79
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.13,
+        "sum": 0.07,
+        "xc": 0.79
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.13,
+        "sum": 0.07,
+        "xc": 0.79
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.05,
+        "sum": 0.03,
+        "xc": 0.92
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.05,
+        "sum": 0.03,
+        "xc": 0.92
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.05,
+        "sum": 0.03,
+        "xc": 0.92
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.0,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.0,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.01,
+        "sum": 0.0,
+        "xc": 0.99
+       }
+      }
+     }
+    },
+    "A10_liver_metabolism": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.06,
+       "sum": 0.08,
+       "xc": 0.72
+      },
+      "30": {
+       "n_recoverable": 2,
+       "ratio": 0.42,
+       "sum": 0.35,
+       "xc": 0.78
+      },
+      "100": {
+       "n_recoverable": 2,
+       "ratio": 0.42,
+       "sum": 0.35,
+       "xc": 0.78
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.21,
+        "sum": 0.2,
+        "xc": 0.67
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.47,
+        "sum": 0.4,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.47,
+        "sum": 0.4,
+        "xc": 0.99
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.35,
+        "sum": 0.29,
+        "xc": 0.71
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.41,
+        "sum": 0.41,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.41,
+        "sum": 0.41,
+        "xc": 0.99
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.35,
+        "sum": 0.41,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.44,
+        "sum": 0.41,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.44,
+        "sum": 0.41,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.5,
+        "sum": 0.36,
+        "xc": 0.94
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.5,
+        "sum": 0.44,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.5,
+        "sum": 0.44,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 3,
+        "ratio": 0.44,
+        "sum": 0.43,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.44,
+        "sum": 0.43,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.44,
+        "sum": 0.43,
+        "xc": 1.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 3,
+        "ratio": 0.44,
+        "sum": 0.39,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 3,
+        "ratio": 0.44,
+        "sum": 0.39,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 3,
+        "ratio": 0.44,
+        "sum": 0.39,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A11_immune": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.19,
+       "sum": 0.03,
+       "xc": 0.57
+      },
+      "30": {
+       "n_recoverable": 1,
+       "ratio": 0.19,
+       "sum": 0.03,
+       "xc": 0.57
+      },
+      "100": {
+       "n_recoverable": 1,
+       "ratio": 0.19,
+       "sum": 0.03,
+       "xc": 0.57
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.2,
+        "sum": 0.03,
+        "xc": 0.57
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.2,
+        "sum": 0.03,
+        "xc": 0.57
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.2,
+        "sum": 0.03,
+        "xc": 0.57
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.19,
+        "sum": 0.03,
+        "xc": 0.6
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.19,
+        "sum": 0.03,
+        "xc": 0.6
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.19,
+        "sum": 0.03,
+        "xc": 0.6
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.42,
+        "sum": 0.13,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.42,
+        "sum": 0.13,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.42,
+        "sum": 0.13,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.14,
+        "sum": 0.04,
+        "xc": 0.75
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.14,
+        "sum": 0.04,
+        "xc": 0.75
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.14,
+        "sum": 0.04,
+        "xc": 0.75
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.47,
+        "sum": 0.23,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.47,
+        "sum": 0.23,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.47,
+        "sum": 0.23,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.47,
+        "sum": 0.15,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.47,
+        "sum": 0.15,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.47,
+        "sum": 0.15,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A12_blood": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.13,
+       "sum": 0.11,
+       "xc": 0.72
+      },
+      "30": {
+       "n_recoverable": 1,
+       "ratio": 0.13,
+       "sum": 0.11,
+       "xc": 0.72
+      },
+      "100": {
+       "n_recoverable": 1,
+       "ratio": 0.13,
+       "sum": 0.11,
+       "xc": 0.72
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.14,
+        "sum": 0.11,
+        "xc": 0.72
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.14,
+        "sum": 0.11,
+        "xc": 0.72
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.14,
+        "sum": 0.11,
+        "xc": 0.72
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.14,
+        "sum": 0.1,
+        "xc": 0.74
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.14,
+        "sum": 0.1,
+        "xc": 0.74
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.14,
+        "sum": 0.1,
+        "xc": 0.74
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.36,
+        "sum": 0.39,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.36,
+        "sum": 0.39,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.36,
+        "sum": 0.39,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.45,
+        "sum": 0.41,
+        "xc": 0.98
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.45,
+        "sum": 0.41,
+        "xc": 0.98
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.45,
+        "sum": 0.41,
+        "xc": 0.98
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.41,
+        "sum": 0.41,
+        "xc": 0.99
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.41,
+        "sum": 0.41,
+        "xc": 0.99
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.41,
+        "sum": 0.41,
+        "xc": 0.99
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 2,
+        "ratio": 0.42,
+        "sum": 0.36,
+        "xc": 1.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.42,
+        "sum": 0.36,
+        "xc": 1.0
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.42,
+        "sum": 0.36,
+        "xc": 1.0
+       }
+      }
+     }
+    },
+    "A13_skin_hair": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.64,
+       "sum": 0.26,
+       "xc": 0.01
+      },
+      "30": {
+       "n_recoverable": 1,
+       "ratio": 0.64,
+       "sum": 0.26,
+       "xc": 0.01
+      },
+      "100": {
+       "n_recoverable": 1,
+       "ratio": 0.64,
+       "sum": 0.26,
+       "xc": 0.01
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.6,
+        "sum": 0.22,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.65,
+        "sum": 0.36,
+        "xc": 0.05
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.65,
+        "sum": 0.36,
+        "xc": 0.05
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.6,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.65,
+        "sum": 0.36,
+        "xc": 0.04
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.65,
+        "sum": 0.36,
+        "xc": 0.04
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.61,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 2,
+        "ratio": 0.66,
+        "sum": 0.37,
+        "xc": 0.04
+       },
+       "100": {
+        "n_recoverable": 2,
+        "ratio": 0.66,
+        "sum": 0.37,
+        "xc": 0.04
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.63,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.63,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.63,
+        "sum": 0.23,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.64,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.64,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.64,
+        "sum": 0.23,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.64,
+        "sum": 0.22,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.64,
+        "sum": 0.22,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.64,
+        "sum": 0.22,
+        "xc": 0.0
+       }
+      }
+     }
+    },
+    "A14_gut": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 1,
+       "ratio": 0.55,
+       "sum": 0.23,
+       "xc": 0.0
+      },
+      "30": {
+       "n_recoverable": 1,
+       "ratio": 0.55,
+       "sum": 0.23,
+       "xc": 0.0
+      },
+      "100": {
+       "n_recoverable": 1,
+       "ratio": 0.55,
+       "sum": 0.23,
+       "xc": 0.0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.55,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.55,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.55,
+        "sum": 0.21,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.21,
+        "xc": 0.0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.21,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.56,
+        "sum": 0.21,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.61,
+        "sum": 0.24,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.61,
+        "sum": 0.24,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.61,
+        "sum": 0.24,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.62,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.62,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.62,
+        "sum": 0.23,
+        "xc": 0.0
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.62,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.62,
+        "sum": 0.23,
+        "xc": 0.0
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.62,
+        "sum": 0.23,
+        "xc": 0.0
+       }
+      }
+     }
+    },
+    "A15_fat": {
+     "baseline": {
+      "10": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "30": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      },
+      "100": {
+       "n_recoverable": 0,
+       "ratio": 0,
+       "sum": 0,
+       "xc": 0
+      }
+     },
+     "challenge": {
+      "t0.5_d0.15": {
+       "10": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       },
+       "30": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       },
+       "100": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       }
+      },
+      "t0.5_d0.3": {
+       "10": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       },
+       "30": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       },
+       "100": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       }
+      },
+      "t0.5_d0.6": {
+       "10": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       },
+       "30": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       },
+       "100": {
+        "n_recoverable": 0,
+        "ratio": 0,
+        "sum": 0,
+        "xc": 0
+       }
+      },
+      "t1.5_d0.15": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.21,
+        "xc": 0.01
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.21,
+        "xc": 0.01
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.21,
+        "xc": 0.01
+       }
+      },
+      "t1.5_d0.3": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.2,
+        "xc": 0.01
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.2,
+        "xc": 0.01
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.2,
+        "xc": 0.01
+       }
+      },
+      "t1.5_d0.6": {
+       "10": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.2,
+        "xc": 0.01
+       },
+       "30": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.2,
+        "xc": 0.01
+       },
+       "100": {
+        "n_recoverable": 1,
+        "ratio": 0.57,
+        "sum": 0.2,
+        "xc": 0.01
+       }
+      }
+     }
+    }
+   }
+  }
+ ]
+}
