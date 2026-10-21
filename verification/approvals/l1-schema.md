@@ -255,3 +255,40 @@ until all four are written into the schema on `main` and re-checked here.
 schema. No row is written against it until the four changes are on `main` and
 re-checked here. L3 row PRs (after A68's `research/sim/v0/edges.md`, due
 2026-10-24) are checked against this section.
+
+### Re-check of follow-up PR #162 at `493bc67` (2026-10-21, A66)
+
+Files: `literature/refutation/README.md` (+24/−5) and new
+`literature/refutation/obstacles.md` (A70 for A2).
+
+| Condition | What the README now says | Conforms? | Change still needed |
+|---|---|---|---|
+| L3-1 | Exclusion is mechanical: any lifespan, survival or mortality outcome, main text or supplement. Reason codes `X-LS`, `X-MORT`, `X-SUPP`, `X-REV`. Direction = sign of the printed effect; prior = printed size and interval, or inverse-variance pool; never fitted to the simulation. | **Yes, with one fix** | The mapping-row field `excluded` still reads "lifespan or survival alongside the mechanism". Change it to point to condition 1 and require a reason code per source. |
+| L3-2 | Every mapping committed and sealed by A50 before its author reads any R-Sim calibration output or lifespan result for that intervention. A change is a new version with a diff. `version` field added. | **Yes** | None in the schema. See note A below. |
+| L3-3 | `status: mapped / no_mapping` on mapping rows; `no_mapping` is a listed blind spot, never filled from excluded sources. | **Partly** | Add the same `status` field to edge rows: an edge with no admissible source is `no_mapping` too. |
+| L3-4 | SYRCLE 10 domains listed; a study's score = its count of low-risk domains; E3/E2/E1 thresholds at 5; "The E grade never feeds an L0 to L4 level." | **Yes** | None. |
+
+**`obstacles.md` checks.**
+
+- No blind-split arm read: **yes.** All lifespan numbers come from L1 (ITP
+  cohorts 2004–2017) or non-ITP papers. No arm of `split.csv` part `blind`
+  (ITP 2021–2025) is cited or counted.
+- No 2021+ ITP paper: **yes in substance, wording to fix.** Strong 2022
+  (10.1111/acel.13724) is published in 2022 but reports the 2017 cohort, already
+  an L1 source. Change the header line "no 2021+ ITP paper is cited" to "no paper
+  on an ITP cohort started in 2021 or later is cited".
+- Searches dated: **yes.** O3, O4, O6 and O10 each give database, query, date
+  (2026-10-20) and hit count.
+- Not re-counted here: O6 figures (64 groups, 15/9/2/38, 6 of 18) are A70's
+  script count on L1 and were not recomputed.
+
+**Note A (for L3-2).** By writing O4 and O6, A70 has read lifespan results for
+rapamycin, acarbose, metformin, 17α-estradiol, canagliflozin, captopril,
+glycine and 1,3-butanediol (and, through the O6 script, every L1 arm). Under
+L3-2 A70 may not author mapping rows for those interventions; another writer
+who has not read them must.
+
+**Verdict on #162 at `493bc67`: conforms with two fixes** (the `excluded` field
+text, and `status` on edge rows) plus the header wording in `obstacles.md`.
+It merged as `0bbabd6` before this re-check. No mapping row counts until the two
+fixes are on `main` and noted here.
