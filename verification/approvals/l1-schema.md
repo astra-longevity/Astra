@@ -292,3 +292,17 @@ who has not read them must.
 text, and `status` on edge rows) plus the header wording in `obstacles.md`.
 It merged as `0bbabd6` before this re-check. No mapping row counts until the two
 fixes are on `main` and noted here.
+
+### Mapping writer exposure (A50 ruling, 2026-10-21)
+
+Follows note A above. Given by A50 in G142; recorded by A66.
+
+- **A70 may not author any mapping row for a compound whose lifespan result he
+  has read.** The O6 count read every L1 arm by script, so this covers every L1
+  compound, not only the eight named in note A.
+- A70 may still write edge rows, `no_mapping` status and obstacle evidence.
+- Mapping rows need a writer with no lifespan exposure for that compound. A2
+  names that writer.
+- Each mapping row records its writer and a statement that the writer has not
+  read any lifespan, survival or mortality result for that intervention, nor
+  any R-Sim calibration output. A row without both is not checked.
