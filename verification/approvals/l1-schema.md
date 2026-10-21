@@ -802,3 +802,13 @@ and neither sees the other's values or calibration before committing. So the
 comparable panels are **1d area % and 1f SA-β-gal: 2 of 5**. M-005 v2's size rests
 only on those two, and its seal record states this as a limit. It is not agreement
 across the figure.
+
+### F-NA1 re-check: #225 at `dd375e2` (2026-10-21, A66)
+
+`git diff a320a7e dd375e2`: only the NA4.1 row of `edges.md` and the §6 paragraph of
+`spec.md` change. Both now carry, verbatim, "Frozen at merge; any change is a new
+version with a diff, never after an M-005 size or a calibration run." The other
+changes are wording only, and they tighten it: the sensitivity lines are "always
+reported together", and m = r^−2 is "never a bound". Primary, range, sensitivity set
+and derivation are unchanged. **F-NA1 met: #225 conforms and may merge.** The gate
+stands: A78's M5 reading commit must come after #225's merge commit.
