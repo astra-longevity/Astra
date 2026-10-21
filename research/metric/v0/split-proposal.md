@@ -99,32 +99,31 @@ The "compound seen in training" tag stays in `flag` and never sets `stratum`
 (A65, #144): a scorecard grouping on stratum must not mix class-novelty with
 leakage.
 
-**Provisional a/b split (flagged).** The train set is the 132 finished ITP
-arms in `literature/lifespan/itp/`, not rows of this file, so "class present
-in train" needs each train compound's class. `class-labels.yaml` labels only
-the 41 held-out split compounds; most ITP train compounds are unlabelled. A71
-is extending `class-labels.rb` to emit a `train-classes` file (same pinned
-ChEMBL 37 + MeSH 2026; A28 option (a), G144). **Until it lands, rule 2a runs
-with every real class provisionally present in train**, so the pipeline runs;
-the a/b split below is provisional and is re-derived (and re-reported) when the
-train-class file is committed. Point `TRAIN_CLASSES_FILE` in the script at it to
-switch to the final run.
+**Train classes (rule 2a, final).** The train set is the 132 finished ITP
+arms in `literature/lifespan/itp/`, not rows of this file. Each train
+compound's class comes from `literature/lifespan/train-classes.yaml` (A71
+#185, separate train-only ChEMBL 37 snapshot; A65 check #186). A28 rule 2a:
+a class is present in train iff it labels a **single-compound** train entry.
+`unclassified` / `multi-target` train entries (acarbose = multi-target)
+contribute nothing; the two train combinations (metformin + rapamycin,
+rapamycin + acarbose) stay `unclassified` and are not decomposed, so a class
+seen only inside a combination is not present in train. Class strings match
+exactly.
 
-Stratum counts (60 arms: 20 blind + 40 retrospective), before vs after the
-scripted re-derive:
+Stratum counts (60 arms: 20 blind + 40 retrospective):
 
-| Stratum | Before (hand) | After (provisional) |
-|---|---|---|
-| a known class | 32 | 16 |
-| b new / unclassified | 26 | 42 |
-| c combination / transfer | 2 | 2 |
+| Stratum | Before (hand) | Provisional (#183) | Final (rule 2a) |
+|---|---|---|---|
+| a known class | 32 | 16 | 8 |
+| b new / unclassified | 26 | 42 | 50 |
+| c combination / transfer | 2 | 2 | 2 |
 
-30 arms moved (all a↔b; c unchanged). The moves follow the yaml only: arms the
-yaml labels `unclassified` or `multi-target` (e.g. metformin → multi-target,
-nicotinamide riboside, taurine, α-ketoglutarate → unclassified) move to b;
-arms with a named target (dichloroacetate → PDK inhibitor, trametinib → MEK
-inhibitor, sildenafil, alpelisib) move to a. The final run can only move real
-classes from a to b (a class with no train example), never b to a.
+Provisional → final: 8 arms moved, all a → b (real class with no
+single-compound train arm): B01 dichloroacetate, B09 trametinib, B12
+L-deprenyl, B13 sildenafil, B14 alpelisib, B15 alogliptin, RF005 ivabradine,
+RF038 chloroquine. The 8 remaining stratum-a arms are canagliflozin (B04,
+B05), captopril (B08) and rapamycin (RF008, RF010–RF013): every one is also
+a compound seen in training (tag in `flag`).
 
 **Overlap with the blind part (flagged, not dropped; A50 condition 6):**
 RF008, RF010–RF013 are rapamycin, a single compound of blind arm B03

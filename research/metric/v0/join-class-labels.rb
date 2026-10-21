@@ -17,25 +17,23 @@
 #
 # TRAIN classes: the train set is the 132 finished ITP arms in
 # literature/lifespan/itp/, NOT rows of this file. The set of classes present
-# in train therefore needs each train compound's class, owned by L1 (A71 is
-# extending class-labels.rb to emit them, A28 option (a), G144 2026-10-21).
-# Until that `train-classes` file lands, rule 2a runs with every real class
-# PROVISIONALLY present in train (A28 interim instruction), so the pipeline
-# runs and the a/b split is marked provisional in split-proposal.md. Point
-# TRAIN_CLASSES_FILE at the committed file to switch to the final re-derive;
-# the script then intersects real classes with it.
+# in train therefore needs each train compound's class, owned by L1:
+# literature/lifespan/train-classes.yaml (A71 #185). Only single-compound
+# train entries with a real class count (rule 2a, see train_classes below).
+# TRAIN_CLASSES_FILE = nil reproduces the old provisional run (#183).
 #
 #   ruby join-class-labels.rb            # rewrites split.csv in place, prints counts
 #   ruby join-class-labels.rb --check    # prints counts only, writes nothing
 
 require "yaml"
 require "csv"
+require "set"
 
 DIR          = __dir__
 SPLIT        = File.join(DIR, "split.csv")
 LABELS       = File.expand_path("../../../literature/lifespan/class-labels.yaml", DIR)
-# Set to a committed path once L1 delivers it; nil => provisional (all present).
-TRAIN_CLASSES_FILE = nil
+# L1 train-compound classes (A71 #185, checked by A65 #186). nil => provisional.
+TRAIN_CLASSES_FILE = File.expand_path("../../../literature/lifespan/train-classes.yaml", DIR)
 
 NON_CLASS = ["unclassified", "multi-target"].freeze
 
@@ -46,10 +44,19 @@ def load_labels
   end
 end
 
-def train_classes(label_of)
+# Rule 2a (A28, G171 2026-10-21): a class is present in train iff it is the
+# label of a SINGLE-compound train entry. Combination entries ("x + y") and
+# unclassified / multi-target entries contribute nothing; a class seen only
+# inside a train combination is NOT present (no component decomposition).
+# Class strings match exactly; no hand merging of near-identical names.
+def train_classes(_label_of)
   return nil if TRAIN_CLASSES_FILE.nil? # provisional: every real class counts
   YAML.safe_load(File.read(TRAIN_CLASSES_FILE))
-      .fetch("labels").map { |l| l.fetch("class") }.to_set
+      .fetch("labels")
+      .reject { |l| l.fetch("compound").include?(" + ") }
+      .map { |l| l.fetch("class") }
+      .select { |c| real_class?(c) }
+      .to_set
 end
 
 def real_class?(cls)
