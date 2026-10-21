@@ -441,6 +441,24 @@ Snippets only; no page read reports lifespan (no manual-downloads rows).
 | I17 | `n_sim` 600 local; Monte-Carlo floor may hide small shares, the Actions run can repeat it |
 | I18 | Kappa 8 grid (~0 everywhere) contradicts the kidney smoke (0.34): likely MC floor (threshold 3 × most negative eigenvalue); not to be read as "challenge useless at high kappa" before the Actions run |
 
+## 10. Identifiability from current public data, and stand-ins
+
+See `public-data.md`. In short: A9's real public design (DRiDO + MPD) pins the
+`eta − beta` balance in immune, blood and (females) fat, and nothing else — no
+single parameter, no `Xc`. The female-kidney `ratio` 0.02 is a Monte-Carlo /
+threshold artefact (same class as I18), to be confirmed on the Actions run.
+Zero-mouse stand-ins (published aged-vs-young recovery curves) bound kappa and
+the recovery shape but cannot fit `eta`/`beta` or `Xc`. First mouse-request
+candidates, incl. the O4 factorial arm, are tabulated there.
+
+## 11. Cost curve (mice per sex vs parameters identified)
+
+_Pending A61's 20k challenge Actions run (`--study challenge`, sim-joint
+dispatch). Will give, for n 10/30/100 per time point × {1,2} ages × {2,3}
+doses, repeatable readouts only: mice per sex vs the eta/beta-split organs and
+the `Xc`-pinned organs, and the smallest design that splits eta/beta in ≥3
+organs. Kappa 8 (I18) is resolved by the same run._
+
 ## Reproduce
 
 ```
