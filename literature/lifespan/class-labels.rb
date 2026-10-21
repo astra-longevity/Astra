@@ -16,10 +16,18 @@ require "uri"
 DIR = __dir__
 REPO = File.expand_path("../..", DIR)
 SPLIT = File.join(REPO, "research", "metric", "v0", "split.csv")
-SNAP = File.join(DIR, "class-labels-chembl37.json")
-SOURCES = File.join(DIR, "class-labels-sources.yaml")
-OUT = File.join(DIR, "class-labels.yaml")
+# Train mode (rules amendment 4, §1b): ITP train compounds, own snapshot + output, shared MeSH.
+TRAIN = !ENV["TRAIN"].to_s.empty?
+ITP_DIR = File.join(DIR, "itp")
+SNAP = File.join(DIR, TRAIN ? "class-labels-train-chembl37.json" : "class-labels-chembl37.json")
+SOURCES = File.join(DIR, TRAIN ? "class-labels-train-sources.yaml" : "class-labels-sources.yaml")
+OUT = File.join(DIR, TRAIN ? "train-classes.yaml" : "class-labels.yaml")
+SPLIT_OUT = File.join(DIR, "class-labels.yaml") # sealed split labels, read by the overlap check
 ALIASES = YAML.safe_load(File.read(File.join(DIR, "class-labels-aliases.yaml")))["aliases"]
+# Train-name canonicalisation (rules amendment 4, §1b): ITP spelling -> canonical split/alias key.
+TRAIN_NAMES = TRAIN ? (YAML.safe_load(File.read(File.join(DIR, "class-labels-train-names.yaml")))["canonical"] || {}) : {}
+# The 5 compounds present in both the split and the train snapshot (rules §8).
+OVERLAP = ["canagliflozin", "captopril", "metformin", "nicotinamide riboside", "rapamycin"].freeze
 MESH_BASE = "https://nlmpubs.nlm.nih.gov/projects/mesh/MESH_FILES/xmlmesh/"
 MESH_FILES = %w[pa2026.xml desc2026.xml].freeze
 CHEMBL = "https://www.ebi.ac.uk/chembl/api/data/"
@@ -31,7 +39,12 @@ TARGET_CLASS = {
   "CHEMBL3587" => "MEK inhibitor", "CHEMBL2964" => "MEK inhibitor",
   "CHEMBL2039" => "MAO-B inhibitor", "CHEMBL1827" => "PDE5 inhibitor",
   "CHEMBL4005" => "PI3K-alpha inhibitor", "CHEMBL284" => "DPP-4 inhibitor",
-  "CHEMBL1250417" => "HCN channel blocker", "CHEMBL613897" => "haem polymerisation inhibitor"
+  "CHEMBL1250417" => "HCN channel blocker", "CHEMBL613897" => "haem polymerisation inhibitor",
+  # Rules amendment 4 (train snapshot targets): mechanical, from target pref_name + action_type.
+  "CHEMBL2045" => "alpha-amylase inhibitor", "CHEMBL2074" => "alpha-glucosidase inhibitor",
+  "CHEMBL2094253" => "cyclooxygenase inhibitor", "CHEMBL227" => "angiotensin II receptor antagonist",
+  "CHEMBL2111348" => "soluble guanylate cyclase inhibitor", "CHEMBL2363135" => "bacterial ribosome inhibitor",
+  "CHEMBL402" => "HMG-CoA reductase inhibitor", "CHEMBL2047" => "FXR agonist"
 }.freeze
 # Rules section 4: per-compound calls (class, basis). NDGA and chloroquine follow section 3.
 CALLS = {
@@ -48,12 +61,23 @@ def norm(s)
   s.to_s.downcase.gsub("α", "alpha").gsub("β", "beta").strip
 end
 
+# Train mode: map an ITP spelling to its canonical split/alias key before any lookup (§1b).
+def canonical(compound)
+  TRAIN_NAMES[compound] || compound
+end
+
 def names_for(compound)
-  ([compound] + ALIASES.fetch(compound, [])).map { |n| norm(n) }.uniq
+  key = canonical(compound)
+  ([key] + ALIASES.fetch(key, [])).map { |n| norm(n) }.uniq
 end
 
 def compounds
-  CSV.read(SPLIT, headers: true).map { |r| r["compound"] }.compact.uniq.sort_by(&:downcase)
+  if TRAIN
+    Dir[File.join(ITP_DIR, "*.yaml")].sort.map { |f| YAML.safe_load(File.read(f), [Date, Time, Symbol])["compound"] }
+      .compact.uniq.sort_by(&:downcase)
+  else
+    CSV.read(SPLIT, headers: true).map { |r| r["compound"] }.compact.uniq.sort_by(&:downcase)
+  end
 end
 
 # ---------- fetch (online, once) ----------
@@ -209,6 +233,34 @@ def class_from_mesh(compound, desc, pa_index, flags)
   ["multi-target", cites]
 end
 
+# Train mode (rules §8): the 5 compounds in both snapshots must get the same class in
+# train-classes.yaml and the sealed class-labels.yaml. Records both fetches, prints the
+# table, aborts on any mismatch (would be a within-release-37 drift -> flag A28).
+def assert_overlap(train_labels, train_snap)
+  abort "overlap check: sealed #{File.basename(SPLIT_OUT)} not found" unless File.exist?(SPLIT_OUT)
+  split = YAML.safe_load(File.read(SPLIT_OUT))
+  split_class = {}
+  split["labels"].each { |l| split_class[norm(l["compound"])] = l["class"] }
+  train_class = {}
+  train_labels.each { |l| train_class[norm(canonical(l["compound"]))] = l["class"] }
+  split_snap = JSON.parse(File.read(SPLIT_OUT.sub("class-labels.yaml", "class-labels-chembl37.json")))
+  rows = OVERLAP.sort.map do |c|
+    k = norm(c)
+    [c, train_class[k], split_class[k]]
+  end
+  warn "overlap check (rules §8): the 5 compounds in both snapshots"
+  warn "  train snapshot  fetched #{train_snap['fetched']} via #{train_snap['endpoints'].join(', ')}"
+  warn "  sealed snapshot fetched #{split_snap['fetched']} via #{split_snap['endpoints'].join(', ')}"
+  bad = []
+  rows.each do |c, t, s|
+    mark = (t == s && !t.nil?) ? "ok" : "MISMATCH"
+    warn format("  %-24s train=%-22s sealed=%-22s %s", c, t.inspect, s.inspect, mark)
+    bad << c unless t == s && !t.nil?
+  end
+  abort "overlap MISMATCH on #{bad.join(', ')} -> flag A28 (within-release-37 drift)" unless bad.empty?
+  warn "  all 5 overlap classes match"
+end
+
 def build
   dir = ENV.fetch("MESH_DIR") { abort "set MESH_DIR to the folder holding #{MESH_FILES.join(', ')}" }
   src = YAML.safe_load(File.read(SOURCES))
@@ -222,10 +274,11 @@ def build
   pa_index = pa_raw.transform_values { |subs| subs.map { |_, n| norm(n) } }
   labels = snap["compounds"].map do |entry|
     c = entry["compound"]
+    cc = canonical(c)
     flags = []
     step, klass, cites = nil
-    if CALLS.key?(c)
-      klass, basis = CALLS[c]
+    if CALLS.key?(cc)
+      klass, basis = CALLS[cc]
       cites = chembl_cites(usable_records(entry), snap) + [basis]
       step = "S1-call"
     else
@@ -248,10 +301,11 @@ def build
       "source_date" => snap["fetched"], "flags" => flags.sort,
       "proposed_by" => "A71 (class-labels.rb)", "approved_by" => nil, "approved_date" => nil }
   end
+  assert_overlap(labels, snap) if TRAIN
   vocab = (labels.map { |l| l["class"] } + FIXED_VOCAB).uniq.sort_by(&:downcase)
   header = <<~H
     # GENERATED by class-labels.rb from class-labels-rules.md, class-labels-aliases.yaml,
-    # class-labels-chembl37.json and pinned MeSH 2026 (class-labels-sources.yaml). Do not edit.
+    # #{File.basename(SNAP)} and pinned MeSH 2026 (#{File.basename(SOURCES)}). Do not edit.
     # approved_by / approved_date are set by Verification in the seal PR only.
   H
   header + { "vocabulary" => vocab, "labels" => labels }.to_yaml(line_width: -1)
