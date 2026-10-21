@@ -170,17 +170,55 @@ def study(a: str, n_sim: int) -> dict:
 GRID = ((None, 1.5), (None, 0.5), (2.0, 1.5), (8.0, 1.5))  # (kappa override, T0)
 
 
-def main() -> None:
+def grid_key(kappa, t0) -> str:
+    """Stable label for a grid setting (used as the shard filename on Actions)."""
+    return f"k{'prior' if kappa is None else kappa}_t{t0}"
+
+
+def set_grid(kappa, t0) -> None:
+    """Point the module globals at one grid setting (shard.py and main use this)."""
     global KAPPA, T0
+    KAPPA, T0 = kappa, t0
+
+
+# Cost-curve grid (A28 10-27 PR): kappa x start age x dose. Baseline depends on
+# kappa only, so it is simulated once per (seed, kappa, organ); the challenge is
+# simulated per (seed, kappa, t0, dose, organ). The design table (which ages and
+# doses to combine, mice per sex at n 10/30/100) is built from these in gather /
+# the local cost script, costing no extra simulation. Mapped route dropped (A28).
+KAPPAS = (None, 2.0, 8.0)   # None = prior 0.5
+T0S = (0.5, 1.5)            # 6 and 18 months
+DOSES = (0.15, 0.3, 0.6)    # x prior Xc
+
+
+def set_dose(dose: float) -> None:
+    global DOSE
+    DOSE = dose
+
+
+def run_setting(kappa, t0, n_sim: int) -> dict:
+    """Full result for one grid setting: per-organ shares + the n10 split summary.
+
+    All random draws go through study()/cohort(), so sharding by (seed, setting,
+    organ) and gathering reproduces this byte-for-byte."""
+    set_grid(kappa, t0)
+    res = {a: study(a, n_sim) for a in organs()}
+    passed = {r: sorted(a for a in res if res[a][N_SWEEP[0]][r]["sum"] >= 0.8) for r in ROUTES}
+    return {"kappa": kappa if kappa is not None else _p0().kappa, "t0": t0,
+            "split_at_n10": passed, "per_organ": res}
+
+
+def _derivs_json(d: dict) -> dict:
+    """derivs() output with tuple/float keys made JSON-safe (restored by shard.py)."""
+    return {"m0": {str(t): list(v) for t, v in d["m0"].items()},
+            "d": [{str(t): list(v) for t, v in row.items()} for row in d["d"]]}
+
+
+def main() -> None:
     n_sim = int(sys.argv[1]) if len(sys.argv) > 1 else 1000
-    runs = []
-    for kappa, t0 in GRID:
-        KAPPA, T0 = kappa, t0
-        res = {a: study(a, n_sim) for a in organs()}
-        passed = {r: sorted(a for a in res if res[a][N_SWEEP[0]][r]["sum"] >= 0.8) for r in ROUTES}
-        runs.append({"kappa": kappa if kappa is not None else _p0().kappa, "t0": t0,
-                     "split_at_n10": passed, "per_organ": res})
-        print(f"kappa={kappa} t0={t0} done", file=sys.stderr, flush=True)
+    runs = [run_setting(kappa, t0, n_sim) for kappa, t0 in GRID]
+    for r in runs:
+        print(f"kappa={r['kappa']} t0={r['t0']} done", file=sys.stderr, flush=True)
     json.dump({"n_sim": n_sim, "seeds": SEEDS, "weeks": WEEKS, "dose_xc": DOSE, "map_mult": MAP_MULT,
                "noise_rel": NOISE_REL, "n_sweep": N_SWEEP, "runs": runs}, sys.stdout, indent=1)
 
