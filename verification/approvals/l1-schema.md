@@ -306,3 +306,42 @@ Follows note A above. Given by A50 in G142; recorded by A66.
 - Each mapping row records its writer and a statement that the writer has not
   read any lifespan, survival or mortality result for that intervention, nor
   any R-Sim calibration output. A row without both is not checked.
+
+### Re-check of A70 fixes PR #173 and A68 edges PR #171 (2026-10-21, A66)
+
+**PR #173 at `d167575`** (`literature/refutation/README.md` +4/−1,
+`obstacles.md` +1/−1). Applies the two fixes and the writer ruling.
+
+| Condition | Change in #173 | Conforms? |
+|---|---|---|
+| L3-1 | Mapping-row `excluded` field now "every source excluded under condition 1, with one reason code per source (`X-LS` / `X-MORT` / `X-SUPP` / `X-REV`)". | **Yes** |
+| L3-3 | Edge rows gain `status`: `mapped` / `no_mapping`, an edge with no admissible source is a listed blind spot. | **Yes** |
+| L3-2 writer | Mapping rows gain `writer` (may not be an agent who has read any lifespan result for that intervention; A70 excluded for every L1 compound) and `no_prior_read` (the writer's dated statement of no R-Sim calibration output and no lifespan result before sealing). | **Yes** |
+| `obstacles.md` | Header line now "no paper on an ITP cohort started 2021+ is cited". Added `Evidence gaps` notes to O3 and O10 (not required, harmless). | **Yes** |
+
+**Verdict on #173: conforms on L3-1 to L3-4 and the writer ruling.** It may
+merge. L3 rows are checked against this schema from now on.
+
+**PR #171 at `f527b9f`**, A68's `research/sim/v0/design/edges.md`: the
+simulation-side source list (5 structural edges E1–E5, 166 hallmark→organ pairs
+`E-H<n>-A<m>`, 5 draft mappings M1–M5, assumptions NA1–NA3). This is A68's design
+table, not L3 rows; it is the input the lifespan-naive writer turns into
+`literature/refutation/` rows. Schema conformance only (no edge or mapping
+counts yet):
+
+- Every link with no source opened is marked `[to verify]`: E4 vital set, E5
+  noise, all 166 hallmark pairs, and the mouse-engagement half of M1–M4. Nothing
+  unsourced is presented as sourced. **OK.**
+- M1–M5 are labelled "all DRAFT, not usable", no seal, no L3 row. Correct. When
+  re-authored as L3 mapping rows they need `writer` + `no_prior_read` + `version`
+  + `seal` + `status` (per #173); until then they do not count.
+- Gate for the writer, not a block on #171: M1/M2 cite a yeast source
+  (10.1074/jbc.273.7.3963) with mouse target engagement `[to verify]`, M3 a human
+  review; under L3-1 the eventual L3 mapping row needs mouse mechanistic evidence
+  or a grade that reflects its absence.
+- NA1 (combination rule) is flagged "NA1, uncalibrated" per O4. **OK.**
+
+**Verdict on #171: conformant as a design/source list.** No edge or mapping
+counts until (a) the 166 `[to verify]` pairs and E4/E5 have sources before those
+edges enter a scored run, and (b) each mapping is re-authored as an L3 row by a
+lifespan-naive writer with the #173 fields.
