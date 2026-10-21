@@ -293,16 +293,17 @@ No lifespan number is in any file. Extraction starts only after this list is on 
 
 Agent: A71
 
-## Manual download of the 55 unreadable open copies (A50 ruling)
+## Manual download of the 54 unreadable open copies (A50 ruling)
 
 | | |
 |---|---|
-| File | `manual-download.tsv` (55 rows: pmid, run_origin, doi, route, url, failure) sha256 `64e33bd6dd1ce389fcb09e1fa7e58a653e43e0ee3ac46734e014056c300d0e8c` |
+| File | `manual-download.tsv` (54 rows: pmid, run_origin, doi, route, url, failure) sha256 `e4d7c49eeae4607521823e63fde78fd236b4b84d837c71c2029d9499a1206809` |
 | Who | a human (president or library, via A1); no script, no captcha bypass |
 | Deadline | **2026-10-26** |
 | Fallback | any PMID not delivered by the deadline stays `X_NO_FULLTEXT` (tooling) and is listed in the seal as a known limit, next to the 28 closed PMIDs |
 
-- Failures: 40 PMC copies where the publisher blocks machine download, 12 publisher/repository 403, 3 routes that are not the paper (a person should find the paper by DOI).
+- Failures: 39 PMC copies where the publisher blocks machine download, 12 publisher/repository 403, 3 routes that are not the paper (a person should find the paper by DOI).
+- 23795901 (PMC3772962) was dropped from the list (55 → 54): A65 found it readable via the NCBI BioC endpoint (`.../BioC_json/PMC3772962/unicode`), even though Europe PMC `fullTextXML` and the PMC page both failed. I screened it the same masked way: the only printed median/max lifespan is the Wijnhoven et al. longevity cohort (plus a confirmatory survival cohort), not this paper's own primary outcome (its own cohorts are cross-sectional, sacrificed at fixed ages), so it is **X_NOT_PRIMARY** (I5), not a pass. I re-tested the other 39 PMC copies on BioC: only this one returns a body, so the remaining 54 stand.
 - The downloader only downloads: files stay outside the repo; each file goes in A67's download log (PMID, URL, date, sha256, who).
 - A71 screens the delivered files with the same digit-masking viewer, I1–I5 and reason codes, and deletes them after extraction.
 - No median is read (the 12 current passes included) until the 55 are coded or the deadline has passed and the full stage-2 list is committed. Then labs are recounted and all medians extracted at once.

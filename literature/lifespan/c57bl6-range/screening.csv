@@ -1312,7 +1312,7 @@ pmid,stage,decision,reason_code,note,run
 23229739,2,exclude,X_NO_PRINTED_MEDIAN,"lab=Kopchick JJ; sex=M; substrain=J; only mean lifespan printed; also LF group = chow, n small",2b
 23418460,2,exclude,X_NO_PRINTED_MEDIAN,"lab=Hayashi J; sex=-; substrain=J; JUDGMENT: WT B6J median + n printed but sex never stated, so no per-sex median (I3)",2b
 23459073,2,exclude,X_NOT_PRIMARY,lab=Van Remmen H (UTHSCSA); sex=F; substrain=B6; WT AL comparison arm = previously collected data from earlier study (I5); new arms Sod1-/- AL/DR only,2b
-23795901,2,exclude,X_NO_FULLTEXT,"lab=NA; sex=NA; substrain=NA; open on PMC per lookup, but publisher blocks machine download (efetch XML = front matter only; PMC HTML = captcha; EPMC PDF 403). Not circumvented; JUDGMENT for A65, candidate for library request",2b
+23795901,2,exclude,X_NOT_PRIMARY,"lab=van Steeg H (RIVM); sex=F; substrain=J; median+max lifespan is the Wijnhoven et al. longevity cohort (+ a confirmatory survival cohort), not this papers primary outcome; this papers own cohorts are cross-sectional (sacrificed at fixed ages) (I5). Readable via NCBI BioC PMC3772962.",2b
 23863708,2,exclude,X_NO_FULLTEXT,"lab=NA; sex=NA; substrain=NA; open on PMC per lookup, but publisher blocks machine download (efetch XML = front matter only; PMC HTML = captcha). Not circumvented; JUDGMENT for A65, candidate for library request",2b
 23898955,2,exclude,X_NO_PRINTED_MEDIAN,"lab=Holzenberger M; sex=-; substrain=J; JUDGMENT: congenic B6J littermates OK; main text gives mean only, median/descriptive stats in supplementary Table S (not in fetched text)",2b
 24131799,2,exclude,X_NO_PRINTED_MEDIAN,lab=van Steeg H; sex=-; substrain=J; cross-sectional ageing study; no printed median lifespan + n,2b

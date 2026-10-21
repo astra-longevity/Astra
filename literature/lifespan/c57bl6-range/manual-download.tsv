@@ -35,7 +35,6 @@ pmid	run_origin	doi	route	url	failure
 22281526	2b	10.1530/joe-11-0329	unpaywall	https://joe.bioscientifica.com/downloadpdf/journals/joe/213/1/67.pdf	publisher_403
 22566614	2b	10.1073/pnas.1121113109	pmc	https://pmc.ncbi.nlm.nih.gov/articles/PMC3361401/	pmc_publisher_blocks_machine_download
 22776049	2b		pmc	https://pmc.ncbi.nlm.nih.gov/articles/PMC3364702/	pmc_publisher_blocks_machine_download
-23795901	2b	10.1111/acel.12118	pmc	https://pmc.ncbi.nlm.nih.gov/articles/PMC3772962/	pmc_publisher_blocks_machine_download
 23863708	2b	10.1172/jci67674	pmc	https://pmc.ncbi.nlm.nih.gov/articles/PMC3726163/	pmc_publisher_blocks_machine_download
 24994537	2b	10.1007/s11357-014-9675-7	pmc	https://pmc.ncbi.nlm.nih.gov/articles/PMC4150908/	pmc_publisher_blocks_machine_download
 25313149	2b	10.1093/gerona/glu177	pmc	https://pmc.ncbi.nlm.nih.gov/articles/PMC4612357/	pmc_publisher_blocks_machine_download
