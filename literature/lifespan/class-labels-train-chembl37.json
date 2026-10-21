@@ -1,0 +1,770 @@
+{
+  "release": "ChEMBL_37",
+  "release_date": "2026-05-01",
+  "fetched": "2026-10-21",
+  "endpoints": [
+    "status",
+    "molecule",
+    "molecule_form",
+    "mechanism",
+    "target"
+  ],
+  "targets": {
+    "CHEMBL2045": "Pancreatic alpha-amylase",
+    "CHEMBL2074": "Maltase-glucoamylase",
+    "CHEMBL2094253": "Cyclooxygenase",
+    "CHEMBL3884": "Sodium/glucose cotransporter 2",
+    "CHEMBL227": "Type-1 angiotensin II receptor",
+    "CHEMBL1808": "Angiotensin-converting enzyme",
+    "CHEMBL2363065": "Mitochondrial complex I (NADH dehydrogenase)",
+    "CHEMBL3391681": "Glycerol-3-phosphate dehydrogenase, mitochondrial",
+    "CHEMBL2111348": "Soluble guanylate cyclase",
+    "CHEMBL2363135": "Bacterial 70S ribosome",
+    "CHEMBL1824": "Receptor tyrosine-protein kinase erbB-2",
+    "CHEMBL1957": "Insulin-like growth factor 1 receptor",
+    "CHEMBL1902": "Peptidyl-prolyl cis-trans isomerase FKBP1A",
+    "CHEMBL402": "3-hydroxy-3-methylglutaryl-coenzyme A reductase",
+    "CHEMBL2047": "Bile acid receptor"
+  },
+  "compounds": [
+    {
+      "compound": "1,3-butanediol",
+      "molecules": [
+        {
+          "parent": "CHEMBL1231501",
+          "matched_names": [
+            "1,3-butanediol"
+          ],
+          "forms": [
+            "CHEMBL1231501"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "17-alpha-estradiol",
+      "molecules": [
+        {
+          "parent": "CHEMBL286452",
+          "matched_names": [
+            "17alpha-estradiol",
+            "alfatradiol"
+          ],
+          "forms": [
+            "CHEMBL286452",
+            "CHEMBL3349337"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "17-DMAG",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "2-(2-hydroxyphenyl)benzothiazole",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "4-oh-pbn",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "acarbose",
+      "molecules": [
+        {
+          "parent": "CHEMBL404271",
+          "matched_names": [
+            "acarbose"
+          ],
+          "forms": [
+            "CHEMBL404271"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL404271",
+              "mechanism_of_action": "Pancreatic alpha-amylase inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2045",
+              "mec_id": 841
+            },
+            {
+              "form": "CHEMBL404271",
+              "mechanism_of_action": "Maltase-glucoamylase inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2074",
+              "mec_id": 873
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "aspirin",
+      "molecules": [
+        {
+          "parent": "CHEMBL25",
+          "matched_names": [
+            "aspirin"
+          ],
+          "forms": [
+            "CHEMBL1697753",
+            "CHEMBL2296002",
+            "CHEMBL25"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL25",
+              "mechanism_of_action": "Cyclooxygenase inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2094253",
+              "mec_id": 1187
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "beta-guanidinopropionic acid",
+      "molecules": [
+        {
+          "parent": "CHEMBL20489",
+          "matched_names": [
+            "beta-guanidinopropionic acid"
+          ],
+          "forms": [
+            "CHEMBL20489",
+            "CHEMBL6068402"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "canagliflozin",
+      "molecules": [
+        {
+          "parent": "CHEMBL2048484",
+          "matched_names": [
+            "canagliflozin"
+          ],
+          "forms": [
+            "CHEMBL2048484",
+            "CHEMBL2103841",
+            "CHEMBL4594217"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL4594217",
+              "mechanism_of_action": "Sodium/glucose cotransporter 2 inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL3884",
+              "mec_id": 939
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "candesartan cilexetil",
+      "molecules": [
+        {
+          "parent": "CHEMBL1014",
+          "matched_names": [
+            "candesartan cilexetil"
+          ],
+          "forms": [
+            "CHEMBL1014"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1014",
+              "mechanism_of_action": "Type-1 angiotensin II receptor antagonist",
+              "action_type": "ANTAGONIST",
+              "target": "CHEMBL227",
+              "mec_id": 225
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "cape",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "captopril",
+      "molecules": [
+        {
+          "parent": "CHEMBL1560",
+          "matched_names": [
+            "captopril"
+          ],
+          "forms": [
+            "CHEMBL1560"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1560",
+              "mechanism_of_action": "Angiotensin-converting enzyme inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL1808",
+              "mec_id": 114
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "curcumin",
+      "molecules": [
+        {
+          "parent": "CHEMBL140",
+          "matched_names": [
+            "curcumin"
+          ],
+          "forms": [
+            "CHEMBL140",
+            "CHEMBL1916041"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "enalapril",
+      "molecules": [
+        {
+          "parent": "CHEMBL578",
+          "matched_names": [
+            "enalapril"
+          ],
+          "forms": [
+            "CHEMBL1200659",
+            "CHEMBL578"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1200659",
+              "mechanism_of_action": "Angiotensin-converting enzyme inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL1808",
+              "mec_id": 117
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "fish oil",
+      "molecules": [
+        {
+          "parent": "CHEMBL3833369",
+          "matched_names": [
+            "fish oil"
+          ],
+          "forms": [
+            "CHEMBL3833369"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL3833369",
+              "mechanism_of_action": "Supplement",
+              "action_type": null,
+              "target": null,
+              "mec_id": 9738
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "geranylgeranylacetone",
+      "molecules": [
+        {
+          "parent": "CHEMBL5314356",
+          "matched_names": [
+            "geranylgeranylacetone"
+          ],
+          "forms": [
+            "CHEMBL5314356"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "glycine",
+      "molecules": [
+        {
+          "parent": "CHEMBL773",
+          "matched_names": [
+            "glycine"
+          ],
+          "forms": [
+            "CHEMBL3707233",
+            "CHEMBL773"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "green tea extract",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "int-767",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "inulin",
+      "molecules": [
+        {
+          "parent": "CHEMBL1201646",
+          "matched_names": [
+            "inulin"
+          ],
+          "forms": [
+            "CHEMBL1201646"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "leucine",
+      "molecules": [
+        {
+          "parent": "CHEMBL291962",
+          "matched_names": [
+            "leucine"
+          ],
+          "forms": [
+            "CHEMBL291962",
+            "CHEMBL5394043"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "medium-chain triglyceride oil",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "metformin",
+      "molecules": [
+        {
+          "parent": "CHEMBL1431",
+          "matched_names": [
+            "metformin"
+          ],
+          "forms": [
+            "CHEMBL1431",
+            "CHEMBL1703",
+            "CHEMBL3094198"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1703",
+              "mechanism_of_action": "Mitochondrial complex I (NADH dehydrogenase) inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2363065",
+              "mec_id": 1570
+            },
+            {
+              "form": "CHEMBL1703",
+              "mechanism_of_action": "Mitochondrial glycerol-3-phosphate dehydrogenase inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL3391681",
+              "mec_id": 2370
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "metformin + rapamycin",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "methylene blue",
+      "molecules": [
+        {
+          "parent": "CHEMBL191083",
+          "matched_names": [
+            "methylene blue"
+          ],
+          "forms": [
+            "CHEMBL191083",
+            "CHEMBL405110",
+            "CHEMBL550495"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL405110",
+              "mechanism_of_action": "Soluble guanylate cyclase inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2111348",
+              "mec_id": 9914
+            },
+            {
+              "form": "CHEMBL550495",
+              "mechanism_of_action": "Reducing agent",
+              "action_type": null,
+              "target": null,
+              "mec_id": 7488
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "MIF098",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "minocycline",
+      "molecules": [
+        {
+          "parent": "CHEMBL1434",
+          "matched_names": [
+            "minocycline"
+          ],
+          "forms": [
+            "CHEMBL1200881",
+            "CHEMBL1434"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1200881",
+              "mechanism_of_action": "Bacterial 70S ribosome inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2363135",
+              "mec_id": 1779
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "MitoQ",
+      "molecules": [
+        {
+          "parent": "CHEMBL1229093",
+          "matched_names": [
+            "mitoq"
+          ],
+          "forms": [
+            "CHEMBL1223781",
+            "CHEMBL1229093",
+            "CHEMBL4074884"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "ndga",
+      "molecules": [
+        {
+          "parent": "CHEMBL313972",
+          "matched_names": [
+            "masoprocol",
+            "nordihydroguaiaretic acid"
+          ],
+          "forms": [
+            "CHEMBL313972"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL313972",
+              "mechanism_of_action": "Unknown",
+              "action_type": null,
+              "target": null,
+              "mec_id": 2143
+            },
+            {
+              "form": "CHEMBL313972",
+              "mechanism_of_action": "Receptor protein-tyrosine kinase erbB-2 inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL1824",
+              "mec_id": 4740
+            },
+            {
+              "form": "CHEMBL313972",
+              "mechanism_of_action": "Insulin-like growth factor I receptor inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL1957",
+              "mec_id": 4741
+            }
+          ]
+        },
+        {
+          "parent": "CHEMBL52",
+          "matched_names": [
+            "nordihydroguaiaretic acid"
+          ],
+          "forms": [
+            "CHEMBL52"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "nfp",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "nicotinamide riboside",
+      "molecules": [
+        {
+          "parent": "CHEMBL438497",
+          "matched_names": [
+            "nicotinamide riboside"
+          ],
+          "forms": [
+            "CHEMBL438497"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "oxaloacetic acid",
+      "molecules": [
+        {
+          "parent": "CHEMBL1794791",
+          "matched_names": [
+            "oxaloacetic acid"
+          ],
+          "forms": [
+            "CHEMBL1794791",
+            "CHEMBL3950828"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "pb125",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "protandim",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "rapamycin",
+      "molecules": [
+        {
+          "parent": "CHEMBL413",
+          "matched_names": [
+            "rapamycin",
+            "sirolimus"
+          ],
+          "forms": [
+            "CHEMBL413"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL413",
+              "mechanism_of_action": "FK506-binding protein 1A inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL1902",
+              "mec_id": 383
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "rapamycin + acarbose",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "resveratrol",
+      "molecules": [
+        {
+          "parent": "CHEMBL165",
+          "matched_names": [
+            "resveratrol"
+          ],
+          "forms": [
+            "CHEMBL165"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "simvastatin",
+      "molecules": [
+        {
+          "parent": "CHEMBL1064",
+          "matched_names": [
+            "simvastatin"
+          ],
+          "forms": [
+            "CHEMBL1064"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1064",
+              "mechanism_of_action": "HMG-CoA reductase inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL402",
+              "mec_id": 1059
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "sulindac",
+      "molecules": [
+        {
+          "parent": "CHEMBL15770",
+          "matched_names": [
+            "sulindac"
+          ],
+          "forms": [
+            "CHEMBL15770"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL15770",
+              "mechanism_of_action": "Cyclooxygenase inhibitor",
+              "action_type": "INHIBITOR",
+              "target": "CHEMBL2094253",
+              "mec_id": 1196
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "syringaresinol",
+      "molecules": [
+        {
+          "parent": "CHEMBL361362",
+          "matched_names": [
+            "syringaresinol"
+          ],
+          "forms": [
+            "CHEMBL361362"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "TM5441",
+      "molecules": [
+
+      ]
+    },
+    {
+      "compound": "ursodeoxycholic acid",
+      "molecules": [
+        {
+          "parent": "CHEMBL1551",
+          "matched_names": [
+            "ursodeoxycholic acid"
+          ],
+          "forms": [
+            "CHEMBL1551",
+            "CHEMBL2028234"
+          ],
+          "mechanisms": [
+            {
+              "form": "CHEMBL1551",
+              "mechanism_of_action": "Bile acid receptor FXR agonist",
+              "action_type": "AGONIST",
+              "target": "CHEMBL2047",
+              "mec_id": 842
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "compound": "ursolic acid",
+      "molecules": [
+        {
+          "parent": "CHEMBL169",
+          "matched_names": [
+            "ursolic acid"
+          ],
+          "forms": [
+            "CHEMBL169",
+            "CHEMBL1783810",
+            "CHEMBL1783814",
+            "CHEMBL520029"
+          ],
+          "mechanisms": [
+
+          ]
+        }
+      ]
+    }
+  ]
+}
