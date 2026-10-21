@@ -36,4 +36,8 @@ code, data, toolchain and output keys, any value), then `record` and commit.
 Outputs must be deterministic: fixed seed, own RNG or pinned library,
 rounded numbers.
 
+Reference platform: Runs CI (ubuntu) is the reference output. macOS can
+differ at ~1e-16 on libm-heavy runs (e.g. `sim-v0-joint-2026-10-20`), so a
+local macOS `runs.py rerun` mismatch is not a failure; only Runs CI counts.
+
 `toy-gompertz-v0` is a platform fixture, not science.
