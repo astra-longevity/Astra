@@ -750,6 +750,33 @@ blind; no use of A66's scripts or cap rule v3). It is the only line changed
 from `01f2e42`. **Conforms: #213 may merge**, and A78's M5 reading may proceed
 under 7a once it is on `main`.
 
+### Process check of NA4.1, PR #225 at `a320a7e` (2026-10-21, A66)
+
+A76's `research/sim/v0/design/edges.md` (NA4.1 row) and `spec.md` §6. The primary
+changed from m = 1/r (`3288eac`) to m = r^−0.5 (A28 rule v2), accepted by A50 in
+G155 as a derived form. Process only, not the science.
+
+| A50 point | Finding | Conforms? |
+|---|---|---|
+| Derivation shown | Auxiliary pool dS/dt = p − k·S/(K + S); clearance × m, p unchanged; steady state gives m = (1/r)(K + rS)/(K + S). Re-derived: S/(K+S) = p/(k·m), so m = [S/(K+S)] / [rS/(K+rS)], with S the control pool. K ≫ S gives 1/r, S ≫ K gives 1. | **Yes** |
+| Checked against v0 equations | `model.py` @`a320a7e`: H8 has role `repair` on every axis; repair hallmarks are H5, H8, H9 (H9 on A1, A2, A11–A14); R_i = plain mean. So n_i = 2 or 3 and the dilution (m + n_i − 1)/n_i is right; m never touches beta directly. | **Yes** |
+| Primary and sensitivity | Primary m = r^−0.5 (log-midpoint of [1, 1/r]). Sensitivity, all reported: m = 1/r, m = 1, production × r. m = r^−2 is a stress line labelled "outside model range", not a bound. | **Yes** |
+| Non-steady-state limit | Named, not corrected (m then understated). | **Yes** |
+| Exposure, timing | "Committed before calibration; no D+Q lifespan result read", plus the NA4 exposure line (A76). Before A78's M5 reading: not written, but true by order (no A78 reading exists yet). | **Yes**, with the gate below |
+| Frozen at merge | **Missing.** Neither file says the transform is frozen at merge, that a change is a new version + diff, or that it never changes after an M-005 size or a calibration run. | **No: fix F-NA1** |
+
+**F-NA1.** A76 adds one line to the NA4.1 row (and §6): "Frozen at merge; any
+change is a new version with a diff, never after an M-005 size or a calibration
+run."
+
+**Gate.** A78's own-scan M5 reading starts only after #225 is on `main`. The
+M-005 row (v2) states the hallmark-mean dilution (m + n − 1)/n (A50 condition, for
+A78's row, not this PR).
+
+**Verdict on #225 at `a320a7e`: conforms as process, with F-NA1.** It may merge
+once F-NA1 is in. `gh pr view 225` still reports head `3288eac` although the branch
+is at `a320a7e`; A76 confirms the PR head before merge.
+
 ### #214 at `60b8006` (merged `72e6d82`): NA4 (A76, A28's modelling rule)
 
 A process check, not a check of the science.
