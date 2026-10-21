@@ -494,7 +494,9 @@ doses); at kappa 8 in 3 (1 age) to 7 (2 ages or 3 doses) organs.
   sex (best share 0.41, blood). At `n_sim` 20 000 this is no longer the Monte
   Carlo floor (I18 resolved): when repair is far from saturation, recovery is
   fast and almost dose-independent, so eta and beta stay confounded. Kappa must
-  be bounded first (a cheap pilot with 3 doses pins Xc at n 10, 40 mice per sex).
+  be bounded first (§11.1). Correction to #222: the 3-dose pilot at n 10 (40 mice
+  per sex) pins **Xc only**, not kappa (kappa share ≤ 0.11 at kappa 0.5 and 2,
+  ≤ 0.29 at kappa 8).
 
 Shares jump between n 30 and n 100 instead of rising smoothly: a direction
 counts only when its eigenvalue clears the threshold (§6), so the table shows
@@ -505,6 +507,44 @@ where directions are crossed, not graded precision.
 | I19 | The 6 post times of one mouse are treated as independent draws (within-mouse correlation ignored): mice counts are optimistic, real need is higher [to quantify with a mixed model] |
 | I20 | Ideal readout (raw organ state); with realistic assays (§8) the counts grow |
 | I21 | Grid is 3 kappas × 2 ages × 3 doses; the boundary between kappa 2 and 8 is not located |
+
+All mice counts in §11 are **lower bounds** (I19).
+
+### 11.1 Bounding kappa (obstacle I22)
+
+**I22: at kappa 8 no design splits eta/beta**, and no tested design pins kappa
+locally. Route out: tell kappa 0.5 / 2 / 8 apart by model comparison, criterion
+pre-registered before any number (`design/kappa-discrimination.md`, e4f530a).
+`py/design/kappa_discrimination.py`, same shards, no new simulation; output
+`results/kappa-discrimination.json`. Sanity: λ of a hypothesis against itself = 0.
+
+Result (repeatable readouts, per sex, power ≥ 0.8 at α 0.05, cap 700):
+
+- **No single organ bounds kappa** in any design.
+- **The 4 organs pooled do.** Smallest design: start age 18 months, doses 0.15 +
+  0.6 Xc, n 119 per time point = **357 mice per sex**. Others that pass: 18 mo ×
+  0.6 (388), 18 mo × 3 doses (404), 6 + 18 mo × 0.15 + 0.6 (420). No 6-month-only
+  design passes.
+- Kappa 0.5 and 2 are not told apart by any design (λ ≤ 0.4 per mouse); the
+  criterion only needs "kappa 8 or not", which is what decides the split.
+
+**Order of the proposed v0 mouse design** (O8 first-mouse-request candidate list
+only; mice only after metric v0 passes):
+
+1. Kappa bound: 18 mo × 0.15 + 0.6 Xc × n 119 = 357 mice per sex. Then, only if
+   kappa < 8: 6 mo × 0.3 + 0.6 Xc × n 100 = 300 mice per sex. Total 657.
+2. Or one stage: 6 + 18 mo × 0.15 + 0.6 Xc × n 100 = **500 mice per sex**. It
+   bounds kappa (needs 420) and, if kappa < 8, splits eta/beta in all 4
+   repeatable organs (shares ≥ 0.85 at kappa 0.5 and 2). Cheaper than 1 when
+   kappa < 8, dearer when kappa is 8.
+
+If kappa turns out to be 8, the route is a stronger challenge or a direct repair
+readout: e.g. repair-enzyme activity or DNA-damage foci clearance time after a
+dose, in vivo imaging of injury resolution [to verify, no source opened].
+
+| # | Limit |
+|---|---|
+| I23 | Linear (Gauss-Newton) approximation of a non-linear refit; organs pooled as independent although kappa is shared; only 3 kappa values |
 
 ## Reproduce
 
@@ -517,4 +557,5 @@ READOUTS_CACHE=/tmp/readouts.pkl python3 readouts.py 2000 > ../../results/readou
 LONG_CACHE=/tmp/long.pkl python3 longitudinal.py 2000 > ../../results/longitudinal.json   # ~7 min, then instant from cache
 python3 challenge.py 600 > ../../results/challenge.json   # ~25 min, 4 kappa/T0 settings
 python3 ../design/cost_curve.py <shards dir of run 39594585409> > ../../results/cost-curve.json   # <1 s
+python3 ../design/kappa_discrimination.py <shards dir of run 39594585409> > ../../results/kappa-discrimination.json   # <1 s
 ```
