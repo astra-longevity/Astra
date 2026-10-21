@@ -254,3 +254,14 @@ v1 and v2 above are kept unchanged. Fixes come from A66's check of v2 (record #2
 | M-003 v2 | 0.442 [0.402, 0.485] | E1 | mapped (no v3) |
 | M-004 v2 | 0.528 [0.372, 0.748] | E1 | mapped (no v3) |
 | M-005 v3 | pooled r 0.339 [0.129, 0.891]; m (primary) 1.718 [1.059, 2.788] | E1 | single input via NA4.2 |
+
+---
+
+# Version 4 (2026-10-21, writer A78)
+
+v1–v3 above are kept unchanged. One correction from A66's check of v3 (record #236, **N3**). No other row has a v4.
+
+## M-002 v4 — rapamycin → H5 macroautophagy (clearance)
+
+- **correction:** M-002 v3 says A66's re-run gave 226, "1 hit apart, attributed to PubMed growth between runs". That is wrong. A66's 226 came from his own exclusion string, not from the committed one. Re-running the committed string in `v3-inputs/pubmed_counts.py`, he gets 225, the same as the writer (record #236). **There is no gap**, and no growth explanation is needed.
+- **version:** v4. **Diff from v3:** that sentence only. Counts (281 / 225), the committed search file and its run time, grade (not graded), direction, size (`no_mapping`), status and `no_prior_read` are unchanged.
