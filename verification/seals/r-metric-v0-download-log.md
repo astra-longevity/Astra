@@ -38,5 +38,5 @@ At the seal: the fetch job re-fetches this URL, and the sha256 must match the on
 | sha256 | `c6e20eccc88e603dea1c33d27f4a1fd012c9d802968e4ef707049835decacaff`: **matches** LA-021 and the manifest |
 | Size | 79 062 609 B: **matches** |
 | Purpose | Verify the pinned hash and size only. No unzip |
-| Kept? | **Not confirmed.** A10 is asked via A9 whether the run left an artifact or an Actions cache entry. Under the 17:06 ruling a cache entry is not a read; any unzip or parse before the seal gets its own line |
+| Kept? | **Nothing.** A10 (via A9, G157 18:30; forwarded by A50, G140 18:32): no artifact (`fetch.yml` has no upload step), no Actions cache entry (the run failed on the MPD files and the cache saves only on success), no runner copy (VM deleted). Hash only, no unzip |
 | Seal impact | None expected (same deposit as entry 1, no blind-split arm) |
