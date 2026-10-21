@@ -57,9 +57,10 @@ git push
 ```
 
 Then `Structure` turns green and the PR goes through the merge queue.
-Separately (repo settings, president only): create the `protection`
-environment (deployment branches: `main`) with secret
-`PROTECTION_READ_TOKEN` (fine-grained, this repo, Administration: read-only),
+Separately (repo settings, president only): add the repository secret
+`PROTECTION_READ_TOKEN` (fine-grained, this repo, Administration: read-only;
+president ruling PR11: repo secret, no `protection` environment; re-seal
+batch 2 removed the environment from `protection-drift.yml`),
 and mark `Write paths (D47 · D69)`, `Runs (manifests · re-run)`,
 `Registers (schema · tests)`, `Lifespan (check.rb)` and
 `Workflows (actionlint)` as required checks.
