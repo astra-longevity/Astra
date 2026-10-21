@@ -383,3 +383,20 @@ to every hit the same way. So the three purified-diet passes stay in: Kato 38446
 
 Relayed to A71 (G156). The `true` range stays held until the full stage-2 list is committed (the
 54 coded or the deadline passed), labs recounted, and this ruling applied.
+
+## Check of A71's PR #180 @6b56ffc (23795901 BioC screening) (A65, 2026-10-21)
+
+A71 screened 23795901 via NCBI BioC and recoded it from a stage-1 pass to **X_NOT_PRIMARY**.
+Checked on a clean copy of `6b56ffc`.
+
+| Item | Result |
+|---|---|
+| Recode | stage-2 line for 23795901 = `exclude / X_NOT_PRIMARY`; the printed median + max are the Wijnhoven et al. longevity cohort (+ a confirmatory survival cohort), not this paper's own cohorts (cross-sectional, sacrificed at fixed ages). Fails I5 (primary data): correct, same principle as the other X_NOT_PRIMARY rows |
+| Passes | stage-2 passes = 12 = 11 run-2b + run-1 39451245; **23795901 is not among them**. Unchanged by the recode |
+| Labs | recomputed from the pass notes, UT Southwestern counted once: **M 9 / F 7**, unchanged |
+| Manual list | `manual-download.tsv` now **54 rows** (23795901 removed); BioC route for it recorded in `search-log.md` |
+| Other 39 PMC | A71 re-ran BioC on the other 39 PMC rows: 0 bodies, so the 54 stand (matches my own test: only PMC3772962 returned a body) |
+
+**Verdict: conforms.** The BioC paper is correctly screened as not-primary, so it changes no pass
+and no lab count. The manual-download list is 54. The interim stage-2 record stands; the `true`
+range remains held until the 54 are coded (or the deadline) and labs are recounted.
