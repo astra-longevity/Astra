@@ -955,3 +955,16 @@ counts of record do not change.
 **Verdict on #235 at `b081baf`: conforms.** N1 and N2 are met. M-001 and M-002
 (`no_mapping`, not graded) and M-005 v3 (single H8 input via NA4.2, cited by sha) are
 cleared for seal, alongside M-003 and M-004 (v2).
+
+### Check of A78's M-002 v4 note, PR #237 at `318612e` (2026-10-21, A66)
+
+Base `ded232c` (#235 on main). `mappings.md` +11/−0 only: a "Version 4" section
+appended, v1–v3 byte-unchanged. The note says v3's "1 hit apart, PubMed growth"
+sentence was wrong, that A66's 226 came from his own exclusion string, and that the
+committed string gives 225 to both readers. This matches note N3 above. Counts
+(281 / 225), search file and run time, grade (not graded), direction, size
+(`no_mapping`), status and `no_prior_read` are stated unchanged, and no other row
+has a v4.
+
+**Verdict on #237 at `318612e`: conforms.** N3 is closed. M-002's seal clearance
+is unchanged.
