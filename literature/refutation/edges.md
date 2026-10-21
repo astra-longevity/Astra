@@ -12,10 +12,10 @@ This file has edge rows only. The five class → parameter mappings M1-M5 are no
 | --- | --- |
 | E2, `mapped` | E-003 |
 | E1, `mapped` | E-001, E-002, E-004 |
-| `no_mapping` (blind spot) | E-005 and all 166 hallmark → organ pairs |
+| `no_mapping` (blind spot) | E-005 (E0) and all 166 hallmark → organ pairs (not graded) |
 | E3 | none |
 
-E-003 is E2 because it has two independent causal mouse tests (README rule: at least 2 independent tests, any score); it would reach E3 if both score at least 5 once read in full. The only causal test of E-002 (Karin 2019 bleomycin challenge) scores 1 of 10.
+E-003 is E2 because it has two independent causal mouse tests, both scoring below 5 (0/10 and 3/10). The only causal test of E-002 (Karin 2019 bleomycin challenge) scores 1 of 10.
 
 ## 1. Structural edges
 
@@ -58,13 +58,14 @@ E-003 is E2 because it has two independent causal mouse tests (README rule: at l
 | `id` | E-003 |
 | `sim_ref` | E3 @ f527b9f |
 | `claim` | Systemic damage (mean normalised damage over organs) raises damage production in every organ (factor `1 + c · C · I`). |
-| `supporting` | Farrell 2016, doi:10.1103/PhysRevE.94.052409: network model of interacting deficits fitted to human frailty-index data. Model fit, humans, no manipulation: association. Franco 2024, doi:10.1111/acel.14340: senescent fibroblasts transplanted into the dermis of young mice raised senescence markers in proximal and distant host tissues, with peripheral and cognitive decline. Causal mouse test, not yet SYRCLE-scored (abstract only). Yousefzadeh 2021, doi:10.1038/s41586-021-03547-7: mice with senescent immune cells (Ercc1 deletion in blood cells) showed senescence and damage in non-blood organs. Causal mouse test, not yet SYRCLE-scored. |
+| `supporting` | Farrell 2016, doi:10.1103/PhysRevE.94.052409: network model of interacting deficits fitted to human frailty-index data. Model fit, humans, no manipulation: association. Franco 2024, doi:10.1111/acel.14340: senescent fibroblasts transplanted into the dermis of young mice raised senescence markers in proximal and distant host tissues, with peripheral and cognitive decline. Causal test, males only (C57BL/6, 3 mo), n = 7-15 per group. SYRCLE 0/10: sequence generation U, baseline U, allocation concealment U, random housing U, caregiver blinding U, random outcome assessment U, assessor blinding U (blinding stated for bone imaging only, not for the senescence readouts), incomplete outcome data U, selective reporting U, other U. Yousefzadeh 2021, doi:10.1038/s41586-021-03547-7: mice with senescent immune cells (Ercc1 deletion in blood cells) showed senescence and damage in non-blood organs (liver, kidney, lung); splenocytes from these mice raised senescence in recipients. Littermate controls, n = 3-9 per group, both sexes. SYRCLE 3/10: sequence generation U (random assignment stated except genotype and age experiments, which are the main ones), baseline L (littermates, no physical difference), allocation concealment U, random housing U, caregiver blinding L, random outcome assessment U, assessor blinding L (investigators blinded to allocation and outcome assessment), incomplete outcome data U, selective reporting U, other U. |
 | `contradicting` | None found. Search below. |
 | `refuting_experiment` | Damage induced in one organ only (local challenge, e.g. lung bleomycin) in young mice, with damage markers measured in non-challenged organs over time vs sham. Refutation: no rise in distant organs beyond sham. |
 | `already_run` | Partly. PubMed 2026-10-21: `mice[tiab] AND (senescence[tiab] OR damage[tiab]) AND (distant organs[tiab] OR non-lymphoid organs[tiab] OR remote organs[tiab]) AND (transplant*[tiab] OR tissue-specific[tiab])` → 7 hits; relevant: Franco 2024, Yousefzadeh 2021. Both transplant or genetic, not a local challenge. |
-| `grade` | E2: two independent causal mouse tests (Franco 2024, Passos lab; Yousefzadeh 2021, Niedernhofer lab), not yet SYRCLE-scored. E3 only if both score at least 5. |
+| `grade` | E2: two independent causal mouse tests below 5 (Franco 2024, Passos lab, 0/10; Yousefzadeh 2021, Niedernhofer lab, 3/10). |
 | `status` | `mapped` |
 | `excluded` | Xu 2018, doi:10.1038/s41591-018-0092-9 (senescent cell transplant spreads dysfunction), code `X-LS`: the same paper reports lifespan of senolytic-treated mice. |
+| `note` | Yousefzadeh 2021 also reports lifespan of the mutant genotype and immune readouts after rapamycin (no rapamycin lifespan). It is admissible for this edge (no intervention lifespan) but must not be used for any rapamycin mapping (M1, M2). |
 | `flags` | Model mechanism (one coupling constant for all organs) is not what the mouse tests measure (one source organ). Human fit for the functional form. |
 
 ### E-004: death when a vital organ crosses its threshold
@@ -91,17 +92,17 @@ E-003 is E2 because it has two independent causal mouse tests (README rule: at l
 | `sim_ref` | E5 @ f527b9f |
 | `claim` | Damage in each organ has random fluctuation (`sqrt(2·eps) dW_i`), giving variation between mice. |
 | `supporting` | None admissible. edges.md lists it as a modelling choice. Karin 2019 fits a noise term to p16 data, but that is a fit of the same form, not evidence for it in each organ. |
-| `contradicting` | Not searched (no claim to refute beyond the form). |
+| `contradicting` | None found. Search below. |
 | `refuting_experiment` | Repeated readouts per organ in genetically identical co-housed mice. Refutation: between-mouse spread fully explained by measurement noise and fixed differences (no random-walk growth of spread with age). |
-| `already_run` | Not searched. |
-| `grade` | not graded (no dated search) |
+| `already_run` | No. PubMed 2026-10-21: `mice[tiab] AND (inbred[tiab] OR isogenic[tiab]) AND (aging[tiab] OR ageing[tiab]) AND (stochastic[tiab] OR random[tiab]) AND (variability[tiab] OR heterogeneity[tiab]) AND (lifespan[tiab] OR organ[tiab] OR frailty[tiab])` → 0 hits. |
+| `grade` | E0 (no evidence found by the dated search) |
 | `status` | `no_mapping`: listed blind spot |
 | `excluded` | none |
 | `flags` | — |
 
 ## 2. Hallmark → organ pairs (166)
 
-edges.md @ f527b9f opens no source for any hallmark → organ link. Each pair is therefore `no_mapping`, a listed blind spot, and is not graded (a grade needs a dated search per pair). A28 has asked A68 to attach a source per pair where one exists (G153, 2026-10-21); a pair gets a full row when a source is given. The table is generated by script from the edges.md table (counts checked: 166).
+edges.md @ f527b9f opens no source for any hallmark → organ link. Each pair is therefore `no_mapping`, a listed blind spot, and is not graded (a grade needs a dated search per pair). These pairs are unsourced pending A68 sources: they have not been searched, so `no_mapping` here does not mean searched and found empty. A28 has asked A68 to attach a source per pair where one exists (G153, 2026-10-21); a pair gets a full row when a source is given. The table is generated by script from the edges.md table (counts checked: 166).
 
 Columns: id, pair id, hallmark, organ axis, term, sign on damage when the hallmark multiplier > 1, status, grade.
 
