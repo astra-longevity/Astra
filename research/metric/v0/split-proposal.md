@@ -124,10 +124,14 @@ are counted as known classes because the compound or class trains.
 
 One row per arm, columns `part, arm_id, compound, cohort, pmid, sex,
 class_label_proposed, stratum, flag` (A65, PR #110). Combination arm B03 is
-listed as two rows, one per single compound. B03, B04 and B05 use **one
-encoding** (A65, G154): their a/b/c stratum in `stratum` (B03 c, B04/B05 a),
+listed as two rows, one per single compound. B03, B04, B05 and B08 use **one
+encoding** (A65, G154): their a/b/c stratum in `stratum` (B03 c, B04/B05/B08 a),
 and the exact text `compound seen in training` in `flag`, ruling ref after
-`;` (A50 ruling PR #105 for B04/B05; A28/A65 for B03). No outcome column.
+`;` (A50 ruling PR #105 for B04/B05, PR #145 for B08, A28/A65 G144 for B03). No
+outcome column. B08 (captopril) trains via the C2017 captopril arm, same case as
+B04/B05. **Headline score = compound-new blind arms only, never pooled with the
+"compound seen in training" arms** (A50, PR #145); `controls.rb --check` passes
+a compound-only overlap only if the blind arm carries this tag.
 
 ## Train set
 
