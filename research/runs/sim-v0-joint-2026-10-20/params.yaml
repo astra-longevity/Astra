@@ -1,0 +1,6 @@
+# Re-run shard for sim-v0-joint-2026-10-20 (research/sim/v0/actions-job.md).
+# shard.py takes no params file: these values are the command-line arguments in
+# manifest.yaml, recorded here so the params hash pins them.
+spec: 11,base,0
+n_sim: 20000
+actions_run: 39478866080
