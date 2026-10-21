@@ -214,3 +214,81 @@ Agent: A71
 - No lifespan number read. Next: stage 2 on the 151 open papers (147 run 2b + 4 run 1).
 
 Agent: A71
+
+## Run 2b, stage 2 (full text) and passing list
+
+| | |
+|---|---|
+| Date | 2026-10-21 |
+| Set | the 151 open papers from the lookup (147 run 2b + 4 run 1), one decision each |
+| Output | `screening.csv`, 151 lines with `stage` = 2 and `run` = `2b` (the 4 run-1 papers re-screened here also get `run` = `2b`; their old run-1 stage-2 lines stay) |
+| Note field | `lab=<last author (institution)>; sex=<sexes with a usable control arm>; substrain=<…>; <reason>` |
+| Method | full texts cached outside the repo, read through a viewer that masks every digit; the cache is deleted after extraction |
+
+| Code | n |
+|---|---|
+| pass | 11 |
+| X_NO_FULLTEXT | 55 |
+| X_NO_PRINTED_MEDIAN | 27 |
+| X_STRAIN | 22 |
+| X_NOT_MOUSE_LIFESPAN | 10 |
+| X_TREATED | 9 |
+| X_TRUNCATED | 7 |
+| X_NOT_PRIMARY | 6 |
+| X_HYBRID | 4 |
+
+### Passing list (no number read yet)
+
+| PMID | Lab (last author) | Sex | Sub-strain |
+|---|---|---|---|
+| 39451245 (run 1) | Bollyky PL (Stanford) | M | J |
+| 19627267 | Paigen B (JAX) | M, F | J |
+| 20981551 | Ruf T (Vetmeduni Vienna) | F | not stated (Harlan NL) |
+| 22132081 | Richardson A (UTHSCSA Barshop) | M, F | not stated |
+| 22265987 | Swerdlow RH (U Kansas) | M | not stated (JAX) |
+| 28761067 | de Angelis MH (Helmholtz Munich) | M | J |
+| 29849149 | Levine B (UT Southwestern) | M, F | J |
+| 34050173 | Cohen HY (Bar-Ilan) | M, F | JOlaHsd |
+| 35511946 | Takahashi JS (UT Southwestern) | M | J |
+| 38446314 | Kato Y (Kanazawa U) | M | J |
+| 39374394 | Speakman JR (Aberdeen/Shenzhen) | F | J |
+| 39662934 | Niida S (NCGG Obu) | M, F | NCrSlc and J |
+
+Independent labs per sex (one institution counted once, so the two UT Southwestern
+papers count as one lab): **males 9, females 7**. Both are ≥ 5.
+
+### Judgment points (for A65)
+
+1. 33675469 (Hine C): stage-1 pass reversed to X_NOT_MOUSE_LIFESPAN (weeks-long
+   fasting study, no lifespan median).
+2. WT littermates of a knockout count as C57BL/6 only if the paper states congenic
+   or ≥ N6 backcrossing; otherwise X_STRAIN (e.g. Klf5, S6K1, Polr3b, p53 ≥ N5).
+3. Control arms on purified diets (Kato TestDiet 5755, Speakman AIN-93G/M, Swerdlow
+   AIN-93G) are counted as untreated ad-lib controls.
+4. Speakman 37354128: the 12AL control is fed in the dark phase only → X_TREATED.
+   Nagy 38850387: the only ad-lib arm is housed at thermoneutrality → X_TREATED.
+5. Levine and Takahashi (both UT Southwestern) merged into one lab.
+6. Richardson 22132081 shares an institution (Barshop) with refill author Ikeno Y but
+   Richardson is not a refill author, so it is not X_REFILL_LAB.
+7. Niida 39662934: the median is printed as "age at which survival fell below 50%".
+8. Paigen 19627267 is an interim report; Ruf 20981551 prints one median for all
+   three diet groups, control included.
+9. Frailty trio (30562163, 30958526, 31355774): no printed median.
+10. During stage 2 I first coded 34240807 and 34579167 X_REFILL_LAB because a refill
+    author was a middle author. The rule matches on the hit's last author, so they
+    were recoded by their own reasons: 34240807 X_TREATED, 34579167 X_TRUNCATED.
+11. 55 X_NO_FULLTEXT: open per the lookup, but not readable by script. 40 PMC
+    copies give front matter only (no XML body from E-utilities, captcha on the
+    HTML page, 403 on the Europe PMC PDF); 12 publisher/repository URLs return 403;
+    3 routes are not the paper. No block was circumvented. Together with the 28
+    closed PMIDs above, they form the library-request list.
+
+### Disclosure
+
+For 25048265, a temporary entry-age extractor printed one trailing digit of a
+masked value before it was fixed. The paper is excluded (X_TRUNCATED, entry at
+15 months), so nothing it printed is used.
+
+No lifespan number is in any file. Extraction starts only after this list is on main.
+
+Agent: A71

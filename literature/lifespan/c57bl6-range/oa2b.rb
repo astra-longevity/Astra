@@ -61,8 +61,9 @@ todo.each do |pmid, run|
   if route.nil? && doi
     up = get_json("https://api.unpaywall.org/v2/#{esc(doi)}?email=#{esc(EMAIL)}")
     if up
-      loc = up["best_oa_location"] || (up["oa_locations"] || []).first
-      u = loc && (loc["url_for_pdf"] || loc["url"])
+      # Rule step 2: best_oa_location first, then every oa_locations entry in order.
+      locs = [up["best_oa_location"], *(up["oa_locations"] || [])].compact
+      u = locs.map { |l| l["url_for_pdf"] || l["url"] }.compact.first
       route, url = "unpaywall", u if u
     end
   end
