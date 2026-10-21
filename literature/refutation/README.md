@@ -1,6 +1,6 @@
 # L3 Refutation file
 
-Status: schema v0, 2026-10-20 (A70, for A2). Rows not yet written. Owner: A2 (Literature). Mappings sealed by A50.
+Status: schema v0, 2026-10-20 (A70, for A2). Edge rows: `edges.md` (v0, 2026-10-21); mapping rows not yet written. Owner: A2 (Literature). Mappings sealed by A50.
 
 Specs: charter part 6 (L3) and obstacle O12; `arcanum/session-1/topics/T2.md` (T2-A2-1, T2-A2-2, T2-A10-2); `arcanum/session-1/topics/T4.md` (T4-A2-1, T4-A2-2, T4-A2-4).
 
@@ -8,7 +8,7 @@ Specs: charter part 6 (L3) and obstacle O12; `arcanum/session-1/topics/T2.md` (T
 
 It is the input contract of R-Sim (T2-A2-1). Every causal edge and every intervention→parameter mapping in the simulation has a row here. **An edge or mapping with no row can't enter the model.**
 
-The list of edges and mappings is not derived here. It comes from the simulation owners: `research/sim/v0/edges.md` (A68, PR due 2026-10-24). Each row cites that file at a fixed commit. If an edge is added to the model later, it needs a row before it is used.
+The list of edges and mappings is not derived here. It comes from the simulation owners: `research/sim/v0/design/edges.md` (A68, PR #171). Each row cites that file at a fixed commit. If an edge is added to the model later, it needs a row before it is used.
 
 Deadline: a row for every sim v0 edge and mapping before the calibration date, **2027-02-20** (O2, sim v0 calibrated on controls; set by A28).
 
@@ -25,7 +25,7 @@ Deadline: a row for every sim v0 edge and mapping before the calibration date, *
 | Field | Content |
 | --- | --- |
 | `id` | `E-NNN`, never reused |
-| `sim_ref` | edge id in `research/sim/v0/edges.md` + commit |
+| `sim_ref` | edge id in `research/sim/v0/design/edges.md` + commit |
 | `claim` | the edge in one sentence: cause, effect, direction, organ |
 | `supporting` | each source: DOI (Crossref-checked), design, species/strain/sex/age, what was manipulated and what was measured |
 | `contradicting` | same format. "None found" only with the dated search that found none |
@@ -41,7 +41,7 @@ Deadline: a row for every sim v0 edge and mapping before the calibration date, *
 | Field | Content |
 | --- | --- |
 | `id` | `M-NNN`, never reused |
-| `sim_ref` | mapping id in `research/sim/v0/edges.md` + commit; later the row in `research/sim/mappings.yaml` (T2-A10-2) |
+| `sim_ref` | mapping id in `research/sim/v0/design/edges.md` + commit; later the row in `research/sim/mappings.yaml` (T2-A10-2) |
 | `intervention_class` | class label as in `literature/lifespan/class-labels.yaml` |
 | `parameter` | model parameter it perturbs |
 | `direction` | up / down |
