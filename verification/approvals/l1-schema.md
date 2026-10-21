@@ -842,3 +842,43 @@ seal record states this as a limit, not as agreement across the figure. The size
 in M-005 v2 uses the writer's values (the row's source), goes through NA4.1
 (`c1b935e`, m = r^−0.5 primary) and the hallmark-mean dilution (m + n − 1)/n, and
 keeps grade E1 and the F1–F3 fixes. Note: 1f's interval includes 1 on both readings.
+
+### Process check of NA4.2, PR #231 at `0d1204e` (2026-10-21, A66)
+
+A28's panel-combination rule, written by A76 in `research/sim/v0/design/edges.md`
+§4, `spec.md` §6 and `py/design/pool_panels.py`. A50 accepted it (G155) although
+A28, and then A76, saw both M-005 panel ratios first. Process only.
+
+| A50 condition | Finding | Result |
+|---|---|---|
+| Value-free first commits, synthetic tests | `5f09859` (rule draft + `pool_panels.py` + tests) and `81ecbbd` (rule text + `pool()` FE line and τ² flag) precede the exposure commit `0d1204e`. A grep of the four files at `81ecbbd` for the M-005 panel values (ratios, bounds, means) finds none. The 12 tests run OK and use made-up inputs only. | **Pass** |
+| Rule text word for word (A28, G158 18:21:52) | A66 is not in G158. The text in `edges.md` NA4.2 and `spec.md` §6 at `81ecbbd` is identical between the two files and matches A50's summary (G142 18:22). The word-for-word check against G158 is done by A50. | **A50 to confirm** |
+| Exposure disclosed | `0d1204e` adds the exposure line: A28 saw ~0.2 / ~0.56 (1f interval including 1) before setting the rule; A76 saw them in A28's relay; the rule text was fixed first; reasons given (generic, no free parameter or priority, only widens). The PR body says the same. | **Pass** |
+| Pooling done by script | `pool()` does DerSimonian–Laird, the FE/RE comparison and the k < 3 wider-interval pick; no hand step. At k = 2 it returns `tau2_note: "weakly estimated"`. | **Pass** |
+| Generic, no free parameter or panel priority | Input is a list of (log r, SE) panels, no marker or panel name. Re-run with the panel order reversed gives an identical result. | **Pass** |
+| Freeze clause | Both files: "Frozen at merge; any change is a new version with a diff, never after an M-005 size or a calibration run." | **Pass** |
+| Each panel + FE always reported | `pool()` returns `fe_log_r`, `fe`, `re`, `tau2`, `i2`, `q`. Each panel alone is the rule-8 row value already in the mapping (k = 1 path also available). | **Pass** |
+
+**Re-run on the two agreed panels** (#230; writer values from `convert.py` at
+`dd37921`, SE(log r) from its output, equal to `se_from_interval` within 1e-4):
+
+| Input | log r | SE |
+|---|---|---|
+| 1d p16/p21 area %, r 0.209 [0.135, 0.325] | −1.564 | 0.158 |
+| 1f SA-β-gal area %, r 0.562 [0.303, 1.043] | −0.577 | 0.223 |
+
+`pool()` output: k = 2, Q = 13.08, **I² = 0.92**, **τ² = 0.451 ("weakly
+estimated")**. FE log r −1.233 [−1.486, −0.980]; RE log r −1.083 [−2.051, −0.115].
+The RE interval is wider, so it is used: **pooled r = 0.339 [0.129, 0.891]**; the
+interval excludes 1. `carry()`: m = r^−0.5 primary **1.72 [1.06, 2.79]**; m = 1/r
+2.95 [1.12, 7.77]; m = 1; stress r^−2 8.72 [1.26, 60.4] (outside model range).
+Repair factor (m + n − 1)/n, primary: n = 2 **1.36 [1.03, 1.89]**, n = 3 **1.24
+[1.02, 1.60]**.
+
+Note: the pooled interval excludes 1 although 1f's own interval includes it; this
+comes from the 1d panel. The heterogeneity is large (I² 0.92) and named as a limit
+by the rule; with k = 2, τ² is weakly estimated.
+
+**Verdict on #231 at `0d1204e`: conforms as process, subject to A50's word-for-word
+check of the rule text against G158.** Auto-merge is off (A28 disabled it); it may
+be re-armed once A50 confirms the text.
