@@ -1,0 +1,19 @@
+schema: astra-run-manifest/1
+id: sim-v0-joint-2026-10-20
+description: R-Sim v0 joint Fisher, base shard seed 11 at n_sim 20000 (one of 436 shards of Actions run 39478866080)
+code_commit: f19859377bbc6526262b93819e8c459e2c73c445
+command: python3 "$ASTRA_ROOT/research/sim/v0/py/studies/shard.py" --shard {seed},base,0 --n-sim 20000 --out .
+seed: 11
+params_file: params.yaml
+params_sha256: 839dcbb04d82b90143b1ca434e4eca76f91deffca0b48d6b4f9a9d997aa362ea
+code:
+  research/sim/v0/py/model.py: e4a65a55b3622c527d809a24e67c819653981af5a3b261029534f8ddc16d7b94
+  research/sim/v0/py/studies/identifiability.py: e50e33dda2ac2f0b3e802bacc95a346c8eabd0550d73090f26cbe3f585a34d92
+  research/sim/v0/py/studies/longitudinal.py: b1262f23844d5591074aeaaa8485c6353ce03708f2948cde904488ec1d129309
+  research/sim/v0/py/studies/readouts.py: 65a57657d426affca0584cc43b15b713b661ba2649abed9e3f4f27c52f14f6f0
+  research/sim/v0/py/studies/shard.py: aa2b7b964ea7048ab40452669cf6ec39d2d1280499117ea35469183d845b6aff
+data: {}
+toolchain:
+  python3: 3.13.16
+outputs:
+  11_base_base.json: 44a774527e4a3a482e8220ddf87368ae0313ff52068e604f9baa79912c9921bc
