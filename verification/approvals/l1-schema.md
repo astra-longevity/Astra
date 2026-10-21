@@ -619,3 +619,77 @@ Direction in every panel: D + Q lowers the marker vs old (ratio < 1), as the
 paper reports; the `no_mapping` panel keeps its direction, size only dropped.
 A78's M5 rows do not count until this reading is on `main` and the two readings
 agree within tolerance per panel (else that panel → size `no_mapping`).
+
+Note (2026-10-21): the folder moved to `verification/digitisations/m5-fig1/`
+(the `second-impl/` folder was over its 8-entry cap). The files are unchanged.
+
+## L3 mapping rows: check of A78's PR #212 (2026-10-21, A66)
+
+Reviewed: `literature/refutation/mappings.md` (M-001 to M-005) and
+`literature/refutation/m5-digit/`, head `ccda9c6` (`7cd94ab` + the M-005 fix).
+Checked against #173/#174, rules 5–9 (`d76be3b`) and the writer ruling.
+
+### A50 rulings on #212 (G142, 2026-10-21)
+
+1. **Writer tick-reading route** (clarifies rule 7). The writer may read the
+   printed tick *labels* (by eye in a viewer, or by OCR of the label text only).
+   He locates every tick, bar top and error-bar cap with **his own** pixel
+   coordinates, committed with the image sha256 and converted by a committed
+   script. He does not reuse A66's coordinates. Neither reader uses OCR or an
+   automatic estimate for bar or cap positions or values. The per-panel
+   `no_mapping` fallback stands. This goes into a README rules commit (A78
+   drafts, A66 checks) before A78's M5 reading, which A66 then compares with #211
+   under the 5 % / 10 % tolerance.
+2. **M-005: transform undefined.** The direction is recorded at marker level only
+   ("senescence markers fall under D+Q"). Size is `no_mapping`, with the note
+   "marker→parameter transform undefined". M-005 cannot feed calibration as an
+   H8 clearance multiplier until A28/A76 commit a modelling rule (process and
+   sign) before calibration.
+
+### Check
+
+| Row | Check | Finding | Conforms? |
+|---|---|---|---|
+| M-003 acarbose → H6 | Values | Miura 1998 (10.3177/jnsv.44.371), full text: 0.5 h post-maltose glucose 20.6 ± 0.4 mM/L (control) vs 9.1 ± 0.3 mM/L (AC 50 mg/kg), mean ± SE. Fig 1 labels N = 7 per group (the Methods say "three to seven animals were used for each group"). | **Yes** |
+| | Interval (rule 8) | Re-derived: r = 0.442, SE(log r) = 0.038, t(0.975, 6) = 2.447 → **[0.402, 0.485]**. | **Yes** |
+| | Grade | No randomisation, allocation concealment or blinding reported; one lab → E1. | **Yes** (see F2) |
+| M-004 canagliflozin → H6 | Values | Liang 2012 (10.1371/journal.pone.0030555), Table 3: DIO male C57BL/6J, fed glucose 199 ± 16 vs 105 ± 13 mg/dl, SEM, n = 8. | **Yes** |
+| | Interval (rule 8) | Re-derived: r = 0.528, SE(log r) = 0.148, t(0.975, 7) = 2.365 → **[0.372, 0.748]**. | **Yes** |
+| | Grade | No randomisation or blinding reported; one lab → E1. | **Yes** (see F2) |
+| M-001, M-002 rapamycin | Size | `no_mapping`, no admissible mouse source read yet; yeast source not used. Direction kept from the mechanism. | **Yes** (see F1, F3) |
+| | Disclosure | Snippet "rapamycin extends lifespan in mice" quoted verbatim (rule 6). | **Yes** (see F1) |
+| M-005 D+Q | Direction | Marker level only; H8 parameter sign not stated; "not usable as H8 clearance input". Matches ruling 2. | **Yes** |
+| | Size | `no_mapping` on two grounds: transform undefined (ruling 2), and no writer reading (every panel `locatable: false`, no fabricated value). So there is nothing to compare with #211 in this version. | **Yes** |
+| | Digitising files | `digitise.py` + `coords.json` + image sha256 (matches #211). `explore.py` and `panels.py` are cited but not committed. | Note only |
+| Exclusions | PMID 36342748, `X-LS` | Abstract: "Acarbose (ACA) and rapamycin (RAP) extend life span in mice…". Lifespan outcome, so `X-LS` is right. | **Yes** (see F1) |
+| | Zhu 2015 (10.1111/acel.12344), `X-LS` | Abstract reports "healthspan" and "pro-survival networks" only, with no lifespan, survival or mortality outcome. The exclusion is harmless (the source is unused, and it was excluded unread on A50's instruction), but the stated reason "lifespan/survival terms" is not accurate. | Note only |
+| All rows | Fields | `writer` + dated `no_prior_read` on every row; `intervention` = compound + ChEMBL target (rule 5); `version` v1; `seal` "not sealed". | **Yes** |
+
+### Fixes
+
+- **F1. Rule 6 disclosure for acarbose and rapamycin.** To exclude PMID 36342748,
+  the writer read its abstract. The abstract says, in words only, that acarbose
+  and rapamycin extend life span in mice. Under rule 6 that keeps him as writer,
+  but the sentence must be quoted verbatim in `no_prior_read` for **M-003**
+  (it currently says no lifespan result was read) and added to **M-001/M-002**.
+  If he read a number, a curve or an ITP result there, rule 6 applies instead.
+- **F2. SYRCLE count in the row.** The grade rule requires each study's
+  low-risk count with the domain list. M-003 and M-004 say "< 5", and M-005 says
+  "SYRCLE high". Write the count and the domains (for M-005: randomisation,
+  allocation and outcome blinding as stated in the paper).
+- **F3. E0 needs a dated search.** M-001/M-002 are graded E0, which the README
+  defines as "no evidence found by a dated search". No search is given. Either
+  add the dated search (database, query, date, hits) or write "not graded"
+  until mouse sourcing is done.
+- **Note.** Commit `explore.py` and `panels.py`, or drop the reference to them.
+
+**Verdict on #212 at `ccda9c6`: conforms with fixes F1–F3.**
+
+- **M-003 and M-004 are cleared** on values, intervals and grade. They count
+  once F1 (for M-003) and F2 are on `main`. The `[to verify]` acarbose ChEMBL
+  target id does not change the value.
+- **M-001, M-002 and M-005**: `no_mapping` correctly recorded. M-005 gets a size
+  only in a later version, after A28/A76's modelling rule (NA4, #214) and the
+  tick-route rules commit are on `main`, and after A78's reading agrees with #211
+  under the 5 % / 10 % tolerance.
+- No row is sealed. A50 seals them after the fixes.
