@@ -475,3 +475,22 @@ written. No mapping row counts until the writer A2 names submits rows with
   ruled.
 - The Yousefzadeh 2021 SYRCLE count (3/10) stays unverified (no open full text):
   it is recorded as a **single-checker count**.
+
+## "Compound seen in training" tagger: check of A75's PR #195 @07e8f43 (A65, 2026-10-21)
+
+Follows the final strata check above (#187). A75 builds the `compound seen in training`
+tag into `join-class-labels.rb`, so the seal re-run sets it by script. Checked on a clean
+copy of `07e8f43` against A50's four points (G140, 2026-10-21).
+
+| A50 point | Result |
+|---|---|
+| 1 Same rule as the blind arms, and every arm it hits | Tag = the arm's compound (combinations split) names a single-compound entry of `train-classes.yaml`, after `class-labels-train-names.yaml` canonicalisation. My own recompute over all 60 rows: **0 untagged that should be, 0 tagged without a match**. 13 flags change, exactly RF001–04, RF008–13, RF020, RF021, RF032. Earlier tags (B03/B04/B05/B08) are unchanged |
+| 2 Strata unchanged | a/b/c **8/50/2**, 0 arms moved. On every row, `stratum` and `class_label` are unchanged, and any earlier `flag` text is kept as a prefix (`; ` append). `--check` exit 0; a write run leaves `split.csv` byte-identical (sha `87ef760c…`): idempotent |
+| 3 `controls.rb --check` exit 0 on the tagged split | **Exit 1, but not because of #195.** The only cause is `controls.md`'s stale header line ("no machine-readable sealed split file exists yet"), which is just as stale on main @`1a03752`. After regeneration: exit 0, and that header line is the only diff (no role change, no overlap hit) |
+| 4 Compound-new counts per stratum restated | a **0/8**, b **42/50**, c **0/2**, printed by the script and stated in `split-proposal.md` |
+
+**Verdict: conforms.** #195 may merge.
+
+**Seal item (A50, 18:01, point 1):** `controls.md` is regenerated against the sealed
+`split.csv` and the regenerated file's sha is the one sealed. Until then, `--check` stays red
+on main. The regeneration goes in a PR by the controls owner (A71). It is not a blocker for #195.
