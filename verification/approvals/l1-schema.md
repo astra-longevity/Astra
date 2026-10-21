@@ -929,3 +929,29 @@ is appended; v1 is untouched (condition 3) and each row states its diff from v1.
 and M-004 are cleared for sealing; M-001/M-002 stay `no_mapping`; M-005 v2 is
 correct as per-panel marker readings with NA4.1 lines and named limits. Rows await
 A50's seal.
+
+### Check of A78's v3 mapping rows, PR #235 at `b081baf` (2026-10-21, A66)
+
+Base `0716080` (#234). `literature/refutation/mappings.md` +46/−0 (a "Version 3"
+section; v1 and v2 unchanged, so v2's withdrawn 39 / 203 stay visible), plus four new
+files in `literature/refutation/v3-inputs/`. Checked on a clean checkout of `b081baf`.
+
+| Item | Finding | Result |
+|---|---|---|
+| N1 script | `pubmed_counts.py` holds the exact queries and the exclusion string ` NOT (lifespan OR "life span" OR survival OR longevity OR mortality)`; NCBI esearch, stdlib only. `pubmed-counts.json` sha256 `251621a6…` matches the sha cited in the row. | **Pass** |
+| N1 re-run | A78's run 2026-10-21T18:47:13Z: M-001 226 / 182, M-002 281 / 225. My re-run of **his** script, 2026-10-21T18:51:07Z: **226 / 182, 281 / 225**, identical. Count of record = his dated output (A50 ruling, G142 20:50). | **Pass** |
+| N1 wording | v3 says M-001/M-002 "not graded" and `no_mapping`, unchanged; v3 explains why 39 / 203 are withdrawn (string never recorded). | **Pass**, note N3 |
+| N2 script | `pool_m5.py` loads `research/sim/v0/py/design/pool_panels.py` by path and does not change it: the file is identical to `ddf699f` (sha256 `50f7638e…`). Inputs come from `m5-reading/coords.json` through `convert.py`, both identical to #228 (`dd37921`); the shas cited in the row match. | **Pass** |
+| N2 output | My re-run of `pool_m5.py` rewrites `pool-output.json` **byte-identical** (sha256 `51ddb911…fc5b`). Values match my #233 re-run: k = 2, pooled r **0.339 [0.129, 0.891]** (RE, wider), FE log r −1.233, I² 0.92, τ² 0.451 "weakly estimated"; m = r^−0.5 **1.718 [1.059, 2.788]**; 1/r 2.953 [1.122, 7.774]; r^−2 stress 8.72 [1.26, 60.4]; repair factor n = 2 1.359, n = 3 1.239. Q is 13.069 here against 13.076 in #233; the difference comes from my earlier inputs rounded to 4 decimals. | **Pass** |
+| N2 row | M-005 v3 cites the output file by sha and copies its numbers, rounded to 3 decimals, without hand-entered numbers. Per-panel values (1f interval including 1), FE result, I²/τ² weak, the 2-of-5 limit, steady state and single source all appear. | **Pass** |
+
+**Note N3 (not blocking).** M-002 v3 explains that my earlier 226 differs from his 225
+by one hit because the PubMed index grew between runs. That explanation is wrong. My
+226 came from my own query, whose exclusion string left out `"life span"`. Run
+4 minutes after his, his committed string also gives me 225. There is no disagreement
+between the runs. A later version may correct that sentence (new version + diff). The
+counts of record do not change.
+
+**Verdict on #235 at `b081baf`: conforms.** N1 and N2 are met. M-001 and M-002
+(`no_mapping`, not graded) and M-005 v3 (single H8 input via NA4.2, cited by sha) are
+cleared for seal, alongside M-003 and M-004 (v2).
