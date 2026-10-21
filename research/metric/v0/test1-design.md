@@ -117,6 +117,20 @@ Design rules for the two readouts that lose organ signal (A68, #132):
   antigen at every age** alongside the new antigen, so the age effect is read
   against a common scale.
 
+## Test 4 / O5 dataset: DRiDO
+
+Test 4 (individual level: does the metric predict a single mouse's remaining
+life?) and O5 use **DRiDO** (Di Francesco 2024, doi:10.1038/s41586-024-08026-3;
+figshare 10.6084/m9.figshare.24600255, CC BY 4.0): ~960 Diversity Outbred
+mice, 194 traits measured from 3 months to death, with per-mouse lifespan.
+The trait → axis map is in `axes.md`. Limits carried into the seal record:
+**females only** (no within-dataset sex factor) and **Diversity Outbred, not
+UM-HET3** (axis strain trends not assumed to transfer). The ad-libitum arm is
+the untreated reference; the CR 20/40% and intermittent-fasting arms are
+interventions (CR is a known class) and are **train only**. Data enters
+through A9's manifest; no per-mouse value or lifespan result is read before
+the seal.
+
 ## Output (scorecard section)
 
 One row per axis: readout, right-way control and effect (interval),

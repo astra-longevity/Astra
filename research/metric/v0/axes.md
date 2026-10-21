@@ -189,17 +189,46 @@ Hallmark list from López-Otín et al. 2023, doi:10.1016/j.cell.2022.11.001
 | H1 | Genomic instability | DNA damage foci, mutation burden | none confirmed | `[to verify]` | ERCC1, IRR | unmeasured |
 | H2 | Telomere attrition | telomere length (qPCR / flow-FISH) | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
 | H3 | Epigenetic alterations | methylation clock | GEO-M: GSE80672 (blood RRBS, 141 C57BL/6 males, Petkovich 2017) | CR slows blood methylome ageing (PMC5946071, data GSE80672), own readout; RAPA and CR in liver (doi:10.1186/s13059-017-1186-2, title only `[to verify]`) | ERCC1 (epigenetic age up in blood, brain, liver, muscle, skin: doi:10.1101/2022.12.28.522011, preprint) | candidate |
-| H4 | Loss of proteostasis | protein aggregates, chaperone expression | TMS (chaperone genes) | CR or RAPA for 10 weeks in 27-month mouse hearts: longer protein half-lives, less oxidative damage and ubiquitination (PMC4040127), own readout (heart) | `[to verify]` | candidate (molecular only) |
+| H4 | Loss of proteostasis | autophagy **flux** (LC3-II ± lysosomal blocker), heart fixed in advance | TMS (chaperone genes) | CR or RAPA for 10 weeks in 27-month mouse hearts: longer protein half-lives, less oxidative damage and ubiquitination (PMC4040127), own readout (heart) | `[to verify]` | candidate (molecular only). **Flux, not level** (A70 mouse/18): direction is organ-dependent (Carosi 2025 pone.0325505); pick heart in advance; terminal. Raising flux improves function (Sebti 2022 15548627.2022.2111852) → candidate right-way |
 | H5 | Disabled macroautophagy | autophagic flux (LC3-II turnover) | none confirmed | RAPA (mTOR inhibition, `[to verify]` on this readout) | `[to verify]` | unmeasured |
 | H6 | Deregulated nutrient sensing | IGF-1, insulin, mTOR activity | ITP body weight; TMS | RAPA, ACA, CANA | HFD `[to verify]`; LMNA (IGF deficiency, secondhand) | candidate |
 | H7 | Mitochondrial dysfunction | respiration (Seahorse), exercise capacity | TMS (OXPHOS genes) | SS-31 (elamipretide) in aged mice: better mitochondrial quality and exercise tolerance (PMID 30597195), own readout | HFD 8 weeks, C57BL/6J: work to exhaustion −36%, peak VO2 −16%, lower ADP-stimulated respiration and complex I/III activity (doi:10.1152/ajpheart.00267.2009), own readout (exercise capacity, respiration) | candidate (molecular only) |
 | H8 | Cellular senescence | p16/p21 expression, SASP | TMS (Cdkn2a, Cdkn1a) | Dasatinib + quercetin (senolytic): fewer p16 and SA-β-gal positive cells in fat of old mice (PMC9924942); lower p16, p19, IL-6 in discs when started at 6, 14 or 18 months (doi:10.1038/s41467-021-25453-2), own readout | ERCC1 (senescence and SASP markers up: aging-us 202321); IRR (p16 and SA-β-gal up in HSCs: doi:10.1182/blood-2005-04-1418) | candidate |
-| H9 | Stem cell exhaustion | colony assays, HSC function | TMS marrow | RAPA in old mice restored HSC self-renewal (doi:10.1126/scisignal.2000559), own readout | IRR (sustained loss of HSC number and function: doi:10.1182/blood-2005-04-1418) | candidate (molecular only) |
+| H9 | Stem cell exhaustion | competitive repopulation (HSC **function**, not count) | TMS marrow | RAPA in old mice restored HSC self-renewal (doi:10.1126/scisignal.2000559), own readout | IRR (sustained loss of HSC number and function: doi:10.1182/blood-2005-04-1418) | candidate (molecular only). **Score function, not count** (A70 mouse/16): B6 HSC count *rises* ~5× with age while function falls (Morrison 1996 nm0996-1011; Dykstra 2011 jem.20111490); DBA/2 count falls (Geiger 2005 pnas.0408654102). A right-way pass on count does not count; terminal readout |
 | H10 | Altered intercellular communication | plasma proteome | none confirmed | `[to verify]` | `[to verify]` | unmeasured |
 | H11 | Chronic inflammation | plasma IL-6, TNF | TMS immune cells (indirect) | **No known right-way intervention on plasma IL-6/TNF.** Tissue only: liver NF-κB p65 lower with rapamycin, acarbose, canagliflozin, 17α-estradiol, CR (PMC12181462); CR lowers macrophage IL-6/TNF ex vivo (PMID 1768737). Search: "aged mice plasma IL-6 TNF reduced rapamycin OR caloric restriction OR senolytic inflammaging old C57BL/6 serum" (2026-10-20) | HFD in male C57BL/6J: Tnf, Il1b, Mcp1 up in fat by 24 weeks (PMC4429090); tissue, not plasma (plasma `[to verify]`) | candidate (molecular only) |
 | H12 | Dysbiosis | gut microbiome composition | none confirmed | Short-term dietary restriction in old C57BL/6J reverts the age-related microbiota imbalance (doi:10.1007/s10522-019-09830-5), own readout | HFD in C57BL/6: Firmicutes up, Bacteroidetes down, lower diversity (dysbiosis) (PubMed 40136712; doi:10.1016/j.cca.2023.117606 / S0167488923002161), own readout (composition) | candidate (molecular only) |
 
-## Counts (v0 draft)
+## DRiDO trait → axis map (test 4 / O5 dataset)
+
+DRiDO (Di Francesco 2024, doi:10.1038/s41586-024-08026-3; data figshare
+10.6084/m9.figshare.24600255, CC BY 4.0): ~960 Diversity Outbred **female**
+mice, 194 traits, measured longitudinally from 3 months to death, with
+per-mouse lifespan. This is the candidate dataset for test 4 (individual
+level) and O5. The map below is built from the paper's published trait list
+only; no per-mouse value and no lifespan result was opened.
+
+| DRiDO trait group | Axis |
+|---|---|
+| grip strength | A1 skeletal muscle |
+| rotarod | A1 skeletal muscle |
+| bone (DXA BMD) | A2 bone |
+| acoustic startle / PPI (hearing proxy) | A4 hearing `[to verify]` |
+| echocardiography | A6 heart |
+| glucose tolerance (GTT) | A10 glucose control (non-monotonic) |
+| body composition (fat / lean mass) | A15 fat mass (non-monotonic) |
+| complete blood count | A12 blood counts |
+| frailty index (FRIGHT / Schultz items) | A18 whole-body frailty |
+| flow-cytometry immune subsets | H9 stem cell / immune `[to verify]` |
+
+Limits (stated for the seal and for test 4): females only, so no sex factor
+within DRiDO; Diversity Outbred, not UM-HET3, so the strain-specific trends
+in the axis rows are not assumed to transfer; the ad-libitum arm is the
+untreated reference, while the CR 20/40% and intermittent-fasting arms are
+interventions (CR is a known class) and go to **train** only. Data enters
+through A9's manifest, not a hand download.
+
+
 
 - 30 axes: 18 organ-system, 12 hallmark.
 - `candidate`: 19. `unmeasured`: 11 (A2, A4, A5, A7, A16, A17, H1, H2, H5,
@@ -242,9 +271,11 @@ Hallmark list from López-Otín et al. 2023, doi:10.1016/j.cell.2022.11.001
 
 - I-1: TMS is one strain (C57BL/6JN) and cross-sectional. It can't serve test
   4 (individual level). Longitudinal data: FRL; SLAM blocked (O16).
-- I-2: No public mouse dataset found yet that has functional tests (grip,
-  ABR, maze, echo) **and** lifespan on the same animals. Needed for anchors.
-  Ask L2 (A70) and A9.
+- I-2: DRiDO (Di Francesco 2024) now gives functional tests (grip, rotarod,
+  echo, GTT, frailty, CBC) **and** per-mouse lifespan on the same animals —
+  but females only and Diversity Outbred, not UM-HET3 (see the DRiDO map
+  above). It is the test-4 / O5 dataset. Still missing: a male and/or UM-HET3
+  dataset with the same pairing. Ask L2 (A70) and A9.
 - I-3: progeroid wrong-way controls are damage-specific. Each axis needs its
   own justified wrong-way control.
 - I-4: whole-body frailty (A18) is also a test-2 baseline. Decide with A50 if
