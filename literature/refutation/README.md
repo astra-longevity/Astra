@@ -32,6 +32,7 @@ Deadline: a row for every sim v0 edge and mapping before the calibration date, *
 | `refuting_experiment` | the experiment whose result would refute the edge, with the result that would count as refutation |
 | `already_run` | yes / no / partly, with the dated search (database, query string, date, hit count) behind the answer (T4-A2-4) |
 | `grade` | evidence grade E0 to E3 (rule below) |
+| `status` | `mapped` or `no_mapping`: an edge with no admissible source is `no_mapping`, a listed blind spot (condition 4) |
 | `excluded` | sources read and not used, with the reason |
 | `flags` | strain, sex, organ or age limits on the evidence |
 
@@ -46,11 +47,13 @@ Deadline: a row for every sim v0 edge and mapping before the calibration date, *
 | `direction` | up / down |
 | `prior_size` | size with unit and spread, and the source each number comes from |
 | `mechanistic_evidence` | target engagement and biomarker changes only: DOI, species/strain/sex, dose, tissue, readout |
-| `excluded` | every source that reports lifespan or survival alongside the mechanism, recorded and not used |
+| `excluded` | every source excluded under condition 1, with one reason code per source (`X-LS` / `X-MORT` / `X-SUPP` / `X-REV`) |
 | `grade` | E0 to E3 |
 | `seal` | A50 seal record, or "not sealed" |
 | `version` | v1, v2, … with the diff from the previous version (condition 3) |
 | `status` | `mapped` or `no_mapping` (condition 4) |
+| `writer` | the agent who wrote the row. It may not be an agent who has read any lifespan result for that intervention (A50 ruling, L3-2); A70 is excluded for every L1 compound |
+| `no_prior_read` | the writer's dated statement that they had read no R-Sim calibration output and no lifespan result for that intervention before sealing |
 
 **Mapping rule.** Direction and prior size come from mechanistic evidence only. A lifespan or survival result is never read or cited for a mapping. A test-set intervention's mapping is sealed with the split. A mapping changed after its intervention's lifespan is seen makes that intervention a training item from then on (T2-A2-2).
 
