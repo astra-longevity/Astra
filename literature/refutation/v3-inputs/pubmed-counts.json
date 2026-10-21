@@ -1,0 +1,35 @@
+{
+ "run_utc": "2026-10-21T18:47:13+00:00",
+ "source": "NCBI E-utilities esearch, db=pubmed",
+ "results": [
+  {
+   "search": "M-001_pS6",
+   "variant": "all",
+   "query": "rapamycin AND (pS6 OR S6K1 OR \"S6 phosphorylation\") AND mice AND tissue",
+   "count": 226,
+   "pubmed_translation": "(\"rapamycin s\"[All Fields] OR \"rapamycine\"[All Fields] OR \"rapamycins\"[All Fields] OR \"sirolimus\"[Supplementary Concept] OR \"sirolimus\"[All Fields] OR \"rapamycin\"[All Fields] OR \"sirolimus\"[MeSH Terms]) AND (\"pS6\"[All Fields] OR (\"ribosomal protein s6 kinase 70kd polypeptide 1\"[Supplementary Concept] OR \"ribosomal protein s6 kinase 70kd polypeptide 1\"[All Fields] OR \"s6k1\"[All Fields]) OR \"S6 phosphorylation\"[All Fields]) AND (\"mice\"[MeSH Terms] OR \"mice\"[All Fields]) AND (\"tissue s\"[All Fields] OR \"tissues\"[MeSH Terms] OR \"tissues\"[All Fields] OR \"tissue\"[All Fields])"
+  },
+  {
+   "search": "M-001_pS6",
+   "variant": "lifespan_terms_excluded",
+   "query": "rapamycin AND (pS6 OR S6K1 OR \"S6 phosphorylation\") AND mice AND tissue NOT (lifespan OR \"life span\" OR survival OR longevity OR mortality)",
+   "count": 182,
+   "pubmed_translation": "((\"rapamycin s\"[All Fields] OR \"rapamycine\"[All Fields] OR \"rapamycins\"[All Fields] OR \"sirolimus\"[Supplementary Concept] OR \"sirolimus\"[All Fields] OR \"rapamycin\"[All Fields] OR \"sirolimus\"[MeSH Terms]) AND (\"pS6\"[All Fields] OR (\"ribosomal protein s6 kinase 70kd polypeptide 1\"[Supplementary Concept] OR \"ribosomal protein s6 kinase 70kd polypeptide 1\"[All Fields] OR \"s6k1\"[All Fields]) OR \"S6 phosphorylation\"[All Fields]) AND (\"mice\"[MeSH Terms] OR \"mice\"[All Fields]) AND (\"tissue s\"[All Fields] OR \"tissues\"[MeSH Terms] OR \"tissues\"[All Fields] OR \"tissue\"[All Fields])) NOT (\"longevity\"[MeSH Terms] OR \"longevity\"[All Fields] OR \"lifespan\"[All Fields] OR \"lifespans\"[All Fields] OR \"life span\"[All Fields] OR (\"mortality\"[MeSH Subheading] OR \"mortality\"[All Fields] OR \"survival\"[All Fields] OR \"survival\"[MeSH Terms] OR \"survivability\"[All Fields] OR \"survivable\"[All Fields] OR \"survivals\"[All Fields] OR \"survive\"[All Fields] OR \"survived\"[All Fields] OR \"survives\"[All Fields] OR \"surviving\"[All Fields]) OR (\"longevities\"[All Fields] OR \"longevity\"[MeSH Terms] OR \"longevity\"[All Fields]) OR (\"mortality\"[MeSH Terms] OR \"mortality\"[All Fields] OR \"mortalities\"[All Fields] OR \"mortality\"[MeSH Subheading]))"
+  },
+  {
+   "search": "M-002_autophagy",
+   "variant": "all",
+   "query": "rapamycin AND (LC3-II OR autophagic flux) AND mice AND (liver OR muscle OR kidney)",
+   "count": 281,
+   "pubmed_translation": "(\"rapamycin s\"[All Fields] OR \"rapamycine\"[All Fields] OR \"rapamycins\"[All Fields] OR \"sirolimus\"[Supplementary Concept] OR \"sirolimus\"[All Fields] OR \"rapamycin\"[All Fields] OR \"sirolimus\"[MeSH Terms]) AND (\"LC3-II\"[All Fields] OR ((\"autophage\"[All Fields] OR \"autophagic\"[All Fields]) AND \"flux\"[All Fields])) AND (\"mice\"[MeSH Terms] OR \"mice\"[All Fields]) AND (\"liver\"[MeSH Terms] OR \"liver\"[All Fields] OR \"livers\"[All Fields] OR \"liver s\"[All Fields] OR (\"muscle s\"[All Fields] OR \"muscles\"[MeSH Terms] OR \"muscles\"[All Fields] OR \"muscle\"[All Fields]) OR (\"kidney\"[MeSH Terms] OR \"kidney\"[All Fields] OR \"kidneys\"[All Fields] OR \"kidney s\"[All Fields]))"
+  },
+  {
+   "search": "M-002_autophagy",
+   "variant": "lifespan_terms_excluded",
+   "query": "rapamycin AND (LC3-II OR autophagic flux) AND mice AND (liver OR muscle OR kidney) NOT (lifespan OR \"life span\" OR survival OR longevity OR mortality)",
+   "count": 225,
+   "pubmed_translation": "((\"rapamycin s\"[All Fields] OR \"rapamycine\"[All Fields] OR \"rapamycins\"[All Fields] OR \"sirolimus\"[Supplementary Concept] OR \"sirolimus\"[All Fields] OR \"rapamycin\"[All Fields] OR \"sirolimus\"[MeSH Terms]) AND (\"LC3-II\"[All Fields] OR ((\"autophage\"[All Fields] OR \"autophagic\"[All Fields]) AND \"flux\"[All Fields])) AND (\"mice\"[MeSH Terms] OR \"mice\"[All Fields]) AND (\"liver\"[MeSH Terms] OR \"liver\"[All Fields] OR \"livers\"[All Fields] OR \"liver s\"[All Fields] OR (\"muscle s\"[All Fields] OR \"muscles\"[MeSH Terms] OR \"muscles\"[All Fields] OR \"muscle\"[All Fields]) OR (\"kidney\"[MeSH Terms] OR \"kidney\"[All Fields] OR \"kidneys\"[All Fields] OR \"kidney s\"[All Fields]))) NOT (\"longevity\"[MeSH Terms] OR \"longevity\"[All Fields] OR \"lifespan\"[All Fields] OR \"lifespans\"[All Fields] OR \"life span\"[All Fields] OR (\"mortality\"[MeSH Subheading] OR \"mortality\"[All Fields] OR \"survival\"[All Fields] OR \"survival\"[MeSH Terms] OR \"survivability\"[All Fields] OR \"survivable\"[All Fields] OR \"survivals\"[All Fields] OR \"survive\"[All Fields] OR \"survived\"[All Fields] OR \"survives\"[All Fields] OR \"surviving\"[All Fields]) OR (\"longevities\"[All Fields] OR \"longevity\"[MeSH Terms] OR \"longevity\"[All Fields]) OR (\"mortality\"[MeSH Terms] OR \"mortality\"[All Fields] OR \"mortalities\"[All Fields] OR \"mortality\"[MeSH Subheading]))"
+  }
+ ],
+ "note": "v2 counts 39 / 203 (exclusion variant) used an unrecorded string; superseded by this file."
+}
