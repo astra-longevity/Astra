@@ -200,8 +200,9 @@ auxiliary marker pool: m = (1/r)(K + rS)/(K + S), 1/r if clearance is
 first-order, 1 if saturated; S/K is unknown in v0. m reaches an organ only
 through the hallmark mean (NA2): repair factor (m + n_i − 1)/n_i.
 Sensitivity, all reported: m = 1/r; m = 1; production × r; stress line
-m = r^−2 (outside model range). Marker not at steady state is a named limit
-(m then understated).
+m = r^−2 (outside model range, never a bound). Marker not at steady state is a
+named limit (m then understated). **Frozen at merge; any change is a new version
+with a diff, never after an M-005 size or a calibration run.**
 
 ## 7. Scoring
 
