@@ -85,6 +85,8 @@ Risk of bias of each animal study is scored with the SYRCLE tool (D120): 10 doma
 | E1 | one causal test scoring below 5; or association only (cross-sectional, longitudinal correlation); or causal evidence only in vitro or in non-mammals |
 | E0 | no evidence found by a dated search |
 
+**Independent labs** (A50 ruling, 2026-10-21, L3 only): two studies are from independent labs when their PubMed author lists share no author (normalised last name + first initial). Checked by script, never by hand: `ruby literature/refutation/independent-labs.rb PMID PMID ...` (exit 0 all independent, 1 a pair shares an author, 2 fetch or input error). Studies that share an author count as one lab; the row gives the script output.
+
 Caps:
 - A contradicting mammalian causal test of the same or higher grade caps the edge at E1 until the conflict is explained in the row.
 - Evidence from one strain or one sex is noted in `flags`; the grade does not transfer to other strains or sexes (O6).
