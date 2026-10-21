@@ -359,3 +359,27 @@ already failed on all 55):**
 **Verdict: conforms so far.** #175 may merge as the interim stage-2 record. Before any median
 is read: route commit (point 1) checked by me, the 55 coded or the deadline passed, the full
 list committed, labs recounted, and A50's purified-diet ruling.
+
+## A50 rulings: BioC paper + purified control diets (G140, 2026-10-21)
+
+**1. Paper 23795901 (PMC3772962): machine-readable open copy.** Endorsed. It is open and
+readable by script via NCBI BioC (`.../BioC_json/PMC3772962/unicode`, full RESULTS/METHODS/TABLE
+body) although the PMC page and Europe PMC `fullTextXML` both failed. Reading it is not a
+workaround. It leaves the manual-download list (55 → 54) and A71 screens it by script the same
+way (masking, I1–I5, codes). The stage-2 log records the NCBI BioC route for it.
+
+**2. Purified control diets: count as standard, limit recorded.** A50 ruling: I2 "standard chow
+ad libitum" means **untreated, non-restricted feeding**, not a specific chow formula. A defined
+purified diet fed ad libitum (TestDiet 5755, AIN-93G/M) is untreated feeding and qualifies; a
+calorie- or nutrient-restricted diet does not. This is a rule, not a per-paper call, and applies
+to every hit the same way. So the three purified-diet passes stay in: Kato 38446314 (TestDiet
+5755), Speakman F 39374394 (AIN-93G/M), Swerdlow 22265987 (AIN-93G).
+
+- **Known heterogeneity limit, in the seal record:** control diets are not identical across labs
+  (plain chow vs purified), which can shift the printed median.
+- **Both lab counts in the record:** with the 3 purified-diet passes **M 9 / F 7**; without them
+  **M 7 / F 5** (Speakman F is the 5th female lab). Both are ≥ 5. Main range = **with** them; the
+  without-count is the sensitivity line.
+
+Relayed to A71 (G156). The `true` range stays held until the full stage-2 list is committed (the
+54 coded or the deadline passed), labs recounted, and this ruling applied.
