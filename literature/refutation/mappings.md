@@ -10,8 +10,8 @@ before sealing, except the qualitative statement disclosed in M-001/M-002
 `no_prior_read`. Rows are unsealed until A50 seals them.
 
 First PR (this file): M-001..M-005. Mapped: M-003, M-004. `no_mapping` for size:
-M-001, M-002 (fully, no admissible mouse source read yet), M-005 (size only,
-direction kept). Deadline for all mappings: 2027-02-20.
+M-001, M-002 (no admissible mouse source read yet, direction kept), M-005 (marker
+level only, parameter sign undefined). Deadline for all mappings: 2027-02-20.
 
 ---
 
@@ -88,17 +88,17 @@ direction kept). Deadline for all mappings: 2027-02-20.
 - **sim_ref:** M5, `research/sim/v0/design/edges.md` §3 @ `4b264b1`
 - **intervention:** dasatinib + quercetin (D+Q) regimen; dasatinib target SRC/BCR-ABL family, quercetin multi-target; recorded as the regimen, ChEMBL per-compound ids `[to verify]`
 - **parameter:** `hallmark.H8_senescence` (clearance term), rides on edge E-H8; `m_H8` > 1 means more clearance of senescent damage
-- **direction:** up (senolytic clears senescent cells → more removal of senescent damage). Direction taken from the figure legend / text (p16, p21, SA-β-gal all **fall** under D+Q), not from pixel values.
-- **prior_size:** `no_mapping` (direction kept), for two independent reasons:
-  1. **Figure digitising (rule 7):** the readouts are figure-only. The writer located candidate axis lines by committed pixel scans but, with no image viewer and OCR of values forbidden, could not match any tick to its printed label blind. Per rule 7 a panel without 2 label-matched ticks has size `no_mapping`. See `m5-digit/` (committed `digitise.py`, `coords.json`, image sha256). A66's independent blind digitisation is in verification #211 @ `fbca6c4` (his Fig 1d cells/field panel is also `no_mapping`, cap not locatable).
-  2. **Biomarker → parameter transform undefined (flag for A2/A50):** rule 9's 1:1 maps a treated/control ratio directly to a multiplier **in the same direction**. Here the senescence **marker** falls (ratio < 1) while the H8 **clearance** multiplier must rise (> 1). A fractional fall in senescence-marker burden does not translate 1:1 into a clearance multiplier, and the figure cannot separate "more clearance" from "less production" of senescent cells. The quantitative size therefore needs a modelling rule A78 should not invent. **Open question to A2/A50.**
+- **direction:** marker level only: **senescence markers (p16, p21, SA-β-gal) fall under D+Q** (from the figure legend / text, not from pixel values). The sign on the H8 clearance parameter is **not stated**: marker→parameter transform undefined; not usable as H8 clearance input (A50 ruling, 2026-10-21).
+- **prior_size:** `no_mapping`. Reasons:
+  1. **Marker → parameter transform undefined (A50 ruling):** a fall in senescence-marker burden can come from more clearance or less production of senescent cells, and rule 9's 1:1 does not apply across that change of quantity. Even the clearance sign is unknown. The modelling rule (process + sign) is owned by A28/A76 and must be committed before calibration; M-005 gets a size only in a later version.
+  2. **Figure digitising (rule 7):** the readouts are figure-only. In this version the writer could not match ticks to printed labels (no viewer), so every panel is `no_mapping` on the writer's side (`m5-digit/`: `digitise.py`, `coords.json`, image sha256). A50 has since granted a tick-label reading route (rules commit pending); a writer reading under it goes into a later version. A66's independent reading: verification #211 @ `fbca6c4`.
 - **mechanistic_evidence:** NPJ Regen Med 2026, doi:10.1038/s41536-026-00490-x (Crossref ✓, *npj Regen Med* 2026). C57BL/6J mice from 12 months; D+Q 5 + 50 mg/kg every 2 weeks for 8 months; kidney at 20 months; p16, p21 and SA-β-gal fall (Fig 1b/d/f). Randomised (random-number tables) and blinded (allocation and outcome) — SYRCLE high. **Only the mechanistic marker panels (Fig 1 b/d/f) were opened; no survival/lifespan panel was read.** The title mentions "rejuvenation"; the readouts used here are senescence markers only.
 - **excluded:** Zhu 2015, doi:10.1111/acel.12344 (*Aging Cell* 2015) — `X-LS`, **excluded on abstract** (lifespan/survival terms; deleted unread). This was the draft's M5 source; the draft's "no lifespan" note on it was wrong.
 - **grade:** direction supported at E2-equivalent (one high-SYRCLE causal mammalian test); **size ungraded** (`no_mapping`). Two further clean-abstract sources not opened for text: doi:10.1111/acel.70759 (heart), doi:10.14336/AD.2025.0976 (arteries) — `[to verify]`, available to strengthen direction if wanted.
-- **flags:** C57BL/6J both sexes; kidney tissue; H8 biomarker→clearance-multiplier transform unresolved (see prior_size reason 2).
+- **flags:** C57BL/6J both sexes; kidney tissue; **not usable as H8 clearance input** until A28/A76 commit the marker→parameter modelling rule.
 - **seal:** not sealed.
 - **version:** v1.
-- **status:** `no_mapping` (size); direction kept.
+- **status:** `no_mapping` (size and parameter sign); marker-level direction recorded.
 - **writer:** A78.
 - **no_prior_read:** A78, 2026-10-21. No R-Sim calibration output and no lifespan/survival/mortality result for D+Q was read before sealing (Zhu 2015 excluded on abstract, unread; NPJ 2026 only its mechanistic marker panels opened).
 
@@ -112,9 +112,9 @@ direction kept). Deadline for all mappings: 2027-02-20.
 | M-002 | rapamycin | H5 clearance | up | `no_mapping` | E0 | no_mapping |
 | M-003 | acarbose | H6 production | down | 0.442 [0.402, 0.485] | E1 | mapped |
 | M-004 | canagliflozin | H6 production | down | 0.528 [0.372, 0.748] | E1 | mapped |
-| M-005 | D+Q (senolytic) | H8 clearance | up | `no_mapping` | dir E2 / size — | no_mapping |
+| M-005 | D+Q (senolytic) | H8 clearance | marker falls (parameter sign undefined) | `no_mapping` | marker E2 / size — | no_mapping |
 
 - **Mapped:** M-003, M-004.
-- **`no_mapping` (size):** 3 — M-001, M-002 (fully; no admissible mouse source read yet), M-005 (size only, direction kept).
+- **`no_mapping` (size):** 3 — M-001, M-002 (no admissible mouse source read yet; direction kept), M-005 (marker level only; parameter sign and size undefined until A28/A76 modelling rule).
 - **Exclusions:** Zhu 2015 (`X-LS`, M-005); PMID 36342748 (`X-LS`, M-003).
-- **Open `[to verify]`:** acarbose ChEMBL target id (M-003); D+Q per-compound ChEMBL ids (M-005); the two extra senolytic sources (M-005); the H8 biomarker→clearance-multiplier transform (M-005, needs an A2/A50 rule).
+- **Open `[to verify]`:** acarbose ChEMBL target id (M-003); D+Q per-compound ChEMBL ids (M-005); the two extra senolytic sources (M-005).

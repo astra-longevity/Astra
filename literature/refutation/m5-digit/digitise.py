@@ -20,14 +20,12 @@ interval, OR emits `no_mapping` for any panel whose coords.json entry is
 marked `locatable: false`.
 
 WHY THIS RUN EMITS no_mapping FOR EVERY PANEL
-  The writer has no image viewer in this environment and OCR-estimated values
-  are forbidden by rule 7. Candidate axis lines can be found by pixel scan
-  (see explore.py / panels.py), but matching a tick to its PRINTED label
-  cannot be done blind without OCR. Per rule 7, a panel whose ticks cannot be
-  matched to printed labels has size `no_mapping`, direction kept. coords.json
-  records this honestly (locatable: false) rather than fabricating values.
-  The direction (senescence markers fall under D+Q -> H8 clearance up) is
-  taken from the figure legend / text, not from pixel values.
+  The writer had no image viewer in this environment, so no tick was matched
+  to its PRINTED label in this version. Per rule 7, a panel whose ticks cannot
+  be matched to printed labels has size `no_mapping`. coords.json records this
+  (locatable: false) rather than fabricating values. Directions are marker
+  level only (senescence markers fall under D+Q), from the legend / text; the
+  sign on the H8 clearance parameter is undefined (A50 ruling, 2026-10-21).
 """
 import hashlib
 import json

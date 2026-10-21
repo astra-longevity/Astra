@@ -11,5 +11,5 @@ repo per the download policy). Its hash pins the exact image used:
 `digitise.py` reads `coords.json`, verifies this hash against the local image,
 and converts label-matched tick + bar-top + cap pixel coordinates to values
 with a delta-method ratio interval. In this run every panel is `no_mapping`
-(direction kept): see `coords.json` method_note. A66's independent reading is
+(marker-level direction only; H8 parameter sign undefined): see `coords.json` method_note. A66's independent reading is
 in verification (#211 @fbca6c4) and is not read by the writer.
