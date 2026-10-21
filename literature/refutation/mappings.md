@@ -118,3 +118,93 @@ level only, parameter sign undefined). Deadline for all mappings: 2027-02-20.
 - **`no_mapping` (size):** 3 — M-001, M-002 (no admissible mouse source read yet; direction kept), M-005 (marker level only; parameter sign and size undefined until A28/A76 modelling rule).
 - **Exclusions:** Zhu 2015 (`X-LS`, M-005); PMID 36342748 (`X-LS`, M-003).
 - **Open `[to verify]`:** acarbose ChEMBL target id (M-003); D+Q per-compound ChEMBL ids (M-005); the two extra senolytic sources (M-005).
+
+---
+
+# Version 2 (2026-10-21, writer A78)
+
+v1 above is kept unchanged (condition 3). Each row below is **v2** and lists its diff from v1. Fixes come from A66's check of v1 (record #217: F1, F2, F3, Zhu 2015) and A50's rulings relayed by A2 (M-005 E1, M-005 v2 content). No row is sealed.
+
+SYRCLE scoring is strict: a domain is "low risk" only if the paper reports it explicitly. Domains (README): 1 sequence generation, 2 baseline characteristics, 3 allocation concealment, 4 random housing, 5 caregiver blinding, 6 random outcome assessment, 7 assessor blinding, 8 incomplete outcome data, 9 selective reporting, 10 other bias.
+
+Text seen by the writer and quoted under rule 6 (words only, no number, no curve, no ITP result):
+- **Q1** (abstract of PMID 36342748, relayed by A66; not reopened): "Acarbose (ACA) and rapamycin (RAP) extend life span in mice".
+- **Q2** (`research/sim/v0/design/edges.md` NA4 exposure line, read on `main` while checking NA4.1): "In old mice the combo improves physical function and extends remaining lifespan".
+
+## M-001 v2 — rapamycin → H6 nutrient sensing (production)
+
+- **grade:** **not graded**. The size is `no_mapping` because no admissible mouse source was found by two dated searches (PubMed, 2026-10-21): `rapamycin AND (pS6 OR S6K1 OR "S6 phosphorylation") AND mice AND tissue` (226 hits); `rapamycin AND (LC3-II OR autophagic flux) AND mice AND (liver OR muscle OR kidney)` (281 hits). Re-run with lifespan/survival/longevity/mortality terms excluded: 39 and 203 hits. The newest 25 of each were screened on title and abstract. Hits were irradiation-damage models (tissue confound, e.g. doi:10.3389/fphys.2019.00228, doi:10.1186/s13287-018-0963-5) or acute arginine/contraction studies, not target engagement.
+- **SYRCLE:** not applicable (no study admitted).
+- **no_prior_read:** v1 statement, plus Q1 verbatim.
+- **version:** v2. **Diff from v1:** grade E0 → "not graded" with the two dated searches (F3); Q1 added to `no_prior_read` (F1). Direction, size (`no_mapping`) and status unchanged.
+
+## M-002 v2 — rapamycin → H5 macroautophagy (clearance)
+
+- **grade:** **not graded**, same two dated searches as M-001 v2.
+- **SYRCLE:** not applicable.
+- **no_prior_read:** v1 statement, plus Q1 verbatim.
+- **version:** v2. **Diff from v1:** as M-001 v2 (F1, F3). Nothing else changed.
+
+## M-003 v2 — acarbose → H6 nutrient sensing (production)
+
+- **intervention:** acarbose (`CHEMBL404271`); curated ChEMBL mechanisms: maltase-glucoamylase MGAM `CHEMBL2074` (INHIBITOR) and pancreatic α-amylase `CHEMBL2045` (INHIBITOR), both human targets. ChEMBL has no mouse MGAM target record (ortholog missing in ChEMBL).
+- **SYRCLE (Miura 1998):** **0/10 low risk.** All 10 domains unclear: no randomisation, allocation concealment, random housing or blinding reported; baseline characteristics not compared; attrition not stated; no protocol for selective reporting.
+- **grade:** E1 (one causal test scoring below 5). Unchanged.
+- **excluded:** PMID 36342748, `X-LS` (lifespan statement in the abstract, Q1; full text not opened).
+- **no_prior_read:** v1 statement, plus Q1 verbatim.
+- **version:** v2. **Diff from v1:** ChEMBL ids replace `[to verify]`; SYRCLE count and domain list replace "< 5" (F2); Q1 added (F1). Size **0.442 [0.402, 0.485]**, direction and status unchanged.
+
+## M-004 v2 — canagliflozin → H6 nutrient sensing (production)
+
+- **SYRCLE (Liang 2012):** **0/10 low risk.** Mice "housed according to standard procedures"; no randomisation, allocation concealment, random housing or blinding reported; baseline not compared; attrition not stated; no protocol. All 10 domains unclear.
+- **grade:** E1. Unchanged.
+- **version:** v2. **Diff from v1:** SYRCLE count and domain list replace "< 5" (F2). Size **0.528 [0.372, 0.748]**, direction and status unchanged.
+
+## M-005 v2 — dasatinib + quercetin (senolytic) → H8 senescence clearance
+
+- **intervention:** D+Q regimen. Dasatinib `CHEMBL1421`, curated mechanism SRC inhibitor `CHEMBL2363074` (SRC human `CHEMBL267`, mouse `CHEMBL3074`). Quercetin `CHEMBL50`: ChEMBL has no curated mechanism record, so it is recorded as multi-target.
+- **parameter:** `hallmark.H8_senescence` (clearance term), edge E-H8.
+- **direction:** senescence markers fall under D+Q (marker level). The sign on H8 clearance is up by NA4 (A28 rule, `research/sim/v0/design/edges.md` §4), not by the writer.
+- **marker readings (per panel, never combined here):** writer's own rule-7a reading, PR #228 @ `dd37921` (committed after NA4.1 merge `c1b935e`), checked against A66's blind reading #211 in record #230 (both within 5 % / 10 %). Ratio = D+Q / Old, mean ± SEM, N = 5 per group, 95 % CI by the delta method with t(0.975, 4).
+
+  | Panel | r | 95 % CI | Note |
+  | --- | --- | --- | --- |
+  | Fig 1d p16 positive area (%) | **0.209** | [0.135, 0.325] | agreed with #211 (0.204) |
+  | Fig 1f SA-β-gal positive area (%) | **0.562** | [0.303, 1.043] | agreed with #211 (0.557); **the interval includes 1** |
+
+- **NA4.1 lines per panel** (m = H8 clearance multiplier; interval endpoints mapped from r's interval; frozen rule `c1b935e`):
+
+  | Panel | primary m = r^−0.5 | m = 1/r (first-order end) | m = 1 (saturated end) | production × r (NA4 line) | stress only: m = r^−2, outside model range |
+  | --- | --- | --- | --- | --- | --- |
+  | 1d p16 | 2.186 [1.755, 2.724] | 4.780 [3.080, 7.418] | 1 | × 0.209 [0.135, 0.325] | 22.85 [9.49, 55.03] |
+  | 1f SA-β-gal | 1.334 [0.979, 1.818] | 1.780 [0.959, 3.304] | 1 | × 0.562 [0.303, 1.043] | 3.17 [0.92, 10.91] |
+
+- **dilution:** m never acts on `beta` directly. It reaches organ axis i only through the hallmark mean (NA2): repair factor = (m + n_i − 1) / n_i, with n_i = 2 (H5, H8) or 3 (H5, H8, H9: muscle, bone, immune, blood, skin, gut). So an organ sees at most half of m's effect.
+- **prior_size:** **no single multiplier in this row.** Both panels are listed separately, as A50 ruled; the writer does not pick, average or pool them. M-005 becomes one calibration input only through NA4.2 (A28 rule, PR #231, A76's `pool_panels.py`) once it is on `main`, computed by that script, not here.
+- **named limits:**
+  1. Only **2 of the 5** listed panels are comparable between the two readers (1d p16 area, 1f SA-β-gal). Fig 1b p16/p21 mRNA: `no_mapping` on the writer's side (fewer than 2 readable tick labels). Fig 1d p21 cells: A66 `no_mapping`, writer read 0.187 [0.075, 0.465]; not used, no back-filling.
+  2. **High between-panel heterogeneity:** I² ≈ 0.92 (A66 re-run of the NA4.2 script, record #233); τ² weakly estimated at k = 2.
+  3. NA4.1's steady-state limit: if the marker has not reached steady state, 1/r understates m.
+  4. One source, one lab, one organ (kidney), C57BL/6J.
+- **mechanistic_evidence:** NPJ Regen Med 2026, doi:10.1038/s41536-026-00490-x (Crossref ✓). As in v1. Only Fig 1 marker panels and the Fig 1 legend were read.
+- **SYRCLE (NPJ 2026):** **4/10 low risk:** (1) sequence generation (random-number tables), (3) allocation concealment (investigators blinded to assignment), (5) caregiver blinding (blinded during administration), (7) assessor blinding (blinded outcome assessment). Unclear: (2) baseline, (4) random housing, (6) random outcome assessment (random fields only, not random animal order), (8) incomplete data, (9) selective reporting, (10) other.
+- **grade:** **E1** (one causal test scoring 4 < 5). v1's "E2-equivalent" was wrong.
+- **excluded / not used:** Zhu 2015, doi:10.1111/acel.12344: **not used**, superseded draft prior, abstract read (healthspan only). Not an `X-LS` exclusion. Two clean-abstract sources not opened (doi:10.1111/acel.70759, doi:10.14336/AD.2025.0976) stay `[to verify]`.
+- **flags:** kidney only; C57BL/6J; D+Q from 12 to 20 months; marker→parameter via NA4/NA4.1, named assumptions.
+- **status:** marker readings mapped per panel; **not a calibration input** until NA4.2 is on `main`.
+- **seal:** not sealed.
+- **writer:** A78.
+- **no_prior_read:** A78, 2026-10-21. No R-Sim calibration output and no numeric lifespan, survival or mortality result for D+Q was read. Seen in words only, quoted under rule 6: Q2. Zhu 2015 was read at abstract level only.
+- **version:** v2. **Diff from v1:** per-panel marker ratios added (from #228, check #230); NA4.1 lines and dilution added; no single multiplier; grade E2-equivalent → **E1** with the domain list (F2); ChEMBL ids replace `[to verify]`; Zhu 2015 re-recorded as "not used"; limits 1–4 added; Q2 disclosed.
+
+## Summary, v2
+
+| Row | Size | Grade | SYRCLE | Status |
+| --- | --- | --- | --- | --- |
+| M-001 v2 | `no_mapping` | not graded (2 dated searches) | n/a | no_mapping |
+| M-002 v2 | `no_mapping` | not graded (2 dated searches) | n/a | no_mapping |
+| M-003 v2 | 0.442 [0.402, 0.485] | E1 | 0/10 | mapped |
+| M-004 v2 | 0.528 [0.372, 0.748] | E1 | 0/10 | mapped |
+| M-005 v2 | per panel: 0.209 [0.135, 0.325]; 0.562 [0.303, 1.043] | E1 | 4/10 | per-panel; single input only via NA4.2 |
+
+Open `[to verify]`: the two unopened senolytic sources (M-005).
