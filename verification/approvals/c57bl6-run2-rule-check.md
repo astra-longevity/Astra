@@ -307,3 +307,55 @@ before any further lookup run.
 
 **Verdict: conforms.** Stage 2 may run on the 151 open papers. Lab count per sex against
 ≥ 5 is stated after stage 2; short → `pending` or library request for the 28 via A1, bar unchanged.
+
+## Stage 2: A50 ruling on unreadable open copies + check of A71's PR #175 @692cb70 (A65, 2026-10-21)
+
+**A50 ruling (G155, 2026-10-21, replaces A50's earlier "one fixed extra fetch" text, which had
+already failed on all 55):**
+
+1. A route commit lists the 55 `X_NO_FULLTEXT` PMIDs that are open per the lookup but not
+   readable by script, with their open-copy URLs, the deadline 2026-10-26, and the fallback
+   (not delivered → stays `X_NO_FULLTEXT`, listed in the seal record as a known limit next to
+   the 28 closed). The Unpaywall all-locations fix goes in that commit. A65 checks it before
+   A2 sends the request to A1.
+2. A human (president or library, via A1) downloads them manually. No automated captcha or
+   block bypass. The downloader only downloads: files stay outside the repo, and each one is
+   logged in A67's download log (PMID, URL, date, sha256, who).
+3. A71 screens them the same way (masking, I1–I5, codes) and deletes them after extraction.
+4. No median is read, current passes included, until the full stage-2 list is committed (all
+   55 coded, or the deadline passed). Labs per sex are recounted then. No library request for
+   the 28 closed.
+
+**Check of #175 @692cb70 (interim: the stage-2 list is not final until the 55 are coded):**
+
+| Item | Result |
+|---|---|
+| Fix commit | 99637cd is its own commit: `oa2b.rb` tries `best_oa_location` first, then every `oa_locations` entry. No rerun |
+| Coverage | 151 new `stage=2` lines = the 151 open PMIDs (0 missing, 0 extra); nothing removed from the file |
+| Codes | each line is `pass` with no code, or `exclude` with a code from the rule list: pass 11, X_NO_FULLTEXT 55, X_NO_PRINTED_MEDIAN 27, X_STRAIN 22, X_NOT_MOUSE_LIFESPAN 10, X_TREATED 9, X_TRUNCATED 7, X_NOT_PRIMARY 6, X_HYBRID 4 |
+| Run 1 | 4 reopened run-1 PMIDs get new `run=2b` stage-2 lines; old lines kept. Run-1 pass 39451245 is on the passing list |
+| No number read | 12 notes matched a number pattern. All are design words or n (CR %, "50% survival", entry age), not an outcome. Disclosure 25048265 (one masked digit, paper excluded): accepted |
+| Passing list | 12 PMIDs, each with lab, sex and sub-strain, no number. Labs M 9 / F 7 with UT Southwestern counted once: recomputed, same |
+
+**Judgment points:**
+
+- Congenic littermates (I1 text: "congenic" or ≥ N6, else X_STRAIN): applied as written.
+- 33675469 reversed to X_NOT_MOUSE_LIFESPAN; 34240807/34579167 recoded by last-author rule: right.
+- 12AL dark-phase feeding and thermoneutral housing → X_TREATED: right (I2, not standard ad lib).
+- Richardson 22132081 is not X_REFILL_LAB (he is not a refill author): right under the rule.
+- Niida "age at 50% survival" printed as a number = a printed median: accepted.
+- Ruf 20981551: the one printed median applies to every group, control included, so the
+  control median is printed: accepted. Paigen 19627267 (interim report): the table shows the
+  median is reached (I4): accepted.
+- **Purified diets (Kato, Speakman F, Swerdlow): for A50.** I2 says "standard chow ad
+  libitum". Counting a purified diet (AIN-93G/M, TestDiet 5755) as standard is a reading, not
+  the written text. Excluding them gives M 7 / F 5 (Speakman F is the 5th female lab), still
+  ≥ 5. A50 rules before the range PR, and the choice is stated in the seal record.
+- 55 X_NO_FULLTEXT: 40 are PMC copies. I tested two other open APIs on the same PMC copies:
+  Europe PMC `fullTextXML` gives no body for any of the 40. NCBI BioC (PMC OA) gives a full
+  body for **23795901** (PMC3772962) only. That copy is open, so reading it is not a
+  workaround. It goes on the 55 list with the BioC URL as its route.
+
+**Verdict: conforms so far.** #175 may merge as the interim stage-2 record. Before any median
+is read: route commit (point 1) checked by me, the 55 coded or the deadline passed, the full
+list committed, labs recounted, and A50's purified-diet ruling.
