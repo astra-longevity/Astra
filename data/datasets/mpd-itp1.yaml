@@ -9,87 +9,87 @@ maintainer: "The Jackson Laboratory, Mouse Phenome Database (project ITP1, MPD:5
 landing_url: https://phenome.jax.org/projects/ITP1
 access: public
 files:
-  - url: "https://phenome.jax.org/getcurationfile?id=834&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=834"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2004 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=829&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=829"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2005 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=823&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=823"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2006 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=804&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=804"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2007 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=798&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=798"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2009 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=793&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=793"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2010 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=787&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=787"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2011 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=768&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=768"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2012 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=762&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=762"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2013 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=782&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=782"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2014 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=748&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=748"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2015 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=754&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=754"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2016 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=737&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=737"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2017 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=558&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=558"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2018 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=573&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=573"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2019 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=707&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=707"
     sha256: null
     size_bytes: null
     format: xlsx
     note: "cohort C2020 lifespan file"
-  - url: "https://phenome.jax.org/getcurationfile?id=772&mode=download"
+  - url: "https://studyintake.jax.org/api/files?mode=download&id=772"
     sha256: null
     size_bytes: null
     format: xlsx
@@ -131,4 +131,9 @@ notes: >-
   shared Mac got HTTP 403 (bot filter), so nothing is fetched locally and
   sizes are unknown. MPD corrects datasets over time (changelog
   https://phenome.jax.org/projects/all/changelog), so a hash change upstream
-  is expected now and then.
+  is expected now and then. Route per MPD support email 2026-10-20 (M. Dunn,
+  JAX): the phenome 403 is a phenome/study-intake bug, files served from
+  studyintake.jax.org/api/files with the same file id; 403 from A9's host on
+  2026-10-21, untested from Actions. Phenome URL
+  (https://phenome.jax.org/getcurationfile?id=<id>&mode=download) restored
+  once the bug is fixed.
