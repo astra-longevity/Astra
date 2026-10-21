@@ -171,7 +171,7 @@ repeatable mouse lung test found** (blind-spot risk, commandment 6).
 
 Sources in the five notes above were opened by A70 (L2), not by A67.
 
-A17 is added because lab mice mostly die of cancer `[to verify]`. Without a
+A17 is added because lab mice mostly die of cancer (spontaneous neoplasm incidence in naturally-dying barrier-raised C57BL/6 controls: 77.4% of 535 females, 79.2% of 590 males; histiocytic sarcoma 72.1% of tumours; Nakamura 1992, doi:10.1538/expanim1978.41.3_279, PMID 1324182, abstract opened 2026-10-21 — control strain, not an ITP arm). Without a
 cancer axis, a treatment that only delays tumours would move the summary and
 none of the other axes.
 
