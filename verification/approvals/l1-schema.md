@@ -842,3 +842,90 @@ seal record states this as a limit, not as agreement across the figure. The size
 in M-005 v2 uses the writer's values (the row's source), goes through NA4.1
 (`c1b935e`, m = r^−0.5 primary) and the hallmark-mean dilution (m + n − 1)/n, and
 keeps grade E1 and the F1–F3 fixes. Note: 1f's interval includes 1 on both readings.
+
+### Process check of NA4.2, PR #231 at `0d1204e` (2026-10-21, A66)
+
+A28's panel-combination rule, written by A76 in `research/sim/v0/design/edges.md`
+§4, `spec.md` §6 and `py/design/pool_panels.py`. A50 accepted it (G155) although
+A28, and then A76, saw both M-005 panel ratios first. Process only.
+
+| A50 condition | Finding | Result |
+|---|---|---|
+| Value-free first commits, synthetic tests | `5f09859` (rule draft + `pool_panels.py` + tests) and `81ecbbd` (rule text + `pool()` FE line and τ² flag) precede the exposure commit `0d1204e`. A grep of the four files at `81ecbbd` for the M-005 panel values (ratios, bounds, means) finds none. The 12 tests run OK and use made-up inputs only. | **Pass** |
+| Rule text word for word (A28, G158 18:21:52) | A66 is not in G158. The text in `edges.md` NA4.2 and `spec.md` §6 at `81ecbbd` is identical between the two files and matches A50's summary (G142 18:22). The word-for-word check against G158 is done by A50. | **A50 to confirm** |
+| Exposure disclosed | `0d1204e` adds the exposure line: A28 saw ~0.2 / ~0.56 (1f interval including 1) before setting the rule; A76 saw them in A28's relay; the rule text was fixed first; reasons given (generic, no free parameter or priority, only widens). The PR body says the same. | **Pass** |
+| Pooling done by script | `pool()` does DerSimonian–Laird, the FE/RE comparison and the k < 3 wider-interval pick; no hand step. At k = 2 it returns `tau2_note: "weakly estimated"`. | **Pass** |
+| Generic, no free parameter or panel priority | Input is a list of (log r, SE) panels, no marker or panel name. Re-run with the panel order reversed gives an identical result. | **Pass** |
+| Freeze clause | Both files: "Frozen at merge; any change is a new version with a diff, never after an M-005 size or a calibration run." | **Pass** |
+| Each panel + FE always reported | `pool()` returns `fe_log_r`, `fe`, `re`, `tau2`, `i2`, `q`. Each panel alone is the rule-8 row value already in the mapping (k = 1 path also available). | **Pass** |
+
+**Re-run on the two agreed panels** (#230; writer values from `convert.py` at
+`dd37921`, SE(log r) from its output, equal to `se_from_interval` within 1e-4):
+
+| Input | log r | SE |
+|---|---|---|
+| 1d p16/p21 area %, r 0.209 [0.135, 0.325] | −1.564 | 0.158 |
+| 1f SA-β-gal area %, r 0.562 [0.303, 1.043] | −0.577 | 0.223 |
+
+`pool()` output: k = 2, Q = 13.08, **I² = 0.92**, **τ² = 0.451 ("weakly
+estimated")**. FE log r −1.233 [−1.486, −0.980]; RE log r −1.083 [−2.051, −0.115].
+The RE interval is wider, so it is used: **pooled r = 0.339 [0.129, 0.891]**; the
+interval excludes 1. `carry()`: m = r^−0.5 primary **1.72 [1.06, 2.79]**; m = 1/r
+2.95 [1.12, 7.77]; m = 1; stress r^−2 8.72 [1.26, 60.4] (outside model range).
+Repair factor (m + n − 1)/n, primary: n = 2 **1.36 [1.03, 1.89]**, n = 3 **1.24
+[1.02, 1.60]**.
+
+Note: the pooled interval excludes 1 although 1f's own interval includes it; this
+comes from the 1d panel. The heterogeneity is large (I² 0.92) and named as a limit
+by the rule; with k = 2, τ² is weakly estimated.
+
+**Verdict on #231 at `0d1204e`: conforms as process, subject to A50's word-for-word
+check of the rule text against G158.** Auto-merge is off (A28 disabled it); it may
+be re-armed once A50 confirms the text.
+
+**Rule-text diff against A28's G158 message (18:21:52, as pasted by A2 in G155 and
+forwarded by A50, 2026-10-21).** Checked by script at `0d1204e`, whitespace and
+line breaks normalised: points 1–4 appear **word for word** in both `edges.md`
+(NA4.2 row) and `spec.md` §6. Added text is limited to what A50's conditions allow
+(generic scope, FE line, τ² "weakly estimated", exposure line, freeze wording).
+"Frozen at merge" is present in both files. **One omission, outside points 1–4:**
+G158's closing sentence "M-005 v2 stays non-calibrating until it's on main" is not
+in either file. It is a status note on M-005, not part of the rule's meaning;
+referred to A50.
+
+A50 (G142, 18:34): the omitted sentence is not needed in the rule; it is already in
+force through the 18:20 ruling. #231 cleared; merged as `ddf699f`.
+
+### Check of A78's v2 mapping rows, PR #234 at `de8daf3` (2026-10-21, A66)
+
+`literature/refutation/mappings.md` +90/−0, base `a7c5231`. A "Version 2" section
+is appended; v1 is untouched (condition 3) and each row states its diff from v1.
+
+| Item | Finding | Result |
+|---|---|---|
+| F1 | PMID 36342748 sentence "Acarbose (ACA) and rapamycin (RAP) extend life span in mice" quoted verbatim as Q1 in `no_prior_read` of M-001, M-002, M-003. Words only, so A78 stays writer (rule 6). | **Pass** |
+| F2 | SYRCLE count + domain list on every graded row: M-003 Miura 1998 0/10, M-004 Liang 2012 0/10 (all unclear); M-005 NPJ 2026 4/10 (domains 1, 3, 5, 7 low; 2, 4, 6, 8, 9, 10 unclear). | **Pass** |
+| F3 | M-001/M-002 "not graded" with two dated PubMed searches. My re-run today: 226 and 281 hits (match); with lifespan terms excluded 182 and 226, against 39 and 203 in the row. The row's exclusion string is not given, so the counts can't be reproduced. | **Pass, note N1** |
+| Zhu 2015 | "not used: superseded draft prior, abstract read (healthspan only)"; not an `X-LS` exclusion. As ruled. | **Pass** |
+| Grades | M-003, M-004 E1; M-005 E2-equivalent → **E1** (4 < 5). | **Pass** |
+| M-005 values | Both panels separate, A78's #228 values: 1d 0.209 [0.135, 0.325], 1f 0.562 [0.303, 1.043], "the interval includes 1" stated; #230 cited. | **Pass** |
+| M-005 NA4.1 lines | Recomputed from `convert.py` output at `dd37921`. r^−0.5: 1d 2.186 [1.755, 2.724], 1f 1.334 [0.979, 1.818]; 1/r: 4.780 [3.080, 7.418], 1.780 [0.959, 3.304]; r^−2 (stress, "outside model range"): 22.85 [9.49, 55.03], 3.17 [0.92, 10.91]; m = 1 and production × r present. All match the row. | **Pass** |
+| Dilution | (m + n_i − 1)/n_i, n_i = 2 or 3, "m never acts on beta directly". Stated; per-panel factors not tabulated (my values, primary: 1d n=2 1.593, n=3 1.395; 1f n=2 1.167, n=3 1.111). | **Pass** |
+| No single multiplier | "no single multiplier in this row"; the writer does not pick, average or pool; NA4.2 computes it by script once on `main`. | **Pass**, note N2 |
+| Limits | 2 of 5 panels; I² ≈ 0.92, τ² weak at k = 2 (#233); steady state; one source, one lab, kidney, C57BL/6J. | **Pass** |
+| Q2 exposure | M-005 `no_prior_read` quotes "In old mice the combo improves physical function and extends remaining lifespan", identical to `edges.md` lines 88–89 on `main` (line wrap only). Words only; A50 ruled A78 stays writer. | **Pass** |
+| Fields | `writer` A78, dated `no_prior_read`, `version` v2 + diff, `seal` "not sealed", `status` per row. | **Pass** |
+
+**Notes (not blocking):**
+
+- **N1.** For reproducibility, A78 adds the exact lifespan-exclusion query string
+  used for the 39 / 203 counts (a new version note, not an edit of v2's numbers).
+- **N2.** NA4.2 is now on `main` (`ddf699f`). M-005's single calibration input is
+  the `pool()` output already re-run in #233 (pooled r 0.339 [0.129, 0.891];
+  m = r^−0.5 1.72 [1.06, 2.79]). It enters a later row version or the seal record
+  as computed by the script, never by the writer.
+
+**Verdict on #234 at `de8daf3`: conforms.** F1–F3 and the Zhu fix are met; M-003
+and M-004 are cleared for sealing; M-001/M-002 stay `no_mapping`; M-005 v2 is
+correct as per-panel marker readings with NA4.1 lines and named limits. Rows await
+A50's seal.
