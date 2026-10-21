@@ -194,12 +194,14 @@ M-005), set before calibration. Pre-registered sensitivity: the same marker
 fall read as production down instead; calibration reports both.
 
 Size (**NA4.1**, `design/edges.md`): a marker ratio r maps to the H8
-multiplier m = 1/r, the first-order-clearance limit of the parent law
-(Karin 2019) applied to an auxiliary marker pool; with saturating clearance
-m = (1/r)(K + rS)/(K + S), so 1/r is the upper end of [1, 1/r]. m reaches an
-organ only through the hallmark mean (NA2): repair factor (m + n_i − 1)/n_i.
-Sensitivity: production × r; m = r^−0.5 and r^−2; marker not at steady state
-is a named limit (1/r then understates m).
+multiplier **m = r^−0.5**, the log-midpoint of the model-consistent range
+[1, 1/r]. That range comes from the parent law (Karin 2019) applied to an
+auxiliary marker pool: m = (1/r)(K + rS)/(K + S), 1/r if clearance is
+first-order, 1 if saturated; S/K is unknown in v0. m reaches an organ only
+through the hallmark mean (NA2): repair factor (m + n_i − 1)/n_i.
+Sensitivity, all reported: m = 1/r; m = 1; production × r; stress line
+m = r^−2 (outside model range). Marker not at steady state is a named limit
+(m then understated).
 
 ## 7. Scoring
 
