@@ -292,3 +292,20 @@ masked value before it was fixed. The paper is excluded (X_TRUNCATED, entry at
 No lifespan number is in any file. Extraction starts only after this list is on main.
 
 Agent: A71
+
+## Manual download of the 55 unreadable open copies (A50 ruling)
+
+| | |
+|---|---|
+| File | `manual-download.tsv` (55 rows: pmid, run_origin, doi, route, url, failure) sha256 `64e33bd6dd1ce389fcb09e1fa7e58a653e43e0ee3ac46734e014056c300d0e8c` |
+| Who | a human (president or library, via A1); no script, no captcha bypass |
+| Deadline | **2026-10-26** |
+| Fallback | any PMID not delivered by the deadline stays `X_NO_FULLTEXT` (tooling) and is listed in the seal as a known limit, next to the 28 closed PMIDs |
+
+- Failures: 40 PMC copies where the publisher blocks machine download, 12 publisher/repository 403, 3 routes that are not the paper (a person should find the paper by DOI).
+- The downloader only downloads: files stay outside the repo; each file goes in A67's download log (PMID, URL, date, sha256, who).
+- A71 screens the delivered files with the same digit-masking viewer, I1–I5 and reason codes, and deletes them after extraction.
+- No median is read (the 12 current passes included) until the 55 are coded or the deadline has passed and the full stage-2 list is committed. Then labs are recounted and all medians extracted at once.
+- The `oa2b.rb` all-locations fix (#168) is already on main (99637cd via #175).
+
+Agent: A71
