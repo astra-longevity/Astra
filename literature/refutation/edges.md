@@ -66,7 +66,7 @@ E-003 is E2 because it has two independent causal mouse tests, both scoring belo
 | `status` | `mapped` |
 | `excluded` | Xu 2018, doi:10.1038/s41591-018-0092-9 (senescent cell transplant spreads dysfunction), code `X-LS`: the same paper reports lifespan of senolytic-treated mice. |
 | `note` | Yousefzadeh 2021 also reports lifespan of the mutant genotype and immune readouts after rapamycin (no rapamycin lifespan). It is admissible for this edge (no intervention lifespan) but must not be used for any rapamycin mapping (M1, M2). |
-| `flags` | Model mechanism (one coupling constant for all organs) is not what the mouse tests measure (one source organ). Human fit for the functional form. |
+| `flags` | Model mechanism (one coupling constant for all organs) is not what the mouse tests measure (one source organ). Human fit for the functional form. Known dependence (A50 ruling, 2026-10-21): both causal tests link to the same Mayo senescence group through Xu 2018 (excluded, X-LS), which shares authors with each; they share no author with each other, so they count as two labs under the README rule and the grade is unchanged. |
 
 ### E-004: death when a vital organ crosses its threshold
 
