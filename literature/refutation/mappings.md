@@ -208,3 +208,49 @@ Text seen by the writer and quoted under rule 6 (words only, no number, no curve
 | M-005 v2 | per panel: 0.209 [0.135, 0.325]; 0.562 [0.303, 1.043] | E1 | 4/10 | per-panel; single input only via NA4.2 |
 
 Open `[to verify]`: the two unopened senolytic sources (M-005).
+
+---
+
+# Version 3 (2026-10-21, writer A78)
+
+v1 and v2 above are kept unchanged. Fixes come from A66's check of v2 (record #233): **N1** (M-001/M-002 search counts reproducible from a committed string) and **N2** (M-005 single input computed by the committed NA4.2 script, not typed). M-003 and M-004 have no v3: v2 stands. Inputs live in `v3-inputs/`; every number below is copied from the output file named, at the sha given (rounded to 3 decimals).
+
+## M-001 v3 — rapamycin → H6 nutrient sensing (production)
+
+- **searches (N1):** exact queries committed in `v3-inputs/pubmed_counts.py`; run through NCBI E-utilities esearch on 2026-10-21T18:47:13Z, output `v3-inputs/pubmed-counts.json` (sha256 `251621a6…4dcb`, includes PubMed's query translation). Query `rapamycin AND (pS6 OR S6K1 OR "S6 phosphorylation") AND mice AND tissue`: **226** hits; with ` NOT (lifespan OR "life span" OR survival OR longevity OR mortality)`: **182** hits.
+- **why the counts changed:** v2's 39 came from an exclusion string the writer did not record, so it cannot be reproduced and is withdrawn. 182 matches A66's re-run.
+- **grade:** not graded. Screening unchanged (newest 25 of each search, title and abstract; no admissible mouse source).
+- **version:** v3. **Diff from v2:** exclusion string recorded; 39 → 182 with the reason above. Direction, size (`no_mapping`), grade, status and `no_prior_read` unchanged.
+
+## M-002 v3 — rapamycin → H5 macroautophagy (clearance)
+
+- **searches (N1):** same file and run. Query `rapamycin AND (LC3-II OR autophagic flux) AND mice AND (liver OR muscle OR kidney)`: **281** hits; with the same exclusion string: **225** hits.
+- **why the counts changed:** v2's 203 came from the unrecorded string, withdrawn. A66's re-run gave 226 (1 hit apart, attributed to PubMed growth between runs; the stored run time is the reference).
+- **grade:** not graded. Screening unchanged.
+- **version:** v3. **Diff from v2:** exclusion string recorded; 203 → 225 with the reason above. Everything else unchanged.
+
+## M-005 v3 — dasatinib + quercetin (senolytic) → H8 senescence clearance
+
+- **single H8 input (N2):** computed by `v3-inputs/pool_m5.py`, which runs `research/sim/v0/py/design/pool_panels.py` (NA4.2, merged `ddf699f`, sha256 `50f7638e…05b2`) **unchanged** on the two agreed panels (record #230), read from `m5-reading/coords.json` (sha256 `9d0fb216…0ed5`) through `m5-reading/convert.py` (sha256 `220916a8…0ab1`). Output `v3-inputs/pool-output.json`, sha256 `51ddb911…fc5b`.
+- **pool (k = 2, random effects, DerSimonian-Laird on log r):** r **0.339 [0.129, 0.891]**; the random-effects interval is the wider and is used. Fixed-effect log r −1.233. I² 0.92; τ² 0.451, **weakly estimated** at k = 2. The r interval does not include 1.
+- **NA4.1 lines on the pooled r** (m = H8 clearance multiplier):
+  - primary m = r^-0.5: **1.718 [1.059, 2.788]**
+  - m = 1/r: 2.953 [1.122, 7.774]
+  - m = 1 (saturated): 1
+  - production × r: 0.339 [0.129, 0.891]
+  - stress m = r^-2, outside range: 8.72 [1.26, 60.4]
+- **repair factor (m + n − 1)/n, primary line:** n = 2: 1.359 [1.030, 1.894]; n = 3: 1.239 [1.020, 1.596]. Other lines are in the output file.
+- **per-panel values:** unchanged from v2 and kept in the output file (1d p16 area 0.209 [0.135, 0.325]; 1f SA-β-gal 0.562 [0.303, 1.043], whose interval includes 1).
+- **named limits:** as v2 (2 of 5 panels comparable; I² ≈ 0.92; steady-state; single source, kidney only), plus τ² weakly estimated at k = 2.
+- **status:** single calibration input via NA4.2. **seal:** not sealed.
+- **version:** v3. **Diff from v2:** the single input added, computed by the committed script and cited by sha. Per-panel values, grade E1, SYRCLE 4/10, direction, exclusions and `no_prior_read` unchanged.
+
+## Summary, v3
+
+| Row | Size | Grade | Status |
+| --- | --- | --- | --- |
+| M-001 v3 | `no_mapping` | not graded (committed searches 226 / 182) | no_mapping |
+| M-002 v3 | `no_mapping` | not graded (committed searches 281 / 225) | no_mapping |
+| M-003 v2 | 0.442 [0.402, 0.485] | E1 | mapped (no v3) |
+| M-004 v2 | 0.528 [0.372, 0.748] | E1 | mapped (no v3) |
+| M-005 v3 | pooled r 0.339 [0.129, 0.891]; m (primary) 1.718 [1.059, 2.788] | E1 | single input via NA4.2 |
