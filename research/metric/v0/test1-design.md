@@ -98,6 +98,25 @@ An axis whose control effect disappears after weight adjustment is labelled
   the correct result under commandment 6 and is the work list for L2 and for
   future mouse requests (commandment 10: proof of the gap first).
 
+## Which axes run test 1 in v0
+
+Test 1 runs **only on axes that have both controls (right way and wrong way)
+on the axis's own functional readout**, with an opened source for each. As of
+this draft that is 8 axes: A1, A3, A6, A9, A14, H7, H8, H9 (plus H3 on the
+blood methylome). Every other axis is reported **"not testable yet"** in the
+scorecard, with the reason (no own-readout control, or no right-way
+intervention found at all). Not-testable axes are **kept, never dropped**
+(commandment 6); they are the work list for L2 (A70) and for future mouse
+requests.
+
+Design rules for the two readouts that lose organ signal (A68, #132):
+- **A10 (GTT)** is non-monotonic and, used alone, shares only ~0.24 of the
+  organ signal. Pair it with a **monotonic liver readout** (e.g. hepatic
+  steatosis score or ALT; source `[to verify]`) so A10 does not stand alone.
+- **A11 (vaccine)** shares only ~0.09 used alone. Give a **fixed reference
+  antigen at every age** alongside the new antigen, so the age effect is read
+  against a common scale.
+
 ## Output (scorecard section)
 
 One row per axis: readout, right-way control and effect (interval),
