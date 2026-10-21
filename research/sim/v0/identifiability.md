@@ -528,15 +528,18 @@ Result (repeatable readouts, per sex, power ≥ 0.8 at α 0.05, cap 700):
 - Kappa 0.5 and 2 are not told apart by any design (λ ≤ 0.4 per mouse); the
   criterion only needs "kappa 8 or not", which is what decides the split.
 
-**Order of the proposed v0 mouse design** (O8 first-mouse-request candidate list
-only; mice only after metric v0 passes):
+**Proposed v0 mouse design** (A28, 2026-10-21; O8 first-mouse-request candidate
+list only, not a request; mice only after metric v0 passes; counts lower bound):
 
-1. Kappa bound: 18 mo × 0.15 + 0.6 Xc × n 119 = 357 mice per sex. Then, only if
-   kappa < 8: 6 mo × 0.3 + 0.6 Xc × n 100 = 300 mice per sex. Total 657.
-2. Or one stage: 6 + 18 mo × 0.15 + 0.6 Xc × n 100 = **500 mice per sex**. It
-   bounds kappa (needs 420) and, if kappa < 8, splits eta/beta in all 4
-   repeatable organs (shares ≥ 0.85 at kappa 0.5 and 2). Cheaper than 1 when
-   kappa < 8, dearer when kappa is 8.
+- **Proposed: one stage**, start ages 6 + 18 months × doses 0.15 + 0.6 Xc × n 100
+  per time point = **500 mice per sex**. It bounds kappa (needs 420) and, if
+  kappa < 8, splits eta/beta in all 4 repeatable organs (shares ≥ 0.85 at kappa
+  0.5 and 2). If kappa is 8 the split fails, but the same study still bounds
+  kappa, so it answers the I22 question either way. Cheaper than the two-stage
+  total (657) unless kappa 8 is likely, and one cohort cycle instead of two.
+- **Fallback, only if the mouse budget is capped below 500 per sex:** first
+  18 mo × 0.15 + 0.6 Xc × n 119 = 357 mice per sex; stop if kappa is 8 (then the
+  I22 route out below); otherwise 6 mo × 0.3 + 0.6 Xc × n 100 = 300 mice per sex.
 
 If kappa turns out to be 8, the route is a stronger challenge or a direct repair
 readout: e.g. repair-enzyme activity or DNA-damage foci clearance time after a
