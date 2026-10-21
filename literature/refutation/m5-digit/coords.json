@@ -1,0 +1,39 @@
+{
+  "source": "NPJ Regen Med 2026, doi:10.1038/s41536-026-00490-x, Fig 1",
+  "image_file": "fig1.png",
+  "image_sha256": "696a7e0a2b7b6187f9f2de10789cb599f1f89a2281538283722f5df6e37413f6",
+  "writer": "A78",
+  "method_note": "Rule 7 requires each axis calibrated on 2 tick marks matched to their PRINTED labels, no OCR-estimated values. Candidate axis lines were located by pixel scan (explore.py, panels.py), but the writer has no image viewer in this environment and OCR of tick labels is forbidden, so no tick could be matched to a printed label blind. Per rule 7, every panel's size is therefore no_mapping, direction kept. No values are fabricated. A66 digitised the same image independently and first (#211 @fbca6c4); his values are not read by the writer.",
+  "panels": {
+    "Fig1b_p16_mRNA": {
+      "readout": "p16 relative mRNA (qRT-PCR)",
+      "direction": "down (marker falls under D+Q)",
+      "locatable": false,
+      "reason": "tick marks not matchable to printed labels blind (no viewer, OCR banned)"
+    },
+    "Fig1b_p21_mRNA": {
+      "readout": "p21 relative mRNA (qRT-PCR)",
+      "direction": "down",
+      "locatable": false,
+      "reason": "tick marks not matchable to printed labels blind (no viewer, OCR banned)"
+    },
+    "Fig1d_p16_IHC": {
+      "readout": "p16 positive area/cells (IHC quantification)",
+      "direction": "down",
+      "locatable": false,
+      "reason": "tick marks not matchable to printed labels blind (A66 also found Fig1d cells/field cap not locatable)"
+    },
+    "Fig1d_p21_IHC": {
+      "readout": "p21 positive area/cells (IHC quantification)",
+      "direction": "down",
+      "locatable": false,
+      "reason": "tick marks not matchable to printed labels blind"
+    },
+    "Fig1f_SA_bgal": {
+      "readout": "SA-beta-gal positive cells (quantification)",
+      "direction": "down",
+      "locatable": false,
+      "reason": "tick marks not matchable to printed labels blind"
+    }
+  }
+}
