@@ -75,6 +75,8 @@
   whole_file: true
 - path: .github/workflows/file-sizes.yml
   whole_file: true
+- path: .github/workflows/sim-joint.yml
+  whole_file: true
 - path: .github/large-files-allow.txt
   whole_file: true
 - path: scripts/fetch-datasets.sh

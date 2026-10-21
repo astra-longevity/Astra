@@ -22,6 +22,7 @@ This batch also carries two PRs that touch sealed files:
 | `.github/workflows/workflow-lint.yml` | `actionlint` (pinned 1.7.12) on every workflow, PR + merge queue: invalid YAML, bad expressions, shellcheck in `run:` (the #60 failure) |
 | `.github/workflows/fetch.yml` | Weekly download of every approved `data/datasets` manifest, each file checked against its pinned sha256 and size (P1, O9, O15) |
 | `.github/workflows/file-sizes.yml` | No committed file over 10 MB outside the allow-list (O15) |
+| `.github/workflows/sim-joint.yml` (re-seal batch 3) | R-Sim v0 sharded job: manual dispatch only, `study` joint → `shard.py` / challenge → `shard_challenge.py`, sparse checkout of `research/sim/v0/py` only (no `data/`), `contents: read`, seeds checked against `shard.py`, gather checks the shard count; never writes to the repo |
 | `.github/large-files-allow.txt` | The 10 MB allow-list; a new line would loosen the size gate |
 | `scripts/fetch-datasets.sh` | The download step of `fetch.yml`: cache by sha256, unpinned files only in `pin` mode, never writes to the repo |
 | `scripts/guards/check-workflows.sh` | The actionlint wrapper; fixtures in `scripts/tests/fixtures/workflows/` (one good, three known-bad) |
