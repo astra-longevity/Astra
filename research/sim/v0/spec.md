@@ -204,6 +204,16 @@ m = r^−2 (outside model range, never a bound). Marker not at steady state is a
 named limit (m then understated). **Frozen at merge; any change is a new version
 with a diff, never after an M-005 size or a calibration run.**
 
+Several panels (**NA4.2**, `design/edges.md`, generic for every L3 mapping):
+all panels where both readers agree (5 % / 10 % rule) are pooled, none chosen
+over another. Random effects on log r (DerSimonian–Laird), weights from each
+panel's interval; with k < 3 panels the wider of the fixed- and random-effects
+intervals is used. The pooled log r and its interval go through NA4.1 and then
+(m + n_i − 1)/n_i; if the interval of r includes 1, so does the interval of m.
+Each panel alone is reported as a sensitivity line, with I² and τ²;
+heterogeneity is a named limit. Code: `py/design/pool_panels.py`. **Frozen at
+merge; any change is a new version with a diff, never after a calibration run.**
+
 ## 7. Scoring
 
 The model is scored against the sealed Gompertz + hazard-ratio null on
