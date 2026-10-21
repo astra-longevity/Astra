@@ -72,6 +72,14 @@ Conditions set by A50 on this schema (2026-10-20):
 3. **Seal before reading.** Each mapping is committed and sealed by A50 before its author reads any R-Sim calibration output or any lifespan result for that intervention. A later change is a new version of the row with a diff, never an edit in place.
 4. **`no_mapping`.** If no admissible mechanistic source exists, the row says `no_mapping` and the mapping is listed as a blind spot. It is never filled from an excluded source.
 
+Rules added by A50 ruling, 2026-10-21 (gaps raised by the mapping writer A78):
+
+5. **Intervention name, not class label.** The mapping writer never opens `literature/lifespan/class-labels.yaml`. The row's `intervention_class` field holds the compound or regimen name plus its ChEMBL target, as printed in the mechanistic source (e.g. `canagliflozin; CHEMBL3884 SGLT2`). The join to the sealed class labels is done later by A66, not by the writer.
+6. **Writer exposure.** A writer who has seen only a qualitative statement about an intervention's lifespan (words, no number, no curve, no ITP result) stays the writer. The statement is quoted word for word in `no_prior_read`. A writer who sees a number, a survival curve or an ITP result for a compound stops, reports it to A2, and writes no row for that compound.
+7. **Effects printed only in figures.** The writer digitises the figure by a committed script, and the raw pixel coordinates (axis calibration points and data points) are committed with the row. A66 digitises the same image separately, without seeing the writer's values. The two agree when the treated/control ratio differs by at most 5 % (relative) and each interval bound differs by at most 10 % (relative). If they disagree, the size is `no_mapping` and the direction is kept. Only mechanistic panels are opened; a figure or page that also shows survival is not opened (the source goes to `excluded`).
+8. **Interval from a printed SEM or SD.** If a source prints mean ± SEM (or SD) and the number of animals per group, the 95 % interval is mean ± t(0.975, n−1) · SEM (SEM = SD/√n). The treated/control ratio interval is computed by the delta method on the log ratio: SE(log r) = √((SEM_t/mean_t)² + (SEM_c/mean_c)²). If n per group is not printed, the size is `no_mapping` and the direction is kept.
+9. **Biomarker → parameter.** The printed treated/control ratio and its interval are used as the parameter multiplier. This 1:1 equivalence is a named assumption written in each row. R-Sim runs a fixed sensitivity range of ×0.5 to ×2 on that multiplier's effect size (the log ratio is scaled by 0.5 and by 2), set here before calibration and never changed after a row is sealed.
+
 ## Evidence grade
 
 The repo's L0 to L4 levels rate Astra's own findings (`research/README.md`). The grade here rates published evidence for one edge or mapping, so it uses a separate scale. **The E grade never feeds an L0 to L4 level.**
