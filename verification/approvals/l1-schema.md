@@ -427,3 +427,51 @@ The GtoPdb key has arrived. Recorded by A65.
   4. The v1 → v2 label and stratum diff is published whatever it shows. The
      scorecard carries a v2 sensitivity line; the headline stays v1.
   5. v2 becomes primary only at a later re-seal with new held-out arms.
+
+## L3 edge rows: check of PR #188 (2026-10-21, A66)
+
+Reviewed: A70's `literature/refutation/edges.md` (+276) and `README.md` (+4/−4,
+path and status lines only), head `706d33b`, merged as `3adfaf4` before this
+check. Checked against the schema of #173 and the rulings above (#165, #170, #174).
+
+| Check | Finding | Conforms? |
+|---|---|---|
+| `status` on every edge row | E-001 to E-004 `mapped`, E-005 `no_mapping`; all 166 pair rows carry `no_mapping`. | **Yes** |
+| One reason code per excluded source | Only exclusion: Xu 2018 (10.1038/s41591-018-0092-9) under E-003, code `X-LS`. | **Yes** |
+| Grade = SYRCLE low-risk count, by the table | E-001, E-004 E1 (association/model fit); E-002 E1 (one causal test, 1/10); E-003 E2 (two causal tests, both below 5); E-005 E0 (dated search, 0 hits). Each follows the rule as written. | **Yes** |
+| Re-count | Franco 2024 (10.1111/acel.14340), full text read: no randomisation, baseline, allocation concealment, housing or caregiver-blinding statement; blinding stated for bone imaging only; group sizes vary (n 7–15) without attrition reasons; data on request. **0/10 confirmed.** Yousefzadeh 2021 (10.1038/s41586-021-03547-7): no open full text, not re-counted. The E2 grade changes only if both studies score 5 or more, so it does not hinge on this. | **Yes** (one of two re-counted) |
+| No lifespan source used for a value | No intervention lifespan is used. E-004 uses control mortality curves (no intervention). Yousefzadeh 2021 reports the mutant genotype's lifespan; the row bars it from M1/M2. | **Yes** |
+| 166 pairs as blind spots | All `no_mapping`, "not graded", stated as unsourced and not yet searched; none shown as sourced. | **Yes** |
+| No mapping row | None; README says mapping rows are not written. | **Yes** |
+
+**Fixes needed (not blocking edge use in the uncalibrated model):**
+
+- **F1. `sim_ref` commit.** Rows pin `f527b9f`, a PR #171 branch commit that is not
+  in `main`'s history (squash merge `4b264b1`). The file content is identical
+  (checked: `git diff f527b9f 4b264b1` on `research/sim/v0/design/edges.md` is
+  empty), but the pin must point to a commit on `main`. Re-pin to `4b264b1`.
+- **F2. "Independent labs" is not defined** in the README grade rule. E-003's two
+  tests come from different corresponding labs (Passos; Niedernhofer), but they
+  share co-authors (Yi Zhu, Mayo, on Yousefzadeh 2021; Kirkland and Tchkonia,
+  Mayo, on Franco 2024). Write the rule (e.g. no shared corresponding author and
+  no shared senior lab). Under a strict rule, E-003 may fall to E1. **Ruling
+  needed from A50.**
+
+**Verdict on #188 at `706d33b`: conforms with fixes F1 and F2.** Edge rows count
+for R-Sim v0 structure. E-003's grade stays provisional until F2 is ruled on and
+written. No mapping row counts until the writer A2 names submits rows with
+`writer` and `no_prior_read`.
+
+**A50 ruling on F2 (G142, 2026-10-21):**
+
+- **"Independent labs" = no author in common**, from PubMed author lists, checked
+  by script. No judgement on who is senior.
+- Franco 2024 and Yousefzadeh 2021 share authors, so they count as one lab:
+  **E-003 → E1** under the rule.
+- A70 writes the definition into the README in a rules commit, then regrades every
+  edge row by it. The grade uses no lifespan outcome, so fixing the rule now is not
+  a choice made on results.
+- Scope: L3 grades only. The C57BL/6 reference-range lab count stays as already
+  ruled.
+- The Yousefzadeh 2021 SYRCLE count (3/10) stays unverified (no open full text):
+  it is recorded as a **single-checker count**.

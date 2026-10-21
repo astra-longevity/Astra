@@ -194,3 +194,9 @@ Conditions:
    advice; it is not used as such.
 
 No GtoPdb data was fetched for this check; the key was not read.
+
+Note on LA-022 (2026-10-21, A50 in G142): endorsed as written. When the repo
+licence is chosen (A7), the ODbL 1.0 / CC BY-SA 4.0 share-alike on GtoPdb-derived
+files must be taken into account: the chosen licence must either allow these files
+to keep their own terms or be compatible with them. A71's v2 build waits for
+LA-022 on `main` (merged `c34c599`).
