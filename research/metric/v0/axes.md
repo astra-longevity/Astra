@@ -47,8 +47,8 @@ is needed before any work depends on a source (O9).
 | ACA | Acarbose | right way (male median +22%, smaller in females) | ITP | doi:10.1111/acel.12170 |
 | CANA | Canagliflozin | right way in males only | ITP | doi:10.1172/jci.insight.140019 |
 | GLY | Glycine 8% diet | right way (small, both sexes) | ITP | doi:10.1111/acel.12953 |
-| CR | Caloric restriction | right way | many studies | `[to verify]` (pick one replicated source) |
-| ERCC1 | Ercc1−/Δ (DNA-repair deficient) | wrong way (ages ~6× faster, lifespan 4–6 months) | multi-organ progeroid | https://www.aging-us.com/article/202321/text; lifespan figure from Dollé 2011 `[to verify]` |
+| CR | Caloric restriction | right way | many studies | Weindruch 1986 (PMID 3958810, abstract opened 2026-10-21): female mice of a long-lived strain, restricted after weaning, mean and maximum lifespan 35–65% above ad libitum |
+| ERCC1 | Ercc1−/Δ (DNA-repair deficient) | wrong way (ages ~6× faster, lifespan 4–6 months) | multi-organ progeroid | https://www.aging-us.com/article/202321/text; median lifespan 20 weeks vs 118 weeks in wild-type siblings (Ercc1−/Δ7, Dollé 2011, doi:10.3402/pba.v1i0.7219, PMC3417667, opened 2026-10-21) |
 | LMNA | Lmna G609G (progeria knock-in) | wrong way (homozygous median ~103 days) | progeroid | doi:10.1126/scitranslmed.3002847; survival figures via doi:10.7554/eLife.82728 |
 | HFD | High-calorie (high-fat) diet | wrong way (survival lower than standard diet; magnitude `[to verify]`) | C57BL/6, from 1 year | doi:10.1038/nature05354; context: https://www.sciencedirect.com/science/article/pii/S1550413108001824 |
 | IRR | Sub-lethal total-body irradiation (6.5 Gy) | wrong way (sustained HSC loss, HSC senescence; lifespan effect `[to verify]`) | C57BL/6 | doi:10.1182/blood-2005-04-1418 |
