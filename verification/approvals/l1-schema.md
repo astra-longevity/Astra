@@ -345,3 +345,38 @@ counts yet):
 counts until (a) the 166 `[to verify]` pairs and E4/E5 have sources before those
 edges enter a scored run, and (b) each mapping is re-authored as an L3 row by a
 lifespan-naive writer with the #173 fields.
+
+## Train-compound class labels: check of A71's PR #185 @417cda8 (A65, 2026-10-21)
+
+Second class-label seal input alongside `class-labels.yaml`. A28 ruled option 1:
+a separate train-only ChEMBL 37 snapshot, with the sealed 41-compound snapshot
+and its sha left untouched. `train-classes.yaml` labels every distinct ITP train
+compound for A67's stratum rule 2a ("class present in training"). Checked on a
+clean copy of `417cda8`, with the MeSH 2026 files downloaded by me.
+
+| Item | Result |
+|---|---|
+| Commit order | rules `45066be` (amendment 4: 8 target→class rows, train-name canonicalisation, combination rule, overlap check) authored 10:14, before build `417cda8` (10:25). The build commit does not change the rules |
+| Pinned inputs | train snapshot `class-labels-train-chembl37.json` sha `07424d70…` (ChEMBL 37, fetched 2026-10-21, endpoints status/molecule/molecule_form/mechanism/target, in `class-labels-train-sources.yaml`); MeSH 2026 `pa2026.xml` `000e1b6e…`, `desc2026.xml` `449792ed…` = the sealed pins; my own NLM download gives the same shas |
+| Train rebuild | `MESH_DIR=… TRAIN=1 ruby class-labels.rb --check` exit 0; `train-classes.yaml` byte-identical, sha `98fd3a2a…` |
+| Sealed 41 untouched | `class-labels.yaml` sha `b3862694…` unchanged (= D115 seal candidate); `class-labels-aliases.yaml` and `class-labels-chembl37.json` unchanged. Default-mode `--check` still exit 0, byte-identical. Train names are canonicalised in a new `class-labels-train-names.yaml`, so the shared aliases file is untouched |
+| Same rules/fallback | same vocabulary, MeSH PA under D27.505.519 only, multi-target and unknown handling, fallback → `unclassified`. The 8 new target→class rows are mechanical (targets present only in the train snapshot), committed before the build, no hand labels |
+| Overlap | the 5 compounds in both snapshots get the **same class** in both files, recomputed by me from both yamls: canagliflozin = SGLT2 inhibitor, captopril = ACE inhibitor, metformin = multi-target, nicotinamide riboside = unclassified, rapamycin = mTORC1 inhibitor. The build's overlap assertion (rules §8) records both fetch dates/endpoints and aborts on mismatch |
+| Drift-abort fires | I doctored the sealed rapamycin class to `multi-target`; `TRAIN=1 --check` exited 1 with "overlap MISMATCH on rapamycin → flag A28". Restored |
+| Coverage | 43/43 distinct ITP train compounds labelled or `unclassified` (12 S1, 2 S1-call, 5 MeSH, 24 unclassified). The 43 = exactly the distinct `compound` field across the 132 `literature/lifespan/itp/*.yaml` files |
+
+**For A28, not Verification (flagged in the PR body, recorded here):**
+
+- **acarbose → `multi-target`** (S1, two usable ChEMBL targets). This is the
+  mechanical rule output; A28 may prefer a single `alpha-glucosidase inhibitor`
+  class, which would be a uniform rules amendment ruled by A50, not a hand edit.
+- **The two combination arms** (`metformin + rapamycin`, `rapamycin + acarbose`)
+  → `unclassified` (S4, no single primary target). For stratum 2a this is the
+  honest, stricter reading: a class seen only inside a train combination is not
+  counted as present in training.
+
+**Verdict: conforms.** `train-classes.yaml` (sha `98fd3a2a…`) is approved as a
+second class-label seal input, under the same rules as `class-labels.yaml`, with
+the sealed 41-compound build untouched. The acarbose and combination labels are
+A28's to confirm or change by a rules amendment; either way the file is
+rebuildable and the change path is by script, not by hand.
