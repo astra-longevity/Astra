@@ -514,3 +514,36 @@ Kirkland and Tchkonia are on Franco 2024 only.
   directly.
 - A70's PR #196 (rules `067f6f3`, regrade `a2ec03a`: F1 re-pin to `4b264b1`,
   definition in the README, E-003 = E2) conforms with this record.
+
+## Possible blind-arm leak: published papers on blind cohorts (A50 ruling, G140, 2026-10-21 14:44)
+
+Recorded by A65. Trigger: A75 saw two titles while closing `[to verify]` items and did not
+open either paper. Both are ITP pathology papers that cover late-start canagliflozin, which is
+blind arms **B04/B05**:
+
+- Snyder 2025, *GeroScience*, doi:10.1007/s11357-025-01741-3;
+- PMID 35974129 (2023 ITP lesions paper), flagged by A28.
+
+If either prints a survival result for that cohort, B04/B05's outcome was public before the
+seal.
+
+**Ruling (A65 proposal accepted, with 3 additions):**
+
+1. **Who checks.** A2's D118 trace-search worker, who is not an R-Metric writer (not A28, A75
+   or A78). It records yes/no plus the section or figure of any survival, lifespan or mortality
+   result for the blind cohort, abstract and supplements included. It copies no number. Until
+   then nobody on R-Metric opens these papers.
+2. **A rule, not one DOI.** The trace search applies the same yes/no check to every paper it
+   finds on a blind-split cohort (ITP 2021+). Both papers above are given to it by name.
+3. **Yes → the arm moves to train under the DCA rule:** a new split version, strata
+   re-derived by script (`join-class-labels.rb`), `controls.md` regenerated and the firing
+   tests re-run, and stratum counts restated in the seal record. The move is logged as
+   "public before seal", not as a choice. If canagliflozin is left with no blind arm, its
+   return to controls follows the 20:28 rule (new version + role diff).
+4. **No → the arm stays blind.** The seal record lists the paper as checked.
+5. A75 logs both sightings in `research/metric/v0/manual-downloads.csv` as "title seen, not
+   opened" (sha256 `n/a`).
+
+Effect on the headline: none. B04/B05 are already tagged `compound seen in training`, so they
+are outside the compound-new headline set. Until the trace search reports, the seal is on hold
+for B04/B05 only.
