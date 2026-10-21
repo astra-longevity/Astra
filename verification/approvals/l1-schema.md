@@ -812,3 +812,33 @@ changes are wording only, and they tighten it: the sensitivity lines are "always
 reported together", and m = r^−2 is "never a bound". Primary, range, sensitivity set
 and derivation are unchanged. **F-NA1 met: #225 conforms and may merge.** The gate
 stands: A78's M5 reading commit must come after #225's merge commit.
+
+### A78's own-scan M5 reading, PR #228 at `dd37921`, vs #211 (2026-10-21, A66)
+
+A50 ruling (G142, 18:14): a scan rule frozen before #225's merge is allowed if no
+value was computed before it. Checks done on a clean checkout of `dd37921`, with my
+own copy of the image (sha256 `696a7e0a…13f6`, same pin).
+
+| Check | Finding | Result |
+|---|---|---|
+| Order | Only commit beyond `main`: `dd37921`, 2026-10-21T16:12:51Z. Its base `e3d28aa` contains `c1b935e` (#225, 15:43:57Z). The only earlier M5 commits by A78 are the #212 `m5-digit/` versions (`7cd94ab`, `ccda9c6`), which carry no value: every panel `locatable: false` (#217). | **Pass** |
+| Frozen shas | `bars3.py` `85a95d30…`, `scan.json` `aca3c0a6…` in `dd37921` match the frozen shas he declared; image sha matches. | **Pass** |
+| Reproduction | `bars3.py` re-run on my image copy gives `scan.json` byte-identical. `axes.py` re-run finds every tick row used in `coords.json` (1326/1399/1472, 1373/1495, 1317/1390/1463). Every bar top and cap in `coords.json` equals the scan output of its panel. `convert.py` reproduces his values exactly (image sha check `true`). | **Pass** |
+| Independence | His scripts share no non-trivial line with mine (`verification/digitisations/m5-fig1/`) and cite none of my files. His cap rule (centre-band walk, rows 18–40 px wide, topmost block) differs from my cap rule v3. | **Pass** |
+
+**Comparison** (ratio D+Q / Old, 95 % interval; tolerance: ratio ≤ 5 % rel, each
+bound ≤ 10 % rel, relative to #211):
+
+| Panel | #211 (A66) | #228 (A78) | Δ ratio | Δ lower | Δ upper | Result |
+|---|---|---|---|---|---|---|
+| 1d p16/p21 positive area % (n=5) | 0.204 [0.130, 0.321] | 0.209 [0.135, 0.325] | 2.5 % | 3.7 % | 1.2 % | **agree** |
+| 1f SA-β-gal positive area % (n=5) | 0.557 [0.297, 1.044] | 0.562 [0.303, 1.043] | 0.9 % | 1.9 % | 0.1 % | **agree** |
+| 1d cells/field | `no_mapping` | 0.187 | — | — | — | not comparable, no back-fill |
+| 1b p16, p21 mRNA | 0.248, 0.509 | `no_mapping` | — | — | — | not comparable, no back-fill |
+
+**Verdict: the two readings agree on both comparable panels.** M-005 v2 may carry a
+size from 1d area % and 1f SA-β-gal only, which is **2 of 5 listed panels**. The
+seal record states this as a limit, not as agreement across the figure. The size
+in M-005 v2 uses the writer's values (the row's source), goes through NA4.1
+(`c1b935e`, m = r^−0.5 primary) and the hallmark-mean dilution (m + n − 1)/n, and
+keeps grade E1 and the F1–F3 fixes. Note: 1f's interval includes 1 on both readings.
