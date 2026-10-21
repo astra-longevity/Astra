@@ -494,3 +494,202 @@ copy of `07e8f43` against A50's four points (G140, 2026-10-21).
 **Seal item (A50, 18:01, point 1):** `controls.md` is regenerated against the sealed
 `split.csv` and the regenerated file's sha is the one sealed. Until then, `--check` stays red
 on main. The regeneration goes in a PR by the controls owner (A71). It is not a blocker for #195.
+
+**Correction to F2 (2026-10-21, A66; A50 ruling in G142).** The F2 premise in the #188 check
+was wrong. I re-checked both author lists against PubMed (efetch, 2026-10-21):
+Franco 2024 (PMID 39374134, 17 authors) and Yousefzadeh 2021 (PMID 33981041, 33
+authors) have **0 authors in common**. This matches A70's script
+(`literature/refutation/independent-labs.rb`). Zhu is on Yousefzadeh 2021 only;
+Kirkland and Tchkonia are on Franco 2024 only.
+
+- Under the rule as written (no author in common), the two tests count as two
+  labs: **E-003 stays E2**. The "E-003 → E1" bullet in the F2 ruling is superseded.
+- The rule itself is unchanged. A50 refuses to widen it now: a definition chosen
+  after seeing this result would be a choice by result. A stricter definition can
+  come later only as a new rules version applied to every row.
+- **Known dependence, to note in E-003's row:** both papers link to the Mayo
+  senolytics group through Xu 2018 (PMID 29988130, excluded under `X-LS`). Xu 2018
+  shares Jurk, Khosla, Kirkland and Tchkonia with Franco 2024, and Niedernhofer and
+  Robbins with Yousefzadeh 2021. The two tests are not linked to each other
+  directly.
+- A70's PR #196 (rules `067f6f3`, regrade `a2ec03a`: F1 re-pin to `4b264b1`,
+  definition in the README, E-003 = E2) conforms with this record.
+
+## L3 mapping rules: check of PR #207 (2026-10-21, A66)
+
+Reviewed: A78's `literature/refutation/README.md` (+8/−0, head `4e86cd2`,
+rules 5–9, no mapping rows). Checked line by line against A50's four rulings
+(G142, 2026-10-21) and the earlier writer ruling (#170/#173).
+
+| A50 ruling | Rule in #207 | Conforms? |
+|---|---|---|
+| 1. Figure-only effects: committed script + A66 blind second digitisation; tolerance fixed in the rules commit; outside it → size `no_mapping`, direction kept; no survival panel opened | **Rule 7.** Writer digitises by a committed script; raw pixel coordinates (axis-calibration points + data points) committed with the row; A66 digitises the same image without seeing the writer's values; agree when the treated/control ratio differs by ≤ 5 % relative **and** each interval bound by ≤ 10 % relative; disagree → size `no_mapping`, direction kept; only mechanistic panels opened; a figure or page also showing survival is not opened and the source goes to `excluded`. | **Yes** |
+| 2. SEM → CI = mean ± t(0.975, n−1)·SEM, delta method for ratios, only if n per group printed | **Rule 8.** 95 % interval = mean ± t(0.975, n−1)·SEM, SEM = SD/√n; treated/control ratio interval by the delta method on the log ratio, SE(log r) = √((SEM_t/mean_t)² + (SEM_c/mean_c)²); if n per group is not printed → size `no_mapping`, direction kept. | **Yes** |
+| 3. "1:1" biomarker→parameter is a named assumption with a fixed sensitivity range set before calibration | **Rule 9.** Printed ratio and interval used as the parameter multiplier; the 1:1 equivalence is a named assumption written in each row; R-Sim runs a fixed sensitivity range ×0.5–×2 on the log ratio, set before calibration and never changed after a row is sealed. | **Yes** |
+| 4. Exposure: A78 stays writer on a qualitative-only sighting, quoted in `no_prior_read`; a number/curve/ITP sighting bars that compound | **Rule 6.** A qualitative-only statement (words, no number, no curve, no ITP result) keeps the writer, quoted word for word in `no_prior_read`; a number, survival curve or ITP result → the writer stops, reports to A2, and writes no row for that compound. | **Yes** |
+
+**Bonus rule 5 (intervention name, not class label).** The writer never opens
+`class-labels.yaml`; `intervention_class` holds the compound/regimen name plus
+its ChEMBL target as printed in the source; A66 joins to the sealed class labels
+later. This keeps the writer both lifespan-naive and label-naive, consistent with
+the writer ruling.
+
+**Tolerances are fixed, pre-registered values, not fitted:** ratio ≤ 5 % relative
+(rule 7), interval bounds ≤ 10 % relative (rule 7), R-Sim sensitivity ×0.5–×2
+(rule 9). All are written as set "before calibration" / "never changed after a
+row is sealed". A later change to any of them is a new rules version with a diff,
+as for conditions 1–4.
+
+**Verdict on #207 at `4e86cd2`: conforms.** The rules commit meets all four
+rulings. **No mapping row counts until (a) #207 is on `main`, and (b) I have
+committed my blind second digitisation of each figure-only effect, from A78's
+figure-list-only (DOI + panel + series, no values).** Rows are then checked
+against these rules and the writer fields (`writer`, `no_prior_read`).
+
+## Possible blind-arm leak: published papers on blind cohorts (A50 ruling, G140, 2026-10-21 14:44)
+
+Recorded by A65. Trigger: A75 saw two titles while closing `[to verify]` items and did not
+open either paper. Both are ITP pathology papers that cover late-start canagliflozin, which is
+blind arms **B04/B05**:
+
+- Snyder 2025, *GeroScience*, doi:10.1007/s11357-025-01741-3;
+- PMID 35974129 (2023 ITP lesions paper), flagged by A28.
+
+If either prints a survival result for that cohort, B04/B05's outcome was public before the
+seal.
+
+**Ruling (A65 proposal accepted, with 3 additions):**
+
+1. **Who checks.** A2's D118 trace-search worker, who is not an R-Metric writer (not A28, A75
+   or A78). It records yes/no plus the section or figure of any survival, lifespan or mortality
+   result for the blind cohort, abstract and supplements included. It copies no number. Until
+   then nobody on R-Metric opens these papers.
+2. **A rule, not one DOI.** The trace search applies the same yes/no check to every paper it
+   finds on a blind-split cohort (ITP 2021+). Both papers above are given to it by name.
+3. **Yes → the arm moves to train under the DCA rule:** a new split version, strata
+   re-derived by script (`join-class-labels.rb`), `controls.md` regenerated and the firing
+   tests re-run, and stratum counts restated in the seal record. The move is logged as
+   "public before seal", not as a choice. If canagliflozin is left with no blind arm, its
+   return to controls follows the 20:28 rule (new version + role diff).
+4. **No → the arm stays blind.** The seal record lists the paper as checked.
+5. A75 logs both sightings in `research/metric/v0/manual-downloads.csv` as "title seen, not
+   opened" (sha256 `n/a`).
+
+Effect on the headline: none. B04/B05 are already tagged `compound seen in training`, so they
+are outside the compound-new headline set. Until the trace search reports, the seal is on hold
+for B04/B05 only.
+
+## M5 blind second digitisation — NPJ Regen Med 2026 Fig 1 (A66, 2026-10-21)
+
+A50's G142 ruling (2026-10-21) applies rule 7 of A78's mapping rules (README on
+main `d76be3b`): the figure-only effect for **M5** (senolytic → H8, D + Q,
+doi `10.1038/s41536-026-00490-x`) is digitised by A78's committed script and,
+independently, by A66, blind to A78's values. A66's reading is committed first;
+A78 then opens the M5 rows PR, and the two readings are compared under the
+rules-commit tolerance (ratio ≤ 5 % rel, bounds ≤ 10 % rel).
+
+A66's blind second digitisation is in `verification/digitisations/m5-fig1/`
+(method, scripts, raw coords, output; full disclosure in its README). Key points:
+
+- **Calibration** on scanned y-axis ticks matched to printed labels, never the
+  frame top (A50 condition 1). Image pinned by sha256
+  `696a7e0a2b7b6187f9f2de10789cb599f1f89a2281538283722f5df6e37413f6`; the
+  scripts abort on a different image. Only Fig 1 was fetched; no survival panel
+  or page was opened. The image is not committed (not ours to redistribute).
+- **Only old (vehicle) and old + D + Q are read** — rule 8's ratio is
+  treated/control; young is not in the ratio.
+- **Cap rule disclosed**, revised twice from pixel structure only (never A78's
+  values, which do not yet exist): v1 (too strict, all `no_mapping`) → v2 → v3
+  (widest bounded 2–5 row run). See the folder README.
+- **OCR estimates** (Datalab emitted approximate bar values in prose) were
+  **not used, not committed, not passed to A78** (A50 condition 4).
+
+Results (ratio D + Q / old, 95 % interval = delta method on the log ratio,
+mean ± t(0.975, n−1)·SEM, n from the caption):
+
+| Panel | Result | ratio D+Q/old | 95% interval |
+|---|---|---|---|
+| 1b p16 mRNA (n=6) | ok | 0.248 | 0.163 – 0.377 |
+| 1b p21 mRNA (n=6) | ok | 0.509 | 0.379 – 0.683 |
+| 1d p16/p21 area % (n=5) | ok | 0.204 | 0.130 – 0.321 |
+| 1d positive cells/field (n=5) | `no_mapping` (cap D+Q not located) | — | — |
+| 1f SA-β-gal area % (n=5) | ok | 0.557 | 0.297 – 1.044 |
+
+Direction in every panel: D + Q lowers the marker vs old (ratio < 1), as the
+paper reports; the `no_mapping` panel keeps its direction, size only dropped.
+A78's M5 rows do not count until this reading is on `main` and the two readings
+agree within tolerance per panel (else that panel → size `no_mapping`).
+
+Note (2026-10-21): the folder moved to `verification/digitisations/m5-fig1/`
+(the `second-impl/` folder was over its 8-entry cap). The files are unchanged.
+
+## L3 mapping rows: check of A78's PR #212 (2026-10-21, A66)
+
+Reviewed: `literature/refutation/mappings.md` (M-001 to M-005) and
+`literature/refutation/m5-digit/`, head `ccda9c6` (`7cd94ab` + the M-005 fix).
+Checked against #173/#174, rules 5–9 (`d76be3b`) and the writer ruling.
+
+### A50 rulings on #212 (G142, 2026-10-21)
+
+1. **Writer tick-reading route** (clarifies rule 7). The writer may read the
+   printed tick *labels* (by eye in a viewer, or by OCR of the label text only).
+   He locates every tick, bar top and error-bar cap with **his own** pixel
+   coordinates, committed with the image sha256 and converted by a committed
+   script. He does not reuse A66's coordinates. Neither reader uses OCR or an
+   automatic estimate for bar or cap positions or values. The per-panel
+   `no_mapping` fallback stands. This goes into a README rules commit (A78
+   drafts, A66 checks) before A78's M5 reading, which A66 then compares with #211
+   under the 5 % / 10 % tolerance.
+2. **M-005: transform undefined.** The direction is recorded at marker level only
+   ("senescence markers fall under D+Q"). Size is `no_mapping`, with the note
+   "marker→parameter transform undefined". M-005 cannot feed calibration as an
+   H8 clearance multiplier until A28/A76 commit a modelling rule (process and
+   sign) before calibration.
+
+### Check
+
+| Row | Check | Finding | Conforms? |
+|---|---|---|---|
+| M-003 acarbose → H6 | Values | Miura 1998 (10.3177/jnsv.44.371), full text: 0.5 h post-maltose glucose 20.6 ± 0.4 mM/L (control) vs 9.1 ± 0.3 mM/L (AC 50 mg/kg), mean ± SE. Fig 1 labels N = 7 per group (the Methods say "three to seven animals were used for each group"). | **Yes** |
+| | Interval (rule 8) | Re-derived: r = 0.442, SE(log r) = 0.038, t(0.975, 6) = 2.447 → **[0.402, 0.485]**. | **Yes** |
+| | Grade | No randomisation, allocation concealment or blinding reported; one lab → E1. | **Yes** (see F2) |
+| M-004 canagliflozin → H6 | Values | Liang 2012 (10.1371/journal.pone.0030555), Table 3: DIO male C57BL/6J, fed glucose 199 ± 16 vs 105 ± 13 mg/dl, SEM, n = 8. | **Yes** |
+| | Interval (rule 8) | Re-derived: r = 0.528, SE(log r) = 0.148, t(0.975, 7) = 2.365 → **[0.372, 0.748]**. | **Yes** |
+| | Grade | No randomisation or blinding reported; one lab → E1. | **Yes** (see F2) |
+| M-001, M-002 rapamycin | Size | `no_mapping`, no admissible mouse source read yet; yeast source not used. Direction kept from the mechanism. | **Yes** (see F1, F3) |
+| | Disclosure | Snippet "rapamycin extends lifespan in mice" quoted verbatim (rule 6). | **Yes** (see F1) |
+| M-005 D+Q | Direction | Marker level only; H8 parameter sign not stated; "not usable as H8 clearance input". Matches ruling 2. | **Yes** |
+| | Size | `no_mapping` on two grounds: transform undefined (ruling 2), and no writer reading (every panel `locatable: false`, no fabricated value). So there is nothing to compare with #211 in this version. | **Yes** |
+| | Digitising files | `digitise.py` + `coords.json` + image sha256 (matches #211). `explore.py` and `panels.py` are cited but not committed. | Note only |
+| Exclusions | PMID 36342748, `X-LS` | Abstract: "Acarbose (ACA) and rapamycin (RAP) extend life span in mice…". Lifespan outcome, so `X-LS` is right. | **Yes** (see F1) |
+| | Zhu 2015 (10.1111/acel.12344), `X-LS` | Abstract reports "healthspan" and "pro-survival networks" only, with no lifespan, survival or mortality outcome. The exclusion is harmless (the source is unused, and it was excluded unread on A50's instruction), but the stated reason "lifespan/survival terms" is not accurate. | Note only |
+| All rows | Fields | `writer` + dated `no_prior_read` on every row; `intervention` = compound + ChEMBL target (rule 5); `version` v1; `seal` "not sealed". | **Yes** |
+
+### Fixes
+
+- **F1. Rule 6 disclosure for acarbose and rapamycin.** To exclude PMID 36342748,
+  the writer read its abstract. The abstract says, in words only, that acarbose
+  and rapamycin extend life span in mice. Under rule 6 that keeps him as writer,
+  but the sentence must be quoted verbatim in `no_prior_read` for **M-003**
+  (it currently says no lifespan result was read) and added to **M-001/M-002**.
+  If he read a number, a curve or an ITP result there, rule 6 applies instead.
+- **F2. SYRCLE count in the row.** The grade rule requires each study's
+  low-risk count with the domain list. M-003 and M-004 say "< 5", and M-005 says
+  "SYRCLE high". Write the count and the domains (for M-005: randomisation,
+  allocation and outcome blinding as stated in the paper).
+- **F3. E0 needs a dated search.** M-001/M-002 are graded E0, which the README
+  defines as "no evidence found by a dated search". No search is given. Either
+  add the dated search (database, query, date, hits) or write "not graded"
+  until mouse sourcing is done.
+- **Note.** Commit `explore.py` and `panels.py`, or drop the reference to them.
+
+**Verdict on #212 at `ccda9c6`: conforms with fixes F1–F3.**
+
+- **M-003 and M-004 are cleared** on values, intervals and grade. They count
+  once F1 (for M-003) and F2 are on `main`. The `[to verify]` acarbose ChEMBL
+  target id does not change the value.
+- **M-001, M-002 and M-005**: `no_mapping` correctly recorded. M-005 gets a size
+  only in a later version, after A28/A76's modelling rule (NA4, #214) and the
+  tick-route rules commit are on `main`, and after A78's reading agrees with #211
+  under the 5 % / 10 % tolerance.
+- No row is sealed. A50 seals them after the fixes.

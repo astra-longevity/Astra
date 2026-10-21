@@ -111,10 +111,9 @@ class ModelTests(unittest.TestCase):
         for k in keys:
             model._apply(model.Params(), model.Perturbation({k: 1.0}))  # raises KeyError if unknown
 
-    def test_mappings_direction_semantics(self):
+    def test_mappings_superseded_no_values(self):
+        """Draft rows are pointers to L3 M-00n only: no prior, effect or source may come back."""
         path = os.path.join(os.path.dirname(__file__), "..", "..", "mappings.yaml")
-        expected = {"production": ("production down", "<"), "clearance": ("clearance up", ">"),
-                    "coupling": ("coupling down", "<")}
         moves, cur = [], None
         with open(path, encoding="utf-8") as f:
             for line in f:
@@ -127,11 +126,14 @@ class ModelTests(unittest.TestCase):
                     cur[k.strip()] = v.strip()
         self.assertTrue(moves)
         for m in moves:
-            self.assertNotIn("direction", m)
-            effect, side = expected[m["term"]]
-            self.assertEqual(m["effect"], effect)
-            median = float(m["prior_multiplier"].split("median:")[1].split(",")[0])
-            self.assertTrue(median < 1 if side == "<" else median > 1, m)
+            self.assertIn(m["term"], ("production", "clearance", "coupling"))
+            self.assertRegex(m["superseded_by"], r"^M-\d{3}$")
+            for k in ("prior_multiplier", "effect", "direction", "evidence", "why"):
+                self.assertNotIn(k, m)
+        with open(path, encoding="utf-8") as f:
+            body = [line.split("#")[0] for line in f]
+        for k in ("prior_multiplier", "evidence:", "doi:", "effect:"):
+            self.assertFalse(any(k in line for line in body), k)
 
     def test_survival_curve_monotone(self):
         s = [v for _, v in model.survival_curve(model.simulate(100, 2))]

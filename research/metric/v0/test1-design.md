@@ -138,6 +138,23 @@ wrong-way control and effect (interval), weight-adjusted effects, pass /
 fail / unmeasured, "weak control" flag, source of each number
 (`dataset` | `from_figure` digitised twice). Failures are published.
 
+## Headline scope and named blind spot (A50 record #190)
+
+- **Headline = compound-new blind arms only** (A50 #145): arms whose `flag` in
+  `split.csv` does not carry `compound seen in training` (tag written by
+  `join-class-labels.rb`). In v0 these come from strata b and c only
+  (compound-new per stratum: a 0/8, b 42/50, c 0/2; see `split-proposal.md`).
+  Arms tagged `compound seen in training` are scored and reported apart, never
+  in the headline.
+- **No claim about "known class, new compound" generalisation.** Stratum a
+  (known class, new compound) holds no compound-new arm in v0, so test 1 says
+  nothing about how the metric generalises to a new compound of a class seen in
+  training. This is a **listed blind spot** in the scorecard until a later
+  split holds such an arm. Arms are not moved to fill stratum a.
+- Class labels used at the seal: v1 (`literature/lifespan/class-labels.yaml` +
+  `train-classes.yaml`). Any GtoPdb-based v2 file is a post-seal sensitivity
+  line only and never sets the headline (A50, G155).
+
 ## Open issues
 
 - T1-I-1: per-axis control data mostly absent from public datasets (above).

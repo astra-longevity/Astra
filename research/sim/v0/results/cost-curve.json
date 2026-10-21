@@ -1,0 +1,6889 @@
+{
+ "split_threshold": 0.8,
+ "repeatable": [
+  "A6_heart",
+  "A9_kidney",
+  "A12_blood",
+  "A14_gut"
+ ],
+ "n_sweep": [
+  10,
+  30,
+  100
+ ],
+ "mice_per_sex": "n x (1 baseline + one cohort per (age, dose))",
+ "kappas": [
+  {
+   "kappa": "prior",
+   "rows": [
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.19,
+      "A6_heart": 0.19,
+      "A8_lung": 0.19,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.18,
+      "A11_immune": 0.19,
+      "A12_blood": 0.21,
+      "A13_skin_hair": 0.0,
+      "A14_gut": 0.0,
+      "A15_fat": 0.0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.19,
+      "A6_heart": 0.2,
+      "A8_lung": 0.19,
+      "A9_kidney": 0.22,
+      "A10_liver_metabolism": 0.19,
+      "A11_immune": 0.2,
+      "A12_blood": 0.21,
+      "A13_skin_hair": 0.23,
+      "A14_gut": 0.24,
+      "A15_fat": 0.24
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.19,
+      "A6_heart": 0.2,
+      "A8_lung": 0.19,
+      "A9_kidney": 0.22,
+      "A10_liver_metabolism": 0.19,
+      "A11_immune": 0.2,
+      "A12_blood": 0.21,
+      "A13_skin_hair": 0.23,
+      "A14_gut": 0.24,
+      "A15_fat": 0.24
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.19,
+      "A6_heart": 0.2,
+      "A8_lung": 0.18,
+      "A9_kidney": 0.2,
+      "A10_liver_metabolism": 0.2,
+      "A11_immune": 0.0,
+      "A12_blood": 0.0,
+      "A13_skin_hair": 0.0,
+      "A14_gut": 0.0,
+      "A15_fat": 0.0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.2,
+      "A6_heart": 0.2,
+      "A8_lung": 0.19,
+      "A9_kidney": 0.2,
+      "A10_liver_metabolism": 0.2,
+      "A11_immune": 0.21,
+      "A12_blood": 0.21,
+      "A13_skin_hair": 0.19,
+      "A14_gut": 0.2,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [
+      "A1_muscle",
+      "A8_lung",
+      "A10_liver_metabolism",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.92,
+      "A3_brain": 0.2,
+      "A6_heart": 0.2,
+      "A8_lung": 0.95,
+      "A9_kidney": 0.2,
+      "A10_liver_metabolism": 0.96,
+      "A11_immune": 0.21,
+      "A12_blood": 0.93,
+      "A13_skin_hair": 0.88,
+      "A14_gut": 0.9,
+      "A15_fat": 0.89
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.16,
+      "A3_brain": 0.02,
+      "A6_heart": 0.03,
+      "A8_lung": 0.02,
+      "A9_kidney": 0.02,
+      "A10_liver_metabolism": 0.02,
+      "A11_immune": 0.02,
+      "A12_blood": 0.02,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.0,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.16,
+      "A3_brain": 0.04,
+      "A6_heart": 0.05,
+      "A8_lung": 0.04,
+      "A9_kidney": 0.04,
+      "A10_liver_metabolism": 0.03,
+      "A11_immune": 0.03,
+      "A12_blood": 0.03,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.16,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.98,
+      "A3_brain": 0.98,
+      "A6_heart": 0.97,
+      "A8_lung": 0.97,
+      "A9_kidney": 0.96,
+      "A10_liver_metabolism": 0.96,
+      "A11_immune": 0.96,
+      "A12_blood": 0.97,
+      "A13_skin_hair": 0.96,
+      "A14_gut": 0.97,
+      "A15_fat": 0.96
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [],
+     "sum_share": {
+      "A1_muscle": 0.18,
+      "A3_brain": 0.16,
+      "A6_heart": 0.18,
+      "A8_lung": 0.16,
+      "A9_kidney": 0.18,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.17,
+      "A12_blood": 0.18,
+      "A13_skin_hair": 0.18,
+      "A14_gut": 0.19,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.18,
+      "A3_brain": 0.18,
+      "A6_heart": 0.19,
+      "A8_lung": 0.18,
+      "A9_kidney": 0.19,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.18,
+      "A12_blood": 0.2,
+      "A13_skin_hair": 0.18,
+      "A14_gut": 0.19,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.9,
+      "A3_brain": 0.95,
+      "A6_heart": 0.92,
+      "A8_lung": 0.95,
+      "A9_kidney": 0.94,
+      "A10_liver_metabolism": 0.95,
+      "A11_immune": 0.96,
+      "A12_blood": 0.93,
+      "A13_skin_hair": 0.85,
+      "A14_gut": 0.88,
+      "A15_fat": 0.87
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.1,
+      "A6_heart": 0.11,
+      "A8_lung": 0.09,
+      "A9_kidney": 0.12,
+      "A10_liver_metabolism": 0.09,
+      "A11_immune": 0.09,
+      "A12_blood": 0.1,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.15,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.1,
+      "A6_heart": 0.11,
+      "A8_lung": 0.09,
+      "A9_kidney": 0.12,
+      "A10_liver_metabolism": 0.09,
+      "A11_immune": 0.09,
+      "A12_blood": 0.1,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.15,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.96,
+      "A3_brain": 0.97,
+      "A6_heart": 0.97,
+      "A8_lung": 0.95,
+      "A9_kidney": 0.95,
+      "A10_liver_metabolism": 0.96,
+      "A11_immune": 0.95,
+      "A12_blood": 0.97,
+      "A13_skin_hair": 0.93,
+      "A14_gut": 0.95,
+      "A15_fat": 0.94
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.13,
+      "A3_brain": 0.08,
+      "A6_heart": 0.1,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.09,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.08,
+      "A12_blood": 0.07,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.13,
+      "A15_fat": 0.14
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.13,
+      "A3_brain": 0.08,
+      "A6_heart": 0.1,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.09,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.08,
+      "A12_blood": 0.07,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.13,
+      "A15_fat": 0.14
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.96,
+      "A3_brain": 0.97,
+      "A6_heart": 0.96,
+      "A8_lung": 0.96,
+      "A9_kidney": 0.96,
+      "A10_liver_metabolism": 0.96,
+      "A11_immune": 0.96,
+      "A12_blood": 0.96,
+      "A13_skin_hair": 0.94,
+      "A14_gut": 0.95,
+      "A15_fat": 0.95
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 40,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.08,
+      "A6_heart": 0.1,
+      "A8_lung": 0.09,
+      "A9_kidney": 0.1,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.09,
+      "A12_blood": 0.09,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.12,
+      "A15_fat": 0.14
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 120,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.08,
+      "A6_heart": 0.1,
+      "A8_lung": 0.09,
+      "A9_kidney": 0.1,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.09,
+      "A12_blood": 0.09,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.12,
+      "A15_fat": 0.14
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 400,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.95,
+      "A3_brain": 0.97,
+      "A6_heart": 0.96,
+      "A8_lung": 0.95,
+      "A9_kidney": 0.95,
+      "A10_liver_metabolism": 0.96,
+      "A11_immune": 0.96,
+      "A12_blood": 0.96,
+      "A13_skin_hair": 0.92,
+      "A14_gut": 0.94,
+      "A15_fat": 0.93
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [],
+     "sum_share": {
+      "A1_muscle": 0.0,
+      "A3_brain": 0.0,
+      "A6_heart": 0.0,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.0,
+      "A10_liver_metabolism": 0.0,
+      "A11_immune": 0.0,
+      "A12_blood": 0.0,
+      "A13_skin_hair": 0.0,
+      "A14_gut": 0.0,
+      "A15_fat": 0.0
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.2,
+      "A6_heart": 0.19,
+      "A8_lung": 0.2,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.21,
+      "A11_immune": 0.21,
+      "A12_blood": 0.22,
+      "A13_skin_hair": 0.19,
+      "A14_gut": 0.19,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.2,
+      "A6_heart": 0.19,
+      "A8_lung": 0.2,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.21,
+      "A11_immune": 0.21,
+      "A12_blood": 0.22,
+      "A13_skin_hair": 0.19,
+      "A14_gut": 0.19,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.0,
+      "A3_brain": 0.02,
+      "A6_heart": 0.02,
+      "A8_lung": 0.02,
+      "A9_kidney": 0.02,
+      "A10_liver_metabolism": 0.02,
+      "A11_immune": 0.02,
+      "A12_blood": 0.02,
+      "A13_skin_hair": 0.0,
+      "A14_gut": 0.0,
+      "A15_fat": 0.0
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.16,
+      "A3_brain": 0.16,
+      "A6_heart": 0.14,
+      "A8_lung": 0.16,
+      "A9_kidney": 0.16,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.16,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.16,
+      "A14_gut": 0.16,
+      "A15_fat": 0.15
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.16,
+      "A3_brain": 0.16,
+      "A6_heart": 0.14,
+      "A8_lung": 0.16,
+      "A9_kidney": 0.16,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.16,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.16,
+      "A14_gut": 0.16,
+      "A15_fat": 0.15
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.0,
+      "A3_brain": 0.01,
+      "A6_heart": 0.01,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.01,
+      "A11_immune": 0.01,
+      "A12_blood": 0.01,
+      "A13_skin_hair": 0.0,
+      "A14_gut": 0.0,
+      "A15_fat": 0.0
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.14,
+      "A3_brain": 0.06,
+      "A6_heart": 0.06,
+      "A8_lung": 0.06,
+      "A9_kidney": 0.06,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.07,
+      "A12_blood": 0.06,
+      "A13_skin_hair": 0.14,
+      "A14_gut": 0.13,
+      "A15_fat": 0.13
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.14,
+      "A3_brain": 0.06,
+      "A6_heart": 0.06,
+      "A8_lung": 0.06,
+      "A9_kidney": 0.06,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.07,
+      "A12_blood": 0.06,
+      "A13_skin_hair": 0.14,
+      "A14_gut": 0.13,
+      "A15_fat": 0.13
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.02,
+      "A6_heart": 0.02,
+      "A8_lung": 0.02,
+      "A9_kidney": 0.02,
+      "A10_liver_metabolism": 0.02,
+      "A11_immune": 0.02,
+      "A12_blood": 0.02,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.14,
+      "A15_fat": 0.14
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.15,
+      "A6_heart": 0.14,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.16,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.15,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.14,
+      "A15_fat": 0.14
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.15,
+      "A6_heart": 0.14,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.16,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.15,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.14,
+      "A15_fat": 0.14
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.13,
+      "A3_brain": 0.08,
+      "A6_heart": 0.08,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.08,
+      "A10_liver_metabolism": 0.09,
+      "A11_immune": 0.09,
+      "A12_blood": 0.08,
+      "A13_skin_hair": 0.14,
+      "A14_gut": 0.13,
+      "A15_fat": 0.12
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.13,
+      "A3_brain": 0.08,
+      "A6_heart": 0.08,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.08,
+      "A10_liver_metabolism": 0.09,
+      "A11_immune": 0.09,
+      "A12_blood": 0.08,
+      "A13_skin_hair": 0.14,
+      "A14_gut": 0.13,
+      "A15_fat": 0.12
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.13,
+      "A3_brain": 0.08,
+      "A6_heart": 0.08,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.08,
+      "A10_liver_metabolism": 0.09,
+      "A11_immune": 0.09,
+      "A12_blood": 0.08,
+      "A13_skin_hair": 0.14,
+      "A14_gut": 0.13,
+      "A15_fat": 0.12
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.07,
+      "A6_heart": 0.06,
+      "A8_lung": 0.07,
+      "A9_kidney": 0.07,
+      "A10_liver_metabolism": 0.07,
+      "A11_immune": 0.07,
+      "A12_blood": 0.06,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.11,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.07,
+      "A6_heart": 0.06,
+      "A8_lung": 0.07,
+      "A9_kidney": 0.07,
+      "A10_liver_metabolism": 0.07,
+      "A11_immune": 0.07,
+      "A12_blood": 0.06,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.11,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.07,
+      "A6_heart": 0.06,
+      "A8_lung": 0.07,
+      "A9_kidney": 0.07,
+      "A10_liver_metabolism": 0.07,
+      "A11_immune": 0.07,
+      "A12_blood": 0.06,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.11,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 40,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.08,
+      "A6_heart": 0.07,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.08,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.08,
+      "A12_blood": 0.08,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.11,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 120,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.08,
+      "A6_heart": 0.07,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.08,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.08,
+      "A12_blood": 0.08,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.11,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 400,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.08,
+      "A6_heart": 0.07,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.08,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.08,
+      "A12_blood": 0.08,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.11,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.18,
+      "A6_heart": 0.19,
+      "A8_lung": 0.18,
+      "A9_kidney": 0.2,
+      "A10_liver_metabolism": 0.18,
+      "A11_immune": 0.18,
+      "A12_blood": 0.2,
+      "A13_skin_hair": 0.19,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.18,
+      "A6_heart": 0.19,
+      "A8_lung": 0.19,
+      "A9_kidney": 0.2,
+      "A10_liver_metabolism": 0.18,
+      "A11_immune": 0.18,
+      "A12_blood": 0.2,
+      "A13_skin_hair": 0.19,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.18,
+      "A6_heart": 0.19,
+      "A8_lung": 0.19,
+      "A9_kidney": 0.2,
+      "A10_liver_metabolism": 0.18,
+      "A11_immune": 0.18,
+      "A12_blood": 0.2,
+      "A13_skin_hair": 0.19,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.16,
+      "A6_heart": 0.16,
+      "A8_lung": 0.16,
+      "A9_kidney": 0.17,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.16,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.15,
+      "A15_fat": 0.16
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.16,
+      "A6_heart": 0.16,
+      "A8_lung": 0.16,
+      "A9_kidney": 0.17,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.16,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.15,
+      "A15_fat": 0.16
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.9,
+      "A3_brain": 0.96,
+      "A6_heart": 0.16,
+      "A8_lung": 0.95,
+      "A9_kidney": 0.94,
+      "A10_liver_metabolism": 0.95,
+      "A11_immune": 0.95,
+      "A12_blood": 0.93,
+      "A13_skin_hair": 0.86,
+      "A14_gut": 0.88,
+      "A15_fat": 0.87
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.05,
+      "A6_heart": 0.05,
+      "A8_lung": 0.05,
+      "A9_kidney": 0.05,
+      "A10_liver_metabolism": 0.05,
+      "A11_immune": 0.05,
+      "A12_blood": 0.04,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.11,
+      "A15_fat": 0.12
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.05,
+      "A6_heart": 0.05,
+      "A8_lung": 0.05,
+      "A9_kidney": 0.05,
+      "A10_liver_metabolism": 0.05,
+      "A11_immune": 0.05,
+      "A12_blood": 0.04,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.11,
+      "A15_fat": 0.12
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.97,
+      "A3_brain": 0.98,
+      "A6_heart": 0.98,
+      "A8_lung": 0.98,
+      "A9_kidney": 0.97,
+      "A10_liver_metabolism": 0.98,
+      "A11_immune": 0.97,
+      "A12_blood": 0.98,
+      "A13_skin_hair": 0.96,
+      "A14_gut": 0.97,
+      "A15_fat": 0.96
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 50,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.14,
+      "A6_heart": 0.16,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.17,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.15,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.15,
+      "A15_fat": 0.15
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 150,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.14,
+      "A6_heart": 0.16,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.17,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.15,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.15,
+      "A15_fat": 0.15
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 500,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.87,
+      "A3_brain": 0.95,
+      "A6_heart": 0.91,
+      "A8_lung": 0.94,
+      "A9_kidney": 0.93,
+      "A10_liver_metabolism": 0.94,
+      "A11_immune": 0.94,
+      "A12_blood": 0.92,
+      "A13_skin_hair": 0.81,
+      "A14_gut": 0.85,
+      "A15_fat": 0.83
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 50,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.13,
+      "A3_brain": 0.08,
+      "A6_heart": 0.09,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.1,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.09,
+      "A12_blood": 0.08,
+      "A13_skin_hair": 0.13,
+      "A14_gut": 0.12,
+      "A15_fat": 0.13
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 150,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.13,
+      "A3_brain": 0.08,
+      "A6_heart": 0.09,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.1,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.09,
+      "A12_blood": 0.08,
+      "A13_skin_hair": 0.13,
+      "A14_gut": 0.12,
+      "A15_fat": 0.13
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 500,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.95,
+      "A3_brain": 0.98,
+      "A6_heart": 0.98,
+      "A8_lung": 0.97,
+      "A9_kidney": 0.96,
+      "A10_liver_metabolism": 0.97,
+      "A11_immune": 0.97,
+      "A12_blood": 0.97,
+      "A13_skin_hair": 0.92,
+      "A14_gut": 0.94,
+      "A15_fat": 0.93
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 50,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.11,
+      "A3_brain": 0.07,
+      "A6_heart": 0.08,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.08,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.08,
+      "A12_blood": 0.07,
+      "A13_skin_hair": 0.11,
+      "A14_gut": 0.1,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 150,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.11,
+      "A3_brain": 0.07,
+      "A6_heart": 0.08,
+      "A8_lung": 0.08,
+      "A9_kidney": 0.08,
+      "A10_liver_metabolism": 0.08,
+      "A11_immune": 0.08,
+      "A12_blood": 0.07,
+      "A13_skin_hair": 0.11,
+      "A14_gut": 0.1,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 500,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.96,
+      "A3_brain": 0.98,
+      "A6_heart": 0.97,
+      "A8_lung": 0.97,
+      "A9_kidney": 0.96,
+      "A10_liver_metabolism": 0.97,
+      "A11_immune": 0.97,
+      "A12_blood": 0.97,
+      "A13_skin_hair": 0.93,
+      "A14_gut": 0.95,
+      "A15_fat": 0.93
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 70,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.12,
+      "A3_brain": 0.08,
+      "A6_heart": 0.1,
+      "A8_lung": 0.09,
+      "A9_kidney": 0.1,
+      "A10_liver_metabolism": 0.09,
+      "A11_immune": 0.09,
+      "A12_blood": 0.09,
+      "A13_skin_hair": 0.12,
+      "A14_gut": 0.11,
+      "A15_fat": 0.12
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 210,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.94,
+      "A3_brain": 0.97,
+      "A6_heart": 0.97,
+      "A8_lung": 0.96,
+      "A9_kidney": 0.96,
+      "A10_liver_metabolism": 0.96,
+      "A11_immune": 0.97,
+      "A12_blood": 0.96,
+      "A13_skin_hair": 0.9,
+      "A14_gut": 0.93,
+      "A15_fat": 0.91
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 700,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.94,
+      "A3_brain": 0.97,
+      "A6_heart": 0.97,
+      "A8_lung": 0.96,
+      "A9_kidney": 0.96,
+      "A10_liver_metabolism": 0.96,
+      "A11_immune": 0.97,
+      "A12_blood": 0.96,
+      "A13_skin_hair": 0.9,
+      "A14_gut": 0.93,
+      "A15_fat": 0.91
+     }
+    }
+   ]
+  },
+  {
+   "kappa": 2.0,
+   "rows": [
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.05,
+      "A6_heart": 0.07,
+      "A8_lung": 0.1,
+      "A9_kidney": 0.1,
+      "A10_liver_metabolism": 0.09,
+      "A11_immune": 0.07,
+      "A12_blood": 0.06,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.23,
+      "A6_heart": 0.22,
+      "A8_lung": 0.21,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.2,
+      "A11_immune": 0.23,
+      "A12_blood": 0.22,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.23,
+      "A6_heart": 0.22,
+      "A8_lung": 0.21,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.2,
+      "A11_immune": 0.23,
+      "A12_blood": 0.22,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.05,
+      "A6_heart": 0.11,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.13,
+      "A10_liver_metabolism": 0.14,
+      "A11_immune": 0.08,
+      "A12_blood": 0.07,
+      "A13_skin_hair": 0.19,
+      "A14_gut": 0.19,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.22,
+      "A6_heart": 0.19,
+      "A8_lung": 0.2,
+      "A9_kidney": 0.19,
+      "A10_liver_metabolism": 0.18,
+      "A11_immune": 0.24,
+      "A12_blood": 0.18,
+      "A13_skin_hair": 0.19,
+      "A14_gut": 0.19,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.22,
+      "A6_heart": 0.19,
+      "A8_lung": 0.2,
+      "A9_kidney": 0.19,
+      "A10_liver_metabolism": 0.18,
+      "A11_immune": 0.24,
+      "A12_blood": 0.18,
+      "A13_skin_hair": 0.19,
+      "A14_gut": 0.19,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.18,
+      "A3_brain": 0.13,
+      "A6_heart": 0.15,
+      "A8_lung": 0.14,
+      "A9_kidney": 0.14,
+      "A10_liver_metabolism": 0.14,
+      "A11_immune": 0.13,
+      "A12_blood": 0.12,
+      "A13_skin_hair": 0.17,
+      "A14_gut": 0.18,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.18,
+      "A3_brain": 0.13,
+      "A6_heart": 0.15,
+      "A8_lung": 0.14,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.14,
+      "A11_immune": 0.14,
+      "A12_blood": 0.12,
+      "A13_skin_hair": 0.17,
+      "A14_gut": 0.18,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A8_lung",
+      "A10_liver_metabolism",
+      "A11_immune"
+     ],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.88,
+      "A3_brain": 0.98,
+      "A6_heart": 0.15,
+      "A8_lung": 0.89,
+      "A9_kidney": 0.79,
+      "A10_liver_metabolism": 0.92,
+      "A11_immune": 0.93,
+      "A12_blood": 0.12,
+      "A13_skin_hair": 0.17,
+      "A14_gut": 0.18,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.17,
+      "A3_brain": 0.19,
+      "A6_heart": 0.17,
+      "A8_lung": 0.17,
+      "A9_kidney": 0.17,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.1,
+      "A12_blood": 0.16,
+      "A13_skin_hair": 0.17,
+      "A14_gut": 0.17,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.17,
+      "A3_brain": 0.19,
+      "A6_heart": 0.17,
+      "A8_lung": 0.17,
+      "A9_kidney": 0.17,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.2,
+      "A12_blood": 0.16,
+      "A13_skin_hair": 0.17,
+      "A14_gut": 0.17,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.17,
+      "A3_brain": 0.19,
+      "A6_heart": 0.17,
+      "A8_lung": 0.17,
+      "A9_kidney": 0.17,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.2,
+      "A12_blood": 0.16,
+      "A13_skin_hair": 0.17,
+      "A14_gut": 0.17,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.16,
+      "A3_brain": 0.14,
+      "A6_heart": 0.15,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.14,
+      "A11_immune": 0.15,
+      "A12_blood": 0.13,
+      "A13_skin_hair": 0.16,
+      "A14_gut": 0.16,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.16,
+      "A3_brain": 0.14,
+      "A6_heart": 0.15,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.14,
+      "A11_immune": 0.15,
+      "A12_blood": 0.13,
+      "A13_skin_hair": 0.16,
+      "A14_gut": 0.16,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.86,
+      "A3_brain": 0.97,
+      "A6_heart": 0.89,
+      "A8_lung": 0.9,
+      "A9_kidney": 0.8,
+      "A10_liver_metabolism": 0.91,
+      "A11_immune": 0.91,
+      "A12_blood": 0.87,
+      "A13_skin_hair": 0.88,
+      "A14_gut": 0.16,
+      "A15_fat": 0.82
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.13,
+      "A6_heart": 0.13,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.14,
+      "A10_liver_metabolism": 0.13,
+      "A11_immune": 0.15,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.15,
+      "A15_fat": 0.16
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.13,
+      "A6_heart": 0.13,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.14,
+      "A10_liver_metabolism": 0.13,
+      "A11_immune": 0.15,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.15,
+      "A15_fat": 0.16
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.85,
+      "A3_brain": 0.97,
+      "A6_heart": 0.88,
+      "A8_lung": 0.9,
+      "A9_kidney": 0.81,
+      "A10_liver_metabolism": 0.9,
+      "A11_immune": 0.91,
+      "A12_blood": 0.87,
+      "A13_skin_hair": 0.88,
+      "A14_gut": 0.95,
+      "A15_fat": 0.82
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 40,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.14,
+      "A3_brain": 0.13,
+      "A6_heart": 0.13,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.13,
+      "A10_liver_metabolism": 0.13,
+      "A11_immune": 0.14,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.14,
+      "A14_gut": 0.14,
+      "A15_fat": 0.15
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 120,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.14,
+      "A3_brain": 0.13,
+      "A6_heart": 0.13,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.13,
+      "A10_liver_metabolism": 0.13,
+      "A11_immune": 0.14,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.14,
+      "A14_gut": 0.14,
+      "A15_fat": 0.15
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 400,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.83,
+      "A3_brain": 0.97,
+      "A6_heart": 0.88,
+      "A8_lung": 0.9,
+      "A9_kidney": 0.8,
+      "A10_liver_metabolism": 0.9,
+      "A11_immune": 0.9,
+      "A12_blood": 0.86,
+      "A13_skin_hair": 0.87,
+      "A14_gut": 0.95,
+      "A15_fat": 0.81
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.06,
+      "A3_brain": 0.14,
+      "A6_heart": 0.15,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.16,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.15,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.06,
+      "A14_gut": 0.06,
+      "A15_fat": 0.06
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.24,
+      "A3_brain": 0.25,
+      "A6_heart": 0.22,
+      "A8_lung": 0.24,
+      "A9_kidney": 0.24,
+      "A10_liver_metabolism": 0.22,
+      "A11_immune": 0.25,
+      "A12_blood": 0.22,
+      "A13_skin_hair": 0.23,
+      "A14_gut": 0.23,
+      "A15_fat": 0.23
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.24,
+      "A3_brain": 0.25,
+      "A6_heart": 0.22,
+      "A8_lung": 0.24,
+      "A9_kidney": 0.24,
+      "A10_liver_metabolism": 0.22,
+      "A11_immune": 0.25,
+      "A12_blood": 0.22,
+      "A13_skin_hair": 0.23,
+      "A14_gut": 0.23,
+      "A15_fat": 0.23
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.05,
+      "A3_brain": 0.15,
+      "A6_heart": 0.16,
+      "A8_lung": 0.16,
+      "A9_kidney": 0.16,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.15,
+      "A12_blood": 0.14,
+      "A13_skin_hair": 0.05,
+      "A14_gut": 0.05,
+      "A15_fat": 0.05
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.19,
+      "A6_heart": 0.2,
+      "A8_lung": 0.21,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.19,
+      "A11_immune": 0.2,
+      "A12_blood": 0.19,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.22,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.19,
+      "A6_heart": 0.2,
+      "A8_lung": 0.21,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.19,
+      "A11_immune": 0.2,
+      "A12_blood": 0.19,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.22,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.05,
+      "A3_brain": 0.15,
+      "A6_heart": 0.16,
+      "A8_lung": 0.14,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.13,
+      "A12_blood": 0.12,
+      "A13_skin_hair": 0.05,
+      "A14_gut": 0.05,
+      "A15_fat": 0.05
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.17,
+      "A6_heart": 0.17,
+      "A8_lung": 0.14,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.15,
+      "A12_blood": 0.13,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.17,
+      "A6_heart": 0.17,
+      "A8_lung": 0.14,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.15,
+      "A12_blood": 0.13,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.14,
+      "A6_heart": 0.15,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.14,
+      "A12_blood": 0.14,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.22,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.19,
+      "A6_heart": 0.19,
+      "A8_lung": 0.2,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.19,
+      "A11_immune": 0.2,
+      "A12_blood": 0.19,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.22,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.19,
+      "A6_heart": 0.19,
+      "A8_lung": 0.2,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.19,
+      "A11_immune": 0.2,
+      "A12_blood": 0.19,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.22,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.17,
+      "A6_heart": 0.17,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.16,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.15,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.21,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.17,
+      "A6_heart": 0.17,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.16,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.15,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.21,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.17,
+      "A6_heart": 0.17,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.16,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.15,
+      "A12_blood": 0.15,
+      "A13_skin_hair": 0.21,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.16,
+      "A6_heart": 0.16,
+      "A8_lung": 0.14,
+      "A9_kidney": 0.14,
+      "A10_liver_metabolism": 0.14,
+      "A11_immune": 0.13,
+      "A12_blood": 0.12,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.19,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.16,
+      "A6_heart": 0.16,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.14,
+      "A12_blood": 0.14,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.19,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.16,
+      "A6_heart": 0.16,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.14,
+      "A12_blood": 0.14,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.19,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 40,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.16,
+      "A6_heart": 0.16,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.15,
+      "A12_blood": 0.14,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 120,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.16,
+      "A6_heart": 0.16,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.15,
+      "A12_blood": 0.14,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 400,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.16,
+      "A6_heart": 0.16,
+      "A8_lung": 0.15,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.16,
+      "A11_immune": 0.15,
+      "A12_blood": 0.14,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.21,
+      "A6_heart": 0.2,
+      "A8_lung": 0.2,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.2,
+      "A11_immune": 0.21,
+      "A12_blood": 0.21,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.21,
+      "A6_heart": 0.2,
+      "A8_lung": 0.2,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.2,
+      "A11_immune": 0.21,
+      "A12_blood": 0.21,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.2,
+      "A3_brain": 0.21,
+      "A6_heart": 0.2,
+      "A8_lung": 0.2,
+      "A9_kidney": 0.21,
+      "A10_liver_metabolism": 0.2,
+      "A11_immune": 0.21,
+      "A12_blood": 0.21,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.2,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.18,
+      "A3_brain": 0.18,
+      "A6_heart": 0.18,
+      "A8_lung": 0.19,
+      "A9_kidney": 0.18,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.2,
+      "A12_blood": 0.17,
+      "A13_skin_hair": 0.18,
+      "A14_gut": 0.18,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.18,
+      "A3_brain": 0.18,
+      "A6_heart": 0.18,
+      "A8_lung": 0.19,
+      "A9_kidney": 0.18,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.2,
+      "A12_blood": 0.17,
+      "A13_skin_hair": 0.18,
+      "A14_gut": 0.18,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.18,
+      "A3_brain": 0.18,
+      "A6_heart": 0.18,
+      "A8_lung": 0.19,
+      "A9_kidney": 0.18,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.2,
+      "A12_blood": 0.17,
+      "A13_skin_hair": 0.18,
+      "A14_gut": 0.18,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.16,
+      "A3_brain": 0.13,
+      "A6_heart": 0.14,
+      "A8_lung": 0.12,
+      "A9_kidney": 0.12,
+      "A10_liver_metabolism": 0.14,
+      "A11_immune": 0.12,
+      "A12_blood": 0.1,
+      "A13_skin_hair": 0.16,
+      "A14_gut": 0.16,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.16,
+      "A3_brain": 0.13,
+      "A6_heart": 0.14,
+      "A8_lung": 0.12,
+      "A9_kidney": 0.12,
+      "A10_liver_metabolism": 0.14,
+      "A11_immune": 0.12,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.16,
+      "A14_gut": 0.16,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.89,
+      "A3_brain": 0.98,
+      "A6_heart": 0.93,
+      "A8_lung": 0.92,
+      "A9_kidney": 0.83,
+      "A10_liver_metabolism": 0.93,
+      "A11_immune": 0.94,
+      "A12_blood": 0.91,
+      "A13_skin_hair": 0.91,
+      "A14_gut": 0.16,
+      "A15_fat": 0.8
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 50,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.17,
+      "A3_brain": 0.17,
+      "A6_heart": 0.17,
+      "A8_lung": 0.18,
+      "A9_kidney": 0.18,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.18,
+      "A12_blood": 0.17,
+      "A13_skin_hair": 0.18,
+      "A14_gut": 0.18,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 150,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.17,
+      "A3_brain": 0.17,
+      "A6_heart": 0.17,
+      "A8_lung": 0.18,
+      "A9_kidney": 0.18,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.18,
+      "A12_blood": 0.17,
+      "A13_skin_hair": 0.18,
+      "A14_gut": 0.18,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 500,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.17,
+      "A3_brain": 0.17,
+      "A6_heart": 0.17,
+      "A8_lung": 0.18,
+      "A9_kidney": 0.18,
+      "A10_liver_metabolism": 0.17,
+      "A11_immune": 0.18,
+      "A12_blood": 0.17,
+      "A13_skin_hair": 0.18,
+      "A14_gut": 0.18,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 50,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.16,
+      "A3_brain": 0.14,
+      "A6_heart": 0.15,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.14,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.14,
+      "A12_blood": 0.13,
+      "A13_skin_hair": 0.16,
+      "A14_gut": 0.16,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 150,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.16,
+      "A3_brain": 0.14,
+      "A6_heart": 0.15,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.14,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.14,
+      "A12_blood": 0.13,
+      "A13_skin_hair": 0.16,
+      "A14_gut": 0.16,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 500,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.89,
+      "A3_brain": 0.98,
+      "A6_heart": 0.91,
+      "A8_lung": 0.92,
+      "A9_kidney": 0.85,
+      "A10_liver_metabolism": 0.93,
+      "A11_immune": 0.92,
+      "A12_blood": 0.89,
+      "A13_skin_hair": 0.9,
+      "A14_gut": 0.97,
+      "A15_fat": 0.81
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 50,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.13,
+      "A6_heart": 0.14,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.13,
+      "A10_liver_metabolism": 0.13,
+      "A11_immune": 0.13,
+      "A12_blood": 0.12,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.15,
+      "A15_fat": 0.16
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 150,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.13,
+      "A6_heart": 0.14,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.13,
+      "A10_liver_metabolism": 0.13,
+      "A11_immune": 0.13,
+      "A12_blood": 0.12,
+      "A13_skin_hair": 0.15,
+      "A14_gut": 0.15,
+      "A15_fat": 0.16
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 500,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.87,
+      "A3_brain": 0.97,
+      "A6_heart": 0.91,
+      "A8_lung": 0.93,
+      "A9_kidney": 0.84,
+      "A10_liver_metabolism": 0.92,
+      "A11_immune": 0.92,
+      "A12_blood": 0.9,
+      "A13_skin_hair": 0.89,
+      "A14_gut": 0.96,
+      "A15_fat": 0.81
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 70,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.14,
+      "A6_heart": 0.14,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.14,
+      "A10_liver_metabolism": 0.14,
+      "A11_immune": 0.14,
+      "A12_blood": 0.13,
+      "A13_skin_hair": 0.16,
+      "A14_gut": 0.15,
+      "A15_fat": 0.16
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 210,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.15,
+      "A3_brain": 0.14,
+      "A6_heart": 0.14,
+      "A8_lung": 0.13,
+      "A9_kidney": 0.14,
+      "A10_liver_metabolism": 0.14,
+      "A11_immune": 0.14,
+      "A12_blood": 0.13,
+      "A13_skin_hair": 0.16,
+      "A14_gut": 0.15,
+      "A15_fat": 0.16
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 700,
+     "split": [
+      "A1_muscle",
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood",
+      "A13_skin_hair",
+      "A14_gut",
+      "A15_fat"
+     ],
+     "split_repeatable": [
+      "A6_heart",
+      "A9_kidney",
+      "A12_blood",
+      "A14_gut"
+     ],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.88,
+      "A3_brain": 0.97,
+      "A6_heart": 0.9,
+      "A8_lung": 0.93,
+      "A9_kidney": 0.85,
+      "A10_liver_metabolism": 0.92,
+      "A11_immune": 0.9,
+      "A12_blood": 0.89,
+      "A13_skin_hair": 0.88,
+      "A14_gut": 0.96,
+      "A15_fat": 0.82
+     }
+    }
+   ]
+  },
+  {
+   "kappa": 8.0,
+   "rows": [
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A6_heart",
+      "A8_lung"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.05,
+      "A6_heart": 0.12,
+      "A8_lung": 0.0,
+      "A9_kidney": 0,
+      "A10_liver_metabolism": 0.2,
+      "A11_immune": 0.03,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.21,
+      "A15_fat": 0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.05,
+      "A6_heart": 0.12,
+      "A8_lung": 0.0,
+      "A9_kidney": 0,
+      "A10_liver_metabolism": 0.4,
+      "A11_immune": 0.03,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.36,
+      "A14_gut": 0.21,
+      "A15_fat": 0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.05,
+      "A6_heart": 0.12,
+      "A8_lung": 0.0,
+      "A9_kidney": 0,
+      "A10_liver_metabolism": 0.4,
+      "A11_immune": 0.03,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.36,
+      "A14_gut": 0.21,
+      "A15_fat": 0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A6_heart",
+      "A8_lung"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.04,
+      "A6_heart": 0.13,
+      "A8_lung": 0.0,
+      "A9_kidney": 0,
+      "A10_liver_metabolism": 0.29,
+      "A11_immune": 0.03,
+      "A12_blood": 0.1,
+      "A13_skin_hair": 0.21,
+      "A14_gut": 0.21,
+      "A15_fat": 0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.04,
+      "A6_heart": 0.13,
+      "A8_lung": 0.0,
+      "A9_kidney": 0,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.03,
+      "A12_blood": 0.1,
+      "A13_skin_hair": 0.36,
+      "A14_gut": 0.21,
+      "A15_fat": 0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.19,
+      "A3_brain": 0.04,
+      "A6_heart": 0.13,
+      "A8_lung": 0.0,
+      "A9_kidney": 0,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.03,
+      "A12_blood": 0.1,
+      "A13_skin_hair": 0.36,
+      "A14_gut": 0.21,
+      "A15_fat": 0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.18,
+      "A3_brain": 0.0,
+      "A6_heart": 0.15,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.13,
+      "A12_blood": 0.39,
+      "A13_skin_hair": 0.21,
+      "A14_gut": 0.21,
+      "A15_fat": 0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.18,
+      "A3_brain": 0.0,
+      "A6_heart": 0.15,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.13,
+      "A12_blood": 0.39,
+      "A13_skin_hair": 0.37,
+      "A14_gut": 0.21,
+      "A15_fat": 0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.18,
+      "A3_brain": 0.0,
+      "A6_heart": 0.15,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.13,
+      "A12_blood": 0.39,
+      "A13_skin_hair": 0.37,
+      "A14_gut": 0.21,
+      "A15_fat": 0
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A6_heart",
+      "A8_lung"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.3,
+      "A3_brain": 0.05,
+      "A6_heart": 0.11,
+      "A8_lung": 0.03,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.15,
+      "A11_immune": 0.03,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.19,
+      "A15_fat": 0.14
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.3,
+      "A3_brain": 0.05,
+      "A6_heart": 0.11,
+      "A8_lung": 0.03,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.03,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.19,
+      "A15_fat": 0.14
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.3,
+      "A3_brain": 0.05,
+      "A6_heart": 0.11,
+      "A8_lung": 0.03,
+      "A9_kidney": 0.15,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.03,
+      "A12_blood": 0.11,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.19,
+      "A15_fat": 0.14
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.01,
+      "A6_heart": 0.12,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.12,
+      "A12_blood": 0.45,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.18,
+      "A15_fat": 0.13
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.01,
+      "A6_heart": 0.12,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.12,
+      "A12_blood": 0.45,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.18,
+      "A15_fat": 0.13
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.01,
+      "A6_heart": 0.12,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.12,
+      "A12_blood": 0.45,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.18,
+      "A15_fat": 0.13
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.01,
+      "A6_heart": 0.13,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.11,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.18,
+      "A15_fat": 0.13
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.01,
+      "A6_heart": 0.13,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.11,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.18,
+      "A15_fat": 0.13
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.01,
+      "A6_heart": 0.13,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.11,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.18,
+      "A15_fat": 0.13
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 40,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.01,
+      "A6_heart": 0.1,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.36,
+      "A11_immune": 0.28,
+      "A12_blood": 0.43,
+      "A13_skin_hair": 0.31,
+      "A14_gut": 0.21,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 120,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.01,
+      "A6_heart": 0.1,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.36,
+      "A11_immune": 0.28,
+      "A12_blood": 0.43,
+      "A13_skin_hair": 0.31,
+      "A14_gut": 0.21,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      6
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 400,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.01,
+      "A6_heart": 0.1,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.36,
+      "A11_immune": 0.28,
+      "A12_blood": 0.43,
+      "A13_skin_hair": 0.31,
+      "A14_gut": 0.21,
+      "A15_fat": 0.11
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.23,
+      "A3_brain": 0.04,
+      "A6_heart": 0.18,
+      "A8_lung": 0.02,
+      "A9_kidney": 0.07,
+      "A10_liver_metabolism": 0.36,
+      "A11_immune": 0.04,
+      "A12_blood": 0.41,
+      "A13_skin_hair": 0.23,
+      "A14_gut": 0.24,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.23,
+      "A3_brain": 0.04,
+      "A6_heart": 0.18,
+      "A8_lung": 0.02,
+      "A9_kidney": 0.07,
+      "A10_liver_metabolism": 0.44,
+      "A11_immune": 0.04,
+      "A12_blood": 0.41,
+      "A13_skin_hair": 0.23,
+      "A14_gut": 0.24,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.23,
+      "A3_brain": 0.04,
+      "A6_heart": 0.18,
+      "A8_lung": 0.02,
+      "A9_kidney": 0.07,
+      "A10_liver_metabolism": 0.44,
+      "A11_immune": 0.04,
+      "A12_blood": 0.41,
+      "A13_skin_hair": 0.23,
+      "A14_gut": 0.24,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.23,
+      "A3_brain": 0.02,
+      "A6_heart": 0.17,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.43,
+      "A11_immune": 0.23,
+      "A12_blood": 0.41,
+      "A13_skin_hair": 0.23,
+      "A14_gut": 0.23,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.23,
+      "A3_brain": 0.02,
+      "A6_heart": 0.17,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.43,
+      "A11_immune": 0.23,
+      "A12_blood": 0.41,
+      "A13_skin_hair": 0.23,
+      "A14_gut": 0.23,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.23,
+      "A3_brain": 0.02,
+      "A6_heart": 0.17,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.43,
+      "A11_immune": 0.23,
+      "A12_blood": 0.41,
+      "A13_skin_hair": 0.23,
+      "A14_gut": 0.23,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 20,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.01,
+      "A6_heart": 0.17,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.0,
+      "A10_liver_metabolism": 0.39,
+      "A11_immune": 0.15,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.23,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 60,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.01,
+      "A6_heart": 0.17,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.0,
+      "A10_liver_metabolism": 0.39,
+      "A11_immune": 0.15,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.23,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 200,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.01,
+      "A6_heart": 0.17,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.0,
+      "A10_liver_metabolism": 0.39,
+      "A11_immune": 0.15,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.23,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.23,
+      "A3_brain": 0.03,
+      "A6_heart": 0.23,
+      "A8_lung": 0.39,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.43,
+      "A11_immune": 0.28,
+      "A12_blood": 0.39,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.23,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.23,
+      "A3_brain": 0.03,
+      "A6_heart": 0.23,
+      "A8_lung": 0.39,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.43,
+      "A11_immune": 0.28,
+      "A12_blood": 0.39,
+      "A13_skin_hair": 0.41,
+      "A14_gut": 0.23,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.23,
+      "A3_brain": 0.03,
+      "A6_heart": 0.23,
+      "A8_lung": 0.39,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.43,
+      "A11_immune": 0.28,
+      "A12_blood": 0.39,
+      "A13_skin_hair": 0.41,
+      "A14_gut": 0.23,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.28,
+      "A6_heart": 0.23,
+      "A8_lung": 0.38,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.39,
+      "A11_immune": 0.23,
+      "A12_blood": 0.37,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.23,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.28,
+      "A6_heart": 0.24,
+      "A8_lung": 0.38,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.39,
+      "A11_immune": 0.23,
+      "A12_blood": 0.37,
+      "A13_skin_hair": 0.4,
+      "A14_gut": 0.23,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.28,
+      "A6_heart": 0.24,
+      "A8_lung": 0.38,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.39,
+      "A11_immune": 0.23,
+      "A12_blood": 0.37,
+      "A13_skin_hair": 0.4,
+      "A14_gut": 0.23,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.26,
+      "A6_heart": 0.21,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.21,
+      "A12_blood": 0.35,
+      "A13_skin_hair": 0.22,
+      "A14_gut": 0.22,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.26,
+      "A6_heart": 0.21,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.21,
+      "A12_blood": 0.35,
+      "A13_skin_hair": 0.39,
+      "A14_gut": 0.22,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.22,
+      "A3_brain": 0.26,
+      "A6_heart": 0.21,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.01,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.21,
+      "A12_blood": 0.35,
+      "A13_skin_hair": 0.39,
+      "A14_gut": 0.22,
+      "A15_fat": 0.2
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 40,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.31,
+      "A3_brain": 0.29,
+      "A6_heart": 0.27,
+      "A8_lung": 0.4,
+      "A9_kidney": 0.34,
+      "A10_liver_metabolism": 0.4,
+      "A11_immune": 0.26,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.38,
+      "A14_gut": 0.22,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 120,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.31,
+      "A3_brain": 0.29,
+      "A6_heart": 0.36,
+      "A8_lung": 0.4,
+      "A9_kidney": 0.34,
+      "A10_liver_metabolism": 0.4,
+      "A11_immune": 0.26,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.38,
+      "A14_gut": 0.22,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 400,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.31,
+      "A3_brain": 0.29,
+      "A6_heart": 0.36,
+      "A8_lung": 0.4,
+      "A9_kidney": 0.34,
+      "A10_liver_metabolism": 0.4,
+      "A11_immune": 0.26,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.38,
+      "A14_gut": 0.22,
+      "A15_fat": 0.21
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.3,
+      "A3_brain": 0.04,
+      "A6_heart": 0.21,
+      "A8_lung": 0.17,
+      "A9_kidney": 0.07,
+      "A10_liver_metabolism": 0.4,
+      "A11_immune": 0.29,
+      "A12_blood": 0.31,
+      "A13_skin_hair": 0.21,
+      "A14_gut": 0.22,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.3,
+      "A3_brain": 0.04,
+      "A6_heart": 0.21,
+      "A8_lung": 0.17,
+      "A9_kidney": 0.07,
+      "A10_liver_metabolism": 0.4,
+      "A11_immune": 0.29,
+      "A12_blood": 0.44,
+      "A13_skin_hair": 0.37,
+      "A14_gut": 0.22,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.3,
+      "A3_brain": 0.04,
+      "A6_heart": 0.21,
+      "A8_lung": 0.17,
+      "A9_kidney": 0.07,
+      "A10_liver_metabolism": 0.4,
+      "A11_immune": 0.29,
+      "A12_blood": 0.44,
+      "A13_skin_hair": 0.37,
+      "A14_gut": 0.22,
+      "A15_fat": 0.19
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.02,
+      "A6_heart": 0.16,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.2,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.21,
+      "A14_gut": 0.22,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.02,
+      "A6_heart": 0.16,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.2,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.36,
+      "A14_gut": 0.22,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.29,
+      "A3_brain": 0.02,
+      "A6_heart": 0.16,
+      "A8_lung": 0.01,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.41,
+      "A11_immune": 0.2,
+      "A12_blood": 0.36,
+      "A13_skin_hair": 0.36,
+      "A14_gut": 0.22,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 30,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.28,
+      "A3_brain": 0.0,
+      "A6_heart": 0.17,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.0,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.14,
+      "A12_blood": 0.33,
+      "A13_skin_hair": 0.2,
+      "A14_gut": 0.21,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 90,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.28,
+      "A3_brain": 0.0,
+      "A6_heart": 0.17,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.0,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.14,
+      "A12_blood": 0.33,
+      "A13_skin_hair": 0.35,
+      "A14_gut": 0.21,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 300,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.28,
+      "A3_brain": 0.0,
+      "A6_heart": 0.17,
+      "A8_lung": 0.0,
+      "A9_kidney": 0.0,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.14,
+      "A12_blood": 0.33,
+      "A13_skin_hair": 0.35,
+      "A14_gut": 0.21,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 10,
+     "mice_per_sex": 50,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.32,
+      "A3_brain": 0.29,
+      "A6_heart": 0.25,
+      "A8_lung": 0.43,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.36,
+      "A12_blood": 0.42,
+      "A13_skin_hair": 0.34,
+      "A14_gut": 0.27,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 30,
+     "mice_per_sex": 150,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.32,
+      "A3_brain": 0.29,
+      "A6_heart": 0.31,
+      "A8_lung": 0.43,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.36,
+      "A12_blood": 0.42,
+      "A13_skin_hair": 0.34,
+      "A14_gut": 0.27,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3
+     ],
+     "n": 100,
+     "mice_per_sex": 500,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.32,
+      "A3_brain": 0.29,
+      "A6_heart": 0.31,
+      "A8_lung": 0.43,
+      "A9_kidney": 0.03,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.36,
+      "A12_blood": 0.42,
+      "A13_skin_hair": 0.34,
+      "A14_gut": 0.27,
+      "A15_fat": 0.18
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 50,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.31,
+      "A3_brain": 0.27,
+      "A6_heart": 0.28,
+      "A8_lung": 0.39,
+      "A9_kidney": 0.32,
+      "A10_liver_metabolism": 0.36,
+      "A11_immune": 0.32,
+      "A12_blood": 0.43,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.26,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 150,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.31,
+      "A3_brain": 0.27,
+      "A6_heart": 0.35,
+      "A8_lung": 0.39,
+      "A9_kidney": 0.32,
+      "A10_liver_metabolism": 0.36,
+      "A11_immune": 0.32,
+      "A12_blood": 0.43,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.26,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 500,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.31,
+      "A3_brain": 0.27,
+      "A6_heart": 0.35,
+      "A8_lung": 0.39,
+      "A9_kidney": 0.32,
+      "A10_liver_metabolism": 0.36,
+      "A11_immune": 0.32,
+      "A12_blood": 0.43,
+      "A13_skin_hair": 0.33,
+      "A14_gut": 0.26,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 50,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.3,
+      "A3_brain": 0.23,
+      "A6_heart": 0.19,
+      "A8_lung": 0.35,
+      "A9_kidney": 0.0,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.37,
+      "A12_blood": 0.47,
+      "A13_skin_hair": 0.32,
+      "A14_gut": 0.26,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 150,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.3,
+      "A3_brain": 0.23,
+      "A6_heart": 0.3,
+      "A8_lung": 0.35,
+      "A9_kidney": 0.0,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.37,
+      "A12_blood": 0.47,
+      "A13_skin_hair": 0.32,
+      "A14_gut": 0.26,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 500,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.3,
+      "A3_brain": 0.23,
+      "A6_heart": 0.3,
+      "A8_lung": 0.35,
+      "A9_kidney": 0.0,
+      "A10_liver_metabolism": 0.38,
+      "A11_immune": 0.37,
+      "A12_blood": 0.47,
+      "A13_skin_hair": 0.32,
+      "A14_gut": 0.26,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 10,
+     "mice_per_sex": 70,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.31,
+      "A3_brain": 0.3,
+      "A6_heart": 0.3,
+      "A8_lung": 0.38,
+      "A9_kidney": 0.33,
+      "A10_liver_metabolism": 0.36,
+      "A11_immune": 0.31,
+      "A12_blood": 0.41,
+      "A13_skin_hair": 0.32,
+      "A14_gut": 0.27,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 30,
+     "mice_per_sex": 210,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.31,
+      "A3_brain": 0.3,
+      "A6_heart": 0.36,
+      "A8_lung": 0.38,
+      "A9_kidney": 0.33,
+      "A10_liver_metabolism": 0.36,
+      "A11_immune": 0.31,
+      "A12_blood": 0.41,
+      "A13_skin_hair": 0.32,
+      "A14_gut": 0.27,
+      "A15_fat": 0.17
+     }
+    },
+    {
+     "ages_mo": [
+      6,
+      18
+     ],
+     "doses_xc": [
+      0.15,
+      0.3,
+      0.6
+     ],
+     "n": 100,
+     "mice_per_sex": 700,
+     "split": [],
+     "split_repeatable": [],
+     "xc_pinned": [
+      "A3_brain",
+      "A6_heart",
+      "A8_lung",
+      "A9_kidney",
+      "A10_liver_metabolism",
+      "A11_immune",
+      "A12_blood"
+     ],
+     "sum_share": {
+      "A1_muscle": 0.31,
+      "A3_brain": 0.3,
+      "A6_heart": 0.36,
+      "A8_lung": 0.38,
+      "A9_kidney": 0.33,
+      "A10_liver_metabolism": 0.36,
+      "A11_immune": 0.31,
+      "A12_blood": 0.41,
+      "A13_skin_hair": 0.32,
+      "A14_gut": 0.27,
+      "A15_fat": 0.17
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,422 @@
+{
+ "image_sha256": "696a7e0a2b7b6187f9f2de10789cb599f1f89a2281538283722f5df6e37413f6",
+ "charts": [
+  {
+   "chart": "1b p16 mRNA",
+   "ticks_px_label": [
+    [
+     1018.0,
+     0
+    ],
+    [
+     945.5,
+     2
+    ],
+    [
+     872.5,
+     4
+    ],
+    [
+     800.0,
+     6
+    ],
+    [
+     727.0,
+     8
+    ],
+    [
+     654.5,
+     10
+    ]
+   ],
+   "baseline_row": 1018,
+   "calibration": {
+    "alpha": 27.996443054435854,
+    "beta": -0.027499483473166948,
+    "n_ticks": 6,
+    "max_abs_residual": 0.004318569443494624
+   },
+   "groups": {
+    "old": {
+     "walls_px": [
+      278,
+      329
+     ],
+     "top_rows_px": [
+      798,
+      802
+     ],
+     "top_centre_px": 800.0,
+     "cap_rows_px": [
+      773,
+      775
+     ],
+     "cap_centre_px": 774.0,
+     "cap_x_px": [
+      291,
+      316
+     ],
+     "mean": 5.9969,
+     "sem": 0.715
+    },
+    "dq": {
+     "walls_px": [
+      357,
+      408
+     ],
+     "top_rows_px": [
+      962,
+      966
+     ],
+     "top_centre_px": 964.0,
+     "cap_rows_px": [
+      957,
+      959
+     ],
+     "cap_centre_px": 958.0,
+     "cap_x_px": [
+      370,
+      395
+     ],
+     "mean": 1.4869,
+     "sem": 0.165
+    }
+   },
+   "dq_over_old": {
+    "ratio": 0.2479,
+    "se_log": 0.1629,
+    "lo": 0.1631,
+    "hi": 0.3769,
+    "n_per_group": 6,
+    "t": 2.570582
+   },
+   "result": "ok"
+  },
+  {
+   "chart": "1b p21 mRNA",
+   "ticks_px_label": [
+    [
+     1018.5,
+     0
+    ],
+    [
+     945.5,
+     1
+    ],
+    [
+     872.5,
+     2
+    ],
+    [
+     799.5,
+     3
+    ],
+    [
+     726.5,
+     4
+    ],
+    [
+     653.5,
+     5
+    ]
+   ],
+   "baseline_row": 1018,
+   "calibration": {
+    "alpha": 13.952054794520555,
+    "beta": -0.01369863013698631,
+    "n_ticks": 6,
+    "max_abs_residual": 1.7763568394002505e-15
+   },
+   "groups": {
+    "old": {
+     "walls_px": [
+      722,
+      773
+     ],
+     "top_rows_px": [
+      724,
+      727
+     ],
+     "top_centre_px": 725.5,
+     "cap_rows_px": [
+      704,
+      706
+     ],
+     "cap_centre_px": 705.0,
+     "cap_x_px": [
+      734,
+      760
+     ],
+     "mean": 4.0137,
+     "sem": 0.2808
+    },
+    "dq": {
+     "walls_px": [
+      801,
+      853
+     ],
+     "top_rows_px": [
+      868,
+      871
+     ],
+     "top_centre_px": 869.5,
+     "cap_rows_px": [
+      855,
+      857
+     ],
+     "cap_centre_px": 856.0,
+     "cap_x_px": [
+      814,
+      839
+     ],
+     "mean": 2.0411,
+     "sem": 0.1849
+    }
+   },
+   "dq_over_old": {
+    "ratio": 0.5085,
+    "se_log": 0.1145,
+    "lo": 0.3789,
+    "hi": 0.6825,
+    "n_per_group": 6,
+    "t": 2.570582
+   },
+   "result": "ok"
+  },
+  {
+   "chart": "1d IHC positive area %",
+   "ticks_px_label": [
+    [
+     1616.0,
+     0
+    ],
+    [
+     1543.5,
+     5
+    ],
+    [
+     1470.5,
+     10
+    ],
+    [
+     1397.5,
+     15
+    ],
+    [
+     1325.0,
+     20
+    ],
+    [
+     1252.0,
+     25
+    ]
+   ],
+   "baseline_row": 1616,
+   "calibration": {
+    "alpha": 110.97529918372004,
+    "beta": -0.06866776629697491,
+    "n_ticks": 6,
+    "max_abs_residual": 0.013398095660733134
+   },
+   "groups": {
+    "old": {
+     "walls_px": [
+      282,
+      335
+     ],
+     "top_rows_px": [
+      1300,
+      1305
+     ],
+     "top_centre_px": 1302.5,
+     "cap_rows_px": [
+      1287,
+      1289
+     ],
+     "cap_centre_px": 1288.0,
+     "cap_x_px": [
+      296,
+      321
+     ],
+     "mean": 21.5355,
+     "sem": 0.9957
+    },
+    "dq": {
+     "walls_px": [
+      361,
+      413
+     ],
+     "top_rows_px": [
+      1550,
+      1554
+     ],
+     "top_centre_px": 1552.0,
+     "cap_rows_px": [
+      1541,
+      1543
+     ],
+     "cap_centre_px": 1542.0,
+     "cap_x_px": [
+      374,
+      400
+     ],
+     "mean": 4.4029,
+     "sem": 0.6867
+    }
+   },
+   "dq_over_old": {
+    "ratio": 0.2044,
+    "se_log": 0.1627,
+    "lo": 0.1301,
+    "hi": 0.3212,
+    "n_per_group": 5,
+    "t": 2.776445
+   },
+   "result": "ok"
+  },
+  {
+   "chart": "1d IHC positive cells/field",
+   "ticks_px_label": [
+    [
+     1616.5,
+     0
+    ],
+    [
+     1494.5,
+     5
+    ],
+    [
+     1372.0,
+     10
+    ],
+    [
+     1249.5,
+     15
+    ]
+   ],
+   "baseline_row": 1616,
+   "calibration": {
+    "alpha": 66.06655349238412,
+    "beta": -0.04086632603044683,
+    "n_ticks": 4,
+    "max_abs_residual": 0.008170760118666465
+   },
+   "result": "no_mapping (cap dq not located)",
+   "groups": {
+    "old": {
+     "walls_px": [
+      754,
+      806
+     ],
+     "top_rows_px": [
+      1393,
+      1396
+     ],
+     "top_centre_px": 1394.5,
+     "cap_rows_px": [
+      1364,
+      1366
+     ],
+     "cap_centre_px": 1365.0,
+     "cap_x_px": [
+      767,
+      793
+     ],
+     "mean": 9.0785,
+     "sem": 1.2056
+    }
+   }
+  },
+  {
+   "chart": "1f SA-beta-gal positive area %",
+   "ticks_px_label": [
+    [
+     1606.5,
+     0
+    ],
+    [
+     1534.5,
+     5
+    ],
+    [
+     1461.5,
+     10
+    ],
+    [
+     1389.0,
+     15
+    ],
+    [
+     1316.5,
+     20
+    ],
+    [
+     1243.5,
+     25
+    ]
+   ],
+   "baseline_row": 1606,
+   "calibration": {
+    "alpha": 110.63811384193136,
+    "beta": -0.0688567716835161,
+    "n_ticks": 6,
+    "max_abs_residual": 0.022602306424104768
+   },
+   "groups": {
+    "old": {
+     "walls_px": [
+      1882,
+      1934
+     ],
+     "top_rows_px": [
+      1413,
+      1417
+     ],
+     "top_centre_px": 1415.0,
+     "cap_rows_px": [
+      1385,
+      1387
+     ],
+     "cap_centre_px": 1386.0,
+     "cap_x_px": [
+      1895,
+      1921
+     ],
+     "mean": 13.2058,
+     "sem": 1.9968
+    },
+    "dq": {
+     "walls_px": [
+      1963,
+      2015
+     ],
+     "top_rows_px": [
+      1498,
+      1502
+     ],
+     "top_centre_px": 1500.0,
+     "cap_rows_px": [
+      1481,
+      1483
+     ],
+     "cap_centre_px": 1482.0,
+     "cap_x_px": [
+      1976,
+      2001
+     ],
+     "mean": 7.353,
+     "sem": 1.2394
+    }
+   },
+   "dq_over_old": {
+    "ratio": 0.5568,
+    "se_log": 0.2264,
+    "lo": 0.2969,
+    "hi": 1.0441,
+    "n_per_group": 5,
+    "t": 2.776445
+   },
+   "result": "ok"
+  }
+ ]
+}

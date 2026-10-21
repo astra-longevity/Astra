@@ -441,6 +441,71 @@ Snippets only; no page read reports lifespan (no manual-downloads rows).
 | I17 | `n_sim` 600 local; Monte-Carlo floor may hide small shares, the Actions run can repeat it |
 | I18 | Kappa 8 grid (~0 everywhere) contradicts the kidney smoke (0.34): likely MC floor (threshold 3 × most negative eigenvalue); not to be read as "challenge useless at high kappa" before the Actions run |
 
+## 10. Identifiability from current public data, and stand-ins
+
+See `design/public-data.md`. In short: A9's real public design (DRiDO + MPD) pins the
+`eta − beta` balance in immune, blood and (females) fat, and nothing else — no
+single parameter, no `Xc`. The female-kidney `ratio` 0.02 is a Monte-Carlo /
+threshold artefact (same class as I18), to be confirmed on the Actions run.
+Zero-mouse stand-ins (published aged-vs-young recovery curves) bound kappa and
+the recovery shape but cannot fit `eta`/`beta` or `Xc`. First mouse-request
+candidates, incl. the O4 factorial arm, are tabulated there.
+
+## 11. Cost curve (mice per sex vs parameters identified)
+
+From the 20k challenge Actions run (run 39594585409, 462 shards, results
+`research/runs/sim-v0-challenge-2026-10-21/`). `py/design/cost_curve.py` adds
+the baseline Fisher to the challenge Fisher of every (start age, dose) cohort in
+a design; no new simulation. Single-cohort designs reproduce `result-20000.json`
+exactly (594/594 cells). Full table: `results/cost-curve.json`.
+
+- Design = start ages ⊂ {6, 18 mo} × doses ⊂ {0.15, 0.3, 0.6} × Xc; n mice per
+  time point. **Mice per sex = n × (1 baseline + one cohort per (age, dose))**:
+  a repeatable readout re-reads the same n mice at all 6 post times.
+- Split = share on eta + beta ≥ 0.8; Xc pinned = share on Xc ≥ 0.8 (§9.1).
+- Repeatable readouts (§9.5): heart echo, kidney tGFR, blood CBC, gut
+  weight/score. The other 7 organs have a terminal or [to verify] readout.
+
+Best design in each class (organs split eta/beta: all / repeatable only):
+
+| Ages × doses | n 10 | n 30 | n 100 | Kappa prior (0.5) | Kappa 2 | Kappa 8 |
+|---|---|---|---|---|---|---|
+| 1 age (6 mo) × 1 dose | 20 mice | 60 | 200 | n100, dose 0.6: 11 / 4 | n100: 5 / 0 | 0 |
+| 1 age × 2 doses | 30 | 90 | 300 | n100: 11 / 4 | n100, doses 0.3+0.6: 11 / 4 | 0 |
+| 1 age × 3 doses | 40 | 120 | 400 | n100: 11 / 4 | n100: 11 / 4 | 0 |
+| 2 ages × 1 dose | 30 | 90 | 300 | n100: 11 / 4 | n100: 10 / 3 | 0 |
+| 2 ages × 2 doses | 50 | 150 | 500 | n100: 11 / 4 | n100: 11 / 4 | 0 |
+| 2 ages × 3 doses | 70 | 210 | 700 | **n30: 11 / 4** | n100: 11 / 4 | 0 |
+
+No design splits anything at n 10. Xc is pinned in 7 organs by every design
+with ≥ 30 mice per time point at prior kappa and kappa 2 (n 10 already with 3
+doses); at kappa 8 in 3 (1 age) to 7 (2 ages or 3 doses) organs.
+
+**Smallest design splitting eta/beta in ≥ 3 organs with repeatable readouts:**
+
+- At the prior kappa: 6 months, one dose (0.6 Xc), 100 mice per time point =
+  **200 mice per sex** (all 4 repeatable organs, shares 0.96–0.97). One dose
+  cannot measure kappa, which is itself a prior (§9.2), so this design rests on
+  kappa being right.
+- Robust to kappa 0.5 and 2: 6 months, two doses (0.3 + 0.6 Xc), 100 mice per
+  time point = **300 mice per sex** (4 repeatable organs at both kappas,
+  shares ≥ 0.81). This is the proposed v0 design.
+- **At kappa 8 no design splits eta/beta in any organ**, up to 700 mice per
+  sex (best share 0.41, blood). At `n_sim` 20 000 this is no longer the Monte
+  Carlo floor (I18 resolved): when repair is far from saturation, recovery is
+  fast and almost dose-independent, so eta and beta stay confounded. Kappa must
+  be bounded first (a cheap pilot with 3 doses pins Xc at n 10, 40 mice per sex).
+
+Shares jump between n 30 and n 100 instead of rising smoothly: a direction
+counts only when its eigenvalue clears the threshold (§6), so the table shows
+where directions are crossed, not graded precision.
+
+| # | Limit |
+|---|---|
+| I19 | The 6 post times of one mouse are treated as independent draws (within-mouse correlation ignored): mice counts are optimistic, real need is higher [to quantify with a mixed model] |
+| I20 | Ideal readout (raw organ state); with realistic assays (§8) the counts grow |
+| I21 | Grid is 3 kappas × 2 ages × 3 doses; the boundary between kappa 2 and 8 is not located |
+
 ## Reproduce
 
 ```
@@ -451,4 +516,5 @@ python3 recovery.py eta,beta,xc > rec3.json
 READOUTS_CACHE=/tmp/readouts.pkl python3 readouts.py 2000 > ../../results/readouts.json   # ~6 min, then instant from cache
 LONG_CACHE=/tmp/long.pkl python3 longitudinal.py 2000 > ../../results/longitudinal.json   # ~7 min, then instant from cache
 python3 challenge.py 600 > ../../results/challenge.json   # ~25 min, 4 kappa/T0 settings
+python3 ../design/cost_curve.py <shards dir of run 39594585409> > ../../results/cost-curve.json   # <1 s
 ```

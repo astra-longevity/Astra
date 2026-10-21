@@ -1,0 +1,6 @@
+# Re-run shard for sim-v0-challenge-2026-10-21 (research/sim/v0/actions-job.md).
+# shard_challenge.py takes no params file: these values are the command-line
+# arguments in manifest.yaml, recorded here so the params hash pins them.
+spec: b,11,0,A1_muscle
+n_sim: 20000
+actions_run: 39594585409

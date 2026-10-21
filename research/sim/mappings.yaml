@@ -6,88 +6,56 @@
 # lifespan result. A row changed after a result is seen makes every later
 # prediction using it exploratory until a new held-out item resolves.
 #
-# Status of every row below: DRAFT, NOT USABLE.
-#   - class names are proposals; the sealed list is
-#     literature/lifespan/class-labels.yaml (T2-A2-4, A71/A65), not on main yet;
-#   - priors are generic placeholders (median 0.85 or 1.15, 90% interval
-#     [0.7, 1.0] or [1.0, 1.3]) until a dose-response source sets them;
-#   - no L3 refutation row exists yet (no row = no entry, spec issue S10).
+# Status of every row below: SUPERSEDED, NOT USED IN CALIBRATION.
+#   The rows were drafted by A68, who was not a lifespan-naive mapping writer.
+#   Each is superseded by its L3 row M-00n in literature/refutation/mappings.md
+#   (literature, A78). Class, parameter and term are kept only as pointers:
+#   there is no prior, no effect and no source here. Any code that needs a
+#   multiplier must take it from a sealed L3 row, and must fail (KeyError) if
+#   it looks for `prior_multiplier` here; there is no default
+#   (test_v0.py: test_mappings_superseded_no_values).
 #
 # Parameters use the names accepted by research/sim/v0/py/model.py:
 #   hallmark.<H>  multiplier on a hallmark (spec section 2).
 #   eta.<axis>, beta.<axis>, xc.<axis>, kappa, eps, c  organ/shared parameters.
 #
-# Direction semantics. Every move names the model TERM it hits and the effect
-# on that term, never "hallmark up/down" (a hallmark name is a damage process,
-# so "H8 up" would read as "more senescence"):
-#   term: production  -> effect "production down" = multiplier < 1 (less damage made)
-#   term: clearance   -> effect "clearance up"     = multiplier > 1 (more damage removed)
-#   term: coupling    -> effect "coupling down"    = multiplier < 1 (less spread between organs)
-# `multiplier` is the factor applied to the model term (prior median < 1 or > 1
-# follows from the effect).
-# start_age_years is null: it comes from each treated arm's start age.
+# Term semantics (for the L3 rows): every move names the model TERM it hits:
+#   production -> multiplier < 1 means less damage made
+#   clearance  -> multiplier > 1 means more damage removed
+#   coupling   -> multiplier < 1 means less spread between organs
+# Senolytic on H8 clearance only: named assumption NA4 (v0/design/edges.md).
 
 mappings:
-  - class: mtorc1_inhibitor            # rapalogs (rapamycin, everolimus)
+  - class: mtorc1_inhibitor
+    superseded_by: M-001 M-002   # L3, literature, A78; not used in calibration
     moves:
       - parameter: hallmark.H6_nutrient_sensing
         term: production
-        effect: production down        # less damage made on every organ axis
-        prior_multiplier: {median: 0.85, interval_90: [0.7, 1.0]}
-        why: drug-FKBP12 complex inhibits TOR kinase signalling (nutrient sensing)
+        superseded_by: M-001
       - parameter: hallmark.H5_autophagy
         term: clearance
-        effect: clearance up           # more damage removed (autophagy) on every organ axis
-        prior_multiplier: {median: 1.15, interval_90: [1.0, 1.3]}
-        why: TOR inhibition induces autophagy even in rich medium
-    evidence:
-      - doi:10.1074/jbc.273.7.3963     # Noda & Ohsumi 1998, J Biol Chem 273:3963 (yeast, no lifespan)
-    caveat: mechanism shown in yeast; mouse tissue target engagement source [to verify]
-    start_age_years: null
-    refutation_row: null
-    sealed: null
+        superseded_by: M-002
 
-  - class: alpha_glucosidase_inhibitor # acarbose
+  - class: alpha_glucosidase_inhibitor
+    superseded_by: M-003         # L3, literature, A78; not used in calibration
     moves:
       - parameter: hallmark.H6_nutrient_sensing
         term: production
-        effect: production down        # less damage made on every organ axis
-        prior_multiplier: {median: 0.9, interval_90: [0.75, 1.0]}
-        why: slows intestinal carbohydrate digestion, lowers postprandial glucose spikes
-    evidence:
-      - https://pmc.ncbi.nlm.nih.gov/articles/PMC4620230/   # acarbose review (human, glucose); DOI [to verify]
-    caveat: human clinical source; a mouse postprandial glucose/insulin source is preferred [to verify]
-    start_age_years: null
-    refutation_row: null
-    sealed: null
+        superseded_by: M-003
 
-  - class: sglt2_inhibitor             # canagliflozin
+  - class: sglt2_inhibitor
+    superseded_by: M-004         # L3, literature, A78; not used in calibration
     moves:
       - parameter: hallmark.H6_nutrient_sensing
         term: production
-        effect: production down        # less damage made on every organ axis
-        prior_multiplier: {median: 0.9, interval_90: [0.75, 1.0]}
-        why: blocks renal SGLT2, lowers renal glucose threshold, urinary glucose loss lowers blood glucose
-    evidence:
-      - doi:10.1371/journal.pone.0030555   # Liang 2012 PLoS One: mouse SGLT2 IC50 2.0 nM, renal threshold and glycaemia in rodents; no lifespan outcome (full text checked 2026-10-20)
-    caveat: kidney-specific effects (eta.A9_kidney) left out until a source is opened
-    start_age_years: null
-    refutation_row: null
-    sealed: null
+        superseded_by: M-004
 
-  - class: senolytic                   # dasatinib + quercetin
+  - class: senolytic
+    superseded_by: M-005         # L3, literature, A78; not used in calibration
     moves:
       - parameter: hallmark.H8_senescence
         term: clearance
-        effect: clearance up           # more senescent-cell damage removed; NOT "more senescence"
-        prior_multiplier: {median: 1.15, interval_90: [1.0, 1.3]}
-        why: blocks senescent-cell anti-apoptotic pathways; lowers senescent-cell burden in aged, irradiated and Ercc1 mice
-    evidence:
-      - doi:10.1111/acel.12344         # Zhu 2015 Aging Cell, PMC4531078: senescent burden, cardiac/vascular function, healthspan; no lifespan outcome (full text checked 2026-10-20)
-    caveat: effect is intermittent dosing, not continuous
-    start_age_years: null
-    refutation_row: null
-    sealed: null
+        superseded_by: M-005
 
 # Classes named by A28 with no row yet (no mechanistic source opened):
 #   caloric_restriction_mimetic: class definition overlaps alpha-glucosidase and

@@ -51,18 +51,21 @@ Total hallmark × organ pairs: 166. Pair IDs for L3 rows: `E-H<n>-A<m>`
 but scale its **clearance**: `m_h` > 1 means more removal, less damage
 (mappings.yaml direction semantics).
 
-## 3. Class → parameter mappings (all DRAFT, not usable)
+## 3. Class → parameter mappings (DRAFT, superseded)
 
-From `../../mappings.yaml`. Priors are placeholders; no row is sealed; no L3
-row exists. Class names are provisional (sealed list: A71/A65 class labels).
+Drafted by A68 from `../../mappings.yaml` before the L3 rules. A68 was not a
+lifespan-naive mapping writer, so these rows carry no prior and no source: each
+is superseded by the L3 row `M-00n` in `literature/refutation/mappings.md`
+(literature, A78) and **not used in calibration**. Class, parameter, term and
+edge are kept only as pointers.
 
-| ID | Class | Parameter | Term | Direction | Prior multiplier (median, 90 %) | Mechanistic source | Edge it rides on |
-|---|---|---|---|---|---|---|---|
-| M1 | mTORC1 inhibitor | `hallmark.H6_nutrient_sensing` | production | production down | 0.85 [0.7, 1.0] | doi:10.1074/jbc.273.7.3963 (yeast; mouse target engagement [to verify]) | E-H6 |
-| M2 | mTORC1 inhibitor | `hallmark.H5_autophagy` | clearance | clearance up | 1.15 [1.0, 1.3] | doi:10.1074/jbc.273.7.3963 (yeast) | E-H5 |
-| M3 | α-glucosidase inhibitor | `hallmark.H6_nutrient_sensing` | production | production down | 0.9 [0.75, 1.0] | PMC4620230 (human review; mouse source [to verify]) | E-H6 |
-| M4 | SGLT2 inhibitor | `hallmark.H6_nutrient_sensing` | production | production down | 0.9 [0.75, 1.0] | doi:10.1371/journal.pone.0030555 (no lifespan, full text checked) | E-H6 |
-| M5 | senolytic | `hallmark.H8_senescence` | clearance | clearance up | 1.15 [1.0, 1.3] | doi:10.1111/acel.12344 (no lifespan, full text checked) | E-H8 |
+| ID | Class | Parameter | Term | Edge it rides on | Status |
+|---|---|---|---|---|---|
+| M1 | mTORC1 inhibitor | `hallmark.H6_nutrient_sensing` | production | E-H6 | superseded by L3 `M-001` (literature, A78), not used in calibration |
+| M2 | mTORC1 inhibitor | `hallmark.H5_autophagy` | clearance | E-H5 | superseded by L3 `M-002` (literature, A78), not used in calibration |
+| M3 | α-glucosidase inhibitor | `hallmark.H6_nutrient_sensing` | production | E-H6 | superseded by L3 `M-003` (literature, A78), not used in calibration |
+| M4 | SGLT2 inhibitor | `hallmark.H6_nutrient_sensing` | production | E-H6 | superseded by L3 `M-004` (literature, A78), not used in calibration |
+| M5 | senolytic | `hallmark.H8_senescence` | clearance | E-H8 | superseded by L3 `M-005` (literature, A78), not used in calibration |
 
 Caloric-restriction mimetic: no row (class overlaps M3/M4; waits for the
 sealed class list).
@@ -74,3 +77,15 @@ sealed class list).
 | NA1 | **Combination rule:** a combination multiplies its classes' multipliers (no interaction term) | No ITP combination has both singles in the same cohort (A70, `literature/refutation/obstacles.md` O4; PubMed factorial search 0 hits) | Every combination prediction carries "NA1, uncalibrated"; a factorial arm (both singles + combo, same cohort) is a first-mouse-request candidate |
 | NA2 | Hallmark factors are a plain mean over the hallmarks driving an axis | Weights would add parameters (S12) | — |
 | NA3 | Vital set (E4) | Modelling choice (S11) | — |
+| NA4 | **Senolytic acts on H8 clearance only** (L3 mapping M-005, M5): the H8 clearance multiplier goes up (sign +), damage production is unchanged. A fall in a senescence marker under a senolytic is attributed entirely to clearance. Basis: the class is defined by its mechanism, selective removal of senescent cells (PMID 35165353, doi:10.1038/s41598-022-06448-5, abstract only, class-definition sentence; its in vitro clearance result is not stated in the abstract: [to verify]). Rule set by A28, 2026-10-21 | No source separates clearance from production for D+Q; one marker fall can't split them | **Pre-registered sensitivity:** calibration also runs the same marker fall read as production down (an H8-driven production multiplier < 1, clearance unchanged) and reports both. Size stays `no_mapping` until A78's tick-reading rules commit is on main |
+
+NA4 is committed before calibration and before any D+Q lifespan result is
+read by its writer (A76).
+
+- exposure (NA4, A76, 2026-10-21): web search snippets only, nothing opened:
+  "In old mice the combo improves physical function and extends remaining
+  lifespan" (regenerated.com) and a 2-year D+Q study in primates
+  (inflammation markers, biomogging.com). No number, no survival curve. The
+  cited abstract reports frailty, motor and cognitive gains in SAMP10 mice; no
+  survival or lifespan result. NA4's content is A28's rule, so the exposure
+  left the writer no discretion. Logged in `research/metric/v0/manual-downloads.csv`.

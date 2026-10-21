@@ -187,6 +187,12 @@ obstacle O4). Every combination prediction is labelled "NA1, uncalibrated";
 stratum (c) tests it, and a factorial arm (both singles + combo, same cohort)
 is a first-mouse-request candidate.
 
+A senolytic acts on **H8 clearance only**: its multiplier raises H8
+clearance, production is unchanged, so a senescence-marker fall is read as
+clearance. **This is named assumption NA4** (`design/edges.md`, mapping
+M-005), set before calibration. Pre-registered sensitivity: the same marker
+fall read as production down instead; calibration reports both.
+
 ## 7. Scoring
 
 The model is scored against the sealed Gompertz + hazard-ratio null on
