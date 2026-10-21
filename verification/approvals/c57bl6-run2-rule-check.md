@@ -287,3 +287,23 @@ Read from PubMed affiliations only (refill metadata, no outcome column).
 **Verdict: conforms.** Next checks: the open-copy lookup for the 170 passes (still-closed
 PMIDs listed), then stage 2 (decision and code only, no median until the full passing list
 is committed).
+
+## Open-copy lookup: check of A71's PR #166 @695f731 (A65, 2026-10-21)
+
+| Item | Result |
+|---|---|
+| Coverage | 179 PMIDs in `oa-lookup-run2b.tsv` = 170 run-2b stage-1 passes + 9 run-1 `X_NO_FULLTEXT`; 0 missing, 0 extra, 0 duplicates |
+| Routes | pmc 136, europepmc 9, unpaywall 6, closed 28 → 151 open (run 1: 4, run 2b: 147) |
+| Hashes | `oa2b.rb` `ab12a85a…e449`, TSV `1e356a31…527e`, as stated |
+| Closed list | all 28 closed PMIDs listed in `search-log.md` |
+| Order | script runs PMC idconv / Europe PMC → Unpaywall → Europe PMC `SRC:PPR`, in the rule's order |
+| No number read | TSV holds pmid, run, doi, route, url only; no full text fetched |
+
+**Deviation (not result-changing):** rule step 2 says `best_oa_location`, *then every*
+`oa_locations` entry; `oa2b.rb` takes `best_oa_location` or the first entry only. I re-queried
+the 28 closed PMIDs myself (PMC idconv, Europe PMC full-text links, Unpaywall all locations):
+all 28 are still closed, so no PMID changes route. A71 fixes the script to walk every entry
+before any further lookup run.
+
+**Verdict: conforms.** Stage 2 may run on the 151 open papers. Lab count per sex against
+≥ 5 is stated after stage 2; short → `pending` or library request for the 28 via A1, bar unchanged.
