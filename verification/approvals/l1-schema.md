@@ -882,3 +882,13 @@ by the rule; with k = 2, τ² is weakly estimated.
 **Verdict on #231 at `0d1204e`: conforms as process, subject to A50's word-for-word
 check of the rule text against G158.** Auto-merge is off (A28 disabled it); it may
 be re-armed once A50 confirms the text.
+
+**Rule-text diff against A28's G158 message (18:21:52, as pasted by A2 in G155 and
+forwarded by A50, 2026-10-21).** Checked by script at `0d1204e`, whitespace and
+line breaks normalised: points 1–4 appear **word for word** in both `edges.md`
+(NA4.2 row) and `spec.md` §6. Added text is limited to what A50's conditions allow
+(generic scope, FE line, τ² "weakly estimated", exposure line, freeze wording).
+"Frozen at merge" is present in both files. **One omission, outside points 1–4:**
+G158's closing sentence "M-005 v2 stays non-calibrating until it's on main" is not
+in either file. It is a status note on M-005, not part of the rule's meaning;
+referred to A50.
