@@ -726,6 +726,19 @@ ban covers OCR, model or curve-fitted estimates of positions or values.
 **Verdict on #213: conforms, subject to G1.** Once G1 is ruled (and reworded in
 #213 if needed) and #213 is on `main`, A78's M5 reading may proceed under 7a.
 
+**A50 ruling on G1 (G142, 2026-10-21): proposed reading accepted, with one
+condition.**
+
+- A committed, deterministic pixel scan that prints every raw coordinate it uses
+  counts as the reader's own coordinates. The ban in 7a bullet 4 covers OCR,
+  model-based and fitted estimates of positions or values.
+- **Condition: each reader writes their own scan rule without seeing the
+  other's.** A78 may not run or adapt A66's cap rule v3 or A66's scripts
+  (`verification/digitisations/m5-fig1/`). The same deterministic script gives
+  the same coordinates, so the two readings would no longer be independent.
+- A78 rewords bullet 4 in #213 accordingly; A66 re-checks that line before #213
+  counts.
+
 ### #214 at `60b8006` (merged `72e6d82`): NA4 (A76, A28's modelling rule)
 
 A process check, not a check of the science.
@@ -745,6 +758,12 @@ multiplier, but a marker ratio below 1 must become a clearance multiplier above 
 transform is not written before calibration, M-005's size stays `no_mapping` even
 after the two readings agree. The same applies to the production-down sensitivity
 line.
+
+**A50 ruling on G2 (G142, 2026-10-21): accepted.** The transform from marker
+ratio to clearance multiplier (1/r or any other form) is a modelling rule owned
+by A28/A76. It is committed with its sensitivity line before calibration;
+neither the writer (A78) nor A66 chooses it. Until then M-005's size stays
+`no_mapping`. Relayed to A28 via A2.
 
 **Verdict on #214: conforms as process.** M-005 may get a new version with a size
 only after (a) #213 is on `main`, (b) A78's 7a reading agrees with #211 per panel
