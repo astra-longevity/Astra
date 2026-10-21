@@ -19,27 +19,27 @@ blind,B16,BT2,ITP 2025,,both,unclassified,b,
 blind,B17,glucosamine sulfate,ITP 2025,,both,unclassified,b,
 blind,B18,taurine,ITP 2025,,both,unclassified,b,
 blind,B19,urolithin A,ITP 2025,,both,unclassified,b,
-retro,RF001,nordihydroguaiaretic acid,,25380600,male,multi-target,b,
-retro,RF002,nordihydroguaiaretic acid,,25380600,male,multi-target,b,
-retro,RF003,nordihydroguaiaretic acid,,25380600,male,multi-target,b,
-retro,RF004,nordihydroguaiaretic acid,,25380600,male,multi-target,b,
+retro,RF001,nordihydroguaiaretic acid,,25380600,male,multi-target,b,compound seen in training
+retro,RF002,nordihydroguaiaretic acid,,25380600,male,multi-target,b,compound seen in training
+retro,RF003,nordihydroguaiaretic acid,,25380600,male,multi-target,b,compound seen in training
+retro,RF004,nordihydroguaiaretic acid,,25380600,male,multi-target,b,compound seen in training
 retro,RF005,ivabradine,,25589054,male,HCN channel blocker,b,
 retro,RF006,epimedium extract,,26145038,male,unclassified,b,
 retro,RF007,icariin,,26145038,male,unclassified,b,class overlaps blind B13 if PDE5 named primary
-retro,RF008,rapamycin,,27091134,female,mTORC1 inhibitor,a,compound in blind B03
-retro,RF009,nicotinamide riboside,,27127236,unknown,unclassified,b,
-retro,RF010,rapamycin,,27549339,female,mTORC1 inhibitor,a,compound in blind B03
-retro,RF011,rapamycin,,27549339,female,mTORC1 inhibitor,a,compound in blind B03
-retro,RF012,rapamycin,,27549339,male,mTORC1 inhibitor,a,compound in blind B03
-retro,RF013,rapamycin,,27549339,male,mTORC1 inhibitor,a,compound in blind B03
+retro,RF008,rapamycin,,27091134,female,mTORC1 inhibitor,a,compound in blind B03; compound seen in training
+retro,RF009,nicotinamide riboside,,27127236,unknown,unclassified,b,compound seen in training
+retro,RF010,rapamycin,,27549339,female,mTORC1 inhibitor,a,compound in blind B03; compound seen in training
+retro,RF011,rapamycin,,27549339,female,mTORC1 inhibitor,a,compound in blind B03; compound seen in training
+retro,RF012,rapamycin,,27549339,male,mTORC1 inhibitor,a,compound in blind B03; compound seen in training
+retro,RF013,rapamycin,,27549339,male,mTORC1 inhibitor,a,compound in blind B03; compound seen in training
 retro,RF014,BP-C3,,27574962,female,unclassified,b,
 retro,RF015,putrescine,,27841876,female,unclassified,b,
 retro,RF016,spermidine,,27841876,female,unclassified,b,
 retro,RF017,spermidine,,27841876,female,unclassified,b,
 retro,RF018,spermine,,27841876,female,unclassified,b,
 retro,RF019,spermidine,,28386016,male,unclassified,b,
-retro,RF020,metformin,,29167747,male,multi-target,b,
-retro,RF021,metformin,,29167747,male,multi-target,b,
+retro,RF020,metformin,,29167747,male,multi-target,b,compound seen in training
+retro,RF021,metformin,,29167747,male,multi-target,b,compound seen in training
 retro,RF022,nicotinamide,,29514072,male,unclassified,b,
 retro,RF023,nicotinamide,,29514072,male,unclassified,b,
 retro,RF024,L2-Cmu,,29921922,female,unclassified,b,
@@ -50,7 +50,7 @@ retro,RF028,alpha-ketoglutarate,,32877690,female,unclassified,b,
 retro,RF029,alpha-ketoglutarate,,32877690,female,unclassified,b,
 retro,RF030,alpha-ketoglutarate,,32877690,male,unclassified,b,
 retro,RF031,alpha-ketoglutarate,,32877690,male,unclassified,b,
-retro,RF032,metformin,,33585467,female,multi-target,b,
+retro,RF032,metformin,,33585467,female,multi-target,b,compound seen in training
 retro,RF033,C60 fullerene,,33849306,female,unclassified,b,
 retro,RF034,C60 fullerene,,33849306,male,unclassified,b,
 retro,RF035,procyanidin C1,,34873338,pooled,unclassified,b,

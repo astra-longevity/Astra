@@ -142,6 +142,14 @@ compound names a single-compound train entry of `train-classes.yaml`, after
 
 So the compound-new headline (A50 #145) rests on the 42 stratum-b arms only.
 
+**Scripted tag (A28, G171).** `join-class-labels.rb` writes the `flag` tag
+`compound seen in training` on every row matching the rule above (appended
+with `; ` to any existing flag; stratum unchanged) and prints the
+compound-new counts, so A65 re-runs it at the seal (`--check` writes
+nothing). It aborts if a row carries the tag without a train match. First run
+tagged 13 retro rows (RF001–RF004, RF008–RF013, RF020, RF021, RF032); counts
+unchanged at a 0/8, b 42/50, c 0/2.
+
 **Overlap with the blind part (flagged, not dropped; A50 condition 6):**
 RF008, RF010–RF013 are rapamycin, a single compound of blind arm B03
 (rapamycin + 17α-estradiol). `controls.rb --check` matches whole compound
