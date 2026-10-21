@@ -19,8 +19,12 @@ licence:
   notes: >-
     Same MPD terms as mpd-itp1 (LA-006): contributors waive copyright, MPD and
     project citation required, respect meta robots, at least 2 s between
-    requests. Verification to confirm LA-006 conditions extend to this project.
-licence_status: pending
+    requests. LA-020 (A50, 2026-10-20) extends the LA-006 terms to this
+    project. LA-020 conditions, verbatim: "Cite Tsaih et al. 2010, Kidney Int 77:201-210 (10.1038/ki.2009.434), the MPD project (MPD:297) and MPD. The project has 2 upstream corrections in its changelog: pin download date + sha256. Other LA-006 conditions apply."
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-020
 fetch:
   min_interval_seconds: 2
 checked_at: "2026-10-20"

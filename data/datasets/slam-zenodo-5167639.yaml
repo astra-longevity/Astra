@@ -1,0 +1,61 @@
+id: slam-zenodo-5167639
+title: "SLAM per-mouse data, cut 2019 (Zenodo 10.5281/zenodo.5167639, Palliyaguru 2021)"
+description: >-
+  Public deposit of the NIA Study of Longitudinal Aging in Mice (SLAM) released
+  with Palliyaguru et al. 2021 (Cell Metab): census, survival with cause of
+  death, NMR body composition, fasting glucose and lactate, body weight,
+  temperature and food intake, per mouse, C57BL/6J and UM-HET3, both sexes,
+  2 to 38 months. Data cut: deaths to 2019-10-08, glucose to 2019-09-03. Does
+  not hold CBC, echocardiography or GTT (those stay with slam-nia).
+maintainer: "National Institute on Aging, Intramural Research Program (de Cabo lab); deposited on Zenodo by the Palliyaguru 2021 authors"
+landing_url: https://zenodo.org/records/5167639
+access: public
+files:
+  - url: "https://zenodo.org/api/records/5167639/files/ISG%20Cell%20Metabolism%20archived%20data%20and%20code%20to%20share.zip/content"
+    sha256: c6e20eccc88e603dea1c33d27f4a1fd012c9d802968e4ef707049835decacaff
+    size_bytes: 79062609
+    format: zip
+    note: >-
+      Only file of record 5167639 (latest version of concept
+      10.5281/zenodo.5167638, published 2021-08-06). Zenodo md5
+      26c26661aa1e29dddb2ac070d67d21c9. sha256 copied from LA-021 and the O16
+      route note, not recomputed here. Holds Data/slam/ census, Survival,
+      NMR, Glucose_Lactate, BW_Temp_FC CSVs plus analysis code.
+licence:
+  spdx_or_name: CC-BY-4.0
+  url: https://zenodo.org/records/5167639
+  redistribution_of_derived: "yes"
+  citation_required: true
+  notes: >-
+    CC BY 4.0 per the Zenodo API (license cc-by-4.0, access_right open).
+    LA-021 conditions (A50): (1) cite Palliyaguru et al. 2021, Cell Metab
+    33:2189-2200.e3 (10.1016/j.cmet.2021.08.013) and the deposit DOI
+    10.5281/zenodo.5167639; (2) NOT a source for the C57BL/6 reference range
+    v1, may enter only as v2 by a rule written before the data is read;
+    (3) any download or read before the D115 seal is logged in A67's manual
+    download log; (4) every use labelled "SLAM 2019 cut, B6 + UM-HET3, no
+    CBC/echo/GTT".
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-021
+checked_at: "2026-10-20"
+source_publications:
+  - 10.1016/j.cmet.2021.08.013
+  - 10.5281/zenodo.5167639
+used_by:
+  - R-Metric
+  - R-Sim
+  - O16
+fetched_at: "2026-10-20"
+notes: >-
+  Route found by obstacle O16 (literature/obstacles/o16-slam-route.md). The
+  zip was downloaded once on 2026-10-20 to check checksums, then deleted; its
+  md5 matched Zenodo's. Censoring (A2): the files carry no censoring flag and
+  the deposit has no README; Survival.csv has only tag, date of death and
+  cause. Mice with no record cannot be told apart as alive at the cut or
+  lost; their last NMR or glucose date is the only last-seen date. Causes
+  such as "End of study, organs removed", "Used in experiment", "Per PI",
+  "Not in room" must be treated as censored; the death/censor rule is set and
+  sealed before any lifespan use. Readouts not in this deposit stay in
+  slam-nia (LA-007).
