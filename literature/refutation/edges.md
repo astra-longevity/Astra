@@ -1,6 +1,6 @@
 # L3 edge rows (R-Sim v0)
 
-Status: v0 draft, 2026-10-21 (writer A70, for A2). Schema: `README.md` in this folder (conditions 1-4, A66 record #174). Edge list: `research/sim/v0/design/edges.md` @ f527b9f (PR #171). All DOIs checked on Crossref on 2026-10-21.
+Status: v0 draft, 2026-10-21 (writer A70, for A2). Schema: `README.md` in this folder (conditions 1-4, A66 record #174). Edge list: `research/sim/v0/design/edges.md` @ 4b264b1 (PR #171, merged 4b264b1). All DOIs checked on Crossref on 2026-10-21.
 
 This file has edge rows only. The five class → parameter mappings M1-M5 are not written here: under the writer ruling (L3-2) a lifespan-naive writer named by A2 writes `mappings.md`.
 
@@ -24,7 +24,7 @@ E-003 is E2 because it has two independent causal mouse tests, both scoring belo
 | Field | Content |
 | --- | --- |
 | `id` | E-001 |
-| `sim_ref` | E1 in `research/sim/v0/design/edges.md` @ f527b9f |
+| `sim_ref` | E1 in `research/sim/v0/design/edges.md` @ 4b264b1 |
 | `claim` | In every organ, the production rate of damage rises linearly with age (`eta_i · t`), raising damage. |
 | `supporting` | Karin 2019, doi:10.1038/s41467-019-13192-4. Design: model comparison (16 models) fitted to longitudinal p16-luciferase whole-body signal, 33 mice imaged every 8 weeks from 8 to 80 weeks (data of Burd 2013, doi:10.1016/j.cell.2012.12.010); the best model has production rising linearly with age. Nothing manipulated: association. Karin 2021, doi:10.1007/s11357-020-00286-x: re-analysis of published heterochronic parabiosis data; rejects models where only removal changes with age. Re-analysis, primary parabiosis studies not opened. |
 | `contradicting` | None found. Search below. |
@@ -40,7 +40,7 @@ E-003 is E2 because it has two independent causal mouse tests, both scoring belo
 | Field | Content |
 | --- | --- |
 | `id` | E-002 |
-| `sim_ref` | E2 @ f527b9f |
+| `sim_ref` | E2 @ 4b264b1 |
 | `claim` | Damage removal slows as damage accumulates (`beta_i · X_i / (kappa + X_i)`), so damage half-life lengthens with age. |
 | `supporting` | Karin 2019 (above). Causal test: intratracheal bleomycin 1.5 U/kg (vs PBS) in C57BL/6 mice aged 3 mo (n = 17 treated, 13 PBS) and 22 mo (n = 13 treated, 6 PBS); senescent lung epithelial cells (SA-β-gal+, pan-cytokeratin+, HMGB1−) counted by imaging flow cytometry at 14 to 38 days. Half-life 4.7 d young vs 18 d old (p = 0.038, bootstrap). SYRCLE 1/10: sequence generation U, baseline U, allocation concealment U, random housing U, caregiver blinding U, random outcome assessment U, assessor blinding U, incomplete outcome data U, selective reporting L (source data file), other U. Karin 2021 parabiosis re-analysis (above) also supports removal falling with age. |
 | `contradicting` | Tokarsky-Amiel 2013, doi:10.1158/0008-5472.CAN-12-3730: senescent cells induced in mouse epidermis by p14ARF (no inflammation) persisted for weeks even in young mice, so fast removal is not universal; it may depend on tissue, inducer and SASP. Not SYRCLE-scored. |
@@ -56,13 +56,13 @@ E-003 is E2 because it has two independent causal mouse tests, both scoring belo
 | Field | Content |
 | --- | --- |
 | `id` | E-003 |
-| `sim_ref` | E3 @ f527b9f |
+| `sim_ref` | E3 @ 4b264b1 |
 | `claim` | Systemic damage (mean normalised damage over organs) raises damage production in every organ (factor `1 + c · C · I`). |
 | `supporting` | Farrell 2016, doi:10.1103/PhysRevE.94.052409: network model of interacting deficits fitted to human frailty-index data. Model fit, humans, no manipulation: association. Franco 2024, doi:10.1111/acel.14340: senescent fibroblasts transplanted into the dermis of young mice raised senescence markers in proximal and distant host tissues, with peripheral and cognitive decline. Causal test, males only (C57BL/6, 3 mo), n = 7-15 per group. SYRCLE 0/10: sequence generation U, baseline U, allocation concealment U, random housing U, caregiver blinding U, random outcome assessment U, assessor blinding U (blinding stated for bone imaging only, not for the senescence readouts), incomplete outcome data U, selective reporting U, other U. Yousefzadeh 2021, doi:10.1038/s41586-021-03547-7: mice with senescent immune cells (Ercc1 deletion in blood cells) showed senescence and damage in non-blood organs (liver, kidney, lung); splenocytes from these mice raised senescence in recipients. Littermate controls, n = 3-9 per group, both sexes. SYRCLE 3/10: sequence generation U (random assignment stated except genotype and age experiments, which are the main ones), baseline L (littermates, no physical difference), allocation concealment U, random housing U, caregiver blinding L, random outcome assessment U, assessor blinding L (investigators blinded to allocation and outcome assessment), incomplete outcome data U, selective reporting U, other U. |
 | `contradicting` | None found. Search below. |
 | `refuting_experiment` | Damage induced in one organ only (local challenge, e.g. lung bleomycin) in young mice, with damage markers measured in non-challenged organs over time vs sham. Refutation: no rise in distant organs beyond sham. |
 | `already_run` | Partly. PubMed 2026-10-21: `mice[tiab] AND (senescence[tiab] OR damage[tiab]) AND (distant organs[tiab] OR non-lymphoid organs[tiab] OR remote organs[tiab]) AND (transplant*[tiab] OR tissue-specific[tiab])` → 7 hits; relevant: Franco 2024, Yousefzadeh 2021. Both transplant or genetic, not a local challenge. |
-| `grade` | E2: two independent causal mouse tests below 5 (Franco 2024, Passos lab, 0/10; Yousefzadeh 2021, Niedernhofer lab, 3/10). |
+| `grade` | E2: two independent causal mouse tests below 5 (Franco 2024, 0/10; Yousefzadeh 2021, 3/10). Independent-labs check 2026-10-21: `ruby independent-labs.rb 39374134 33981041` → `independent` (0 shared authors; 17 and 33 authors parsed). Xu 2018 (PMID 29988130, excluded) shares authors with both (Tchkonia, Kirkland, Khosla, Jurk with Franco; Robbins, Niedernhofer with Yousefzadeh) but does not count. |
 | `status` | `mapped` |
 | `excluded` | Xu 2018, doi:10.1038/s41591-018-0092-9 (senescent cell transplant spreads dysfunction), code `X-LS`: the same paper reports lifespan of senolytic-treated mice. |
 | `note` | Yousefzadeh 2021 also reports lifespan of the mutant genotype and immune readouts after rapamycin (no rapamycin lifespan). It is admissible for this edge (no intervention lifespan) but must not be used for any rapamycin mapping (M1, M2). |
@@ -73,7 +73,7 @@ E-003 is E2 because it has two independent causal mouse tests, both scoring belo
 | Field | Content |
 | --- | --- |
 | `id` | E-004 |
-| `sim_ref` | E4 @ f527b9f (vital set A3, A6, A7, A8, A9, A10, A11, A12, A17 = NA3) |
+| `sim_ref` | E4 @ 4b264b1 (vital set A3, A6, A7, A8, A9, A10, A11, A12, A17 = NA3) |
 | `claim` | A mouse dies when damage in any vital organ reaches that organ's threshold (`X_i ≥ Xc_i`). |
 | `supporting` | Farrell 2016 (above): death modelled as failure of the two most connected nodes; fitted to human mortality. Model fit, humans: association. Karin 2019 (above): a threshold on senescent-cell level reproduces C57BL/6J mortality curves (Mouse Phenome Database). Model fit only. |
 | `contradicting` | O3 (`obstacles.md`): most control mice die of cancer, mainly lymphoma (Brayton 2012, doi:10.1177/0300985811430696; Miller 2020, doi:10.1172/jci.insight.140019), not of a failing heart, kidney or lung. In the model, cancer is one axis (A17) among nine. |
@@ -89,7 +89,7 @@ E-003 is E2 because it has two independent causal mouse tests, both scoring belo
 | Field | Content |
 | --- | --- |
 | `id` | E-005 |
-| `sim_ref` | E5 @ f527b9f |
+| `sim_ref` | E5 @ 4b264b1 |
 | `claim` | Damage in each organ has random fluctuation (`sqrt(2·eps) dW_i`), giving variation between mice. |
 | `supporting` | None admissible. edges.md lists it as a modelling choice. Karin 2019 fits a noise term to p16 data, but that is a fit of the same form, not evidence for it in each organ. |
 | `contradicting` | None found. Search below. |
@@ -102,7 +102,7 @@ E-003 is E2 because it has two independent causal mouse tests, both scoring belo
 
 ## 2. Hallmark → organ pairs (166)
 
-edges.md @ f527b9f opens no source for any hallmark → organ link. Each pair is therefore `no_mapping`, a listed blind spot, and is not graded (a grade needs a dated search per pair). These pairs are unsourced pending A68 sources: they have not been searched, so `no_mapping` here does not mean searched and found empty. A28 has asked A68 to attach a source per pair where one exists (G153, 2026-10-21); a pair gets a full row when a source is given. The table is generated by script from the edges.md table (counts checked: 166).
+edges.md @ 4b264b1 opens no source for any hallmark → organ link. Each pair is therefore `no_mapping`, a listed blind spot, and is not graded (a grade needs a dated search per pair). These pairs are unsourced pending A68 sources: they have not been searched, so `no_mapping` here does not mean searched and found empty. A28 has asked A68 to attach a source per pair where one exists (G153, 2026-10-21); a pair gets a full row when a source is given. The table is generated by script from the edges.md table (counts checked: 166).
 
 Columns: id, pair id, hallmark, organ axis, term, sign on damage when the hallmark multiplier > 1, status, grade.
 
