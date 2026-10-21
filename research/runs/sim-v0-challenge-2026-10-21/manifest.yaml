@@ -1,0 +1,21 @@
+schema: astra-run-manifest/1
+id: sim-v0-challenge-2026-10-21
+description: R-Sim v0 challenge cost grid, baseline shard seed 11 kappa 0 A1_muscle at n_sim 20000 (one of 462 shards of Actions run 39594585409)
+code_commit: 4c0efab29047b8d1bd34ea783c4b11bc62808207
+command: python3 "$ASTRA_ROOT/research/sim/v0/py/studies/shard_challenge.py" --shard b,{seed},0,A1_muscle --n-sim 20000 --out .
+seed: 11
+params_file: params.yaml
+params_sha256: 8d5499233f1829bcbcff1b14c7a733fd1b9f5c604df4285a79d928c1c04f0e42
+code:
+  research/sim/v0/py/model.py: e4a65a55b3622c527d809a24e67c819653981af5a3b261029534f8ddc16d7b94
+  research/sim/v0/py/studies/challenge.py: 4d7b7105e5ad511d8916f1fa3c35759ac8ce5b49e82eccf94ae4b083f573d7bb
+  research/sim/v0/py/studies/identifiability.py: e50e33dda2ac2f0b3e802bacc95a346c8eabd0550d73090f26cbe3f585a34d92
+  research/sim/v0/py/studies/longitudinal.py: b1262f23844d5591074aeaaa8485c6353ce03708f2948cde904488ec1d129309
+  research/sim/v0/py/studies/readouts.py: 65a57657d426affca0584cc43b15b713b661ba2649abed9e3f4f27c52f14f6f0
+  research/sim/v0/py/studies/shard.py: aa2b7b964ea7048ab40452669cf6ec39d2d1280499117ea35469183d845b6aff
+  research/sim/v0/py/studies/shard_challenge.py: 166e11d45f1b28899151bf7216fe59e9255341926d657a5767c71c44eae4782f
+data: {}
+toolchain:
+  python3: 3.13.16
+outputs:
+  cb_11_kprior_A1_muscle.json: 24cbbfc6bf6b75ccdd62277dadbc75f5c0d2a35b4c3bb0f2f95f67401db670a2

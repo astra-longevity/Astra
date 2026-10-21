@@ -1,0 +1,9 @@
+{
+ "code_commit": "4c0efab29047b8d1bd34ea783c4b11bc62808207",
+ "n_sim": 20000,
+ "python": "3.13.16",
+ "result_sha256": "95e33ec2e516bcd78954e0a3e83d2692e6b27bc39b8342a2cf1e3f93da24c8ec",
+ "run_id": "39594585409",
+ "script": "shard_challenge.py",
+ "study": "challenge"
+}
