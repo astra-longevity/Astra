@@ -1,0 +1,11 @@
+# O1 blind-spot sub-row (A28 request, G160). Axis H11 of research/metric/v0/axes.md.
+# No parent field: the schema has none; grouped under O1 by the o1-blind- id prefix
+# and this o1-blind-spots/ sub-folder (keeps research/obstacles/research/ at <=8 entries).
+id: o1-blind-h11
+title: 'H11 plasma inflammation (IL-6/TNF): no right-way control (blind-spot under O1)'
+owner: A28
+exit: An intervention that lowers aged plasma IL-6/TNF is found (only tissue effects found - liver p65, ex-vivo macrophage; plasma readout unmet); closed individually when a right-way control is found
+check: judge:A50
+evidence: research/metric/v0/axes.md ("Obstacle table — no known right-way intervention" block, H11 row, @6a811d4)
+date: 2027-04-20
+status: open

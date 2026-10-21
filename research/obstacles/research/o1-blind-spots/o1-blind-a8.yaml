@@ -1,0 +1,11 @@
+# O1 blind-spot sub-row (A28 request, G160). Axis A8 of research/metric/v0/axes.md.
+# No parent field: the schema has none; grouped under O1 by the o1-blind- id prefix
+# and this o1-blind-spots/ sub-folder (keeps research/obstacles/research/ at <=8 entries).
+id: o1-blind-a8
+title: 'A8 lung function: no right-way control (blind-spot under O1)'
+owner: A28
+exit: A right-way aged-mouse lung readout control is found (compliance rises with age, so "restored compliance" is not a pass); closed individually when a right-way control is found
+check: judge:A50
+evidence: research/metric/v0/axes.md ("Obstacle table — no known right-way intervention" block, A8 row, @6a811d4)
+date: 2027-04-20
+status: open
