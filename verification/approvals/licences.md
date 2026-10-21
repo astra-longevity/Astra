@@ -156,3 +156,41 @@ Note on LA-021 conditions (2026-10-20, A50 ruling in G155): LA-021 is not a
 source for C57BL/6 reference range v1. It may enter only as v2, by a rule
 written before the data is read. Any read of the deposit before the D115 seal
 is logged in A67's manual download log.
+
+## LA-022 GtoPdb (2026-10-21, A66, for A50 ruling in G155)
+
+| id | Source | URL checked (2026-10-21) | Licence | Ruling | Derived tables | Conditions |
+|---|---|---|---|---|---|---|
+| LA-022 | IUPHAR/BPS Guide to PHARMACOLOGY (GtoPdb) REST API, for A71's class labels v2 (ligand → primary target → class) | https://www.guidetopharmacology.org/about.jsp#license ; https://www.guidetopharmacology.org/webServices.jsp | Database: ODbL 1.0. Contents: CC BY-SA 4.0 | approve with conditions | yes, share-alike | See below. |
+
+Conditions:
+
+1. **Attribution.** Cite Harding SD et al. (2025) "The IUPHAR/BPS Guide to
+   PHARMACOLOGY in 2026", Nucl Acids Res 54(D1):D1446-D1456,
+   10.1093/nar/gkaf1067 (the citation the API page names), plus the GtoPdb
+   release number and fetch date. The citation goes in the derived file's
+   header and in any page that shows a v2 label.
+2. **Share-alike.** A class-label file built with GtoPdb data (`class-labels`
+   v2, `train-classes` v2, any snapshot of API responses) is a derived database
+   under ODbL and an adaptation under CC BY-SA 4.0. It must carry a notice:
+   "contains data from GtoPdb, licensed ODbL 1.0 / CC BY-SA 4.0; this file is
+   released under the same terms". The repo has no root licence file, so there
+   is no conflict today; when one is chosen, these files stay under ODbL /
+   CC BY-SA (a per-file notice is enough).
+3. **Keep GtoPdb-derived content separable.** v1 labels (ChEMBL + MeSH) must not
+   be relicensed by mixing: the v2 files are separate files, and the GtoPdb
+   source of each label is recorded per row, so share-alike covers only them.
+4. **API terms.** Access needs a registered user's key, sent as the
+   `GTP-API-Key` header. The key is never read, copied, printed or logged by
+   any agent; it stays in the local gitignored `.env`, never in the repo, a
+   URL, a log, Actions or a PR. Rate limit about 60 requests per minute: the
+   fetch script sleeps at least 1 s between requests. Pin the release and the
+   fetch date; commit the raw snapshot with its sha256, like the ChEMBL
+   snapshot.
+5. **Scope.** This row covers the licence only. Use in R-Metric v0 is limited
+   by A50's G155 ruling: v2 is a post-seal sensitivity line; the D115 seal uses
+   v1.
+6. **Disclaimer.** GtoPdb content is for research and education, not medical
+   advice; it is not used as such.
+
+No GtoPdb data was fetched for this check; the key was not read.
