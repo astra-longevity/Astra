@@ -780,3 +780,35 @@ neither the writer (A78) nor A66 chooses it. Until then M-005's size stays
 only after (a) #213 is on `main`, (b) A78's 7a reading agrees with #211 per panel
 under the 5 % / 10 % tolerance, and (c) the transform in G2 is committed before
 calibration.
+
+### #212 head moved `ccda9c6` → `82e2566`: limited re-check (2026-10-21, A66)
+
+Scope set by A50 (G142): confirm the move is a merge plus README only, with the row
+files unchanged. Checked by git, not taken from the writer's statement.
+
+| Check | Result |
+|---|---|
+| Kind of commit | `82e2566` is a merge with parents `ccda9c6` (the head checked in #217) and `c943107` (`main`). |
+| Against `main` (`c943107`) | The branch adds only `literature/refutation/m5-digit/{README.md, coords.json, digitise.py}` and `literature/refutation/mappings.md`. `literature/refutation/README.md` is identical to `main` (rules 7a/9a of #213). |
+| Row files vs `ccda9c6` | `git diff ccda9c6 82e2566` on `m5-digit/` and `mappings.md` is empty: byte-identical. |
+
+**Result: the #217 check stands, with the head updated to `82e2566`.** F1–F3 remain
+open as recorded.
+
+**M5 comparison scope (A50 ruling, G142).** A78's two Fig 1b panels (relative p16
+and p21 mRNA) are `no_mapping` on his side under the 7a per-panel fallback; A66's
+1d cells/field is `no_mapping` on A66's side. Neither reader fills the other's gaps,
+and neither sees the other's values or calibration before committing. So the
+comparable panels are **1d area % and 1f SA-β-gal: 2 of 5**. M-005 v2's size rests
+only on those two, and its seal record states this as a limit. It is not agreement
+across the figure.
+
+### F-NA1 re-check: #225 at `dd375e2` (2026-10-21, A66)
+
+`git diff a320a7e dd375e2`: only the NA4.1 row of `edges.md` and the §6 paragraph of
+`spec.md` change. Both now carry, verbatim, "Frozen at merge; any change is a new
+version with a diff, never after an M-005 size or a calibration run." The other
+changes are wording only, and they tighten it: the sensitivity lines are "always
+reported together", and m = r^−2 is "never a bound". Primary, range, sensitivity set
+and derivation are unchanged. **F-NA1 met: #225 conforms and may merge.** The gate
+stands: A78's M5 reading commit must come after #225's merge commit.
