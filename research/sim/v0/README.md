@@ -14,7 +14,7 @@ Organ-level stochastic model of damage and repair (charter part 2, D115).
 | `py/studies/` | identifiability studies: `identifiability.py`, `recovery.py`, `readouts.py`, `longitudinal.py` (see `identifiability.md`) |
 | `results/` | study outputs (JSON) |
 | `identifiability.md` | which parameters survival, readouts and repeated measures can recover |
-| `actions-job.md` | spec of the joint survival + readout job on GitHub Actions (A10 runs it) |
+| `design/` | `actions-job.md` (joint survival + readout job on GitHub Actions, A10 runs it); `challenge-design.md` (v0 candidate acute-challenge design, no mice requested); `edges.md` (causal edges + class mappings for the L3 refutation file) |
 
 Mappings live in `../mappings.yaml` (empty until the seal).
 

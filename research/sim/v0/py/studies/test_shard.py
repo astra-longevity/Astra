@@ -1,4 +1,4 @@
-"""Tests for shard.py: a shard reproduces the direct study run, gather rebuilds derivatives."""
+"""Tests for shard.py and shard_challenge.py: a shard reproduces the direct study run, gather rebuilds derivatives."""
 
 from __future__ import annotations
 
@@ -10,6 +10,7 @@ import unittest
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 import shard  # noqa: E402
+import shard_challenge  # noqa: E402
 import readouts  # noqa: E402
 import longitudinal  # noqa: E402
 
@@ -50,6 +51,51 @@ class ShardTest(unittest.TestCase):
         self.assertEqual(captured["ro"][0]["dp"], d1["dp"])
         self.assertEqual(captured["ro"][0]["dm"], d1["dm"])
         self.assertEqual(len(captured["lo"][1]["dd"]), len(NAMES))
+
+
+class ChallengeShardTest(unittest.TestCase):
+    """--study challenge cost grid: shards through JSON + gather == a direct run."""
+
+    def setUp(self):
+        self.save = (shard_challenge.challenge.KAPPAS, shard_challenge.challenge.T0S,
+                     shard_challenge.challenge.DOSES, shard_challenge.challenge.organs)
+        shard_challenge.challenge.KAPPAS = (None,)
+        shard_challenge.challenge.T0S = (0.5, 1.5)
+        shard_challenge.challenge.DOSES = (0.3,)
+        shard_challenge.challenge.organs = lambda: ["A9_kidney"]
+
+    def tearDown(self):
+        (shard_challenge.challenge.KAPPAS, shard_challenge.challenge.T0S,
+         shard_challenge.challenge.DOSES, shard_challenge.challenge.organs) = self.save
+
+    def test_list_size(self):
+        # per seed: 1 baseline + 2 t0 x 1 dose challenge, x 1 organ
+        self.assertEqual(len(shard_challenge.challenge_specs()), len(shard_challenge.SEEDS) * 3)
+
+    def test_bad_spec(self):
+        for bad in ("b,11,0,A2_bone", "x,11,0,A9_kidney"):
+            with self.assertRaises(ValueError):
+                shard_challenge.challenge_simulate(bad, N)
+
+    def test_gather_matches_direct(self):
+        cache = {sp: json.loads(json.dumps(shard_challenge.challenge_simulate(sp, N), sort_keys=True))
+                 for sp in shard_challenge.challenge_specs()}
+        got = shard_challenge.challenge_gather(cache.__getitem__, N)["runs"][0]["per_organ"]["A9_kidney"]
+        # direct: same baseline + challenge Fisher, same share sweep
+        ch = shard_challenge.challenge
+        names = ch.names_for("A9_kidney", False)
+        base = [ch.derivs("baseline", "A9_kidney", names, N, s) for s in shard_challenge.SEEDS]
+        fb = ch.fisher(base[0], base[1], 1.0)
+        self.assertEqual(json.dumps(got["baseline"], sort_keys=True),
+                         json.dumps(shard_challenge._share_sweep(fb, names), sort_keys=True))
+        for ti, t0 in enumerate(ch.T0S):
+            ch.set_grid(None, t0)
+            ch.set_dose(ch.DOSES[0])
+            chh = [ch.derivs("challenge", "A9_kidney", names, N, s) for s in shard_challenge.SEEDS]
+            fc = ch.fisher(chh[0], chh[1], 1.0)
+            want = shard_challenge._share_sweep(ch._add(fb, fc), names)
+            self.assertEqual(json.dumps(got["challenge"][f"t{t0}_d{ch.DOSES[0]}"], sort_keys=True),
+                             json.dumps(want, sort_keys=True))
 
 
 if __name__ == "__main__":

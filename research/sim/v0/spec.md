@@ -180,8 +180,12 @@ T2-A50-3):
 4. The code accepts only known parameter names (`KeyError` otherwise); it
    doesn't read `mappings.yaml` yet (issue S4).
 
-Combinations multiply their mappings' multipliers. This is the simplest
-prior; whether combinations add up is obstacle O4, so stratum (c) tests it.
+Combinations multiply their mappings' multipliers. **This is a named
+assumption (NA1 in `design/edges.md`), not calibrated:** no ITP combination has
+both singles in the same cohort, so additivity can't be fitted from ITP (A70,
+obstacle O4). Every combination prediction is labelled "NA1, uncalibrated";
+stratum (c) tests it, and a factorial arm (both singles + combo, same cohort)
+is a first-mouse-request candidate.
 
 ## 7. Scoring
 
