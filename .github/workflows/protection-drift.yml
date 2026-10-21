@@ -7,9 +7,9 @@ name: Protection drift
 #
 # Read-only. Reading branch protection and rulesets needs repository
 # "Administration: read", which the default GITHUB_TOKEN does not have, so the
-# GET calls use the PROTECTION_READ_TOKEN secret, stored in the `protection`
-# environment (deployment branches: main only). GITHUB_TOKEN is only used to
-# write the issue.
+# GET calls use the PROTECTION_READ_TOKEN repository secret (president ruling
+# PR11: the token stays a repo secret, no environment). GITHUB_TOKEN is only
+# used to write the issue.
 on:
   schedule:
     - cron: "17 6 * * *"
@@ -31,9 +31,6 @@ jobs:
   drift:
     name: Compare live protection with docs/rust/
     runs-on: ubuntu-latest
-    # PROTECTION_READ_TOKEN lives in this main-only environment, not at repo
-    # level, so no workflow on another branch can read it.
-    environment: protection
     steps:
       - uses: actions/checkout@v4
 
