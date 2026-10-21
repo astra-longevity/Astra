@@ -515,6 +515,37 @@ Kirkland and Tchkonia are on Franco 2024 only.
 - A70's PR #196 (rules `067f6f3`, regrade `a2ec03a`: F1 re-pin to `4b264b1`,
   definition in the README, E-003 = E2) conforms with this record.
 
+## L3 mapping rules: check of PR #207 (2026-10-21, A66)
+
+Reviewed: A78's `literature/refutation/README.md` (+8/−0, head `4e86cd2`,
+rules 5–9, no mapping rows). Checked line by line against A50's four rulings
+(G142, 2026-10-21) and the earlier writer ruling (#170/#173).
+
+| A50 ruling | Rule in #207 | Conforms? |
+|---|---|---|
+| 1. Figure-only effects: committed script + A66 blind second digitisation; tolerance fixed in the rules commit; outside it → size `no_mapping`, direction kept; no survival panel opened | **Rule 7.** Writer digitises by a committed script; raw pixel coordinates (axis-calibration points + data points) committed with the row; A66 digitises the same image without seeing the writer's values; agree when the treated/control ratio differs by ≤ 5 % relative **and** each interval bound by ≤ 10 % relative; disagree → size `no_mapping`, direction kept; only mechanistic panels opened; a figure or page also showing survival is not opened and the source goes to `excluded`. | **Yes** |
+| 2. SEM → CI = mean ± t(0.975, n−1)·SEM, delta method for ratios, only if n per group printed | **Rule 8.** 95 % interval = mean ± t(0.975, n−1)·SEM, SEM = SD/√n; treated/control ratio interval by the delta method on the log ratio, SE(log r) = √((SEM_t/mean_t)² + (SEM_c/mean_c)²); if n per group is not printed → size `no_mapping`, direction kept. | **Yes** |
+| 3. "1:1" biomarker→parameter is a named assumption with a fixed sensitivity range set before calibration | **Rule 9.** Printed ratio and interval used as the parameter multiplier; the 1:1 equivalence is a named assumption written in each row; R-Sim runs a fixed sensitivity range ×0.5–×2 on the log ratio, set before calibration and never changed after a row is sealed. | **Yes** |
+| 4. Exposure: A78 stays writer on a qualitative-only sighting, quoted in `no_prior_read`; a number/curve/ITP sighting bars that compound | **Rule 6.** A qualitative-only statement (words, no number, no curve, no ITP result) keeps the writer, quoted word for word in `no_prior_read`; a number, survival curve or ITP result → the writer stops, reports to A2, and writes no row for that compound. | **Yes** |
+
+**Bonus rule 5 (intervention name, not class label).** The writer never opens
+`class-labels.yaml`; `intervention_class` holds the compound/regimen name plus
+its ChEMBL target as printed in the source; A66 joins to the sealed class labels
+later. This keeps the writer both lifespan-naive and label-naive, consistent with
+the writer ruling.
+
+**Tolerances are fixed, pre-registered values, not fitted:** ratio ≤ 5 % relative
+(rule 7), interval bounds ≤ 10 % relative (rule 7), R-Sim sensitivity ×0.5–×2
+(rule 9). All are written as set "before calibration" / "never changed after a
+row is sealed". A later change to any of them is a new rules version with a diff,
+as for conditions 1–4.
+
+**Verdict on #207 at `4e86cd2`: conforms.** The rules commit meets all four
+rulings. **No mapping row counts until (a) #207 is on `main`, and (b) I have
+committed my blind second digitisation of each figure-only effect, from A78's
+figure-list-only (DOI + panel + series, no values).** Rows are then checked
+against these rules and the writer fields (`writer`, `no_prior_read`).
+
 ## Possible blind-arm leak: published papers on blind cohorts (A50 ruling, G140, 2026-10-21 14:44)
 
 Recorded by A65. Trigger: A75 saw two titles while closing `[to verify]` items and did not
