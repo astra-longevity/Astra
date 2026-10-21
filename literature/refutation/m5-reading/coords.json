@@ -1,0 +1,65 @@
+{
+  "source": "NPJ Regen Med 2026, doi:10.1038/s41536-026-00490-x, Fig 1",
+  "image_file": "fig1.png (not committed, publisher figure)",
+  "image_sha256": "696a7e0a2b7b6187f9f2de10789cb599f1f89a2281538283722f5df6e37413f6",
+  "reader": "A78 (writer). Own pixel scan + label-text-only OCR, README rule 7a. Written blind to A66's #211 values, scripts and cap rule.",
+  "gate": "Base contains #225 merge c1b935e (NA4.1); this reading is committed after it.",
+  "scan_frozen": "bars3.py sha256 85a95d302777f87e8f15e9f3e1d7f54adf66583eeead983df44d5fbbc2907e9d, scan.json sha256 aca3c0a6c0f38a3e31f71ffbaded9a5860965d8eeb02bb7e4ce9f3dfa1b9cab0, frozen 2026-10-21T15:41:51Z before any value was computed.",
+  "legend": "Fig 1 legend (read for n and error type only): b N=6, d N=5, f N=5; data are mean +/- SEM.",
+  "pixel_convention": "y in image pixels, origin top-left. Tick y = centre row of the tick stub (axes.py). bar_top = mean of the top-edge rows; cap = mean of the cap rows (bars3.py). Calibration on the two outermost label-matched ticks; a middle tick, if any, is a linearity check.",
+  "treated": "D+Q",
+  "control": "Old",
+  "panels": {
+    "Fig1d_p16_area": {
+      "readout": "p16 positive area (%), IHC, kidney",
+      "identity": "OCR text: panel letter 'd', title 'p16', y title 'positive area (%)', x labels Young / Old / D+Q",
+      "n": 5,
+      "ticks": [{"label": 20, "y": 1326}, {"label": 15, "y": 1399}, {"label": 10, "y": 1472}],
+      "series": {
+        "Young": {"x": [208, 254], "bar_top": 1559.0, "cap": 1550.0},
+        "Old":   {"x": [284, 332], "bar_top": 1302.5, "cap": 1288.0},
+        "D+Q":   {"x": [363, 411], "bar_top": 1552.0, "cap": 1542.0}
+      }
+    },
+    "Fig1d_p21_cells": {
+      "readout": "p21 positive cells per field, IHC, kidney",
+      "identity": "OCR text: title 'p21', y title '... per field', x labels Young / Old / D+Q",
+      "n": 5,
+      "comparable_with_A66": false,
+      "note": "A66's #211 has this panel no_mapping (cap not locatable on his side). Read here, but not comparable; no back-filling either way (A50).",
+      "ticks": [{"label": 10, "y": 1373}, {"label": 5, "y": 1495}],
+      "series": {
+        "Young": {"x": [674, 724], "bar_top": 1590.0, "cap": 1578.0},
+        "Old":   {"x": [756, 805], "bar_top": 1394.5, "cap": 1365.0},
+        "D+Q":   {"x": [836, 886], "bar_top": 1575.5, "cap": 1563.0}
+      }
+    },
+    "Fig1f_SAbgal_area": {
+      "readout": "percentage of SA-beta-gal positive area (%), kidney",
+      "identity": "OCR text: y title 'Percentage of SA-beta-gal positive area (%)', x labels Old / D+Q (Young bar leftmost)",
+      "n": 5,
+      "ticks": [{"label": 20, "y": 1317}, {"label": 15, "y": 1390}, {"label": 10, "y": 1463}],
+      "series": {
+        "Young": {"x": [1804, 1852], "bar_top": 1573.0, "cap": 1566.0,
+                  "note": "top edge merges with the baseline (one wide row); bar_top = first wide row. Young is not used in the ratio."},
+        "Old":   {"x": [1884, 1933], "bar_top": 1415.0, "cap": 1386.0},
+        "D+Q":   {"x": [1964, 2013], "bar_top": 1500.0, "cap": 1482.0}
+      }
+    },
+    "Fig1b_p16_mRNA": {
+      "readout": "relative p16 mRNA (qRT-PCR)",
+      "locatable": false,
+      "reason": "fewer than 2 tick labels readable by label-text OCR (rule 7a) -> size no_mapping, direction kept"
+    },
+    "Fig1b_p21_mRNA": {
+      "readout": "relative p21 mRNA (qRT-PCR)",
+      "locatable": false,
+      "reason": "fewer than 2 tick labels readable by label-text OCR (rule 7a) -> size no_mapping, direction kept"
+    },
+    "dropped_panel_lower_right": {
+      "readout": "'Percentage of [unreadable] positive area (%)', ticks 8/6/4/2",
+      "locatable": false,
+      "reason": "marker word not readable; position after panel f suggests the Klotho panel (i), which is not a senescence marker and not in the M5 figure list -> not used"
+    }
+  }
+}
