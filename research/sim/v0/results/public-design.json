@@ -1,0 +1,363 @@
+{
+ "n_sim": 1000,
+ "seeds": [
+  11,
+  12
+ ],
+ "noise_rel": 0.5,
+ "source": "A9 coverage 26336bb",
+ "designs": {
+  "female": {
+   "sources": {
+    "DRiDO echo": {
+     "axis": "A6_heart",
+     "ages_n": {
+      "10": 182,
+      "22": 123,
+      "34": 17
+     }
+    },
+    "DRiDO flow": {
+     "axis": "A11_immune",
+     "ages_n": {
+      "5": 187,
+      "16": 166,
+      "28": 72
+     }
+    },
+    "MPD Petkova1 flow": {
+     "axis": "A11_immune",
+     "ages_n": {
+      "6": 7,
+      "12": 7,
+      "18": 7,
+      "24": 7
+     }
+    },
+    "DRiDO CBC": {
+     "axis": "A12_blood",
+     "ages_n": {
+      "11": 182,
+      "23": 113,
+      "35": 14
+     }
+    },
+    "MPD Peters4 CBC": {
+     "axis": "A12_blood",
+     "ages_n": {
+      "6": 7,
+      "12": 7,
+      "18": 7,
+      "24": 7
+     }
+    },
+    "MPD Korstanje1 albuminuria": {
+     "axis": "A9_kidney",
+     "ages_n": {
+      "12": 7,
+      "18": 7,
+      "24": 7
+     }
+    },
+    "DRiDO fasting glucose": {
+     "axis": "A10_liver_metabolism",
+     "ages_n": {
+      "5": 185,
+      "16": 164,
+      "28": 68
+     }
+    },
+    "DRiDO DEXA fat/lean": {
+     "axis": "A15_fat",
+     "ages_n": {
+      "10": 182,
+      "22": 123,
+      "34": 17
+     }
+    }
+   },
+   "assess": {
+    "n_recoverable": 5,
+    "noise_floor": 92.8,
+    "threshold": 278.4,
+    "n_identified": 0,
+    "identified": []
+   },
+   "balance_pinned": [
+    "A11_immune",
+    "A12_blood",
+    "A15_fat"
+   ],
+   "axis_shares": {
+    "A10_liver_metabolism": {
+     "ratio": 0.74,
+     "sum": 0.0,
+     "xc": 0.03
+    },
+    "A11_immune": {
+     "ratio": 0.8,
+     "sum": 0.01,
+     "xc": 0.08
+    },
+    "A12_blood": {
+     "ratio": 0.88,
+     "sum": 0.0,
+     "xc": 0.03
+    },
+    "A15_fat": {
+     "ratio": 0.84,
+     "sum": 0.0,
+     "xc": 0.0
+    },
+    "A6_heart": {
+     "ratio": 0.64,
+     "sum": 0.01,
+     "xc": 0.08
+    },
+    "A9_kidney": {
+     "ratio": 0.02,
+     "sum": 0.0,
+     "xc": 0.02
+    }
+   }
+  },
+  "male": {
+   "sources": {
+    "MPD Petkova1 flow": {
+     "axis": "A11_immune",
+     "ages_n": {
+      "6": 7,
+      "12": 7,
+      "18": 7,
+      "24": 7
+     }
+    },
+    "MPD Peters4 CBC": {
+     "axis": "A12_blood",
+     "ages_n": {
+      "6": 7,
+      "12": 7,
+      "18": 7,
+      "24": 7
+     }
+    },
+    "MPD Korstanje1 albuminuria": {
+     "axis": "A9_kidney",
+     "ages_n": {
+      "12": 7,
+      "18": 7,
+      "24": 7
+     }
+    }
+   },
+   "assess": {
+    "n_recoverable": 3,
+    "noise_floor": 7.5,
+    "threshold": 25.0,
+    "n_identified": 0,
+    "identified": []
+   },
+   "balance_pinned": [
+    "A11_immune",
+    "A12_blood"
+   ],
+   "axis_shares": {
+    "A11_immune": {
+     "ratio": 0.8,
+     "sum": 0.0,
+     "xc": 0.02
+    },
+    "A12_blood": {
+     "ratio": 0.83,
+     "sum": 0.0,
+     "xc": 0.02
+    },
+    "A9_kidney": {
+     "ratio": 0.79,
+     "sum": 0.0,
+     "xc": 0.01
+    }
+   }
+  },
+  "ideal_6_4": {
+   "sources": {
+    "ideal A1_muscle": {
+     "axis": "A1_muscle",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    },
+    "ideal A3_brain": {
+     "axis": "A3_brain",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    },
+    "ideal A6_heart": {
+     "axis": "A6_heart",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    },
+    "ideal A8_lung": {
+     "axis": "A8_lung",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    },
+    "ideal A9_kidney": {
+     "axis": "A9_kidney",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    },
+    "ideal A10_liver_metabolism": {
+     "axis": "A10_liver_metabolism",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    },
+    "ideal A11_immune": {
+     "axis": "A11_immune",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    },
+    "ideal A12_blood": {
+     "axis": "A12_blood",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    },
+    "ideal A13_skin_hair": {
+     "axis": "A13_skin_hair",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    },
+    "ideal A14_gut": {
+     "axis": "A14_gut",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    },
+    "ideal A15_fat": {
+     "axis": "A15_fat",
+     "ages_n": {
+      "12": 10,
+      "18": 10,
+      "24": 10,
+      "30": 10
+     }
+    }
+   },
+   "assess": {
+    "n_recoverable": 12,
+    "noise_floor": 15.3,
+    "threshold": 46.0,
+    "n_identified": 1,
+    "identified": [
+     "eps"
+    ]
+   },
+   "balance_pinned": [
+    "A10_liver_metabolism",
+    "A11_immune",
+    "A12_blood",
+    "A13_skin_hair",
+    "A14_gut",
+    "A15_fat",
+    "A1_muscle",
+    "A8_lung",
+    "A9_kidney"
+   ],
+   "axis_shares": {
+    "A10_liver_metabolism": {
+     "ratio": 0.89,
+     "sum": 0.02,
+     "xc": 0.09
+    },
+    "A11_immune": {
+     "ratio": 0.86,
+     "sum": 0.01,
+     "xc": 0.11
+    },
+    "A12_blood": {
+     "ratio": 0.89,
+     "sum": 0.01,
+     "xc": 0.07
+    },
+    "A13_skin_hair": {
+     "ratio": 0.94,
+     "sum": 0.01,
+     "xc": 0.0
+    },
+    "A14_gut": {
+     "ratio": 0.95,
+     "sum": 0.01,
+     "xc": 0.0
+    },
+    "A15_fat": {
+     "ratio": 0.95,
+     "sum": 0.01,
+     "xc": 0.0
+    },
+    "A1_muscle": {
+     "ratio": 0.93,
+     "sum": 0.01,
+     "xc": 0.0
+    },
+    "A3_brain": {
+     "ratio": 0.78,
+     "sum": 0.02,
+     "xc": 0.21
+    },
+    "A6_heart": {
+     "ratio": 0.78,
+     "sum": 0.02,
+     "xc": 0.14
+    },
+    "A8_lung": {
+     "ratio": 0.84,
+     "sum": 0.01,
+     "xc": 0.12
+    },
+    "A9_kidney": {
+     "ratio": 0.89,
+     "sum": 0.02,
+     "xc": 0.09
+    }
+   }
+  }
+ }
+}
