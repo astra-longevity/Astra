@@ -32,8 +32,8 @@ Cites: commandments 5–6; D114 (T1-A28-1, T1-A28-3 test 1, T1-A2-1); D118
 | FRL | Schultz 2020 frailty clocks | 31-item frailty index, longitudinal to death, C57BL/6 | doi:10.1038/s41467-020-18446-0 |
 | FI | Whitehead 2014 clinical frailty index | the index itself (method) | doi:10.1093/gerona/glt136 |
 | SLAM | Study of Longitudinal Aging in Mice (NIA) | longitudinal physiology | design: doi:10.1093/gerona/glaa285. **No public data route** (T5-A2-1, obstacle O16). Not relied on. |
-| JAX | JAX Aging Center phenotyping, Diversity Outbred | longitudinal phenotyping | access and content `[to verify]` |
-| GEO-M | mouse methylation clock datasets on GEO | DNA methylation by tissue and age | specific series `[to verify]` (L2, A70) |
+| JAX | JAX Aging Center phenotyping, Diversity Outbred | longitudinal phenotyping | public via Mouse Phenome Database (phenome.jax.org); offerings incl. frailty index, grip, rotarod, acoustic startle, CBC, GTT, urine, echo, body composition (Korstanje 2021, doi:10.1007/s11357-021-00421-2, PMC8599562, opened 2026-10-21); which DO aging sets are in MPD: to pick |
+| GEO-M | mouse methylation clock datasets on GEO | DNA methylation by tissue and age | GSE80672 (whole-blood RRBS, 255 samples, ages, strains and diets incl. CR; GEO record opened 2026-10-21); other tissues: further series still to pick (L2, A70) |
 
 Under T5-A2-1, v0 first relies on sources confirmed public: ITP via MPD, FRL,
 TMS and GEO methylation sets. A licence row (A9 manifest, approved by A50)
