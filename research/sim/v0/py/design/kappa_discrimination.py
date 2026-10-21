@@ -1,6 +1,6 @@
 """Can a challenge design tell kappa 0.5 / 2 / 8 apart? (design/kappa-discrimination.md)
 
-Pre-registered criterion (e4f530a). Per organ and design, linear (Gauss-Newton)
+Pre-registered criterion (e4f530a, tag prereg/sim-v0-kappa-discrimination). Per organ and design, linear (Gauss-Newton)
 likelihood-ratio noncentrality per mouse between the true kappa and a wrong one,
 the organ's other parameters (eta, beta, Xc, eps, c) refitted: readout-moment
 difference between the two kappas, minus its weighted projection on the

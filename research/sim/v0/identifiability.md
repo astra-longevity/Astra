@@ -514,7 +514,7 @@ All mice counts in §11 are **lower bounds** (I19).
 
 **I22: at kappa 8 no design splits eta/beta**, and no tested design pins kappa
 locally. Route out: tell kappa 0.5 / 2 / 8 apart by model comparison, criterion
-pre-registered before any number (`design/kappa-discrimination.md`, e4f530a).
+pre-registered before any number (`design/kappa-discrimination.md`): criterion pre-registered in e4f530a (tag `prereg/sim-v0-kappa-discrimination`, pushed 2026-10-21T14:22:57Z), before any number; rebased as 0083a7b.
 `py/design/kappa_discrimination.py`, same shards, no new simulation; output
 `results/kappa-discrimination.json`. Sanity: λ of a hypothesis against itself = 0.
 
