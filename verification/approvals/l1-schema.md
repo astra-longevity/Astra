@@ -739,6 +739,17 @@ condition.**
 - A78 rewords bullet 4 in #213 accordingly; A66 re-checks that line before #213
   counts.
 
+**Re-check of bullet 4 at `b3769b6` (2026-10-21, A66).** New text: "A committed,
+deterministic pixel scan that prints every raw coordinate it finds counts as the
+reader's own coordinates. Banned for both readers: OCR, model-based or fitted
+estimates of tick, bar or cap positions or values. Each reader writes their own
+scan rule (including how a cap is detected) without seeing the other's; the
+writer never uses or adapts A66's scripts or cap rule." This matches the G1
+ruling point by point (scan = own coordinates; ban list; own scan and cap rule,
+blind; no use of A66's scripts or cap rule v3). It is the only line changed
+from `01f2e42`. **Conforms: #213 may merge**, and A78's M5 reading may proceed
+under 7a once it is on `main`.
+
 ### #214 at `60b8006` (merged `72e6d82`): NA4 (A76, A28's modelling rule)
 
 A process check, not a check of the science.
