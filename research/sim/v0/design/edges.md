@@ -51,18 +51,21 @@ Total hallmark × organ pairs: 166. Pair IDs for L3 rows: `E-H<n>-A<m>`
 but scale its **clearance**: `m_h` > 1 means more removal, less damage
 (mappings.yaml direction semantics).
 
-## 3. Class → parameter mappings (all DRAFT, not usable)
+## 3. Class → parameter mappings (DRAFT, superseded)
 
-From `../../mappings.yaml`. Priors are placeholders; no row is sealed; no L3
-row exists. Class names are provisional (sealed list: A71/A65 class labels).
+Drafted by A68 from `../../mappings.yaml` before the L3 rules. A68 was not a
+lifespan-naive mapping writer, so these rows carry no prior and no source: each
+is superseded by the L3 row `M-00n` in `literature/refutation/mappings.md`
+(literature, A78) and **not used in calibration**. Class, parameter, term and
+edge are kept only as pointers.
 
-| ID | Class | Parameter | Term | Direction | Prior multiplier (median, 90 %) | Mechanistic source | Edge it rides on |
-|---|---|---|---|---|---|---|---|
-| M1 | mTORC1 inhibitor | `hallmark.H6_nutrient_sensing` | production | production down | 0.85 [0.7, 1.0] | doi:10.1074/jbc.273.7.3963 (yeast; mouse target engagement [to verify]) | E-H6 |
-| M2 | mTORC1 inhibitor | `hallmark.H5_autophagy` | clearance | clearance up | 1.15 [1.0, 1.3] | doi:10.1074/jbc.273.7.3963 (yeast) | E-H5 |
-| M3 | α-glucosidase inhibitor | `hallmark.H6_nutrient_sensing` | production | production down | 0.9 [0.75, 1.0] | PMC4620230 (human review; mouse source [to verify]) | E-H6 |
-| M4 | SGLT2 inhibitor | `hallmark.H6_nutrient_sensing` | production | production down | 0.9 [0.75, 1.0] | doi:10.1371/journal.pone.0030555 (no lifespan, full text checked) | E-H6 |
-| M5 | senolytic | `hallmark.H8_senescence` | clearance | clearance up | 1.15 [1.0, 1.3] | doi:10.1111/acel.12344 (no lifespan, full text checked) | E-H8 |
+| ID | Class | Parameter | Term | Edge it rides on | Status |
+|---|---|---|---|---|---|
+| M1 | mTORC1 inhibitor | `hallmark.H6_nutrient_sensing` | production | E-H6 | superseded by L3 `M-001` (literature, A78), not used in calibration |
+| M2 | mTORC1 inhibitor | `hallmark.H5_autophagy` | clearance | E-H5 | superseded by L3 `M-002` (literature, A78), not used in calibration |
+| M3 | α-glucosidase inhibitor | `hallmark.H6_nutrient_sensing` | production | E-H6 | superseded by L3 `M-003` (literature, A78), not used in calibration |
+| M4 | SGLT2 inhibitor | `hallmark.H6_nutrient_sensing` | production | E-H6 | superseded by L3 `M-004` (literature, A78), not used in calibration |
+| M5 | senolytic | `hallmark.H8_senescence` | clearance | E-H8 | superseded by L3 `M-005` (literature, A78), not used in calibration |
 
 Caloric-restriction mimetic: no row (class overlaps M3/M4; waits for the
 sealed class list).
