@@ -74,8 +74,38 @@ def derive_stratum(cls, flag, present)
   "b"
 end
 
+# "compound seen in training" tagger (A28, G171 2026-10-21; A50 #145).
+# A held-out row is tagged iff its compound names a SINGLE-compound train entry
+# of train-classes.yaml, after train-name canonicalisation
+# (class-labels-train-names.yaml). Match = case/punctuation-insensitive exact
+# name; no hand picks. The tag lives in `flag` (appended with "; "), never in
+# `stratum`. Adding only: a row already tagged but not matched aborts.
+TRAIN_NAMES_FILE = File.expand_path("../../../literature/lifespan/class-labels-train-names.yaml", DIR)
+SEEN_TAG = "compound seen in training"
+
+def name_key(s)
+  s.to_s.downcase.gsub(/[^a-z0-9]/, "")
+end
+
+def train_compounds
+  canon = YAML.safe_load(File.read(TRAIN_NAMES_FILE)).fetch("canonical")
+  YAML.safe_load(File.read(TRAIN_CLASSES_FILE))
+      .fetch("labels").map { |l| l.fetch("compound") }
+      .reject { |c| c.include?(" + ") }
+      .map { |c| name_key(canon.fetch(c, c)) }.to_set
+end
+
+def tag_flag(flag, compound, seen_set)
+  seen   = seen_set.include?(name_key(compound))
+  tagged = flag.to_s.include?(SEEN_TAG)
+  raise "#{compound}: tagged '#{SEEN_TAG}' but not a train compound" if tagged && !seen
+  return flag if !seen || tagged
+  flag.to_s.empty? ? SEEN_TAG : "#{flag}; #{SEEN_TAG}"
+end
+
 label_of = load_labels
 present  = train_classes(label_of)
+seen_set = train_compounds
 
 rows = CSV.read(SPLIT, headers: true)
 header = rows.headers.map { |h| h == "class_label_proposed" ? "class_label" : h }
@@ -83,6 +113,8 @@ header = rows.headers.map { |h| h == "class_label_proposed" ? "class_label" : h 
 before = Hash.new(0)
 after  = Hash.new(0)
 moves  = []
+tagged = []
+new_by = Hash.new { |h, k| h[k] = [0, 0] } # stratum => [compound-new, rows]
 
 out = CSV.generate do |csv|
   csv << header
@@ -91,6 +123,10 @@ out = CSV.generate do |csv|
     flag = r["flag"]
     old  = r["stratum"]
     new  = derive_stratum(cls, flag, present)
+    nflag = tag_flag(flag, r["compound"], seen_set)
+    tagged << [r["arm_id"], r["compound"]] if nflag != flag
+    new_by[new][0] += 1 unless nflag.to_s.include?(SEEN_TAG)
+    new_by[new][1] += 1
     before[old] += 1
     after[new]  += 1
     moves << [r["arm_id"], r["compound"], old, new] if old != new
@@ -98,6 +134,7 @@ out = CSV.generate do |csv|
       case h
       when "class_label" then cls
       when "stratum"     then new
+      when "flag"        then nflag
       else r[h]
       end
     end)
@@ -113,3 +150,6 @@ puts "stratum before: #{fmt.call(before)}"
 puts "stratum after:  #{fmt.call(after)}"
 puts "moved (#{moves.size}):"
 moves.each { |a, c, o, n| puts "  #{a} #{c}: #{o} -> #{n}" }
+puts "compound-new per stratum: " + %w[a b c].map { |k| "#{k} #{new_by[k][0]}/#{new_by[k][1]}" }.join(" / ")
+puts "newly tagged '#{SEEN_TAG}' (#{tagged.size}):"
+tagged.each { |a, c| puts "  #{a} #{c}" }
