@@ -2481,3 +2481,121 @@ index 0000000..52eca16
 +  ]
 +}
 # --- End entry #3 ---
+4:7cfecc0411715350b66bf91e4db4048feb7d8121dbc38788177df229c99735a1:e6b00595bb61a33b4b6548339cfb78e5428194f658e1847009652f6c992f7f7c:760f9abade9f8ebc622e1ddf786c79b5f48f1f2624e712e2b6cb5d7fa61c90c1
+# --- Diff for entry #4 ---
+diff --git a/.github/workflows/protection-drift.yml b/.github/workflows/protection-drift.yml
+index 7f57d38..7b711c5 100644
+--- a/.github/workflows/protection-drift.yml
++++ b/.github/workflows/protection-drift.yml
+@@ -7,9 +7,9 @@ name: Protection drift
+ #
+ # Read-only. Reading branch protection and rulesets needs repository
+ # "Administration: read", which the default GITHUB_TOKEN does not have, so the
+-# GET calls use the PROTECTION_READ_TOKEN secret, stored in the `protection`
+-# environment (deployment branches: main only). GITHUB_TOKEN is only used to
+-# write the issue.
++# GET calls use the PROTECTION_READ_TOKEN repository secret (president ruling
++# PR11: the token stays a repo secret, no environment). GITHUB_TOKEN is only
++# used to write the issue.
+ on:
+   schedule:
+     - cron: "17 6 * * *"
+@@ -31,9 +31,6 @@ jobs:
+   drift:
+     name: Compare live protection with docs/rust/
+     runs-on: ubuntu-latest
+-    # PROTECTION_READ_TOKEN lives in this main-only environment, not at repo
+-    # level, so no workflow on another branch can read it.
+-    environment: protection
+     steps:
+       - uses: actions/checkout@v4
+ 
+diff --git a/.github/workflows/fetch.yml b/.github/workflows/fetch.yml
+index ada328e..d96fecb 100644
+--- a/.github/workflows/fetch.yml
++++ b/.github/workflows/fetch.yml
+@@ -7,6 +7,10 @@ name: Dataset fetch
+ #     with issue-ready messages in the job summary.
+ #   - dispatch with pin=true: also downloads unpinned files and prints their
+ #     sha256 / size_bytes / fetched_at, to be added to the manifest by PR.
++#   - Only pinned files <= MAX_BYTES are downloaded, cached and verified here
++#     (actions/cache holds 10 GB per repo). Bigger files are listed in the
++#     summary; the job that uses them runs `astra fetch plan` without
++#     --max-bytes, downloads them and runs `astra fetch verify` itself.
+ 
+ on:
+   schedule:
+@@ -21,6 +25,8 @@ on:
+ env:
+   CARGO_TERM_COLOR: always
+   RUST_VERSION: "1.97.1"
++  # 500 MB: files above it are left to the job that uses them.
++  MAX_BYTES: "500000000"
+ 
+ permissions:
+   contents: read
+@@ -49,7 +55,7 @@ jobs:
+         run: cargo build --release -p astra-cli
+ 
+       - name: Plan (checks every manifest)
+-        run: target/release/astra fetch plan > "$RUNNER_TEMP/plan.tsv"
++        run: target/release/astra fetch plan --max-bytes "$MAX_BYTES" > "$RUNNER_TEMP/plan.tsv"
+ 
+       - name: Dataset cache
+         uses: actions/cache@v4
+@@ -70,6 +76,6 @@ jobs:
+           {
+             echo "### Verify"
+             echo '```'
+-            target/release/astra fetch verify --cache .cache/datasets 2>&1
++            target/release/astra fetch verify --cache .cache/datasets --max-bytes "$MAX_BYTES" 2>&1
+             echo '```'
+           } | tee -a "$GITHUB_STEP_SUMMARY"
+diff --git a/scripts/fetch-datasets.sh b/scripts/fetch-datasets.sh
+index a436ca3..51c0838 100755
+--- a/scripts/fetch-datasets.sh
++++ b/scripts/fetch-datasets.sh
+@@ -7,6 +7,7 @@
+ # PLAN.tsv lines (from `astra fetch plan`):
+ #   fetch\t<id>\t<n>\t<interval>\t<sha256>\t<url>    approved + pinned
+ #   unpinned\t<id>\t<n>\t<interval>\t-\t<url>        approved, no hash yet
++#   large\t<id>\t<n>\t<size_bytes>\t<sha256>\t<url>  above --max-bytes: listed, never downloaded here
+ #   skipped\t<id>\t<licence_status>                  licence not approved
+ #
+ # - Pinned files are stored as CACHE_DIR/<sha256>; a cache hit sends no request.
+@@ -39,6 +40,7 @@ mkdir -p "$tmp/hosts"
+ problems=()
+ pins=()
+ skipped=()
++large=()
+ downloaded=0
+ hits=0
+ 
+@@ -87,6 +89,7 @@ while IFS=$'\t' read -r kind id n interval sha url; do
+       fi
+       ;;
+     skipped) skipped+=("$id ($n)") ;;
++    large) large+=("$id files[$n]: $interval bytes ($url)") ;;
+     "") ;;
+     *) problems+=("Bad plan line: $kind $id") ;;
+   esac
+@@ -101,6 +104,11 @@ done <"$plan"
+     echo "### Skipped (licence not approved)"
+     printf -- '- %s\n' "${skipped[@]}"
+   fi
++  if [ "${#large[@]}" -gt 0 ]; then
++    echo
++    echo "### Left to the job that uses them (above the size limit, not downloaded)"
++    printf -- '- %s\n' "${large[@]}"
++  fi
+   if [ "${#pins[@]}" -gt 0 ]; then
+     echo
+     echo "### Pins (paste into the manifest by PR)"
+diff --git a/docs/rust/branch-protection.json b/docs/rust/branch-protection.json
+index b2ae806..e6e0221 100644
+--- a/docs/rust/branch-protection.json
++++ b/docs/rust/branch-protection.json
+@@ -1 +1 @@
+-{"required_status_checks":{"strict":false,"contexts":["Rust (lints · tests)","Structure (lengths · folders · chain)"]},"enforce_admins":true,"required_pull_request_reviews":{"required_approving_review_count":0,"dismiss_stale_reviews":false,"require_code_owner_reviews":false},"restrictions":null,"allow_force_pushes":false,"allow_deletions":false}
++{"required_status_checks":{"strict":false,"contexts":["Rust (lints · tests)","Structure (lengths · folders · chain)","Write paths (D47 · D69)","Runs (manifests · re-run)","Registers (schema · tests)","Lifespan (check.rb)","Workflows (actionlint)","File sizes (10 MB)"]},"enforce_admins":true,"required_pull_request_reviews":{"required_approving_review_count":0,"dismiss_stale_reviews":false,"require_code_owner_reviews":false},"restrictions":null,"allow_force_pushes":false,"allow_deletions":false}
+# --- End entry #4 ---
