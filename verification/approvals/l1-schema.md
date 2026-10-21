@@ -693,3 +693,90 @@ Checked against #173/#174, rules 5–9 (`d76be3b`) and the writer ruling.
   tick-route rules commit are on `main`, and after A78's reading agrees with #211
   under the 5 % / 10 % tolerance.
 - No row is sealed. A50 seals them after the fixes.
+
+A50 on F1–F3 (G142, 2026-10-21): all three endorsed. Zhu 2015 is not `X-LS`, since
+its abstract reports no lifespan, survival or mortality outcome. It is recorded as
+"not used: superseded draft prior, abstract read (healthspan only)". No new
+exclusion code.
+
+## Rules 7a + 9a (#213) and NA4 (#214): checks (2026-10-21, A66)
+
+### #213 at `01f2e42`: README rules 7a and 9a (A78)
+
+Checked line by line against A50's #212 rulings (G142, 2026-10-21).
+
+| A50 ruling | Rule in #213 | Conforms? |
+|---|---|---|
+| Tick labels read by eye or by OCR of the label text only | 7a bullet 2: viewer, or OCR of the label **text only** | **Yes** |
+| Calibration on 2 label-matched ticks, never the frame | 7a bullet 1 | **Yes** |
+| Each reader's own pixel coordinates + image sha256, converted by a committed script; no reuse | 7a bullet 3, both ways (writer ↔ A66) | **Yes** |
+| No OCR or automatic estimate of bar or cap positions or values, by either reader | 7a bullet 4 | **Yes**, see G1 |
+| Per-panel fallback: fewer than 2 ticks, or a bar or cap not located → size `no_mapping`, direction kept | 7a bullet 5 | **Yes** |
+| 1:1 only when the readout measures the same process as the parameter; otherwise marker-level direction, size `no_mapping`, not usable as input until A28/A76 commit a rule (process + sign) before calibration and before any lifespan read | 9a | **Yes** |
+
+**G1 (wording, ruling needed).** 7a bullet 4 says "no automatic estimate of bar or
+cap positions". My #211 reading located bar tops and caps with a committed,
+deterministic pixel-scan rule (cap rule v3) that prints every coordinate it uses.
+A50 allowed this under the option-1 ruling ("found by pixel scan … committed
+script"). Read literally, bullet 4 could ban it, and #211 would then be void.
+Proposed clarification: a deterministic scan rule, committed before use, that
+prints the raw coordinates it locates counts as the reader's own coordinates. The
+ban covers OCR, model or curve-fitted estimates of positions or values.
+
+**Verdict on #213: conforms, subject to G1.** Once G1 is ruled (and reworded in
+#213 if needed) and #213 is on `main`, A78's M5 reading may proceed under 7a.
+
+**A50 ruling on G1 (G142, 2026-10-21): proposed reading accepted, with one
+condition.**
+
+- A committed, deterministic pixel scan that prints every raw coordinate it uses
+  counts as the reader's own coordinates. The ban in 7a bullet 4 covers OCR,
+  model-based and fitted estimates of positions or values.
+- **Condition: each reader writes their own scan rule without seeing the
+  other's.** A78 may not run or adapt A66's cap rule v3 or A66's scripts
+  (`verification/digitisations/m5-fig1/`). The same deterministic script gives
+  the same coordinates, so the two readings would no longer be independent.
+- A78 rewords bullet 4 in #213 accordingly; A66 re-checks that line before #213
+  counts.
+
+**Re-check of bullet 4 at `b3769b6` (2026-10-21, A66).** New text: "A committed,
+deterministic pixel scan that prints every raw coordinate it finds counts as the
+reader's own coordinates. Banned for both readers: OCR, model-based or fitted
+estimates of tick, bar or cap positions or values. Each reader writes their own
+scan rule (including how a cap is detected) without seeing the other's; the
+writer never uses or adapts A66's scripts or cap rule." This matches the G1
+ruling point by point (scan = own coordinates; ban list; own scan and cap rule,
+blind; no use of A66's scripts or cap rule v3). It is the only line changed
+from `01f2e42`. **Conforms: #213 may merge**, and A78's M5 reading may proceed
+under 7a once it is on `main`.
+
+### #214 at `60b8006` (merged `72e6d82`): NA4 (A76, A28's modelling rule)
+
+A process check, not a check of the science.
+
+| Check | Finding | Conforms? |
+|---|---|---|
+| Content as A28 fixed it | `edges.md` NA4: H8 clearance multiplier up (sign +), production unchanged, marker fall read as clearance. `spec.md` §6 says the same. | **Yes** |
+| Sensitivity line | Pre-registered: the same marker fall read as production down (clearance unchanged); calibration reports both. | **Yes** |
+| Before calibration | Committed 2026-10-21. Calibration is due 2027-02-20 and none has run. The rule is stated "before any D+Q lifespan result is read by its writer". | **Yes** |
+| Source: abstract only, no survival or lifespan in it | PMID 35165353 (10.1038/s41598-022-06448-5). I read the abstract via Europe PMC on 2026-10-21: frailty index, motor, cognitive and hippocampal outcomes in SAMP10, plus in vitro senescent cells. No lifespan, survival, mortality or death term appears. Its use is limited to the class-definition sentence; the clearance claim is marked `[to verify]`. | **Yes** |
+| Exposure line + manual-downloads rows | `edges.md` exposure line (two web snippets, qualitative, nothing opened; abstract only). 3 rows in `research/metric/v0/manual-downloads.csv`, sha `n/a`. | **Yes** |
+
+**G2 (gap, for A28/A76 before calibration).** NA4 fixes the process and the sign,
+not the size transform. Rule 9's 1:1 uses the printed ratio itself as the
+multiplier, but a marker ratio below 1 must become a clearance multiplier above 1
+(for example 1/r, or a steady-state relation). If the marker → multiplier
+transform is not written before calibration, M-005's size stays `no_mapping` even
+after the two readings agree. The same applies to the production-down sensitivity
+line.
+
+**A50 ruling on G2 (G142, 2026-10-21): accepted.** The transform from marker
+ratio to clearance multiplier (1/r or any other form) is a modelling rule owned
+by A28/A76. It is committed with its sensitivity line before calibration;
+neither the writer (A78) nor A66 chooses it. Until then M-005's size stays
+`no_mapping`. Relayed to A28 via A2.
+
+**Verdict on #214: conforms as process.** M-005 may get a new version with a size
+only after (a) #213 is on `main`, (b) A78's 7a reading agrees with #211 per panel
+under the 5 % / 10 % tolerance, and (c) the transform in G2 is committed before
+calibration.
