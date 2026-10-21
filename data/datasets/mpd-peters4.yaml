@@ -19,8 +19,12 @@ licence:
   notes: >-
     Same MPD terms as mpd-itp1 (LA-006): contributors waive copyright, MPD and
     project citation required, respect meta robots, at least 2 s between
-    requests. Verification to confirm LA-006 conditions extend to this project.
-licence_status: pending
+    requests. LA-018 (A50, 2026-10-20) extends the LA-006 terms to this
+    project. LA-018 conditions, verbatim: "No paper on the project page: cite the MPD project page (Peters LL, with Schultz D, Godfrey D; MPD:243) and MPD (RRID:SCR_003212) per https://phenome.jax.org/about/citing. Other LA-006 conditions apply (meta robots, ≥ 2 s between requests, pin download date + sha256)."
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-018
 fetch:
   min_interval_seconds: 2
 checked_at: "2026-10-20"

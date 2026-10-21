@@ -19,8 +19,12 @@ licence:
   notes: >-
     Same MPD terms as mpd-itp1 (LA-006): contributors waive copyright, MPD and
     project citation required, respect meta robots, at least 2 s between
-    requests. Verification to confirm LA-006 conditions extend to this project.
-licence_status: pending
+    requests. LA-019 (A50, 2026-10-20) extends the LA-006 terms to this
+    project. LA-019 conditions, verbatim: "Cite Petkova et al. 2008, Physiol Genomics 34:304-314 (10.1152/physiolgenomics.00185.2007), the MPD project (MPD:242) and MPD. Other LA-006 conditions apply."
+licence_status: approved
+approved_by: A50
+approved_at: "2026-10-20"
+approval_ref: LA-019
 fetch:
   min_interval_seconds: 2
 checked_at: "2026-10-20"

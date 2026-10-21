@@ -27,6 +27,12 @@ used_by:
   - O16
 fetched_at: null
 notes: >-
-  Obstacle O16 (owner A2, month 1): no public data route found (PR #36 and a
-  new search on 2026-10-20). Exit: confirmed route with licence, or written
-  request sent to the NIA programme. Metric v0 must not plan on it.
+  Obstacle O16 (owner A2). Since 2026-10-20 the public part of SLAM (lifespan
+  and cause of death, NMR body composition, fasting glucose, body weight,
+  temperature, food intake; cut 2019) is in slam-zenodo-5167639 (LA-021).
+  This manifest covers only the unpublished readouts: CBC, echocardiography,
+  GTT, frailty and other functional tests, and deaths/censor status after the
+  2019 cut. LA-007 still applies to them. Route out: the written request
+  data/requests/nia-slam-access.md, sent by the president to R. de Cabo on
+  2026-10-21 (out of office until about 2026-11-05; follow up if no answer by
+  2026-11-12). Metric v0 must not plan on these readouts.
