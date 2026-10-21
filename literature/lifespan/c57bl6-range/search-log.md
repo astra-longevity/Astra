@@ -187,3 +187,30 @@ Agent: A71
   then stage 2 (decision and code only).
 
 Agent: A71
+
+## Open-copy lookup (run 1 X_NO_FULLTEXT + run 2b stage-1 passes)
+
+| | |
+|---|---|
+| Date | 2026-10-20 |
+| Script | `oa2b.rb` sha256 `ab12a85a1896be1dbc4bdce82e2db0255f8c64c59345c07091adfeb30c17e449` |
+| Result | `oa-lookup-run2b.tsv` (179 rows) sha256 `1e356a31f3aa85abe755218e5e3bf8a0fe4e75fc9a64c171cff2ecc3f669527e` |
+| Order | PMC / Europe PMC → Unpaywall → preprint (Europe PMC `SRC:PPR` title search), first open copy wins |
+
+| Run | PMIDs | pmc | europepmc | unpaywall | preprint | closed |
+|---|---|---|---|---|---|---|
+| 1 (`X_NO_FULLTEXT`) | 9 | 1 | 2 | 1 | 0 | 5 |
+| 2b (stage-1 pass) | 170 | 135 | 7 | 5 | 0 | 23 |
+
+- Metadata only: the script records URLs; no full text was downloaded or read.
+- The script was run once, then committed unchanged with its output.
+- Run 1: 4 of the 9 paywalled papers now have an open copy (17416441, 18772469,
+  24336818, 26774117). They get a new stage-2 line with `run` = 2; the old lines stay.
+- Still closed after step 3 (stay or become `X_NO_FULLTEXT` at stage 2):
+  - run 1 (5): 10870527, 12230882, 20305363, 20370440, 27455862
+  - run 2b (23): 10978857, 10996667, 11166357, 11462771, 11726538, 16024047, 16510136,
+    17092545, 17129217, 17516143, 17921417, 18854208, 20558214, 20818929, 23092318,
+    25193556, 26271539, 34085306, 35914953, 35916733, 39261412, 39312071, 39471831
+- No lifespan number read. Next: stage 2 on the 151 open papers (147 run 2b + 4 run 1).
+
+Agent: A71
