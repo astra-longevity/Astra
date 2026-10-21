@@ -6,7 +6,7 @@ Spec only: this file adds no workflow. Synthetic data only, trust level L0.
 ## Why
 
 At `n_sim` 2000 the survival Fisher matrix has a Monte-Carlo noise floor of
-about 1 200 (identifiability.md §2, I3, I9). That floor hides everything the
+about 1 200 (../identifiability.md §2, I3, I9). That floor hides everything the
 readouts add (about 300 per direction at 30 mice per age). The floor shrinks
 as 1/`n_sim`, so a joint survival + readout analysis needs `n_sim` of 20 000
 to 50 000. That is too heavy for the shared machine (about 1–2 CPU-hours per
@@ -23,7 +23,7 @@ seed at 20 000) but easy to shard on Actions.
    falls below 150.
 2. **Recovery fit (step 2, after 1 is read).** Nelder-Mead on the joint
    likelihood for the parameter set that step 1 identifies, 3 synthetic data
-   seeds (101–103), truth shifted as in identifiability.md §3. Recovered =
+   seeds (101–103), truth shifted as in ../identifiability.md §3. Recovered =
    error < 0.1 log units in every seed.
 
 ## Inputs (all pinned)

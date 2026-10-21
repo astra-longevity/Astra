@@ -2,7 +2,7 @@
 
 Status: **v0 candidate design, synthetic basis only.** This is not a mouse
 request. Mice come only after metric v0 passes (charter part 6). Numbers below
-come from `identifiability.md` §9 at `n_sim` 600 and must be re-checked by the
+come from `../identifiability.md` §9 at `n_sim` 600 and must be re-checked by the
 Actions run (`actions-job.md`, `n_sim` 20 000 / 50 000) before any request.
 
 ## Why a challenge
@@ -80,4 +80,4 @@ organs recover much more slowly than young ones after the same insult.
 Limits: group means from figures (digitised, [to verify] per source), mostly
 terminal readouts, different insults and strains; enough to bound kappa, not to
 fit eta/beta per organ. None of these pages reports lifespan (no
-`manual-downloads.csv` rows). Digitising is a separate task (data, A9).
+`research/metric/v0/manual-downloads.csv` rows). Digitising is a separate task (data, A9).

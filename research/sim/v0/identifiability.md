@@ -340,7 +340,7 @@ antigen at each age, so only its spread across mice counts, not its mean.
 |---|---|
 | I11 | Peak position of the rise-then-fall readouts is a placeholder (`PEAK` = 1.0); the GTT loss depends on where real mice sit relative to the peak |
 | I12 | Kidney's two values are both functions of one state; a real second value (albuminuria) may carry independent damage, so the redundancy is a model limit |
-| I13 | Repeated-design floor higher at `n_sim` 2000; the 6 vs 11 comparison needs the Actions run (`actions-job.md`) |
+| I13 | Repeated-design floor higher at `n_sim` 2000; the 6 vs 11 comparison needs the Actions run (`design/actions-job.md`) |
 | I14 | Dropout information (which mice die between visits) is counted with survival, not here |
 
 ## 9. Splitting damage production (eta) from repair (beta): acute challenge vs mapped intervention (synthetic)
@@ -415,7 +415,7 @@ lifespan, scores the model on a class it was calibrated on. On top of that
 circularity the route gains nothing (9.3, best share 0.45). **Decision (A28,
 2026-10-20): the mapped route is dropped.** No class is used for calibration,
 so none is ruled out: SGLT2, mTORC1, α-glucosidase and senolytic all stay
-scorable. The acute challenge is the v0 candidate design: `challenge-design.md`.
+scorable. The acute challenge is the v0 candidate design: `design/challenge-design.md`.
 
 ### 9.5 Known mouse challenge tests per organ
 

@@ -1,4 +1,4 @@
-"""Shard / gather mode for the joint job on GitHub Actions (actions-job.md).
+"""Shard / gather mode for the joint job on GitHub Actions (../../design/actions-job.md).
 
 One shard = one `model.simulate` call for (seed, parameter, sign). The same
 simulation feeds both studies: survival bins and readout moments (readouts.py)
