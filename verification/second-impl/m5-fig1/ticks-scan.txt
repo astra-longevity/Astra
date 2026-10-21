@@ -1,0 +1,12 @@
+box 0 526 872 1118 vertical axis cols (abs x): [171, 172, 173, 174, 613, 614, 615, 616, 617]
+baseline rows (abs y): [1016, 1017, 1018, 1019, 1020]
+axis at abs x 171-174: tick centres abs y = [654.5, 727.0, 800.0, 872.5, 945.5, 1018.0, 1113.5]
+axis at abs x 613-617: tick centres abs y = [653.5, 726.5, 799.5, 872.5, 945.5, 1018.5, 1113.0]
+box 0 1134 905 1716 vertical axis cols (abs x): [175, 176, 177, 178, 179, 643, 644, 645, 646]
+baseline rows (abs y): [1614, 1615, 1616, 1617, 1618]
+axis at abs x 175-179: tick centres abs y = [1193.5, 1202.5, 1215.0, 1252.0, 1325.0, 1397.5, 1470.5, 1543.5, 1616.0, 1714.0]
+axis at abs x 643-646: tick centres abs y = [1186.0, 1249.5, 1372.0, 1494.5, 1616.5, 1715.0]
+box 1577 1163 2035 1700 vertical axis cols (abs x): [1773, 1774, 1775, 1776, 1777]
+baseline rows (abs y): [1605, 1606, 1607, 1608]
+axis at abs x 1773-1777: tick centres abs y = [1243.5, 1316.5, 1389.0, 1461.5, 1534.5, 1606.5, 1699.0]
+image fig1.png sha256 696a7e0a2b7b6187f9f2de10789cb599f1f89a2281538283722f5df6e37413f6

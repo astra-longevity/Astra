@@ -578,3 +578,44 @@ seal.
 Effect on the headline: none. B04/B05 are already tagged `compound seen in training`, so they
 are outside the compound-new headline set. Until the trace search reports, the seal is on hold
 for B04/B05 only.
+
+## M5 blind second digitisation — NPJ Regen Med 2026 Fig 1 (A66, 2026-10-21)
+
+A50's G142 ruling (2026-10-21) applies rule 7 of A78's mapping rules (README on
+main `d76be3b`): the figure-only effect for **M5** (senolytic → H8, D + Q,
+doi `10.1038/s41536-026-00490-x`) is digitised by A78's committed script and,
+independently, by A66, blind to A78's values. A66's reading is committed first;
+A78 then opens the M5 rows PR, and the two readings are compared under the
+rules-commit tolerance (ratio ≤ 5 % rel, bounds ≤ 10 % rel).
+
+A66's blind second digitisation is in `verification/second-impl/m5-fig1/`
+(method, scripts, raw coords, output; full disclosure in its README). Key points:
+
+- **Calibration** on scanned y-axis ticks matched to printed labels, never the
+  frame top (A50 condition 1). Image pinned by sha256
+  `696a7e0a2b7b6187f9f2de10789cb599f1f89a2281538283722f5df6e37413f6`; the
+  scripts abort on a different image. Only Fig 1 was fetched; no survival panel
+  or page was opened. The image is not committed (not ours to redistribute).
+- **Only old (vehicle) and old + D + Q are read** — rule 8's ratio is
+  treated/control; young is not in the ratio.
+- **Cap rule disclosed**, revised twice from pixel structure only (never A78's
+  values, which do not yet exist): v1 (too strict, all `no_mapping`) → v2 → v3
+  (widest bounded 2–5 row run). See the folder README.
+- **OCR estimates** (Datalab emitted approximate bar values in prose) were
+  **not used, not committed, not passed to A78** (A50 condition 4).
+
+Results (ratio D + Q / old, 95 % interval = delta method on the log ratio,
+mean ± t(0.975, n−1)·SEM, n from the caption):
+
+| Panel | Result | ratio D+Q/old | 95% interval |
+|---|---|---|---|
+| 1b p16 mRNA (n=6) | ok | 0.248 | 0.163 – 0.377 |
+| 1b p21 mRNA (n=6) | ok | 0.509 | 0.379 – 0.683 |
+| 1d p16/p21 area % (n=5) | ok | 0.204 | 0.130 – 0.321 |
+| 1d positive cells/field (n=5) | `no_mapping` (cap D+Q not located) | — | — |
+| 1f SA-β-gal area % (n=5) | ok | 0.557 | 0.297 – 1.044 |
+
+Direction in every panel: D + Q lowers the marker vs old (ratio < 1), as the
+paper reports; the `no_mapping` panel keeps its direction, size only dropped.
+A78's M5 rows do not count until this reading is on `main` and the two readings
+agree within tolerance per panel (else that panel → size `no_mapping`).
