@@ -91,3 +91,10 @@ read by its writer (A76).
   cited abstract reports frailty, motor and cognitive gains in SAMP10 mice; no
   survival or lifespan result. NA4's content is A28's rule, so the exposure
   left the writer no discretion. Logged in `research/metric/v0/manual-downloads.csv`.
+- exposure (NA4.2, 2026-10-21): A28 saw both M-005 panel ratios (~0.2 Fig 1d p16
+  area%, ~0.56 Fig 1f SA-β-gal, 1f interval including 1) in a relay before setting
+  this rule; A50 accepted it because the rule is generic, has no free parameter or
+  panel priority, and only widens intervals. Writer A76 also saw these values (in
+  A28's relay of A50's ruling) before writing; the rule text was fixed by A28
+  beforehand, leaving the writer no discretion. Rule, script and tests were
+  committed first (5f09859, 81ecbbd) with no M-005 value; tests use synthetic inputs only.
