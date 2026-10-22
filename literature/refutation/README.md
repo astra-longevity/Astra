@@ -116,7 +116,7 @@ Rules added by A50 ruling, 2026-10-21 (gaps raised by the mapping writer A78):
    | L-H4 | `H4_proteostasis` | production | chaperones, proteasome, adaptive unfolded-protein response | m ↓ (protective) | López-Otín 2023 (H4) |
    | L-H5a | `H5_autophagy` | repair | macroautophagy machinery or its positive regulators | m ↑ | López-Otín 2023 (H5) |
    | L-H5b | `H5_autophagy` | repair | negative regulators of macroautophagy | m ↓ | López-Otín 2023 (H5) |
-   | L-H6a | `H6_nutrient_sensing` | production | anabolic nutrient signalling (insulin/IGF-1 receptor, PI3K/AKT, mTORC1) or nutrient uptake, absorption or reabsorption | m ↑ | López-Otín 2023 (H6: anabolic signalling accelerates ageing) |
+   | L-H6a | `H6_nutrient_sensing` | production | anabolic nutrient signalling (insulin/IGF-1 receptor, PI3K/AKT, mTORC1) | m ↑ | López-Otín 2023 (H6: anabolic signalling accelerates ageing) |
    | L-H6b | `H6_nutrient_sensing` | production | sensors of low energy or nutrient scarcity (AMPK, sirtuins) | m ↓ | López-Otín 2023 (H6) |
    | L-H6c | `H6_nutrient_sensing` | production | any other nutrient-sensing function | none | — |
    | L-H7a | `H7_mitochondria` | production | mitochondrial biogenesis, mitophagy, or detoxification of mitochondrial reactive oxygen species | m ↓ (protective) | López-Otín 2023 (H7) |
@@ -130,7 +130,6 @@ Rules added by A50 ruling, 2026-10-21 (gaps raised by the mapping writer A78):
    | L-H12 | `H12_dysbiosis` | production | gut microbial composition (acts on microbes, not host targets) | none | López-Otín 2023 (H12: no single direction stated) |
 
    - **SASP** is assigned to L-H11a, because the cited H11 definition counts the senescence-associated secretory phenotype among the sources of inflammaging. It is not under H8, whose model term is the clearance of senescent cells.
-   - **Degrading enzymes:** an enzyme whose function is to degrade a mediator listed above has the opposite polarity to that mediator.
 
    **10.3 More than one sub-line, or none.** A target whose function fits k > 1 sub-lines gets k rows, one per sub-line (as with M-001/M-002). Each row is sized only from a readout of that hallmark's own process (rules 9 and 9a); a row without such a readout is `no_mapping` for size. A target that fits no sub-line is `no_mapping` (a blind spot).
 
@@ -148,7 +147,7 @@ Rules added by A50 ruling, 2026-10-21 (gaps raised by the mapping writer A78):
    - the sub-line used and its polarity;
    - `parameter: writer proposal (rule 10, sub-line L-Hn)`.
 
-   A28/A76 check only that the parameter exists in v0 and that the sign is meaningful in the model. They never move a single compound to another parameter. Any change is a new version of this rule, applied to every row that used it.
+   A28/A76 check only that the parameter exists in v0 and that the sign is meaningful in the model. They never move a single compound to another parameter. Any change is a new version of this rule, applied to every row that used it. Frozen at merge, and never changed after any R-Sim forecast for these arms.
 
 ## Evidence grade
 
