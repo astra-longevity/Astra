@@ -23,6 +23,8 @@ This batch also carries two PRs that touch sealed files:
 | `.github/workflows/fetch.yml` | Weekly download of every approved `data/datasets` manifest, each file checked against its pinned sha256 and size (P1, O9, O15) |
 | `.github/workflows/file-sizes.yml` | No committed file over 10 MB outside the allow-list (O15) |
 | `.github/workflows/sim-joint.yml` (re-seal batch 3) | R-Sim v0 sharded job: manual dispatch only, `study` joint → `shard.py` / challenge → `shard_challenge.py`, sparse checkout of `research/sim/v0/py` only (no `data/`), `contents: read`, seeds checked against `shard.py`, gather checks the shard count; never writes to the repo |
+| `.github/workflows/queue-watchdog.yml` (re-seal batch 4) | Every 5 min: dequeues a main merge-queue PR whose merge_group job is `in_progress` > 10 min with every step completed; never re-arms, never writes. Only job with `contents: write` (needed by `dequeuePullRequest`), scoped to the schedule/dispatch job |
+| `scripts/guards/queue-watchdog.py`, `scripts/tests/queue-watchdog.test.sh` (re-seal batch 4) | The watchdog rule (stuck = all steps done, job still running, > 10 min) and its known-bad tests (#212 zombie dequeued, #223 live `Re-run manifests` left, empty queue no-op) |
 | `.github/large-files-allow.txt` | The 10 MB allow-list; a new line would loosen the size gate |
 | `scripts/fetch-datasets.sh` | The download step of `fetch.yml`: cache by sha256, unpinned files only in `pin` mode, never writes to the repo |
 | `scripts/guards/check-workflows.sh` | The actionlint wrapper; fixtures in `scripts/tests/fixtures/workflows/` (one good, three known-bad) |
