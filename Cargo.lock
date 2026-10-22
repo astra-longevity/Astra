@@ -73,6 +73,7 @@ dependencies = [
  "minijinja",
  "pulldown-cmark",
  "rusqlite",
+ "serde_json",
 ]
 
 [[package]]
