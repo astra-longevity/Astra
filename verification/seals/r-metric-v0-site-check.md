@@ -37,3 +37,13 @@ Part of the D115 seal record for the R-Metric v0 held-out split. Task: A50, G140
 ### Verdict
 
 **No hit** under the rule above. One borderline item (B09) has been sent to A50 for a ruling. The crawl and the input scan are re-run at the seal against the sealed `split.csv`, and any new page or input is checked the same way.
+
+## A50 ruling on B09 (G140, 2026-10-22 10:40)
+
+Check 1 endorsed: no hit. Blind ids that appear only in procedural commit titles on `journal.html` are acceptable.
+
+**B09 trametinib: no move, named limit, and a general rule.** Gkioni 2025 is not B09's cohort, so under the 2026-10-21 14:44 rule nothing moves. A published mouse lifespan effect for a compound-new blind compound still weakens "compound-new" for anyone forecasting that arm. A decision for B09 alone would be a per-arm call, so the rule covers every compound-new blind arm:
+
+1. **Scope:** A70's D118 trace search adds, for each of the 15 compound-new blind arms, yes/no plus the location of any published mouse lifespan or survival result for that compound. This covers the compound alone or in combination, in any cohort and any lab, published before the seal. No number is copied. Results go to A50 and A65 only.
+2. **Tag, no move:** each "yes" arm gets the flag `effect published elsewhere` in `split.csv`, in the `flag` column with the stratum unchanged. A script applies it from A70's list. B09 is the first case, with this site check as its source.
+3. **Scorecard:** the headline stays the 15 compound-new blind arms as defined. A sensitivity line reports the headline without the flagged arms. The seal record lists each flagged arm with its source.
