@@ -89,6 +89,33 @@ Rules added by A50 ruling, 2026-10-21 (gaps raised by the mapping writer A78):
 
    **9a. Marker and parameter of different kinds** (A50 ruling, 2026-10-21): the 1:1 rule applies only when the printed readout measures the same process as the parameter (e.g. a production readout for a production multiplier). When it doesn't (e.g. a senescence-marker burden for the H8 clearance multiplier: a fall can come from more clearance or less production), the row records the direction at **marker level only**, the size is `no_mapping`, and the row is not usable as input to that parameter. It gets a size only in a later version, after the simulation owners (A28/A76) commit a modelling rule (which process, which sign) before calibration and before any lifespan result for that intervention is read.
 
+10. **Target → parameter rule** (A50 ruling V-010, 2026-10-22; used when a compound has no mapping row in `research/sim/v0/design/edges.md` §3). The writer applies it mechanically and never assigns a parameter by hand. It is written from the R-Sim v0 hallmark definitions only: `research/sim/v0/spec.md` §2 and `HALLMARKS` in `research/sim/v0/py/model.py` (parameter names and the term each hallmark scales) and López-Otín 2023, doi:10.1016/j.cell.2022.11.001 (Crossref ✓), for each hallmark's process. It was not written from the targets of any listed compound. Disclosure: when the writer drafted it, they had seen the 15 blind-arm compound names (list sha256 `49774839…6313`) and nothing else about those compounds.
+
+   **10.1 Target.** The primary target is the ChEMBL curated mechanism (target + action type). If ChEMBL has no curated mechanism, it is the single primary target named in the admitted mechanistic source. If there is no target, or there are several targets with no stated primary, the row is `no_mapping` (a blind spot).
+
+   **10.2 Lines.** The target is matched to a line by its documented molecular function, never by an effect on lifespan or health:
+
+   | Line | Hallmark (parameter) | Term | The target belongs here when its molecular function is part of … |
+   | --- | --- | --- | --- |
+   | L-H1 | `hallmark.H1_genomic_instability` | production | DNA damage, DNA repair or genome maintenance |
+   | L-H2 | `hallmark.H2_telomere_attrition` | production | telomere length maintenance (telomerase, shelterin) |
+   | L-H3 | `hallmark.H3_epigenetic_alterations` | production | DNA methylation, histone modification or chromatin remodelling |
+   | L-H4 | `hallmark.H4_proteostasis` | production | protein folding, chaperones, the unfolded-protein response or the proteasome |
+   | L-H5 | `hallmark.H5_autophagy` | repair (clearance) | macroautophagy machinery or its direct regulators |
+   | L-H6 | `hallmark.H6_nutrient_sensing` | production | nutrient and energy sensing: insulin/IGF-1 signalling, mTOR, AMPK, sirtuins as energy sensors, glucose uptake, absorption or excretion, incretin signalling |
+   | L-H7 | `hallmark.H7_mitochondria` | production | mitochondrial respiration, mitochondrial substrate oxidation and its regulators, mitochondrial biogenesis, mitophagy or mitochondrial ROS handling |
+   | L-H8 | `hallmark.H8_senescence` | repair (clearance) | survival of senescent cells or the senescence-associated secretory phenotype |
+   | L-H9 | `hallmark.H9_stem_cells` | repair (clearance) | stem-cell self-renewal, niche signalling or regenerative differentiation |
+   | L-H10 | `hallmark.H10_intercellular_communication` | coupling | endocrine, neuroendocrine or neurotransmitter signalling between cells (hormones, their receptors, neurotransmitter receptors, transporters and degrading enzymes) |
+   | L-H11 | `hallmark.H11_inflammation` | coupling | inflammatory signalling: cytokines and their receptors, inflammasomes, NF-κB, or inflammatory lipid mediators and their synthesising/degrading enzymes |
+   | L-H12 | `hallmark.H12_dysbiosis` | production | gut microbial composition (the compound acts on microbes, not host targets) |
+
+   **10.3 More than one line, or none.** A target whose function fits k > 1 lines gets k rows, one per hallmark (as with M-001/M-002). Each row is sized only from a readout of that hallmark's own process (rules 9 and 9a); a row without such a readout is `no_mapping` for size. A target that fits no line is `no_mapping` (a blind spot).
+
+   **10.4 Sign.** The expected sign follows from the action type and the term. For a production line, a compound that lowers the process gives m < 1. For a repair line, a compound that raises clearance or regeneration gives m > 1. For a coupling line, a compound that lowers the signal gives m < 1. The row's `direction` is still the sign of the printed readout (condition 2). If the printed sign contradicts the expected sign, the row says so and its size is `no_mapping`.
+
+   **10.5 Status.** Each row records its target and the source of that target, the line used, and `parameter: writer proposal (rule 10, line L-Hn)`. A28/A76 check only that the parameter exists in v0 and that the sign is meaningful in the model. They never move a single compound to another parameter. Any change is a new version of this rule, applied to every row that used it.
+
 ## Evidence grade
 
 The repo's L0 to L4 levels rate Astra's own findings (`research/README.md`). The grade here rates published evidence for one edge or mapping, so it uses a separate scale. **The E grade never feeds an L0 to L4 level.**
