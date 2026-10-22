@@ -22,11 +22,12 @@
 <h2>Coverage of the biological-age measure</h2>
 <p class="muted">Biological age is measured on many axes: one per organ system and one per hallmark of ageing. An axis with no public data to read it from is a blind spot; it stays on the list until one is found. Source: <a href="{{ axes_href }}">research/metric/v0/axes.md</a> (draft).</p>
 <p>{{ axis_counts.total }} axes: <span class="cov cov-readout">{{ axis_counts.readout }} with a public readout</span> <span class="cov cov-molecular">{{ axis_counts.molecular }} with molecular data only</span> <span class="cov cov-gap">{{ axis_counts.gap }} blind spots</span></p>
+<p class="muted">To be trusted, an axis must move the right way under two known tests: a treatment known to slow ageing should make it look younger, and a known harm should make it look older. {{ axis_counts.no_controls }} of {{ axis_counts.total }} axes still lack one or both tests; their note says which.</p>
 {% for g in axis_groups %}
 <h3>{{ g.label }}</h3>
 {% if g.axes %}
 <ul class="coverage">
-  {% for x in g.axes %}<li class="{{ x.class }}" title="{{ x.label }}"><span class="code">{{ x.code }}</span> {{ x.name }}<span class="muted"> {{ x.label }}</span></li>{% endfor %}
+  {% for x in g.axes %}<li class="{{ x.class }}" title="{{ x.label }}"><span class="code">{{ x.code }}</span> {{ x.name }}<span class="muted"> {{ x.label }}</span>{% if x.controls %}<span class="muted"> {{ x.controls }}</span>{% endif %}</li>{% endfor %}
 </ul>
 {% else %}
 <p class="empty">No axis listed.</p>
