@@ -41,6 +41,15 @@ pub struct Skipped {
     pub status: String,
 }
 
+/// An approved dataset whose source blocks automated fetch (`access_blocked`).
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Blocked {
+    /// Dataset id.
+    pub dataset: String,
+    /// Route-out ref, e.g. `O9`.
+    pub reference: String,
+}
+
 /// Plan built from the manifests.
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct Plan {
@@ -52,6 +61,8 @@ pub struct Plan {
     pub unpinned: Vec<Unpinned>,
     /// Licence not approved. Never downloaded.
     pub skipped: Vec<Skipped>,
+    /// Approved but `access_blocked`: listed with the route-out ref, never requested, never fails the run.
+    pub blocked: Vec<Blocked>,
 }
 
 impl Plan {
@@ -68,6 +79,10 @@ impl Plan {
         for manifest in manifests {
             if !manifest.approved() {
                 plan.skipped.push(Skipped { dataset: manifest.id.clone(), status: manifest.licence_status.clone() });
+                continue;
+            }
+            if let Some(reference) = manifest.access_blocked.as_ref() {
+                plan.blocked.push(Blocked { dataset: manifest.id.clone(), reference: reference.clone() });
                 continue;
             }
             let interval = manifest.min_interval_seconds;
@@ -102,7 +117,8 @@ impl Plan {
 
     /// Tab-separated lines read by `scripts/fetch-datasets.sh`:
     /// `fetch\t<id>\t<n>\t<interval>\t<sha256>\t<url>`, `unpinned\t<id>\t<n>\t<interval>\t-\t<url>`,
-    /// `large\t<id>\t<n>\t<size_bytes>\t<sha256>\t<url>`, `skipped\t<id>\t<status>`.
+    /// `large\t<id>\t<n>\t<size_bytes>\t<sha256>\t<url>`, `skipped\t<id>\t<status>`,
+    /// `blocked\t<id>\t<ref>`.
     #[must_use]
     pub fn render(&self) -> String {
         let fetch = self
@@ -116,6 +132,7 @@ impl Plan {
         let unpinned =
             self.unpinned.iter().map(|u| format!("unpinned\t{}\t{}\t{}\t-\t{}", u.dataset, u.index, u.interval, u.url));
         let skipped = self.skipped.iter().map(|s| format!("skipped\t{}\t{}", s.dataset, s.status));
-        fetch.chain(large).chain(unpinned).chain(skipped).collect::<Vec<_>>().join("\n")
+        let blocked = self.blocked.iter().map(|b| format!("blocked\t{}\t{}", b.dataset, b.reference));
+        fetch.chain(large).chain(unpinned).chain(skipped).chain(blocked).collect::<Vec<_>>().join("\n")
     }
 }
