@@ -68,17 +68,26 @@ fn fake_repo(name: &str) -> PathBuf {
     fs::write(lit.join("00-overview.md"), OVERVIEW).unwrap();
     fs::write(lit.join("01-genomic-instability.md"), "Line\nA book [to verify]\n").unwrap();
     let interface = repo.join("interface");
-    fs::create_dir_all(interface.join("static")).unwrap();
     let real = workspace().join("interface");
     for dir in ["templates", "static"] {
-        fs::create_dir_all(interface.join(dir)).unwrap();
-        for item in fs::read_dir(real.join(dir)).unwrap() {
-            let path = item.unwrap().path();
-            let _bytes = fs::copy(&path, interface.join(dir).join(path.file_name().unwrap())).unwrap();
-        }
+        copy_tree(&real.join(dir), &interface.join(dir));
     }
     let _bytes = fs::copy(real.join("glossary.yaml"), interface.join("glossary.yaml")).unwrap();
     repo
+}
+
+/// Copies a folder and its subfolders (e.g. `static/fonts/`) into the fake repository.
+fn copy_tree(from: &Path, to: &Path) {
+    fs::create_dir_all(to).unwrap();
+    for item in fs::read_dir(from).unwrap() {
+        let path = item.unwrap().path();
+        let target = to.join(path.file_name().unwrap());
+        if path.is_dir() {
+            copy_tree(&path, &target);
+        } else {
+            let _bytes = fs::copy(&path, &target).unwrap();
+        }
+    }
 }
 
 /// Reads one generated file (`/` is HTML-escaped by minijinja; decoded here).
