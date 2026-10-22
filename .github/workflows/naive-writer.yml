@@ -1,0 +1,36 @@
+name: Naive writer
+
+# V-001 (verification/procedures/rulings/V-001-describe-not-quote.md): in any
+# file a lifespan-naive writer may read, no lifespan, survival or mortality
+# outcome is quoted. Files: .github/checks/naive-writer-paths.yaml. Runs on
+# every PR and queue entry (no paths filter: a change elsewhere can't skip it).
+# Pattern match: convention, not proof. Sealed (re-seal batch 4).
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  merge_group:
+
+permissions:
+  contents: read
+
+jobs:
+  naive-writer:
+    name: Naive writer (V-001)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Self-tests (known-bad quotes, NA4.2 line, unlisted file)
+        run: scripts/tests/naive-writer.test.sh
+
+      - name: Check listed files (V-001)
+        run: python3 scripts/guards/naive-writer.py

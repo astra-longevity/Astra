@@ -83,6 +83,14 @@
   whole_file: true
 - path: scripts/tests/queue-watchdog.test.sh
   whole_file: true
+- path: .github/workflows/naive-writer.yml
+  whole_file: true
+- path: .github/checks/naive-writer-paths.yaml
+  whole_file: true
+- path: scripts/guards/naive-writer.py
+  whole_file: true
+- path: scripts/tests/naive-writer.test.sh
+  whole_file: true
 - path: .github/large-files-allow.txt
   whole_file: true
 - path: scripts/fetch-datasets.sh
