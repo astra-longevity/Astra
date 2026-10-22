@@ -33,6 +33,27 @@
 {% endif %}
 {% endfor %}
 
+<h2>Simulation challenge (R-Sim v0)</h2>
+<p class="muted">Our simulation models each organ as a balance: damage is made at some rate and repaired at some rate. Measuring old mice only shows the balance, not the two rates, so we cannot tell "makes a lot of damage, repairs a lot" from "makes little, repairs little". A <em>challenge</em> is a deliberate, controlled injury (for example a drug that briefly harms the kidney), followed by measurements over the next 26 weeks: how fast the organ recovers tells the two rates apart. These results are from the simulation only; no mouse has been used.</p>
+<h3>Which challenges tell damage made apart from damage repaired</h3>
+<p class="muted">Each cell is one simulated experiment with 100 mice per measurement time: one organ, injured at 6 or 18 months of age, with a small, medium or large injury (0.15, 0.3 or 0.6 of the damage level the organ can stand). The number, from 0 to 1, says how well that experiment separates damage made from damage repaired. Dark cells, 0.8 and above, count as <strong>split</strong>: the two rates can be told apart. The three panels assume three values of kappa, how quickly repair hits its limit as damage builds up: 0.5 is our current guess, 2 and 8 mean repair stays far from its limit. Splitting happens only for injuries at 6 months with the medium or large dose, and nowhere when kappa is 8. Click a cell to open the file.</p>
+{% if challenge %}
+<div class="chart-wrap">{{ challenge | safe }}</div>
+<p class="legend"><span class="sw s0"></span> below 0.2 <span class="sw s1"></span> 0.2 to 0.5 <span class="sw s2"></span> 0.5 to 0.8 <span class="sw split"></span> 0.8 and above: split</p>
+{% else %}
+<p class="empty">Challenge results not found.</p>
+{% endif %}
+<p class="muted">Source: <a href="{{ challenge_href }}">result-20000.json</a> (20 000 simulated mice per setting, GitHub Actions run 39594585409).</p>
+
+<h3>How many mice an experiment would need</h3>
+<p class="muted">The same results, read as a budget: for a given number of mice per sex, the most organs that any challenge design of that size or smaller can split. A design picks the age(s) at injury, the dose(s), and the number of mice per measurement time. Solid lines count all organs; dashed lines count only organs whose measurement can be repeated on the same mice (heart scan, kidney filtration, blood count, gut), the cheapest kind of experiment. At our current guess for kappa, about 200 mice per sex split the four repeatable organs; 300 per sex (two doses) still works if kappa is 2. If kappa is 8, no design up to 700 mice splits anything: kappa must be pinned down first. Click the chart to open the file.</p>
+{% if cost %}
+<div class="chart-wrap">{{ cost | safe }}</div>
+{% else %}
+<p class="empty">Cost curve not found.</p>
+{% endif %}
+<p class="muted">Source: <a href="{{ cost_href }}">cost-curve.json</a>. Method and full table: <a href="{{ identifiability_href }}">identifiability.md</a> (section 11). Public data that could stand in for mice: <a href="{{ public_data_href }}">public-data.md</a>.</p>
+
 <h2>Reproducible runs</h2>
 <p class="muted">Each run is re-run on every change and must give the same output files, byte for byte. Source: <a href="{{ runs_href }}">research/runs/</a>.</p>
 {% if runs %}

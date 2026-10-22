@@ -276,6 +276,30 @@ tr.late td, .late { color: #c0392b; }
 .forest .dot.no-effect { fill: var(--muted); stroke: var(--muted); }
 .forest .dot.unverified { fill: var(--surface); stroke-width: 1.5; }
 .forest a:hover .detail { text-decoration: underline; }
+/* Findings: R-Sim v0 challenge heatmap and cost curve. */
+.heatmap, .cost { font: 11px system-ui, sans-serif; }
+.heatmap text { fill: currentColor; }
+.heatmap .panel { font-weight: 600; text-anchor: middle; }
+.heatmap .age, .heatmap .dose { fill: var(--muted); }
+.heatmap .dose, .heatmap .cell text { text-anchor: middle; }
+.heatmap .cell rect { stroke: var(--surface); }
+.heatmap .s0 rect, .legend .s0 { fill: var(--surface); background: var(--surface); }
+.heatmap .s1 rect, .legend .s1 { fill: var(--accent-soft); background: var(--accent-soft); }
+.heatmap .s2 rect, .legend .s2 { fill: #9dbbd8; background: #9dbbd8; }
+.heatmap .split rect, .legend .split { fill: var(--accent); background: var(--accent); }
+.heatmap .split text { fill: var(--surface); font-weight: 600; }
+.heatmap .none rect { fill: var(--line); }
+.legend { font-size: .85rem; color: var(--muted); }
+.legend .sw { display: inline-block; width: 1rem; height: .8rem; border: 1px solid var(--line); vertical-align: middle; margin: 0 .2rem 0 .6rem; }
+.cost .grid { stroke: var(--line); }
+.cost .tick, .cost .axis { fill: var(--muted); text-anchor: middle; }
+.cost .tick-y { fill: var(--muted); text-anchor: end; }
+.cost .key { fill: currentColor; }
+.cost path, .cost line.all, .cost line.repeat { fill: none; stroke: currentColor; stroke-width: 2; }
+.cost .repeat { stroke-dasharray: 5 3; }
+.cost .k0 { stroke: var(--accent); }
+.cost .k1 { stroke: var(--warn); }
+.cost .k2 { stroke: var(--bad); }
 .missing { margin-bottom: 1.5rem; }
 .coverage { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: .4rem; }
 .coverage li, .cov { border: 1px solid var(--line); border-left-width: 6px; border-radius: 4px; padding: .3rem .5rem; }

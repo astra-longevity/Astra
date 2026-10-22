@@ -2,6 +2,8 @@
 //! biological-age axes and the list of reproducible research runs.
 
 pub(crate) mod axes;
+pub(crate) mod challenge;
+pub(crate) mod cost;
 pub(crate) mod forest;
 pub(crate) mod itp;
 pub(crate) mod runs;
@@ -36,6 +38,12 @@ pub(crate) fn vars(repo: &Path) -> Result<Value, SiteError> {
         axis_groups => axes::groups(&found_axes),
         axis_counts => axes::counts(&found_axes),
         axes_href => blob(axes::FILE),
+        challenge => challenge::load(repo)?,
+        challenge_href => blob(challenge::FILE),
+        cost => cost::load(repo)?,
+        cost_href => blob(cost::FILE),
+        identifiability_href => blob("research/sim/v0/identifiability.md"),
+        public_data_href => blob("research/sim/v0/design/public-data.md"),
         runs => runs::load(repo)?,
         runs_href => blob(runs::DIR),
     })
