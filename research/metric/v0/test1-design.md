@@ -111,8 +111,13 @@ requests.
 
 Design rules for the two readouts that lose organ signal (A68, #132):
 - **A10 (GTT)** is non-monotonic and, used alone, shares only ~0.24 of the
-  organ signal. Pair it with a **monotonic liver readout** (e.g. hepatic
-  steatosis score or ALT; source `[to verify]`) so A10 does not stand alone.
+  organ signal. Pair it with a **monotonic liver readout** so A10 does not
+  stand alone. Candidate: hepatic triglyceride (steatosis). TG markedly
+  accumulates in old vs young body-weight-matched C57BL/6 livers (20 vs 3 mo,
+  Wan 2020, doi:10.1111/acel.13238, PMID 32936538; 18 vs 2 mo, Xiong 2014,
+  doi:10.1016/j.jhep.2013.12.003, PMID 24333182; abstracts opened 2026-10-22).
+  Both had a middle-age group, but neither abstract states the middle-age
+  value, so monotonicity is `[to verify]`; ALT unsourced.
 - **A11 (vaccine)** shares only ~0.09 used alone. Give a **fixed reference
   antigen at every age** alongside the new antigen, so the age effect is read
   against a common scale.
