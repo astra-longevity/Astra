@@ -30,3 +30,4 @@ The workflow reads these files and posts results as artifacts and a PR comment. 
 
 - ICON7 and Goss curves are not digitised. Each needs two independent digitisations (D93) of both curves and the at-risk table under `verification/references/guyot/`, as listed in its YAML. Verification scopes this.
 - A `status: blocked` case is skipped by the workflow and reported as skipped.
+- 2026-10-22: scope proposal to unblock ICON7 and Goss (sources, method, second reader, D38 tolerance proposal, exposure) is in `verification/digitisations/guyot-scope.md`, pending A50's ruling. No digitising before it.
