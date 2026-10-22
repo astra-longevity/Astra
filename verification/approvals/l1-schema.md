@@ -986,3 +986,70 @@ stratum-a ruling (point 2 above).
 **Verdict: conforms.** The refusal item from the stratum-a ruling is cleared once #201 is on
 main. Note for the seal record: c contributes 0 compound-new arms too, so the v0 headline in
 practice rests on the 15 stratum-b blind arms.
+
+## Check of A78's rule 10 (V-010 target → parameter rule), PR #259 @77206a0 (2026-10-22, A66, for A50 in G142)
+
+Scope: `literature/refutation/README.md` only, +27/−0, rule 10 (10.1–10.5). Checked against V-010 and A50's four extra conditions (G142 13:46).
+
+| Check | Result |
+|---|---|
+| Rule before rows; no M-006…M-020 row in the PR | yes (README only) |
+| 12 parameters exist in `model.py` @77206a0 | yes: all 12 `hallmark.H…` names equal the `HALLMARKS` keys; the `hallmark.` prefix matches the `hallmark` table in `_apply` |
+| Term per line matches the model | yes: production H1–H4, H6, H7, H12; repair H5, H8, H9; coupling H10, H11 |
+| Sign stated per term (10.4); printed sign contradicting it → flagged, size `no_mapping` | yes |
+| No compound named | yes: none of the 15 names in `verification/seals/naive-writer-inputs/compounds.txt` (sha256 `49774839…6313`, checked) appears in rule 10 |
+| Disclosure that the writer had seen the 15 names | yes, verbatim in rule 10 |
+| V-001: no lifespan, survival or mortality outcome, no ITP or flag content | yes: "lifespan" appears only as an excluded matching criterion; "survival of senescent cells" (L-H8) is a cellular process |
+| Rows record target + source, line, `writer proposal`; no fit → `no_mapping`; several lines → one row each, sized from that hallmark's own readout | yes (10.1, 10.3, 10.5) |
+| Each line cites its definition source | **no** (F2) |
+| Freeze clause | **partly** (F1) |
+| Every line follows from the hallmark definition, none defined by a target or mechanism fitting only listed compounds | **not shown** (F3) |
+
+Findings:
+
+- **F1 freeze.** 10.5 says a change is a new version applied to every row. It lacks "frozen at merge" and "never changed after any R-Sim forecast for these arms" (V-010 point 1, V-004).
+- **F2 per-line source.** Rule 10 cites spec.md §2, `HALLMARKS` and López-Otín 2023 once for the whole table. Each line must cite the passage (section or table of López-Otín 2023, or spec.md §2 row) that its "belongs here when" text comes from.
+- **F3 clauses beyond the hallmark definition.** Four clauses go further than the cited hallmark definitions, and each one fits only one or two of the 15 listed compounds (which ones is reported to A50 only, not recorded here): L-H6 "incretin signalling"; L-H7 "mitochondrial substrate oxidation and its regulators"; L-H10 "transporters and degrading enzymes"; L-H11 "inflammatory lipid mediators and their synthesising/degrading enzymes". L-H6 "glucose uptake, absorption or excretion" also needs a source. Each must either be traced to a sentence in the cited definition source (F2) or be dropped. A clause that stays without a source would be a line tailored to a listed compound.
+
+**Verdict: does not conform yet.** #259 keeps auto-merge off (V-004). A78 fixes F1–F3 in a new rules commit on the same PR (it is not merged, so this is not a new rule version); I re-check the changed lines. No M-006…M-020 row until #259 conforms and is on main.
+
+### Re-check of rule 10 v2, PR #259 @843e5e1 (2026-10-22, A66)
+
+The head moved to 843e5e1 ("rule 10 v2", sign fix proposed by A28, accepted by A50) before this record merged. The PR is still unmerged, so v2 is the version that is checked. The findings above are on 77206a0 and stay as written.
+
+| Check | Result on 843e5e1 |
+|---|---|
+| Parameters, terms, no compound named, V-001, writer disclosure | still pass (no compound name in rule 10; same 12 parameters) |
+| A28's proposal disclosed | yes (disclosure 2) |
+| m defined against the model term (production/coupling m > 1 = more; repair m > 1 = more repair) | yes (10.4) |
+| Polarity column per function, each with a source; mixed lines split into sub-lines | yes: H5, H6, H7, H9, H11 split; source column on every sub-line except "none" lines L-H6c and L-H9b |
+| No determinable polarity → sign `no_mapping` (and size) | yes (10.4) |
+| SASP → H11 only if H11's definition covers it | yes: L-H11a, reason stated (inflammaging fed by the SASP) |
+| Polarity entries match the cited definitions | yes for H1, H2, H4, H5a/b, H6a anabolic signalling, H6b, H7a, H8, H9a, H11a; "none" for H3, H7b, H10, H12 is the cautious reading. Two items below. |
+| F1 freeze | **still open**: "new version applied to every row" only; no "frozen at merge", no "never changed after any R-Sim forecast for these arms" |
+| F2 per-line source | **met** at section level (López-Otín 2023, hallmark section, per sub-line) |
+| F3 clauses beyond the definitions | **mostly resolved**: the incretin and "transporters and degrading enzymes" (H10) clauses are gone; "substrate oxidation … regulators" stays but with polarity "none", so it can give no sign; the lipid-mediator clause is now generic (L-H11a/b). Two residual items below. |
+
+Residual items (for A50's ruling, not blocking on their own):
+
+- **R1, L-H6a "nutrient uptake, absorption or reabsorption".** The H6 definition in López-Otín 2023 is about nutrient *sensing* (IIS, mTOR, AMPK, sirtuins), not uptake or transport. This clause goes beyond the cited definition. It doesn't single out a listed compound, but it needs a source sentence or must be dropped.
+- **R2, the "degrading enzymes" bullet** (an enzyme that degrades a listed mediator has the opposite polarity). It follows from 10.2 by logic, not from a cited sentence. Among the listed compounds it decides a sign for only one (named to A50 only). The L-H11b "pro-resolving mediators" polarity source is cited only as "López-Otín 2023 (H11)"; the passage is to be confirmed.
+
+**Verdict on 843e5e1: conforms except F1**, subject to A50's ruling on R1 and R2. A78 adds the freeze clause (and any R1/R2 change) in a new commit on #259; I re-check those lines only. Auto-merge on #259 stays off until then (V-004).
+
+#### A50 rulings on F1, R1, R2 (G142, 2026-10-22 13:52)
+
+- **F1:** A78 adds both lines verbatim: "Frozen at merge" and "never changed after any R-Sim forecast for these arms".
+- **R1 (L-H6a "nutrient uptake, absorption or reabsorption"): dropped.** Every entry must follow from its cited definition; this one goes beyond López-Otín's H6 (sensing). Being generic is not enough when no source covers it. A target matching only that clause → no fit → `no_mapping`.
+- **R2 (degrading enzymes = opposite polarity): dropped.** It is an uncited inference and, among the 15, it sets a sign for exactly one compound, so it cannot be cleared as generic. Such targets → sign `no_mapping` (direction left visible as a blind spot, not filled).
+- Both are removals only, made before clearance and in the conservative direction (they produce `no_mapping`, never a sign). One new commit on #259 with F1 + R1 + R2; A66 re-checks only those lines and that nothing else changed; A28 does not re-check (no line added). Then auto-merge on #259 may be armed.
+- `verification/procedures/rulings/` is at its 8-entry cap: a new ruling goes into an existing topic file, or a new topic file replaces a single-ruling file by merging; never a 9th entry.
+
+#### Re-check of the F1+R1+R2 commit, PR #259 @fe9a049 (2026-10-22, A66)
+
+`diff 843e5e1..fe9a049` on the README touches only three lines, exactly the ruling:
+- **R1:** L-H6a drops "or nutrient uptake, absorption or reabsorption"; the line is now "anabolic nutrient signalling (insulin/IGF-1 receptor, PI3K/AKT, mTORC1)" only.
+- **R2:** the "Degrading enzymes: … opposite polarity" bullet is removed.
+- **F1:** 10.5 now ends "Frozen at merge, and never changed after any R-Sim forecast for these arms." (verbatim).
+
+Nothing else changed. **#259 @fe9a049 conforms.** A78 may arm auto-merge. No M-006…M-020 row until it is on main. A28 does not re-check (no line added).
