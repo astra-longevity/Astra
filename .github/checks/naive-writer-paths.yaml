@@ -1,0 +1,41 @@
+# Naive-writer exposure check: files a lifespan-naive writer may read.
+# Rule: V-001 (verification/procedures/rulings/V-001-describe-not-quote.md).
+# Checked by scripts/guards/naive-writer.py, CI job "Naive writer (V-001)".
+# Sealed (re-seal batch 4): adding an exemption or dropping a path needs a re-seal.
+#
+# paths:  path (glob allowed), source (why it is on the list),
+#         unsure: yes  = to be confirmed by A2/A50 (listed in the PR body).
+# exempt: lines V-001 keeps as record. line_sha256 = the sha256 printed with
+#         the hit; ruling = the ruling that keeps it.
+paths:
+  - path: research/sim/v0/design/edges.md
+    source: V-001 scope (named)
+  - path: research/sim/v0/spec.md
+    source: V-001 scope (named)
+  - path: literature/refutation/README.md
+    source: V-001 scope (named)
+  - path: literature/refutation/mappings.md
+    source: A78 writes its rows here (mappings.md header)
+    unsure: yes
+  - path: literature/refutation/edges.md
+    source: L3 refutation file next to the mapping rules
+    unsure: yes
+  - path: literature/refutation/obstacles.md
+    source: L3 refutation file next to the mapping rules
+    unsure: yes
+  - path: literature/refutation/m5-reading/README.md
+    source: M-005 figure-reading route used by the writer
+    unsure: yes
+  - path: literature/refutation/m5-digit/README.md
+    source: M-005 second digitisation route
+    unsure: yes
+  - path: research/sim/mappings.yaml
+    source: later sim_ref of the L3 rows (mappings.md M-001)
+    unsure: yes
+  - path: research/sim/v0/README.md
+    source: R-Sim v0 entry point, linked from spec.md
+    unsure: yes
+exempt:
+  - path: research/sim/v0/design/edges.md
+    line_sha256: 9fcebe69347dd8a4acae1d4edbfc157993591658f5bc805c8f1a06308b6a3a37
+    ruling: V-001 (existing NA4 exposure line stays as written, as a record)
