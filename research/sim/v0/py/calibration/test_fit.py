@@ -120,5 +120,35 @@ class RecoverySmoke(unittest.TestCase):
         self.assertLess(abs(est["u_xc"] - truth[1]), 0.3)
 
 
+class BootstrapSplit(unittest.TestCase):
+    """recovery.py execution splits: synthetic JSON shapes only, no fit."""
+
+    def test_shard_list_covers_every_rep_once(self):
+        import recovery as R
+        specs = R.bootstrap_shards()
+        self.assertEqual(len(specs), len(R.cells()) * R.BOOT_REPS // R.BOOT_SHARD)
+        self.assertEqual(len(set(specs)), len(specs))
+
+    def test_resample_deterministic(self):
+        import recovery as R
+        a = arm([0.1 * i for i in range(1, 50)])
+        self.assertEqual(R.resample(a, 3, 101), R.resample(a, 3, 101))
+        self.assertNotEqual(R.resample(a, 3, 101), R.resample(a, 4, 101))
+
+    def test_coverage_rule_two_of_three(self):
+        import recovery as R
+        t = R.TRUTHS["null"]
+
+        def shard(seed, centre):
+            reps = [{"rep": i, "u_eta": centre + (i - 100) * 1e-3, "u_xc": t[1] + (i - 100) * 1e-3}
+                    for i in range(R.BOOT_REPS)]
+            return {"cell": f"null,1000,none,{seed}", "first": 0, "reps": reps}
+
+        ok = R.bootstrap_coverage([shard(101, 0.0), shard(102, 0.0), shard(103, 0.5)])
+        self.assertTrue(ok["groups_ok"]["null,1000,none"])
+        bad = R.bootstrap_coverage([shard(101, 0.0), shard(102, 0.5), shard(103, 0.5)])
+        self.assertFalse(bad["groups_ok"]["null,1000,none"])
+
+
 if __name__ == "__main__":
     unittest.main()
