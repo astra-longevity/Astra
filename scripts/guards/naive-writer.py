@@ -10,7 +10,8 @@ The files come from .github/checks/naive-writer-paths.yaml (`paths:`, globs
 allowed). Each line of each listed file, and each pair of adjacent non-blank
 lines (hard-wrapped prose), is matched against the patterns below; a hit fails
 the check unless its text is in `exempt:` (sha256 as printed with the hit,
-plus the ruling and reason that keep it; each exempted line is printed).
+plus the ruling, reason and kind that keep it; each exempted line is printed).
+A hit prints path:line, match type and sha256, never the text itself (public logs).
 Files not on the list are never read.
 
 This is a pattern match: convention, not proof. It misses paraphrases and can
@@ -32,6 +33,13 @@ import sys
 OUTCOME = r"(?:life[\s-]?span|longevity|survival|mortality|death\s+rate|life\s+expectancy)"
 NUM = r"\d+(?:[.,]\d+)?"
 NEAR = r".{0,60}?"
+
+# A50 wording check (V-008): a failure never prints the matched text, only where,
+# what kind and the sha256, plus this hint.
+FIX_HINT = ("fix: describe the sighting, don't quote the outcome (V-001); "
+            "exemption only by Verification ruling")
+# record = an outcome quote kept as a record; not-outcome = not an intervention outcome.
+EXEMPT_KINDS = ("record", "not-outcome")
 
 PATTERNS: list[tuple[str, re.Pattern[str]]] = [
     # a percentage next to an outcome word, either order
@@ -89,9 +97,10 @@ def parse_list(path: str) -> tuple[list[dict], list[dict]]:
             raise ValueError(f"{path}: paths[{i}] needs path and source")
     for i, e in enumerate(sections["exempt"]):
         if not (e.get("path") and re.fullmatch(r"[0-9a-f]{64}", e.get("line_sha256", ""))
-                and e.get("ruling") and e.get("reason")):
+                and e.get("ruling") and e.get("reason") and e.get("kind") in EXEMPT_KINDS):
             raise ValueError(
-                f"{path}: exempt[{i}] needs path, line_sha256 (64 hex), ruling, reason")
+                f"{path}: exempt[{i}] needs path, line_sha256 (64 hex), ruling, reason, "
+                f"kind ({' | '.join(EXEMPT_KINDS)})")
     return sections["paths"], sections["exempt"]
 
 
@@ -155,19 +164,19 @@ def main(argv: list[str]) -> int:
             if key in exempt_keys:
                 used.add(key)
                 ex = exempt_keys[key]
-                print(f"{rel}:{where}: exempt, kept as record ({ex['ruling']}: {ex['reason']})")
+                label = "exempt, kept as record" if ex["kind"] == "record" else "exempt"
+                print(f"{rel}:{where}: {label} ({ex['ruling']}: {ex['reason']})")
                 continue
             hits += 1
-            snippet = text.strip()
-            snippet = snippet if len(snippet) <= 200 else snippet[:197] + "..."
-            print(f"{rel}:{where}: {'; '.join(kinds)} [sha256 {key[1]}]\n    {snippet}")
+            # Never print the matched text: Actions logs are public (A50, V-008 wording).
+            print(f"{rel}:{where}: {'; '.join(kinds)} [sha256 {key[1]}]\n    {FIX_HINT}")
 
     for e in exempt:
         if (e["path"], e["line_sha256"]) not in used:
             print(f"naive-writer: warning: exempt line not found in {e['path']} "
                   f"({e['ruling']}: {e['reason']})")
     print(f"naive-writer (V-001): {len(files)} listed files, {hits} hit(s), "
-          f"{len(used)} exempt line(s) kept as record.")
+          f"{len(used)} exempt line(s).")
     print("convention, not proof (pattern match)")
     return 1 if hits else 0
 

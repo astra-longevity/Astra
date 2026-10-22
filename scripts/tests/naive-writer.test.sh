@@ -54,8 +54,46 @@ case_ "unlisted file with outcome text passes" \
 snippet='A snippet said "rapamycin extends lifespan in mice".'
 snippet_sha="$(printf '%s' "$snippet" | shasum -a 256 | cut -d' ' -f1)"
 
-case_ "exempt line is kept as record and printed with its reason" \
+case_ "exempt record line is printed as kept as record with its reason" \
   "$snippet" 0 'exempt, kept as record (test: disclosure)' \
+  "exempt:
+  - path: docs/listed.md
+    line_sha256: $snippet_sha
+    ruling: test
+    reason: disclosure
+    kind: record
+"
+
+baseline='Defaults chosen so that the untreated median lifespan lands near 2.5 years.'
+baseline_sha="$(printf '%s' "$baseline" | shasum -a 256 | cut -d' ' -f1)"
+notoutcome_list="exempt:
+  - path: docs/listed.md
+    line_sha256: $baseline_sha
+    ruling: V-008
+    reason: \"not an intervention outcome: untreated baseline, model target\"
+    kind: not-outcome
+"
+
+case_ "not-outcome exemption is printed without 'kept as record'" \
+  "$baseline" 0 'docs/listed.md:1: exempt (V-008: not an intervention outcome: untreated baseline, model target)$' \
+  "$notoutcome_list"
+
+case_ "treated-arm lifespan value fails next to an exempt baseline line" \
+  "$(printf '%s\n%s' "$baseline" 'Under rapamycin the model gives a median lifespan of 3.1 years.')" 1 \
+  'docs/listed.md:2: value: median/mean/max outcome' \
+  "$notoutcome_list"
+
+case_ "exemption without a reason exits 2" \
+  "$snippet" 2 'needs path, line_sha256 (64 hex), ruling, reason, kind' \
+  "exempt:
+  - path: docs/listed.md
+    line_sha256: $snippet_sha
+    ruling: test
+    kind: record
+"
+
+case_ "exemption without a valid kind exits 2" \
+  "$snippet" 2 'kind (record | not-outcome)' \
   "exempt:
   - path: docs/listed.md
     line_sha256: $snippet_sha
@@ -63,26 +101,23 @@ case_ "exempt line is kept as record and printed with its reason" \
     reason: disclosure
 "
 
-baseline='Defaults chosen so that the untreated median lifespan lands near 2.5 years.'
-baseline_sha="$(printf '%s' "$baseline" | shasum -a 256 | cut -d' ' -f1)"
-
-case_ "treated-arm lifespan value fails next to an exempt baseline line" \
-  "$(printf '%s\n%s' "$baseline" 'Under rapamycin the model gives a median lifespan of 3.1 years.')" 1 \
-  'docs/listed.md:2: value: median/mean/max outcome' \
-  "exempt:
-  - path: docs/listed.md
-    line_sha256: $baseline_sha
-    ruling: V-008
-    reason: untreated baseline, model target, no intervention
-"
-
-case_ "exemption without a reason exits 2" \
-  "$snippet" 2 'needs path, line_sha256 (64 hex), ruling, reason' \
-  "exempt:
-  - path: docs/listed.md
-    line_sha256: $snippet_sha
-    ruling: test
-"
+# Failure output must never contain the offending text (public Actions logs).
+quote_dir="$work/no-quote"
+mkdir -p "$quote_dir/docs"
+printf '%s\n' "$snippet" >"$quote_dir/docs/listed.md"
+printf 'paths:\n  - path: docs/listed.md\n    source: test\n' >"$quote_dir/list.yaml"
+quote_rc=0
+quote_out="$(python3 "$NW" --root "$quote_dir" --list list.yaml 2>&1)" || quote_rc=$?
+if [ "$quote_rc" -eq 1 ] && ! grep -qi 'rapamycin\|extends lifespan' <<<"$quote_out" \
+  && grep -qF "fix: describe the sighting, don't quote the outcome (V-001); exemption only by Verification ruling" <<<"$quote_out" \
+  && grep -q "docs/listed.md:1: claim: verb + outcome \[sha256 $snippet_sha\]" <<<"$quote_out"; then
+  echo "ok   failure output has path, type, sha256 and fix hint, never the text"
+  pass=$((pass + 1))
+else
+  echo "FAIL failure output has path, type, sha256 and fix hint, never the text (rc=$quote_rc)"
+  printf '%s\n' "$quote_out" | sed 's/^/     /'
+  failed=$((failed + 1))
+fi
 
 case_ "output says convention, not proof" \
   'Nothing here.' 0 'convention, not proof (pattern match)'
