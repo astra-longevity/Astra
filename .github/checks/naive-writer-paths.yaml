@@ -1,0 +1,62 @@
+# Naive-writer exposure check: files a lifespan-naive writer may read.
+# Rules: V-001 (verification/procedures/rulings/V-001-describe-not-quote.md) and
+# V-008 (A50 ruling on this list, 2026-10-22, recorded by A66).
+# Checked by scripts/guards/naive-writer.py, CI job "Naive writer (V-001)".
+# Sealed (re-seal batch 4): adding or dropping a path or an exemption needs a re-seal.
+#
+# Rule for the list (V-008): every file a naive writer may read, i.e. everything
+# that is not on A78's no-read list. The no-read list is: literature/lifespan/,
+# literature/refutation/obstacles.md, research/metric/, R-Sim calibration and run
+# outputs, and the public site's lifespan and Findings pages. Files on the
+# no-read list are not checked here.
+#
+# paths:  path (glob allowed), source (why it is on the list).
+# exempt: lines kept as record. line_sha256 = the sha256 the guard prints with
+#         the hit (one line, or two wrapped lines joined by a space); ruling,
+#         reason and kind are required. kind: record (an outcome quote kept as a
+#         record) or not-outcome (not an intervention outcome).
+paths:
+  - path: research/sim/v0/design/edges.md
+    source: V-001 scope (named)
+  - path: research/sim/v0/spec.md
+    source: V-001 scope (named)
+  - path: literature/refutation/README.md
+    source: V-001 scope (named)
+  - path: literature/refutation/mappings.md
+    source: V-008 (A78 writes its rows here)
+  - path: literature/refutation/edges.md
+    source: V-008
+  - path: literature/refutation/m5-reading/README.md
+    source: V-008 (M-005 figure-reading route)
+  - path: literature/refutation/m5-digit/README.md
+    source: V-008 (M-005 second digitisation route)
+  - path: research/sim/mappings.yaml
+    source: V-008 (later sim_ref of the L3 rows)
+  - path: research/sim/v0/README.md
+    source: V-008 (R-Sim v0 entry point)
+exempt:
+  - path: research/sim/v0/design/edges.md
+    line_sha256: 9fcebe69347dd8a4acae1d4edbfc157993591658f5bc805c8f1a06308b6a3a37
+    ruling: V-001
+    reason: existing NA4 exposure line stays as written, as a record
+    kind: record
+  - path: literature/refutation/mappings.md
+    line_sha256: 0a7b04eaad76dc846c37e2d6bf8f065a85dc114777c95be9839b7261cdd02ec7
+    ruling: V-008
+    reason: verbatim disclosure required by rule 6 before V-001; record of what was seen (M-001 no_prior_read)
+    kind: record
+  - path: literature/refutation/mappings.md
+    line_sha256: 801207c93af64e0726cbfd92927e6b6891ed25b3b50f23757fd5e9b04aab1c5a
+    ruling: V-008
+    reason: verbatim disclosure required by rule 6 before V-001; record of what was seen (Q1)
+    kind: record
+  - path: literature/refutation/mappings.md
+    line_sha256: 4acfe86832b622bf96aa3e1047eae56664de3d2b6beaac346b3621979eacfc99
+    ruling: V-008
+    reason: verbatim disclosure required by rule 6 before V-001; record of what was seen (Q2)
+    kind: record
+  - path: research/sim/v0/spec.md
+    line_sha256: 6f654743430a2a807de6f8e15672281c916e38899d7740d31c4c5f6ecbe3a7de
+    ruling: V-008
+    reason: "not an intervention outcome: untreated baseline, model target"
+    kind: not-outcome
