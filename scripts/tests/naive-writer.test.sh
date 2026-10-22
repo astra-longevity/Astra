@@ -51,11 +51,36 @@ case_ "NA4.2 marker-ratio line passes" \
 case_ "unlisted file with outcome text passes" \
   'Senolytic raises H8 clearance; marker ratio r maps to m = r^-0.5.' 0 '1 listed files, 0 hit(s)'
 
-case_ "exempt line is kept as record" \
-  'A snippet said "rapamycin extends lifespan in mice".' 0 '1 exempt line(s)' \
+snippet='A snippet said "rapamycin extends lifespan in mice".'
+snippet_sha="$(printf '%s' "$snippet" | shasum -a 256 | cut -d' ' -f1)"
+
+case_ "exempt line is kept as record and printed with its reason" \
+  "$snippet" 0 'exempt, kept as record (test: disclosure)' \
   "exempt:
   - path: docs/listed.md
-    line_sha256: $(printf '%s' 'A snippet said "rapamycin extends lifespan in mice".' | shasum -a 256 | cut -d' ' -f1)
+    line_sha256: $snippet_sha
+    ruling: test
+    reason: disclosure
+"
+
+baseline='Defaults chosen so that the untreated median lifespan lands near 2.5 years.'
+baseline_sha="$(printf '%s' "$baseline" | shasum -a 256 | cut -d' ' -f1)"
+
+case_ "treated-arm lifespan value fails next to an exempt baseline line" \
+  "$(printf '%s\n%s' "$baseline" 'Under rapamycin the model gives a median lifespan of 3.1 years.')" 1 \
+  'docs/listed.md:2: value: median/mean/max outcome' \
+  "exempt:
+  - path: docs/listed.md
+    line_sha256: $baseline_sha
+    ruling: V-008
+    reason: untreated baseline, model target, no intervention
+"
+
+case_ "exemption without a reason exits 2" \
+  "$snippet" 2 'needs path, line_sha256 (64 hex), ruling, reason' \
+  "exempt:
+  - path: docs/listed.md
+    line_sha256: $snippet_sha
     ruling: test
 "
 
