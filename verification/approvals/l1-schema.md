@@ -968,3 +968,21 @@ has a v4.
 
 **Verdict on #237 at `318612e`: conforms.** N3 is closed. M-002's seal clearance
 is unchanged.
+
+## Test-1 claim statement: check of A75's PR #201 @536fd6a (A65, 2026-10-21)
+
+Object: new section "Headline scope and named blind spot" in
+`research/metric/v0/test1-design.md` (+17 lines, no other file). Checked against A50's
+stratum-a ruling (point 2 above).
+
+| Required | In #201 | Met? |
+|---|---|---|
+| Headline = compound-new blind arms only (#145) | yes: arms whose `flag` lacks `compound seen in training`; tagged arms scored apart, never in the headline | yes |
+| Headline comes from strata b/c | yes, with compound-new counts a 0/8, b 42/50, c 0/2. My recount on `split.csv` `87ef760c…`: same; the compound-new **blind** arms are 15, all in b (B01, B02, B06, B07, B09–B19) | yes |
+| No claim about "known class, new compound"; listed blind spot until a later split holds such an arm | stated verbatim in substance, as a scorecard blind spot | yes |
+| No arm moved | "Arms are not moved to fill stratum a"; the PR touches no split file | yes |
+| Seal uses class labels v1; GtoPdb v2 post-seal sensitivity only | yes | yes |
+
+**Verdict: conforms.** The refusal item from the stratum-a ruling is cleared once #201 is on
+main. Note for the seal record: c contributes 0 compound-new arms too, so the v0 headline in
+practice rests on the 15 stratum-b blind arms.
