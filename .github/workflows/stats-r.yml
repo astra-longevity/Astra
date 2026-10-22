@@ -1,0 +1,114 @@
+name: Stats R (second implementations)
+
+# Runs the R second-implementation specs in verification/second-impl/<case>.yaml
+# with .github/stats-r/run-case.R and compares each package output with its
+# reference (D6, D38, D106). R and packages pinned (D45): R 4.6.1, packages
+# from .github/stats-r/renv.lock. A spec with `status: blocked` is skipped and
+# listed. Never writes to the repository (D47): results are an artifact and
+# the job summary; Verification agents commit them.
+
+on:
+  workflow_dispatch:
+    inputs:
+      case:
+        description: "Case id (file stem in verification/second-impl/) or 'all'"
+        type: string
+        default: all
+  pull_request:
+    paths:
+      - verification/second-impl/**
+      - .github/stats-r/**
+      - .github/workflows/stats-r.yml
+      - scripts/tests/stats-r.test.sh
+      - scripts/tests/fixtures/stats-r/**
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stats-r-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  R_VERSION: "4.6.1"
+  LOCKFILE: .github/stats-r/renv.lock
+  R_LIBS_USER: ${{ github.workspace }}/../r-lib
+
+jobs:
+  stats-r:
+    name: Stats R
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: ${{ env.R_VERSION }}
+          use-public-rspm: true
+
+      - name: System libraries (tiff, jpeg, png for IPDfromKM -> readbitmap)
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libtiff-dev libjpeg-dev libpng-dev
+
+      - name: Cache R library
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: stats-r-${{ runner.os }}-r${{ env.R_VERSION }}-${{ hashFiles('.github/stats-r/renv.lock') }}
+
+      - name: Restore pinned packages (renv.lock)
+        env:
+          GITHUB_PAT: ${{ github.token }}
+        run: |
+          mkdir -p "$R_LIBS_USER"
+          Rscript .github/stats-r/restore.R
+
+      - name: Lint R scripts (lintr + styler, warnings are errors)
+        run: Rscript .github/stats-r/lint.R
+
+      - name: Known-bad tests
+        run: |
+          echo ".libPaths(c(Sys.getenv('R_LIBS_USER'), .libPaths()))" > "$RUNNER_TEMP/Rprofile"
+          R_PROFILE_USER="$RUNNER_TEMP/Rprofile" bash scripts/tests/stats-r.test.sh
+
+      - name: Run cases
+        env:
+          CASE_IN: ${{ inputs.case || 'all' }}
+        run: |
+          echo ".libPaths(c(Sys.getenv('R_LIBS_USER'), .libPaths()))" > "$RUNNER_TEMP/Rprofile"
+          export R_PROFILE_USER="$RUNNER_TEMP/Rprofile"
+          out="$RUNNER_TEMP/stats-r-out"
+          mkdir -p "$out"
+          if [ "$CASE_IN" = "all" ]; then
+            specs=(verification/second-impl/*.yaml)
+          elif [[ "$CASE_IN" =~ ^[a-z0-9-]+$ ]] && [ -f "verification/second-impl/$CASE_IN.yaml" ]; then
+            specs=("verification/second-impl/$CASE_IN.yaml")
+          else
+            echo "::error::case '$CASE_IN': no verification/second-impl/<case>.yaml"
+            exit 2
+          fi
+          status=0
+          for spec in "${specs[@]}"; do
+            echo "::group::$spec"
+            Rscript .github/stats-r/run-case.R "$spec" "$out" || status=1
+            echo "::endgroup::"
+          done
+          {
+            echo "## Stats R: second implementations"
+            echo ""
+            echo "R ${R_VERSION}, packages from \`${LOCKFILE}\`, commit \`${GITHUB_SHA}\`."
+            echo ""
+            cat "$out"/*.md
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$status"
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stats-r-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/stats-r-out/
+            *-ipd.csv
+            *-inputs.csv
+          if-no-files-found: warn

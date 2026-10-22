@@ -1,0 +1,24 @@
+case: blocked
+reference: verification/prep/references-survey.md (section 6)
+reference_kind: printed
+status: blocked   # known-bad fixture: must be skipped and listed, never run
+description: Fixture for scripts/tests/stats-r.test.sh. The call would fail if it ran.
+
+package:
+  name: IPDfromKM
+  version: 0.1.10
+  source: CRAN
+
+inputs:
+  curve: verification/references/guyot/does-not-exist.csv
+
+call: |
+  stop("a blocked case must never run")
+
+outputs:
+  hr: 'exp(coef(cx))'
+
+expected:
+  hr: 0.5
+
+tolerance: null

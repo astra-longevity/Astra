@@ -1,0 +1,25 @@
+case: out-of-tolerance
+reference: verification/references/coloc/
+reference_kind: hand-computed
+description: Known-bad fixture. The call returns a fixed PP.H4 far from the reference, so the comparison must fail.
+
+package:
+  name: coloc
+  version: 5.2.3
+  source: CRAN
+
+inputs:
+  file: verification/references/coloc/inputs.csv
+
+call: |
+  res <- list(summary = c(PP.H4.abf = 0.5))
+
+outputs:
+  'res$summary["PP.H4.abf"]': PP.H4
+
+expected:
+  file: verification/references/coloc/expected.csv
+  filter: case == "A_shared"
+
+tolerance:
+  PP: 1e-9

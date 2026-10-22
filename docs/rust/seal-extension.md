@@ -23,6 +23,9 @@ This batch also carries two PRs that touch sealed files:
 | `.github/workflows/fetch.yml` | Weekly download of every approved `data/datasets` manifest, each file checked against its pinned sha256 and size (P1, O9, O15) |
 | `.github/workflows/file-sizes.yml` | No committed file over 10 MB outside the allow-list (O15) |
 | `.github/workflows/sim-joint.yml` (re-seal batch 3) | R-Sim v0 sharded job: manual dispatch only, `study` joint → `shard.py` / challenge → `shard_challenge.py`, sparse checkout of `research/sim/v0/py` only (no `data/`), `contents: read`, seeds checked against `shard.py`, gather checks the shard count; never writes to the repo |
+| `.github/workflows/stats-r.yml` (re-seal batch 5) | R second implementations (D6, D38, D106): dispatch input `case` + PR on `verification/second-impl/**`, R 4.6.1, packages from `renv.lock`, `contents: read`; lint, known-bad tests, then each spec; results as artifact + job summary, never writes to the repo (D47) |
+| `.github/stats-r/run-case.R`, `restore.R`, `lint.R`, `renv.lock` (re-seal batch 5) | Spec runner (required fields, case = file name, package version/commit must match the spec, `status: blocked` skipped and listed, tolerance compare), pinned package restore, lintr + styler with warnings as errors (D45) |
+| `scripts/tests/fixtures/stats-r/*.yaml` (re-seal batch 5) | Known-bad specs for `stats-r.test.sh`: missing field, case/file mismatch, out of tolerance, blocked |
 | `.github/large-files-allow.txt` | The 10 MB allow-list; a new line would loosen the size gate |
 | `scripts/fetch-datasets.sh` | The download step of `fetch.yml`: cache by sha256, unpinned files only in `pin` mode, never writes to the repo |
 | `scripts/guards/check-workflows.sh` | The actionlint wrapper; fixtures in `scripts/tests/fixtures/workflows/` (one good, three known-bad) |
