@@ -1,0 +1,169 @@
+name: Sim calibration recovery (R-Sim v0)
+
+# R-Sim v0 synthetic recovery grid + bootstrap (research/sim/v0/py/calibration,
+# pre-registered calibration.md, v2 tag prereg/sim-v0-calibration-v2).
+#   recovery.py --list             -> 24 point-recovery cells (truth,n,cens,seed)
+#   recovery.py --bootstrap-list   -> 20 bootstrap shards (<cell>|<first rep>)
+#   recovery.py --cell SPEC        -> one cell JSON on stdout
+#   recovery.py --bootstrap-shard SPEC -> one shard JSON on stdout
+#   recovery.py --gather CELLS [BOOT] -> verdict JSON
+# Manual dispatch only (A10). Synthetic data only: the checkout holds
+# research/sim/v0/py/ and nothing else, so no job can read data/ or a lifespan
+# table. Python 3.13 standard library, no network after setup. Never writes to
+# the repository: cell/shard JSONs, result.json and run-info.json are artifacts.
+#
+# 24 cells + 20 shards = 44 jobs, one matrix (under GitHub's 256 cap),
+# at most 20 runners at a time. recovery.py prints to stdout, so each job
+# redirects to a uniquely-named file.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  CAL_DIR: research/sim/v0/py/calibration
+  PYTHON_VERSION: "3.13"
+
+jobs:
+  plan:
+    name: Plan cells + bootstrap shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      jobs: ${{ steps.plan.outputs.jobs }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: research/sim/v0/py
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Build matrix
+        id: plan
+        working-directory: ${{ env.CAL_DIR }}
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, subprocess
+          def lines(flag):
+              return subprocess.run(["python3", "recovery.py", flag], check=True,
+                                    capture_output=True, text=True).stdout.split()
+          cells = lines("--list")
+          boots = lines("--bootstrap-list")
+          jobs = [{"kind": "cell", "i": i, "spec": s} for i, s in enumerate(cells)]
+          jobs += [{"kind": "boot", "i": i, "spec": s} for i, s in enumerate(boots)]
+          if len(jobs) > 256:
+              raise SystemExit(f"{len(jobs)} jobs > 256 matrix cap")
+          print("jobs=" + json.dumps(jobs))
+          PY
+          {
+            echo "cells: $(python3 recovery.py --list | wc -l)"
+            echo "bootstrap shards: $(python3 recovery.py --bootstrap-list | wc -l)"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  run:
+    name: ${{ matrix.j.kind }} ${{ matrix.j.i }} (${{ matrix.j.spec }})
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: true
+      max-parallel: 20
+      matrix:
+        j: ${{ fromJSON(needs.plan.outputs.jobs) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: research/sim/v0/py
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Run (one retry)
+        working-directory: ${{ env.CAL_DIR }}
+        env:
+          KIND: ${{ matrix.j.kind }}
+          SPEC: ${{ matrix.j.spec }}
+          IDX: ${{ matrix.j.i }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/part"
+          out="$RUNNER_TEMP/part/$IDX.json"
+          if [ "$KIND" = cell ]; then
+            flag=--cell
+          else
+            flag=--bootstrap-shard
+          fi
+          python3 recovery.py "$flag" "$SPEC" > "$out" \
+            || python3 recovery.py "$flag" "$SPEC" > "$out"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cal-${{ matrix.j.kind }}-${{ matrix.j.i }}
+          path: ${{ runner.temp }}/part/*.json
+          if-no-files-found: error
+          retention-days: 7
+
+  gather:
+    name: Gather and analyse
+    needs: [plan, run]
+    if: ${{ !cancelled() && needs.run.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: research/sim/v0/py
+          sparse-checkout-cone-mode: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: cal-cell-*
+          merge-multiple: true
+          path: ${{ runner.temp }}/cells
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: cal-boot-*
+          merge-multiple: true
+          path: ${{ runner.temp }}/boot
+      - name: Gather
+        working-directory: ${{ env.CAL_DIR }}
+        env:
+          OUT: ${{ runner.temp }}/out
+        run: |
+          mkdir -p "$OUT"
+          cells=$(find "$RUNNER_TEMP/cells" -name '*.json' | wc -l)
+          boot=$(find "$RUNNER_TEMP/boot" -name '*.json' | wc -l)
+          echo "cells: $cells  bootstrap shards: $boot"
+          test "$cells" -eq "$(python3 recovery.py --list | wc -l)"
+          test "$boot" -eq "$(python3 recovery.py --bootstrap-list | wc -l)"
+          cp -r "$RUNNER_TEMP/cells" "$OUT/cells"
+          cp -r "$RUNNER_TEMP/boot" "$OUT/boot"
+          python3 recovery.py --gather "$RUNNER_TEMP/cells" "$RUNNER_TEMP/boot" > "$OUT/result.json"
+          python3 - <<'PY' > "$OUT/run-info.json"
+          import hashlib, json, os, platform
+          print(json.dumps({
+              "code_commit": os.environ["GITHUB_SHA"],
+              "run_id": os.environ["GITHUB_RUN_ID"],
+              "python": platform.python_version(),
+              "result_sha256": hashlib.sha256(
+                  open(os.path.join(os.environ["OUT"], "result.json"), "rb").read()).hexdigest(),
+          }, indent=1, sort_keys=True))
+          PY
+          {
+            echo "### R-Sim v0 calibration recovery"
+            echo '```json'
+            cat "$OUT/result.json"
+            echo '```'
+            echo '```json'
+            cat "$OUT/run-info.json"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sim-calibration
+          path: ${{ runner.temp }}/out
+          if-no-files-found: error
+          retention-days: 30
