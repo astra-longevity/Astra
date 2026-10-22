@@ -77,6 +77,12 @@
   whole_file: true
 - path: .github/workflows/sim-joint.yml
   whole_file: true
+- path: .github/workflows/queue-watchdog.yml
+  whole_file: true
+- path: scripts/guards/queue-watchdog.py
+  whole_file: true
+- path: scripts/tests/queue-watchdog.test.sh
+  whole_file: true
 - path: .github/large-files-allow.txt
   whole_file: true
 - path: scripts/fetch-datasets.sh
