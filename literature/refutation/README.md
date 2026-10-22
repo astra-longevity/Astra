@@ -89,6 +89,66 @@ Rules added by A50 ruling, 2026-10-21 (gaps raised by the mapping writer A78):
 
    **9a. Marker and parameter of different kinds** (A50 ruling, 2026-10-21): the 1:1 rule applies only when the printed readout measures the same process as the parameter (e.g. a production readout for a production multiplier). When it doesn't (e.g. a senescence-marker burden for the H8 clearance multiplier: a fall can come from more clearance or less production), the row records the direction at **marker level only**, the size is `no_mapping`, and the row is not usable as input to that parameter. It gets a size only in a later version, after the simulation owners (A28/A76) commit a modelling rule (which process, which sign) before calibration and before any lifespan result for that intervention is read.
 
+10. **Target → parameter rule** (A50 ruling V-010, 2026-10-22; used when a compound has no mapping row in `research/sim/v0/design/edges.md` §3). The writer applies it mechanically and never assigns a parameter by hand. It is written from the R-Sim v0 hallmark definitions only:
+   - `research/sim/v0/spec.md` §2 and `HALLMARKS` in `research/sim/v0/py/model.py` give the parameter names and the term each hallmark scales;
+   - López-Otín 2023, doi:10.1016/j.cell.2022.11.001 (Crossref ✓), gives each hallmark's process and which way each listed function moves it.
+
+   It was not written from the targets of any listed compound.
+
+   Disclosures:
+   1. When the writer drafted it, they had seen the 15 blind-arm compound names (list sha256 `49774839…6313`) and nothing else about those compounds.
+   2. The sign and polarity fix in this version (10.2 polarity column, 10.4) was proposed by A28, who knows the split (A50 accepted it, 2026-10-22). This is acceptable because the fix is generic and can be checked against the cited definitions.
+
+   **10.1 Target and action.** The primary target is the ChEMBL curated mechanism (target + action type). If ChEMBL has no curated mechanism, it is the single primary target named in the admitted mechanistic source. If there is no target, or there are several targets with no stated primary, the row is `no_mapping` (a blind spot).
+
+   The action sets the target's activity change:
+   - inhibitor, antagonist, blocker or negative modulator: activity ↓;
+   - agonist, activator, opener or positive modulator: activity ↑;
+   - any other action (e.g. substrate, unclear, mixed): sign `no_mapping`.
+
+   **10.2 Lines.** The target is matched to a sub-line by its documented molecular function, never by an effect on lifespan or health. The polarity column states how a rise in that function's activity moves the multiplier m, as defined in 10.4. "none" means no polarity can be determined from the cited definition.
+
+   | Sub-line | Parameter (`hallmark.`…) | Term | Target's molecular function | Polarity: activity ↑ → | Polarity source |
+   | --- | --- | --- | --- | --- | --- |
+   | L-H1 | `H1_genomic_instability` | production | DNA repair or genome maintenance | m ↓ (protective) | López-Otín 2023 (H1: repair limits damage) |
+   | L-H2 | `H2_telomere_attrition` | production | telomere maintenance (telomerase, shelterin) | m ↓ (protective) | López-Otín 2023 (H2) |
+   | L-H3 | `H3_epigenetic_alterations` | production | DNA methylation, histone modification, chromatin remodelling | none | López-Otín 2023 (H3: changes in either direction) |
+   | L-H4 | `H4_proteostasis` | production | chaperones, proteasome, adaptive unfolded-protein response | m ↓ (protective) | López-Otín 2023 (H4) |
+   | L-H5a | `H5_autophagy` | repair | macroautophagy machinery or its positive regulators | m ↑ | López-Otín 2023 (H5) |
+   | L-H5b | `H5_autophagy` | repair | negative regulators of macroautophagy | m ↓ | López-Otín 2023 (H5) |
+   | L-H6a | `H6_nutrient_sensing` | production | anabolic nutrient signalling (insulin/IGF-1 receptor, PI3K/AKT, mTORC1) | m ↑ | López-Otín 2023 (H6: anabolic signalling accelerates ageing) |
+   | L-H6b | `H6_nutrient_sensing` | production | sensors of low energy or nutrient scarcity (AMPK, sirtuins) | m ↓ | López-Otín 2023 (H6) |
+   | L-H6c | `H6_nutrient_sensing` | production | any other nutrient-sensing function | none | — |
+   | L-H7a | `H7_mitochondria` | production | mitochondrial biogenesis, mitophagy, or detoxification of mitochondrial reactive oxygen species | m ↓ (protective) | López-Otín 2023 (H7) |
+   | L-H7b | `H7_mitochondria` | production | mitochondrial respiration or substrate oxidation, or their regulators | none | López-Otín 2023 (H7: no single direction stated) |
+   | L-H8 | `H8_senescence` | repair (clearance of senescent cells) | survival of senescent cells (their anti-apoptotic pathways) | m ↓ (more survival, less clearance) | López-Otín 2023 (H8); spec.md §2, `model.py` (H8 = repair) |
+   | L-H9a | `H9_stem_cells` | repair | stem-cell self-renewal or regenerative differentiation | m ↑ | López-Otín 2023 (H9) |
+   | L-H9b | `H9_stem_cells` | repair | niche signalling | none | — |
+   | L-H10 | `H10_intercellular_communication` | coupling | endocrine, neuroendocrine or neurotransmitter signalling | none | López-Otín 2023 (H10: no single direction stated) |
+   | L-H11a | `H11_inflammation` | coupling | pro-inflammatory signalling: cytokines (including SASP factors) and their receptors, inflammasomes, NF-κB, synthesis of pro-inflammatory mediators | m ↑ | López-Otín 2023 (H11: inflammaging, fed among others by the SASP) |
+   | L-H11b | `H11_inflammation` | coupling | anti-inflammatory or pro-resolving mediators, or their synthesis | m ↓ | López-Otín 2023 (H11) |
+   | L-H12 | `H12_dysbiosis` | production | gut microbial composition (acts on microbes, not host targets) | none | López-Otín 2023 (H12: no single direction stated) |
+
+   - **SASP** is assigned to L-H11a, because the cited H11 definition counts the senescence-associated secretory phenotype among the sources of inflammaging. It is not under H8, whose model term is the clearance of senescent cells.
+
+   **10.3 More than one sub-line, or none.** A target whose function fits k > 1 sub-lines gets k rows, one per sub-line (as with M-001/M-002). Each row is sized only from a readout of that hallmark's own process (rules 9 and 9a); a row without such a readout is `no_mapping` for size. A target that fits no sub-line is `no_mapping` (a blind spot).
+
+   **10.4 Sign.** m is defined against the model term (`research/sim/v0/spec.md` §3):
+   - **production or coupling:** m > 1 means more damage production or more coupling; m < 1 means less;
+   - **repair:** m > 1 means more repair or clearance; m < 1 means less.
+
+   The expected sign of the change in m is the sub-line's polarity times the activity change from 10.1. For example, an inhibitor (activity ↓) on a sub-line with polarity "activity ↑ → m ↓" gives m ↑.
+   - If either the polarity is "none" or the action gives no activity change, the sign is `no_mapping`, and so is the size.
+   - The row's `direction` is still the sign of the printed readout (condition 2). If the printed sign contradicts the expected sign, the row says so and its size is `no_mapping`.
+
+   **10.5 Status.** Each row records:
+   - its target and the source of that target;
+   - the action;
+   - the sub-line used and its polarity;
+   - `parameter: writer proposal (rule 10, sub-line L-Hn)`.
+
+   A28/A76 check only that the parameter exists in v0 and that the sign is meaningful in the model. They never move a single compound to another parameter. Any change is a new version of this rule, applied to every row that used it. Frozen at merge, and never changed after any R-Sim forecast for these arms.
+
 ## Evidence grade
 
 The repo's L0 to L4 levels rate Astra's own findings (`research/README.md`). The grade here rates published evidence for one edge or mapping, so it uses a separate scale. **The E grade never feeds an L0 to L4 level.**
