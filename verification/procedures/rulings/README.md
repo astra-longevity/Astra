@@ -30,6 +30,7 @@ cap, so rulings live here, as binding procedures).
 | V-007 | 2026-10-21 | A definition fixed before a count is never widened after it | A2 | E-003 / F2 correction, #199, #196 (same file) |
 | V-008 | 2026-10-22 | Naive-writer check: path list and exempt lines (applies V-001) | A10 | #246 |
 | V-009 | 2026-10-22 | Mapping rows for the 15 new blind compounds (A78) | A28, A2 | A78 blind-compound rows (from 10-30) |
+| V-010 | 2026-10-22 | Blind-compound mappings: one generic target → parameter rule, frozen | A28, A2 | A78 rules commit + rows M-006…M-020 |
 
 ## Rulings recorded verbatim elsewhere (cited, not copied)
 
