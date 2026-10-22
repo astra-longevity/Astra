@@ -28,6 +28,7 @@ cap, so rulings live here, as binding procedures).
 | V-005 | 2026-10-21 | D118 trace-search results to A50 + A65 only | A50 | D118 trace search, blind cohorts (same file) |
 | V-006 | 2026-10-21 | Meeting a bar never stops a committed search | A2 | C57BL/6 search runs 1–2 (same file) |
 | V-007 | 2026-10-21 | A definition fixed before a count is never widened after it | A2 | E-003 / F2 correction, #199, #196 (same file) |
+| V-008 | 2026-10-22 | Naive-writer check: path list and exempt lines (applies V-001) | A10 | #246 |
 
 ## Rulings recorded verbatim elsewhere (cited, not copied)
 
