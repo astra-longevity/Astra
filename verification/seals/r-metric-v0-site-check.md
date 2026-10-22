@@ -47,3 +47,19 @@ Check 1 endorsed: no hit. Blind ids that appear only in procedural commit titles
 1. **Scope:** A70's D118 trace search adds, for each of the 15 compound-new blind arms, yes/no plus the location of any published mouse lifespan or survival result for that compound. This covers the compound alone or in combination, in any cohort and any lab, published before the seal. No number is copied. Results go to A50 and A65 only.
 2. **Tag, no move:** each "yes" arm gets the flag `effect published elsewhere` in `split.csv`, in the `flag` column with the stratum unchanged. A script applies it from A70's list. B09 is the first case, with this site check as its source.
 3. **Scorecard:** the headline stays the 15 compound-new blind arms as defined. A sensitivity line reports the headline without the flagged arms. The seal record lists each flagged arm with its source.
+
+## A50 ruling on A70's trace-search classes (G140, 2026-10-22 10:44)
+
+A70's addendum `d4ee00a` puts each record in one of three classes: `yes`, `disease-model only` or `unclear`. Ruling:
+
+| Class | Flag in `split.csv` (by script, stratum unchanged) | Seal record |
+|---|---|---|
+| `yes` | `effect published elsewhere` | listed with its source |
+| `disease-model only` | `disease-model effect published` (a separate flag) | listed with its source |
+| `unclear` | treated as `yes`: `effect published elsewhere` | listed as "unclear". Not re-read once the tables exist |
+
+**Scorecard:** the headline uses all 15 compound-new blind arms. Two sensitivity lines are always reported:
+- **A:** without the `yes` and `unclear` arms.
+- **B:** also without the `disease-model only` arms.
+
+A65 checks A70's table against this on 2026-10-24.
