@@ -120,14 +120,22 @@ compare_single <- function(spec, env) {
   do.call(rbind, rows)
 }
 
+is_expr <- function(x) is.character(x) && length(x) == 1 && nzchar(x)
+
 compare_pair <- function(spec, env) {
   smoke <- spec$expected$smoke_test
   smoke_tol <- tolerance_for(spec$tolerance, "smoke_test")
   rows <- lapply(names(spec$outputs), function(quantity) {
     exprs <- spec$outputs[[quantity]]
+    tol <- tolerance_for(spec$tolerance, quantity)
+    # A null element means that package has no counterpart: the present value
+    # is logged for context, never compared (e.g. a second-order-only result).
+    if (!is_expr(exprs[[1]]) || !is_expr(exprs[[2]])) {
+      present <- if (is_expr(exprs[[1]])) exprs[[1]] else exprs[[2]]
+      return(row(quantity, value_of(present, env), NULL, NULL, "reported"))
+    }
     first <- value_of(exprs[[1]], env)
     second <- value_of(exprs[[2]], env)
-    tol <- tolerance_for(spec$tolerance, quantity)
     # No tolerance (e.g. a bootstrap SE): reported, not tested, everywhere.
     own_smoke_tol <- if (is.null(tol)) NULL else smoke_tol
     rbind(
