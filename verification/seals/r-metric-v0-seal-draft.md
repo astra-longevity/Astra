@@ -20,6 +20,8 @@ D115: the R-Metric v0 held-out split, its test strata and the class labels, in o
 | `research/metric/v0/manual-downloads.csv` (writers' read log) | `f60abbf46cc09b140a81934868d9e99c2bf3a201a863cbfdcd49802e7544570d` | attached to the owner statement (A50, G154) |
 | C57BL/6 printed control range | not built yet | see 2 |
 
+**Input given to a naive writer:** `verification/seals/naive-writer-inputs/compounds.txt` (15 compound names, compound column only of `part=blind` stratum-b rows; sha256 `49774839c3df40a2885027f626080b1e32737f339e52793958b4219a29fa6313`; `extract.py`, PR #252). A2 passes it to A78 for L3 mappings before any R-Sim forecast (A50, G140 12:34).
+
 Held-out keys and labels: in the `scoring` environment only. This record holds their hashes, never the values in clear.
 
 ## 2. Preconditions still open
