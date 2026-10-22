@@ -83,3 +83,9 @@ Fields marked `?` are optional and hidden when empty: nothing is invented. Text 
 
 - All visible text in plain English for a non-biologist; a technical term is either explained on the spot or wrapped in `<abbr data-term="id">…</abbr>` with an entry in `glossary.yaml`.
 - No external calls (CDN, font, script): the site must work offline.
+
+## Design system and credits
+
+- Visual design follows the **IBM Carbon Design System** (https://carbondesignsystem.com, Apache License 2.0). Only token values are copied, as CSS variables at the top of `static/style.css`: theme g10 (light) and g100 (dark, via `prefers-color-scheme`), Carbon type scale, 8 px spacing, square corners, the blue sequential and categorical data-visualisation palettes for the charts. No Carbon package, script or build step.
+- Font: **IBM Plex Sans** (Regular, Italic, SemiBold) and **IBM Plex Mono** (Regular), Latin-1 subset, woff2, vendored in `static/fonts/`. Copyright IBM Corp., SIL Open Font License 1.1; full text in `static/fonts/OFL.txt`.
+- Chart meanings do not depend on the theme: red = late or negative only; the 0.8 threshold and zero lines stay marked. Every text colour pair reaches at least 4.5:1 contrast in both themes.
