@@ -25,11 +25,11 @@ call: |
   p1 <- preprocess(dat = read.csv(paste0(g, "icon7-bev-curve.csv")), trisk = ar$time, nrisk = ar$nrisk_bev, maxy = 100)
   ipd <- rbind(getIPD(prep = p0, armID = 0)$IPD, getIPD(prep = p1, armID = 1)$IPD)
   write.csv(ipd, "guyot-icon7-ipd.csv", row.names = FALSE)
-  km <- survfit(Surv(time, status) ~ arm, data = ipd)
+  km <- survfit(Surv(time, status) ~ treat, data = ipd)
 
 outputs:
-  median_std: 'summary(km)$table["arm=0", "median"]'
-  median_bev: 'summary(km)$table["arm=1", "median"]'
+  median_std: 'summary(km)$table["treat=0", "median"]'
+  median_bev: 'summary(km)$table["treat=1", "median"]'
 
 expected:   # printed in Perren 2011
   median_std: 17.3
@@ -41,3 +41,4 @@ notes:
   - HR is NOT compared (A50 ruling): the authors flag non-proportional hazards, so a single HR is not meaningful. Medians only.
   - "Gap: the curves and at-risk table must be digitised from Fig 2A of the NEJM paper and committed as the three CSVs above. Only one arm's at-risk row was readable in earlier checks; both are needed."
   - "For context: ipdfc (Wei & Royston 2017) got median 17.5 for the standard arm."
+  - "getIPD writes the arm to column `treat`, not `arm` (found in A62's stats-r run #256); the call uses `treat`."

@@ -25,7 +25,7 @@ call: |
   p1 <- preprocess(dat = read.csv(paste0(g, "goss-letrozole-curve.csv")), trisk = ar$time, nrisk = ar$nrisk_letrozole, maxy = 100)
   ipd <- rbind(getIPD(prep = p0, armID = 0)$IPD, getIPD(prep = p1, armID = 1)$IPD)
   write.csv(ipd, "guyot-goss-ipd.csv", row.names = FALSE)
-  cx <- coxph(Surv(time, status) ~ arm, data = ipd)
+  cx <- coxph(Surv(time, status) ~ treat, data = ipd)
 
 outputs:
   hr:       'exp(coef(cx))'
@@ -44,3 +44,4 @@ notes:
   - Proportional hazards were checked in the source (Grambsch-Therneau), so the HR is usable.
   - "Gap: the curves and at-risk row must be digitised from Fig 2 and committed as the three CSVs above."
   - The JNCI DOI and page are in references-survey.md; copy them here when the inputs are committed.
+  - "getIPD writes the arm to column `treat`, not `arm` (found in A62's stats-r run #256); the call uses `treat`."
