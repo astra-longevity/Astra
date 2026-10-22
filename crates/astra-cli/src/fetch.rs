@@ -85,9 +85,10 @@ fn verify_cache(plan: &Plan, cache: &Path) -> Reply {
             code: 0,
             out: format!(
                 "{count} files verified, {} large files left to the job that uses them, {} datasets skipped \
-                 (licence not approved)",
+                 (licence not approved), {} datasets access-blocked",
                 plan.large.len(),
-                plan.skipped.len()
+                plan.skipped.len(),
+                plan.blocked.len()
             ),
             err: String::new(),
         },
