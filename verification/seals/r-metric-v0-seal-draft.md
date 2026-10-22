@@ -22,6 +22,8 @@ D115: the R-Metric v0 held-out split, its test strata and the class labels, in o
 
 **Input given to a naive writer:** `verification/seals/naive-writer-inputs/compounds.txt` (15 compound names, compound column only of `part=blind` stratum-b rows; sha256 `49774839c3df40a2885027f626080b1e32737f339e52793958b4219a29fa6313`; `extract.py`, PR #252). A2 passes it to A78 for L3 mappings before any R-Sim forecast (A50, G140 12:34).
 
+**Pre-seal read cleared (A50, G140 2026-10-22 12:40):** DRiDO (Di Francesco 2024, `data/datasets/dido-diversity-outbred-dr.yaml`) and MPD Peters4 / Petkova1 / Korstanje1, untreated / ad-lib control arms only, for R-Sim v0 calibration prep (A76). Checked by metadata only: no ITP 2021+ cohort, no blind compound, no refill PMID, so no sealed item is revealed. Condition: each download is logged in `manual-downloads.csv` (url, date, sha256 vs manifest pin, agent) before it is read, and the fetch job re-checks those hashes at the seal.
+
 Held-out keys and labels: in the `scoring` environment only. This record holds their hashes, never the values in clear.
 
 ## 2. Preconditions still open
