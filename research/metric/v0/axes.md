@@ -285,3 +285,21 @@ through A9's manifest, not a hand download.
 - I-6: rapamycin changes many traits in young mice too (Neff 2013,
   doi:10.1172/JCI67674). As a right-way control it can read a drug effect,
   not slower ageing. Require a young-treated arm (age × treatment).
+
+## Seal-input status (10-23 draft)
+
+L2 (A70) flags, all adopted in this file:
+- A8–A15 organ notes (lung, kidney, liver, immune, blood, skin, gut, fat):
+  readout protocol, confounds and limits, in the notes under Table A.
+- H4: flux, not static LC3-II; direction depends on the organ, so the heart
+  is fixed in advance (Table B).
+- H8: p16/p21 and SASP readout with own-readout controls (Table B).
+- H9: HSC **function** (competitive repopulation), not count; count rises
+  while function falls in B6 (Table B).
+- H11: plasma IL-6/TNF; no known right-way control (tissue only), and the
+  rise depends on microbiota (A14 note). Named obstacle.
+- Test 4 / O5: DRiDO (Di Francesco 2024), with its limits (females only,
+  Diversity Outbred) in the DRiDO map above and in test1-design.md.
+
+Open "to verify" markers are listed by axis, with owner (A75 or A71), in
+the PR body. They stay open: no source was stretched to close them.
