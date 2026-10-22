@@ -451,6 +451,35 @@ Zero-mouse stand-ins (published aged-vs-young recovery curves) bound kappa and
 the recovery shape but cannot fit `eta`/`beta` or `Xc`. First mouse-request
 candidates, incl. the O4 factorial arm, are tabulated there.
 
+### 10.1 Calibration parameters on real coverage (calibration.md §7)
+
+Same coverage (A9 26336bb, `public_design.py` designs), scored on the two reduced-v0
+calibration directions only (`u_eta`, `u_xc`: shared log-multipliers on the VITAL
+axes). Coverage metadata only, no data value read. Script
+`py/calibration/coverage.py`, output `results/calibration-coverage.json`
+(n_sim 4000 survival / 1000 readouts, cross-seed 11/12, NOISE_REL 0.5).
+Local SE on the log scale; "pinned" = SE < 0.10.
+
+| Design | Source | SE u_eta | SE u_xc | corr | ridge |
+|---|---|---|---|---|---|
+| any sex | control survival, n 1000 | 0.021 | 0.016 | 0.93 | 30 |
+| any sex | control survival, n 300 | 0.038 | 0.029 | 0.93 | 30 |
+| female | readouts only (DRiDO + MPD) | 0.042 | 0.086 | −0.70 | 11 |
+| female | survival n 1000 + readouts | 0.016 | 0.012 | 0.88 | 17 |
+| male | readouts only (MPD n 7) | 0.17 | 0.55 | −0.62 | 18 |
+| male | survival n 1000 + readouts | 0.020 | 0.016 | 0.93 | 29 |
+
+- **Survival alone pins both** at n ≥ 300 per sex, but along a strong ridge
+  (corr 0.93, same direction as §3 direction 1). Female readouts lean the other
+  way (corr −0.70) and halve the ridge (30 → 17; 30 → 9 at n 300). Male public
+  readouts add nothing.
+- Consequence for calibration: the pre-registered fit (survival only) is
+  identified locally; adding the female DRiDO readouts later is worth it mainly
+  to break the ridge, not to move the SEs. Male calibration stays survival-only.
+- Limits: local (Fisher) bounds, optimistic (I19); readouts as cross-sectional;
+  DRiDO DEXA n is assumed equal to echo [to verify]; real control n per sex
+  comes from the sealed split, not from here.
+
 ## 11. Cost curve (mice per sex vs parameters identified)
 
 From the 20k challenge Actions run (run 39594585409, 462 shards, results
