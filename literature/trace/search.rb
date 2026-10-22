@@ -116,6 +116,64 @@ def search
   puts "unique records: #{rows.size}"
 end
 
+# Addendum v1.1 (README): 15 compound-new blind arms, any cohort or lab.
+NEW_ARMS = {
+  'B01' => ['dichloroacetate', 'sodium dichloroacetate'],
+  'B02' => ['TPPU'],
+  'B06' => ['sodium thiosulfate', 'thiosulfate'],
+  'B07' => ['lactoferrin'],
+  'B09' => ['trametinib'],
+  'B10' => ['mianserin'],
+  'B11' => ['cinnarizine'],
+  'B12' => ['deprenyl', 'selegiline'],
+  'B13' => ['sildenafil'],
+  'B14' => ['alpelisib', 'BYL719'],
+  'B15' => ['alogliptin'],
+  'B16' => ['BT2', 'BCKDK inhibitor'],
+  'B17' => ['glucosamine'],
+  'B18' => ['taurine'],
+  'B19' => ['urolithin A']
+}.freeze
+LIFE_TERMS = '(mice OR mouse OR murine) AND (lifespan OR "life span" OR longevity OR "life extension" ' \
+             'OR ((aging OR ageing OR aged) AND (survival OR mortality)))'
+DISEASE = Regexp.new(%w[tumou?r cancer carcinoma xenograft leukemi lymphoma infect sepsis septic injur ischa?emi
+                        toxic radiation irradiat transgenic knockout progeroid progeria SOD1 ALS Alzheimer
+                        Huntington diabet db/db ob/ob stroke colitis arthritis fibrosis hypertension malaria
+                        parasit virus viral].join('|') + '|model of|heart failure', Regexp::IGNORECASE)
+
+def masked_title(t)
+  t.to_s =~ OUTCOME ? '[title masked]' : t.to_s.gsub(/\s+/, ' ')
+end
+
+def compound
+  rows = {}
+  counts = []
+  NEW_ARMS.each do |arm, names|
+    term = "#{or_terms(names)} AND #{LIFE_TERMS}"
+    pm = pubmed(term, '1900/01/01')
+    ep = epmc(term, '1900/01/01')
+    counts << [arm, names.first, pm.size, ep.size]
+    ep.each do |r|
+      key = "#{arm}|#{r['pmid'] || r['doi'] || r['id']}"
+      sents = r['abstractText'].to_s.gsub(/<[^>]+>/, ' ').split(/(?<=[.;])\s+/)
+      clean = sents.reject { |s| s =~ OUTCOME }.join(' ') + ' ' + r['title'].to_s.gsub(OUTCOME, '')
+      disease = clean.scan(DISEASE).flatten.map(&:downcase).uniq.first(4)
+      rows[key] = [arm, names.first, r['pmid'].to_s, r['doi'].to_s, r['source'], r['firstPublicationDate'],
+                   sents.any? { |s| s =~ OUTCOME } ? 'yes' : 'no', disease.join(';'), masked_title(r['title'])]
+    end
+    pm.each do |id|
+      key = "#{arm}|#{id}"
+      rows[key] ||= [arm, names.first, id, '', 'MED-only', '', 'unknown', '', '(PubMed only)']
+    end
+  end
+  File.open(File.join(DIR, 'hits-compound.tsv'), 'w') do |f|
+    f.puts %w[arm compound pmid doi source date outcome_sentence_in_abstract disease_tokens title].join("\t")
+    rows.values.sort.each { |r| f.puts r.join("\t") }
+  end
+  counts.each { |c| puts c.join("\t") }
+  puts "records: #{rows.size}"
+end
+
 def locate(pmids)
   pmids.each do |p|
     r = JSON.parse(get('https://www.ebi.ac.uk/europepmc/webservices/rest/search',
@@ -145,6 +203,7 @@ end
 
 case ARGV.shift
 when 'search' then search
+when 'compound' then compound
 when 'locate' then locate(ARGV)
-else warn 'usage: ruby search.rb search | locate PMID ...'; exit 2
+else warn 'usage: ruby search.rb search | compound | locate PMID ...'; exit 2
 end

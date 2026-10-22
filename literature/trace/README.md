@@ -47,3 +47,23 @@ For each included paper, `search.rb locate PMID ...` reads the Europe PMC full-t
 - This file and `search.rb` are committed before the run. A change after the run is a new version with a new dated run.
 - The writer reads no result: only the masked script output.
 - A paper found with a result moves its arm out of the blind part (split-proposal, "Timing risk"): that decision is A65's, not this file's.
+
+## Addendum v1.1, 2026-10-22: compound published elsewhere (A50 ruling via A2)
+
+Committed **before** the Q3 queries run. The v1 run (Q0-Q2) is unchanged.
+
+**Arms:** the 15 compound-new blind arms (rows of `research/metric/v0/split.csv` with part `blind` and no "compound seen in training" flag): B01 dichloroacetate, B02 TPPU, B06 sodium thiosulfate, B07 lactoferrin, B09 trametinib, B10 mianserin, B11 cinnarizine, B12 L-deprenyl, B13 sildenafil, B14 alpelisib, B15 alogliptin, B16 BT2, B17 glucosamine, B18 taurine, B19 urolithin A.
+
+**Question per arm:** is there any published mouse lifespan or survival result for that compound, alone or combined, any cohort or lab (not only ITP), published before the seal? Answer yes / no + location; no number, no effect direction.
+
+**Q3, one per arm** (`ruby search.rb compound`, PubMed + Europe PMC incl. preprints, no lower date limit, up to the run date): compound synonyms AND (mice OR mouse OR murine) AND (lifespan OR "life span" OR longevity OR "life extension" OR ((aging OR ageing OR aged) AND (survival OR mortality))).
+
+**Screening (masked as v1):** outcome sentences are never printed; a Q3 title containing an outcome word is printed as `[title masked]`. The script also tags each record with disease-model tokens found in its non-outcome text (tumour, xenograft, infection, sepsis, injury, ischemia, toxicity, transgenic disease model, progeroid, etc.).
+
+**Classification per record:**
+- `yes`: survival or lifespan of mice under normal ageing (any strain, start age, alone or combined).
+- `disease-model only`: survival only in a disease, injury, toxicity, infection, tumour or progeroid model. Listed, not a yes.
+- `unclear`: can't be told from the masked output; passed to A65 as such.
+- `no` for the arm: no record classified `yes` or `unclear`.
+
+**Output:** `results-compound.tsv`: `arm`, `compound`, `pmid`, `doi`, `basis` (normal ageing / disease model / unclear), `location` (from `locate`). A "yes" doesn't move the arm; A65 flags it `effect published elsewhere` in `split.csv` by script.
