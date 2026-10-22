@@ -12,8 +12,9 @@
 #
 # paths:  path (glob allowed), source (why it is on the list).
 # exempt: lines kept as record. line_sha256 = the sha256 the guard prints with
-#         the hit (one line, or two wrapped lines joined by a space); ruling and
-#         reason are both required.
+#         the hit (one line, or two wrapped lines joined by a space); ruling,
+#         reason and kind are required. kind: record (an outcome quote kept as a
+#         record) or not-outcome (not an intervention outcome).
 paths:
   - path: research/sim/v0/design/edges.md
     source: V-001 scope (named)
@@ -38,19 +39,24 @@ exempt:
     line_sha256: 9fcebe69347dd8a4acae1d4edbfc157993591658f5bc805c8f1a06308b6a3a37
     ruling: V-001
     reason: existing NA4 exposure line stays as written, as a record
+    kind: record
   - path: literature/refutation/mappings.md
     line_sha256: 0a7b04eaad76dc846c37e2d6bf8f065a85dc114777c95be9839b7261cdd02ec7
     ruling: V-008
     reason: verbatim disclosure required by rule 6 before V-001; record of what was seen (M-001 no_prior_read)
+    kind: record
   - path: literature/refutation/mappings.md
     line_sha256: 801207c93af64e0726cbfd92927e6b6891ed25b3b50f23757fd5e9b04aab1c5a
     ruling: V-008
     reason: verbatim disclosure required by rule 6 before V-001; record of what was seen (Q1)
+    kind: record
   - path: literature/refutation/mappings.md
     line_sha256: 4acfe86832b622bf96aa3e1047eae56664de3d2b6beaac346b3621979eacfc99
     ruling: V-008
     reason: verbatim disclosure required by rule 6 before V-001; record of what was seen (Q2)
+    kind: record
   - path: research/sim/v0/spec.md
     line_sha256: 6f654743430a2a807de6f8e15672281c916e38899d7740d31c4c5f6ecbe3a7de
     ruling: V-008
-    reason: untreated baseline, model target, no intervention
+    reason: "not an intervention outcome: untreated baseline, model target"
+    kind: not-outcome
