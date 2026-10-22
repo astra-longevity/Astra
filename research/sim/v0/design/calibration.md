@@ -1,8 +1,12 @@
 # R-Sim v0 calibration: pre-registration
 
-Status: **pre-registered** (A76, task from A28, G173 2026-10-22). Written and
+Status: **pre-registered, v2** (A76, task from A28, G173 2026-10-22). Written and
 committed **before** any real survival or readout file was opened by the writer,
-and before any fit code exists. Tag: `prereg/sim-v0-calibration`.
+and before any fit is run. v1 tag `prereg/sim-v0-calibration` (`af2413e`); v2 tag
+`prereg/sim-v0-calibration-v2`. **v2 change, before any run:** the bootstrap is
+reduced from all 24 cells × 200 reps to the two quoted design-point cells × 150
+reps (§3), for compute (A28, G173); the 24-cell point-recovery grid (§6) is
+unchanged.
 **Frozen at merge; any change is a new version with a diff, never after a fit on
 real data.**
 
@@ -48,9 +52,25 @@ Simulated likelihood on monthly bins (as `studies/recovery.py`):
   2. Monte-Carlo stability: refit with 3 other `SIM_SEED`s; spread of each `u`
      below 0.05;
   3. estimate not within 0.05 of the box edge.
-- **Uncertainty:** nonparametric bootstrap over mice, 200 replicates (GitHub
-  Actions), 95 % percentile interval per parameter; also the correlation of
-  `u_eta` and `u_xc` (expected high: ridge of direction 1, `identifiability.md` §3).
+- **Uncertainty (v2, reduced for compute):** nonparametric bootstrap over mice,
+  **150 replicates** (GitHub Actions), reported only for the **two design-point
+  cells we quote** — `shifted,1000,none,101` (n ≈ one ITP control sex) and
+  `shifted,300,none,101` (the smaller real-n case, = the pinned cell). Each
+  replicate resamples mice and refits from one start at the pre-registered
+  `N_SIM = 4000`. Output per cell: the 95 % percentile interval and SE of each
+  `u`, and the `u_eta`/`u_xc` correlation (expected high: ridge of direction 1,
+  `identifiability.md` §3).
+  - **SE target:** the bootstrap SE of each `u` is reported to two significant
+    figures; 150 replicates keep the Monte-Carlo error on that SE below ~10 %
+    (SE of a bootstrap SD ≈ SD/√(2·149)).
+  - **Why this subset suffices:** the bootstrap exists to put an interval on the
+    numbers we actually quote in §8 and `identifiability.md` §10.1, which are the
+    survival-only estimates at n = 1000 and n = 300. Recovery across the other
+    truths (`null`), censoring (admin 3.5 y) and all three data seeds is
+    established by the unchanged 24-cell point-recovery grid (§6); the bootstrap
+    adds nothing there. v1 ran the bootstrap on all 24 cells (~1,700
+    runner-hours); v2 is ≤ ~150 runner-hours (2 cells × 150 reps × one n_sim-4000
+    fit each).
 
 ## 4. Comparison with the Gompertz null
 
@@ -84,8 +104,9 @@ The pipeline must first recover known parameters from simulated controls.
 - Sizes: `n = 1000` per sex (about an ITP control sex across 3 sites) and
   `n = 300`; censoring: none, and administrative censoring at 3.5 years.
 - **Recovered** if `|error| < 0.10` (n 1000) and `< 0.20` (n 300) on each `u` in
-  every seed, and the 95 % bootstrap interval covers the truth in at least 2 of
-  3 seeds (bootstrap on Actions).
+  every seed. This is a point-estimate criterion over the full grid; the
+  bootstrap interval is reported only for the two design-point cells (§3) and is
+  not part of the grid pass/fail (v2).
 - If recovery fails, the real fit does not run.
 
 ## 7. Readouts (not in this fit)

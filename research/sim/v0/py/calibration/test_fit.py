@@ -126,8 +126,9 @@ class BootstrapSplit(unittest.TestCase):
     def test_shard_list_covers_every_rep_once(self):
         import recovery as R
         specs = R.bootstrap_shards()
-        self.assertEqual(len(specs), len(R.cells()) * R.BOOT_REPS // R.BOOT_SHARD)
+        self.assertEqual(len(specs), len(R.BOOT_CELLS) * R.BOOT_REPS // R.BOOT_SHARD)
         self.assertEqual(len(set(specs)), len(specs))
+        self.assertTrue(all(s.split("|")[0] in R.BOOT_CELLS for s in specs))
 
     def test_resample_deterministic(self):
         import recovery as R
@@ -135,19 +136,29 @@ class BootstrapSplit(unittest.TestCase):
         self.assertEqual(R.resample(a, 3, 101), R.resample(a, 3, 101))
         self.assertNotEqual(R.resample(a, 3, 101), R.resample(a, 4, 101))
 
-    def test_coverage_rule_two_of_three(self):
+    def test_bootstrap_summary_se_and_interval(self):
         import recovery as R
-        t = R.TRUTHS["null"]
+        truth = R.TRUTHS["shifted"]
+        cell = "shifted,1000,none,101"
 
-        def shard(seed, centre):
-            reps = [{"rep": i, "u_eta": centre + (i - 100) * 1e-3, "u_xc": t[1] + (i - 100) * 1e-3}
-                    for i in range(R.BOOT_REPS)]
-            return {"cell": f"null,1000,none,{seed}", "first": 0, "reps": reps}
+        def shards():
+            # replicate estimates = truth + a fixed spread, split into BOOT_SHARD-sized shards
+            vals = [(i - (R.BOOT_REPS - 1) / 2) * 1e-3 for i in range(R.BOOT_REPS)]
+            reps = [{"rep": i, "u_eta": truth[0] + v, "u_xc": truth[1] + v} for i, v in enumerate(vals)]
+            return [{"cell": cell, "first": f, "reps": reps[f:f + R.BOOT_SHARD]}
+                    for f in range(0, R.BOOT_REPS, R.BOOT_SHARD)]
 
-        ok = R.bootstrap_coverage([shard(101, 0.0), shard(102, 0.0), shard(103, 0.5)])
-        self.assertTrue(ok["groups_ok"]["null,1000,none"])
-        bad = R.bootstrap_coverage([shard(101, 0.0), shard(102, 0.5), shard(103, 0.5)])
-        self.assertFalse(bad["groups_ok"]["null,1000,none"])
+        bs = R.bootstrap_summary(shards())
+        c = bs["cells"][cell]
+        self.assertEqual(c["reps"], R.BOOT_REPS)
+        self.assertTrue(c["complete"])
+        p = c["params"]["u_eta"]
+        self.assertGreater(p["se"], 0.0)
+        self.assertLess(p["ci95"][0], truth[0])
+        self.assertGreater(p["ci95"][1], truth[0])
+        self.assertTrue(p["covers_truth"])
+        # all_complete is False until both BOOT_CELLS are present
+        self.assertFalse(bs["all_complete"])
 
 
 if __name__ == "__main__":
