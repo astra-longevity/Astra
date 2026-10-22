@@ -5,12 +5,13 @@ use std::fs;
 use std::path::PathBuf;
 
 use astra_db::sql::sha256_hex;
+use astra_db::{schema, yaml};
 use serde_json::{Value, json};
 
-use crate::plan::{Plan, Skipped};
+use crate::plan::{Blocked, Plan, Skipped};
 use crate::sizes::{LIMIT_BYTES, oversize, read_allow_list};
 use crate::verify::{pin, verify};
-use crate::{check, load_all};
+use crate::{SCHEMA_FILE, check, load_all};
 
 /// Fresh empty temp folder for test `name`.
 fn temp(name: &str) -> PathBuf {
@@ -244,4 +245,45 @@ fn repository_manifests_are_valid() {
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
     let loaded = load_all(&root);
     assert!(loaded.is_ok(), "data/datasets: {:?}", loaded.err());
+}
+
+#[test]
+fn blocked_dataset_is_listed_not_fetched() {
+    let mut blocked = with(&[("/id", json!("mpd-demo")), ("/files/0/sha256", Value::Null)]);
+    let inserted = blocked.as_object_mut().unwrap().insert("access_blocked".to_owned(), json!("O9"));
+    assert!(inserted.is_none(), "fresh field");
+    let manifests = vec![check("itp-demo", &good()).unwrap(), check("mpd-demo", &blocked).unwrap()];
+    let plan = Plan::new(&manifests);
+    assert_eq!(plan.blocked, vec![Blocked { dataset: "mpd-demo".to_owned(), reference: "O9".to_owned() }]);
+    assert!(plan.unpinned.is_empty(), "blocked + unpinned does not fail the run");
+    assert_eq!(plan.fetch.len(), 1, "other datasets still fetched");
+    assert!(plan.render().ends_with("blocked\tmpd-demo\tO9"), "{}", plan.render());
+    let cache = temp("blocked");
+    fs::write(cache.join(sha256_hex(BODY)), BODY).unwrap();
+    assert_eq!(verify(&plan, &cache), Ok(1), "verify ignores blocked datasets");
+}
+
+#[test]
+fn unblocked_unpinned_still_fails() {
+    let unpinned = with(&[("/files/0/sha256", Value::Null)]);
+    let plan = Plan::new(&[check("itp-demo", &unpinned).unwrap()]);
+    assert!(plan.blocked.is_empty(), "no access_blocked, not blocked");
+    assert!(verify(&plan, &temp("unblocked")).is_err(), "known-bad: unpinned, not blocked, fails");
+}
+
+#[test]
+fn access_blocked_needs_a_ref() {
+    let root = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../..");
+    let validator = schema::compile(&root.join("data/schema"), SCHEMA_FILE).unwrap();
+    let src = fs::read_to_string(root.join("data/datasets/slam-zenodo-5167639.yaml")).unwrap();
+    let real = yaml::parse(&src).unwrap();
+    for (found, ok) in [(json!("O9"), true), (json!(""), false), (json!("o9"), false), (json!(9u64), false)] {
+        let mut value = real.clone();
+        let _previous = value.as_object_mut().unwrap().insert("access_blocked".to_owned(), found.clone());
+        let schema_errors = schema::violations(&validator, &value);
+        assert_eq!(schema_errors.is_empty(), ok, "schema on {found}");
+        let mut crate_value = good();
+        let _old = crate_value.as_object_mut().unwrap().insert("access_blocked".to_owned(), found.clone());
+        assert_eq!(!errors(&crate_value).contains("access_blocked"), ok, "crate on {found}");
+    }
 }

@@ -78,6 +78,11 @@
       },
       "description": "Hints for the fetch job, taken from the provider's terms."
     },
+    "access_blocked": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z-]*[0-9]+$",
+      "description": "Ref of the route-out tracking a source that blocks automated fetch (e.g. O9). The fetch job skips the dataset and lists it with this ref instead of failing. Absent = not blocked."
+    },
     "checked_at": {
       "$ref": "common.schema.json#/$defs/date",
       "description": "Date the URLs and licence terms were last read on the official pages."

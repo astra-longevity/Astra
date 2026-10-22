@@ -1,0 +1,74 @@
+name: Queue watchdog
+
+# Merge-queue watchdog (A28 challenge, G183). Every 5 min: for each main merge
+# queue entry, a merge_group job `in_progress` for more than 10 min with every
+# step completed is a zombie; the PR is dequeued (GraphQL dequeuePullRequest)
+# and PR, run id, job and time go to the job summary. It never re-arms
+# auto-merge (the PR owner does), never writes files, never touches settings.
+#
+# Permissions: dequeuePullRequest needs `contents: write` on GITHUB_TOKEN
+# (probed on #239: pull-requests: write alone is refused; contents: write with
+# pull-requests: read is accepted). `actions: read` lists runs and jobs.
+on:
+  pull_request:
+    branches: [main]
+  merge_group:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Report only, do not dequeue"
+        type: boolean
+        default: false
+
+permissions: {}
+
+concurrency:
+  group: queue-watchdog-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  tests:
+    name: Queue watchdog (tests)
+    if: github.event_name == 'pull_request' || github.event_name == 'merge_group'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Self-tests (stuck dequeued, live step left, empty queue)
+        run: scripts/tests/queue-watchdog.test.sh
+
+  watchdog:
+    name: Queue watchdog
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts/guards
+          persist-credentials: false
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Dequeue stuck merge_group entries
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
+          # shellcheck disable=SC2086
+          python3 scripts/guards/queue-watchdog.py run --repo "$GITHUB_REPOSITORY" $DRY_RUN

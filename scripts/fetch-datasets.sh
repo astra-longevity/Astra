@@ -9,6 +9,7 @@
 #   unpinned\t<id>\t<n>\t<interval>\t-\t<url>        approved, no hash yet
 #   large\t<id>\t<n>\t<size_bytes>\t<sha256>\t<url>  above --max-bytes: listed, never downloaded here
 #   skipped\t<id>\t<licence_status>                  licence not approved
+#   blocked\t<id>\t<ref>                             access_blocked: listed with its route-out ref, never requested
 #
 # - Pinned files are stored as CACHE_DIR/<sha256>; a cache hit sends no request.
 #   `astra fetch verify` checks hashes and sizes afterwards.
@@ -40,6 +41,7 @@ mkdir -p "$tmp/hosts"
 problems=()
 pins=()
 skipped=()
+blocked=()
 large=()
 downloaded=0
 hits=0
@@ -89,6 +91,7 @@ while IFS=$'\t' read -r kind id n interval sha url; do
       fi
       ;;
     skipped) skipped+=("$id ($n)") ;;
+    blocked) blocked+=("$id ($n)") ;;
     large) large+=("$id files[$n]: $interval bytes ($url)") ;;
     "") ;;
     *) problems+=("Bad plan line: $kind $id") ;;
@@ -103,6 +106,11 @@ done <"$plan"
     echo
     echo "### Skipped (licence not approved)"
     printf -- '- %s\n' "${skipped[@]}"
+  fi
+  if [ "${#blocked[@]}" -gt 0 ]; then
+    echo
+    echo "### Access blocked (not requested; route-out ref)"
+    printf -- '- %s\n' "${blocked[@]}"
   fi
   if [ "${#large[@]}" -gt 0 ]; then
     echo

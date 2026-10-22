@@ -51,6 +51,8 @@ pub struct Manifest {
     pub licence_status: String,
     /// Minimum wait between two requests to the source host (licence condition); 0 if none.
     pub min_interval_seconds: u64,
+    /// Route-out ref (e.g. `O9`) when the source blocks automated fetch; the job skips the dataset.
+    pub access_blocked: Option<String>,
     /// Files to fetch.
     pub files: Vec<FileSpec>,
 }
@@ -78,6 +80,24 @@ fn is_date(date: &str) -> bool {
     let bytes = date.as_bytes();
     bytes.len() == 10
         && bytes.iter().enumerate().all(|(i, b)| if i == 4 || i == 7 { *b == b'-' } else { b.is_ascii_digit() })
+}
+
+/// True for a route-out ref such as `O9`, `LA-021` or `PR12` (schema pattern `^[A-Z][A-Z-]*[0-9]+$`).
+fn is_ref(reference: &str) -> bool {
+    let head = reference.trim_end_matches(|c: char| c.is_ascii_digit());
+    head.len() < reference.len()
+        && head.starts_with(|c: char| c.is_ascii_uppercase())
+        && head.bytes().all(|b| b.is_ascii_uppercase() || b == b'-')
+}
+
+/// `access_blocked`: absent or null = not blocked; otherwise a route-out ref.
+fn access_blocked(value: &Value, errors: &mut Vec<String>) -> Option<String> {
+    let found = value.get("access_blocked").filter(|found| !found.is_null())?;
+    let reference = found.as_str().filter(|reference| is_ref(reference));
+    if reference.is_none() {
+        errors.push(format!("access_blocked: {found} is not a route-out ref (e.g. \"O9\")"));
+    }
+    reference.map(str::to_owned)
 }
 
 /// Licence name: a plain string, or the `spdx_or_name` of a licence object.
@@ -140,6 +160,7 @@ pub fn check(stem: &str, value: &Value) -> Result<Manifest, Vec<String>> {
             0
         }),
     };
+    let access_blocked = access_blocked(value, &mut errors);
     let Some(entries) = value.get("files").and_then(Value::as_array) else {
         errors.push("files: missing (use [] when nothing can be fetched yet)".to_owned());
         return Err(errors.into_iter().map(|err| format!("{stem}: {err}")).collect());
@@ -154,7 +175,7 @@ pub fn check(stem: &str, value: &Value) -> Result<Manifest, Vec<String>> {
         .filter_map(|(n, entry)| file_spec(entry, &format!("files[{n}]"), manifest_date.as_deref(), &mut errors))
         .collect();
     if errors.is_empty() {
-        Ok(Manifest { id, licence, licence_status, min_interval_seconds, files })
+        Ok(Manifest { id, licence, licence_status, min_interval_seconds, access_blocked, files })
     } else {
         Err(errors.into_iter().map(|err| format!("{stem}: {err}")).collect())
     }
