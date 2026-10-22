@@ -58,27 +58,39 @@ agents:
   - id: A70
     unit: literature
     status: active
-    note: Metric Dossier Worker (Galton)
+    note: Refutation File Worker (Galton)
   - id: A71
     unit: literature
     status: active
     note: Lifespan Table Worker (Strong)
+  - id: A78
+    unit: literature
+    status: active
+    note: Mapping Writer (Bernard)
   - id: A7
     unit: coherence
     status: active
     note: Coherence Manager (Dewey)
   - id: A72
     unit: coherence
-    status: active
+    status: ended
     note: Roster Worker (Cuvier); this roster
+  - id: A81
+    unit: coherence
+    status: active
+    note: Roster Worker (Cuvier II); this refresh
   - id: A9
     unit: database
     status: active
     note: Database Manager (Linnaeus)
   - id: A69
     unit: database
-    status: active
+    status: ended
     note: Manifest Worker (Bernal)
+  - id: A80
+    unit: database
+    status: ended
+    note: Data Worker; SLAM manifest + MPD study-intake; deleted 10-21
   - id: A10
     unit: code
     status: active
@@ -101,9 +113,17 @@ agents:
     note: Research Manager (Popper)
   - id: A67
     unit: research
-    status: active
+    status: ended
     note: Metric Worker (Gompertz)
   - id: A68
+    unit: research
+    status: ended
+    note: Simulation Worker (Strehler)
+  - id: A75
+    unit: research
+    status: active
+    note: Metric Worker (Gompertz)
+  - id: A76
     unit: research
     status: active
     note: Simulation Worker (Strehler)
