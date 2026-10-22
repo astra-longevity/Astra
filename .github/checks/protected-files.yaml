@@ -77,6 +77,27 @@
   whole_file: true
 - path: .github/workflows/sim-joint.yml
   whole_file: true
+# Re-seal batch 5: R second implementations (stats-r).
+- path: .github/workflows/stats-r.yml
+  whole_file: true
+- path: .github/stats-r/run-case.R
+  whole_file: true
+- path: .github/stats-r/restore.R
+  whole_file: true
+- path: .github/stats-r/lint.R
+  whole_file: true
+- path: .github/stats-r/renv.lock
+  whole_file: true
+- path: scripts/tests/stats-r.test.sh
+  whole_file: true
+- path: scripts/tests/fixtures/stats-r/missing-field.yaml
+  whole_file: true
+- path: scripts/tests/fixtures/stats-r/case-mismatch.yaml
+  whole_file: true
+- path: scripts/tests/fixtures/stats-r/out-of-tolerance.yaml
+  whole_file: true
+- path: scripts/tests/fixtures/stats-r/blocked.yaml
+  whole_file: true
 - path: .github/large-files-allow.txt
   whole_file: true
 - path: scripts/fetch-datasets.sh

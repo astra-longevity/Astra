@@ -1,0 +1,25 @@
+case: wrong-name
+reference: verification/references/coloc/
+reference_kind: hand-computed
+description: Known-bad fixture. The case id differs from the file name (case-mismatch.yaml), so the runner must refuse it.
+
+package:
+  name: coloc
+  version: 5.2.3
+  source: CRAN
+
+inputs:
+  file: verification/references/coloc/inputs.csv
+
+call: |
+  res <- list(summary = c(PP.H4.abf = 1))
+
+outputs:
+  'res$summary["PP.H4.abf"]': PP.H4
+
+expected:
+  file: verification/references/coloc/expected.csv
+  filter: case == "A_shared"
+
+tolerance:
+  PP: 1e-9
