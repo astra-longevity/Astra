@@ -200,3 +200,23 @@ licence is chosen (A7), the ODbL 1.0 / CC BY-SA 4.0 share-alike on GtoPdb-derive
 files must be taken into account: the chosen licence must either allow these files
 to keep their own terms or be compatible with them. A71's v2 build waits for
 LA-022 on `main` (merged `c34c599`).
+
+## LA-023 / LA-024 Guyot figures: ICON7 (NEJM) and Goss (JNCI/OUP) (2026-10-22, A66, for A50 ruling 5 on `digitisations/guyot-scope.md`)
+
+Written before any PDF is opened (A50 ruling, G142 12:40). No article, PDF or figure was fetched for this check.
+
+| id | Source | URL checked (2026-10-22) | Licence | Ruling | Derived tables | Conditions |
+|---|---|---|---|---|---|---|
+| LA-023 | Perren et al. 2011, *NEJM* 365:2484-2496, doi:10.1056/NEJMoa1103799, Fig 2A (PFS KM curves + at-risk row), for `guyot-icon7` | https://www.nejm.org/about-nejm/permissions ; https://www.nejm.org/page/about-nejm/reprints-and-permissions | © Massachusetts Medical Society (NEJM Group), all rights reserved; content "for personal, non-commercial use in accordance with copyright law"; reproduction needs permission | approve with conditions | yes: numbers read from the figure only, never the image | See below. |
+| LA-024 | Goss et al. 2005, *JNCI* 97:1262-1271, doi:10.1093/jnci/dji250, Fig 2 (DFS KM curves + at-risk row), for `guyot-goss` | https://academic.oup.com/pages/standard-publication-reuse-rights ; https://academic.oup.com/journals/pages/access_purchase/rights_and_permissions/ | © Oxford University Press, Standard Publication Model; users "may view, reproduce, or store copies ... only for personal, non-commercial use"; republication via Rightslink | approve with conditions | yes: numbers read from the figure only, never the image | See below. |
+
+Conditions (both rows):
+
+1. **Access.** The PDF comes only from the president's own lawful access (A50 ruling 4, deadline 2026-10-30), placed in `.uploads/` outside the repo. No automated bypass of the publishers' 403. Not available by 10-30 = curve stays `blocked`, named limit.
+2. **Nothing reproduced.** The PDF, the figure image, any crop or rendering of it, and any text of the article are never committed, uploaded to Actions, attached to a PR or shown on the public site. This is the use both publishers reserve.
+3. **What is committed.** Only the image sha256, each reader's raw pixel coordinates, the at-risk counts, the scan/convert scripts and the derived `time, surv (%)` CSVs. These are factual measurements read from the figure, not the figure's expression; reading them for verification is within personal, non-commercial research use. If either publisher objects, the CSVs are removed and the row reverts to refused.
+4. **Citation.** Every committed CSV and coordinate file carries in its header the full reference, the DOI, the figure number and the PDF sha256.
+5. **Deletion and log.** Each reader deletes the PDF and any extracted image after their reading is committed, and logs it (who, date, PDF sha256, figure sha256, deletion date) in the reading record.
+6. **Scope.** Verification of the Guyot reconstruction (D38) only. No other use of the article (no quoted results in files a lifespan-naive writer reads, V-001).
+
+Bonner 2006 (*NEJM*, doi:10.1056/NEJMoa053422) falls under LA-023's terms if it is double-digitised from the article (A50 ruling 3); a row is added only if that route is taken.
