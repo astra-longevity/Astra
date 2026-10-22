@@ -33,18 +33,18 @@ call: |
   ipd1 <- getIPD(prep = p1, armID = 1)$IPD
   ipd  <- rbind(ipd0, ipd1)
   write.csv(ipd, "guyot-bonner-ipd.csv", row.names = FALSE)
-  km <- survfit(Surv(time, status) ~ arm, data = ipd)
+  km <- survfit(Surv(time, status) ~ treat, data = ipd)
   s  <- summary(km, times = c(12, 24, 36))
-  cx <- coxph(Surv(time, status) ~ arm, data = ipd)
+  cx <- coxph(Surv(time, status) ~ treat, data = ipd)
 
 outputs:
-  surv_rt_12:      's$surv[s$strata == "arm=0" & s$time == 12] * 100'
-  surv_rt_24:      's$surv[s$strata == "arm=0" & s$time == 24] * 100'
-  surv_rt_36:      's$surv[s$strata == "arm=0" & s$time == 36] * 100'
-  surv_rtcet_24:   's$surv[s$strata == "arm=1" & s$time == 24] * 100'
-  surv_rtcet_36:   's$surv[s$strata == "arm=1" & s$time == 36] * 100'
-  median_rt:       'summary(km)$table["arm=0", "median"]'
-  median_rtcet:    'summary(km)$table["arm=1", "median"]'
+  surv_rt_12:      's$surv[s$strata == "treat=0" & s$time == 12] * 100'
+  surv_rt_24:      's$surv[s$strata == "treat=0" & s$time == 24] * 100'
+  surv_rt_36:      's$surv[s$strata == "treat=0" & s$time == 36] * 100'
+  surv_rtcet_24:   's$surv[s$strata == "treat=1" & s$time == 24] * 100'
+  surv_rtcet_36:   's$surv[s$strata == "treat=1" & s$time == 36] * 100'
+  median_rt:       'summary(km)$table["treat=0", "median"]'
+  median_rtcet:    'summary(km)$table["treat=1", "median"]'
   hr:              'exp(coef(cx))'
   hr_lower:        'exp(confint(cx))[1]'
   hr_upper:        'exp(confint(cx))[2]'
@@ -69,6 +69,7 @@ tolerance: null   # D38: Verification sets it from all 3 curves. Report deviatio
 notes:
   - Radiationdata is the package authors' own digitisation, not Guyot's. Small differences from Guyot 2012 Table 3 are expected and are data, not failures.
   - Survival at 12 months for RT + cetuximab is not printed in Bonner 2006; report it but do not compare it.
-  - "arm" coding: 0 = RT, 1 = RT + cetuximab, so HR < 1 favours cetuximab, as in Bonner.
+  - 'Arm coding: getIPD writes the arm to column `treat` (not `arm`); 0 = RT, 1 = RT + cetuximab, so HR < 1 favours cetuximab, as in Bonner.'
   - Check that the arm sizes in the reconstructed IPD equal nrisk at time 0 for each arm.
   - The survey marks the Guyot ref [7] = Bonner 2006 link as [to verify]; it does not affect this run.
+  - "2026-10-22 (A50, G142): this package reading is a smoke test only. It is not option-1 compliant (no raw coordinates, ticks or image sha256), so it is not reader 1 for D38. Bonner 2006 Fig 1 is double-digitised under digitisations/guyot-scope.md."
