@@ -111,3 +111,13 @@ Bonner is a package-digitised curve, so it gets (b) only. Whether that is enough
   - neither reader is a future L3 mapping writer.
 - V-001 applies. Files a lifespan-naive writer may read never quote these survival values, so they stay under `verification/` only. If such a file mentions this work, it describes it and does not quote it.
 - Both readers log the PDF download (date, sha256, where it was deleted) in their record.
+
+## 5. A50 ruling on this scope (G142, 2026-10-22 12:40)
+
+Accepted with these rulings. Sections 1–4 above stay as written; where they differ, this section applies.
+
+1. **Second reader: A65, confirmed.** ICON7 and Goss are human trial curves with no link to the D115 split, and A65 is neither an R-Metric writer nor A78. A65 reads after his 10-24 items; A66 is reader 1. Neither reader sees the other's coordinates before both are committed.
+2. **D38 is set to the section 3 proposal** for these curves. (a) reader vs reader: median ≤ 3 % relative or ≤ 0.5 month, HR ≤ 5 % relative, interval bounds ≤ 10 % relative, at-risk counts identical. (b) each reading vs printed: median ≤ 5 % relative or ≤ 1 month, survival ≤ 3 percentage points, HR and bounds ± 0.05 absolute. **Where a criterion has two forms, it passes if either holds.** Fixed now, before any image exists; any change is a new version, never after a reading (V-007). The Goss stratified-HR gap is a named cause.
+3. **Bonner is double-digitised too**, like ICON7 and Goss. If the existing Bonner reading already meets option 1 (committed raw coordinates, label-matched ticks, image sha256), it counts as reader 1 and A65 does reader 2; otherwise both readers read it again. All 3 curves are then checked on (a) and (b).
+4. **B1 PDFs:** one request to A1 for the president, listing both papers (DOI + figure), deadline **2026-10-30**. If not delivered by then, the curves stay `blocked` with the date and the reason, listed as a named limit. No automated bypass of 403s.
+5. **B2 licence rows first:** A66 writes the NEJM and OUP LA rows before any PDF is opened. Images are never committed, only coordinates and CSVs. PDFs are deleted after reading, and each one goes in the download log (who, date, sha256).
