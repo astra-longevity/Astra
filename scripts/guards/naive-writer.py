@@ -10,7 +10,7 @@ The files come from .github/checks/naive-writer-paths.yaml (`paths:`, globs
 allowed). Each line of each listed file, and each pair of adjacent non-blank
 lines (hard-wrapped prose), is matched against the patterns below; a hit fails
 the check unless its text is in `exempt:` (sha256 as printed with the hit,
-plus the ruling that keeps it).
+plus the ruling and reason that keep it; each exempted line is printed).
 Files not on the list are never read.
 
 This is a pattern match: convention, not proof. It misses paraphrases and can
@@ -89,8 +89,9 @@ def parse_list(path: str) -> tuple[list[dict], list[dict]]:
             raise ValueError(f"{path}: paths[{i}] needs path and source")
     for i, e in enumerate(sections["exempt"]):
         if not (e.get("path") and re.fullmatch(r"[0-9a-f]{64}", e.get("line_sha256", ""))
-                and e.get("ruling")):
-            raise ValueError(f"{path}: exempt[{i}] needs path, line_sha256 (64 hex), ruling")
+                and e.get("ruling") and e.get("reason")):
+            raise ValueError(
+                f"{path}: exempt[{i}] needs path, line_sha256 (64 hex), ruling, reason")
     return sections["paths"], sections["exempt"]
 
 
@@ -135,7 +136,7 @@ def main(argv: list[str]) -> int:
         print(f"naive-writer: {err}", file=sys.stderr)
         return 2
 
-    exempt_keys = {(e["path"], e["line_sha256"]) for e in exempt}
+    exempt_keys = {(e["path"], e["line_sha256"]): e for e in exempt}
     used: set[tuple[str, str]] = set()
     files: list[str] = []
     for e in entries:
@@ -153,6 +154,8 @@ def main(argv: list[str]) -> int:
             key = (rel, line_hash(text))
             if key in exempt_keys:
                 used.add(key)
+                ex = exempt_keys[key]
+                print(f"{rel}:{where}: exempt, kept as record ({ex['ruling']}: {ex['reason']})")
                 continue
             hits += 1
             snippet = text.strip()
@@ -161,7 +164,8 @@ def main(argv: list[str]) -> int:
 
     for e in exempt:
         if (e["path"], e["line_sha256"]) not in used:
-            print(f"naive-writer: warning: exempt line not found in {e['path']} ({e['ruling']})")
+            print(f"naive-writer: warning: exempt line not found in {e['path']} "
+                  f"({e['ruling']}: {e['reason']})")
     print(f"naive-writer (V-001): {len(files)} listed files, {hits} hit(s), "
           f"{len(used)} exempt line(s) kept as record.")
     print("convention, not proof (pattern match)")
